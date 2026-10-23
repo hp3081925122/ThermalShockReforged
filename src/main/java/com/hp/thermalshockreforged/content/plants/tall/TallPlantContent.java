@@ -4,7 +4,7 @@ import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.core.registries.Registries;
@@ -45,12 +45,12 @@ public final class TallPlantContent {
     public static void register(IEventBus bus) { BLOCKS.register(bus); ITEMS.register(bus); }
 
     private static BlockBehaviour.Properties properties() {
-        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).instabreak().noCollission()
+        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).instabreak().noCollision()
                 .offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY);
     }
 
     private static BlockBehaviour.Properties glowing(int light) {
-        return properties().lightLevel(state -> light).hasPostProcess((state, level, pos) -> true).emissiveRendering((state, level, pos) -> true);
+        return properties().lightLevel(state -> light).emissiveRendering((state, level, pos) -> true);
     }
 
     private static class TallPlant extends DoublePlantBlock {
@@ -63,16 +63,16 @@ public final class TallPlantContent {
         private Thorns(Properties properties) { super(properties); }
         @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
             super.entityInside(state, level, pos, entity);
-            if (!level.isClientSide && (!(entity instanceof LivingEntity) || !entity.getType().is(EntityTypeTags.UNDEAD))) entity.hurt(level.damageSources().cactus(), 1);
+            if (!level.isClientSide() && (!(entity instanceof LivingEntity) || !entity.getType().is(EntityTypeTags.UNDEAD))) entity.hurt(level.damageSources().cactus(), 1);
         }
     }
 
     private static final class Sprintweed extends TallPlant {
-        private static final TagKey<EntityType<?>> BLACKLIST = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sprintweed_blacklist"));
+        private static final TagKey<EntityType<?>> BLACKLIST = TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sprintweed_blacklist"));
         private Sprintweed(Properties properties) { super(properties); }
         @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
             super.entityInside(state, level, pos, entity);
-            if (!level.isClientSide && entity instanceof LivingEntity living && !entity.getType().is(BLACKLIST)) living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 220, 1, true, true));
+            if (!level.isClientSide() && entity instanceof LivingEntity living && !entity.getType().is(BLACKLIST)) living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 220, 1, true, true));
         }
     }
 }

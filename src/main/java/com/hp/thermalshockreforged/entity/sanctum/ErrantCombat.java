@@ -17,8 +17,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.*;
 
 final class ErrantCombat {
-    private static final ResourceLocation MOVEMENT_LOCK = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_movement_lock");
-    private static final ResourceKey<DamageType> DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_damage"));
+    private static final Identifier MOVEMENT_LOCK = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_movement_lock");
+    private static final ResourceKey<DamageType> DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_damage"));
     private final ErrantEntity owner;
     private int cooldown;
     private int movementLock;
@@ -29,7 +29,7 @@ final class ErrantCombat {
     ErrantCombat(ErrantEntity owner) { this.owner = owner; }
     void begin(LivingEntity victim) {
         if (!(owner.level() instanceof ServerLevel level) || !owner.isAlive() || victim == owner || !victim.isAlive() || victim.level() != level || cooldown > 0) return;
-        dimension = level.dimension().location().toString();
+        dimension = level.dimension().identifier().toString();
         soundOrigin = victim.blockPosition();
         if (owner.getRandom().nextDouble() < .7) {
             if (owner.getRandom().nextDouble() < .6) {
@@ -42,7 +42,7 @@ final class ErrantCombat {
             } else {
                 cooldown = 10;
                 owner.setAnimation("dodge");
-                level.playSound(null, soundOrigin, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "propulsionbootsactivate")), SoundSource.NEUTRAL, 1, 3);
+                level.playSound(null, soundOrigin, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "propulsionbootsactivate")), SoundSource.NEUTRAL, 1, 3);
                 owner.setDeltaMovement(owner.getLookAngle().scale(-2));
                 owner.hasImpulse = true;
             }
@@ -58,8 +58,8 @@ final class ErrantCombat {
         }
     }
     void baseTick() {
-        if (owner.level().isClientSide) return;
-        if (!dimension.isEmpty() && !dimension.equals(owner.level().dimension().location().toString())) { cooldown = 0; movementLock = 0; strikeRemaining = 0; target = null; dimension = ""; }
+        if (owner.level().isClientSide()) return;
+        if (!dimension.isEmpty() && !dimension.equals(owner.level().dimension().identifier().toString())) { cooldown = 0; movementLock = 0; strikeRemaining = 0; target = null; dimension = ""; }
         if (cooldown > 0) cooldown--;
         if (movementLock > 0) movementLock--;
         syncMovementLock();
@@ -70,10 +70,10 @@ final class ErrantCombat {
         if (movementLock <= 0) speed.removeModifier(MOVEMENT_LOCK);
     }
     void schedule(ServerLevel level) {
-        if (strikeRemaining > 0 && dimension.equals(level.dimension().location().toString())) ServerEndTickTasks.schedule(level, owner.getUUID());
+        if (strikeRemaining > 0 && dimension.equals(level.dimension().identifier().toString())) ServerEndTickTasks.schedule(level, owner.getUUID());
     }
     void endTick(ServerLevel level) {
-        if (owner.isRemoved() || strikeRemaining <= 0 || !dimension.equals(level.dimension().location().toString())) return;
+        if (owner.isRemoved() || strikeRemaining <= 0 || !dimension.equals(level.dimension().identifier().toString())) return;
         if (--strikeRemaining > 0) { schedule(level); return; }
         UUID targetId = target;
         target = null;
@@ -105,8 +105,8 @@ final class ErrantCombat {
         dimension = tag.getString("ErrantCombatDimension");
         soundOrigin = BlockPos.of(tag.getLong("ErrantSoundOrigin"));
         target = tag.hasUUID("ErrantStrikeTarget") ? tag.getUUID("ErrantStrikeTarget") : null;
-        if (ResourceLocation.tryParse(dimension) == null) { cooldown = 0; movementLock = 0; strikeRemaining = 0; dimension = ""; }
+        if (Identifier.tryParse(dimension) == null) { cooldown = 0; movementLock = 0; strikeRemaining = 0; dimension = ""; }
         if (target == null) strikeRemaining = 0;
-        if (!owner.level().isClientSide) syncMovementLock();
+        if (!owner.level().isClientSide()) syncMovementLock();
     }
 }

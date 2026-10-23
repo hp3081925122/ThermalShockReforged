@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.npc.laut;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.EnumMap;
@@ -14,7 +15,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.*;
@@ -26,7 +27,7 @@ public final class LautContent {
     private static final EnumMap<LautPage, DeferredHolder<MenuType<?>, MenuType<LautMenu>>> PAGES = new EnumMap<>(LautPage.class);
     public static final DeferredHolder<EntityType<?>, EntityType<LautEntity>> LAUT = TYPES.register("laut", () -> EntityType.Builder.of(LautEntity::new, MobCategory.MONSTER).sized(.8F, 2.1F).fireImmune().clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":laut"));
     static {
-        ITEMS.register("laut_spawn_egg", () -> new DeferredSpawnEggItem(LAUT, -1, -1, new Item.Properties()));
+        ITEMS.register("laut_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(LAUT.get())));
         for (var page : LautPage.values()) PAGES.put(page, MENUS.register(page.id, () -> IMenuTypeExtension.create((id, inventory, data) -> new LautMenu(page, id, inventory, data.readVarInt(), data.readUUID(), data.readBlockPos()))));
     }
     public static MenuType<LautMenu> menu(LautPage page) { return PAGES.get(page).get(); }

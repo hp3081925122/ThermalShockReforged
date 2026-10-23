@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.hunters;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
@@ -22,15 +25,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class FrostilyteEntity extends Monster implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(FrostilyteEntity.class, EntityDataSerializers.STRING);
-    private static final ResourceLocation MOVEMENT_LOCK = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "frostilyte_movement_lock");
-    private static final ResourceKey<DamageType> DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_damage"));
+    private static final Identifier MOVEMENT_LOCK = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "frostilyte_movement_lock");
+    private static final ResourceKey<DamageType> DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_damage"));
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     private int cooldown;
     private int movementLock;
@@ -70,7 +73,7 @@ public final class FrostilyteEntity extends Monster implements GeoEntity, Server
 
     void startAttack(LivingEntity target) {
         if (!(level() instanceof ServerLevel server) || !isAlive() || target == this || cooldown > 0) return;
-        combatDimension = level().dimension().location().toString();
+        combatDimension = level().dimension().identifier().toString();
         pendingTarget = target.getUUID();
         attackOrigin = target.position();
         attackRemaining = 11;
@@ -99,8 +102,8 @@ public final class FrostilyteEntity extends Monster implements GeoEntity, Server
 
     @Override
     public void tick() {
-        if (!level().isClientSide) {
-            String dimension = level().dimension().location().toString();
+        if (!level().isClientSide()) {
+            String dimension = level().dimension().identifier().toString();
             if (!combatDimension.isEmpty() && !combatDimension.equals(dimension) || !isAlive()) clearCombat();
             combatDimension = dimension;
             syncMovementLock();
@@ -117,7 +120,7 @@ public final class FrostilyteEntity extends Monster implements GeoEntity, Server
     @Override
     public void endTick(ServerLevel server) {
         if (attackRemaining < 0 || isRemoved()) return;
-        if (!isAlive() || !combatDimension.equals(server.dimension().location().toString())) { clearCombat(); return; }
+        if (!isAlive() || !combatDimension.equals(server.dimension().identifier().toString())) { clearCombat(); return; }
         if (--attackRemaining > 0) { ServerEndTickTasks.schedule(server, getUUID()); return; }
         UUID targetId = pendingTarget;
         attackRemaining = -1;
@@ -131,13 +134,13 @@ public final class FrostilyteEntity extends Monster implements GeoEntity, Server
     }
 
     @Override
-    public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.DROWN) && super.hurt(source, amount); }
+    public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.DROWN) && super.hurtServer(level, source, amount); }
     @Override
     public void die(DamageSource source) { super.die(source); if (dead) clearCombat(); }
     @Override
     public boolean removeWhenFarAway(double distance) { return false; }
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) {
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData group) {
         SpawnGroupData result = super.finalizeSpawn(level, difficulty, reason, group);
         setTexture("frostilyte_" + (char)('a' + random.nextInt(3)));
         return result;
@@ -149,34 +152,34 @@ public final class FrostilyteEntity extends Monster implements GeoEntity, Server
     @Override public void aiStep() { super.aiStep(); updateSwingTime(); }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putString("Texture", texture());
-        tag.putInt("AttackCooldown", cooldown);
-        tag.putInt("MovementLock", movementLock);
-        tag.putInt("AttackRemaining", attackRemaining);
-        tag.putString("CombatDimension", combatDimension);
-        if (pendingTarget != null) tag.putUUID("PendingTarget", pendingTarget);
-        tag.putDouble("AttackX", attackOrigin.x); tag.putDouble("AttackY", attackOrigin.y); tag.putDouble("AttackZ", attackOrigin.z);
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putString("Texture", texture());
+        output.putInt("AttackCooldown", cooldown);
+        output.putInt("MovementLock", movementLock);
+        output.putInt("AttackRemaining", attackRemaining);
+        output.putString("CombatDimension", combatDimension);
+        if (pendingTarget != null) output.putString("PendingTarget", pendingTarget.toString());
+        output.putDouble("AttackX", attackOrigin.x); output.putDouble("AttackY", attackOrigin.y); output.putDouble("AttackZ", attackOrigin.z);
     }
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        cooldown = Math.max(0, Math.min(12, tag.getInt("AttackCooldown")));
-        movementLock = Math.max(0, Math.min(20, tag.getInt("MovementLock")));
-        pendingTarget = tag.hasUUID("PendingTarget") ? tag.getUUID("PendingTarget") : null;
-        attackRemaining = pendingTarget != null && tag.contains("AttackRemaining") ? Math.max(-1, Math.min(11, tag.getInt("AttackRemaining"))) : -1;
-        attackOrigin = new Vec3(tag.getDouble("AttackX"), tag.getDouble("AttackY"), tag.getDouble("AttackZ"));
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        cooldown = Math.max(0, Math.min(12, input.getIntOr("AttackCooldown", 0)));
+        movementLock = Math.max(0, Math.min(20, input.getIntOr("MovementLock", 0)));
+        pendingTarget = input.getString("PendingTarget").map(java.util.UUID::fromString).orElse(null);
+        attackRemaining = pendingTarget != null && input.getString("AttackRemaining").isPresent() ? Math.max(-1, Math.min(11, input.getIntOr("AttackRemaining", 0))) : -1;
+        attackOrigin = new Vec3(input.getDoubleOr("AttackX", 0.0), input.getDoubleOr("AttackY", 0.0), input.getDoubleOr("AttackZ", 0.0));
         if (!Double.isFinite(attackOrigin.x) || !Double.isFinite(attackOrigin.y) || !Double.isFinite(attackOrigin.z)) { pendingTarget = null; attackRemaining = -1; }
-        combatDimension = tag.getString("CombatDimension");
+        combatDimension = input.getStringOr("CombatDimension", "");
         startedAt = Long.MIN_VALUE;
-        if (!level().isClientSide) syncMovementLock();
+        if (!level().isClientSide()) syncMovementLock();
     }
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("attack", RawAnimation.begin().thenPlay("attack"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("attack", RawAnimation.begin().thenPlay("attack"));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP
                 : state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F ? "walk" : "idle"))));
         controllers.add(procedure);
     }

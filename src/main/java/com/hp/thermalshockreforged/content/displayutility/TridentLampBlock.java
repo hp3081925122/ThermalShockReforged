@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content.displayutility;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import com.hp.thermalshockreforged.content.utility.UtilityContent;
 import java.util.List;
@@ -8,7 +10,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -31,8 +33,8 @@ final class TridentLampBlock extends Block {
 
     TridentLampBlock() {
         super(Properties.of().mapColor(MapColor.COLOR_CYAN).sound(SoundType.GRASS).strength(.5F, 0)
-                .lightLevel(state -> 15).noCollission().noOcclusion()
-                .hasPostProcess((state, level, pos) -> true).emissiveRendering((state, level, pos) -> true)
+                .lightLevel(state -> 15).noCollision().noOcclusion()
+                .emissiveRendering((state, level, pos) -> true)
                 .isRedstoneConductor((state, level, pos) -> false));
         registerDefaultState(defaultBlockState().setValue(DESIGN, 0));
     }
@@ -48,16 +50,16 @@ final class TridentLampBlock extends Block {
     @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.block(); }
 
     private void chisel(BlockState state, Level level, BlockPos pos, Player player) {
-        if (player.getMainHandItem().is(UtilityContent.CHISEL.get()) && !level.isClientSide) {
+        if (player.getMainHandItem().is(UtilityContent.CHISEL.get()) && !level.isClientSide()) {
             level.setBlock(pos, state.cycle(DESIGN), 3);
             level.playSound(null, pos, SoundEvents.CROP_PLANTED, SoundSource.NEUTRAL, 1, 1);
         }
     }
 
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
             Player player, InteractionHand hand, BlockHitResult hit) {
         chisel(state, level, pos, player);
-        return ItemInteractionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
@@ -65,8 +67,8 @@ final class TridentLampBlock extends Block {
         return InteractionResult.SUCCESS;
     }
 
-    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.translatable("block.thermal_shock_reforged.trident_lamp.description_0"));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.trident_lamp.description_0"));
     }
 }

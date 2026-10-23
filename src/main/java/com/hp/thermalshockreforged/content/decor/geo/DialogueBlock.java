@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.decor.geo;
+import net.minecraft.world.InteractionResult;
 
 import com.hp.thermalshockreforged.content.dialogue.*;
 import net.minecraft.core.*;
@@ -33,7 +34,7 @@ public class DialogueBlock extends GeoDecorBlock.Directional implements SimpleWa
         var page = kind == GeoDecorKind.CIVILIAN ? DialoguePage.civilian(state.getValue(VARIANT)) : DialoguePage.RADIO;
         serverPlayer.openMenu(new SimpleMenuProvider((id, inventory, owner) -> new DialogueMenu(page, id, inventory, pos), Component.empty()), pos);
     }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { interact(state, level, pos, player); return ItemInteractionResult.SUCCESS; }
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { interact(state, level, pos, player); return InteractionResult.SUCCESS; }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { interact(state, level, pos, player); return InteractionResult.SUCCESS; }
     public static final class Civilian extends DialogueBlock {
         public Civilian() { super(GeoDecorKind.CIVILIAN); registerDefaultState(defaultBlockState().setValue(VARIANT, 0)); }

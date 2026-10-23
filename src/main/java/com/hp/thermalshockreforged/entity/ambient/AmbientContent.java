@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.ambient;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.particles.*;
@@ -7,7 +8,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.*;
 import com.hp.thermalshockreforged.combat.AttackAttemptEvent;
@@ -24,9 +25,9 @@ public final class AmbientContent {
     public static final DeferredItem<BottledPixieItem> BOTTLED_PIXIE = ITEMS.register("bottled_pixie", BottledPixieItem::new);
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> PRISMATIC_BOOM = PARTICLES.register("prismatic_boom", () -> new SimpleParticleType(true));
     static {
-        ITEMS.register("pillbud_spawn_egg", () -> new DeferredSpawnEggItem(PILLBUD, -1, -1, new Item.Properties()));
-        ITEMS.register("pixie_spawn_egg", () -> new DeferredSpawnEggItem(PIXIE, -1, -1, new Item.Properties()));
-        ITEMS.register("sootling_spawn_egg", () -> new DeferredSpawnEggItem(SOOTLING, -1, -1, new Item.Properties()));
+        ITEMS.register("pillbud_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(PILLBUD.get())));
+        ITEMS.register("pixie_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(PIXIE.get())));
+        ITEMS.register("sootling_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SOOTLING.get())));
     }
     private AmbientContent() { }
     public static void register(IEventBus bus) {

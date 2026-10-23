@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.entity.electricsphere;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.AbstractThrownPotion;
 
 import com.hp.thermalshockreforged.content.ModDamageTypes;
 import com.hp.thermalshockreforged.content.npc.florist.LeafcutterItem;
@@ -36,7 +38,7 @@ public final class ElectricSphereEntity extends AnimatedPathfinderEntity {
     @Override public void setNoGravity(boolean value) { super.setNoGravity(true); }
     @Override public void aiStep() { super.aiStep(); setNoGravity(true); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
-    @Override public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
+    @Override public boolean causeFallDamage(double distance, float multiplier, DamageSource source) { return false; }
     @Override protected void checkFallDamage(double distance, boolean onGround, net.minecraft.world.level.block.state.BlockState state, net.minecraft.core.BlockPos pos) { }
     @Override protected String movementAnimation(boolean moving) { return "0"; }
     @Override protected List<String> procedureAnimations() { return List.of("0", "1"); }
@@ -62,7 +64,7 @@ public final class ElectricSphereEntity extends AnimatedPathfinderEntity {
     }
     @Override protected InteractionResult mobInteract(Player player, InteractionHand hand) {
         var parent = super.mobInteract(player, hand);
-        if (parent.consumesAction() || hand != InteractionHand.MAIN_HAND || !isAlive() || isRemoved() || level().dimension().location().equals(ElectricSphereContent.id("aqeron"))) return parent;
+        if (parent.consumesAction() || hand != InteractionHand.MAIN_HAND || !isAlive() || isRemoved() || level().dimension().identifier().equals(ElectricSphereContent.id("aqeron"))) return parent;
         var stack = player.getMainHandItem();
         if (!stack.is(Items.SHEARS) && !(stack.getItem() instanceof LeafcutterItem)) return parent;
         if (level() instanceof ServerLevel server) {
@@ -70,13 +72,13 @@ public final class ElectricSphereEntity extends AnimatedPathfinderEntity {
             for (var drop : com.hp.thermalshockreforged.content.loot.LootContent.roll(server, "gameplay/electric_sphere_shearing", this)) if (com.hp.thermalshockreforged.content.loot.LootContent.spawn(server, position(), drop, 0)) spawned = true;
             if (spawned) { discard(); server.playSound(null, blockPosition(), SoundEvents.SNOW_GOLEM_SHEAR, SoundSource.BLOCKS, 1, 1); }
         }
-        return InteractionResult.sidedSuccess(level().isClientSide);
+        return InteractionResult.SUCCESS;
     }
-    @Override public boolean hurt(DamageSource source, float amount) {
-        if (!Float.isFinite(amount) || amount <= 0 || source.is(DamageTypes.IN_FIRE) || source.getDirectEntity() instanceof AbstractArrow || source.getDirectEntity() instanceof ThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
+        if (!Float.isFinite(amount) || amount <= 0 || source.is(DamageTypes.IN_FIRE) || source.getDirectEntity() instanceof AbstractArrow || source.getDirectEntity() instanceof AbstractThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud
             || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.TRIDENT)
             || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL)) return false;
-        return super.hurt(source, amount);
+        return super.hurtServer(level, source, amount);
     }
     public static AttributeSupplier.Builder attributes() { return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.MAX_HEALTH, 100).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 40).add(Attributes.FOLLOW_RANGE, 0).add(Attributes.KNOCKBACK_RESISTANCE, 1).add(Attributes.ATTACK_KNOCKBACK, 1).add(Attributes.FLYING_SPEED, 0).add(Attributes.STEP_HEIGHT, 0); }
 }

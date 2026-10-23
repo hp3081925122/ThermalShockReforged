@@ -7,6 +7,7 @@ import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.level.block.BreakBlockEvent;
 
 public final class AqeronEvents {
     private AqeronEvents() { }
@@ -26,10 +27,10 @@ public final class AqeronEvents {
         player.connection.teleport(point.x, point.y, point.z, player.getYRot(), player.getXRot());
     }
     private static boolean protectedActor(Entity entity) {
-        return entity != null && !entity.level().isClientSide && (entity.level().dimension().equals(AtlasContent.PALACE) || com.hp.thermalshockreforged.world.sanctum.PylonBuildingLock.active(entity))
+        return entity != null && !entity.level().isClientSide() && (entity.level().dimension().equals(AtlasContent.PALACE) || com.hp.thermalshockreforged.world.sanctum.PylonBuildingLock.active(entity))
                 && !(entity instanceof Player player && player.getAbilities().instabuild);
     }
-    private static void breakBlock(BlockEvent.BreakEvent event) {
+    private static void breakBlock(BreakBlockEvent event) {
         if (protectedActor(event.getPlayer())) event.setCanceled(true);
     }
     private static void placeBlock(BlockEvent.EntityPlaceEvent event) {

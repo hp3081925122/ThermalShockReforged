@@ -2,7 +2,7 @@ package com.hp.thermalshockreforged.content.remainingutility;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
@@ -22,6 +22,6 @@ public final class RemainingUtilityContent {
     private RemainingUtilityContent() { }
 
     public static void register(IEventBus bus) { ITEMS.register(bus); }
-    static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
-    static SoundEvent sound(String path) { return BuiltInRegistries.SOUND_EVENT.get(id(path)); }
+    static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
+    static SoundEvent sound(String path) { return BuiltInRegistries.SOUND_EVENT.getValue(id(path)); }
 }

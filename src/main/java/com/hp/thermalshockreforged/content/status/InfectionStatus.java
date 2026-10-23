@@ -5,7 +5,7 @@ import java.util.Comparator;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
@@ -21,14 +21,14 @@ import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
 public final class InfectionStatus {
     private static final String KEY = "thermal_shock_reforged:infection_tasks";
-    private static final ResourceLocation LOCK = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "infection_movement_lock");
-    private static final TagKey<EntityType<?>> INFECTING_MOBS = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "infecting_mobs"));
-    private static final ResourceLocation GRAVER = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "graver");
+    private static final Identifier LOCK = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "infection_movement_lock");
+    private static final TagKey<EntityType<?>> INFECTING_MOBS = TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "infecting_mobs"));
+    private static final Identifier GRAVER = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "graver");
     private InfectionStatus() { }
 
     public static void onAttack(LivingEntity patient, DamageSource source) {
         Entity attacker = source.getEntity();
-        if (!patient.level().isClientSide && attacker != null && attacker.getType().is(INFECTING_MOBS)
+        if (!patient.level().isClientSide() && attacker != null && attacker.getType().is(INFECTING_MOBS)
                 && !BuiltInRegistries.ENTITY_TYPE.getKey(patient.getType()).equals(GRAVER)) {
             patient.addEffect(new MobEffectInstance(StatusContent.INFECTED, 200, 1));
         }
@@ -37,7 +37,7 @@ public final class InfectionStatus {
     public static void onRemoved(LivingEntity patient) {
         if (!(patient.level() instanceof ServerLevel level) || !patient.isAlive() || patient.hasEffect(StatusContent.PURIFIED)) return;
         CompoundTag state = state(patient);
-        String dimension = level.dimension().location().toString();
+        String dimension = level.dimension().identifier().toString();
         if (!state.getString("Dimension").equals(dimension)) {
             cancel(patient);
             state = state(patient);
@@ -86,7 +86,7 @@ public final class InfectionStatus {
         if (!(event.getEntity() instanceof LivingEntity patient) || !(patient.level() instanceof ServerLevel level)) return;
         if (!patient.getPersistentData().contains(KEY, Tag.TAG_COMPOUND)) return;
         CompoundTag state = state(patient);
-        if (!patient.isAlive() || !state.getString("Dimension").equals(level.dimension().location().toString())) {
+        if (!patient.isAlive() || !state.getString("Dimension").equals(level.dimension().identifier().toString())) {
             cancel(patient);
             return;
         }
@@ -144,19 +144,19 @@ public final class InfectionStatus {
 
 
     public static void leave(EntityLeaveLevelEvent event) {
-        if (!(event.getEntity() instanceof LivingEntity patient) || event.getLevel().isClientSide) return;
+        if (!(event.getEntity() instanceof LivingEntity patient) || event.getLevel().isClientSide()) return;
         Entity.RemovalReason reason = patient.getRemovalReason();
         if (reason == Entity.RemovalReason.KILLED || reason == Entity.RemovalReason.DISCARDED || reason == Entity.RemovalReason.CHANGED_DIMENSION) cancel(patient);
     }
 
     public static void join(EntityJoinLevelEvent event) {
-        if (!(event.getEntity() instanceof LivingEntity patient) || event.getLevel().isClientSide
+        if (!(event.getEntity() instanceof LivingEntity patient) || event.getLevel().isClientSide()
                 || !patient.getPersistentData().contains(KEY, Tag.TAG_COMPOUND)) return;
         CompoundTag state = state(patient);
         ListTag tasks = state.getList("Tasks", Tag.TAG_COMPOUND);
         while (tasks.size() > 20) tasks.remove(tasks.size() - 1);
         state.put("Tasks", tasks);
-        if (!patient.isAlive() || !state.getString("Dimension").equals(patient.level().dimension().location().toString())) {
+        if (!patient.isAlive() || !state.getString("Dimension").equals(patient.level().dimension().identifier().toString())) {
             cancel(patient);
         } else if (state.getInt("LockRemaining") > 0) {
             applyLock(patient);

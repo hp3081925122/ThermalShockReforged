@@ -12,17 +12,17 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.rendertype.RenderType;
+import com.hp.thermalshockreforged.client.compat.LegacyEntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
-public final class NetBulletRenderer extends EntityRenderer<NetBulletEntity> {
-    public static final ModelLayerLocation LAYER = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "model_net_proj"), "main");
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/net_proj.png");
+public final class NetBulletRenderer extends LegacyEntityRenderer<NetBulletEntity> {
+    public static final ModelLayerLocation LAYER = new ModelLayerLocation(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "model_net_proj"), "main");
+    private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/net_proj.png");
     private final ModelPart bone;
 
     public NetBulletRenderer(EntityRendererProvider.Context context) { super(context); bone = context.bakeLayer(LAYER).getChild("bone"); }
@@ -42,5 +42,5 @@ public final class NetBulletRenderer extends EntityRenderer<NetBulletEntity> {
         pose.popPose();
         super.render(entity, yaw, partialTick, pose, buffers, light);
     }
-    @Override public ResourceLocation getTextureLocation(NetBulletEntity entity) { return TEXTURE; }
+    @Override public Identifier getTextureLocation(NetBulletEntity entity) { return TEXTURE; }
 }

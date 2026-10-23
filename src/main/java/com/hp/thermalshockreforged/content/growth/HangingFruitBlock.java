@@ -16,15 +16,15 @@ public final class HangingFruitBlock extends Block {
     private final boolean lunar;
     public HangingFruitBlock(boolean lunar) { super(properties(lunar)); this.lunar = lunar; }
     private static Properties properties(boolean lunar) {
-        var properties = Properties.of().mapColor(lunar ? MapColor.COLOR_LIGHT_BLUE : MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.FUNGUS).strength(.2f, 0).noCollission().noOcclusion().isRedstoneConductor((s,l,p)->false);
-        return lunar ? properties.lightLevel(s->7).hasPostProcess((s,l,p)->true).emissiveRendering((s,l,p)->true) : properties;
+        var properties = Properties.of().mapColor(lunar ? MapColor.COLOR_LIGHT_BLUE : MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.FUNGUS).strength(.2f, 0).noCollision().noOcclusion().isRedstoneConductor((s,l,p)->false);
+        return lunar ? properties.lightLevel(s->7).emissiveRendering((s,l,p)->true) : properties;
     }
     @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 0; }
     @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) { return true; }
     @Override protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.empty(); }
     @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return box(5, lunar ? 11 : 0, 5, 11, 16, 11); }
     private void checkAbove(Level level, BlockPos pos) {
-        if (level.isClientSide || !level.getBlockState(pos.above()).is(Blocks.AIR)) return;
+        if (level.isClientSide() || !level.getBlockState(pos.above()).is(Blocks.AIR)) return;
         var state = level.getBlockState(pos);
         if (state.is(this) && level.destroyBlock(pos, false) && !level.getBlockState(pos).is(this)) dropResources(state, level, pos, null);
     }

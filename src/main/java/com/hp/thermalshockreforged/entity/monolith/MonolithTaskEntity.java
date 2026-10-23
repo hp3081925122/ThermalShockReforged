@@ -31,18 +31,18 @@ public final class MonolithTaskEntity extends Entity implements ServerEndTickTas
     private boolean armed;
     public MonolithTaskEntity(EntityType<? extends MonolithTaskEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     static MonolithTaskEntity submitAttack(ServerLevel server, MonolithEntity owner, LivingEntity victim) {
-        var task = MonolithContent.TASK.get().create(server);
+        var task = MonolithContent.TASK.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
         if (task == null) return null;
         task.caster = owner.getUUID(); task.target = victim.getUUID(); task.targetEntityId = victim.getId(); task.playerTarget = victim instanceof Player;
         if (task.playerTarget) task.originalPlayer = new WeakReference<>(victim);
-        task.origin = victim.position(); task.captureCaster(owner); task.attack = true; task.dimension = server.dimension().location().toString(); task.damage = finite(owner.getAttributeValue(Attributes.ATTACK_DAMAGE) * MonolithConfig.STRIKE_MULTIPLIER.get()); task.armed = true;
+        task.origin = victim.position(); task.captureCaster(owner); task.attack = true; task.dimension = server.dimension().identifier().toString(); task.damage = finite(owner.getAttributeValue(Attributes.ATTACK_DAMAGE) * MonolithConfig.STRIKE_MULTIPLIER.get()); task.armed = true;
         if (server.addFreshEntity(task)) return task;
         task.discard(); return null;
     }
     static boolean submitInitialization(ServerLevel server, Vec3 position) {
-        var task = MonolithContent.TASK.get().create(server);
+        var task = MonolithContent.TASK.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
         if (task == null) return false;
-        task.origin = position; task.casterOrigin = position; task.setPos(position); task.dimension = server.dimension().location().toString(); task.armed = true;
+        task.origin = position; task.casterOrigin = position; task.setPos(position); task.dimension = server.dimension().identifier().toString(); task.armed = true;
         if (server.addFreshEntity(task)) return true;
         task.discard(); return false;
     }
@@ -54,13 +54,13 @@ public final class MonolithTaskEntity extends Entity implements ServerEndTickTas
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
-            if (!armed || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
+            if (!armed || !dimension.equals(server.dimension().identifier().toString())) { discard(); return; }
             var owner = owner(server); if (attack && owner != null) captureCaster(owner);
             ServerEndTickTasks.schedule(server, getUUID());
         }
     }
     @Override public void endTick(ServerLevel server) {
-        if (isRemoved() || !armed || !dimension.equals(server.dimension().location().toString())) return;
+        if (isRemoved() || !armed || !dimension.equals(server.dimension().identifier().toString())) return;
         if (attack) {
             var owner = owner(server);
             if (owner != null) captureCaster(owner);
@@ -81,10 +81,10 @@ public final class MonolithTaskEntity extends Entity implements ServerEndTickTas
     }
     private static double finite(double value) { return Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0; }
     private static boolean valid(Vec3 value) { return Double.isFinite(value.x) && Double.isFinite(value.y) && Double.isFinite(value.z); }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (caster != null) tag.putUUID("MonolithTaskCaster", caster); if (target != null) tag.putUUID("MonolithTaskTarget", target); tag.putInt("MonolithTaskTargetEntityId", targetEntityId); tag.putBoolean("MonolithTaskPlayerTarget", playerTarget); tag.putDouble("MonolithTaskX", origin.x); tag.putDouble("MonolithTaskY", origin.y); tag.putDouble("MonolithTaskZ", origin.z); tag.putDouble("MonolithTaskCasterX", casterOrigin.x); tag.putDouble("MonolithTaskCasterY", casterOrigin.y); tag.putDouble("MonolithTaskCasterZ", casterOrigin.z); tag.putString("MonolithTaskDimension", dimension); tag.putDouble("MonolithTaskDamage", damage); tag.putInt("MonolithTaskElapsed", elapsed); tag.putBoolean("MonolithTaskAttack", attack); tag.putBoolean("MonolithTaskArmed", armed);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (caster != null) output.putString("MonolithTaskCaster", caster.toString()); if (target != null) output.putString("MonolithTaskTarget", target.toString()); output.putInt("MonolithTaskTargetEntityId", targetEntityId); output.putBoolean("MonolithTaskPlayerTarget", playerTarget); output.putDouble("MonolithTaskX", origin.x); output.putDouble("MonolithTaskY", origin.y); output.putDouble("MonolithTaskZ", origin.z); output.putDouble("MonolithTaskCasterX", casterOrigin.x); output.putDouble("MonolithTaskCasterY", casterOrigin.y); output.putDouble("MonolithTaskCasterZ", casterOrigin.z); output.putString("MonolithTaskDimension", dimension); output.putDouble("MonolithTaskDamage", damage); output.putInt("MonolithTaskElapsed", elapsed); output.putBoolean("MonolithTaskAttack", attack); output.putBoolean("MonolithTaskArmed", armed);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        caster = tag.hasUUID("MonolithTaskCaster") ? tag.getUUID("MonolithTaskCaster") : null; target = tag.hasUUID("MonolithTaskTarget") ? tag.getUUID("MonolithTaskTarget") : null; targetEntityId = tag.getInt("MonolithTaskTargetEntityId"); playerTarget = !tag.contains("MonolithTaskPlayerTarget") || tag.getBoolean("MonolithTaskPlayerTarget"); originalPlayer = null; origin = new Vec3(tag.getDouble("MonolithTaskX"), tag.getDouble("MonolithTaskY"), tag.getDouble("MonolithTaskZ")); casterOrigin = new Vec3(tag.getDouble("MonolithTaskCasterX"), tag.getDouble("MonolithTaskCasterY"), tag.getDouble("MonolithTaskCasterZ")); dimension = tag.getString("MonolithTaskDimension"); damage = finite(tag.getDouble("MonolithTaskDamage")); elapsed = Math.clamp(tag.getInt("MonolithTaskElapsed"), 0, 22); attack = tag.getBoolean("MonolithTaskAttack"); armed = tag.getBoolean("MonolithTaskArmed") && valid(origin) && valid(casterOrigin) && elapsed < (attack ? 22 : 20) && (!attack || caster != null && target != null && !caster.equals(target)); noPhysics = true; setNoGravity(true);
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        caster = input.getString("MonolithTaskCaster").map(java.util.UUID::fromString).orElse(null); target = input.getString("MonolithTaskTarget").map(java.util.UUID::fromString).orElse(null); targetEntityId = input.getIntOr("MonolithTaskTargetEntityId", 0); playerTarget = !input.getString("MonolithTaskPlayerTarget").isPresent() || input.getBooleanOr("MonolithTaskPlayerTarget", false); originalPlayer = null; origin = new Vec3(input.getDoubleOr("MonolithTaskX", 0.0), input.getDoubleOr("MonolithTaskY", 0.0), input.getDoubleOr("MonolithTaskZ", 0.0)); casterOrigin = new Vec3(input.getDoubleOr("MonolithTaskCasterX", 0.0), input.getDoubleOr("MonolithTaskCasterY", 0.0), input.getDoubleOr("MonolithTaskCasterZ", 0.0)); dimension = input.getStringOr("MonolithTaskDimension", ""); damage = finite(input.getDoubleOr("MonolithTaskDamage", 0.0)); elapsed = Math.clamp(input.getIntOr("MonolithTaskElapsed", 0), 0, 22); attack = input.getBooleanOr("MonolithTaskAttack", false); armed = input.getBooleanOr("MonolithTaskArmed", false) && valid(origin) && valid(casterOrigin) && elapsed < (attack ? 22 : 20) && (!attack || caster != null && target != null && !caster.equals(target)); noPhysics = true; setNoGravity(true);
     }
 }

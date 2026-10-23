@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.mangler;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.status.aura.AuraContent;
@@ -21,10 +24,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.sounds.*;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public class ManglerEntity extends Monster implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(ManglerEntity.class, EntityDataSerializers.STRING);
@@ -55,10 +58,10 @@ public class ManglerEntity extends Monster implements GeoEntity, ServerEndTickTa
     @Override
     public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= 100; }
     @Override
-    public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) boost(living); return false; }
+    public boolean doHurtTarget(net.minecraft.server.level.ServerLevel level, Entity target) { if (target instanceof LivingEntity living) boost(living); return false; }
     public void boost(LivingEntity target) {
-        if (level().isClientSide || !isAlive() || attackCooldown > 0 || !target.isAlive() || target.level() != level()) return;
-        combatDimension = level().dimension().location().toString();
+        if (level().isClientSide() || !isAlive() || attackCooldown > 0 || !target.isAlive() || target.level() != level()) return;
+        combatDimension = level().dimension().identifier().toString();
         attackCooldown = ManglerCombatConfig.BOOST_COOLDOWN.get(); entityData.set(COOLDOWN_VISIBLE, true); entityData.set(COOLDOWN_AMBIENT, false); setAnimation("boost");
         Player nearest = null; double distance = Double.MAX_VALUE;
         if (getServer() != null) for (var player : getServer().getPlayerList().getPlayers()) { double candidate = player.distanceToSqr(position()); if (candidate < distance) { distance = candidate; nearest = player; } }
@@ -68,26 +71,26 @@ public class ManglerEntity extends Monster implements GeoEntity, ServerEndTickTa
         addEffect(new MobEffectInstance(AuraContent.DAMAGING_AURA, 20, damage, false, true));
     }
     @Override
-    public boolean hurt(DamageSource source, float amount) {
-        if (!level().isClientSide && !isRemoved()) {
+    public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
+        if (!level().isClientSide() && !isRemoved()) {
             setAnimation("stunned");
             ThermalShockReforged.LOGGER.debug("Mangler hurt animation triggered: entity={}, summoned={}, alive={}", getUUID(), this instanceof SummonedManglerEntity, isAlive());
         }
-        if (!level().isClientSide && isAlive()) {
-            combatDimension = level().dimension().location().toString(); attackCooldown = 60; stunSchedule |= 1L << 59;
+        if (!level().isClientSide() && isAlive()) {
+            combatDimension = level().dimension().identifier().toString(); attackCooldown = 60; stunSchedule |= 1L << 59;
             entityData.set(COOLDOWN_VISIBLE, true); entityData.set(COOLDOWN_AMBIENT, true);
-            addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 1, true, true));
+            addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 60, 1, true, true));
             if (level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
             ThermalShockReforged.LOGGER.debug("Mangler stun armed: entity={}, summoned={}, pendingEndTickSlots={}", getUUID(), this instanceof SummonedManglerEntity, Long.bitCount(stunSchedule));
             if (!(this instanceof SummonedManglerEntity)) { var look = getLookAngle(); double recoil = 0.6 * (1 - getAttributeValue(Attributes.KNOCKBACK_RESISTANCE)); setDeltaMovement(-look.x * recoil, 0, -look.z * recoil); hasImpulse = true; }
         }
-        return (this instanceof SummonedManglerEntity || !source.is(DamageTypes.IN_FIRE)) && super.hurt(source, amount);
+        return (this instanceof SummonedManglerEntity || !source.is(DamageTypes.IN_FIRE)) && super.hurtServer(level, source, amount);
     }
     @Override
     public void tick() {
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             if (resumeStun) { if (stunnedAnimation) setAnimation("stunned"); resumeStun = false; }
-            if (!combatDimension.isEmpty() && !combatDimension.equals(level().dimension().location().toString())) { attackCooldown = 0; stunSchedule = 0; entityData.set(COOLDOWN_VISIBLE, false); setAnimation("empty"); combatDimension = level().dimension().location().toString(); }
+            if (!combatDimension.isEmpty() && !combatDimension.equals(level().dimension().identifier().toString())) { attackCooldown = 0; stunSchedule = 0; entityData.set(COOLDOWN_VISIBLE, false); setAnimation("empty"); combatDimension = level().dimension().identifier().toString(); }
             if (attackCooldown > 0 && --attackCooldown == 0) entityData.set(COOLDOWN_VISIBLE, false);
             if (stunSchedule != 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
         }
@@ -99,7 +102,7 @@ public class ManglerEntity extends Monster implements GeoEntity, ServerEndTickTa
     }
     @Override public void endTick(ServerLevel server) {
         if (isRemoved() || stunSchedule == 0) return;
-        if (!combatDimension.isEmpty() && !combatDimension.equals(server.dimension().location().toString())) { attackCooldown = 0; stunSchedule = 0; entityData.set(COOLDOWN_VISIBLE, false); setAnimation("empty"); combatDimension = server.dimension().location().toString(); return; }
+        if (!combatDimension.isEmpty() && !combatDimension.equals(server.dimension().identifier().toString())) { attackCooldown = 0; stunSchedule = 0; entityData.set(COOLDOWN_VISIBLE, false); setAnimation("empty"); combatDimension = server.dimension().identifier().toString(); return; }
         boolean completed = (stunSchedule & 1L) != 0;
         stunSchedule >>>= 1;
         if (completed && stunSchedule == 0) setAnimation("empty");
@@ -107,10 +110,10 @@ public class ManglerEntity extends Monster implements GeoEntity, ServerEndTickTa
     }
     @Override
     protected void tickEffects() {
-        if (!level().isClientSide || !entityData.get(COOLDOWN_VISIBLE)) { super.tickEffects(); return; }
+        if (!level().isClientSide() || !entityData.get(COOLDOWN_VISIBLE)) { super.tickEffects(); return; }
         boolean ambient = entityData.get(COOLDOWN_AMBIENT);
         for (var effect : new java.util.ArrayList<>(getActiveEffects())) {
-            boolean active = effect.tick(this, () -> onEffectUpdated(effect, true, null));
+            boolean active = onEffectUpdated(effect, true, null);
             if (active && effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null);
             if (effect.isVisible() && !effect.isAmbient()) ambient = false;
         }
@@ -125,7 +128,7 @@ public class ManglerEntity extends Monster implements GeoEntity, ServerEndTickTa
     @Override
     protected SoundEvent getDeathSound() { return SoundEvents.VEX_DEATH; }
     @Override
-    public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
+    public boolean causeFallDamage(double distance, float multiplier, DamageSource source) { return false; }
     @Override
     protected void checkFallDamage(double distance, boolean ground, net.minecraft.world.level.block.state.BlockState state, net.minecraft.core.BlockPos pos) { }
     @Override
@@ -133,19 +136,19 @@ public class ManglerEntity extends Monster implements GeoEntity, ServerEndTickTa
     @Override
     public void aiStep() { super.aiStep(); setNoGravity(true); }
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putInt("AttackCooldown", attackCooldown); tag.putLong("StunEndSchedule", stunSchedule); tag.putBoolean("StunAnimation", stunnedAnimation); tag.putString("CombatDimension", combatDimension); tag.putBoolean("CooldownVisible", entityData.get(COOLDOWN_VISIBLE)); tag.putBoolean("CooldownAmbient", entityData.get(COOLDOWN_AMBIENT)); }
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putInt("AttackCooldown", attackCooldown); output.putLong("StunEndSchedule", stunSchedule); output.putBoolean("StunAnimation", stunnedAnimation); output.putString("CombatDimension", combatDimension); output.putBoolean("CooldownVisible", entityData.get(COOLDOWN_VISIBLE)); output.putBoolean("CooldownAmbient", entityData.get(COOLDOWN_AMBIENT)); }
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag); if (tag.contains("Texture")) setTexture(tag.getString("Texture")); attackCooldown = Math.max(0, tag.getInt("AttackCooldown"));
-        int legacyRemaining = Math.clamp(tag.getInt("StunRemaining"), 0, 60);
-        stunSchedule = tag.contains("StunEndSchedule") ? tag.getLong("StunEndSchedule") & 0x0fffffffffffffffL : legacyRemaining > 0 ? 1L << (legacyRemaining - 1) : 0;
-        stunnedAnimation = tag.contains("StunAnimation") ? tag.getBoolean("StunAnimation") : stunSchedule != 0;
-        combatDimension = tag.getString("CombatDimension"); entityData.set(COOLDOWN_VISIBLE, attackCooldown > 0 && tag.getBoolean("CooldownVisible")); entityData.set(COOLDOWN_AMBIENT, tag.getBoolean("CooldownAmbient")); resumeStun = stunnedAnimation;
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", "")); attackCooldown = Math.max(0, input.getIntOr("AttackCooldown", 0));
+        int legacyRemaining = Math.clamp(input.getIntOr("StunRemaining", 0), 0, 60);
+        stunSchedule = input.getString("StunEndSchedule").isPresent() ? input.getLongOr("StunEndSchedule", 0L) & 0x0fffffffffffffffL : legacyRemaining > 0 ? 1L << (legacyRemaining - 1) : 0;
+        stunnedAnimation = input.getString("StunAnimation").isPresent() ? input.getBooleanOr("StunAnimation", false) : stunSchedule != 0;
+        combatDimension = input.getStringOr("CombatDimension", ""); entityData.set(COOLDOWN_VISIBLE, attackCooldown > 0 && input.getBooleanOr("CooldownVisible", false)); entityData.set(COOLDOWN_AMBIENT, input.getBooleanOr("CooldownAmbient", false)); resumeStun = stunnedAnimation;
     }
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("boost", RawAnimation.begin().thenPlay("boost")).triggerableAnim("stunned", RawAnimation.begin().thenPlay("stunned")).triggerableAnim("chase", RawAnimation.begin().thenPlay("chase")).triggerableAnim("chaseloop", RawAnimation.begin().thenPlay("chaseloop"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(isAggressive() && state.isMoving() ? "chaseloop" : "idle")))); controllers.add(procedure);
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("boost", RawAnimation.begin().thenPlay("boost")).triggerableAnim("stunned", RawAnimation.begin().thenPlay("stunned")).triggerableAnim("chase", RawAnimation.begin().thenPlay("chase")).triggerableAnim("chaseloop", RawAnimation.begin().thenPlay("chaseloop"));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(isAggressive() && state.isMoving() ? "chaseloop" : "idle")))); controllers.add(procedure);
     }
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }

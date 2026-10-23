@@ -23,7 +23,7 @@ public final class ReactorSequenceEntity extends Entity implements ServerEndTick
     private boolean armed;
     private boolean finished;
     public ReactorSequenceEntity(EntityType<? extends ReactorSequenceEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
-    void prepare(ServerLevel level, BlockPos pos) { anchor = pos.immutable(); dimension = level.dimension().location().toString(); armed = true; setPos(pos.getX(), pos.getY(), pos.getZ()); }
+    void prepare(ServerLevel level, BlockPos pos) { anchor = pos.immutable(); dimension = level.dimension().identifier().toString(); armed = true; setPos(pos.getX(), pos.getY(), pos.getZ()); }
     void firstPulse(ServerLevel level) { if (armed && !finished && pulses == 0 && arenaLoaded(level)) { pulses++; pulse(level); } }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
     @Override public boolean canChangeDimensions(Level from, Level to) { return false; }
@@ -36,7 +36,7 @@ public final class ReactorSequenceEntity extends Entity implements ServerEndTick
             ServerEndTickTasks.schedule(server, getUUID());
         }
     }
-    private boolean valid(ServerLevel level) { return armed && !finished && dimension.equals(level.dimension().location().toString()); }
+    private boolean valid(ServerLevel level) { return armed && !finished && dimension.equals(level.dimension().identifier().toString()); }
     private boolean arenaLoaded(ServerLevel level) {
         for (int x : new int[]{-7, 0, 7}) for (int z : new int[]{-7, 0, 7}) if (!level.hasChunkAt(anchor.offset(x, 0, z))) return false;
         return true;
@@ -65,14 +65,14 @@ public final class ReactorSequenceEntity extends Entity implements ServerEndTick
         level.playSound(null, anchor, SoundEvents.ENDER_EYE_DEATH, SoundSource.BLOCKS, 1, -2);
     }
     private void spawn(ServerLevel level, EntityType<?> type, BlockPos pos) {
-        Entity spawned = type.spawn(level, pos, MobSpawnType.MOB_SUMMONED);
+        Entity spawned = type.spawn(level, pos, EntitySpawnReason.MOB_SUMMONED);
         if (spawned != null && level.getEntity(spawned.getUUID()) == spawned) spawned.setDeltaMovement(0, 0, 0);
         else ThermalShockReforged.LOGGER.debug("Reactor summon rejected: sequence={}, type={}, position={}", getUUID(), BuiltInRegistries.ENTITY_TYPE.getKey(type), pos);
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        tag.putLong("ReactorAnchor", anchor.asLong()); tag.putString("ReactorDimension", dimension); tag.putInt("ReactorElapsed", elapsed); tag.putInt("ReactorPulses", pulses); tag.putBoolean("ReactorArmed", armed); tag.putBoolean("ReactorFinished", finished);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        output.putLong("ReactorAnchor", anchor.asLong()); output.putString("ReactorDimension", dimension); output.putInt("ReactorElapsed", elapsed); output.putInt("ReactorPulses", pulses); output.putBoolean("ReactorArmed", armed); output.putBoolean("ReactorFinished", finished);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        anchor = BlockPos.of(tag.getLong("ReactorAnchor")); dimension = tag.getString("ReactorDimension"); elapsed = Math.clamp(tag.getInt("ReactorElapsed"), 0, 1900); pulses = Math.clamp(tag.getInt("ReactorPulses"), 0, 25); armed = tag.getBoolean("ReactorArmed") && tag.contains("ReactorAnchor"); finished = tag.getBoolean("ReactorFinished"); noPhysics = true; setNoGravity(true);
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        anchor = BlockPos.of(input.getLongOr("ReactorAnchor", 0L)); dimension = input.getStringOr("ReactorDimension", ""); elapsed = Math.clamp(input.getIntOr("ReactorElapsed", 0), 0, 1900); pulses = Math.clamp(input.getIntOr("ReactorPulses", 0), 0, 25); armed = input.getBooleanOr("ReactorArmed", false) && input.getString("ReactorAnchor").isPresent(); finished = input.getBooleanOr("ReactorFinished", false); noPhysics = true; setNoGravity(true);
     }
 }

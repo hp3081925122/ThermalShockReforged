@@ -5,13 +5,14 @@ import com.hp.thermalshockreforged.content.MaterialContent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.crafting.Ingredient;
+import com.hp.thermalshockreforged.content.armor.ArmorMaterialFactory;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -31,41 +32,27 @@ public final class ArmorContent {
     public static final List<DeferredItem<GeoSetArmorItem>> SENTRY = new ArrayList<>();
     public static final List<DeferredItem<GeoSetArmorItem>> RUSTSILK = new ArrayList<>();
     public static final List<DeferredItem<GeoSetArmorItem>> ALL = new ArrayList<>();
-    private static final DeferredHolder<ArmorMaterial, ArmorMaterial> DIVING_MATERIAL = MATERIALS.register("corrial_diving_helmet", () -> new ArmorMaterial(
-            Map.of(ArmorItem.Type.HELMET, 6), 7, net.minecraft.core.Holder.direct(SoundEvents.EMPTY),
-            () -> Ingredient.of(MaterialContent.items().get("corrial_ingot").get()),
-            List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "corrial_diving_helmet"))), 1, .2F));
-    private static final DeferredHolder<ArmorMaterial, ArmorMaterial> DEV_SCARF_MATERIAL = MATERIALS.register("dev_scarf", () -> new ArmorMaterial(
-            Map.of(ArmorItem.Type.CHESTPLATE, 4), 50, net.minecraft.core.Holder.direct(SoundEvents.SNOW_PLACE),
-            () -> Ingredient.EMPTY,
-            List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "dev_scarf"))), 0, .1F));
-    private static final DeferredHolder<ArmorMaterial, ArmorMaterial> STRANGESILK_MATERIAL = MATERIALS.register("strangesilk_armour", () -> new ArmorMaterial(
-            Map.of(ArmorItem.Type.HELMET, 3, ArmorItem.Type.CHESTPLATE, 3), 9, SoundEvents.ARMOR_EQUIP_LEATHER,
-            () -> Ingredient.of(RUSTSILK.get(0).get(), RUSTSILK.get(1).get()),
-            List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "strangesilk_armour"))), 0, 0));
-    public static final DeferredItem<GeoSetArmorItem> CORRIAL_DIVING_HELMET = ITEMS.register("corrial_diving_helmet_helmet", () -> new GeoSetArmorItem(DIVING_MATERIAL, ArmorItem.Type.HELMET, GeoSetArmorItem.Style.CORRIAL_DIVING, new Item.Properties().durability(330)));
-    public static final DeferredItem<GeoSetArmorItem> DEV_SCARF = ITEMS.register("dev_scarf_chestplate", () -> new GeoSetArmorItem(DEV_SCARF_MATERIAL, ArmorItem.Type.CHESTPLATE, GeoSetArmorItem.Style.DEV_SCARF, new Item.Properties().durability(368).fireResistant()));
-    public static final DeferredItem<GeoSetArmorItem> STRANGESILK_HELMET = ITEMS.register("strangesilk_armour_helmet", () -> new GeoSetArmorItem(STRANGESILK_MATERIAL, ArmorItem.Type.HELMET, GeoSetArmorItem.Style.STRANGESILK, new Item.Properties().durability(165)));
-    public static final DeferredItem<GeoSetArmorItem> STRANGESILK_CHESTPLATE = ITEMS.register("strangesilk_armour_chestplate", () -> new GeoSetArmorItem(STRANGESILK_MATERIAL, ArmorItem.Type.CHESTPLATE, GeoSetArmorItem.Style.STRANGESILK, new Item.Properties().durability(240)));
+    private static final DeferredHolder<ArmorMaterial, ArmorMaterial> DIVING_MATERIAL = MATERIALS.register("corrial_diving_helmet", () -> ArmorMaterialFactory.create(Map.of(ArmorType.HELMET, 6), 7, Holder.direct(SoundEvents.EMPTY), 1, .2F, "corrial_ingot", "corrial_diving_helmet"));
+    private static final DeferredHolder<ArmorMaterial, ArmorMaterial> DEV_SCARF_MATERIAL = MATERIALS.register("dev_scarf", () -> ArmorMaterialFactory.create(Map.of(ArmorType.CHESTPLATE, 4), 50, Holder.direct(SoundEvents.SNOW_PLACE), 0, .1F, "stratus_alloy", "dev_scarf"));
+    private static final DeferredHolder<ArmorMaterial, ArmorMaterial> STRANGESILK_MATERIAL = MATERIALS.register("strangesilk_armour", () -> ArmorMaterialFactory.create(Map.of(ArmorType.HELMET, 3, ArmorType.CHESTPLATE, 3), 9, Holder.direct(SoundEvents.ARMOR_EQUIP_LEATHER), 0, 0, "rustsilk", "strangesilk_armour"));
+    public static final DeferredItem<GeoSetArmorItem> CORRIAL_DIVING_HELMET = ITEMS.register("corrial_diving_helmet_helmet", () -> new GeoSetArmorItem(DIVING_MATERIAL, ArmorType.HELMET, GeoSetArmorItem.Style.CORRIAL_DIVING, new Item.Properties().durability(330)));
+    public static final DeferredItem<GeoSetArmorItem> DEV_SCARF = ITEMS.register("dev_scarf_chestplate", () -> new GeoSetArmorItem(DEV_SCARF_MATERIAL, ArmorType.CHESTPLATE, GeoSetArmorItem.Style.DEV_SCARF, new Item.Properties().durability(368).fireResistant()));
+    public static final DeferredItem<GeoSetArmorItem> STRANGESILK_HELMET = ITEMS.register("strangesilk_armour_helmet", () -> new GeoSetArmorItem(STRANGESILK_MATERIAL, ArmorType.HELMET, GeoSetArmorItem.Style.STRANGESILK, new Item.Properties().durability(165)));
+    public static final DeferredItem<GeoSetArmorItem> STRANGESILK_CHESTPLATE = ITEMS.register("strangesilk_armour_chestplate", () -> new GeoSetArmorItem(STRANGESILK_MATERIAL, ArmorType.CHESTPLATE, GeoSetArmorItem.Style.STRANGESILK, new Item.Properties().durability(240)));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> RUBY_MATERIAL = MATERIALS.register("ruby_armor", () -> material(false));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> CARBORUNDUM_MATERIAL = MATERIALS.register("carborundum_armor", () -> material(true));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> RUBY_ZENITH_MATERIAL = MATERIALS.register("ruby_zenith_armor", () -> zenithMaterial(false, "ruby_zenith_armor"));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> BLOOD_ZENITH_MATERIAL = MATERIALS.register("blood_zenith_armor", () -> zenithMaterial(true, "blood_zenith_armor"));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> BLOOD_MATERIAL = MATERIALS.register("blood_armor", () -> zenithMaterial(true, "blood_armor"));
-    private static final DeferredHolder<ArmorMaterial, ArmorMaterial> RUSTSILK_MATERIAL = MATERIALS.register("rustsilk_armour", () -> new ArmorMaterial(
-            Map.of(ArmorItem.Type.HELMET, 1, ArmorItem.Type.CHESTPLATE, 1), 9, SoundEvents.ARMOR_EQUIP_LEATHER,
-            () -> Ingredient.EMPTY, List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "rustsilk_armour"))), 0, 0));
-    private static final DeferredHolder<ArmorMaterial, ArmorMaterial> SENTRY_MATERIAL = MATERIALS.register("sentry", () -> new ArmorMaterial(
-            Map.of(ArmorItem.Type.HELMET, 7, ArmorItem.Type.CHESTPLATE, 7), 50, SoundEvents.ARMOR_EQUIP_LEATHER,
-            () -> Ingredient.of(MaterialContent.items().get("silver_sentrapede_hide").get()),
-            List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sentry"))), 0, 0));
+    private static final DeferredHolder<ArmorMaterial, ArmorMaterial> RUSTSILK_MATERIAL = MATERIALS.register("rustsilk_armour", () -> ArmorMaterialFactory.create(Map.of(ArmorType.HELMET, 1, ArmorType.CHESTPLATE, 1), 9, Holder.direct(SoundEvents.ARMOR_EQUIP_LEATHER), 0, 0, "rustsilk", "rustsilk_armour"));
+    private static final DeferredHolder<ArmorMaterial, ArmorMaterial> SENTRY_MATERIAL = MATERIALS.register("sentry", () -> ArmorMaterialFactory.create(Map.of(ArmorType.HELMET, 7, ArmorType.CHESTPLATE, 7), 50, Holder.direct(SoundEvents.ARMOR_EQUIP_LEATHER), 0, 0, "silver_sentrapede_hide", "sentry"));
 
     static {
         ALL.addAll(List.of(CORRIAL_DIVING_HELMET, DEV_SCARF, STRANGESILK_HELMET, STRANGESILK_CHESTPLATE));
-        RUSTSILK.add(ITEMS.register("rustsilk_armour_helmet", () -> new GeoSetArmorItem(RUSTSILK_MATERIAL, ArmorItem.Type.HELMET, GeoSetArmorItem.Style.RUSTSILK, new Item.Properties().durability(55))));
-        RUSTSILK.add(ITEMS.register("rustsilk_armour_chestplate", () -> new GeoSetArmorItem(RUSTSILK_MATERIAL, ArmorItem.Type.CHESTPLATE, GeoSetArmorItem.Style.RUSTSILK, new Item.Properties().durability(80))));
+        RUSTSILK.add(ITEMS.register("rustsilk_armour_helmet", () -> new GeoSetArmorItem(RUSTSILK_MATERIAL, ArmorType.HELMET, GeoSetArmorItem.Style.RUSTSILK, new Item.Properties().durability(55))));
+        RUSTSILK.add(ITEMS.register("rustsilk_armour_chestplate", () -> new GeoSetArmorItem(RUSTSILK_MATERIAL, ArmorType.CHESTPLATE, GeoSetArmorItem.Style.RUSTSILK, new Item.Properties().durability(80))));
         ALL.addAll(RUSTSILK);
-        for (ArmorItem.Type type : List.of(ArmorItem.Type.HELMET, ArmorItem.Type.CHESTPLATE, ArmorItem.Type.LEGGINGS, ArmorItem.Type.BOOTS)) {
+        for (ArmorType type : List.of(ArmorType.HELMET, ArmorType.CHESTPLATE, ArmorType.LEGGINGS, ArmorType.BOOTS)) {
             RUBY.add(ITEMS.register("ruby_armor_" + type.getName(), () -> new GeoSetArmorItem(RUBY_MATERIAL, type, false, new Item.Properties().durability(type.getDurability(35)))));
             CARBORUNDUM.add(ITEMS.register("carborundum_armor_" + type.getName(), () -> new GeoSetArmorItem(CARBORUNDUM_MATERIAL, type, true, new Item.Properties().durability(type.getDurability(35)))));
             RUBY_ZENITH.add(ITEMS.register("ruby_zenith_armor_" + type.getName(), () -> new GeoSetArmorItem(RUBY_ZENITH_MATERIAL, type, GeoSetArmorItem.Style.RUBY_ZENITH, new Item.Properties().durability(type.getDurability(35)))));
@@ -77,7 +64,7 @@ public final class ArmorContent {
         ALL.addAll(RUBY_ZENITH);
         ALL.addAll(BLOOD_ZENITH);
         ALL.addAll(BLOOD);
-        for (ArmorItem.Type type : List.of(ArmorItem.Type.HELMET, ArmorItem.Type.CHESTPLATE)) {
+        for (ArmorType type : List.of(ArmorType.HELMET, ArmorType.CHESTPLATE)) {
             SENTRY.add(ITEMS.register("sentry_" + type.getName(), () -> new GeoSetArmorItem(SENTRY_MATERIAL, type,
                     GeoSetArmorItem.Style.SENTRY, new Item.Properties().durability(type.getDurability(23)))));
         }
@@ -85,20 +72,11 @@ public final class ArmorContent {
     }
 
     private static ArmorMaterial material(boolean carbon) {
-        return new ArmorMaterial(Map.of(ArmorItem.Type.HELMET, carbon ? 5 : 4, ArmorItem.Type.CHESTPLATE, carbon ? 8 : 7,
-                ArmorItem.Type.LEGGINGS, carbon ? 5 : 4, ArmorItem.Type.BOOTS, carbon ? 4 : 3), carbon ? 12 : 9,
-                carbon ? SoundEvents.ARMOR_EQUIP_NETHERITE : SoundEvents.ARMOR_EQUIP_DIAMOND,
-                () -> Ingredient.of(MaterialContent.items().get(carbon ? "carborundum" : "ruby").get()),
-                List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, carbon ? "carborundum_armor" : "ruby_armor"))),
-                carbon ? 2 : 1, carbon ? 0.2F : 0);
+        return ArmorMaterialFactory.create(Map.of(ArmorType.HELMET, carbon ? 5 : 4, ArmorType.CHESTPLATE, carbon ? 8 : 7, ArmorType.LEGGINGS, carbon ? 5 : 4, ArmorType.BOOTS, carbon ? 4 : 3), carbon ? 12 : 9, Holder.direct(carbon ? SoundEvents.ARMOR_EQUIP_NETHERITE : SoundEvents.ARMOR_EQUIP_DIAMOND), carbon ? 2 : 1, carbon ? 0.2F : 0, carbon ? "carborundum" : "ruby", carbon ? "carborundum_armor" : "ruby_armor");
     }
 
     private static ArmorMaterial zenithMaterial(boolean blood, String layer) {
-        return new ArmorMaterial(Map.of(ArmorItem.Type.HELMET, blood ? 5 : 4, ArmorItem.Type.CHESTPLATE, blood ? 8 : 7,
-                ArmorItem.Type.LEGGINGS, blood ? 3 : 4, ArmorItem.Type.BOOTS, 3), blood ? 6 : 9, SoundEvents.ARMOR_EQUIP_DIAMOND,
-                () -> Ingredient.of(MaterialContent.items().get(blood ? "bloodstone" : "ruby").get()),
-                List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, layer))),
-                blood ? 2.5F : 1.0F, blood ? 0.1F : 0.0F);
+        return ArmorMaterialFactory.create(Map.of(ArmorType.HELMET, blood ? 5 : 4, ArmorType.CHESTPLATE, blood ? 8 : 7, ArmorType.LEGGINGS, blood ? 3 : 4, ArmorType.BOOTS, 3), blood ? 6 : 9, Holder.direct(SoundEvents.ARMOR_EQUIP_DIAMOND), blood ? 2.5F : 1.0F, blood ? 0.1F : 0.0F, blood ? "bloodstone" : "ruby", layer);
     }
 
     public static void register(IEventBus bus) {

@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.icesquad;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -18,10 +21,10 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 import java.util.UUID;
 
 public final class IcidrogruntEntity extends Monster implements GeoEntity {
@@ -52,33 +55,33 @@ public final class IcidrogruntEntity extends Monster implements GeoEntity {
         goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         goalSelector.addGoal(7, new BreakDoorGoal(this, difficulty -> true));
     }
-    @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.DROWN) && super.hurt(source, amount); }
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.DROWN) && super.hurtServer(level, source, amount); }
     @Override public SoundEvent getAmbientSound() { return SoundEvents.STRAY_AMBIENT; }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.STRAY_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.STRAY_DEATH; }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.STRAY_STEP, 0.15F, 1); }
-    @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
+    @Override protected void dropExperience(net.minecraft.server.level.ServerLevel level, Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
         if (++deathTime >= 20 && !isRemoved()) {
             remove(RemovalReason.KILLED);
             if (experiencePending && level() instanceof ServerLevel server) {
                 experiencePending = false;
-                super.dropExperience(experienceAttacker == null ? null : server.getEntity(experienceAttacker));
+                super.dropExperience(server, experienceAttacker == null ? null : server.getEntity(experienceAttacker));
             }
         }
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putBoolean("GruntExperiencePending", experiencePending);
-        if (experienceAttacker != null) tag.putUUID("GruntExperienceAttacker", experienceAttacker);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putBoolean("GruntExperiencePending", experiencePending);
+        if (experienceAttacker != null) output.putString("GruntExperienceAttacker", experienceAttacker.toString());
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag); if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        experiencePending = tag.getBoolean("GruntExperiencePending"); experienceAttacker = tag.hasUUID("GruntExperienceAttacker") ? tag.getUUID("GruntExperienceAttacker") : null;
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        experiencePending = input.getBooleanOr("GruntExperiencePending", false); experienceAttacker = input.getString("GruntExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
                 .triggerableAnim("walk", RawAnimation.begin().thenPlay("walk")).triggerableAnim("idle", RawAnimation.begin().thenPlay("idle")).triggerableAnim("hurt", RawAnimation.begin().thenPlay("hurt"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             if (state.isMoving() || state.getLimbSwingAmount() <= -0.15F || state.getLimbSwingAmount() >= 0.15F) return state.setAndContinue(RawAnimation.begin().thenLoop("walk"));
             return isDeadOrDying() ? state.setAndContinue(RawAnimation.begin().thenPlay("hurt")) : state.setAndContinue(RawAnimation.begin().thenLoop("idle"));

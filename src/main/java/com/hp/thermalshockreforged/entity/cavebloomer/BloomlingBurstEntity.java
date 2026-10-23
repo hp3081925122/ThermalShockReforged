@@ -50,11 +50,11 @@ public final class BloomlingBurstEntity extends Entity implements ServerEndTickT
     public BloomlingBurstEntity(EntityType<? extends BloomlingBurstEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static void register(IEventBus bus) { TYPES.register(bus); }
     static BloomlingBurstEntity submit(ServerLevel server, BloomlingEntity owner, int kind, int remaining, Vec3 soundOrigin, UUID target, double targetEyeHeight, double damage, long summonExpiresAt) {
-        var task = TYPE.get().create(server);
+        var task = TYPE.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
         if (task == null) return null;
         task.caster = owner.getUUID(); task.originalCaster = new WeakReference<>(owner); task.target = target;
         task.kind = kind; task.remaining = remaining; task.soundOrigin = soundOrigin; task.targetEyeHeight = targetEyeHeight;
-        task.damage = damage; task.summonExpiresAt = summonExpiresAt; task.dimension = server.dimension().location().toString(); task.captureCaster(owner);
+        task.damage = damage; task.summonExpiresAt = summonExpiresAt; task.dimension = server.dimension().identifier().toString(); task.captureCaster(owner);
         if (server.addFreshEntity(task)) {
             ThermalShockReforged.LOGGER.debug("Bloomling burst committed: caster={}, task={}, kind={}, remainingEndTicks={}", owner.getUUID(), task.getUUID(), kind, remaining);
             return task;
@@ -87,7 +87,7 @@ public final class BloomlingBurstEntity extends Entity implements ServerEndTickT
         ServerEndTickTasks.schedule(server, getUUID());
     }
     private boolean validFor(ServerLevel server) {
-        return !isRemoved() && kind != 0 && remaining > 0 && dimension.equals(server.dimension().location().toString())
+        return !isRemoved() && kind != 0 && remaining > 0 && dimension.equals(server.dimension().identifier().toString())
                 && (summonExpiresAt < 0 || SummonLedger.clock(server) < summonExpiresAt);
     }
     @Override public void endTick(ServerLevel server) {
@@ -114,7 +114,7 @@ public final class BloomlingBurstEntity extends Entity implements ServerEndTickT
             if (entity instanceof LivingEntity living && living.isBlocking()) CavebloomerCombat.damageBlockingItem(living, 1);
             else {
                 entity.hurt(source, (float) damage);
-                if (entity instanceof LivingEntity living) living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 220, 1));
+                if (entity instanceof LivingEntity living) living.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 220, 1));
             }
         }
     }
@@ -135,19 +135,19 @@ public final class BloomlingBurstEntity extends Entity implements ServerEndTickT
             }
         }
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (caster != null) tag.putUUID("Caster", caster); if (target != null) tag.putUUID("Target", target);
-        tag.putInt("Kind", kind); tag.putInt("Remaining", remaining); tag.putString("Dimension", dimension);
-        tag.putDouble("SoundX", soundOrigin.x); tag.putDouble("SoundY", soundOrigin.y); tag.putDouble("SoundZ", soundOrigin.z);
-        tag.putDouble("LookX", look.x); tag.putDouble("LookY", look.y); tag.putDouble("LookZ", look.z);
-        tag.putDouble("EyeHeight", eyeHeight); tag.putDouble("TargetEyeHeight", targetEyeHeight); tag.putDouble("Damage", damage); tag.putLong("SummonExpiresAt", summonExpiresAt);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (caster != null) output.putString("Caster", caster.toString()); if (target != null) output.putString("Target", target.toString());
+        output.putInt("Kind", kind); output.putInt("Remaining", remaining); output.putString("Dimension", dimension);
+        output.putDouble("SoundX", soundOrigin.x); output.putDouble("SoundY", soundOrigin.y); output.putDouble("SoundZ", soundOrigin.z);
+        output.putDouble("LookX", look.x); output.putDouble("LookY", look.y); output.putDouble("LookZ", look.z);
+        output.putDouble("EyeHeight", eyeHeight); output.putDouble("TargetEyeHeight", targetEyeHeight); output.putDouble("Damage", damage); output.putLong("SummonExpiresAt", summonExpiresAt);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        caster = tag.hasUUID("Caster") ? tag.getUUID("Caster") : null; target = tag.hasUUID("Target") ? tag.getUUID("Target") : null;
-        kind = tag.getInt("Kind"); remaining = Math.clamp(tag.getInt("Remaining"), 0, kind == 1 ? 20 : 40); dimension = tag.getString("Dimension");
-        soundOrigin = new Vec3(tag.getDouble("SoundX"), tag.getDouble("SoundY"), tag.getDouble("SoundZ"));
-        look = new Vec3(tag.getDouble("LookX"), tag.getDouble("LookY"), tag.getDouble("LookZ"));
-        eyeHeight = tag.getDouble("EyeHeight"); targetEyeHeight = tag.getDouble("TargetEyeHeight"); damage = tag.getDouble("Damage"); summonExpiresAt = tag.getLong("SummonExpiresAt");
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        caster = input.getString("Caster").map(java.util.UUID::fromString).orElse(null); target = input.getString("Target").map(java.util.UUID::fromString).orElse(null);
+        kind = input.getIntOr("Kind", 0); remaining = Math.clamp(input.getIntOr("Remaining", 0), 0, kind == 1 ? 20 : 40); dimension = input.getStringOr("Dimension", "");
+        soundOrigin = new Vec3(input.getDoubleOr("SoundX", 0.0), input.getDoubleOr("SoundY", 0.0), input.getDoubleOr("SoundZ", 0.0));
+        look = new Vec3(input.getDoubleOr("LookX", 0.0), input.getDoubleOr("LookY", 0.0), input.getDoubleOr("LookZ", 0.0));
+        eyeHeight = input.getDoubleOr("EyeHeight", 0.0); targetEyeHeight = input.getDoubleOr("TargetEyeHeight", 0.0); damage = input.getDoubleOr("Damage", 0.0); summonExpiresAt = input.getLongOr("SummonExpiresAt", 0L);
         if ((kind != 1 && kind != 2) || caster == null || !finite(soundOrigin) || !finite(look) || !Double.isFinite(eyeHeight) || !Double.isFinite(targetEyeHeight) || !Double.isFinite(damage)) { kind = 0; remaining = 0; }
         else { eyeHeight = Math.clamp(eyeHeight, 0, 100); targetEyeHeight = Math.clamp(targetEyeHeight, 0, 100); damage = Math.clamp(damage, 0, Float.MAX_VALUE); }
         noPhysics = true; setNoGravity(true);

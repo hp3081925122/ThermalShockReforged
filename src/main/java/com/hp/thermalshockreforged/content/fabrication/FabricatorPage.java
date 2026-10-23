@@ -2,7 +2,7 @@ package com.hp.thermalshockreforged.content.fabrication;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.List;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public enum FabricatorPage {
     TOOLS(null),
@@ -42,10 +42,10 @@ public enum FabricatorPage {
     LITEPRISM_SWORD("liteprism_sword"),
     STRATOSILVER_SICKLE("stratosilver_sickle");
 
-    public final ResourceLocation recipe;
+    public final Identifier recipe;
     FabricatorPage(String output) {
         if (output == null) recipe = null;
-        else recipe = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "fabrication/" + output);
+        else recipe = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "fabrication/" + output);
     }
     public boolean isGuide() { return recipe == null; }
     public static final List<FabricatorPage> CATEGORIES = List.of(TOOLS, WEAPONS, ARMOR);

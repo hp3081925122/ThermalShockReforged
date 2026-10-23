@@ -12,7 +12,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -56,7 +56,7 @@ public final class BladeImpactEntity extends Entity implements ServerEndTickTask
         armed = false; discard();
         if (shock) {
             if (level.getEntity(victim) instanceof LivingEntity target) target.addEffect(new MobEffectInstance(StatusContent.ELECTRIFIED, 240, 1, false, false));
-            level.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sparkexplode")), SoundSource.NEUTRAL, .6F, 3);
+            level.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sparkexplode")), SoundSource.NEUTRAL, .6F, 3);
             level.sendParticles(WeaponContent.BLUE_PLUS_BLAST.get(), getX(), getY(), getZ(), 1, .1, .1, .1, 0);
         } else {
             level.playSound(null, blockPosition(), SoundEvents.GENERIC_EXPLODE.value(), SoundSource.PLAYERS, 1, 1);
@@ -68,15 +68,15 @@ public final class BladeImpactEntity extends Entity implements ServerEndTickTask
         }
         ThermalShockReforged.LOGGER.debug("Delayed blade impact resolved: shock={}, victim={}, owner={}, position={}", shock, victim, owner, position());
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        tag.putInt("BladeRemaining", remaining); tag.putBoolean("BladeShock", shock); tag.putBoolean("BladeArmed", armed);
-        if (owner != null) tag.putUUID("BladeOwner", owner);
-        if (victim != null) tag.putUUID("BladeVictim", victim);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        output.putInt("BladeRemaining", remaining); output.putBoolean("BladeShock", shock); output.putBoolean("BladeArmed", armed);
+        if (owner != null) output.putString("BladeOwner", owner.toString());
+        if (victim != null) output.putString("BladeVictim", victim.toString());
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        remaining = Math.clamp(tag.getInt("BladeRemaining"), 1, 5); shock = tag.getBoolean("BladeShock");
-        owner = tag.hasUUID("BladeOwner") ? tag.getUUID("BladeOwner") : null; victim = tag.hasUUID("BladeVictim") ? tag.getUUID("BladeVictim") : null;
-        armed = tag.getBoolean("BladeArmed") && owner != null && victim != null;
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        remaining = Math.clamp(input.getIntOr("BladeRemaining", 0), 1, 5); shock = input.getBooleanOr("BladeShock", false);
+        owner = input.getString("BladeOwner").map(java.util.UUID::fromString).orElse(null); victim = input.getString("BladeVictim").map(java.util.UUID::fromString).orElse(null);
+        armed = input.getBooleanOr("BladeArmed", false) && owner != null && victim != null;
         noPhysics = true; setNoGravity(true);
     }
 }

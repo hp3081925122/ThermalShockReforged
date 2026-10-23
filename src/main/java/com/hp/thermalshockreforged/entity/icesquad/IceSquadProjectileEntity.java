@@ -18,7 +18,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.entity.projectile.ItemSupplier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -87,20 +87,20 @@ public final class IceSquadProjectileEntity extends AbstractArrow implements Ite
     }
     private void extraHit(Entity target, double x, double y, double z) {
         if (!reactive() || target == null) return;
-        if (!level().isClientSide) discard();
+        if (!level().isClientSide()) discard();
         String targetId = BuiltInRegistries.ENTITY_TYPE.getKey(target.getType()).toString();
         if (targetId.equals("thermal_shock_reforged:icidrogunner") || targetId.equals("thermal_shock_reforged:icidroburner")) return;
-        if (!level().isClientSide && target instanceof LivingEntity living && living != getOwner()) living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 0));
+        if (!level().isClientSide() && target instanceof LivingEntity living && living != getOwner()) living.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 40, 0));
         if (level() instanceof ServerLevel server && caster != null && target instanceof LivingEntity living && server.getEntity(caster) instanceof BastionEntity boss) BastionEntity.thermalShock(server, living, boss, true);
         sound(x, y, z, SoundEvents.GENERIC_HURT, 3);
         sound(x, y, z, SoundEvents.GLASS_BREAK, 6);
     }
     private void sound(double x, double y, double z, SoundEvent sound, float pitch) {
-        if (level().isClientSide) level().playLocalSound(x, y, z, sound, SoundSource.NEUTRAL, 1, pitch, false);
+        if (level().isClientSide()) level().playLocalSound(x, y, z, sound, SoundSource.NEUTRAL, 1, pitch, false);
         else level().playSound(null, BlockPos.containing(x, y, z), sound, SoundSource.NEUTRAL, 1, pitch);
     }
     @Override public void tick() {
-        if (!level().isClientSide && lifetimeStarted && remainingEndTicks <= 0) { discard(); return; }
+        if (!level().isClientSide() && lifetimeStarted && remainingEndTicks <= 0) { discard(); return; }
         super.tick();
         if (reactive()) level().addParticle(IceSquadContent.LOD_TRAIL.get(), getX(), getY(), getZ(), 0, 0, 0);
         else if (!strider()) level().addParticle(ParticleTypes.SOUL_FIRE_FLAME, getX(), getY(), getZ(), 0, 0, 0);
@@ -125,18 +125,18 @@ public final class IceSquadProjectileEntity extends AbstractArrow implements Ite
             discard();
         } else ServerEndTickTasks.schedule(server, getUUID());
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putInt("SquadProjectileRemainingEndTicks", remainingEndTicks); tag.putBoolean("SquadProjectileLifetimeStarted", lifetimeStarted);
-        tag.putDouble("SquadProjectileKnockback", impactKnockback); tag.putBoolean("SquadProjectileHit", hitConsumed);
-        if (caster != null) tag.putUUID("SquadProjectileCaster", caster);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output); output.putInt("SquadProjectileRemainingEndTicks", remainingEndTicks); output.putBoolean("SquadProjectileLifetimeStarted", lifetimeStarted);
+        output.putDouble("SquadProjectileKnockback", impactKnockback); output.putBoolean("SquadProjectileHit", hitConsumed);
+        if (caster != null) output.putString("SquadProjectileCaster", caster.toString());
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag); pickup = Pickup.DISALLOWED;
-        int legacyAge = Math.clamp(tag.getInt("SquadProjectileAge"), 0, lifetime());
-        lifetimeStarted = tag.contains("SquadProjectileLifetimeStarted") ? tag.getBoolean("SquadProjectileLifetimeStarted") : legacyAge > 0;
-        remainingEndTicks = tag.contains("SquadProjectileRemainingEndTicks") ? Math.clamp(tag.getInt("SquadProjectileRemainingEndTicks"), 0, lifetime()) : lifetime() - legacyAge;
-        impactKnockback = Double.isFinite(tag.getDouble("SquadProjectileKnockback")) ? Math.clamp(tag.getDouble("SquadProjectileKnockback"), 0, 0.6) : 0;
-        hitConsumed = tag.getBoolean("SquadProjectileHit"); caster = tag.hasUUID("SquadProjectileCaster") ? tag.getUUID("SquadProjectileCaster") : null;
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input); pickup = Pickup.DISALLOWED;
+        int legacyAge = Math.clamp(input.getIntOr("SquadProjectileAge", 0), 0, lifetime());
+        lifetimeStarted = input.getString("SquadProjectileLifetimeStarted").isPresent() ? input.getBooleanOr("SquadProjectileLifetimeStarted", false) : legacyAge > 0;
+        remainingEndTicks = input.getString("SquadProjectileRemainingEndTicks").isPresent() ? Math.clamp(input.getIntOr("SquadProjectileRemainingEndTicks", 0), 0, lifetime()) : lifetime() - legacyAge;
+        impactKnockback = Double.isFinite(input.getDoubleOr("SquadProjectileKnockback", 0.0)) ? Math.clamp(input.getDoubleOr("SquadProjectileKnockback", 0.0), 0, 0.6) : 0;
+        hitConsumed = input.getBooleanOr("SquadProjectileHit", false); caster = input.getString("SquadProjectileCaster").map(java.util.UUID::fromString).orElse(null);
         if (!Double.isFinite(getBaseDamage()) || getBaseDamage() < 0) setBaseDamage(0);
     }
 }

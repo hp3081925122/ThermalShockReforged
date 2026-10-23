@@ -1,10 +1,11 @@
 package com.hp.thermalshockreforged.entity.glastrekker;
+import net.minecraft.world.InteractionResult;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
 import com.hp.thermalshockreforged.entity.base.AnimatedMonsterEntity;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.*;
@@ -15,7 +16,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.event.EventHooks;
@@ -36,37 +37,37 @@ public final class GlastrekkerEntity extends AnimatedMonsterEntity {
     @Override public boolean removeWhenFarAway(double distance) { return !armored && super.removeWhenFarAway(distance); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }
-    @Override public boolean hurt(DamageSource source, float amount) {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
         if (source.is(DamageTypes.FALL) || source.is(DamageTypes.DROWN)) return false;
         if (armored && (source.getDirectEntity() instanceof AbstractArrow || source.is(DamageTypes.CACTUS))) return false;
-        return super.hurt(source, amount);
+        return super.hurtServer(level, source, amount);
     }
     @Override public void baseTick() {
         super.baseTick();
-        if (!level().isClientSide && isInWater()) {
+        if (!level().isClientSide() && isInWater()) {
             addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 2, 3, true, false));
             addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 2, 3, true, false));
         }
     }
     @Override public void playerTouch(Player player) {
         super.playerTouch(player);
-        if (!armored && !level().isClientSide) player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 1, 1, true, false));
+        if (!armored && !level().isClientSide()) player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 1, 1, true, false));
     }
     @Override public InteractionResult mobInteract(Player player, InteractionHand hand) {
         if (!isAlive()) return InteractionResult.PASS;
         if (armored) {
-            if (!level().isClientSide) player.startRiding(this);
+            if (!level().isClientSide()) player.startRiding(this);
         } else if (hand == InteractionHand.MAIN_HAND && player.getMainHandItem().is(MaterialContent.items().get("glastrekker_armor").get())) {
             if (level() instanceof ServerLevel server) upgrade(server, player);
         }
-        return InteractionResult.sidedSuccess(level().isClientSide);
+        return InteractionResult.SUCCESS;
     }
     private void upgrade(ServerLevel server, Player player) {
-        var replacement = GlastrekkerContent.ARMOURED_GLASTREKKER.get().create(server);
+        var replacement = GlastrekkerContent.ARMOURED_GLASTREKKER.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
         if (replacement == null) return;
         BlockPos pos = blockPosition();
         replacement.moveTo(pos.getX() + .5, pos.getY(), pos.getZ() + .5, getYRot(), getXRot());
-        EventHooks.finalizeMobSpawn(replacement, server, server.getCurrentDifficultyAt(pos), MobSpawnType.MOB_SUMMONED, null);
+        EventHooks.finalizeMobSpawn(replacement, server, server.getCurrentDifficultyAt(pos), EntitySpawnReason.MOB_SUMMONED, null);
         if (replacement.isSpawnCancelled() || replacement.isRemoved()) { replacement.discard(); return; }
         replacement.setYRot(getYRot()); replacement.yBodyRot = getYRot(); replacement.yHeadRot = getYRot(); replacement.setXRot(getXRot());
         replacement.setDeltaMovement(Vec3.ZERO);
@@ -78,7 +79,7 @@ public final class GlastrekkerEntity extends AnimatedMonsterEntity {
         if (!player.getAbilities().instabuild) player.getMainHandItem().shrink(1);
         server.playSound(null, pos, SoundEvents.HORSE_ARMOR, SoundSource.NEUTRAL, 1, 1);
         if (player instanceof ServerPlayer user) {
-            var advancement = user.server.getAdvancements().get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "glastrekker_armor_get"));
+            var advancement = user.server.getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "glastrekker_armor_get"));
             if (advancement != null) {
                 var progress = user.getAdvancements().getOrStartProgress(advancement);
                 if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) user.getAdvancements().award(advancement, criterion);

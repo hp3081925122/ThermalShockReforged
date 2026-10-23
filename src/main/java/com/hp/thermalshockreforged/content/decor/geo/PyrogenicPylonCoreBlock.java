@@ -22,7 +22,7 @@ public final class PyrogenicPylonCoreBlock extends GeoDecorBlock {
     @Override public PathType getBlockPathType(BlockState state, BlockGetter level, BlockPos pos, Mob mob) { return PathType.DANGER_OTHER; }
     @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean harvest, FluidState fluid) {
         boolean result = super.onDestroyedByPlayer(state, level, pos, player, harvest, fluid);
-        if (level.isClientSide) level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.DRAGON_FIREBALL_EXPLODE, SoundSource.NEUTRAL, 1, 1, false);
+        if (level.isClientSide()) level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.DRAGON_FIREBALL_EXPLODE, SoundSource.NEUTRAL, 1, 1, false);
         else level.playSound(null, pos, SoundEvents.DRAGON_FIREBALL_EXPLODE, SoundSource.NEUTRAL, 1, 1);
         if (level instanceof ServerLevel server) server.sendParticles(ParticleTypes.EXPLOSION, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 1, .01, .01, .01, 0);
         return result;

@@ -63,7 +63,7 @@ public final class RibbonbladeActionEntity extends Entity implements ServerEndTi
         if (--remaining > 0) { ServerEndTickTasks.schedule(level, getUUID()); return; }
         armed = false;
         discard();
-        if (!strike) { level.playSound(null, soundOrigin, BuiltInRegistries.SOUND_EVENT.get(RibbonbladeContent.id("ribbonblade_spawns")), SoundSource.HOSTILE, 1, 1); return; }
+        if (!strike) { level.playSound(null, soundOrigin, BuiltInRegistries.SOUND_EVENT.getValue(RibbonbladeContent.id("ribbonblade_spawns")), SoundSource.HOSTILE, 1, 1); return; }
         var source = level.getEntity(caster);
         if (source == null) for (var other : level.getServer().getAllLevels()) if (other != level && other.getEntity(caster) != null) return;
         if (source instanceof RibbonbladeGalvaniteEntity owner) {
@@ -89,20 +89,20 @@ public final class RibbonbladeActionEntity extends Entity implements ServerEndTi
             if (strength > 0) { victim.setDeltaMovement(look.scale(strength)); victim.hurtMarked = true; }
         }
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (caster != null) tag.putUUID("Caster", caster); if (target != null) tag.putUUID("Target", target);
-        tag.putDouble("TargetX", lastTarget.x); tag.putDouble("TargetY", lastTarget.y); tag.putDouble("TargetZ", lastTarget.z);
-        tag.putDouble("LookX", look.x); tag.putDouble("LookY", look.y); tag.putDouble("LookZ", look.z);
-        tag.putLong("SoundOrigin", soundOrigin.asLong()); tag.putDouble("Damage", damage); tag.putDouble("Knockback", knockback);
-        tag.putInt("Remaining", remaining); tag.putBoolean("Strike", strike); tag.putBoolean("Armed", armed);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (caster != null) output.putString("Caster", caster.toString()); if (target != null) output.putString("Target", target.toString());
+        output.putDouble("TargetX", lastTarget.x); output.putDouble("TargetY", lastTarget.y); output.putDouble("TargetZ", lastTarget.z);
+        output.putDouble("LookX", look.x); output.putDouble("LookY", look.y); output.putDouble("LookZ", look.z);
+        output.putLong("SoundOrigin", soundOrigin.asLong()); output.putDouble("Damage", damage); output.putDouble("Knockback", knockback);
+        output.putInt("Remaining", remaining); output.putBoolean("Strike", strike); output.putBoolean("Armed", armed);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        caster = tag.hasUUID("Caster") ? tag.getUUID("Caster") : null; target = tag.hasUUID("Target") ? tag.getUUID("Target") : null;
-        lastTarget = new Vec3(tag.getDouble("TargetX"), tag.getDouble("TargetY"), tag.getDouble("TargetZ")); look = new Vec3(tag.getDouble("LookX"), tag.getDouble("LookY"), tag.getDouble("LookZ"));
-        soundOrigin = BlockPos.of(tag.getLong("SoundOrigin")); double amount = tag.getDouble("Damage"); damage = Double.isFinite(amount) ? Math.clamp(amount, 0, Float.MAX_VALUE) : 0;
-        double strength = tag.getDouble("Knockback"); knockback = Double.isFinite(strength) ? Math.clamp(strength, 0, 2) : .6;
-        strike = tag.getBoolean("Strike"); remaining = Math.clamp(tag.getInt("Remaining"), 1, strike ? 17 : 5);
-        armed = tag.getBoolean("Armed") && caster != null && finite(lastTarget) && finite(look);
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        caster = input.getString("Caster").map(java.util.UUID::fromString).orElse(null); target = input.getString("Target").map(java.util.UUID::fromString).orElse(null);
+        lastTarget = new Vec3(input.getDoubleOr("TargetX", 0.0), input.getDoubleOr("TargetY", 0.0), input.getDoubleOr("TargetZ", 0.0)); look = new Vec3(input.getDoubleOr("LookX", 0.0), input.getDoubleOr("LookY", 0.0), input.getDoubleOr("LookZ", 0.0));
+        soundOrigin = BlockPos.of(input.getLongOr("SoundOrigin", 0L)); double amount = input.getDoubleOr("Damage", 0.0); damage = Double.isFinite(amount) ? Math.clamp(amount, 0, Float.MAX_VALUE) : 0;
+        double strength = input.getDoubleOr("Knockback", 0.0); knockback = Double.isFinite(strength) ? Math.clamp(strength, 0, 2) : .6;
+        strike = input.getBooleanOr("Strike", false); remaining = Math.clamp(input.getIntOr("Remaining", 0), 1, strike ? 17 : 5);
+        armed = input.getBooleanOr("Armed", false) && caster != null && finite(lastTarget) && finite(look);
     }
     private static boolean finite(Vec3 value) { return Double.isFinite(value.x) && Double.isFinite(value.y) && Double.isFinite(value.z); }
 }

@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.WeakHashMap;
 import net.minecraft.commands.arguments.EntityAnchorArgument.Anchor;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.*;
 import net.minecraft.world.Difficulty;
@@ -41,8 +41,8 @@ public final class LensEntity extends AnimatedMonsterEntity {
     @Override public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= getBbWidth() * getBbWidth() + target.getBbWidth(); }
     @Override protected PathNavigation createNavigation(Level level) { return new FlyingPathNavigation(this, level); }
     @Override public void setNoGravity(boolean ignored) { super.setNoGravity(true); }
-    @Override public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
-    @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.DROWN) && super.hurt(source, amount); }
+    @Override public boolean causeFallDamage(double distance, float multiplier, DamageSource source) { return false; }
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.DROWN) && super.hurtServer(level, source, amount); }
     @Override protected void tickEffects() {
         if (!com.hp.thermalshockreforged.content.remainingcombat.CryoCooldownVisual.tickClientEffects(
                 this, false, (effect, refresh) -> onEffectUpdated(effect, refresh, null))) super.tickEffects();
@@ -73,7 +73,7 @@ public final class LensEntity extends AnimatedMonsterEntity {
         }
         server.sendParticles(random.nextBoolean() ? GazeContent.LENS_VISAGE_1.get() : GazeContent.LENS_VISAGE_2.get(), getX(), getY() + 2, getZ(), 1, .0001, .0001, .0001, 0);
     }
-    @Override protected SoundEvent getAmbientSound() { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "lensambient")); }
+    @Override protected SoundEvent getAmbientSound() { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "lensambient")); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }
     public static AttributeSupplier.Builder createAttributes() {

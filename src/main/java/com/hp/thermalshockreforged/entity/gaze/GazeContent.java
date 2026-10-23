@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.gaze;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.combat.AttackAttemptEvent;
@@ -28,9 +29,9 @@ public final class GazeContent {
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> LENS_VISAGE_1 = PARTICLES.register("lens_visage_1", () -> new SimpleParticleType(true));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> LENS_VISAGE_2 = PARTICLES.register("lens_visage_2", () -> new SimpleParticleType(true));
     static {
-        ITEMS.register("lanternbearer_spawn_egg", () -> new DeferredSpawnEggItem(LANTERNBEARER, -1, -1, new Item.Properties()));
-        ITEMS.register("lens_spawn_egg", () -> new DeferredSpawnEggItem(LENS, -1, -1, new Item.Properties()));
-        ITEMS.register("spirit_spawn_egg", () -> new DeferredSpawnEggItem(SPIRIT, -1, -1, new Item.Properties()));
+        ITEMS.register("lanternbearer_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(LANTERNBEARER.get())));
+        ITEMS.register("lens_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(LENS.get())));
+        ITEMS.register("spirit_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SPIRIT.get())));
     }
     private GazeContent() { }
     public static void register(IEventBus bus) {

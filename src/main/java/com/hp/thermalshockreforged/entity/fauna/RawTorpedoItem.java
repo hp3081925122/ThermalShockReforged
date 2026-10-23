@@ -1,10 +1,14 @@
 package com.hp.thermalshockreforged.entity.fauna;
+import net.minecraft.world.item.Item;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
@@ -13,22 +17,22 @@ public final class RawTorpedoItem extends Item {
     public RawTorpedoItem() { super(new Properties().stacksTo(1).food(new FoodProperties.Builder().nutrition(12).saturationModifier(2).build())); }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, java.util.List<net.minecraft.network.chat.Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        lines.add(net.minecraft.network.chat.Component.translatable("item.thermal_shock_reforged.raw_torpedo.description_0"));
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        tooltipAdder.accept(net.minecraft.network.chat.Component.translatable("item.thermal_shock_reforged.raw_torpedo.description_0"));
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        if (!player.getAbilities().instabuild && findAmmo(player).isEmpty()) return InteractionResultHolder.fail(player.getItemInHand(hand));
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
+        if (!player.getAbilities().instabuild && findAmmo(player).isEmpty()) return InteractionResult.FAIL;
         player.startUsingItem(hand);
-        return InteractionResultHolder.success(player.getItemInHand(hand));
+        return InteractionResult.SUCCESS;
     }
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {
         var result = super.finishUsingItem(stack, level, entity);
-        if (!level.isClientSide && level.random.nextDouble() < 0.25) FaunaExplosions.explode(entity, 1);
+        if (!level.isClientSide() && level.getRandom().nextDouble() < 0.25) FaunaExplosions.explode(entity, 1);
         return result;
     }
 
@@ -43,7 +47,7 @@ public final class RawTorpedoItem extends Item {
         if (player.getAbilities().instabuild) {
             orb.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
         } else if (ammo.isDamageableItem()) {
-            ammo.hurtAndBreak(1, player.serverLevel(), player, broken -> { });
+            ammo.hurtAndBreak(1, ((net.minecraft.server.level.ServerLevel) player.level()), player, broken -> { });
             if (ammo.isEmpty()) player.getInventory().removeItem(ammo);
         } else {
             ammo.shrink(1);

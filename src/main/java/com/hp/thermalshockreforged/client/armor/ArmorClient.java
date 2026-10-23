@@ -1,25 +1,27 @@
 package com.hp.thermalshockreforged.client.armor;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.armor.ArmorContent;
 import com.hp.thermalshockreforged.content.armor.GeoSetArmorItem;
-import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.client.model.Model;
+import net.minecraft.client.resources.model.EquipmentClientInfo;
 import net.minecraft.world.item.component.CustomData;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import software.bernie.geckolib.model.GeoModel;
-import software.bernie.geckolib.renderer.GeoArmorRenderer;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoArmorRenderer;
 
 public final class ArmorClient {
     public static void extensions(RegisterClientExtensionsEvent event) {
@@ -28,14 +30,14 @@ public final class ArmorClient {
     }
 
     public static void playerTick(PlayerTickEvent.Post event) {
-        if (!event.getEntity().level().isClientSide) return;
+        if (!event.getEntity().level().isClientSide()) return;
         if (event.getEntity() == Minecraft.getInstance().player) {
             for (var entry : ArmorContent.ALL) entry.get().pruneInstances(event.getEntity().level());
         }
         for (EquipmentSlot slot : new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET}) {
             ItemStack stack = event.getEntity().getItemBySlot(slot);
             if (!(stack.getItem() instanceof GeoSetArmorItem item)) continue;
-            String animation = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("geckoAnim");
+            String animation = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("geckoAnim").orElse("");
             item.observeAnimation(event.getEntity(), stack, slot, animation);
         }
     }
@@ -45,17 +47,10 @@ public final class ArmorClient {
     }
 
     private static final class Extension implements IClientItemExtensions {
-        private GeoArmorRenderer<GeoSetArmorItem> renderer;
-
-        @Override
-        public HumanoidModel<?> getHumanoidArmorModel(LivingEntity entity, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> original) {
-            if (renderer == null) renderer = new Renderer();
-            renderer.prepForRender(entity, stack, slot, original);
-            return renderer;
-        }
+        public Model getGenericArmorModel(ItemStack stack, EquipmentClientInfo.LayerType layerType, Model original) { return original; }
     }
 
-    private static final class Renderer extends GeoArmorRenderer<GeoSetArmorItem> {
+    private static final class Renderer extends LegacyGeoArmorRenderer<GeoSetArmorItem> {
         private Renderer() { super(new Model()); }
 
         @Override
@@ -64,18 +59,18 @@ public final class ArmorClient {
         }
 
         @Override
-        public RenderType getRenderType(GeoSetArmorItem item, ResourceLocation texture, MultiBufferSource buffers, float partialTick) {
-            return RenderType.entityTranslucent(texture);
+        public RenderType getRenderType(GeoSetArmorItem item, Identifier texture, MultiBufferSource buffers, float partialTick) {
+            return RenderTypes.entityTranslucent(texture);
         }
     }
 
-    private static final class Model extends GeoModel<GeoSetArmorItem> {
-        private ResourceLocation resource(GeoSetArmorItem item, String prefix, String suffix) {
-            return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, prefix + item.modelName() + suffix);
+    private static final class Model extends LegacyGeoModel<GeoSetArmorItem> {
+        private Identifier resource(GeoSetArmorItem item, String prefix, String suffix) {
+            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, prefix + item.modelName() + suffix);
         }
 
-        @Override public ResourceLocation getModelResource(GeoSetArmorItem item) { return resource(item, "geo/", ".geo.json"); }
-        @Override public ResourceLocation getTextureResource(GeoSetArmorItem item) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/item/" + item.textureName() + ".png"); }
-        @Override public ResourceLocation getAnimationResource(GeoSetArmorItem item) { return resource(item, "animations/", ".animation.json"); }
+        @Override public Identifier getModelResource(GeoSetArmorItem item) { return resource(item, "geo/", ".geo.json"); }
+        @Override public Identifier getTextureResource(GeoSetArmorItem item) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/item/" + item.textureName() + ".png"); }
+        @Override public Identifier getAnimationResource(GeoSetArmorItem item) { return resource(item, "animations/", ".animation.json"); }
     }
 }

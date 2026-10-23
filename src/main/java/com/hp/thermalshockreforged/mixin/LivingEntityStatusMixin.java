@@ -55,19 +55,12 @@ public abstract class LivingEntityStatusMixin {
         LivingEntity entity = (LivingEntity)(Object)this;
         if (com.hp.thermalshockreforged.entity.sopel.SopelEntityContent.clearOwnerCooldown(entity)) callback.setReturnValue(true);
         if (entity.hasEffect(net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE)) return;
-        if (!entity.level().isClientSide && entity instanceof com.hp.thermalshockreforged.content.atlas.AtlasArrivalState arrival && arrival.arrivalProtectionTicks() > 0) { arrival.beginArrivalProtection(0); callback.setReturnValue(true); }
-    }
-    @Inject(method = "removeEffectsCuredBy", at = @At("TAIL"), cancellable = true)
-    private void thermalShockReforged$cureArrival(net.neoforged.neoforge.common.EffectCure cure, CallbackInfoReturnable<Boolean> callback) {
-        LivingEntity entity = (LivingEntity)(Object)this;
-        if (entity.hasEffect(net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE)) return;
-        if (!entity.level().isClientSide && net.neoforged.neoforge.common.EffectCures.DEFAULT_CURES.contains(cure) && entity instanceof com.hp.thermalshockreforged.content.atlas.AtlasArrivalState arrival && arrival.arrivalProtectionTicks() > 0) { arrival.beginArrivalProtection(0); callback.setReturnValue(true); }
-    }
-    @Inject(method = "removeEffect", at = @At("TAIL"), cancellable = true)
+        if (!entity.level().isClientSide() && entity instanceof com.hp.thermalshockreforged.content.atlas.AtlasArrivalState arrival && arrival.arrivalProtectionTicks() > 0) { arrival.beginArrivalProtection(0); callback.setReturnValue(true); }
+    }    @Inject(method = "removeEffect", at = @At("TAIL"), cancellable = true)
     private void thermalShockReforged$removeArrival(net.minecraft.core.Holder<net.minecraft.world.effect.MobEffect> effect, CallbackInfoReturnable<Boolean> callback) {
         LivingEntity entity = (LivingEntity)(Object)this;
         if (entity.hasEffect(net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE)) return;
-        if (!entity.level().isClientSide && effect.equals(net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE) && entity instanceof com.hp.thermalshockreforged.content.atlas.AtlasArrivalState arrival && arrival.arrivalProtectionTicks() > 0) { arrival.beginArrivalProtection(0); callback.setReturnValue(true); }
+        if (!entity.level().isClientSide() && effect.equals(net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE) && entity instanceof com.hp.thermalshockreforged.content.atlas.AtlasArrivalState arrival && arrival.arrivalProtectionTicks() > 0) { arrival.beginArrivalProtection(0); callback.setReturnValue(true); }
     }
     @Inject(method = "hurt", at = @At("HEAD"), cancellable = true)
     private void thermalShockReforged$infectionAttack(DamageSource source, float amount, CallbackInfoReturnable<Boolean> callback) {
@@ -86,7 +79,7 @@ public abstract class LivingEntityStatusMixin {
     @Inject(method = "onEffectAdded", at = @At("TAIL"))
     private void thermalShockReforged$effectAdded(MobEffectInstance instance, Entity source, CallbackInfo callback) {
         LivingEntity entity = (LivingEntity) (Object) this;
-        if (!entity.level().isClientSide && instance.is(StatusContent.ELECTRIFIED)) {
+        if (!entity.level().isClientSide() && instance.is(StatusContent.ELECTRIFIED)) {
             StatusEvents.playElectrifiedVisual(entity);
         }
     }
@@ -94,7 +87,7 @@ public abstract class LivingEntityStatusMixin {
     @Inject(method = "onEffectUpdated", at = @At("TAIL"))
     private void thermalShockReforged$effectUpdated(MobEffectInstance instance, boolean reapplyModifiers, Entity source, CallbackInfo callback) {
         LivingEntity entity = (LivingEntity) (Object) this;
-        if (reapplyModifiers && !entity.level().isClientSide && instance.is(StatusContent.ELECTRIFIED)) {
+        if (reapplyModifiers && !entity.level().isClientSide() && instance.is(StatusContent.ELECTRIFIED)) {
             StatusEvents.playElectrifiedVisual(entity);
         }
     }

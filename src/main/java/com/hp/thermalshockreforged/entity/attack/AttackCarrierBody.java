@@ -9,8 +9,8 @@ import net.minecraft.world.entity.ai.control.FlyingMoveControl;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.ThrownPotion;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.AbstractThrownPotion;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -25,21 +25,21 @@ public abstract class AttackCarrierBody extends PathfinderMob {
                 .add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, 1).add(Attributes.STEP_HEIGHT, 0.6);
     }
     @Override protected PathNavigation createNavigation(Level level) { return new FlyingPathNavigation(this, level); }
-    @Override public boolean hurt(DamageSource source, float amount) {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
         Entity direct = source.getDirectEntity();
         if (source.is(DamageTypes.IN_FIRE) || direct instanceof AbstractArrow || direct instanceof Player
-                || direct instanceof ThrownPotion || direct instanceof AreaEffectCloud || source.is(DamageTypes.FALL)
+                || direct instanceof AbstractThrownPotion || direct instanceof AreaEffectCloud || source.is(DamageTypes.FALL)
                 || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT)
                 || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.PLAYER_EXPLOSION) || source.is(DamageTypes.TRIDENT)
                 || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.WITHER)
                 || source.is(DamageTypes.WITHER_SKULL)) return false;
-        return super.hurt(source, amount);
+        return super.hurtServer(level, source, amount);
     }
     @Override public boolean ignoreExplosion(Explosion explosion) { return true; }
     @Override public boolean isPushable() { return false; }
     @Override protected void doPush(Entity entity) { }
     @Override protected void pushEntities() { }
-    @Override public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
+    @Override public boolean causeFallDamage(double distance, float multiplier, DamageSource source) { return false; }
     @Override protected void checkFallDamage(double y, boolean onGround, BlockState state, BlockPos pos) { }
     @Override public void setNoGravity(boolean ignored) { super.setNoGravity(true); }
     @Override public void aiStep() { super.aiStep(); setNoGravity(true); }

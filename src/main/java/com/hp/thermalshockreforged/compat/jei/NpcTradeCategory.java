@@ -11,13 +11,13 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import net.minecraft.Util;
+import net.minecraft.util.Util;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -89,7 +89,7 @@ public final class NpcTradeCategory implements IRecipeCategory<NpcTradeEntry> {
     }
 
     @Override
-    public void draw(NpcTradeEntry entry, IRecipeSlotsView slots, GuiGraphics graphics, double mouseX, double mouseY) {
+    public void draw(NpcTradeEntry entry, IRecipeSlotsView slots, GuiGraphicsExtractor graphics, double mouseX, double mouseY) {
         var entity = entity(entry.npc());
         if (entity != null) {
             float centerX = MODEL_WIDTH / 2F;
@@ -153,7 +153,7 @@ public final class NpcTradeCategory implements IRecipeCategory<NpcTradeEntry> {
         var cached = ENTITIES.get(npc);
         if (cached != null && cached.level() == level) return cached;
         try {
-            var created = BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, npc)).create(level);
+            var created = BuiltInRegistries.ENTITY_TYPE.get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, npc)).create(level);
             if (created instanceof LivingEntity living) {
                 ENTITIES.put(npc, living);
                 ThermalShockReforged.LOGGER.debug("JEI npc trade entity created: npc={}, type={}, height={}, width={}", npc, living.getType(), living.getBbHeight(), living.getBbWidth());

@@ -12,8 +12,8 @@ import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.registries.*;
 
 public final class AtlasContent {
-    public static final ResourceKey<Level> PALACE = ResourceKey.create(Registries.DIMENSION, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "aqeron"));
-    public static final ResourceLocation BASE_TEMPLATE = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "atlasbase");
+    public static final ResourceKey<Level> PALACE = ResourceKey.create(Registries.DIMENSION, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "aqeron"));
+    public static final Identifier BASE_TEMPLATE = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "atlasbase");
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);

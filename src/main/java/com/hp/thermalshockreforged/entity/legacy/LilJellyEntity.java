@@ -21,7 +21,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -34,8 +34,8 @@ import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.ThrownPotion;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.AbstractThrownPotion;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -73,26 +73,26 @@ public final class LilJellyEntity extends AnimatedMonsterEntity implements Range
     @Override protected void pushEntities() { }
     @Override public void setNoGravity(boolean ignored) { super.setNoGravity(true); }
     @Override public void aiStep() { super.aiStep(); setNoGravity(true); }
-    @Override public boolean causeFallDamage(float distance, float multiplier, DamageSource source) { return false; }
+    @Override public boolean causeFallDamage(double distance, float multiplier, DamageSource source) { return false; }
     @Override protected void checkFallDamage(double y, boolean onGround, BlockState state, BlockPos pos) { }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }
 
-    @Override public boolean hurt(DamageSource source, float damage) {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float damage) {
         Entity direct = source.getDirectEntity();
-        if (direct instanceof AbstractArrow || direct instanceof Player || direct instanceof ThrownPotion || direct instanceof AreaEffectCloud
+        if (direct instanceof AbstractArrow || direct instanceof Player || direct instanceof AbstractThrownPotion || direct instanceof AreaEffectCloud
                 || source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS)
                 || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.EXPLOSION)
                 || source.is(DamageTypes.TRIDENT) || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.DRAGON_BREATH)
                 || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL)) return false;
-        return super.hurt(source, damage);
+        return super.hurtServer(level, source, damage);
     }
 
     @Override public void performRangedAttack(LivingEntity target, float power) {
-        if (!level().isClientSide) MagnetCrossbowBulletEntity.shoot(this, target, getAttributeValue(Attributes.ATTACK_DAMAGE) * (5.0 / 3));
+        if (!level().isClientSide()) MagnetCrossbowBulletEntity.shoot(this, target, getAttributeValue(Attributes.ATTACK_DAMAGE) * (5.0 / 3));
     }
 
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData data) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData data) {
         SpawnGroupData result = super.finalizeSpawn(level, difficulty, reason, data);
         if (level instanceof ServerLevel server) server.sendParticles(ParticleTypes.POOF, getX(), getY(), getZ(), 5, .1, .1, .1, .1);
         return result;
@@ -100,13 +100,13 @@ public final class LilJellyEntity extends AnimatedMonsterEntity implements Range
 
     @Override public InteractionResult mobInteract(Player player, InteractionHand hand) {
         if (isAlive() && !isRemoved() && player.getItemInHand(hand).is(MaterialContent.items().get("empty_amaljelly_canister").get())) {
-            if (!level().isClientSide) {
+            if (!level().isClientSide()) {
                 discard();
                 AmaljellyCanisterItem.exchangeOne(player, hand, new ItemStack(LegacyContent.AMALJELLY_CANISTER.get()));
             }
-            return InteractionResult.sidedSuccess(level().isClientSide);
+            return InteractionResult.SUCCESS;
         }
         super.mobInteract(player, hand);
-        return InteractionResult.sidedSuccess(level().isClientSide);
+        return InteractionResult.SUCCESS;
     }
 }

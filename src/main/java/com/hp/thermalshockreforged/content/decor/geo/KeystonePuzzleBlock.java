@@ -1,10 +1,12 @@
 package com.hp.thermalshockreforged.content.decor.geo;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 import com.hp.thermalshockreforged.content.atlas.AtlasContent;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.world.WorldProgressData;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.core.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -33,7 +35,7 @@ public class KeystonePuzzleBlock extends GeoDecorBlock {
                 entity.setChanged();
                 level.setBlock(pos, level.getBlockState(pos).setValue(animationProperty(), 1), 3);
                 level.sendBlockUpdated(pos, level.getBlockState(pos), level.getBlockState(pos), 3);
-                level.playSound(null, pos, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "mantle_lever")), SoundSource.NEUTRAL, 1, 1);
+                level.playSound(null, pos, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "mantle_lever")), SoundSource.NEUTRAL, 1, 1);
                 maybePromptLever(server, pos, player);
             }
             return true;
@@ -97,8 +99,8 @@ public class KeystonePuzzleBlock extends GeoDecorBlock {
         BlockState state = level.getBlockState(pos);
         if (state.getBlock().getStateDefinition().getProperty("animation") instanceof IntegerProperty property && property.getPossibleValues().contains(1)) level.setBlock(pos, state.setValue(property, 1), 3);
     }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        return interact(level, pos, player) ? ItemInteractionResult.SUCCESS : ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        return interact(level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS;
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         return interact(level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS;
@@ -109,7 +111,7 @@ public class KeystonePuzzleBlock extends GeoDecorBlock {
         @Override protected IntegerProperty animationProperty() { return DISPLAY_ANIMATION; }
     }
     public static final class Directional extends KeystonePuzzleBlock {
-        private static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+        private static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
         public Directional(GeoDecorKind kind) { super(kind); registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH)); }
         @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(FACING); }
         @Override public BlockState getStateForPlacement(BlockPlaceContext context) { return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()); }

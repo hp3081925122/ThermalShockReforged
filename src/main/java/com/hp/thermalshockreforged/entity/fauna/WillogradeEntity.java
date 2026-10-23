@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.fauna;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.status.LegacyEffectParticles;
@@ -25,10 +28,10 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.neoforged.neoforge.common.NeoForgeMod;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(WillogradeEntity.class, EntityDataSerializers.STRING);
@@ -74,7 +77,7 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
     public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
         var held = player.getMainHandItem();
         if (!held.is(FaunaEntities.item("adamantine_spice")) || feedCooldown > 0) return super.mobInteract(player, hand);
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             held.shrink(1);
             level().playSound(null, blockPosition(), SoundEvents.GENERIC_EAT, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);
             level().levelEvent(2001, blockPosition(), net.minecraft.world.level.block.Block.getId(FaunaEntities.block("adamantine_spice_block").defaultBlockState()));
@@ -84,12 +87,12 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
                 ThermalShockReforged.LOGGER.debug("Willograde feeding cooldown started: entity={}, position={}, remaining={}", getUUID(), position(), feedCooldown);
                 buryAge = 0;
                 buryOrigin = position();
-                buryDimension = level().dimension().location().toString();
+                buryDimension = level().dimension().identifier().toString();
                 getNavigation().stop();
                 setAnimation("bury");
             }
         }
-        return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+        return net.minecraft.world.InteractionResult.SUCCESS;
     }
 
     private boolean buried() { return buryAge >= 0 && buryAge < 80; }
@@ -98,7 +101,7 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
     protected boolean isImmobile() { return buried() || super.isImmobile(); }
 
     @Override
-    public boolean doHurtTarget(Entity target) { return !buried() && super.doHurtTarget(target); }
+    public boolean doHurtTarget(net.minecraft.server.level.ServerLevel level, Entity target) { return !buried() && super.doHurtTarget(target); }
 
     @Override
     protected float getDamageAfterMagicAbsorb(DamageSource source, float amount) {
@@ -120,10 +123,10 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
     @Override
     public void tick() {
         super.tick();
-        if (level().isClientSide || !isAlive()) return;
+        if (level().isClientSide() || !isAlive()) return;
         if (feedCooldown > 0 && --feedCooldown == 0) entityData.set(FEED_COOLDOWN_VISIBLE, false);
         if (buryAge < 0) return;
-        if (!buryDimension.equals(level().dimension().location().toString())) {
+        if (!buryDimension.equals(level().dimension().identifier().toString())) {
             buryAge = -1;
             return;
         }
@@ -141,7 +144,7 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
             level().playSound(null, pos, SoundEvents.GRAVEL_BREAK, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);
         }
         if (buryAge >= 22 && buryAge <= 41 && level() instanceof net.minecraft.server.level.ServerLevel server) {
-            var loot = server.getServer().reloadableRegistries().getLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "blocks/muck_loot")));
+            var loot = server.getServer().reloadableRegistries().getLootTable(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.LOOT_TABLE, net.minecraft.resources.Identifier.fromNamespaceAndPath("thermal_shock_reforged", "blocks/muck_loot")));
             var params = new net.minecraft.world.level.storage.loot.LootParams.Builder(server)
                     .withParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.ORIGIN, buryOrigin)
                     .create(net.minecraft.world.level.storage.loot.parameters.LootContextParamSets.COMMAND);
@@ -160,43 +163,43 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
 
     @Override
     protected void tickEffects() {
-        if (!level().isClientSide || !entityData.get(FEED_COOLDOWN_VISIBLE)) { super.tickEffects(); return; }
+        if (!level().isClientSide() || !entityData.get(FEED_COOLDOWN_VISIBLE)) { super.tickEffects(); return; }
         for (var effect : new ArrayList<>(getActiveEffects())) {
-            boolean active = effect.tick(this, () -> onEffectUpdated(effect, true, null));
+            boolean active = onEffectUpdated(effect, true, null);
             if (active && effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null);
         }
         if (isInvisible() ? random.nextInt(15) == 0 : random.nextBoolean()) LegacyEffectParticles.emit(this, -1, 2);
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putString("Texture", texture());
-        tag.putInt("BuryAge", buryAge);
-        tag.putInt("FeedCooldown", feedCooldown);
-        tag.putDouble("BuryX", buryOrigin.x);
-        tag.putDouble("BuryY", buryOrigin.y);
-        tag.putDouble("BuryZ", buryOrigin.z);
-        tag.putString("BuryDimension", buryDimension);
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putString("Texture", texture());
+        output.putInt("BuryAge", buryAge);
+        output.putInt("FeedCooldown", feedCooldown);
+        output.putDouble("BuryX", buryOrigin.x);
+        output.putDouble("BuryY", buryOrigin.y);
+        output.putDouble("BuryZ", buryOrigin.z);
+        output.putString("BuryDimension", buryDimension);
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        buryAge = tag.contains("BuryAge") ? tag.getInt("BuryAge") : -1;
-        feedCooldown = Math.max(0, tag.getInt("FeedCooldown"));
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        buryAge = input.getString("BuryAge").isPresent() ? input.getIntOr("BuryAge", 0) : -1;
+        feedCooldown = Math.max(0, input.getIntOr("FeedCooldown", 0));
         entityData.set(FEED_COOLDOWN_VISIBLE, feedCooldown > 0);
-        buryOrigin = new net.minecraft.world.phys.Vec3(tag.getDouble("BuryX"), tag.getDouble("BuryY"), tag.getDouble("BuryZ"));
-        buryDimension = tag.getString("BuryDimension");
+        buryOrigin = new net.minecraft.world.phys.Vec3(input.getDoubleOr("BuryX", 0.0), input.getDoubleOr("BuryY", 0.0), input.getDoubleOr("BuryZ", 0.0));
+        buryDimension = input.getStringOr("BuryDimension", "");
         ThermalShockReforged.LOGGER.debug("Willograde state loaded: entity={}, buryAge={}, feedCooldown={}, animation=default", getUUID(), buryAge, feedCooldown);
     }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
         for (String name : new String[]{"walk", "idle", "rolling", "bury"}) procedure.triggerableAnim(name, RawAnimation.begin().thenPlay(name));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             return state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() && (isVehicle() || isAggressive()) ? "rolling" : !isVehicle() && !isAggressive() && (state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F) ? "walk" : "idle"));
         }));

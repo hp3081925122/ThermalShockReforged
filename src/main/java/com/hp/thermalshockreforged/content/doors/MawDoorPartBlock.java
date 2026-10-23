@@ -6,7 +6,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -87,16 +87,16 @@ public final class MawDoorPartBlock extends Block {
 
     @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) {
         super.onPlace(state, level, pos, previous, moving);
-        if (!level.isClientSide) level.scheduleTick(pos, this, 2);
+        if (!level.isClientSide()) level.scheduleTick(pos, this, 2);
     }
 
     @Override protected void tick(BlockState state, ServerLevel level, BlockPos pos, net.minecraft.util.RandomSource random) {
         if (main(level, pos, state) == null) level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
     }
 
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         BlockPos main = main(level, pos, state);
-        return main == null ? ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION : level.getBlockState(main).useItemOn(stack, level, player, hand, hit.withPosition(main));
+        return main == null ? InteractionResult.PASS : level.getBlockState(main).useItemOn(stack, level, player, hand, hit.withPosition(main));
     }
 
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
@@ -116,7 +116,7 @@ public final class MawDoorPartBlock extends Block {
 
     @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, net.minecraft.world.level.material.FluidState fluid) {
         BlockPos main = main(level, pos, state);
-        if (main == null || level.isClientSide) return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
+        if (main == null || level.isClientSide()) return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
         BlockState target = level.getBlockState(main);
         if (willHarvest && !player.isCreative()) Block.dropResources(target, level, main, level.getBlockEntity(main), player, player.getMainHandItem());
         boolean destroyed = level.destroyBlock(main, false, player);
@@ -125,7 +125,7 @@ public final class MawDoorPartBlock extends Block {
     }
 
     @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!level.isClientSide && !cleaning && !state.is(replacement.getBlock())) {
+        if (!level.isClientSide() && !cleaning && !state.is(replacement.getBlock())) {
             BlockPos main = main(level, pos, state);
             if (main != null) level.destroyBlock(main, true);
         }

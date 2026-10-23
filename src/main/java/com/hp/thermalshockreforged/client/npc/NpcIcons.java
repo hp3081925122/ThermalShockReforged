@@ -4,9 +4,9 @@ import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.HashMap;
 import java.util.Map;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
@@ -47,7 +47,7 @@ public final class NpcIcons {
         return CACHE.computeIfAbsent(texture, NpcIcons::resolve);
     }
 
-    public static boolean draw(GuiGraphics graphics, String texture, int x, int y, int width, int height) {
+    public static boolean draw(GuiGraphicsExtractor graphics, String texture, int x, int y, int width, int height) {
         ItemStack stack = stack(texture, width, height);
         if (stack.isEmpty()) return false;
         graphics.pose().pushPose();
@@ -58,7 +58,7 @@ public final class NpcIcons {
         return true;
     }
 
-    public static boolean tooltip(GuiGraphics graphics, Font font, String texture, int x, int y, int width, int height, int mouseX, int mouseY) {
+    public static boolean tooltip(GuiGraphicsExtractor graphics, Font font, String texture, int x, int y, int width, int height, int mouseX, int mouseY) {
         if (mouseX < x || mouseX >= x + width || mouseY < y || mouseY >= y + height) return false;
         ItemStack stack = stack(texture, width, height);
         if (stack.isEmpty()) return false;
@@ -68,9 +68,9 @@ public final class NpcIcons {
 
     private static ItemStack resolve(String texture) {
         String name = ALIASES.getOrDefault(texture, texture);
-        ResourceLocation id;
-        if (name.contains(":")) id = ResourceLocation.tryParse(name);
-        else id = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name);
+        Identifier id;
+        if (name.contains(":")) id = Identifier.tryParse(name);
+        else id = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name);
         var item = BuiltInRegistries.ITEM.get(id);
         if (item == Items.AIR) {
             ThermalShockReforged.LOGGER.debug("NPC icon {} has no matching item, keeping texture", texture);

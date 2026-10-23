@@ -24,7 +24,7 @@ public final class PylonActivationEntity extends Entity implements ServerEndTick
     public static boolean submit(ServerLevel level, Vec3 origin) {
         var task = SanctumContent.PYLON_ACTIVATION.get().create(level);
         if (task == null) return false;
-        task.anchor = origin; task.setPos(origin); task.dimension = level.dimension().location().toString();
+        task.anchor = origin; task.setPos(origin); task.dimension = level.dimension().identifier().toString();
         task.recipients = level.players().stream().map(Entity::getUUID).toList(); task.armed = true;
         return level.addFreshEntity(task);
     }
@@ -34,12 +34,12 @@ public final class PylonActivationEntity extends Entity implements ServerEndTick
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
-            if (!armed || phase >= 2 || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
+            if (!armed || phase >= 2 || !dimension.equals(server.dimension().identifier().toString())) { discard(); return; }
             setPos(anchor); ServerEndTickTasks.schedule(server, getUUID());
         }
     }
     @Override public void endTick(ServerLevel level) {
-        if (isRemoved() || !armed || phase >= 2 || !dimension.equals(level.dimension().location().toString())) return;
+        if (isRemoved() || !armed || phase >= 2 || !dimension.equals(level.dimension().identifier().toString())) return;
         if (--remaining > 0) { ServerEndTickTasks.schedule(level, getUUID()); return; }
         if (phase == 0) {
             phase = 1; remaining = 40;
@@ -55,17 +55,17 @@ public final class PylonActivationEntity extends Entity implements ServerEndTick
             discard();
         }
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        tag.putDouble("PylonAnchorX", anchor.x); tag.putDouble("PylonAnchorY", anchor.y); tag.putDouble("PylonAnchorZ", anchor.z);
-        tag.putString("PylonDimension", dimension); tag.putInt("PylonRemaining", remaining); tag.putInt("PylonPhase", phase); tag.putBoolean("PylonArmed", armed);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        output.putDouble("PylonAnchorX", anchor.x); output.putDouble("PylonAnchorY", anchor.y); output.putDouble("PylonAnchorZ", anchor.z);
+        output.putString("PylonDimension", dimension); output.putInt("PylonRemaining", remaining); output.putInt("PylonPhase", phase); output.putBoolean("PylonArmed", armed);
         var players = new ListTag();
         for (UUID id : recipients) { var entry = new CompoundTag(); entry.putUUID("Player", id); players.add(entry); }
         tag.put("PylonRecipients", players);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        anchor = new Vec3(tag.getDouble("PylonAnchorX"), tag.getDouble("PylonAnchorY"), tag.getDouble("PylonAnchorZ"));
-        dimension = tag.getString("PylonDimension"); phase = Math.clamp(tag.getInt("PylonPhase"), 0, 2);
-        remaining = Math.clamp(tag.getInt("PylonRemaining"), 1, phase == 0 ? 80 : 40); armed = tag.getBoolean("PylonArmed");
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        anchor = new Vec3(input.getDoubleOr("PylonAnchorX", 0.0), input.getDoubleOr("PylonAnchorY", 0.0), input.getDoubleOr("PylonAnchorZ", 0.0));
+        dimension = input.getStringOr("PylonDimension", ""); phase = Math.clamp(input.getIntOr("PylonPhase", 0), 0, 2);
+        remaining = Math.clamp(input.getIntOr("PylonRemaining", 0), 1, phase == 0 ? 80 : 40); armed = input.getBooleanOr("PylonArmed", false);
         var ids = new LinkedHashSet<UUID>(); var players = tag.getList("PylonRecipients", Tag.TAG_COMPOUND);
         if (phase == 0) for (int i = 0; i < players.size(); i++) { var entry = players.getCompound(i); if (entry.hasUUID("Player")) ids.add(entry.getUUID("Player")); }
         recipients = List.copyOf(ids);

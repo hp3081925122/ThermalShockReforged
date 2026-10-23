@@ -1,6 +1,13 @@
 package com.hp.thermalshockreforged.content;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Blocks;
@@ -50,9 +57,9 @@ public final class MaterialStairBlock extends StairBlock {
         return fireSpread < 0 ? super.getFireSpreadSpeed(state, level, position, face) : fireSpread;
     }
     @Override
-    public void appendHoverText(net.minecraft.world.item.ItemStack stack, net.minecraft.world.item.Item.TooltipContext context, java.util.List<net.minecraft.network.chat.Component> tooltip, net.minecraft.world.item.TooltipFlag flag) {
-        super.appendHoverText(stack, context, tooltip, flag);
-        descriptions.forEach(key -> tooltip.add(net.minecraft.network.chat.Component.translatable(key)));
+    public void appendHoverText(net.minecraft.world.item.ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        descriptions.forEach(key -> tooltipAdder.accept(net.minecraft.network.chat.Component.translatable(key)));
     }
 
 }

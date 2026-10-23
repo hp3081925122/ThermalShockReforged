@@ -1,11 +1,12 @@
 package com.hp.thermalshockreforged.entity.qo;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.EnumMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.*;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.*;
@@ -28,11 +29,11 @@ public final class QoContent {
     public static final DeferredItem<IceArtifactItem> ICE_ARTIFACT = ITEMS.register("ice_artifact", IceArtifactItem::new);
     public static final DeferredItem<UneasyAllianceBundleItem> ALLIANCE_BUNDLE = ITEMS.register("uneasy_alliance_loot_bundle", UneasyAllianceBundleItem::new);
     static {
-        ITEMS.register("defector_machinist_spawn_egg", () -> new DeferredSpawnEggItem(DEFECTOR_MACHINIST, -1, -1, new Item.Properties()));
+        ITEMS.register("defector_machinist_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(DEFECTOR_MACHINIST.get())));
         for (var page : QoPage.values()) PAGES.put(page, MENUS.register(page.id, () -> IMenuTypeExtension.create((id, inventory, data) -> new QoMenu(page, id, inventory, data.readVarInt(), data.readUUID(), data.readBlockPos(), data.readUtf()))));
     }
     private QoContent() { }
-    public static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
+    public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static MenuType<QoMenu> menu(QoPage page) { return PAGES.get(page).get(); }
     public static boolean open(ServerPlayer player, PathfinderMob npc, BlockPos anchor, QoPage page) {
         if (npc == null || !(npc instanceof DefectorMachinistEntity || npc instanceof com.hp.thermalshockreforged.entity.labmachinist.LabMachinistEntity) || !npc.isAlive() || npc.level() != player.level() || player.distanceToSqr(npc) > 64) return false;

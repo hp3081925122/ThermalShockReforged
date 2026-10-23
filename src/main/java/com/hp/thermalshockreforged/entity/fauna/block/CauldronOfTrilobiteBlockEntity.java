@@ -1,10 +1,13 @@
 package com.hp.thermalshockreforged.entity.fauna.block;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.entity.fauna.FaunaEntities;
-import software.bernie.geckolib.animatable.GeoBlockEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoBlockEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
@@ -31,18 +34,18 @@ public final class CauldronOfTrilobiteBlockEntity extends RandomizableContainerB
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        animationAge = Math.max(0, Math.min(40, tag.getInt("AnimationAge")));
+    protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
+        super.loadAdditional(input);
+        animationAge = Math.max(0, Math.min(40, input.getIntOr("AnimationAge", 0)));
         items = NonNullList.withSize(9, ItemStack.EMPTY);
-        if (!tryLoadLootTable(tag)) ContainerHelper.loadAllItems(tag, items, registries);
+        if (!tryLoadLootTable(input)) ContainerHelper.loadAllItems(input, items);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        tag.putInt("AnimationAge", animationAge);
-        if (!trySaveLootTable(tag)) ContainerHelper.saveAllItems(tag, items, registries);
+    protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput output) {
+        super.saveAdditional(output);
+        output.putInt("AnimationAge", animationAge);
+        if (!trySaveLootTable(output)) ContainerHelper.saveAllItems(output, items);
     }
 
     @Override
@@ -89,11 +92,11 @@ public final class CauldronOfTrilobiteBlockEntity extends RandomizableContainerB
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "controller", 0, state -> getBlockState().getValue(CauldronOfTrilobiteBlock.ANIMATION) == 0 ? state.setAndContinue(RawAnimation.begin().thenLoop("0")) : PlayState.STOP));
-        controllers.add(new AnimationController<>(this, "procedurecontroller", 0, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "controller", 0, state -> getBlockState().getValue(CauldronOfTrilobiteBlock.ANIMATION) == 0 ? state.setAndContinue(RawAnimation.begin().thenLoop("0")) : PlayState.STOP));
+        controllers.add(new LegacyAnimationController<>(this, "procedurecontroller", 0, state -> {
             if (getBlockState().getValue(CauldronOfTrilobiteBlock.ANIMATION) == 0) return PlayState.STOP;
-            if (state.isCurrentAnimation(RawAnimation.begin().thenPlay("1")) && state.getController().getAnimationState() == AnimationController.State.STOPPED) {
-                if (level != null && !level.isClientSide) level.setBlock(worldPosition, getBlockState().setValue(CauldronOfTrilobiteBlock.ANIMATION, 0), 3);
+            if (state.isCurrentAnimation(RawAnimation.begin().thenPlay("1")) && state.getController().getAnimationState() == LegacyAnimationController.State.STOPPED) {
+                if (level != null && !level.isClientSide()) level.setBlock(worldPosition, getBlockState().setValue(CauldronOfTrilobiteBlock.ANIMATION, 0), 3);
                 return PlayState.STOP;
             }
             return state.setAndContinue(RawAnimation.begin().thenPlay("1"));

@@ -6,14 +6,14 @@ import java.util.Map;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.crafting.Ingredient;
+import com.hp.thermalshockreforged.content.armor.ArmorMaterialFactory;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.registries.*;
@@ -24,9 +24,7 @@ public final class RemainingCombatContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<net.minecraft.core.particles.ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<net.minecraft.world.effect.MobEffect> EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, ThermalShockReforged.MOD_ID);
-    public static final DeferredHolder<ArmorMaterial, ArmorMaterial> ANTENNAE_MATERIAL = MATERIALS.register("chorusian_antennae", () -> new ArmorMaterial(
-            Map.of(ArmorItem.Type.HELMET, 2), 9, Holder.direct(SoundEvents.AMETHYST_BLOCK_PLACE), () -> Ingredient.EMPTY,
-            List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "chorusian_antennae"))), 0, 0));
+    public static final DeferredHolder<ArmorMaterial, ArmorMaterial> ANTENNAE_MATERIAL = MATERIALS.register("chorusian_antennae", () -> ArmorMaterialFactory.create(Map.of(ArmorType.HELMET, 2), 9, Holder.direct(SoundEvents.AMETHYST_BLOCK_PLACE), 0, 0, "chorusian_antennae", "chorusian_antennae"));
     public static final DeferredItem<ChorusianAntennaeItem> ANTENNAE = ITEMS.register("chorusian_antennae_helmet", ChorusianAntennaeItem::new);
     public static final DeferredItem<ClawSickleItem> CLAW_SICKLE = ITEMS.register("claw_sickle", ClawSickleItem::new);
     public static final DeferredItem<BombItem> FLOWER_BOMB = ITEMS.register("flower_bomb", () -> new BombItem(false));

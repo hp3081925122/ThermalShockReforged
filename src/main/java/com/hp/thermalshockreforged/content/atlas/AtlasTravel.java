@@ -31,7 +31,7 @@ final class AtlasTravel {
         var point = AtlasCoordinates.get(player, destination);
         player.closeContainer();
         player.teleportTo(target, point.x, point.y, point.z, player.getYRot(), player.getXRot());
-        if (player.serverLevel() != target) {
+        if (((net.minecraft.server.level.ServerLevel) player.level()) != target) {
             ThermalShockReforged.LOGGER.debug("Atlas travel was cancelled: player={}, source={}, destination={}", player.getUUID(), source.location(), destination.location());
             return false;
         }

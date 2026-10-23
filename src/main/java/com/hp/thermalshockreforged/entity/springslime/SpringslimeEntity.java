@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.springslime;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.nbt.CompoundTag;
@@ -10,10 +13,10 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class SpringslimeEntity extends PathfinderMob implements GeoEntity {
     private static final EntityDataAccessor<Boolean> POPPED = SynchedEntityData.defineId(SpringslimeEntity.class, EntityDataSerializers.BOOLEAN);
@@ -24,14 +27,14 @@ public final class SpringslimeEntity extends PathfinderMob implements GeoEntity 
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(POPPED, false); builder.define(TEXTURE, "new_splat"); }
     @Override protected void registerGoals() { }
     public String texture() { return entityData.get(TEXTURE); }
-    @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.FALL) && super.hurt(source, amount); }
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.FALL) && super.hurtServer(level, source, amount); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.SLIME_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.SLIME_DEATH; }
     @Override protected void tickDeath() { if (++deathTime >= 15) remove(RemovalReason.KILLED); }
     @Override public void playerTouch(Player player) {
         super.playerTouch(player);
         if (!isAlive()) return;
-        if (level().isClientSide) { if (player.isLocalPlayer()) { player.setDeltaMovement(0, 1.4, 0); triggerAnim("procedure", "2"); } return; }
+        if (level().isClientSide()) { if (player.isLocalPlayer()) { player.setDeltaMovement(0, 1.4, 0); triggerAnim("procedure", "2"); } return; }
         if (!(level() instanceof ServerLevel server)) return;
         if (!entityData.get(POPPED)) {
             if (!SpringFadeEntity.submit(server, this)) return;
@@ -42,11 +45,11 @@ public final class SpringslimeEntity extends PathfinderMob implements GeoEntity 
         player.setDeltaMovement(0, 1.4, 0); player.hurtMarked = true;
         server.playSound(null, blockPosition(), SoundEvents.SLIME_SQUISH, SoundSource.NEUTRAL, 1, 1);
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putBoolean("SpringPopped", entityData.get(POPPED)); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains("Texture")) entityData.set(TEXTURE, tag.getString("Texture")); entityData.set(POPPED, tag.getBoolean("SpringPopped")); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putBoolean("SpringPopped", entityData.get(POPPED)); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", "")); entityData.set(POPPED, input.getBooleanOr("SpringPopped", false)); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("2", RawAnimation.begin().thenPlay("2"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : isDeadOrDying() ? state.setAndContinue(RawAnimation.begin().thenPlay("2")) : state.setAndContinue(RawAnimation.begin().thenLoop("1"))));
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("2", RawAnimation.begin().thenPlay("2"));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : isDeadOrDying() ? state.setAndContinue(RawAnimation.begin().thenPlay("2")) : state.setAndContinue(RawAnimation.begin().thenLoop("1"))));
         controllers.add(procedure);
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }

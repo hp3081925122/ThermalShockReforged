@@ -71,8 +71,8 @@ public final class VolcanoSparkEntity extends Entity implements ServerEndTickTas
         if (pending.isEmpty()) discard();
         else ServerEndTickTasks.schedule(level, getUUID());
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (source != null) tag.putUUID("VolcanoSource", source);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (source != null) output.putString("VolcanoSource", source.toString());
         ListTag sparks = new ListTag();
         for (PendingSpark spark : pending) {
             CompoundTag value = new CompoundTag();
@@ -81,8 +81,8 @@ public final class VolcanoSparkEntity extends Entity implements ServerEndTickTas
         }
         tag.put("PendingSparks", sparks);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        source = tag.hasUUID("VolcanoSource") ? tag.getUUID("VolcanoSource") : null;
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        source = input.getString("VolcanoSource").map(java.util.UUID::fromString).orElse(null);
         pending.clear();
         ListTag sparks = tag.getList("PendingSparks", Tag.TAG_COMPOUND);
         for (int i = 0; i < Math.min(3, sparks.size()); i++) {

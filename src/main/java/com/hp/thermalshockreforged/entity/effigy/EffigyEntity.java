@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.UUID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.world.damagesource.DamageSource;
@@ -21,7 +21,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 public final class EffigyEntity extends AnimatedMonsterEntity {
-    private static final ResourceLocation MOVEMENT_LOCK = ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "effigy_movement_lock");
+    private static final Identifier MOVEMENT_LOCK = Identifier.fromNamespaceAndPath("thermal_shock_reforged", "effigy_movement_lock");
     private int cooldown;
     private int movementLock;
     private boolean submitting;
@@ -50,7 +50,7 @@ public final class EffigyEntity extends AnimatedMonsterEntity {
             server.playSound(null, victim.blockPosition(), SoundEvents.GRINDSTONE_USE, SoundSource.HOSTILE, 1, 1);
         } finally { submitting = false; }
     }
-    @Override public void baseTick() { super.baseTick(); if (!level().isClientSide) { if (cooldown > 0) --cooldown; if (movementLock > 0) --movementLock; synchronizeMovement(); } }
+    @Override public void baseTick() { super.baseTick(); if (!level().isClientSide()) { if (cooldown > 0) --cooldown; if (movementLock > 0) --movementLock; synchronizeMovement(); } }
     private void synchronizeMovement() {
         var speed = getAttribute(Attributes.MOVEMENT_SPEED);
         if (movementLock > 0) { if (!speed.hasModifier(MOVEMENT_LOCK)) speed.addTransientModifier(new AttributeModifier(MOVEMENT_LOCK, -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)); }
@@ -58,11 +58,11 @@ public final class EffigyEntity extends AnimatedMonsterEntity {
     }
     void trackStrike(UUID task) { activeStrikes.add(task); }
     void forgetStrike(UUID task) { activeStrikes.remove(task); }
-    @Override public boolean removeAllEffects() { boolean result = super.removeAllEffects(); if (!level().isClientSide && (cooldown > 0 || movementLock > 0)) { cooldown = 0; movementLock = 0; synchronizeMovement(); return true; } return result; }
+    @Override public boolean removeAllEffects() { boolean result = super.removeAllEffects(); if (!level().isClientSide() && (cooldown > 0 || movementLock > 0)) { cooldown = 0; movementLock = 0; synchronizeMovement(); return true; } return result; }
     @Override public void remove(RemovalReason reason) { if (level() instanceof ServerLevel server) for (UUID id : activeStrikes) if (server.getEntity(id) instanceof EffigyStrikeEntity task) task.release(this, reason); super.remove(reason); }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.COPPER_STEP, .15F, 1); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.CHAIN_BREAK; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.CHAIN_BREAK; }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putInt("EffigyCooldown", cooldown); tag.putInt("EffigyMovementLock", movementLock); var strikes = new CompoundTag(); for (UUID id : activeStrikes) strikes.putUUID(id.toString(), id); tag.put("EffigyActiveStrikes", strikes); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); cooldown = Math.clamp(tag.getInt("EffigyCooldown"), 0, 40); movementLock = Math.clamp(tag.getInt("EffigyMovementLock"), 0, 25); activeStrikes.clear(); var strikes = tag.getCompound("EffigyActiveStrikes"); for (String key : strikes.getAllKeys()) if (strikes.hasUUID(key)) activeStrikes.add(strikes.getUUID(key)); synchronizeMovement(); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putInt("EffigyCooldown", cooldown); output.putInt("EffigyMovementLock", movementLock); output.putString("EffigyActiveStrikes", activeStrikes.stream().map(UUID::toString).collect(java.util.stream.Collectors.joining(","))); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); cooldown = Math.clamp(input.getIntOr("EffigyCooldown", 0), 0, 40); movementLock = Math.clamp(input.getIntOr("EffigyMovementLock", 0), 0, 25); activeStrikes.clear(); for (String value : input.getStringOr("EffigyActiveStrikes", "").split(",")) if (!value.isEmpty()) activeStrikes.add(UUID.fromString(value)); synchronizeMovement(); }
 }

@@ -3,7 +3,7 @@ package com.hp.thermalshockreforged.content.armor;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.List;
 import java.util.ArrayList;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -26,17 +26,17 @@ import net.neoforged.neoforge.registries.DeferredItem;
 
 final class ArmorSetEvents {
     private static final String REMAINING = "thermal_shock_reforged_carborundum_gravity_ticks";
-    private static final ResourceLocation GRAVITY = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "carborundum_set_gravity");
-    private static final ResourceLocation AQERON = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "aqeron");
-    private static final ResourceLocation ADVANCEMENT = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "carborundum_get");
-    private static final TagKey<Item> ZENITH = ItemTags.create(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "zenith"));
-    private static final TagKey<Item> RUBY_WEAPONS = ItemTags.create(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "ruby"));
-    private static final TagKey<Item> WEAPONS = ItemTags.create(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "weapon"));
-    private static final ResourceLocation ZENITH_ADVANCEMENT = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "zenith_get");
+    private static final Identifier GRAVITY = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "carborundum_set_gravity");
+    private static final Identifier AQERON = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "aqeron");
+    private static final Identifier ADVANCEMENT = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "carborundum_get");
+    private static final TagKey<Item> ZENITH = ItemTags.create(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "zenith"));
+    private static final TagKey<Item> RUBY_WEAPONS = ItemTags.create(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "ruby"));
+    private static final TagKey<Item> WEAPONS = ItemTags.create(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "weapon"));
+    private static final Identifier ZENITH_ADVANCEMENT = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "zenith_get");
 
     static void tick(PlayerTickEvent.Post event) {
         Player player = event.getEntity();
-        if (player.level().isClientSide) return;
+        if (player.level().isClientSide()) return;
         if (!player.isAlive()) {
             clear(player);
             return;
@@ -55,9 +55,9 @@ final class ArmorSetEvents {
         }
         if (eligible && wearing(player, ArmorContent.BLOOD)) {
             player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20, 0, false, false));
-            if (player.getMainHandItem().is(WEAPONS)) player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 1, false, false));
+            if (player.getMainHandItem().is(WEAPONS)) player.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 20, 1, false, false));
         }
-        boolean carbon = eligible && wearing(player, ArmorContent.CARBORUNDUM) && !player.level().dimension().location().equals(AQERON);
+        boolean carbon = eligible && wearing(player, ArmorContent.CARBORUNDUM) && !player.level().dimension().identifier().equals(AQERON);
         int remaining = carbon ? 10 : Math.max(0, player.getPersistentData().getInt(REMAINING) - 1);
         var gravity = player.getAttribute(Attributes.GRAVITY);
         if (remaining > 0) {
@@ -69,7 +69,7 @@ final class ArmorSetEvents {
         if (carbon) award(player, ADVANCEMENT);
     }
 
-    private static void award(Player player, ResourceLocation id) {
+    private static void award(Player player, Identifier id) {
         if (player instanceof ServerPlayer serverPlayer) {
             var advancement = serverPlayer.server.getAdvancements().get(id);
             if (advancement != null) {
@@ -122,8 +122,8 @@ final class ArmorSetEvents {
     }
 
     static void death(LivingDeathEvent event) {
-        if (event.getEntity() instanceof Player player && !player.level().isClientSide) clear(player);
-        if (!event.getEntity().level().isClientSide && event.getSource().getEntity() instanceof Player attacker
+        if (event.getEntity() instanceof Player player && !player.level().isClientSide()) clear(player);
+        if (!event.getEntity().level().isClientSide() && event.getSource().getEntity() instanceof Player attacker
                 && wearing(attacker, ArmorContent.RUBY_ZENITH) && attacker.getMainHandItem().is(RUBY_WEAPONS)) {
             attacker.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 60, 1));
             event.getEntity().level().playSound(null, event.getEntity().blockPosition(), SoundEvents.GLOW_ITEM_FRAME_ADD_ITEM,

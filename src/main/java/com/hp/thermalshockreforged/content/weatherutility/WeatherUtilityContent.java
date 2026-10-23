@@ -2,7 +2,7 @@ package com.hp.thermalshockreforged.content.weatherutility;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -21,7 +21,7 @@ public final class WeatherUtilityContent {
     public static final DeferredHolder<EntityType<?>, EntityType<PurifierPulseEntity>> PURIFIER_PULSE = ENTITIES.register("purifier_pulse", () -> EntityType.Builder.of(PurifierPulseEntity::new, MobCategory.MISC).noSummon().fireImmune().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(id("purifier_pulse").toString()));
     static { ITEMS.registerSimpleBlockItem(RAIN_DRUM); ITEMS.registerSimpleBlockItem(PURIFIER); }
     private WeatherUtilityContent() { }
-    public static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
+    public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static void register(IEventBus bus) { BLOCKS.register(bus); ITEMS.register(bus); BLOCK_ENTITIES.register(bus); ENTITIES.register(bus); }
     static void award(ServerPlayer player, String path) {
         var advancement = player.server.getAdvancements().get(id(path));

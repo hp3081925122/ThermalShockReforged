@@ -3,7 +3,7 @@ package com.hp.thermalshockreforged.entity.electricsphere;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.particles.*;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
@@ -22,7 +22,7 @@ public final class ElectricSphereContent {
     public static final DeferredBlock<Block> CONSTRUCTOR = BLOCKS.register("electric_sphere_constructor", ElectricSphereConstructorBlock::new);
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> ELECTRIC_GLOW = PARTICLES.register("electric_glow", () -> new SimpleParticleType(true));
     static { ITEMS.register("electric_sphere_constructor", () -> new BlockItem(CONSTRUCTOR.get(), new Item.Properties())); }
-    public static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
+    public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static void register(IEventBus bus) { TYPES.register(bus); BLOCKS.register(bus); ITEMS.register(bus); PARTICLES.register(bus); bus.addListener(ElectricSphereContent::attributes); NeoForge.EVENT_BUS.addListener(EventPriority.LOWEST, ElectricSphereContent::damage); }
     private static void attributes(EntityAttributeCreationEvent event) { event.put(ELECTRIC_SPHERE.get(), ElectricSphereEntity.attributes().build()); }
     private static void damage(LivingDamageEvent.Pre event) { if (event.getEntity() instanceof ElectricSphereEntity sphere && Float.isFinite(event.getNewDamage()) && event.getNewDamage() > sphere.getAbsorptionAmount()) sphere.rebound(event.getSource().getEntity()); }

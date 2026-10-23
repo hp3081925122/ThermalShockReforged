@@ -20,7 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public final class SoldierComboEntity extends Entity implements ServerEndTickTask {
-    private static final ResourceKey<DamageType> ERRANT = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_damage"));
+    private static final ResourceKey<DamageType> ERRANT = ResourceKey.create(Registries.DAMAGE_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_damage"));
     private UUID caster;
     private UUID target;
     private Vec3 casterPosition = Vec3.ZERO;
@@ -35,7 +35,7 @@ public final class SoldierComboEntity extends Entity implements ServerEndTickTas
         if (elapsed >= 22) return true;
         var task = IceContent.SOLDIER_COMBO.get().create(level);
         if (task == null) return false;
-        task.caster = owner.getUUID(); task.target = target; task.soundOrigin = BlockPos.containing(origin); task.dimension = level.dimension().location().toString();
+        task.caster = owner.getUUID(); task.target = target; task.soundOrigin = BlockPos.containing(origin); task.dimension = level.dimension().identifier().toString();
         task.phase = elapsed < 11 ? 0 : elapsed < 16 ? 1 : 2;
         task.remaining = (task.phase == 0 ? 11 : task.phase == 1 ? 16 : 22) - Math.max(0, elapsed);
         task.capture(owner); task.setPos(owner.position());
@@ -52,13 +52,13 @@ public final class SoldierComboEntity extends Entity implements ServerEndTickTas
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
-            if (caster == null || phase >= 3 || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
+            if (caster == null || phase >= 3 || !dimension.equals(server.dimension().identifier().toString())) { discard(); return; }
             if (server.getEntity(caster) instanceof IceCreatureEntity owner) { capture(owner); setPos(owner.position()); }
             ServerEndTickTasks.schedule(server, getUUID());
         }
     }
     @Override public void endTick(ServerLevel level) {
-        if (isRemoved() || caster == null || phase >= 3 || !dimension.equals(level.dimension().location().toString())) return;
+        if (isRemoved() || caster == null || phase >= 3 || !dimension.equals(level.dimension().identifier().toString())) return;
         if (--remaining > 0) { ServerEndTickTasks.schedule(level, getUUID()); return; }
         IceCreatureEntity owner = level.getEntity(caster) instanceof IceCreatureEntity ice ? ice : null;
         if (owner == null) for (ServerLevel other : level.getServer().getAllLevels()) {
@@ -87,21 +87,21 @@ public final class SoldierComboEntity extends Entity implements ServerEndTickTas
         if (Double.isFinite(amount) && amount > 0) victim.hurt(new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ERRANT)), (float)Math.min(amount, Float.MAX_VALUE));
     }
     private void sound(ServerLevel level, SoundEvent sound, float volume, float pitch) { level.playSound(null, soundOrigin, sound, SoundSource.HOSTILE, volume, pitch); }
-    private static SoundEvent custom(String name) { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name)); }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (caster != null) tag.putUUID("SoldierCaster", caster); if (target != null) tag.putUUID("SoldierTarget", target);
-        tag.putDouble("SoldierX", casterPosition.x); tag.putDouble("SoldierY", casterPosition.y); tag.putDouble("SoldierZ", casterPosition.z);
-        tag.putDouble("SoldierLookX", look.x); tag.putDouble("SoldierLookY", look.y); tag.putDouble("SoldierLookZ", look.z);
-        tag.putLong("SoldierSoundOrigin", soundOrigin.asLong()); tag.putString("SoldierDimension", dimension); tag.putDouble("SoldierDamage", damage);
-        tag.putInt("SoldierPhase", phase); tag.putInt("SoldierRemaining", remaining);
+    private static SoundEvent custom(String name) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name)); }
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (caster != null) output.putString("SoldierCaster", caster.toString()); if (target != null) output.putString("SoldierTarget", target.toString());
+        output.putDouble("SoldierX", casterPosition.x); output.putDouble("SoldierY", casterPosition.y); output.putDouble("SoldierZ", casterPosition.z);
+        output.putDouble("SoldierLookX", look.x); output.putDouble("SoldierLookY", look.y); output.putDouble("SoldierLookZ", look.z);
+        output.putLong("SoldierSoundOrigin", soundOrigin.asLong()); output.putString("SoldierDimension", dimension); output.putDouble("SoldierDamage", damage);
+        output.putInt("SoldierPhase", phase); output.putInt("SoldierRemaining", remaining);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        caster = tag.hasUUID("SoldierCaster") ? tag.getUUID("SoldierCaster") : null; target = tag.hasUUID("SoldierTarget") ? tag.getUUID("SoldierTarget") : null;
-        casterPosition = new Vec3(tag.getDouble("SoldierX"), tag.getDouble("SoldierY"), tag.getDouble("SoldierZ"));
-        look = new Vec3(tag.getDouble("SoldierLookX"), tag.getDouble("SoldierLookY"), tag.getDouble("SoldierLookZ"));
-        soundOrigin = BlockPos.of(tag.getLong("SoldierSoundOrigin")); dimension = tag.getString("SoldierDimension");
-        double value = tag.getDouble("SoldierDamage"); damage = Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0;
-        phase = Math.clamp(tag.getInt("SoldierPhase"), 0, 3); remaining = Math.clamp(tag.getInt("SoldierRemaining"), 1, phase == 0 ? 11 : phase == 1 ? 5 : 6);
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        caster = input.getString("SoldierCaster").map(java.util.UUID::fromString).orElse(null); target = input.getString("SoldierTarget").map(java.util.UUID::fromString).orElse(null);
+        casterPosition = new Vec3(input.getDoubleOr("SoldierX", 0.0), input.getDoubleOr("SoldierY", 0.0), input.getDoubleOr("SoldierZ", 0.0));
+        look = new Vec3(input.getDoubleOr("SoldierLookX", 0.0), input.getDoubleOr("SoldierLookY", 0.0), input.getDoubleOr("SoldierLookZ", 0.0));
+        soundOrigin = BlockPos.of(input.getLongOr("SoldierSoundOrigin", 0L)); dimension = input.getStringOr("SoldierDimension", "");
+        double value = input.getDoubleOr("SoldierDamage", 0.0); damage = Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0;
+        phase = Math.clamp(input.getIntOr("SoldierPhase", 0), 0, 3); remaining = Math.clamp(input.getIntOr("SoldierRemaining", 0), 1, phase == 0 ? 11 : phase == 1 ? 5 : 6);
         if (!finite(casterPosition) || !finite(look)) phase = 3;
     }
     private static boolean finite(Vec3 value) { return Double.isFinite(value.x) && Double.isFinite(value.y) && Double.isFinite(value.z); }

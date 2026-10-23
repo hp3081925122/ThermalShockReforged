@@ -1,7 +1,10 @@
 package com.hp.thermalshockreforged.entity.sanctum;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import net.minecraft.commands.arguments.EntityAnchorArgument;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.UUID;
@@ -23,10 +26,10 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class FrostilyteGunnerEntity extends Monster implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(FrostilyteGunnerEntity.class, EntityDataSerializers.STRING);
@@ -41,7 +44,7 @@ public final class FrostilyteGunnerEntity extends Monster implements GeoEntity {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 32).add(Attributes.ARMOR, 8).add(Attributes.ATTACK_DAMAGE, 5)
                 .add(Attributes.MOVEMENT_SPEED, .25).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.ATTACK_KNOCKBACK, .2).add(Attributes.STEP_HEIGHT, .6);
     }
-    private static final ResourceLocation MOVEMENT_LOCK = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "gunner_movement_lock");
+    private static final Identifier MOVEMENT_LOCK = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "gunner_movement_lock");
     public void beginAttack(LivingEntity victim) {
         if (!(level() instanceof ServerLevel server) || !isAlive() || victim == this || cooldown > 0 || victim.level() != level()) return;
         if (!GunnerVolleyEntity.submit(server, this, victim)) {
@@ -57,7 +60,7 @@ public final class FrostilyteGunnerEntity extends Monster implements GeoEntity {
     }
     @Override public void baseTick() {
         super.baseTick();
-        if (level().isClientSide) return;
+        if (level().isClientSide()) return;
         if (cooldown > 0) cooldown--;
         if (movementLock > 0) movementLock--;
         syncMovementLock();
@@ -92,36 +95,36 @@ public final class FrostilyteGunnerEntity extends Monster implements GeoEntity {
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.STRAY_STEP, .15F, 1); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.STRAY_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.STRAY_DEATH; }
-    @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.DROWN) && super.hurt(source, amount); }
-    @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.DROWN) && super.hurtServer(level, source, amount); }
+    @Override protected void dropExperience(net.minecraft.server.level.ServerLevel level, Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
         if (++deathTime >= 20 && !isRemoved()) {
             remove(RemovalReason.KILLED);
             if (experiencePending && level() instanceof ServerLevel server) {
                 experiencePending = false;
-                super.dropExperience(experienceAttacker == null ? null : server.getEntity(experienceAttacker));
+                super.dropExperience(server, experienceAttacker == null ? null : server.getEntity(experienceAttacker));
             }
         }
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putInt("GunnerCooldown", cooldown); tag.putInt("GunnerMovementLock", movementLock);
-        tag.putBoolean("GunnerExperiencePending", experiencePending);
-        if (experienceAttacker != null) tag.putUUID("GunnerExperienceAttacker", experienceAttacker);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putInt("GunnerCooldown", cooldown); output.putInt("GunnerMovementLock", movementLock);
+        output.putBoolean("GunnerExperiencePending", experiencePending);
+        if (experienceAttacker != null) output.putString("GunnerExperienceAttacker", experienceAttacker.toString());
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
         if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
-        if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        cooldown = Math.clamp(tag.getInt("GunnerCooldown"), 0, 60);
-        movementLock = Math.clamp(tag.getInt("GunnerMovementLock"), 0, 29);
-        if (!level().isClientSide) syncMovementLock();
-        experiencePending = tag.getBoolean("GunnerExperiencePending");
-        experienceAttacker = tag.hasUUID("GunnerExperienceAttacker") ? tag.getUUID("GunnerExperienceAttacker") : null;
+        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        cooldown = Math.clamp(input.getIntOr("GunnerCooldown", 0), 0, 60);
+        movementLock = Math.clamp(input.getIntOr("GunnerMovementLock", 0), 0, 29);
+        if (!level().isClientSide()) syncMovementLock();
+        experiencePending = input.getBooleanOr("GunnerExperiencePending", false);
+        experienceAttacker = input.getString("GunnerExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
         for (String clip : java.util.List.of("attack", "idle", "walk", "aggro")) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             if ((state.isMoving() || state.getLimbSwingAmount() <= -.15F || state.getLimbSwingAmount() >= .15F) && !isAggressive()) return state.setAndContinue(RawAnimation.begin().thenLoop("walk"));
             if (isAggressive() && state.isMoving()) return state.setAndContinue(RawAnimation.begin().thenLoop("aggro"));

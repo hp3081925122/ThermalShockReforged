@@ -1,13 +1,14 @@
 package com.hp.thermalshockreforged.client.ambient;
+import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
 
 import com.hp.thermalshockreforged.client.vfx.VfxManager;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
-final class PrismaticBoomParticle extends TextureSheetParticle {
-    private static final ResourceLocation EFFECT = ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "purpleexplode");
+final class PrismaticBoomParticle extends LegacySingleQuadParticle {
+    private static final Identifier EFFECT = Identifier.fromNamespaceAndPath("thermal_shock_reforged", "purpleexplode");
 
     private PrismaticBoomParticle(ClientLevel level, double x, double y, double z, double dx, double dy, double dz, SpriteSet sprites) {
         super(level, x, y, z);
@@ -22,7 +23,7 @@ final class PrismaticBoomParticle extends TextureSheetParticle {
     }
 
     @Override
-    public ParticleRenderType getRenderType() { return ParticleRenderType.PARTICLE_SHEET_OPAQUE; }
+    public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
 
     @Override
     public void tick() {
@@ -34,6 +35,6 @@ final class PrismaticBoomParticle extends TextureSheetParticle {
         private final SpriteSet sprites;
         Provider(SpriteSet sprites) { this.sprites = sprites; }
         @Override
-        public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) { return new PrismaticBoomParticle(level, x, y, z, dx, dy, dz, sprites); }
+        public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz, net.minecraft.util.RandomSource random) { return new PrismaticBoomParticle(level, x, y, z, dx, dy, dz, sprites); }
     }
 }

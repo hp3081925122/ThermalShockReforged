@@ -1,4 +1,10 @@
 package com.hp.thermalshockreforged.content.weapons;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
@@ -7,19 +13,19 @@ import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.GeoItem;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
+import com.geckolib.animatable.GeoItem;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
 
 public final class CoreEjectFlareGunItem extends Item implements GeoItem {
     private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
@@ -33,9 +39,9 @@ public final class CoreEjectFlareGunItem extends Item implements GeoItem {
         if (wielder instanceof Player player) fire(player, stack, false);
         return false;
     }
-    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+    @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var result = super.use(level, player, hand);
-        fire(player, result.getObject(), true);
+        fire(player, player.getItemInHand(hand), true);
         return result;
     }
     private void fire(Player player, ItemStack stack, boolean alternate) {
@@ -47,10 +53,10 @@ public final class CoreEjectFlareGunItem extends Item implements GeoItem {
         }
         player.getCooldowns().addCooldown(this, alternate ? 35 : 25);
         triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", alternate ? "2" : "1");
-        server.playSound(null, player.blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, alternate ? "flarealtshoot" : "flareshoot")), SoundSource.NEUTRAL, 1, 1);
+        server.playSound(null, player.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, alternate ? "flarealtshoot" : "flareshoot")), SoundSource.NEUTRAL, 1, 1);
         if (alternate) {
             server.playSound(null, player.blockPosition(), SoundEvents.BELL_BLOCK, SoundSource.NEUTRAL, .7F, -2);
-            var core = WeaponContent.FLARE_GUN_CORE.get().spawn(server, BlockPos.containing(player.getX(), player.getY() + 1.5, player.getZ()), MobSpawnType.MOB_SUMMONED);
+            var core = WeaponContent.FLARE_GUN_CORE.get().spawn(server, BlockPos.containing(player.getX(), player.getY() + 1.5, player.getZ()), EntitySpawnReason.MOB_SUMMONED);
             if (core != null) {
                 var look = player.getLookAngle();
                 core.setDeltaMovement(look.x, look.y + .25, look.z);
@@ -68,17 +74,17 @@ public final class CoreEjectFlareGunItem extends Item implements GeoItem {
         if (level instanceof ServerLevel server) GeoItem.getOrAssignId(stack, server);
         if (selected && entity instanceof LivingEntity living) HeldWeaponState.refreshNoMelee(living);
     }
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        for (int line = 0; line < 6; line++) lines.add(Component.translatable("item.thermal_shock_reforged.core_eject_flare_gun.description_" + line));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        for (int line = 0; line < 6; line++) tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.core_eject_flare_gun.description_" + line));
     }
     public void pruneAnimations() { animations.prune(); }
     public void clearAnimations() { animations.clear(); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 0, state -> PlayState.STOP);
+        var procedure = new LegacyAnimationController<>(this, "procedure", 0, state -> PlayState.STOP);
         procedure.triggerableAnim("1", RawAnimation.begin().thenPlay("1")).triggerableAnim("2", RawAnimation.begin().thenPlay("2"));
         controllers.add(procedure);
-        controllers.add(new AnimationController<>(this, "idle", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
+        controllers.add(new LegacyAnimationController<>(this, "idle", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
 }

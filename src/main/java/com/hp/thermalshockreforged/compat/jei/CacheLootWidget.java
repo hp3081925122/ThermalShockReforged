@@ -8,7 +8,7 @@ import mezz.jei.api.gui.inputs.IJeiUserInput;
 import mezz.jei.api.gui.inputs.RecipeSlotUnderMouse;
 import mezz.jei.api.gui.widgets.ISlottedRecipeWidget;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.navigation.ScreenPosition;
 import net.minecraft.client.gui.navigation.ScreenRectangle;
 import net.minecraft.util.Mth;
@@ -41,7 +41,7 @@ public final class CacheLootWidget implements ISlottedRecipeWidget, IJeiInputHan
     @Override public ScreenRectangle getArea() { return new ScreenRectangle(0, 0, WIDTH, height()); }
 
     @Override
-    public void drawWidget(GuiGraphics graphics, double mouseX, double mouseY) {
+    public void drawWidget(GuiGraphicsExtractor graphics, double mouseX, double mouseY) {
         var font = Minecraft.getInstance().font;
         for (int visible = 0; visible < VISIBLE_ROWS; visible++) {
             int index = firstRow + visible;

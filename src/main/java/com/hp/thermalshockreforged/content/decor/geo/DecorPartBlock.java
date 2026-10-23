@@ -7,7 +7,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -112,7 +112,7 @@ public final class DecorPartBlock extends Block implements SimpleWaterloggedBloc
     @Override
     protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) {
         super.onPlace(state, level, pos, previous, moving);
-        if (!level.isClientSide) level.scheduleTick(pos, this, 2);
+        if (!level.isClientSide()) level.scheduleTick(pos, this, 2);
     }
 
     @Override
@@ -124,9 +124,9 @@ public final class DecorPartBlock extends Block implements SimpleWaterloggedBloc
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         var main = main(level, pos, state);
-        if (main == null) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        if (main == null) return InteractionResult.PASS;
         return level.getBlockState(main).useItemOn(stack, level, player, hand, hit.withPosition(main));
     }
 
@@ -160,7 +160,7 @@ public final class DecorPartBlock extends Block implements SimpleWaterloggedBloc
     @Override
     public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
         var main = main(level, pos, state);
-        if (main == null || level.isClientSide) return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
+        if (main == null || level.isClientSide()) return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
         var target = level.getBlockState(main);
         if (willHarvest && !player.isCreative()) Block.dropResources(target, level, main, level.getBlockEntity(main), player, player.getMainHandItem());
         ThermalShockReforged.LOGGER.debug("Decor part broken by player: part={}, main={}, block={}, harvest={}", pos, main, target.getBlock(), willHarvest);
@@ -174,7 +174,7 @@ public final class DecorPartBlock extends Block implements SimpleWaterloggedBloc
 
     @Override
     protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!level.isClientSide && !cleaning && !state.is(replacement.getBlock())) {
+        if (!level.isClientSide() && !cleaning && !state.is(replacement.getBlock())) {
             var main = main(level, pos, state);
             if (main != null) {
                 ThermalShockReforged.LOGGER.debug("Decor part removed externally, breaking main block: part={}, main={}", pos, main);

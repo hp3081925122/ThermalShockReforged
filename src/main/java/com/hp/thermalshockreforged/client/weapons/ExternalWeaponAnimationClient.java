@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.client.weapons;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.Set;
@@ -10,10 +11,10 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
-import software.bernie.geckolib.animatable.GeoItem;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.constant.dataticket.DataTicket;
+import com.geckolib.animatable.GeoItem;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.RawAnimation;
+import com.geckolib.constant.dataticket.DataTicket;
 
 @EventBusSubscriber(modid = ThermalShockReforged.MOD_ID, value = Dist.CLIENT)
 public final class ExternalWeaponAnimationClient {
@@ -30,7 +31,7 @@ public final class ExternalWeaponAnimationClient {
     @SubscribeEvent
     public static void playerTick(PlayerTickEvent.Pre event) {
         var player = event.getEntity();
-        if (!player.level().isClientSide) return;
+        if (!player.level().isClientSide()) return;
         for (InteractionHand hand : InteractionHand.values()) {
             var stack = player.getItemInHand(hand);
             if (!(stack.getItem() instanceof GeoItem item)) continue;
@@ -39,7 +40,7 @@ public final class ExternalWeaponAnimationClient {
             long instance = GeoItem.getId(stack);
             if (instance == Long.MAX_VALUE) continue;
             var manager = item.getAnimatableInstanceCache().getManagerForId(instance);
-            String request = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("geckoAnim");
+            String request = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("geckoAnim").orElse("");
             if (observe(manager, request)) ThermalShockReforged.LOGGER.debug("External weapon animation requested: item={}, instance={}, hand={}, animation={}", id, instance, hand, request);
         }
     }

@@ -28,17 +28,15 @@ public abstract class FarmInventoryBlockEntity extends RandomizableContainerBloc
     public IItemHandler itemHandler(Direction side) { return side == null ? null : handlers[side.ordinal()]; }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
-        items = NonNullList.withSize(9, ItemStack.EMPTY);
-        if (!tryLoadLootTable(tag)) ContainerHelper.loadAllItems(tag, items, registries);
+    protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
+        super.loadAdditional(input);        items = NonNullList.withSize(9, ItemStack.EMPTY);
+        if (!tryLoadLootTable(input)) ContainerHelper.loadAllItems(input, items);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        if (!trySaveLootTable(tag)) ContainerHelper.saveAllItems(tag, items, registries);
+    protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput output) {
+        super.saveAdditional(output);
+        if (!trySaveLootTable(output)) ContainerHelper.saveAllItems(output, items);
     }
 
     @Override

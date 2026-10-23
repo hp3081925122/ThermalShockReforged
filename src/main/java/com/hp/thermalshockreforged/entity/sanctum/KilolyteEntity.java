@@ -1,7 +1,10 @@
 package com.hp.thermalshockreforged.entity.sanctum;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import net.minecraft.commands.arguments.EntityAnchorArgument;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.UUID;
@@ -23,10 +26,10 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class KilolyteEntity extends Monster implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(KilolyteEntity.class, EntityDataSerializers.STRING);
@@ -52,7 +55,7 @@ public final class KilolyteEntity extends Monster implements GeoEntity {
                 .add(Attributes.MOVEMENT_SPEED, .17).add(Attributes.FOLLOW_RANGE, 12).add(Attributes.KNOCKBACK_RESISTANCE, 1).add(Attributes.STEP_HEIGHT, .6);
     }
     private void applyConfiguredAttributes() {
-        if (level().isClientSide || attributesApplied || !SanctumConfig.SPEC.isLoaded()) return;
+        if (level().isClientSide() || attributesApplied || !SanctumConfig.SPEC.isLoaded()) return;
         float health = getHealth(); var config = SanctumConfig.KILOLYTE;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(config.health().get());
         getAttribute(Attributes.ARMOR).setBaseValue(config.armor().get());
@@ -64,7 +67,7 @@ public final class KilolyteEntity extends Monster implements GeoEntity {
         ThermalShockReforged.LOGGER.debug("Kilolyte attributes applied: entity={}, loaded={}, health={}, attackDamage={}", getUUID(), loadedFromSave, getHealth(), getAttributeValue(Attributes.ATTACK_DAMAGE));
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguredAttributes(); }
-    @Override public SpawnGroupData finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor level, net.minecraft.world.DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData data) {
+    @Override public SpawnGroupData finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor level, net.minecraft.world.DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData data) {
         SpawnGroupData result = super.finalizeSpawn(level, difficulty, reason, data);
         if (!initialized && level instanceof ServerLevel server) {
             initialized = true; birthProtection = 70; setAnimation("spawn");
@@ -72,7 +75,7 @@ public final class KilolyteEntity extends Monster implements GeoEntity {
         }
         return result;
     }
-    private static final ResourceLocation MOVEMENT_LOCK = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "kilolyte_movement_lock");
+    private static final Identifier MOVEMENT_LOCK = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "kilolyte_movement_lock");
     public void beginAttack(LivingEntity victim) {
         if (!(level() instanceof ServerLevel server) || !isAlive() || victim == this || cooldown > 0 || victim.level() != level()) return;
         boolean ring = random.nextDouble() < SanctumConfig.KILOLYTE.ringChance().get();
@@ -88,7 +91,7 @@ public final class KilolyteEntity extends Monster implements GeoEntity {
     }
     @Override public void baseTick() {
         super.baseTick();
-        if (level().isClientSide) return;
+        if (level().isClientSide()) return;
         if (birthProtection > 0) birthProtection--;
         if (animationRemaining > 0 && --animationRemaining == 0) {
             entityData.set(ANIMATION, "empty"); entityData.set(ANIMATION_SEQUENCE, entityData.get(ANIMATION_SEQUENCE) + 1);
@@ -110,7 +113,7 @@ public final class KilolyteEntity extends Monster implements GeoEntity {
     public void setTexture(String texture) { entityData.set(TEXTURE, texture); }
     public void setAnimation(String animation) {
         int duration = duration(animation);
-        if (duration <= 0 || level().isClientSide) return;
+        if (duration <= 0 || level().isClientSide()) return;
         animationRemaining = duration; entityData.set(ANIMATION, animation); entityData.set(ANIMATION_START, level().getGameTime());
         entityData.set(ANIMATION_SEQUENCE, entityData.get(ANIMATION_SEQUENCE) + 1);
     }
@@ -119,7 +122,7 @@ public final class KilolyteEntity extends Monster implements GeoEntity {
     }
     @Override public void onSyncedDataUpdated(EntityDataAccessor<?> accessor) {
         super.onSyncedDataUpdated(accessor);
-        if (!level().isClientSide || !ANIMATION_SEQUENCE.equals(accessor)) return;
+        if (!level().isClientSide() || !ANIMATION_SEQUENCE.equals(accessor)) return;
         if (!"empty".equals(clientClip)) stopTriggeredAnim("procedure", clientClip);
         clientClip = entityData.get(ANIMATION);
         clientAnimationOffset = Math.max(0, level().getGameTime() - entityData.get(ANIMATION_START));
@@ -141,7 +144,7 @@ public final class KilolyteEntity extends Monster implements GeoEntity {
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.IRON_GOLEM_STEP, .15F, 1); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.WITHER_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.WITHER_DEATH; }
-    @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.DROWN) && super.hurt(source, amount); }
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.DROWN) && super.hurtServer(level, source, amount); }
     @Override protected float getDamageAfterMagicAbsorb(DamageSource source, float amount) {
         if (birthProtection > 0 && !source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_EFFECTS) && !source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_RESISTANCE)) {
             if (Float.isFinite(amount) && amount > 0) {
@@ -152,52 +155,52 @@ public final class KilolyteEntity extends Monster implements GeoEntity {
         }
         return super.getDamageAfterMagicAbsorb(source, amount);
     }
-    @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
+    @Override protected void dropExperience(net.minecraft.server.level.ServerLevel level, Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
         if (++deathTime >= 20 && !isRemoved()) {
             remove(RemovalReason.KILLED);
             if (experiencePending && level() instanceof ServerLevel server) {
                 experiencePending = false;
-                super.dropExperience(experienceAttacker == null ? null : server.getEntity(experienceAttacker));
+                super.dropExperience(server, experienceAttacker == null ? null : server.getEntity(experienceAttacker));
             }
         }
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putBoolean("KilolyteInitialized", initialized); tag.putInt("KilolyteBirthProtection", birthProtection);
-        tag.putString("KilolyteAnimation", entityData.get(ANIMATION)); tag.putInt("KilolyteAnimationRemaining", animationRemaining); tag.putString("Texture", texture()); tag.putInt("KilolyteCooldown", cooldown); tag.putInt("KilolyteMovementLock", movementLock);
-        tag.putBoolean("KilolyteExperiencePending", experiencePending);
-        if (experienceAttacker != null) tag.putUUID("KilolyteExperienceAttacker", experienceAttacker);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putBoolean("KilolyteInitialized", initialized); output.putInt("KilolyteBirthProtection", birthProtection);
+        output.putString("KilolyteAnimation", entityData.get(ANIMATION)); output.putInt("KilolyteAnimationRemaining", animationRemaining); output.putString("Texture", texture()); output.putInt("KilolyteCooldown", cooldown); output.putInt("KilolyteMovementLock", movementLock);
+        output.putBoolean("KilolyteExperiencePending", experiencePending);
+        if (experienceAttacker != null) output.putString("KilolyteExperienceAttacker", experienceAttacker.toString());
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         loadedFromSave = true; attributesApplied = false;
-        super.readAdditionalSaveData(tag);
-        initialized = tag.getBoolean("KilolyteInitialized"); birthProtection = Math.clamp(tag.getInt("KilolyteBirthProtection"), 0, 70);
-        String clip = tag.getString("KilolyteAnimation"); animationRemaining = Math.clamp(tag.getInt("KilolyteAnimationRemaining"), 0, duration(clip));
+        super.readAdditionalSaveData(input);
+        initialized = input.getBooleanOr("KilolyteInitialized", false); birthProtection = Math.clamp(input.getIntOr("KilolyteBirthProtection", 0), 0, 70);
+        String clip = input.getStringOr("KilolyteAnimation", ""); animationRemaining = Math.clamp(input.getIntOr("KilolyteAnimationRemaining", 0), 0, duration(clip));
         if (animationRemaining > 0) {
             entityData.set(ANIMATION, clip); entityData.set(ANIMATION_START, level().getGameTime() - duration(clip) + animationRemaining);
             entityData.set(ANIMATION_SEQUENCE, entityData.get(ANIMATION_SEQUENCE) + 1);
         }
         applyConfiguredAttributes();
         if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
-        if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        cooldown = Math.clamp(tag.getInt("KilolyteCooldown"), 0, 35);
-        movementLock = Math.clamp(tag.getInt("KilolyteMovementLock"), 0, 45);
-        if (!level().isClientSide) syncMovementLock();
-        experiencePending = tag.getBoolean("KilolyteExperiencePending");
-        experienceAttacker = tag.hasUUID("KilolyteExperienceAttacker") ? tag.getUUID("KilolyteExperienceAttacker") : null;
+        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        cooldown = Math.clamp(input.getIntOr("KilolyteCooldown", 0), 0, 35);
+        movementLock = Math.clamp(input.getIntOr("KilolyteMovementLock", 0), 0, 45);
+        if (!level().isClientSide()) syncMovementLock();
+        experiencePending = input.getBooleanOr("KilolyteExperiencePending", false);
+        experienceAttacker = input.getString("KilolyteExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         var procedure = new PhaseController();
         for (String clip : java.util.List.of("idle", "walk", "attack", "attack2", "spawn", "death")) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             if ((state.isMoving() || state.getLimbSwingAmount() <= -.15F || state.getLimbSwingAmount() >= .15F)) return state.setAndContinue(RawAnimation.begin().thenLoop("walk"));
             return state.setAndContinue(RawAnimation.begin().thenLoop("idle"));
         }));
         controllers.add(procedure);
     }
-    private final class PhaseController extends AnimationController<KilolyteEntity> {
+    private final class PhaseController extends LegacyAnimationController<KilolyteEntity> {
         private PhaseController() { super(KilolyteEntity.this, "procedure", 4, state -> PlayState.STOP); }
         @Override protected double adjustTick(double tick) {
             double offset = getAnimationState() == State.TRANSITIONING ? clientAnimationOffset : Math.max(0, clientAnimationOffset - transitionLength);

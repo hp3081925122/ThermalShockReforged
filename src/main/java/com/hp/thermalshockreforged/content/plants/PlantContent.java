@@ -19,11 +19,11 @@ public final class PlantContent {
     public static final DeferredBlock<Block> BELLFLOWER = BLOCKS.register("bellflower", () -> new GardenFlowerBlock(MobEffects.REGENERATION, properties()));
     public static final DeferredBlock<Block> DULL_SHRUB = BLOCKS.register("dull_shrub", () -> new GardenFlowerBlock.StickClone(properties().replaceable()));
     public static final DeferredBlock<Block> LOQUE_FERN = BLOCKS.register("loque_fern", () -> new GardenFlowerBlock(MobEffects.LUCK, properties()));
-    public static final DeferredBlock<Block> LUNEI = BLOCKS.register("lunei", () -> new GardenFlowerBlock(MobEffects.REGENERATION, properties().hasPostProcess((state, level, pos) -> true).emissiveRendering((state, level, pos) -> true)));
-    public static final DeferredBlock<Block> PIXIETILL = BLOCKS.register("pixietill", () -> new GardenFlowerBlock(MobEffects.REGENERATION, properties().hasPostProcess((state, level, pos) -> true).emissiveRendering((state, level, pos) -> true)));
+    public static final DeferredBlock<Block> LUNEI = BLOCKS.register("lunei", () -> new GardenFlowerBlock(MobEffects.REGENERATION, properties().emissiveRendering((state, level, pos) -> true)));
+    public static final DeferredBlock<Block> PIXIETILL = BLOCKS.register("pixietill", () -> new GardenFlowerBlock(MobEffects.REGENERATION, properties().emissiveRendering((state, level, pos) -> true)));
     public static final DeferredBlock<Block> POLEMONIUM = BLOCKS.register("polemonium", () -> new GardenFlowerBlock(MobEffects.REGENERATION, properties()));
     public static final DeferredBlock<Block> PURIFIED_LOQUE_GRASS = BLOCKS.register("purified_loque_grass", () -> new GardenFlowerBlock(MobEffects.FIRE_RESISTANCE, properties().replaceable()));
-    public static final DeferredBlock<Block> TOPHAZ = BLOCKS.register("tophaz", () -> new GardenFlowerBlock(MobEffects.REGENERATION, properties().hasPostProcess((state, level, pos) -> true).emissiveRendering((state, level, pos) -> true)));
+    public static final DeferredBlock<Block> TOPHAZ = BLOCKS.register("tophaz", () -> new GardenFlowerBlock(MobEffects.REGENERATION, properties().emissiveRendering((state, level, pos) -> true)));
     public static final DeferredBlock<Block> TWILIT_SHRUB = BLOCKS.register("twilit_shrub", () -> new GardenFlowerBlock.Waterlogged(properties()));
     public static final DeferredBlock<Block> VERMILLION_FERN = BLOCKS.register("vermillion_fern", () -> new GardenFlowerBlock(MobEffects.LUCK, properties()));
 
@@ -37,7 +37,7 @@ public final class PlantContent {
     }
 
     private static BlockBehaviour.Properties properties() {
-        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).instabreak().noCollission()
+        return BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).instabreak().noCollision()
                 .offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY);
     }
 }

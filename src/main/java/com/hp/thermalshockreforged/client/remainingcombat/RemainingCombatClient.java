@@ -1,4 +1,8 @@
 package com.hp.thermalshockreforged.client.remainingcombat;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.client.renderer.rendertype.RenderType;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoArmorRenderer;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.client.particle.AaaStationaryParticle;
@@ -10,7 +14,7 @@ import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.NoopRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
@@ -18,15 +22,15 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.extensions.common.*;
 import net.neoforged.neoforge.common.NeoForge;
-import software.bernie.geckolib.model.GeoModel;
-import software.bernie.geckolib.renderer.*;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
+import com.geckolib.renderer.*;
 
 public final class RemainingCombatClient {
     private RemainingCombatClient() { }
     public static void extensions(RegisterClientExtensionsEvent event) {
         event.registerItem(new IClientItemExtensions() {
             private ItemRenderer renderer;
-            @Override public BlockEntityWithoutLevelRenderer getCustomRenderer() { if (renderer == null) renderer = new ItemRenderer(); return renderer; }
+
             @Override public HumanoidModel.ArmPose getArmPose(LivingEntity entity, InteractionHand hand, ItemStack stack) {
                 return stack.getItem() instanceof RemainingGunItem && entity.getUsedItemHand() == hand ? ZapGauntletArmPose.POSE.getValue() : HumanoidModel.ArmPose.EMPTY;
             }
@@ -53,30 +57,30 @@ public final class RemainingCombatClient {
     }
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) { event.registerEntityRenderer(RemainingCombatContent.TASK.get(), NoopRenderer::new); }
     public static void particles(RegisterParticleProvidersEvent event) {
-        event.registerSpriteSet(RemainingCombatContent.ICE_BOMB_EFFECT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "icebomb", 0, ParticleRenderType.PARTICLE_SHEET_OPAQUE, false, true, 0));
+        event.registerSpriteSet(RemainingCombatContent.ICE_BOMB_EFFECT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "icebomb", 0, ParticleRenderType.SINGLE_QUADS, false, true, 0));
     }
     private static void tick(ClientTickEvent.Post event) { RemainingCombatContent.pruneAnimations(); }
     private static void logout(ClientPlayerNetworkEvent.LoggingOut event) { RemainingCombatContent.clearAnimations(); }
-    private static ResourceLocation resource(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
-    private static final class ItemRenderer extends GeoItemRenderer<AnimatedCombatItem> {
+    private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
+    private static final class ItemRenderer extends LegacyGeoItemRenderer<AnimatedCombatItem> {
         private ItemRenderer() { super(new ItemModel()); }
-        @Override public RenderType getRenderType(AnimatedCombatItem item, ResourceLocation texture, MultiBufferSource buffers, float partialTick) { return RenderType.entityTranslucent(texture); }
+        @Override public RenderType getRenderType(AnimatedCombatItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class ItemModel extends GeoModel<AnimatedCombatItem> {
-        @Override public ResourceLocation getModelResource(AnimatedCombatItem item) { return resource("geo/" + item.modelName() + ".geo.json"); }
-        @Override public ResourceLocation getTextureResource(AnimatedCombatItem item) { return resource("textures/item/" + item.textureName() + ".png"); }
-        @Override public ResourceLocation getAnimationResource(AnimatedCombatItem item) { return resource("animations/" + item.modelName() + ".animation.json"); }
+    private static final class ItemModel extends LegacyGeoModel<AnimatedCombatItem> {
+        @Override public Identifier getModelResource(AnimatedCombatItem item) { return resource("geo/" + item.modelName() + ".geo.json"); }
+        @Override public Identifier getTextureResource(AnimatedCombatItem item) { return resource("textures/item/" + item.textureName() + ".png"); }
+        @Override public Identifier getAnimationResource(AnimatedCombatItem item) { return resource("animations/" + item.modelName() + ".animation.json"); }
     }
-    private static final class ArmorRenderer extends GeoArmorRenderer<ChorusianAntennaeItem> {
+    private static final class ArmorRenderer extends LegacyGeoArmorRenderer<ChorusianAntennaeItem> {
         private ArmorRenderer() { super(new ArmorModel()); }
         @Override public long getInstanceId(ChorusianAntennaeItem item) {
-            return ((long) currentEntity.getId() << 32) | ((long) currentSlot.ordinal() << 28) | (software.bernie.geckolib.animatable.GeoItem.getId(currentStack) & 0x0fffffffL);
+            return ((long) currentEntity.getId() << 32) | ((long) currentSlot.ordinal() << 28) | (com.geckolib.animatable.GeoItem.getId(currentStack) & 0x0fffffffL);
         }
-        @Override public RenderType getRenderType(ChorusianAntennaeItem item, ResourceLocation texture, MultiBufferSource buffers, float partialTick) { return RenderType.entityTranslucent(texture); }
+        @Override public RenderType getRenderType(ChorusianAntennaeItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class ArmorModel extends GeoModel<ChorusianAntennaeItem> {
-        @Override public ResourceLocation getModelResource(ChorusianAntennaeItem item) { return resource("geo/chorantenna.geo.json"); }
-        @Override public ResourceLocation getTextureResource(ChorusianAntennaeItem item) { return resource("textures/item/chorantennaealt.png"); }
-        @Override public ResourceLocation getAnimationResource(ChorusianAntennaeItem item) { return resource("animations/chorantenna.animation.json"); }
+    private static final class ArmorModel extends LegacyGeoModel<ChorusianAntennaeItem> {
+        @Override public Identifier getModelResource(ChorusianAntennaeItem item) { return resource("geo/chorantenna.geo.json"); }
+        @Override public Identifier getTextureResource(ChorusianAntennaeItem item) { return resource("textures/item/chorantennaealt.png"); }
+        @Override public Identifier getAnimationResource(ChorusianAntennaeItem item) { return resource("animations/chorantenna.animation.json"); }
     }
 }

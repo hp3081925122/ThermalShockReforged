@@ -13,10 +13,8 @@ import java.util.List;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.block.BlockRenderDispatcher;
-import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.client.renderer.LightTexture;
+import net.minecraft.client.renderer.rendertype.RenderType;
+import net.minecraft.util.LightCoordsUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -53,15 +51,14 @@ public final class StratusReactorPreview {
         pose.translate(-camera.x, -camera.y, -camera.z);
         MultiBufferSource.BufferSource buffers = MultiBufferSource.immediate(BUFFER);
         VertexConsumer lines = buffers.getBuffer(RenderType.lines());
-        BlockRenderDispatcher blockRenderer = minecraft.getBlockRenderer();
         boolean rendered = false;
         for (BlockPos core : CORES) {
             if (camera.distanceToSqr(core.getX() + .5, core.getY() + .5, core.getZ() + .5) > MAX_DISTANCE * MAX_DISTANCE) continue;
             for (int x = -1; x <= 1; x++) for (int z = -1; z <= 1; z++) {
                 boolean corner = x != 0 && z != 0;
-                draw(pose, lines, buffers, blockRenderer, level, core.offset(x, -1, z), block(corner ? "bordered_hazard_stripes" : "steelstem_block"));
-                if (corner) draw(pose, lines, buffers, blockRenderer, level, core.offset(x, 0, z), block("dark_frostrock_block"));
-                else draw(pose, lines, buffers, blockRenderer, level, core.offset(x, 1, z), block("dark_frostrock_block"));
+                draw(pose, lines, level, core.offset(x, -1, z), block(corner ? "bordered_hazard_stripes" : "steelstem_block"));
+                if (corner) draw(pose, lines, level, core.offset(x, 0, z), block("dark_frostrock_block"));
+                else draw(pose, lines, level, core.offset(x, 1, z), block("dark_frostrock_block"));
                 rendered = true;
             }
         }
@@ -92,13 +89,12 @@ public final class StratusReactorPreview {
         return MaterialContent.blocks().get(id).get().defaultBlockState();
     }
 
-    private static void draw(PoseStack pose, VertexConsumer lines, MultiBufferSource buffers, BlockRenderDispatcher blockRenderer, BlockGetter level, BlockPos pos, BlockState expected) {
+    private static void draw(PoseStack pose, VertexConsumer lines, BlockGetter level, BlockPos pos, BlockState expected) {
         Block actual = level.getBlockState(pos).getBlock();
         boolean correct = actual == expected.getBlock();
         if (!correct) {
             pose.pushPose();
             pose.translate(pos.getX(), pos.getY(), pos.getZ());
-            blockRenderer.renderSingleBlock(expected, pose, buffers, LightTexture.FULL_BRIGHT, OverlayTexture.NO_OVERLAY);
             pose.popPose();
         }
         float red = correct ? .25F : 1F;

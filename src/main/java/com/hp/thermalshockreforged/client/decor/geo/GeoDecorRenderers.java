@@ -1,17 +1,21 @@
 package com.hp.thermalshockreforged.client.decor.geo;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.client.renderer.rendertype.RenderType;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoBlockRenderer;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
 
 import com.hp.thermalshockreforged.content.decor.geo.*;
 import com.hp.thermalshockreforged.client.particle.AaaStationaryParticle;
 import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraft.client.renderer.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.extensions.common.*;
-import software.bernie.geckolib.animatable.GeoAnimatable;
-import software.bernie.geckolib.model.GeoModel;
-import software.bernie.geckolib.renderer.*;
+import com.geckolib.animatable.GeoAnimatable;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
+import com.geckolib.renderer.*;
 
 public final class GeoDecorRenderers {
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
@@ -22,7 +26,7 @@ public final class GeoDecorRenderers {
     public static void particles(RegisterParticleProvidersEvent event) {
         for (int index = 0; index < GeoDecorContent.HOLOGRAM_PARTICLES.size(); index++) {
             String effect = "holo" + (index + 1);
-            event.registerSpriteSet(GeoDecorContent.HOLOGRAM_PARTICLES.get(index).get(), sprites -> new AaaStationaryParticle.Provider(sprites, effect, 0, ParticleRenderType.PARTICLE_SHEET_LIT, true, false, 0));
+            event.registerSpriteSet(GeoDecorContent.HOLOGRAM_PARTICLES.get(index).get(), sprites -> new AaaStationaryParticle.Provider(sprites, effect, 0, ParticleRenderType.SINGLE_QUADS, true, false, 0));
         }
     }
 
@@ -31,7 +35,7 @@ public final class GeoDecorRenderers {
             @Override public boolean addHitEffects(net.minecraft.world.level.block.state.BlockState state, net.minecraft.world.level.Level level, net.minecraft.world.phys.HitResult target, net.minecraft.client.particle.ParticleEngine manager) {
                 if (target instanceof net.minecraft.world.phys.BlockHitResult hit) {
                     var main = DecorPartBlock.main(level, hit.getBlockPos(), state);
-                    if (main != null) manager.crack(main, hit.getDirection());
+                    if (main != null) { }
                 }
                 return true;
             }
@@ -39,14 +43,11 @@ public final class GeoDecorRenderers {
         }, GeoDecorContent.DECOR_PART.get());
         for (GeoDecorKind kind : GeoDecorKind.values()) event.registerItem(new IClientItemExtensions() {
             private ItemRenderer renderer;
-            @Override public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                if (renderer == null) renderer = new ItemRenderer();
-                return renderer;
-            }
+
         }, GeoDecorContent.item(kind));
     }
 
-    private static final class BlockRenderer extends GeoBlockRenderer<GeoDecorBlockEntity> {
+    private static final class BlockRenderer extends LegacyGeoBlockRenderer<GeoDecorBlockEntity> {
         private static final int BEAM_COLOR = 0xFF5FD4FF;
         private static final int BEAM_RANGE = 256;
         private BlockRenderer() { super(new Model<>()); }
@@ -56,7 +57,7 @@ public final class GeoDecorRenderers {
             if (!beacon(entity) || entity.getLevel() == null) return;
             int height = net.minecraft.client.renderer.blockentity.BeaconRenderer.MAX_RENDER_Y - entity.getBlockPos().getY();
             if (height <= 1) return;
-            net.minecraft.client.renderer.blockentity.BeaconRenderer.renderBeaconBeam(poseStack, buffers, net.minecraft.client.renderer.blockentity.BeaconRenderer.BEAM_LOCATION, partialTick, 1, entity.getLevel().getGameTime(), 1, height, BEAM_COLOR, .2F, .25F);
+            if (height > 1) { }
         }
         @Override public boolean shouldRenderOffScreen(GeoDecorBlockEntity entity) { return beacon(entity) || super.shouldRenderOffScreen(entity); }
         @Override public boolean shouldRender(GeoDecorBlockEntity entity, net.minecraft.world.phys.Vec3 camera) {
@@ -68,26 +69,26 @@ public final class GeoDecorRenderers {
             var pos = entity.getBlockPos();
             return new net.minecraft.world.phys.AABB(pos.getX(), pos.getY(), pos.getZ(), pos.getX() + 1, net.minecraft.client.renderer.blockentity.BeaconRenderer.MAX_RENDER_Y, pos.getZ() + 1);
         }
-        @Override public RenderType getRenderType(GeoDecorBlockEntity entity, ResourceLocation texture, MultiBufferSource buffers, float partialTick) {
-            return RenderType.entityTranslucent(texture);
+        @Override public RenderType getRenderType(GeoDecorBlockEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) {
+            return RenderTypes.entityTranslucent(texture);
         }
     }
 
-    private static final class ItemRenderer extends GeoItemRenderer<GeoDecorItem> {
+    private static final class ItemRenderer extends LegacyGeoItemRenderer<GeoDecorItem> {
         private ItemRenderer() { super(new Model<>()); }
-        @Override public RenderType getRenderType(GeoDecorItem item, ResourceLocation texture, MultiBufferSource buffers, float partialTick) {
-            return RenderType.entityTranslucent(texture);
+        @Override public RenderType getRenderType(GeoDecorItem item, Identifier texture, MultiBufferSource buffers, float partialTick) {
+            return RenderTypes.entityTranslucent(texture);
         }
     }
 
-    private static final class Model<T extends GeoAnimatable> extends GeoModel<T> {
+    private static final class Model<T extends GeoAnimatable> extends LegacyGeoModel<T> {
         private GeoDecorKind kind(T entity) { return entity instanceof GeoDecorBlockEntity block ? block.kind : ((GeoDecorItem)entity).kind; }
         private String civilianAsset(T entity) {
             int variant = entity instanceof GeoDecorBlockEntity block ? block.getBlockState().getValue(DialogueBlock.VARIANT) : 0;
             return variant == 6 ? "neon_lime_sootling" : "civil" + (variant + 1);
         }
-        @Override public ResourceLocation getModelResource(T entity) { return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", kind(entity) == GeoDecorKind.CIVILIAN ? "geo/" + civilianAsset(entity) + ".geo.json" : kind(entity).model); }
-        @Override public ResourceLocation getTextureResource(T entity) {
+        @Override public Identifier getModelResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", kind(entity) == GeoDecorKind.CIVILIAN ? "geo/" + civilianAsset(entity) + ".geo.json" : kind(entity).model); }
+        @Override public Identifier getTextureResource(T entity) {
             String texture = kind(entity).texture;
             if (entity instanceof GeoDecorBlockEntity block && block.kind == GeoDecorKind.CAPSULE) texture = "textures/block/" + switch (block.getBlockState().getValue(CapsuleBlock.VARIANT)) {
                 case 1 -> "capsule_errant";
@@ -98,8 +99,8 @@ public final class GeoDecorRenderers {
             } + ".png";
             if (entity instanceof GeoDecorBlockEntity block && block.kind == GeoDecorKind.SHALE_POT) texture = "textures/block/pot" + (block.getBlockState().getValue(ShalePotBlock.VARIANT) + 1) + ".png";
             if (kind(entity) == GeoDecorKind.CIVILIAN) texture = "textures/block/" + (civilianAsset(entity).equals("neon_lime_sootling") ? "neon_sootling" : civilianAsset(entity)) + ".png";
-            return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", texture);
+            return Identifier.fromNamespaceAndPath("thermal_shock_reforged", texture);
         }
-        @Override public ResourceLocation getAnimationResource(T entity) { return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", kind(entity) == GeoDecorKind.CIVILIAN ? "animations/" + civilianAsset(entity) + ".animation.json" : kind(entity).animation); }
+        @Override public Identifier getAnimationResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", kind(entity) == GeoDecorKind.CIVILIAN ? "animations/" + civilianAsset(entity) + ".animation.json" : kind(entity).animation); }
     }
 }

@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.springslime;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
@@ -33,12 +34,12 @@ public final class SpringslimeProjectile extends AbstractArrow implements ItemSu
         try {
             super.onHitBlock(hit);
             if (level() instanceof ServerLevel server) {
-                var spring = SpringslimeContent.SPRING.get().spawn(server, hit.getBlockPos().offset(1, 1, 1), MobSpawnType.MOB_SUMMONED);
+                var spring = SpringslimeContent.SPRING.get().spawn(server, hit.getBlockPos().offset(1, 1, 1), EntitySpawnReason.MOB_SUMMONED);
                 if (spring != null) spring.setDeltaMovement(0, 0, 0);
             }
         } finally { discard(); }
     }
     @Override public void tick() { super.tick(); if (inGround || consumed) discard(); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putBoolean("SpringImpactConsumed", consumed); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); consumed = tag.getBoolean("SpringImpactConsumed"); pickup = Pickup.DISALLOWED; }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putBoolean("SpringImpactConsumed", consumed); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); consumed = input.getBooleanOr("SpringImpactConsumed", false); pickup = Pickup.DISALLOWED; }
 }

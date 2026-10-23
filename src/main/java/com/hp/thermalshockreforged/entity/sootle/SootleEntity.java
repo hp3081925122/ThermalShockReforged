@@ -16,7 +16,7 @@ import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib.animation.AnimationState;
+import com.geckolib.animation.state.AnimationTest;
 
 public final class SootleEntity extends AbstractSootleEntity implements ServerEndTickTask {
     private int cooldown;
@@ -40,15 +40,15 @@ public final class SootleEntity extends AbstractSootleEntity implements ServerEn
     @Override
     public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= 4; }
     @Override
-    public boolean doHurtTarget(Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }
+    public boolean doHurtTarget(net.minecraft.server.level.ServerLevel level, Entity target) { if (target instanceof LivingEntity living) beginAttack(living); return false; }
     public void beginAttack(LivingEntity target) {
-        if (level().isClientSide || !isAlive() || cooldown > 0 || skillAge >= 0 || !target.isAlive() || target.level() != level()) return;
+        if (level().isClientSide() || !isAlive() || cooldown > 0 || skillAge >= 0 || !target.isAlive() || target.level() != level()) return;
         singleAttack = random.nextDouble() < 0.3;
         cooldown = singleAttack ? 30 : 40;
         actionLock = 18;
         skillAge = 0;
         skillTarget = target.getUUID();
-        skillDimension = level().dimension().location().toString();
+        skillDimension = level().dimension().identifier().toString();
         origin = target.position();
         getNavigation().stop();
         setAnimation(singleAttack ? "attack" : "attack2");
@@ -56,7 +56,7 @@ public final class SootleEntity extends AbstractSootleEntity implements ServerEn
         if (level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
     }
     private LivingEntity skillTarget() {
-        if (!(level() instanceof ServerLevel server) || skillTarget == null || !skillDimension.equals(level().dimension().location().toString())) return null;
+        if (!(level() instanceof ServerLevel server) || skillTarget == null || !skillDimension.equals(level().dimension().identifier().toString())) return null;
         var found = server.getEntity(skillTarget);
         return found instanceof LivingEntity living && living.isAlive() && living.level() == level() ? living : null;
     }
@@ -68,10 +68,10 @@ public final class SootleEntity extends AbstractSootleEntity implements ServerEn
     }
     @Override
     public void tick() {
-        if (!level().isClientSide && (skillAge >= 0 || actionLock > 0) && !skillDimension.equals(level().dimension().location().toString())) cancelAttack();
-        if (!level().isClientSide) { if (cooldown > 0) cooldown--; if (actionLock > 0) actionLock--; }
+        if (!level().isClientSide() && (skillAge >= 0 || actionLock > 0) && !skillDimension.equals(level().dimension().identifier().toString())) cancelAttack();
+        if (!level().isClientSide()) { if (cooldown > 0) cooldown--; if (actionLock > 0) actionLock--; }
         super.tick();
-        if (level().isClientSide) return;
+        if (level().isClientSide()) return;
         if (!isAlive()) { cancelAttack(); return; }
         if (actionLock > 0) getNavigation().stop();
         if (skillAge >= 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
@@ -79,7 +79,7 @@ public final class SootleEntity extends AbstractSootleEntity implements ServerEn
     @Override
     public void endTick(ServerLevel level) {
         if (skillAge < 0 || isRemoved()) return;
-        if (!isAlive() || !skillDimension.equals(level.dimension().location().toString())) { cancelAttack(); return; }
+        if (!isAlive() || !skillDimension.equals(level.dimension().identifier().toString())) { cancelAttack(); return; }
         var target = skillTarget();
         if (target == null) { cancelAttack(); return; }
         if (resumeAnimation) { setAnimation(singleAttack ? "attack" : "attack2"); resumeAnimation = false; }
@@ -102,22 +102,22 @@ public final class SootleEntity extends AbstractSootleEntity implements ServerEn
     @Override
     protected boolean isImmobile() { return actionLock > 0 || super.isImmobile(); }
     @Override
-    protected String movement(AnimationState<?> state) {
+    protected String movement(AnimationTest<?> state) {
         if (!isAggressive() && (state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F)) return "walk";
         if (isShiftKeyDown()) return "dig";
         return isAggressive() && state.isMoving() ? "run" : "idle";
     }
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putInt("SkillCooldown", cooldown); tag.putInt("ActionLock", actionLock); tag.putInt("SkillAge", skillAge); tag.putBoolean("SingleAttack", singleAttack);
-        if (skillTarget != null) tag.putUUID("SkillTarget", skillTarget);
-        tag.putString("SkillDimension", skillDimension); tag.putDouble("OriginX", origin.x); tag.putDouble("OriginY", origin.y); tag.putDouble("OriginZ", origin.z);
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putInt("SkillCooldown", cooldown); output.putInt("ActionLock", actionLock); output.putInt("SkillAge", skillAge); output.putBoolean("SingleAttack", singleAttack);
+        if (skillTarget != null) output.putString("SkillTarget", skillTarget.toString());
+        output.putString("SkillDimension", skillDimension); output.putDouble("OriginX", origin.x); output.putDouble("OriginY", origin.y); output.putDouble("OriginZ", origin.z);
     }
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        cooldown = Math.max(0, tag.getInt("SkillCooldown")); actionLock = Math.max(0, Math.min(18, tag.getInt("ActionLock"))); skillAge = tag.contains("SkillAge") ? tag.getInt("SkillAge") : -1; singleAttack = tag.getBoolean("SingleAttack");
-        skillTarget = tag.hasUUID("SkillTarget") ? tag.getUUID("SkillTarget") : null; skillDimension = tag.getString("SkillDimension"); origin = new Vec3(tag.getDouble("OriginX"), tag.getDouble("OriginY"), tag.getDouble("OriginZ")); resumeAnimation = skillAge >= 0;
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        cooldown = Math.max(0, input.getIntOr("SkillCooldown", 0)); actionLock = Math.max(0, Math.min(18, input.getIntOr("ActionLock", 0))); skillAge = input.getString("SkillAge").isPresent() ? input.getIntOr("SkillAge", 0) : -1; singleAttack = input.getBooleanOr("SingleAttack", false);
+        skillTarget = input.getString("SkillTarget").map(java.util.UUID::fromString).orElse(null); skillDimension = input.getStringOr("SkillDimension", ""); origin = new Vec3(input.getDoubleOr("OriginX", 0.0), input.getDoubleOr("OriginY", 0.0), input.getDoubleOr("OriginZ", 0.0)); resumeAnimation = skillAge >= 0;
     }
 }

@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.protoi;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.config.CombatConfig;
 import java.util.UUID;
@@ -15,8 +18,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib.animation.*;
+import net.minecraft.resources.Identifier;
+import com.geckolib.animation.*;
 public final class ProtoiDeltaEntity extends ProtoiEntityBase {
     private int cooldown;
     private UUID attackTask;
@@ -27,7 +30,7 @@ public final class ProtoiDeltaEntity extends ProtoiEntityBase {
     public ProtoiDeltaEntity(EntityType<? extends ProtoiDeltaEntity> type, Level level) { super(type, level, "protoi_delta", false, 256); xpReward = 8; applyConfiguredAttributes(); }
     public static net.minecraft.world.entity.ai.attributes.AttributeSupplier.Builder createAttributes() { return attributes(.25, 50, 8, 5, 16).add(Attributes.ATTACK_KNOCKBACK, .2).add(Attributes.STEP_HEIGHT, 1); }
     private void applyConfiguredAttributes() {
-        if (level().isClientSide || attributesApplied || !CombatConfig.SPEC.isLoaded()) return;
+        if (level().isClientSide() || attributesApplied || !CombatConfig.SPEC.isLoaded()) return;
         float health = getHealth();
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(CombatConfig.DELTA_HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(CombatConfig.DELTA_ARMOR.get());
@@ -48,7 +51,7 @@ public final class ProtoiDeltaEntity extends ProtoiEntityBase {
         setYRot((float)(Math.atan2(getZ() - victim.getZ(), getX() - victim.getX()) * 57.2958 + 90));
         setXRot((float)(Math.atan2(getY() - victim.getY(), Math.sqrt((getX() - victim.getX()) * (getX() - victim.getX()) + (getZ() - victim.getZ()) * (getZ() - victim.getZ()))) * 57.2958));
         setYBodyRot(getYRot()); setYHeadRot(getYRot()); yRotO = getYRot(); xRotO = getXRot(); yBodyRotO = getYRot(); yHeadRotO = getYRot();
-        server.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "protoi_cry")), SoundSource.HOSTILE, 1, 1);
+        server.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "protoi_cry")), SoundSource.HOSTILE, 1, 1);
     }
     void finishVolley(UUID task) { if (task.equals(attackTask)) attackTask = null; }
     @Override protected boolean persistentByDefault() { return false; }
@@ -65,7 +68,7 @@ public final class ProtoiDeltaEntity extends ProtoiEntityBase {
         goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 0));
         goalSelector.addGoal(7, new RandomLookAroundGoal(this));
     }
-    @Override public void baseTick() { super.baseTick(); if (!level().isClientSide && cooldown > 0) cooldown--; }
+    @Override public void baseTick() { super.baseTick(); if (!level().isClientSide() && cooldown > 0) cooldown--; }
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server && attackTask != null && server.getEntity(attackTask) instanceof DeltaVolleyEntity task) task.capture(this);
@@ -73,40 +76,40 @@ public final class ProtoiDeltaEntity extends ProtoiEntityBase {
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguredAttributes(); }
     @Override public void triggerProcedure(String animation) { if (java.util.List.of("idle", "walk", "shoot").contains(animation)) triggerAnim("procedure", animation); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
         for (String clip : java.util.List.of("idle", "walk", "shoot")) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             boolean moving = state.isMoving() || state.getLimbSwingAmount() <= -.15F || state.getLimbSwingAmount() >= .15F;
             return state.setAndContinue(RawAnimation.begin().thenLoop(moving ? "walk" : "idle"));
         }));
         controllers.add(procedure);
     }
-    @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
+    @Override protected void dropExperience(net.minecraft.server.level.ServerLevel level, Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
         if (++deathTime >= 20 && !isRemoved()) {
             remove(RemovalReason.KILLED);
             if (experiencePending && level() instanceof ServerLevel server) {
                 experiencePending = false;
-                super.dropExperience(experienceAttacker == null ? null : server.getEntity(experienceAttacker));
+                super.dropExperience(server, experienceAttacker == null ? null : server.getEntity(experienceAttacker));
             }
         }
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putInt("DeltaCooldown", cooldown);
-        if (attackTask != null) tag.putUUID("DeltaAttackTask", attackTask);
-        tag.putBoolean("DeltaExperiencePending", experiencePending);
-        if (experienceAttacker != null) tag.putUUID("DeltaExperienceAttacker", experienceAttacker);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output); output.putInt("DeltaCooldown", cooldown);
+        if (attackTask != null) output.putString("DeltaAttackTask", attackTask.toString());
+        output.putBoolean("DeltaExperiencePending", experiencePending);
+        if (experienceAttacker != null) output.putString("DeltaExperienceAttacker", experienceAttacker.toString());
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        loadedFromSave = true; super.readAdditionalSaveData(tag); attributesApplied = false; applyConfiguredAttributes();
-        cooldown = Math.clamp(tag.getInt("DeltaCooldown"), 0, 72000);
-        attackTask = tag.hasUUID("DeltaAttackTask") ? tag.getUUID("DeltaAttackTask") : null;
-        experiencePending = tag.getBoolean("DeltaExperiencePending");
-        experienceAttacker = tag.hasUUID("DeltaExperienceAttacker") ? tag.getUUID("DeltaExperienceAttacker") : null;
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = false; applyConfiguredAttributes();
+        cooldown = Math.clamp(input.getIntOr("DeltaCooldown", 0), 0, 72000);
+        attackTask = input.getString("DeltaAttackTask").map(java.util.UUID::fromString).orElse(null);
+        experiencePending = input.getBooleanOr("DeltaExperiencePending", false);
+        experienceAttacker = input.getString("DeltaExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
     }
-    @Override protected SoundEvent getAmbientSound() { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "delta_ambient")); }
-    @Override protected SoundEvent getHurtSound(net.minecraft.world.damagesource.DamageSource source) { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "delta_hurt")); }
-    @Override protected SoundEvent getDeathSound() { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "delta_death")); }
-    @Override protected void playStepSound(net.minecraft.core.BlockPos pos, net.minecraft.world.level.block.state.BlockState state) { playSound(BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "delta_step")), .15F, 1); }
+    @Override protected SoundEvent getAmbientSound() { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath("thermal_shock_reforged", "delta_ambient")); }
+    @Override protected SoundEvent getHurtSound(net.minecraft.world.damagesource.DamageSource source) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath("thermal_shock_reforged", "delta_hurt")); }
+    @Override protected SoundEvent getDeathSound() { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath("thermal_shock_reforged", "delta_death")); }
+    @Override protected void playStepSound(net.minecraft.core.BlockPos pos, net.minecraft.world.level.block.state.BlockState state) { playSound(BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath("thermal_shock_reforged", "delta_step")), .15F, 1); }
 }

@@ -19,16 +19,16 @@ public final class BeetleCrasherEntity extends BeetleCombatEntity {
     private boolean deathVisual;
     public BeetleCrasherEntity(EntityType<? extends BeetleCrasherEntity> type, Level level) { super(type, level, "beetle_bastion", 100); }
     public double auraDamage(int amplifier) { double value = getAttributeValue(Attributes.ATTACK_DAMAGE) * BeetleConfig.CRASHER_AURA.get() * Math.max(0, amplifier) / 12; return Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0; }
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData data) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData data) {
         var result = super.finalizeSpawn(world, difficulty, reason, data);
         if (!initialized && world instanceof ServerLevel server) { initialized = true; startEmergence(); server.playSound(null, blockPosition(), SoundEvents.WARDEN_EMERGE, SoundSource.NEUTRAL, 1, 2); }
         return result;
     }
-    @Override protected ResourceKey<LootTable> getDefaultLootTable() { return ResourceKey.create(Registries.LOOT_TABLE, BeetleContent.id("beetle_crasher_loot")); }
+    protected ResourceKey<LootTable> getDefaultLootTable() { return ResourceKey.create(Registries.LOOT_TABLE, BeetleContent.id("beetle_crasher_loot")); }
     @Override public void die(DamageSource source) {
         super.die(source);
         if (isDeadOrDying() && !deathVisual && level() instanceof ServerLevel server) { deathVisual = true; BossDeathEffectEntity.submit(server, ManglerContent.HERALD_DEATH_EFFECT.get(), position(), getEyeHeight()); }
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putBoolean("BeetleInitialized", initialized); tag.putBoolean("BeetleDeathVisual", deathVisual); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); initialized = !tag.contains("BeetleInitialized") || tag.getBoolean("BeetleInitialized"); deathVisual = tag.getBoolean("BeetleDeathVisual"); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putBoolean("BeetleInitialized", initialized); output.putBoolean("BeetleDeathVisual", deathVisual); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); initialized = !input.getString("BeetleInitialized").isPresent() || input.getBooleanOr("BeetleInitialized", false); deathVisual = input.getBooleanOr("BeetleDeathVisual", false); }
 }

@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.sanctum;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.status.StatusContent;
@@ -6,7 +9,7 @@ import java.util.UUID;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.*;
 import net.minecraft.world.damagesource.DamageSource;
@@ -18,14 +21,14 @@ import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class ErrantEntity extends Monster implements GeoEntity, com.hp.thermalshockreforged.world.timing.ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(ErrantEntity.class, EntityDataSerializers.STRING);
-    private static final ResourceLocation ADVANCEMENT = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_get");
+    private static final Identifier ADVANCEMENT = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errant_get");
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     private final ErrantCombat combat = new ErrantCombat(this);
     private boolean attributesApplied;
@@ -47,7 +50,7 @@ public final class ErrantEntity extends Monster implements GeoEntity, com.hp.the
                 .add(Attributes.ATTACK_KNOCKBACK, 1).add(Attributes.STEP_HEIGHT, 1);
     }
     private void applyConfiguredAttributes() {
-        if (level().isClientSide || attributesApplied || !SanctumConfig.SPEC.isLoaded()) return;
+        if (level().isClientSide() || attributesApplied || !SanctumConfig.SPEC.isLoaded()) return;
         float previousHealth = getHealth();
         var values = sanctum() ? SanctumConfig.SANCTUM_ERRANT : SanctumConfig.ERRANT;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(values.health().get());
@@ -84,12 +87,12 @@ public final class ErrantEntity extends Monster implements GeoEntity, com.hp.the
     @Override public boolean removeWhenFarAway(double distance) { return sanctum() ? false : super.removeWhenFarAway(distance); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_HURT; }
-    @Override public boolean hurt(DamageSource source, float amount) {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
         if (hasEffect(StatusContent.PARRYING) && level() instanceof ServerLevel server) {
             addEffect(new MobEffectInstance(MobEffects.HEAL, 1, 0, true, false));
             server.playSound(null, blockPosition(), SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.NEUTRAL, .8F, 3);
         }
-        return super.hurt(source, amount);
+        return super.hurtServer(level, source, amount);
     }
     @Override public void die(DamageSource source) {
         super.die(source);
@@ -102,40 +105,40 @@ public final class ErrantEntity extends Monster implements GeoEntity, com.hp.the
             if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) player.getAdvancements().award(advancement, criterion);
         }
     }
-    @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
+    @Override protected void dropExperience(net.minecraft.server.level.ServerLevel level, Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
         if (++deathTime >= 20 && !isRemoved()) {
             remove(RemovalReason.KILLED);
             if (experiencePending && level() instanceof ServerLevel server) {
                 experiencePending = false;
-                super.dropExperience(experienceAttacker == null ? null : server.getEntity(experienceAttacker));
+                super.dropExperience(server, experienceAttacker == null ? null : server.getEntity(experienceAttacker));
             }
         }
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putString("Texture", texture());
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putString("Texture", texture());
         combat.save(tag);
-        tag.putBoolean("SanctumErrantDeathCommitted", deathCommitted);
-        tag.putBoolean("SanctumErrantExperiencePending", experiencePending);
-        if (experienceAttacker != null) tag.putUUID("SanctumErrantExperienceAttacker", experienceAttacker);
+        output.putBoolean("SanctumErrantDeathCommitted", deathCommitted);
+        output.putBoolean("SanctumErrantExperiencePending", experiencePending);
+        if (experienceAttacker != null) output.putString("SanctumErrantExperienceAttacker", experienceAttacker.toString());
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         loadedFromSave = true;
         attributesApplied = false;
-        super.readAdditionalSaveData(tag);
+        super.readAdditionalSaveData(input);
         if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
-        if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        deathCommitted = tag.getBoolean("SanctumErrantDeathCommitted");
-        experiencePending = tag.getBoolean("SanctumErrantExperiencePending");
-        experienceAttacker = tag.hasUUID("SanctumErrantExperienceAttacker") ? tag.getUUID("SanctumErrantExperienceAttacker") : null;
+        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        deathCommitted = input.getBooleanOr("SanctumErrantDeathCommitted", false);
+        experiencePending = input.getBooleanOr("SanctumErrantExperiencePending", false);
+        experienceAttacker = input.getString("SanctumErrantExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
         applyConfiguredAttributes();
         combat.load(tag);
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 2, state -> PlayState.STOP);
+        var procedure = new LegacyAnimationController<>(this, "procedure", 2, state -> PlayState.STOP);
         for (String clip : java.util.List.of("idle", "walk", "aggroidle", "aggro", "attack", "block", "hold", "dodge")) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));
-        controllers.add(new AnimationController<>(this, "movement", 2, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 2, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             if ((state.isMoving() || state.getLimbSwingAmount() <= -.15F || state.getLimbSwingAmount() >= .15F) && !isAggressive()) return state.setAndContinue(RawAnimation.begin().thenLoop("walk"));
             if (isShiftKeyDown()) return state.setAndContinue(RawAnimation.begin().thenLoop("idle"));

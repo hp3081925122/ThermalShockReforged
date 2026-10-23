@@ -7,7 +7,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
@@ -27,8 +27,8 @@ public final class DevCharacterToolItem extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        if (!level.isClientSide) {
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
+        if (!level.isClientSide()) {
             var center = player.position();
             var targets = level.getEntitiesOfClass(Entity.class, new AABB(center, center).inflate(1), entity -> entity.getType().is(CHARACTERS));
             targets.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(center)));

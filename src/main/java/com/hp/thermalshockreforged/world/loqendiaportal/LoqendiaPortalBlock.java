@@ -27,7 +27,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
-import net.minecraft.world.level.portal.DimensionTransition;
+import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -38,7 +38,7 @@ public final class LoqendiaPortalBlock extends Block implements Portal {
     private static final VoxelShape Z_SHAPE = Block.box(6, 0, 0, 10, 16, 16);
 
     public LoqendiaPortalBlock() {
-        this(Properties.of().mapColor(MapColor.COLOR_PURPLE).noCollission().randomTicks().pushReaction(PushReaction.BLOCK)
+        this(Properties.of().mapColor(MapColor.COLOR_PURPLE).noCollision().randomTicks().pushReaction(PushReaction.BLOCK)
                 .strength(-1).sound(SoundType.GLASS).lightLevel(state -> 15).noLootTable());
     }
 
@@ -64,7 +64,7 @@ public final class LoqendiaPortalBlock extends Block implements Portal {
     }
 
     public static boolean portalSpawn(Level level, BlockPos pos) {
-        if (level.isClientSide) return false;
+        if (level.isClientSide()) return false;
         return LoqendiaPortalShape.findEmpty(level, pos, Direction.Axis.X).map(LoqendiaPortalShape::createPortalBlocks).orElse(false);
     }
 
@@ -80,11 +80,11 @@ public final class LoqendiaPortalBlock extends Block implements Portal {
         var transition = LoqendiaPortalTravel.destination(server, destination, entity, pos);
         if (entity.changeDimension(transition) != null) {
             ThermalShockReforged.LOGGER.debug("Loqendia portal travel completed: entity={}, from={}, to={}, entrance={}",
-                    entity.getUUID(), server.dimension().location(), destination.dimension().location(), pos);
+                    entity.getUUID(), server.dimension().identifier(), destination.dimension().identifier(), pos);
         }
     }
 
-    @Override public DimensionTransition getPortalDestination(ServerLevel level, Entity entity, BlockPos pos) {
+    @Override public TeleportTransition getPortalDestination(ServerLevel level, Entity entity, BlockPos pos) {
         ServerLevel destination = level.getServer().getLevel(level.dimension() == LoqendiaContent.DIMENSION ? Level.OVERWORLD : LoqendiaContent.DIMENSION);
         return destination == null ? null : LoqendiaPortalTravel.destination(level, destination, entity, pos);
     }

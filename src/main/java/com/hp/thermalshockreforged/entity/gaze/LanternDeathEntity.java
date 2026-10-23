@@ -7,7 +7,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.*;
@@ -30,7 +30,7 @@ public final class LanternDeathEntity extends Entity implements ServerEndTickTas
     }
     private void pulse(ServerLevel level) {
         level.sendParticles(ParticleTypes.EXPLOSION, getX(), getY(), getZ(), 1, .5, .5, .5, 0);
-        level.playSound(null, BlockPos.containing(position()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "mob_death_explode")), SoundSource.HOSTILE, 1, 3);
+        level.playSound(null, BlockPos.containing(position()), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "mob_death_explode")), SoundSource.HOSTILE, 1, 3);
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); if (armed && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
@@ -57,6 +57,6 @@ public final class LanternDeathEntity extends Entity implements ServerEndTickTas
         level.explode(null, null, calculator, origin, 3, false, Level.ExplosionInteraction.MOB);
         level.sendParticles(ParticleTypes.FLAME, origin.x, origin.y, origin.z, 25, 1, 1, 1, 1);
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) { tag.putInt("Elapsed", elapsed); tag.putBoolean("Armed", armed); tag.putDouble("DamageScale", damageScale); }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) { elapsed = Math.clamp(tag.getInt("Elapsed"), 0, 24); armed = tag.getBoolean("Armed"); double saved = tag.getDouble("DamageScale"); damageScale = Double.isFinite(saved) ? Math.clamp(saved, 0, 1000000) : 0; }
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { output.putInt("Elapsed", elapsed); output.putBoolean("Armed", armed); output.putDouble("DamageScale", damageScale); }
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { elapsed = Math.clamp(input.getIntOr("Elapsed", 0), 0, 24); armed = input.getBooleanOr("Armed", false); double saved = input.getDoubleOr("DamageScale", 0.0); damageScale = Double.isFinite(saved) ? Math.clamp(saved, 0, 1000000) : 0; }
 }

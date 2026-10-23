@@ -1,11 +1,15 @@
 package com.hp.thermalshockreforged.content.utility;
+import net.minecraft.world.item.Item;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
@@ -20,13 +24,13 @@ public final class UtilityContent {
     public static final DeferredItem<Item> LOQUE_MILK = ITEMS.register("loque_milk", () -> new LoqueMilkItem(new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)
             .food(new FoodProperties.Builder().nutrition(5).saturationModifier(1).usingConvertsTo(Items.BUCKET).build())));
     public static final DeferredItem<Item> ADAMANTINE_SPICE = ITEMS.register("adamantine_spice", () -> new AdamantineSpiceItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
-    public static final DeferredItem<Item> MUCK_PIE = ITEMS.register("muck_pie", () -> new NourishingFoodItem(UseAnim.EAT));
+    public static final DeferredItem<Item> MUCK_PIE = ITEMS.register("muck_pie", () -> new NourishingFoodItem(ItemUseAnimation.EAT));
 
-    public static final DeferredItem<Item> SNOWDAE = ITEMS.register("snowdae", () -> new NourishingFoodItem(UseAnim.EAT));
-    public static final DeferredItem<Item> LOQUESICLE = ITEMS.register("loquesicle", () -> new NourishingFoodItem(UseAnim.EAT));
-    public static final DeferredItem<Item> BLOOD_POP = ITEMS.register("blood_pop", () -> new NourishingFoodItem(UseAnim.DRINK));
-    public static final DeferredItem<Item> CHALK_CANDY = ITEMS.register("chalk_candy", () -> new NourishingFoodItem(UseAnim.EAT));
-    public static final DeferredItem<Item> LUCK_TICKET = ITEMS.register("luck_ticket", () -> new NourishingFoodItem(UseAnim.EAT));
+    public static final DeferredItem<Item> SNOWDAE = ITEMS.register("snowdae", () -> new NourishingFoodItem(ItemUseAnimation.EAT));
+    public static final DeferredItem<Item> LOQUESICLE = ITEMS.register("loquesicle", () -> new NourishingFoodItem(ItemUseAnimation.EAT));
+    public static final DeferredItem<Item> BLOOD_POP = ITEMS.register("blood_pop", () -> new NourishingFoodItem(ItemUseAnimation.DRINK));
+    public static final DeferredItem<Item> CHALK_CANDY = ITEMS.register("chalk_candy", () -> new NourishingFoodItem(ItemUseAnimation.EAT));
+    public static final DeferredItem<Item> LUCK_TICKET = ITEMS.register("luck_ticket", () -> new NourishingFoodItem(ItemUseAnimation.EAT));
     public static final DeferredItem<Item> LOQUE_MILK_BOTTLE = ITEMS.register("loque_milk_bottle", BottledMilkItem::new);
 
     public static final DeferredItem<Item> FROZEN_CHILLOO = ITEMS.register("frozen_chilloo", () -> new SlowFoodItem(0.1F));
@@ -41,17 +45,17 @@ public final class UtilityContent {
     }
 
     private static final class NourishingFoodItem extends Item {
-        private final UseAnim animation;
-        private NourishingFoodItem(UseAnim animation) {
+        private final ItemUseAnimation animation;
+        private NourishingFoodItem(ItemUseAnimation animation) {
             super(new Item.Properties().stacksTo(1).food(new FoodProperties.Builder().nutrition(10).saturationModifier(2).build()));
             this.animation = animation;
         }
-        @Override public UseAnim getUseAnimation(ItemStack stack) { return animation; }
+        @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return animation; }
         @Override public int getUseDuration(ItemStack stack, LivingEntity consumer) { return 60; }
         @Override
         public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity consumer) {
             ItemStack result = super.finishUsingItem(stack, level, consumer);
-            if (!level.isClientSide) BuiltInRegistries.MOB_EFFECT.getHolder(ResourceLocation.fromNamespaceAndPath("farmersdelight", "nourishment"))
+            if (!level.isClientSide()) BuiltInRegistries.MOB_EFFECT.getHolder(Identifier.fromNamespaceAndPath("farmersdelight", "nourishment"))
                     .ifPresent(effect -> consumer.addEffect(new MobEffectInstance(effect, 4000, 0)));
             return result;
         }
@@ -69,7 +73,7 @@ public final class UtilityContent {
             super(new Properties().stacksTo(1).food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.5F)
                     .usingConvertsTo(Items.GLASS_BOTTLE).build()));
         }
-        @Override public UseAnim getUseAnimation(ItemStack stack) { return UseAnim.DRINK; }
+        @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.DRINK; }
         @Override public int getUseDuration(ItemStack stack, LivingEntity consumer) { return 20; }
         @Override
         public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity consumer) {
@@ -80,7 +84,7 @@ public final class UtilityContent {
 
     private static final class LoqueMilkItem extends Item {
         private LoqueMilkItem(Properties properties) { super(properties); }
-        @Override public UseAnim getUseAnimation(ItemStack stack) { return UseAnim.DRINK; }
+        @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.DRINK; }
         @Override public int getUseDuration(ItemStack stack, LivingEntity consumer) { return 45; }
         @Override
         public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity consumer) {
@@ -93,14 +97,14 @@ public final class UtilityContent {
         private AdamantineSpiceItem(Properties properties) { super(properties); }
         @Override public int getUseDuration(ItemStack stack, LivingEntity consumer) { return 10; }
         @Override
-        public void appendHoverText(ItemStack stack, TooltipContext context, java.util.List<net.minecraft.network.chat.Component> lines, TooltipFlag flag) {
-            super.appendHoverText(stack, context, lines, flag);
-            lines.add(net.minecraft.network.chat.Component.translatable("item.thermal_shock_reforged.adamantine_spice.description_0"));
+        public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+            super.appendHoverText(stack, context, display, tooltipAdder, flag);
+            tooltipAdder.accept(net.minecraft.network.chat.Component.translatable("item.thermal_shock_reforged.adamantine_spice.description_0"));
         }
         @Override
-        public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        public InteractionResult use(Level level, Player player, InteractionHand hand) {
             player.startUsingItem(hand);
-            return InteractionResultHolder.consume(player.getItemInHand(hand));
+            return InteractionResult.CONSUME;
         }
     }
 }

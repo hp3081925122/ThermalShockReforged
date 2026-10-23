@@ -45,6 +45,6 @@ public final class GlassVariantsContent {
     }
 
     private static BlockBehaviour.Properties faced(MapColor color) {
-        return base(color, SoundType.GLASS, 0.5F, 0).instrument(NoteBlockInstrument.HAT).requiresCorrectToolForDrops().hasPostProcess((state, level, pos) -> true).emissiveRendering((state, level, pos) -> true);
+        return base(color, SoundType.GLASS, 0.5F, 0).instrument(NoteBlockInstrument.HAT).requiresCorrectToolForDrops().emissiveRendering((state, level, pos) -> true);
     }
 }

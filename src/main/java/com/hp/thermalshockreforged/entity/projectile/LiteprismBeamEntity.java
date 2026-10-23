@@ -51,7 +51,7 @@ public final class LiteprismBeamEntity extends ShortBeamEntity {
         level.sendParticles(com.hp.thermalshockreforged.content.weapons.WeaponContent.LITEPRISM_FLARE.get(), end.x, end.y, end.z, 0, .5, 0, 0, 1);
         for (double along = 1.5; along < visibleLength; along += 1.5) {
             var at = origin.add(direction.scale(along));
-            level.sendParticles(com.hp.thermalshockreforged.content.weapons.WeaponContent.LITEPRISM_SPARK.get(), at.x, at.y, at.z, 0, (level.random.nextDouble() - .5) * .08, .02 + level.random.nextDouble() * .04, (level.random.nextDouble() - .5) * .08, 1);
+            level.sendParticles(com.hp.thermalshockreforged.content.weapons.WeaponContent.LITEPRISM_SPARK.get(), at.x, at.y, at.z, 0, (level.getRandom().nextDouble() - .5) * .08, .02 + level.getRandom().nextDouble() * .04, (level.getRandom().nextDouble() - .5) * .08, 1);
         }
         return emitted;
     }

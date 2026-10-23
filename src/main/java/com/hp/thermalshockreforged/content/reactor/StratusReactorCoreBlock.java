@@ -1,4 +1,8 @@
 package com.hp.thermalshockreforged.content.reactor;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
+import net.minecraft.world.InteractionResult;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
@@ -6,7 +10,7 @@ import com.hp.thermalshockreforged.entity.icesquad.IceSquadContent;
 import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
@@ -30,13 +34,13 @@ public final class StratusReactorCoreBlock extends Block implements EntityBlock 
     @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new ReactorCoreBlockEntity(pos, state); }
     @Override public boolean canHarvestBlock(BlockState state, BlockGetter level, BlockPos pos, Player player) { return state.getValue(BLOCKSTATE) != 1 && super.canHarvestBlock(state, level, pos, player); }
-    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        for (int i = 0; i < 5; i++) lines.add(Component.translatable(getDescriptionId() + ".description_" + i));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        for (int i = 0; i < 5; i++) tooltipAdder.accept(Component.translatable(getDescriptionId() + ".description_" + i));
     }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (hand == InteractionHand.MAIN_HAND && level instanceof ServerLevel server) activate(server, pos, player);
-        return ItemInteractionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (level instanceof ServerLevel server) activate(server, pos, player);
@@ -88,7 +92,7 @@ public final class StratusReactorCoreBlock extends Block implements EntityBlock 
             return;
         }
         if (player instanceof ServerPlayer serverPlayer) {
-            var advancement = level.getServer().getAdvancements().get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "stratus_reactor_get"));
+            var advancement = level.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "stratus_reactor_get"));
             if (advancement != null) {
                 var progress = serverPlayer.getAdvancements().getOrStartProgress(advancement);
                 if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) serverPlayer.getAdvancements().award(advancement, criterion);
@@ -97,6 +101,6 @@ public final class StratusReactorCoreBlock extends Block implements EntityBlock 
         level.playSound(null, pos, SoundEvents.WITHER_SPAWN, SoundSource.BLOCKS, 1, 5);
         level.sendParticles(IceSquadContent.FOG_CLOUD.get(), pos.getX() + .5, pos.getY(), pos.getZ() + .5, 10, 2, 2, 2, 0);
         task.firstPulse(level);
-        ThermalShockReforged.LOGGER.debug("Reactor sequence {} activated at {} in {}", task.getUUID(), pos, level.dimension().location());
+        ThermalShockReforged.LOGGER.debug("Reactor sequence {} activated at {} in {}", task.getUUID(), pos, level.dimension().identifier());
     }
 }

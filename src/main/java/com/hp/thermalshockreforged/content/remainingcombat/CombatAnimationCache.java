@@ -2,9 +2,9 @@ package com.hp.thermalshockreforged.content.remainingcombat;
 
 import java.util.HashMap;
 import java.util.Map;
-import software.bernie.geckolib.animatable.GeoAnimatable;
-import software.bernie.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
+import com.geckolib.animatable.GeoAnimatable;
+import com.geckolib.animatable.instance.SingletonAnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 final class CombatAnimationCache extends SingletonAnimatableInstanceCache {
     private final Map<Long, Long> lastAccess = new HashMap<>();

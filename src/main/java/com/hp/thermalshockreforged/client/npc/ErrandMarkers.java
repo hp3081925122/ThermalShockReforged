@@ -11,7 +11,7 @@ import com.mojang.blaze3d.vertex.ByteBufferBuilder;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.renderer.LightTexture;
+import net.minecraft.util.LightCoordsUtil;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
@@ -60,7 +60,7 @@ public final class ErrandMarkers {
             pose.translate(x - camera.x, y - camera.y, z - camera.z);
             pose.mulPose(minecraft.getEntityRenderDispatcher().cameraOrientation());
             pose.scale(SCALE, -SCALE, SCALE);
-            font.drawInBatch("!", -font.width("!") / 2.0F, -font.lineHeight / 2.0F, COLOR, true, pose.last().pose(), buffers, Font.DisplayMode.NORMAL, 0, LightTexture.FULL_BRIGHT);
+            font.drawInBatch("!", -font.width("!") / 2.0F, -font.lineHeight / 2.0F, COLOR, true, pose.last().pose(), buffers, Font.DisplayMode.NORMAL, 0, LightCoordsUtil.FULL_BRIGHT);
             drawn = true;
         }
         if (drawn) buffers.endBatch();

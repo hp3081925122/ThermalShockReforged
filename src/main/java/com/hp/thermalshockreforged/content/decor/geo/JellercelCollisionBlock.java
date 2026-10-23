@@ -85,7 +85,7 @@ public final class JellercelCollisionBlock extends Block implements SimpleWaterl
     }
 
     @Override public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
-        if (!level.isClientSide && player.isCreative()) {
+        if (!level.isClientSide() && player.isCreative()) {
             BlockPos core = anchor(level, pos, state);
             if (core != null) level.destroyBlock(core, false);
         }
@@ -93,7 +93,7 @@ public final class JellercelCollisionBlock extends Block implements SimpleWaterl
     }
 
     @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
-        if (!level.isClientSide && !state.is(replacement.getBlock())) {
+        if (!level.isClientSide() && !state.is(replacement.getBlock())) {
             BlockPos core = anchor(level, pos, state);
             if (core != null) level.destroyBlock(core, true);
         }
@@ -102,10 +102,10 @@ public final class JellercelCollisionBlock extends Block implements SimpleWaterl
 
     @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         super.entityInside(state, level, pos, entity);
-        if (!level.isClientSide) entity.hurt(level.damageSources().lightningBolt(), 1);
+        if (!level.isClientSide()) entity.hurt(level.damageSources().lightningBolt(), 1);
     }
     @Override public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         super.stepOn(level, pos, state, entity);
-        if (!level.isClientSide) entity.hurt(level.damageSources().lightningBolt(), 1);
+        if (!level.isClientSide()) entity.hurt(level.damageSources().lightningBolt(), 1);
     }
 }

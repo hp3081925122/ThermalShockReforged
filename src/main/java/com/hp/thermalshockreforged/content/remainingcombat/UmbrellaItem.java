@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.content.remainingcombat;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import java.util.List;
 import net.minecraft.network.chat.Component;
@@ -15,7 +18,7 @@ public final class UmbrellaItem extends AnimatedCombatItem {
     public UmbrellaItem(boolean legendary) { super(new Properties().durability(250).rarity(legendary ? Rarity.UNCOMMON : Rarity.COMMON)); this.legendary = legendary; }
     @Override public String modelName() { return "jellyumbrella"; }
     @Override public String textureName() { return "jellumnbra"; }
-    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+    @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var result = super.use(level, player, hand);
         if (player.getCooldowns().isOnCooldown(this)) return result;
         player.setDeltaMovement(new Vec3(0, .5, 0)); player.hasImpulse = true;
@@ -24,14 +27,14 @@ public final class UmbrellaItem extends AnimatedCombatItem {
             player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, legendary ? 60 : 120, 1));
             player.getCooldowns().addCooldown(this, legendary ? 80 : 200);
             CombatItemTaskEntity.sound(server, player.position(), "jellyumbrelladeploy", 1, 1);
-            animate(player, result.getObject());
+            animate(player, player.getItemInHand(hand));
             if (legendary) com.hp.thermalshockreforged.ThermalShockReforged.LOGGER.debug("Legendary umbrella activation animation submitted: player={}", player.getUUID());
         }
         return result;
     }
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.translatable("item.thermal_shock_reforged.jelly_umbrella.description_0"));
-        if (legendary) lines.add(Component.translatable("item.thermal_shock_reforged.legendary_jelly_umbrella.description_1"));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.jelly_umbrella.description_0"));
+        if (legendary) tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.legendary_jelly_umbrella.description_1"));
     }
 }

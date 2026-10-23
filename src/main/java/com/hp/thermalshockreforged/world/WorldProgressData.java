@@ -5,10 +5,13 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.saveddata.SavedData;
+import net.minecraft.world.level.saveddata.SavedDataType;
+import com.mojang.serialization.Codec;
+import net.minecraft.resources.Identifier;
 
 public final class WorldProgressData extends SavedData {
     private static final String ID = ThermalShockReforged.MOD_ID + "_world_progress";
-    private static final Factory<WorldProgressData> FACTORY = new Factory<>(WorldProgressData::new, WorldProgressData::load);
+    private static final SavedDataType<WorldProgressData> FACTORY = new SavedDataType<>(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "world_progress"), WorldProgressData::new, Codec.unit(new WorldProgressData()));
     private static final java.util.concurrent.ConcurrentMap<net.minecraft.server.MinecraftServer, WorldProgressData> LOADED = new java.util.concurrent.ConcurrentHashMap<>();
     private double worldCrux;
     private volatile boolean altarUnlocked;
@@ -22,7 +25,7 @@ public final class WorldProgressData extends SavedData {
     private boolean keystonePuzzleHintShown;
     private boolean keystoneLeverHintShown;
     private int keystoneNoticeTicks = -1;
-    private net.minecraft.resources.ResourceLocation keystoneNoticeDimension;
+    private net.minecraft.resources.Identifier keystoneNoticeDimension;
     private net.minecraft.core.BlockPos keystoneNoticeAnchor = net.minecraft.core.BlockPos.ZERO;
     private volatile int oreTier1;
     private volatile int oreTier2;
@@ -53,15 +56,15 @@ public final class WorldProgressData extends SavedData {
     public void initializeOreChoices(ServerLevel level) {
         if (!level.getServer().isSameThread()) throw new IllegalStateException("Ore selection must run on the server thread");
         if (oreTier1 != 0 && oreTier2 != 0) return;
-        if (oreTier1 == 0) oreTier1 = level.random.nextInt(2) + 1;
-        if (oreTier2 == 0) oreTier2 = level.random.nextInt(2) + 1;
+        if (oreTier1 == 0) oreTier1 = level.getRandom().nextInt(2) + 1;
+        if (oreTier2 == 0) oreTier2 = level.getRandom().nextInt(2) + 1;
         setDirty();
         ThermalShockReforged.LOGGER.debug("Ore choices initialized: tier1={}, tier2={}", oreTier1, oreTier2);
         OreChoicePayload.broadcast(level);
     }
 
     public static WorldProgressData get(ServerLevel level) {
-        return level.getServer().overworld().getDataStorage().computeIfAbsent(FACTORY, ID);
+        return level.getServer().overworld().getDataStorage().computeIfAbsent(FACTORY);
     }
     public boolean beginPalacePlacement() {
         if (palaceExists || palacePlacing) return false;
@@ -95,7 +98,7 @@ public final class WorldProgressData extends SavedData {
         keystonePlacing = true;
         return true;
     }
-    public void finishKeystonePlacement(boolean placed, net.minecraft.resources.ResourceLocation dimension, net.minecraft.core.BlockPos anchor) {
+    public void finishKeystonePlacement(boolean placed, net.minecraft.resources.Identifier dimension, net.minecraft.core.BlockPos anchor) {
         keystonePlacing = false;
         if (placed && !keystoneExists) {
             keystoneExists = true;
@@ -112,7 +115,7 @@ public final class WorldProgressData extends SavedData {
         setDirty();
         return elapsed;
     }
-    public net.minecraft.resources.ResourceLocation keystoneNoticeDimension() { return keystoneNoticeDimension; }
+    public net.minecraft.resources.Identifier keystoneNoticeDimension() { return keystoneNoticeDimension; }
     public net.minecraft.core.BlockPos keystoneNoticeAnchor() { return keystoneNoticeAnchor; }
     public boolean keystoneExists() { return keystoneExists; }
     public boolean keystoneNoticeComplete() { return keystoneExists && keystoneNoticeTicks < 0; }
@@ -146,7 +149,7 @@ public final class WorldProgressData extends SavedData {
         data.keystoneExists = tag.getBoolean("KeystoneExists");
         data.keystonePuzzleHintShown = tag.getBoolean("KeystonePuzzleHintShown");
         data.keystoneLeverHintShown = tag.getBoolean("KeystoneLeverHintShown");
-        data.keystoneNoticeDimension = net.minecraft.resources.ResourceLocation.tryParse(tag.getString("KeystoneNoticeDimension"));
+        data.keystoneNoticeDimension = net.minecraft.resources.Identifier.tryParse(tag.getString("KeystoneNoticeDimension"));
         data.keystoneNoticeAnchor = net.minecraft.core.BlockPos.of(tag.getLong("KeystoneNoticeAnchor"));
         int noticeTicks = tag.getInt("KeystoneNoticeTicks");
         if (data.keystoneExists && data.keystoneNoticeDimension != null && tag.contains("KeystoneNoticeTicks", 99) && noticeTicks >= 0 && noticeTicks < 200) data.keystoneNoticeTicks = noticeTicks;

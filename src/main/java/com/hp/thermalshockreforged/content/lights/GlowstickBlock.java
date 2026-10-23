@@ -21,7 +21,7 @@ public final class GlowstickBlock extends Block implements EntityBlock, SimpleWa
 
     public GlowstickBlock() {
         super(Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.SPORE_BLOSSOM).instabreak().lightLevel(state -> 9)
-                .noCollission().noOcclusion().pushReaction(PushReaction.DESTROY).hasPostProcess((s, l, p) -> true)
+                .noCollision().noOcclusion().pushReaction(PushReaction.DESTROY)
                 .emissiveRendering((s, l, p) -> true).isRedstoneConductor((s, l, p) -> false));
         registerDefaultState(stateDefinition.any().setValue(ANIMATION, 0).setValue(WATERLOGGED, false));
     }
@@ -41,7 +41,7 @@ public final class GlowstickBlock extends Block implements EntityBlock, SimpleWa
         return super.updateShape(state, facing, neighbor, level, pos, neighborPos);
     }
     private void checkHanging(Level level, BlockPos pos) {
-        if (!level.isClientSide && level.getBlockState(pos.above()).is(Blocks.AIR)) level.destroyBlock(pos, true);
+        if (!level.isClientSide() && level.getBlockState(pos.above()).is(Blocks.AIR)) level.destroyBlock(pos, true);
     }
     @Override protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState previous, boolean moving) {
         super.onPlace(state, level, pos, previous, moving);
@@ -53,7 +53,7 @@ public final class GlowstickBlock extends Block implements EntityBlock, SimpleWa
     }
     @Override protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState replacement, boolean moving) {
         if (!state.is(replacement.getBlock())) {
-            if (!level.isClientSide && level.getBlockEntity(pos) instanceof GlowstickBlockEntity entity) Containers.dropContents(level, pos, entity);
+            if (!level.isClientSide() && level.getBlockEntity(pos) instanceof GlowstickBlockEntity entity) Containers.dropContents(level, pos, entity);
             super.onRemove(state, level, pos, replacement, moving);
         }
     }

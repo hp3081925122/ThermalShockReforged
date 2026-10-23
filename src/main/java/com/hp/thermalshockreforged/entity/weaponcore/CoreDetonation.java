@@ -8,7 +8,7 @@ import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
@@ -19,10 +19,10 @@ import net.minecraft.world.phys.Vec3;
 
 final class CoreDetonation {
     private static final ThreadLocal<Chain> ACTIVE = new ThreadLocal<>();
-    private static final ResourceLocation FROST_TITAN = id("frost_titan");
-    private static final ResourceLocation CHALLENGE = id("frost_titan_core_kill_get");
+    private static final Identifier FROST_TITAN = id("frost_titan");
+    private static final Identifier CHALLENGE = id("frost_titan_core_kill_get");
     private CoreDetonation() { }
-    private static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
+    private static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     static void submit(ServerLevel level, UUID core, Vec3 origin, Entity attacker) {
         Chain chain = ACTIVE.get();
         if (chain != null) { chain.enqueue(new Burst(level, core, origin, attacker)); return; }

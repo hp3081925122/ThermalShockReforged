@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.decor.geo;
+import net.minecraft.world.InteractionResult;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -20,14 +21,14 @@ public final class SuspiciousCavebloomerBlock extends GeoDecorBlock.Directional 
     private void interact(Level level, BlockPos pos) {
         if (level instanceof ServerLevel server && level.getBlockEntity(pos) instanceof SuspiciousCavebloomerBlockEntity entity) entity.interact(server);
     }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        interact(level, pos); return ItemInteractionResult.SUCCESS;
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        interact(level, pos); return InteractionResult.SUCCESS;
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         interact(level, pos); return InteractionResult.SUCCESS;
     }
     @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        if (level.isClientSide || !state.getValue(SPAWNING) || type != GeoDecorContent.entity(kind)) return null;
+        if (level.isClientSide() || !state.getValue(SPAWNING) || type != GeoDecorContent.entity(kind)) return null;
         return (world, pos, current, entity) -> { if (world instanceof ServerLevel server && entity instanceof SuspiciousCavebloomerBlockEntity summoner) summoner.tickSummons(server); };
     }
 }

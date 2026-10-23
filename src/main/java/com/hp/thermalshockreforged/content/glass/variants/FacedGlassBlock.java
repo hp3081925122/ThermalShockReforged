@@ -8,10 +8,10 @@ import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 final class FacedGlassBlock extends VariantGlassBlock {
-    private static final DirectionProperty FACING = DirectionalBlock.FACING;
+    private static final EnumProperty<Direction> FACING = DirectionalBlock.FACING;
 
     FacedGlassBlock(Properties properties) {
         super(properties, 15);

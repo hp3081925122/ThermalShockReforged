@@ -5,6 +5,7 @@ import com.hp.thermalshockreforged.entity.orb.*;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -12,18 +13,15 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.entity.RenderLayerParent;
-import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 public final class OrbRenderers {
-    private static final ModelLayerLocation LAYER = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "model_tale_orb"), "main");
+    private static final ModelLayerLocation LAYER = new ModelLayerLocation(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "model_tale_orb"), "main");
     private OrbRenderers() { }
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(OrbContent.STOPPER_ORB.get(), context -> new Renderer<>(context, "stopper_orb_trans"));
@@ -37,28 +35,18 @@ public final class OrbRenderers {
             return LayerDefinition.create(mesh, 80, 80);
         });
     }
-    private static final class TaleOrbModel<T extends Entity> extends EntityModel<T> {
+    private static final class TaleOrbModel extends EntityModel<LivingEntityRenderState> {
         private final ModelPart head;
         private TaleOrbModel(ModelPart root) { head = root.getChild("head"); }
-        @Override public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) { head.xRot = ageInTicks / 20; }
-        @Override public void renderToBuffer(PoseStack pose, VertexConsumer vertices, int light, int overlay, int color) { head.render(pose, vertices, light, overlay, color); }
+        @Override public void setupAnim(LivingEntityRenderState state) { head.xRot = state.ageInTicks / 20; }
     }
-    private static final class Renderer<T extends OrbEntityBase> extends MobRenderer<T, TaleOrbModel<T>> {
-        private final ResourceLocation texture;
+    private static final class Renderer<T extends OrbEntityBase> extends com.hp.thermalshockreforged.client.compat.LegacyMobRenderer<T> {
+        private final Identifier texture;
         private Renderer(EntityRendererProvider.Context context, String texture) {
             super(context, new TaleOrbModel<>(context.bakeLayer(LAYER)), 0);
-            this.texture = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/" + texture + ".png");
-            addLayer(new Eyes(this, this.texture));
+            this.texture = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/" + texture + ".png");
         }
-        @Override public ResourceLocation getTextureLocation(T entity) { return texture; }
+        @Override public Identifier getTextureLocation(T entity) { return texture; }
         @Override protected boolean isBodyVisible(T entity) { return false; }
-    }
-    private static final class Eyes<T extends OrbEntityBase> extends RenderLayer<T, TaleOrbModel<T>> {
-        private final ResourceLocation texture;
-        private Eyes(RenderLayerParent<T, TaleOrbModel<T>> parent, ResourceLocation texture) { super(parent); this.texture = texture; }
-        @Override public void render(PoseStack pose, MultiBufferSource buffers, int light, T entity, float limbSwing, float limbSwingAmount, float partialTick, float ageInTicks, float netHeadYaw, float headPitch) {
-            VertexConsumer vertices = buffers.getBuffer(RenderType.eyes(texture));
-            getParentModel().renderToBuffer(pose, vertices, light, OverlayTexture.NO_OVERLAY, -1);
-        }
     }
 }

@@ -37,7 +37,7 @@ public final class OreChoiceTooltips {
             if (ore[0] == 1) choice = OreChoicePayload.tier1(level);
             else choice = OreChoicePayload.tier2(level);
             boolean generated = false;
-            if (!level.dimension().location().equals(LoqendiaContent.LOQENDIA_ID)) added.add(Component.translatable(KEY + "absent").withStyle(ChatFormatting.RED));
+            if (!level.dimension().identifier().equals(LoqendiaContent.LOQENDIA_ID)) added.add(Component.translatable(KEY + "absent").withStyle(ChatFormatting.RED));
             else if (choice == 0) added.add(Component.translatable(KEY + "pending").withStyle(ChatFormatting.GRAY));
             else if (choice == ore[1]) {
                 generated = true;

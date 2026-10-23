@@ -5,10 +5,10 @@ import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.particle.SpriteSet;
-import net.minecraft.client.particle.TextureSheetParticle;
+import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
 import net.minecraft.core.particles.SimpleParticleType;
 
-public final class BloodPetalParticle extends TextureSheetParticle {
+public final class BloodPetalParticle extends LegacySingleQuadParticle {
     private BloodPetalParticle(ClientLevel level, double x, double y, double z, double dx, double dy, double dz, SpriteSet sprites) {
         super(level, x, y, z);
         setSize(0.1F, 0.1F);
@@ -21,7 +21,7 @@ public final class BloodPetalParticle extends TextureSheetParticle {
         pickSprite(sprites);
     }
 
-    @Override public ParticleRenderType getRenderType() { return ParticleRenderType.PARTICLE_SHEET_OPAQUE; }
+    @Override public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
 
     @Override public void tick() {
         super.tick();
@@ -30,7 +30,7 @@ public final class BloodPetalParticle extends TextureSheetParticle {
     }
 
     public record Provider(SpriteSet sprites) implements ParticleProvider<SimpleParticleType> {
-        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) {
+        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz, net.minecraft.util.RandomSource random) {
             return new BloodPetalParticle(level, x, y, z, dx, dy, dz, sprites);
         }
     }

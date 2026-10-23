@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.snobol;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
@@ -17,10 +20,10 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class SiibolEntity extends PathfinderMob implements GeoEntity, ServerEndTickTask {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(SiibolEntity.class, EntityDataSerializers.STRING);
@@ -31,7 +34,7 @@ public final class SiibolEntity extends PathfinderMob implements GeoEntity, Serv
     private int remainingCast;
     private net.minecraft.world.phys.Vec3 castPosition = net.minecraft.world.phys.Vec3.ZERO;
     private String castDimension = "";
-    private static final net.minecraft.tags.TagKey<EntityType<?>> CHARACTERS = net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "character_mobs"));
+    private static final net.minecraft.tags.TagKey<EntityType<?>> CHARACTERS = net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ENTITY_TYPE, net.minecraft.resources.Identifier.fromNamespaceAndPath("thermal_shock_reforged", "character_mobs"));
 
     public SiibolEntity(EntityType<? extends SiibolEntity> type, Level level) {
         super(type, level);
@@ -79,24 +82,24 @@ public final class SiibolEntity extends PathfinderMob implements GeoEntity, Serv
     protected SoundEvent getDeathSound() { return SoundEvents.RABBIT_DEATH; }
 
     @Override
-    public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.FALL) && !source.is(DamageTypes.DROWN) && super.hurt(source, amount); }
+    public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.FALL) && !source.is(DamageTypes.DROWN) && super.hurtServer(level, source, amount); }
 
     @Override
     public boolean isWithinMeleeAttackRange(LivingEntity target) { return distanceToSqr(target) <= 25; }
 
     @Override
-    public boolean doHurtTarget(Entity target) {
+    public boolean doHurtTarget(net.minecraft.server.level.ServerLevel level, Entity target) {
         if (target instanceof LivingEntity living && !(living instanceof SiibolEntity)) beginCast(living);
         return false;
     }
 
     void beginCast(LivingEntity target) {
-        if (level().isClientSide || cooldown > 0 || !isAlive()) return;
+        if (level().isClientSide() || cooldown > 0 || !isAlive()) return;
         startedCastAt = level().getGameTime();
         cooldown = 50;
         remainingCast = 20;
         castPosition = target.position();
-        castDimension = level().dimension().location().toString();
+        castDimension = level().dimension().identifier().toString();
         level().playSound(null, target.blockPosition(), SoundEvents.RABBIT_HURT, SoundSource.NEUTRAL, 1, -3);
         getNavigation().stop();
         if (level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
@@ -108,7 +111,7 @@ public final class SiibolEntity extends PathfinderMob implements GeoEntity, Serv
     @Override
     public void baseTick() {
         super.baseTick();
-        if (!level().isClientSide && startedCastAt != level().getGameTime() && cooldown > 0) cooldown--;
+        if (!level().isClientSide() && startedCastAt != level().getGameTime() && cooldown > 0) cooldown--;
     }
 
     @Override
@@ -126,7 +129,7 @@ public final class SiibolEntity extends PathfinderMob implements GeoEntity, Serv
             return;
         }
         if (remainingCast <= 0) return;
-        if (!castDimension.equals(server.dimension().location().toString())) {
+        if (!castDimension.equals(server.dimension().identifier().toString())) {
             remainingCast = 0;
             return;
         }
@@ -136,7 +139,7 @@ public final class SiibolEntity extends PathfinderMob implements GeoEntity, Serv
     @Override
     public void endTick(ServerLevel server) {
         if (remainingCast <= 0 || isRemoved()) return;
-        if (!isAlive() || !castDimension.equals(server.dimension().location().toString())) { remainingCast = 0; return; }
+        if (!isAlive() || !castDimension.equals(server.dimension().identifier().toString())) { remainingCast = 0; return; }
         if (--remainingCast > 0) { ServerEndTickTasks.schedule(server, getUUID()); return; }
         ThermalShockReforged.LOGGER.debug("Siibol cast at server end tick: entity={}, origin={}", getUUID(), castPosition);
         server.playSound(null, BlockPos.containing(castPosition), SoundEvents.ZOMBIE_VILLAGER_CURE, SoundSource.NEUTRAL, 1, 3);
@@ -160,12 +163,12 @@ public final class SiibolEntity extends PathfinderMob implements GeoEntity, Serv
         if (parent.consumesAction()) return parent;
         var held = player.getItemInHand(hand);
         if (!held.is(net.minecraft.world.item.Items.BUCKET)) return parent;
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             held.shrink(1);
             SnobolContent.give(player, new net.minecraft.world.item.ItemStack(SnobolContent.BUCKET_OF_SIIBOL.get()));
             discard();
         }
-        return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);
+        return net.minecraft.world.InteractionResult.SUCCESS;
     }
 
     @Override
@@ -175,33 +178,33 @@ public final class SiibolEntity extends PathfinderMob implements GeoEntity, Serv
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putString("Texture", texture());
-        tag.putInt("SkillCooldown", cooldown);
-        tag.putInt("RemainingCast", remainingCast);
-        tag.putDouble("CastX", castPosition.x);
-        tag.putDouble("CastY", castPosition.y);
-        tag.putDouble("CastZ", castPosition.z);
-        tag.putString("CastDimension", castDimension);
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putString("Texture", texture());
+        output.putInt("SkillCooldown", cooldown);
+        output.putInt("RemainingCast", remainingCast);
+        output.putDouble("CastX", castPosition.x);
+        output.putDouble("CastY", castPosition.y);
+        output.putDouble("CastZ", castPosition.z);
+        output.putString("CastDimension", castDimension);
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        cooldown = Math.max(0, Math.min(50, tag.getInt("SkillCooldown")));
-        remainingCast = Math.max(0, Math.min(20, tag.getInt("RemainingCast")));
-        castPosition = new net.minecraft.world.phys.Vec3(tag.getDouble("CastX"), tag.getDouble("CastY"), tag.getDouble("CastZ"));
-        castDimension = tag.getString("CastDimension");
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        cooldown = Math.max(0, Math.min(50, input.getIntOr("SkillCooldown", 0)));
+        remainingCast = Math.max(0, Math.min(20, input.getIntOr("RemainingCast", 0)));
+        castPosition = new net.minecraft.world.phys.Vec3(input.getDoubleOr("CastX", 0.0), input.getDoubleOr("CastY", 0.0), input.getDoubleOr("CastZ", 0.0));
+        castDimension = input.getStringOr("CastDimension", "");
     }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
                 .triggerableAnim("idle", RawAnimation.begin().thenPlay("idle"))
                 .triggerableAnim("swim", RawAnimation.begin().thenPlay("swim"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation()
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation()
                 ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F ? "swim" : "idle"))));
         controllers.add(procedure);
     }

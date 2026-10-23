@@ -73,7 +73,7 @@ public final class KofoniMenu extends AbstractContainerMenu {
         input.setItem(0, ItemStack.EMPTY);
         var progress = player.getAdvancements().getOrStartProgress(advancement);
         if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) player.getAdvancements().award(advancement, criterion);
-        var world = player.serverLevel();
+        var world = ((net.minecraft.server.level.ServerLevel) player.level());
         world.addFreshEntity(new ExperienceOrb(world, anchor.getX(), anchor.getY(), anchor.getZ(), 20));
         int spawned = 0;
         for (int index = 0; index < (int)Math.ceil(Mth.nextDouble(player.getRandom(), 9, 28)); index++) {
@@ -87,7 +87,7 @@ public final class KofoniMenu extends AbstractContainerMenu {
     }
     @Override public void removed(Player player) {
         super.removed(player);
-        if (!closed && !level.isClientSide && player == owner) clearContainer(player, input);
+        if (!closed && !level.isClientSide() && player == owner) clearContainer(player, input);
         closed = true;
     }
     @Override public ItemStack quickMoveStack(Player player, int index) {

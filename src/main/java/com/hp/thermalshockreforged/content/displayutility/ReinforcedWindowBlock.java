@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content.displayutility;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import com.hp.thermalshockreforged.content.utility.UtilityContent;
 import java.util.List;
@@ -9,12 +11,12 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.BlockAndTintGetter;
+import net.minecraft.world.level.BlockAndLightGetter;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -47,31 +49,31 @@ final class ReinforcedWindowBlock extends Block {
 
     @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
     @Override protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.empty(); }
-    @Override public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndTintGetter level, BlockPos pos, FluidState fluid) { return true; }
+    @Override public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter level, BlockPos pos, FluidState fluid) { return true; }
     @Override protected boolean skipRendering(BlockState state, BlockState adjacent, Direction side) {
         return adjacent.is(this) || super.skipRendering(state, adjacent, side);
     }
 
     private boolean chisel(BlockState state, Level level, BlockPos pos, Player player) {
         if (!player.getMainHandItem().is(UtilityContent.CHISEL.get())) return false;
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             level.setBlock(pos, state.cycle(DESIGN), 3);
             level.playSound(null, pos, SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.NEUTRAL, 1, 1);
         }
         return true;
     }
 
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
             Player player, InteractionHand hand, BlockHitResult hit) {
-        return chisel(state, level, pos, player) ? ItemInteractionResult.SUCCESS : ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        return chisel(state, level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS;
     }
 
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         return chisel(state, level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS;
     }
 
-    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.translatable("block.thermal_shock_reforged.reinforced_window.description_0"));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.reinforced_window.description_0"));
     }
 }

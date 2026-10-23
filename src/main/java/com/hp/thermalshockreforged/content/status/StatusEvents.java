@@ -8,7 +8,7 @@ import java.util.ArrayDeque;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
@@ -22,7 +22,7 @@ public final class StatusEvents {
         LivingEntity entity = event.getEntity();
         if (!entity.hasEffect(StatusContent.FROSTBITE)) return;
         if (entity.level() instanceof ServerLevel level) {
-            level.playSound(null, entity.blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("thermal_shock_reforged:frostbitten")), SoundSource.AMBIENT, 1.0F, 1.0F);
+            level.playSound(null, entity.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("thermal_shock_reforged:frostbitten")), SoundSource.AMBIENT, 1.0F, 1.0F);
         }
         event.setCanceled(true);
     }
@@ -30,13 +30,13 @@ public final class StatusEvents {
     public static void playElectrifiedVisual(LivingEntity entity) {
         if (entity.level() instanceof ServerLevel level) {
             level.sendParticles(ParticleTypes.ELECTRIC_SPARK, entity.getX(), entity.getY(), entity.getZ(), 24, 1.0, 2.0, 1.0, 0.1);
-            level.playSound(null, entity.blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("thermal_shock_reforged:sparkhum")), SoundSource.NEUTRAL, 0.5F, 1.0F);
+            level.playSound(null, entity.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse("thermal_shock_reforged:sparkhum")), SoundSource.NEUTRAL, 0.5F, 1.0F);
         }
     }
 
     public static void onDamage(PreArmorDamageEvent event) {
         LivingEntity entity = event.getEntity();
-        if (entity.level().isClientSide || !entity.hasEffect(StatusContent.ELECTRIFIED)) return;
+        if (entity.level().isClientSide() || !entity.hasEffect(StatusContent.ELECTRIFIED)) return;
         float incomingDamage = event.getAmount();
         if (!(incomingDamage > 0) || !Float.isFinite(incomingDamage)) return;
         Propagation active = PROPAGATION.get();

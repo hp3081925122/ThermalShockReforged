@@ -1,10 +1,7 @@
 package com.hp.thermalshockreforged.content.status;
 
-import java.util.Set;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.LivingEntity;
-import net.neoforged.neoforge.common.EffectCure;
-import net.neoforged.neoforge.common.EffectCures;
 
 final class PlayerStatusEffect extends MobEffect {
     enum Action { NONE, WARM, ANTITOXIN }
@@ -27,12 +24,5 @@ final class PlayerStatusEffect extends MobEffect {
         if (action == Action.WARM) entity.removeEffect(StatusContent.FROSTBITE);
         if (action == Action.ANTITOXIN) entity.removeEffect(MobEffects.POISON);
         return true;
-    }
-
-    @Override
-    public void fillEffectCures(Set<EffectCure> cures, MobEffectInstance instance) {
-        cures.clear();
-        cures.add(EffectCures.PROTECTED_BY_TOTEM);
-        if (milk) cures.add(EffectCures.MILK);
     }
 }

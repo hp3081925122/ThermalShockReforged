@@ -42,7 +42,7 @@ public final class LabMenu extends AbstractContainerMenu {
         if (npcId >= 0) { var npc = npc(); return npc != null && npc.isAlive() && !npc.isRemoved() && player.distanceToSqr(npc) <= 64; }
         if (!level.hasChunkAt(anchor) || player.distanceToSqr(anchor.getX() + .5, anchor.getY() + .5, anchor.getZ() + .5) > 64 || !net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(level.getBlockState(anchor).getBlock()).toString().equals(blockId)) return false;
         if (page != LabPage.ASSEMBLY) return true;
-        return level.isClientSide || output == level.getBlockEntity(anchor) && player instanceof ServerPlayer server && QoMenu.completed(server, "icebreaker_1");
+        return level.isClientSide() || output == level.getBlockEntity(anchor) && player instanceof ServerPlayer server && QoMenu.completed(server, "icebreaker_1");
     }
     @Override public boolean clickMenuButton(Player player, int button) {
         if (changedPage || !(player instanceof ServerPlayer server) || player.containerMenu != this || !stillValid(player) || page.buttons.stream().noneMatch(b -> b.action() == button)) return false;

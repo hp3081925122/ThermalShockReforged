@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.npc.ly;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.EnumMap;
@@ -12,7 +13,7 @@ import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.*;
@@ -24,7 +25,7 @@ public final class LyContent {
     private static final EnumMap<LyPage, DeferredHolder<MenuType<?>, MenuType<LyMenu>>> PAGES = new EnumMap<>(LyPage.class);
     public static final DeferredHolder<EntityType<?>, EntityType<LyEntity>> LY = TYPES.register("ly", () -> EntityType.Builder.of(LyEntity::new, MobCategory.MONSTER).sized(1.1F, 2.1F).fireImmune().clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":ly"));
     static {
-        ITEMS.register("ly_spawn_egg", () -> new DeferredSpawnEggItem(LY, -1, -1, new Item.Properties()));
+        ITEMS.register("ly_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(LY.get())));
         for (var page : LyPage.values()) PAGES.put(page, MENUS.register(page.id, () -> IMenuTypeExtension.create((id, inventory, data) -> new LyMenu(page, id, inventory, data.readVarInt(), data.readUUID(), data.readBlockPos(), data.readVarInt()))));
     }
     private LyContent() { }

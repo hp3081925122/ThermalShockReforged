@@ -1,21 +1,22 @@
 package com.hp.thermalshockreforged.client.icesquad;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.icesquad.IceSquadProjectileEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import net.minecraft.client.renderer.LightTexture;
+import net.minecraft.util.LightCoordsUtil;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.rendertype.RenderType;
+import com.hp.thermalshockreforged.client.compat.LegacyEntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 
-final class ShardRenderer extends EntityRenderer<IceSquadProjectileEntity> {
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/particle/lod_shard.png");
+final class ShardRenderer extends LegacyEntityRenderer<IceSquadProjectileEntity> {
+    private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/particle/lod_shard.png");
     private static final float LENGTH = .5F;
 
     ShardRenderer(EntityRendererProvider.Context context) {
@@ -27,7 +28,7 @@ final class ShardRenderer extends EntityRenderer<IceSquadProjectileEntity> {
         pose.pushPose();
         pose.mulPose(Axis.YP.rotationDegrees(Mth.lerp(partialTick, entity.yRotO, entity.getYRot()) - 90));
         pose.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(partialTick, entity.xRotO, entity.getXRot())));
-        VertexConsumer consumer = buffers.getBuffer(RenderType.entityTranslucent(TEXTURE));
+        VertexConsumer consumer = buffers.getBuffer(RenderTypes.entityTranslucent(TEXTURE));
         PoseStack.Pose last = pose.last();
         vertex(consumer, last, -LENGTH, -LENGTH, 0, 0, 1);
         vertex(consumer, last, LENGTH, -LENGTH, 0, 0, 0);
@@ -42,8 +43,8 @@ final class ShardRenderer extends EntityRenderer<IceSquadProjectileEntity> {
     }
 
     private static void vertex(VertexConsumer consumer, PoseStack.Pose pose, float x, float y, float z, float u, float v) {
-        consumer.addVertex(pose, x, y, z).setColor(1, 1, 1, 1F).setUv(u, v).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightTexture.FULL_BRIGHT).setNormal(pose, 0, 1, 0);
+        consumer.addVertex(pose, x, y, z).setColor(1, 1, 1, 1F).setUv(u, v).setOverlay(OverlayTexture.NO_OVERLAY).setLight(LightCoordsUtil.FULL_BRIGHT).setNormal(pose, 0, 1, 0);
     }
 
-    @Override public ResourceLocation getTextureLocation(IceSquadProjectileEntity entity) { return TEXTURE; }
+    @Override public Identifier getTextureLocation(IceSquadProjectileEntity entity) { return TEXTURE; }
 }

@@ -4,13 +4,13 @@ import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -38,27 +38,27 @@ public final class BreatherSpongeBlock extends Block {
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
+    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
             Player player, InteractionHand hand, BlockHitResult hit) {
         ItemStack straw = player.getMainHandItem();
         boolean silly = straw.is(MaterialContent.items().get("silly_straw").get());
         boolean drinking = straw.is(MaterialContent.items().get("drinking_straw").get());
         if ((!silly && !drinking) || player.getCooldowns().isOnCooldown(straw.getItem())) {
-            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            return InteractionResult.PASS;
         }
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             player.getCooldowns().addCooldown(straw.getItem(), silly ? 60 : 20);
             player.setAirSupply(silly ? 300 : Math.min(300, player.getAirSupply() + 60));
             straw.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
             level.playSound(null, pos, SoundEvents.HONEY_DRINK, SoundSource.NEUTRAL, 1, 1);
             if (player instanceof ServerPlayer serverPlayer) {
-                var advancement = serverPlayer.server.getAdvancements().get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "breather_sponge_get"));
+                var advancement = serverPlayer.server.getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "breather_sponge_get"));
                 if (advancement != null) {
                     var progress = serverPlayer.getAdvancements().getOrStartProgress(advancement);
                     if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) serverPlayer.getAdvancements().award(advancement, criterion);
                 }
             }
         }
-        return ItemInteractionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 }

@@ -10,7 +10,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
@@ -35,7 +35,7 @@ public final class SunbeamAttackEntity extends Entity implements ServerEndTickTa
         var task = ProtoiContent.SUNBEAM_ATTACK.get().create(level);
         if (task == null) return null;
         task.caster = owner.getUUID(); task.target = victim.getUUID(); task.targetEyes = victim.getEyePosition();
-        task.soundOrigin = victim.blockPosition(); task.dimension = level.dimension().location().toString(); task.capture(owner);
+        task.soundOrigin = victim.blockPosition(); task.dimension = level.dimension().identifier().toString(); task.capture(owner);
         return level.addFreshEntity(task) ? task.getUUID() : null;
     }
     void capture(ProtoiSunbeamEntity owner) {
@@ -52,14 +52,14 @@ public final class SunbeamAttackEntity extends Entity implements ServerEndTickTa
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
-            if (caster == null || consumed || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
+            if (caster == null || consumed || !dimension.equals(server.dimension().identifier().toString())) { discard(); return; }
             sampleTarget(server);
             if (server.getEntity(caster) instanceof ProtoiSunbeamEntity owner) capture(owner);
             ServerEndTickTasks.schedule(server, getUUID());
         }
     }
     @Override public void endTick(ServerLevel level) {
-        if (isRemoved() || consumed || caster == null || !dimension.equals(level.dimension().location().toString())) return;
+        if (isRemoved() || consumed || caster == null || !dimension.equals(level.dimension().identifier().toString())) return;
         if (--remaining > 0) { ServerEndTickTasks.schedule(level, getUUID()); return; }
         consumed = true; sampleTarget(level);
         ProtoiSunbeamEntity owner = level.getEntity(caster) instanceof ProtoiSunbeamEntity sunbeam ? sunbeam : null;
@@ -80,26 +80,26 @@ public final class SunbeamAttackEntity extends Entity implements ServerEndTickTa
             bullet.shoot(look.x, look.y, look.z, 5, 0);
             if (!level.addFreshEntity(bullet)) ThermalShockReforged.LOGGER.debug("Sunbeam projectile spawn was rejected: caster={}, task={}", caster, getUUID());
         }
-        level.playSound(null, soundOrigin, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "cavebloomer_detonates")), SoundSource.HOSTILE, .7F, 3);
+        level.playSound(null, soundOrigin, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "cavebloomer_detonates")), SoundSource.HOSTILE, .7F, 3);
         if (owner != null) owner.finishAttack(getUUID());
         discard();
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (caster != null) tag.putUUID("Caster", caster);
-        if (target != null) tag.putUUID("Target", target);
-        tag.putDouble("EyesX", targetEyes.x); tag.putDouble("EyesY", targetEyes.y); tag.putDouble("EyesZ", targetEyes.z);
-        tag.putDouble("MuzzleX", muzzle.x); tag.putDouble("MuzzleY", muzzle.y); tag.putDouble("MuzzleZ", muzzle.z);
-        tag.putLong("SoundOrigin", soundOrigin.asLong()); tag.putString("Dimension", dimension);
-        tag.putDouble("Damage", damage); tag.putDouble("Knockback", knockback); tag.putInt("Remaining", remaining); tag.putBoolean("Consumed", consumed);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (caster != null) output.putString("Caster", caster.toString());
+        if (target != null) output.putString("Target", target.toString());
+        output.putDouble("EyesX", targetEyes.x); output.putDouble("EyesY", targetEyes.y); output.putDouble("EyesZ", targetEyes.z);
+        output.putDouble("MuzzleX", muzzle.x); output.putDouble("MuzzleY", muzzle.y); output.putDouble("MuzzleZ", muzzle.z);
+        output.putLong("SoundOrigin", soundOrigin.asLong()); output.putString("Dimension", dimension);
+        output.putDouble("Damage", damage); output.putDouble("Knockback", knockback); output.putInt("Remaining", remaining); output.putBoolean("Consumed", consumed);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        caster = tag.hasUUID("Caster") ? tag.getUUID("Caster") : null; target = tag.hasUUID("Target") ? tag.getUUID("Target") : null;
-        targetEyes = new Vec3(tag.getDouble("EyesX"), tag.getDouble("EyesY"), tag.getDouble("EyesZ"));
-        muzzle = new Vec3(tag.getDouble("MuzzleX"), tag.getDouble("MuzzleY"), tag.getDouble("MuzzleZ"));
-        soundOrigin = BlockPos.of(tag.getLong("SoundOrigin")); dimension = tag.getString("Dimension");
-        double value = tag.getDouble("Damage"); damage = Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0;
-        value = tag.getDouble("Knockback"); knockback = Double.isFinite(value) ? Math.clamp(value, 0, 2) : 0;
-        remaining = Math.clamp(tag.getInt("Remaining"), 1, 28); consumed = tag.getBoolean("Consumed") || !finite(targetEyes) || !finite(muzzle);
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        caster = input.getString("Caster").map(java.util.UUID::fromString).orElse(null); target = input.getString("Target").map(java.util.UUID::fromString).orElse(null);
+        targetEyes = new Vec3(input.getDoubleOr("EyesX", 0.0), input.getDoubleOr("EyesY", 0.0), input.getDoubleOr("EyesZ", 0.0));
+        muzzle = new Vec3(input.getDoubleOr("MuzzleX", 0.0), input.getDoubleOr("MuzzleY", 0.0), input.getDoubleOr("MuzzleZ", 0.0));
+        soundOrigin = BlockPos.of(input.getLongOr("SoundOrigin", 0L)); dimension = input.getStringOr("Dimension", "");
+        double value = input.getDoubleOr("Damage", 0.0); damage = Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0;
+        value = input.getDoubleOr("Knockback", 0.0); knockback = Double.isFinite(value) ? Math.clamp(value, 0, 2) : 0;
+        remaining = Math.clamp(input.getIntOr("Remaining", 0), 1, 28); consumed = input.getBooleanOr("Consumed", false) || !finite(targetEyes) || !finite(muzzle);
     }
     private static boolean finite(Vec3 value) { return Double.isFinite(value.x) && Double.isFinite(value.y) && Double.isFinite(value.z); }
 }

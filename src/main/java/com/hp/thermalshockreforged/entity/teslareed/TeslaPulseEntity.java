@@ -37,7 +37,7 @@ public final class TeslaPulseEntity extends Entity implements ServerEndTickTask 
             soundCopies = targets.size();
             for (var target : targets) {
                 target.addEffect(new MobEffectInstance(StatusContent.ELECTRIFIED, 120, 0));
-                target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 90, 4));
+                target.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 90, 4));
                 target.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 90, 1));
             }
         }
@@ -45,6 +45,6 @@ public final class TeslaPulseEntity extends Entity implements ServerEndTickTask 
         if (phase >= 4 || soundCopies == 0) { armed = false; discard(); }
         else { remaining = 2; ServerEndTickTasks.schedule(level, getUUID()); }
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) { tag.putBoolean("Armed", armed); tag.putInt("Remaining", remaining); tag.putInt("Phase", phase); tag.putInt("SoundCopies", soundCopies); }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) { remaining = Math.clamp(tag.getInt("Remaining"), 1, 13); phase = Math.clamp(tag.getInt("Phase"), 0, 4); soundCopies = Math.max(0, tag.getInt("SoundCopies")); armed = tag.getBoolean("Armed") && phase < 4; }
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { output.putBoolean("Armed", armed); output.putInt("Remaining", remaining); output.putInt("Phase", phase); output.putInt("SoundCopies", soundCopies); }
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { remaining = Math.clamp(input.getIntOr("Remaining", 0), 1, 13); phase = Math.clamp(input.getIntOr("Phase", 0), 0, 4); soundCopies = Math.max(0, input.getIntOr("SoundCopies", 0)); armed = input.getBooleanOr("Armed", false) && phase < 4; }
 }

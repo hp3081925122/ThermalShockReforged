@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -23,7 +23,7 @@ final class DeskPhotoBlock extends FacingDecorBlock {
 
     DeskPhotoBlock() {
         super(Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.ANVIL).strength(-1, 3600000)
-                .requiresCorrectToolForDrops().noCollission().noOcclusion().pushReaction(PushReaction.BLOCK)
+                .requiresCorrectToolForDrops().noCollision().noOcclusion().pushReaction(PushReaction.BLOCK)
                 .isRedstoneConductor((state, level, pos) -> false),
                 new Traits(0, true, true, false, 0, 0, false, false), Outline.FULL);
     }
@@ -34,19 +34,19 @@ final class DeskPhotoBlock extends FacingDecorBlock {
     }
 
     private void openPhoto(Level level, Player player) {
-        if (!level.isClientSide) player.openMenu(new SimpleMenuProvider((id, inventory, owner) -> new DeskPhotoMenu(id, inventory), Component.translatable("block.thermal_shock_reforged.desk_photo")));
+        if (!level.isClientSide()) player.openMenu(new SimpleMenuProvider((id, inventory, owner) -> new DeskPhotoMenu(id, inventory), Component.translatable("block.thermal_shock_reforged.desk_photo")));
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
+    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
                                                Player player, InteractionHand hand, BlockHitResult hit) {
         openPhoto(level, player);
-        return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        return InteractionResult.SUCCESS;
     }
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         openPhoto(level, player);
-        return InteractionResult.sidedSuccess(level.isClientSide);
+        return InteractionResult.SUCCESS;
     }
 }

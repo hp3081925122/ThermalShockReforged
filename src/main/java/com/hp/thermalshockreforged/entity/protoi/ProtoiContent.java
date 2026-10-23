@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.protoi;
+import net.minecraft.world.item.SpawnEggItem;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.combat.AttackAttemptEvent;
 import net.minecraft.core.registries.Registries;
@@ -8,7 +9,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.minecraft.world.item.Item;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -25,10 +26,10 @@ public final class ProtoiContent {
     public static final DeferredHolder<EntityType<?>, EntityType<SunbeamBulletEntity>> SUNBEAM_BULLET = TYPES.register("sunbeam_bullet", () -> EntityType.Builder.<SunbeamBulletEntity>of(SunbeamBulletEntity::new, MobCategory.MISC).sized(.5F, .5F).clientTrackingRange(64).updateInterval(1).build("thermal_shock_reforged:sunbeam_bullet"));
     public static final DeferredHolder<EntityType<?>, EntityType<ProtoiEpsilonEntity>> EPSILON = TYPES.register("protoi_epsilon", () -> EntityType.Builder.of(ProtoiEpsilonEntity::new, MobCategory.AMBIENT).sized(2, 2).eyeHeight(.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build("thermal_shock_reforged:protoi_epsilon"));
     public static final DeferredHolder<EntityType<?>, EntityType<EpsilonAttackEntity>> EPSILON_ATTACK = TYPES.register("epsilon_attack_task", () -> EntityType.Builder.<EpsilonAttackEntity>of(EpsilonAttackEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":epsilon_attack_task"));
-    public static final DeferredHolder<Item, Item> GAMMA_EGG = ITEMS.register("protoi_gamma_spawn_egg", () -> new DeferredSpawnEggItem(GAMMA, -1, -1, new Item.Properties()));
-    public static final DeferredHolder<Item, Item> DELTA_EGG = ITEMS.register("protoi_delta_spawn_egg", () -> new DeferredSpawnEggItem(DELTA, -1, -1, new Item.Properties()));
-    public static final DeferredHolder<Item, Item> EPSILON_EGG = ITEMS.register("protoi_epsilon_spawn_egg", () -> new DeferredSpawnEggItem(EPSILON, -1, -1, new Item.Properties()));
-    public static final DeferredHolder<Item, Item> SUNBEAM_EGG = ITEMS.register("protoi_sunbeam_spawn_egg", () -> new DeferredSpawnEggItem(SUNBEAM, -1, -1, new Item.Properties()));
+    public static final DeferredHolder<Item, Item> GAMMA_EGG = ITEMS.register("protoi_gamma_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(GAMMA.get())));
+    public static final DeferredHolder<Item, Item> DELTA_EGG = ITEMS.register("protoi_delta_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(DELTA.get())));
+    public static final DeferredHolder<Item, Item> EPSILON_EGG = ITEMS.register("protoi_epsilon_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(EPSILON.get())));
+    public static final DeferredHolder<Item, Item> SUNBEAM_EGG = ITEMS.register("protoi_sunbeam_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SUNBEAM.get())));
     private ProtoiContent() { }
     public static void register(IEventBus bus) { TYPES.register(bus); ITEMS.register(bus); bus.addListener(ProtoiContent::attributes); bus.addListener(ProtoiContent::placements); NeoForge.EVENT_BUS.addListener(ProtoiContent::attack); }
     private static void placements(RegisterSpawnPlacementsEvent event) {

@@ -5,7 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -16,12 +16,12 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.MapColor;
 
 public final class InfestedLogBlock extends Block {
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
 
     public InfestedLogBlock() {
         super(Properties.of().mapColor(MapColor.COLOR_RED).ignitedByLava().sound(SoundType.STEM)
@@ -54,12 +54,12 @@ public final class InfestedLogBlock extends Block {
             boolean willHarvest, FluidState fluid) {
         boolean destroyed = super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
         if (destroyed && level instanceof ServerLevel server) {
-            double roll = server.random.nextDouble();
+            double roll = server.getRandom().nextDouble();
             int count = roll < 0.25 ? 3 : roll < 0.8125 ? 4 : 5;
             for (int index = 0; index < count; index++) {
-                Entity louse = InfestationEntities.LOUSE.get().spawn(server, pos, MobSpawnType.MOB_SUMMONED);
+                Entity louse = InfestationEntities.LOUSE.get().spawn(server, pos, EntitySpawnReason.MOB_SUMMONED);
                 if (louse != null) {
-                    louse.setYRot(server.random.nextFloat() * 360.0F);
+                    louse.setYRot(server.getRandom().nextFloat() * 360.0F);
                 }
             }
         }

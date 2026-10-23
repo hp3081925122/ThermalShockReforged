@@ -5,7 +5,7 @@ import net.minecraft.core.*;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -23,7 +23,7 @@ public final class SporePodBlock extends Block implements EntityBlock, SimpleWat
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     private static final VoxelShape SHAPE = box(4, 0.1, 4, 12, 12, 12);
     public SporePodBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.SLIME_BLOCK).strength(0.1F, 0).lightLevel(state -> 10).noOcclusion().pushReaction(PushReaction.DESTROY).hasPostProcess((state, level, pos) -> true).emissiveRendering((state, level, pos) -> true).isRedstoneConductor((state, level, pos) -> false).noLootTable());
+        super(Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.SLIME_BLOCK).strength(0.1F, 0).lightLevel(state -> 10).noOcclusion().pushReaction(PushReaction.DESTROY).emissiveRendering((state, level, pos) -> true).isRedstoneConductor((state, level, pos) -> false).noLootTable());
         registerDefaultState(stateDefinition.any().setValue(WATERLOGGED, false).setValue(ANIMATION, 0));
     }
     @Override
@@ -51,9 +51,9 @@ public final class SporePodBlock extends Block implements EntityBlock, SimpleWat
         return level.getBlockState(pos).is(this) && level.getBlockEntity(pos) instanceof SporePodBlockEntity pod ? pod : null;
     }
     private void attempt(Level level, BlockPos pos, SporePodBlockEntity pod, boolean removed) {
-        if (!(level instanceof net.minecraft.server.level.ServerLevel server) || pod == null || !removed && pod(level, pos) != pod || !pod.claimConsumption(server.random)) return;
+        if (!(level instanceof net.minecraft.server.level.ServerLevel server) || pod == null || !removed && pod(level, pos) != pod || !pod.claimConsumption(server.getRandom())) return;
         if (!removed && (!server.destroyBlock(pos, false) || server.getBlockEntity(pos) == pod)) { pod.releaseConsumption(); return; }
-        var spore = SporeContent.BLIGHTED_SPORE.get().spawn(server, BlockPos.containing(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5), MobSpawnType.MOB_SUMMONED);
+        var spore = SporeContent.BLIGHTED_SPORE.get().spawn(server, BlockPos.containing(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5), EntitySpawnReason.MOB_SUMMONED);
         if (spore != null) spore.setDeltaMovement(0, 0.2, 0);
     }
     @Override

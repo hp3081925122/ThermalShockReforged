@@ -3,7 +3,7 @@ package com.hp.thermalshockreforged.combat;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.status.StatusContent;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -19,12 +19,12 @@ public final class LegacyAttackRules {
     private static final TagKey<EntityType<?>> CHARACTERS = entityTag(ThermalShockReforged.MOD_ID, "character_mobs");
     private static final TagKey<EntityType<?>> COLD_REFLECTORS = entityTag("mod", "ice");
     private static final TagKey<EntityType<?>> CRYO_RESIST = entityTag(ThermalShockReforged.MOD_ID, "cryo_resist");
-    private static final TagKey<Biome> COLD_BIOMES = TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "ignition_-1"));
+    private static final TagKey<Biome> COLD_BIOMES = TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "ignition_-1"));
 
     private LegacyAttackRules() { }
 
     private static TagKey<EntityType<?>> entityTag(String namespace, String path) {
-        return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(namespace, path));
+        return TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(namespace, path));
     }
 
     public static void register() { NeoForge.EVENT_BUS.addListener(LegacyAttackRules::attack); }

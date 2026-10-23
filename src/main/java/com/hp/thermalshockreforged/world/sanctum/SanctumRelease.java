@@ -71,8 +71,8 @@ public final class SanctumRelease {
                         };
                         if (type != null) {
                             var spawnPos = BlockPos.containing(anchor.x + row.x + .5, anchor.y + row.y, anchor.z + z + .5);
-                            var entity = type.spawn(level, spawnPos, MobSpawnType.MOB_SUMMONED);
-                            if (entity != null) { entity.setYRot(level.random.nextFloat() * 360); spawned++; }
+                            var entity = type.spawn(level, spawnPos, EntitySpawnReason.MOB_SUMMONED);
+                            if (entity != null) { entity.setYRot(level.getRandom().nextFloat() * 360); spawned++; }
                         }
                         level.destroyBlock(position, false);
                     }

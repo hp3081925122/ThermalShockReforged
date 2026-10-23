@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.jellercel;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 
 import com.hp.thermalshockreforged.content.MaterialContent;
 import com.hp.thermalshockreforged.entity.PassiveSwimMoveControl;
@@ -24,13 +25,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathType;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.PlayState;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.object.PlayState;
+import com.geckolib.animation.RawAnimation;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class JellercelEntity extends PathfinderMob implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(JellercelEntity.class, EntityDataSerializers.STRING);
@@ -58,7 +58,7 @@ public final class JellercelEntity extends PathfinderMob implements GeoEntity {
     @Override protected PathNavigation createNavigation(Level level) { return new WaterBoundPathNavigation(this, level); }
     @Override public boolean checkSpawnObstruction(LevelReader level) { return level.isUnobstructed(this); }
     @Override public boolean isPushedByFluid() { return false; }
-    @Override public boolean hurt(DamageSource source, float damage) { return !source.is(DamageTypes.DROWN) && super.hurt(source, damage); }
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float damage) { return !source.is(DamageTypes.DROWN) && super.hurtServer(level, source, damage); }
     @Override public void aiStep() { super.aiStep(); updateSwingTime(); }
     @Override public SoundEvent getAmbientSound() { return SoundEvents.COD_AMBIENT; }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.COD_HURT; }
@@ -67,37 +67,37 @@ public final class JellercelEntity extends PathfinderMob implements GeoEntity {
 
     @Override public void playerTouch(Player player) {
         super.playerTouch(player);
-        if (!level().isClientSide) player.hurt(damageSources().cactus(), 1.0F);
+        if (!level().isClientSide()) player.hurt(damageSources().cactus(), 1.0F);
     }
 
-    @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
+    @Override protected void dropExperience(net.minecraft.server.level.ServerLevel level, Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
         if (++deathTime >= 20 && !isRemoved()) {
             remove(RemovalReason.KILLED);
             if (experiencePending && level() instanceof ServerLevel server) {
                 experiencePending = false;
-                super.dropExperience(experienceAttacker == null ? null : server.getEntity(experienceAttacker));
+                super.dropExperience(server, experienceAttacker == null ? null : server.getEntity(experienceAttacker));
             }
         }
     }
 
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putString("Texture", texture());
-        tag.putBoolean("JellercelExperiencePending", experiencePending);
-        if (experienceAttacker != null) tag.putUUID("JellercelExperienceAttacker", experienceAttacker);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putString("Texture", texture());
+        output.putBoolean("JellercelExperiencePending", experiencePending);
+        if (experienceAttacker != null) output.putString("JellercelExperienceAttacker", experienceAttacker.toString());
     }
 
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        experiencePending = tag.getBoolean("JellercelExperiencePending");
-        experienceAttacker = tag.hasUUID("JellercelExperienceAttacker") ? tag.getUUID("JellercelExperienceAttacker") : null;
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        experiencePending = input.getBooleanOr("JellercelExperiencePending", false);
+        experienceAttacker = input.getString("JellercelExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
     }
 
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("idle", RawAnimation.begin().thenPlay("idle"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(IDLE)));
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("idle", RawAnimation.begin().thenPlay("idle"));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(IDLE)));
         controllers.add(procedure);
     }
 

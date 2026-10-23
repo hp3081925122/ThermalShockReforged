@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.entity.gardenling;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
@@ -8,13 +10,13 @@ import net.minecraft.world.damagesource.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
-import net.minecraft.world.entity.projectile.ThrownPotion;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.AbstractThrownPotion;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class GardenlingEntity extends PathfinderMob implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(GardenlingEntity.class, EntityDataSerializers.STRING);
@@ -41,21 +43,21 @@ public final class GardenlingEntity extends PathfinderMob implements GeoEntity {
     @Override
     protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }
     @Override
-    public boolean hurt(DamageSource source, float amount) {
-        return !(source.getDirectEntity() instanceof ThrownPotion) && !(source.getDirectEntity() instanceof AreaEffectCloud)
+    public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
+        return !(source.getDirectEntity() instanceof AbstractThrownPotion) && !(source.getDirectEntity() instanceof AreaEffectCloud)
                 && !source.is(DamageTypes.FALL) && !source.is(DamageTypes.CACTUS) && !source.is(DamageTypes.DROWN)
-                && !source.is(DamageTypes.LIGHTNING_BOLT) && super.hurt(source, amount);
+                && !source.is(DamageTypes.LIGHTNING_BOLT) && super.hurtServer(level, source, amount);
     }
 
     @Override
     public void aiStep() { super.aiStep(); updateSwingTime(); }
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); }
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); }
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains("Texture")) setTexture(tag.getString("Texture")); }
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", "")); }
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop("idle"))));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop("idle"))));
     }
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }

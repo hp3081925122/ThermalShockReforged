@@ -41,17 +41,17 @@ public final class HuntressTaskEntity extends Entity implements ServerEndTickTas
     private boolean armed;
     public HuntressTaskEntity(EntityType<? extends HuntressTaskEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     public static boolean submitInitialization(ServerLevel server, HuntressEntity npc, Vec3 origin) {
-        var task = HuntressContent.TASK.get().create(server);
+        var task = HuntressContent.TASK.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
         if (task == null) return false;
-        task.caster = npc.getUUID(); task.soundOrigin = origin; task.casterOrigin = origin; task.dimension = server.dimension().location().toString(); task.armed = true; task.setPos(origin);
+        task.caster = npc.getUUID(); task.soundOrigin = origin; task.casterOrigin = origin; task.dimension = server.dimension().identifier().toString(); task.armed = true; task.setPos(origin);
         return server.addFreshEntity(task);
     }
     static HuntressTaskEntity submit(ServerLevel server, HuntressBossEntity owner, LivingEntity victim, int skill) {
-        var task = HuntressContent.TASK.get().create(server);
+        var task = HuntressContent.TASK.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
         if (task == null) return null;
         task.caster = owner.getUUID(); task.target = victim.getUUID(); task.targetEntityId = victim.getId(); task.playerTarget = victim instanceof Player;
         if (task.playerTarget) task.originalPlayer = new WeakReference<>(victim);
-        task.soundOrigin = victim.position(); task.casterOrigin = owner.position(); task.targetOrigin = victim.position(); task.look = owner.getLookAngle(); task.eyeHeight = owner.getEyeHeight(); task.skill = skill; task.dimension = server.dimension().location().toString();
+        task.soundOrigin = victim.position(); task.casterOrigin = owner.position(); task.targetOrigin = victim.position(); task.look = owner.getLookAngle(); task.eyeHeight = owner.getEyeHeight(); task.skill = skill; task.dimension = server.dimension().identifier().toString();
         task.damage = finite(owner.getAttributeValue(Attributes.ATTACK_DAMAGE) * (skill == 1 ? HuntressConfig.TRIPLE_MULTIPLIER.get() : HuntressConfig.SLAM_MULTIPLIER.get())); task.knockback = finite(HuntressConfig.KNOCKBACK.get()); task.armed = true; task.setPos(owner.position());
         return server.addFreshEntity(task) ? task : null;
     }
@@ -65,13 +65,13 @@ public final class HuntressTaskEntity extends Entity implements ServerEndTickTas
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
-            if (!armed || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
+            if (!armed || !dimension.equals(server.dimension().identifier().toString())) { discard(); return; }
             if (skill != 0) snapshot(server, owner(server));
             ServerEndTickTasks.schedule(server, getUUID());
         }
     }
     @Override public void endTick(ServerLevel server) {
-        if (isRemoved() || !armed || !dimension.equals(server.dimension().location().toString())) return;
+        if (isRemoved() || !armed || !dimension.equals(server.dimension().identifier().toString())) return;
         var owner = owner(server);
         if (skill != 0) {
             if (owner == null) for (var other : server.getServer().getAllLevels()) if (other != server && caster != null && other.getEntity(caster) instanceof HuntressBossEntity moved) { moved.releaseGravity(); armed = false; discard(); return; }
@@ -129,19 +129,19 @@ public final class HuntressTaskEntity extends Entity implements ServerEndTickTas
     private void sound(ServerLevel server, SoundEvent sound, SoundSource source, float pitch) { server.playSound(null, BlockPos.containing(soundOrigin), sound, source, 1, pitch); }
     private static double finite(double value) { return Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0; }
     private static boolean valid(Vec3 value) { return Double.isFinite(value.x) && Double.isFinite(value.y) && Double.isFinite(value.z); }
-    private static void putVector(CompoundTag tag, String key, Vec3 value) { tag.putDouble(key + "X", value.x); tag.putDouble(key + "Y", value.y); tag.putDouble(key + "Z", value.z); }
+    private static void putVector(CompoundTag tag, String key, Vec3 value) { output.putDouble(key + "X", value.x); output.putDouble(key + "Y", value.y); output.putDouble(key + "Z", value.z); }
     private static Vec3 getVector(CompoundTag tag, String key) { return new Vec3(tag.getDouble(key + "X"), tag.getDouble(key + "Y"), tag.getDouble(key + "Z")); }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (caster != null) tag.putUUID("HuntressCaster", caster); if (target != null) tag.putUUID("HuntressTarget", target);
-        tag.putInt("HuntressTargetEntityId", targetEntityId); tag.putBoolean("HuntressPlayerTarget", playerTarget); tag.putString("HuntressDimension", dimension); tag.putInt("HuntressSkill", skill); tag.putInt("HuntressElapsed", elapsed); tag.putBoolean("HuntressArmed", armed); tag.putDouble("HuntressDamage", damage); tag.putDouble("HuntressKnockback", knockback); tag.putDouble("HuntressEyeHeight", eyeHeight);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (caster != null) output.putString("HuntressCaster", caster.toString()); if (target != null) output.putString("HuntressTarget", target.toString());
+        output.putInt("HuntressTargetEntityId", targetEntityId); output.putBoolean("HuntressPlayerTarget", playerTarget); output.putString("HuntressDimension", dimension); output.putInt("HuntressSkill", skill); output.putInt("HuntressElapsed", elapsed); output.putBoolean("HuntressArmed", armed); output.putDouble("HuntressDamage", damage); output.putDouble("HuntressKnockback", knockback); output.putDouble("HuntressEyeHeight", eyeHeight);
         putVector(tag, "HuntressSound", soundOrigin); putVector(tag, "HuntressCasterPos", casterOrigin); putVector(tag, "HuntressTargetPos", targetOrigin); putVector(tag, "HuntressLook", look);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        caster = tag.hasUUID("HuntressCaster") ? tag.getUUID("HuntressCaster") : null; target = tag.hasUUID("HuntressTarget") ? tag.getUUID("HuntressTarget") : null; targetEntityId = tag.getInt("HuntressTargetEntityId"); playerTarget = !tag.contains("HuntressPlayerTarget") || tag.getBoolean("HuntressPlayerTarget"); originalPlayer = null;
-        dimension = tag.getString("HuntressDimension"); skill = Math.clamp(tag.getInt("HuntressSkill"), 0, 2); elapsed = Math.clamp(tag.getInt("HuntressElapsed"), 0, 44); damage = finite(tag.getDouble("HuntressDamage")); knockback = Math.clamp(finite(tag.getDouble("HuntressKnockback")), 0, 2); eyeHeight = Math.clamp(finite(tag.getDouble("HuntressEyeHeight")), 0, 16);
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        caster = input.getString("HuntressCaster").map(java.util.UUID::fromString).orElse(null); target = input.getString("HuntressTarget").map(java.util.UUID::fromString).orElse(null); targetEntityId = input.getIntOr("HuntressTargetEntityId", 0); playerTarget = !input.getString("HuntressPlayerTarget").isPresent() || input.getBooleanOr("HuntressPlayerTarget", false); originalPlayer = null;
+        dimension = input.getStringOr("HuntressDimension", ""); skill = Math.clamp(input.getIntOr("HuntressSkill", 0), 0, 2); elapsed = Math.clamp(input.getIntOr("HuntressElapsed", 0), 0, 44); damage = finite(input.getDoubleOr("HuntressDamage", 0.0)); knockback = Math.clamp(finite(input.getDoubleOr("HuntressKnockback", 0.0)), 0, 2); eyeHeight = Math.clamp(finite(input.getDoubleOr("HuntressEyeHeight", 0.0)), 0, 16);
         soundOrigin = getVector(tag, "HuntressSound"); casterOrigin = getVector(tag, "HuntressCasterPos"); targetOrigin = getVector(tag, "HuntressTargetPos"); look = getVector(tag, "HuntressLook");
         int end = skill == 0 ? 8 : skill == 1 ? 19 : 44;
-        armed = tag.getBoolean("HuntressArmed") && caster != null && (skill == 0 || target != null && !target.equals(caster)) && elapsed < end && valid(soundOrigin) && valid(casterOrigin) && valid(targetOrigin) && valid(look) && look.lengthSqr() <= 1.01;
+        armed = input.getBooleanOr("HuntressArmed", false) && caster != null && (skill == 0 || target != null && !target.equals(caster)) && elapsed < end && valid(soundOrigin) && valid(casterOrigin) && valid(targetOrigin) && valid(look) && look.lengthSqr() <= 1.01;
         noPhysics = true; setNoGravity(true);
     }
 }

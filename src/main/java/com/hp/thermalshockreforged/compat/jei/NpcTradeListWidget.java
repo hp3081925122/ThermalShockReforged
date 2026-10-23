@@ -10,11 +10,11 @@ import mezz.jei.api.gui.inputs.IJeiUserInput;
 import mezz.jei.api.gui.inputs.RecipeSlotUnderMouse;
 import mezz.jei.api.gui.widgets.ISlottedRecipeWidget;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.navigation.ScreenPosition;
 import net.minecraft.client.gui.navigation.ScreenRectangle;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 
 import java.util.List;
@@ -29,8 +29,8 @@ public final class NpcTradeListWidget implements ISlottedRecipeWidget, IJeiInput
     private static final int RESULT_X = ARROW_X + 28;
     private static final int LOCK_X = RESULT_X + 22;
     private static final int SCROLLBAR_WIDTH = 6;
-    private static final ResourceLocation ORB = ResourceLocation.withDefaultNamespace("textures/entity/experience_orb.png");
-    private static final ResourceLocation LOCK = ResourceLocation.withDefaultNamespace("widget/locked_button");
+    private static final Identifier ORB = Identifier.withDefaultNamespace("textures/entity/experience_orb.png");
+    private static final Identifier LOCK = Identifier.withDefaultNamespace("widget/locked_button");
     private final ScreenPosition position;
     private final int width;
     private final NpcTradeEntry entry;
@@ -59,7 +59,7 @@ public final class NpcTradeListWidget implements ISlottedRecipeWidget, IJeiInput
     @Override public ScreenRectangle getArea() { return new ScreenRectangle(position.x(), position.y(), width, height()); }
 
     @Override
-    public void drawWidget(GuiGraphics graphics, double mouseX, double mouseY) {
+    public void drawWidget(GuiGraphicsExtractor graphics, double mouseX, double mouseY) {
         for (int visible = 0; visible < VISIBLE_ROWS; visible++) {
             int index = firstRow + visible;
             if (index >= entry.rows().size()) break;
@@ -94,7 +94,7 @@ public final class NpcTradeListWidget implements ISlottedRecipeWidget, IJeiInput
         }
     }
 
-    public static void drawXp(GuiGraphics graphics, int x, int y, Component text) {
+    public static void drawXp(GuiGraphicsExtractor graphics, int x, int y, Component text) {
         graphics.setColor(0.6F, 1F, 0.3F, 1F);
         graphics.blit(ORB, x, y, 10, 10, 0, 0, 16, 16, 64, 64);
         graphics.setColor(1F, 1F, 1F, 1F);

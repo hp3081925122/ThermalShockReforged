@@ -1,8 +1,8 @@
 package com.hp.thermalshockreforged.client.status.aura;
 
 import com.hp.thermalshockreforged.content.status.aura.AuraContent;
-import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.inventory.EffectRenderingInventoryScreen;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.extensions.common.*;
@@ -17,7 +17,7 @@ public final class AuraClient {
             @Override
             public boolean isVisibleInGui(MobEffectInstance instance) { return false; }
             @Override
-            public boolean renderInventoryText(MobEffectInstance instance, EffectRenderingInventoryScreen<?> screen, GuiGraphics graphics, int x, int y, int blitOffset) { return false; }
+            public boolean renderInventoryText(MobEffectInstance instance, AbstractContainerScreen<?> screen, GuiGraphicsExtractor graphics, int x, int y, int blitOffset) { return false; }
         }, AuraContent.DAMAGING_AURA);
     }
 }

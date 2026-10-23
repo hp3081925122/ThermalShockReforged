@@ -50,7 +50,7 @@ public final class QoMenu extends AbstractContainerMenu {
         if (removed != 1) { ThermalShockReforged.LOGGER.error("Qo payment changed during server transaction: player={}", player.getUUID()); return false; }
         for (var advancement : java.util.List.of(errands, alliance)) for (String criterion : player.getAdvancements().getOrStartProgress(advancement).getRemainingCriteria()) player.getAdvancements().award(advancement, criterion);
         QoContent.give(player, new ItemStack(QoContent.ALLIANCE_BUNDLE.get()));
-        var sound = BuiltInRegistries.SOUND_EVENT.get(QoContent.id("thermalshockjingle"));
+        var sound = BuiltInRegistries.SOUND_EVENT.getValue(QoContent.id("thermalshockjingle"));
         player.connection.send(new ClientboundSoundPacket(Holder.direct(sound), SoundSource.NEUTRAL, anchor.getX(), anchor.getY(), anchor.getZ(), 1, 1, player.getRandom().nextLong()));
         ThermalShockReforged.LOGGER.debug("Qo stratus errand committed: player={}, npc={}", player.getUUID(), npcUuid); return true;
     }

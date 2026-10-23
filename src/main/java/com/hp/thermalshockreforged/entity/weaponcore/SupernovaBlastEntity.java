@@ -9,7 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.world.damagesource.*;
@@ -36,7 +36,7 @@ public final class SupernovaBlastEntity extends Entity implements ServerEndTickT
         var origin = position();
         discard();
         level.playSound(null, BlockPos.containing(origin), SoundEvents.DRAGON_FIREBALL_EXPLODE, SoundSource.NEUTRAL, 1, 3);
-        level.playSound(null, BlockPos.containing(origin), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "supernova_blast")), SoundSource.NEUTRAL, .7F, 1);
+        level.playSound(null, BlockPos.containing(origin), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "supernova_blast")), SoundSource.NEUTRAL, .7F, 1);
         if (source instanceof PrismaticSupernovaEntity) source.discard();
         level.sendParticles(AmbientContent.PRISMATIC_BOOM.get(), origin.x, origin.y, origin.z, 1, .001, .001, .001, 0);
         var damage = new DamageSource(level.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.EXPLOSION));
@@ -44,6 +44,6 @@ public final class SupernovaBlastEntity extends Entity implements ServerEndTickT
         targets.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(origin)));
         for (var target : targets) target.hurt(damage, 9);
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) { if (sourceId != null) tag.putUUID("Source", sourceId); tag.putInt("Remaining", remaining); tag.putBoolean("Armed", armed); }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) { sourceId = tag.hasUUID("Source") ? tag.getUUID("Source") : null; remaining = Math.clamp(tag.getInt("Remaining"), 0, 40); armed = tag.getBoolean("Armed") && sourceId != null; }
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { if (sourceId != null) output.putString("Source", sourceId.toString()); output.putInt("Remaining", remaining); output.putBoolean("Armed", armed); }
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { sourceId = input.getString("Source").map(java.util.UUID::fromString).orElse(null); remaining = Math.clamp(input.getIntOr("Remaining", 0), 0, 40); armed = input.getBooleanOr("Armed", false) && sourceId != null; }
 }

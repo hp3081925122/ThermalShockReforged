@@ -1,11 +1,12 @@
 package com.hp.thermalshockreforged.entity.whisper;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.EnumMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.*;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.*;
@@ -27,10 +28,10 @@ public final class WhisperContent {
     private static final EnumMap<WhisperPage, DeferredHolder<MenuType<?>, MenuType<WhisperMenu>>> PAGES = new EnumMap<>(WhisperPage.class);
     public static final DeferredHolder<EntityType<?>, EntityType<WhisperEntity>> WHISPER = TYPES.register("whisper", () -> EntityType.Builder.of(WhisperEntity::new, MobCategory.AMBIENT).sized(.8F, 3.5F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(10).updateInterval(3).build(id("whisper").toString()));
     static {
-        ITEMS.register("whisper_spawn_egg", () -> new DeferredSpawnEggItem(WHISPER, -1, -1, new Item.Properties()));
+        ITEMS.register("whisper_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(WHISPER.get())));
         for (var page : WhisperPage.values()) PAGES.put(page, MENUS.register(page.id, () -> IMenuTypeExtension.create((id, inv, data) -> new WhisperMenu(page, id, inv, data.readVarInt(), data.readUUID(), data.readBlockPos(), data.readVarInt()))));
     }
-    public static ResourceLocation id(String path) { return ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
+    public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static MenuType<WhisperMenu> menu(WhisperPage page) { return PAGES.get(page).get(); }
     public static boolean open(ServerPlayer player, WhisperEntity npc, WhisperPage page) {
         if (!player.isAlive() || npc == null || !npc.isAlive() || npc.isRemoved() || player.level() != npc.level() || player.distanceToSqr(npc) > 64) return false;

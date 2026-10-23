@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -8,7 +10,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.BlockAndTintGetter;
+import net.minecraft.world.level.BlockAndLightGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -33,14 +35,14 @@ public final class DecorativeBlocks {
             }
 
             @Override
-            public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndTintGetter level, BlockPos position, FluidState fluid) {
+            public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter level, BlockPos position, FluidState fluid) {
                 return fluidOverlay || super.shouldDisplayFluidOverlay(state, level, position, fluid);
             }
 
             @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-                super.appendHoverText(stack, context, lines, flag);
-                tooltip.forEach(key -> lines.add(Component.translatable(key)));
+            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+                super.appendHoverText(stack, context, display, tooltipAdder, flag);
+                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
             }
         };
     }
@@ -59,14 +61,14 @@ public final class DecorativeBlocks {
             }
 
             @Override
-            public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndTintGetter level, BlockPos position, FluidState fluid) {
+            public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter level, BlockPos position, FluidState fluid) {
                 return fluidOverlay || super.shouldDisplayFluidOverlay(state, level, position, fluid);
             }
 
             @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-                super.appendHoverText(stack, context, lines, flag);
-                tooltip.forEach(key -> lines.add(Component.translatable(key)));
+            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+                super.appendHoverText(stack, context, display, tooltipAdder, flag);
+                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
             }
         };
     }
@@ -85,14 +87,14 @@ public final class DecorativeBlocks {
             }
 
             @Override
-            public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndTintGetter level, BlockPos position, FluidState fluid) {
+            public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter level, BlockPos position, FluidState fluid) {
                 return fluidOverlay || super.shouldDisplayFluidOverlay(state, level, position, fluid);
             }
 
             @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-                super.appendHoverText(stack, context, lines, flag);
-                tooltip.forEach(key -> lines.add(Component.translatable(key)));
+            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+                super.appendHoverText(stack, context, display, tooltipAdder, flag);
+                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
             }
         };
     }
@@ -111,14 +113,14 @@ public final class DecorativeBlocks {
             }
 
             @Override
-            public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndTintGetter level, BlockPos position, FluidState fluid) {
+            public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter level, BlockPos position, FluidState fluid) {
                 return fluidOverlay || super.shouldDisplayFluidOverlay(state, level, position, fluid);
             }
 
             @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-                super.appendHoverText(stack, context, lines, flag);
-                tooltip.forEach(key -> lines.add(Component.translatable(key)));
+            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+                super.appendHoverText(stack, context, display, tooltipAdder, flag);
+                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
             }
         };
     }
@@ -137,14 +139,14 @@ public final class DecorativeBlocks {
             }
 
             @Override
-            public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndTintGetter level, BlockPos position, FluidState fluid) {
+            public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter level, BlockPos position, FluidState fluid) {
                 return fluidOverlay || super.shouldDisplayFluidOverlay(state, level, position, fluid);
             }
 
             @Override
-            public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-                super.appendHoverText(stack, context, lines, flag);
-                tooltip.forEach(key -> lines.add(Component.translatable(key)));
+            public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+                super.appendHoverText(stack, context, display, tooltipAdder, flag);
+                tooltip.forEach(key -> tooltipAdder.accept(Component.translatable(key)));
             }
         };
     }

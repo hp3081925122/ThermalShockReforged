@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.entity.infestation;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.AbstractThrownPotion;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -13,10 +18,10 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class InfestophageSeedEntity extends PathfinderMob implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(InfestophageSeedEntity.class, EntityDataSerializers.STRING);
@@ -64,15 +69,15 @@ public final class InfestophageSeedEntity extends PathfinderMob implements GeoEn
     protected SoundEvent getDeathSound() { return SoundEvents.SLIME_DEATH; }
 
     @Override
-    public boolean hurt(DamageSource source, float amount) {
+    public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
         var direct = source.getDirectEntity();
-        if (direct instanceof net.minecraft.world.entity.projectile.AbstractArrow || direct instanceof Player
-                || direct instanceof net.minecraft.world.entity.projectile.ThrownPotion || direct instanceof AreaEffectCloud) return false;
+        if (direct instanceof net.minecraft.world.entity.projectile.arrow.AbstractArrow || direct instanceof Player
+                || direct instanceof net.minecraft.world.entity.projectile.throwableitemprojectile.AbstractThrownPotion || direct instanceof AreaEffectCloud) return false;
         if (source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS)
                 || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.EXPLOSION)
                 || source.is(DamageTypes.TRIDENT) || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.DRAGON_BREATH)
                 || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL)) return false;
-        return super.hurt(source, amount);
+        return super.hurtServer(level, source, amount);
     }
 
     @Override
@@ -107,7 +112,7 @@ public final class InfestophageSeedEntity extends PathfinderMob implements GeoEn
         if (!(nearest instanceof net.minecraft.server.level.ServerPlayer player)
                 || player.gameMode.getGameModeForPlayer() != net.minecraft.world.level.GameType.SURVIVAL) return;
         discard();
-        var spawned = InfestationEntities.INFESTOPHAGE.get().spawn(server, blockPosition(), MobSpawnType.MOB_SUMMONED);
+        var spawned = InfestationEntities.INFESTOPHAGE.get().spawn(server, blockPosition(), EntitySpawnReason.MOB_SUMMONED);
         if (spawned != null) spawned.setDeltaMovement(0, 0.3, 0);
         server.playSound(null, blockPosition(), SoundEvents.WITHER_BREAK_BLOCK, SoundSource.NEUTRAL, 0.5F, 0);
         server.sendParticles(net.minecraft.core.particles.ParticleTypes.POOF, getX(), getY(), getZ(), 30, 0.8, 1, 0.8, 0.2);
@@ -125,7 +130,7 @@ public final class InfestophageSeedEntity extends PathfinderMob implements GeoEn
         if (deathTime >= 40 && level() instanceof net.minecraft.server.level.ServerLevel server && !isRemoved()) {
             if (experiencePending) {
                 experiencePending = false;
-                super.dropExperience(experienceSource == null ? null : server.getEntity(experienceSource));
+                super.dropExperience(server, experienceSource == null ? null : server.getEntity(experienceSource));
             }
             server.broadcastEntityEvent(this, (byte) 60);
             remove(RemovalReason.KILLED);
@@ -139,29 +144,29 @@ public final class InfestophageSeedEntity extends PathfinderMob implements GeoEn
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putString("Texture", texture());
-        tag.putBoolean("ExperiencePending", experiencePending);
-        if (experienceSource != null) tag.putUUID("ExperienceSource", experienceSource);
-        tag.putInt("SeedDeathTime", deathTime);
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putString("Texture", texture());
+        output.putBoolean("ExperiencePending", experiencePending);
+        if (experienceSource != null) output.putString("ExperienceSource", experienceSource.toString());
+        output.putInt("SeedDeathTime", deathTime);
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        experiencePending = tag.getBoolean("ExperiencePending");
-        experienceSource = tag.hasUUID("ExperienceSource") ? tag.getUUID("ExperienceSource") : null;
-        deathTime = Math.max(0, Math.min(40, tag.getInt("SeedDeathTime")));
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        experiencePending = input.getBooleanOr("ExperiencePending", false);
+        experienceSource = input.getString("ExperienceSource").map(java.util.UUID::fromString).orElse(null);
+        deathTime = Math.max(0, Math.min(40, input.getIntOr("SeedDeathTime", 0)));
     }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
                 .triggerableAnim("idle", RawAnimation.begin().thenPlay("idle"))
                 .triggerableAnim("walk", RawAnimation.begin().thenPlay("walk"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation()
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation()
                 ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("idle"))));
         controllers.add(procedure);
     }

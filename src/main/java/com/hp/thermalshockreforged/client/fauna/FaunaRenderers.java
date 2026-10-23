@@ -1,21 +1,23 @@
 package com.hp.thermalshockreforged.client.fauna;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.client.renderer.rendertype.RenderType;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoEntityRenderer;
 
 import com.hp.thermalshockreforged.entity.fauna.*;
 import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Mob;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.extensions.common.*;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animation.AnimationState;
-import software.bernie.geckolib.cache.object.BakedGeoModel;
-import software.bernie.geckolib.constant.DataTickets;
-import software.bernie.geckolib.model.GeoModel;
-import software.bernie.geckolib.renderer.*;
-import software.bernie.geckolib.renderer.layer.GeoRenderLayer;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animation.state.AnimationTest;
+import com.geckolib.cache.model.BakedGeoModel;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
+import com.geckolib.renderer.*;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoRenderLayer;
 import java.util.function.Function;
 
 public final class FaunaRenderers {
@@ -37,24 +39,15 @@ public final class FaunaRenderers {
     }
 
     public static void extensions(RegisterClientExtensionsEvent event) {
-        event.registerItem(new IClientItemExtensions() {
-            private CauldronItemRenderer renderer;
-
-            @Override
-            public net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                if (renderer == null) renderer = new CauldronItemRenderer();
-                return renderer;
-            }
-        }, FaunaEntities.CAULDRON_ITEM.get());
     }
 
     private static <T extends Mob & GeoEntity> EntityRendererProvider<T> factory(String id, Function<T, String> texture, boolean head, float shadow, float scale, boolean glow) {
         return context -> new Renderer<>(context, new Model<>(id, texture, head), shadow, scale, glow);
     }
 
-    private static ResourceLocation resource(String path) { return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", path); }
+    private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", path); }
 
-    private static final class Model<T extends Mob & GeoEntity> extends GeoModel<T> {
+    private static final class Model<T extends Mob & GeoEntity> extends LegacyGeoModel<T> {
         private final String id;
         private final Function<T, String> texture;
         private final boolean head;
@@ -66,20 +59,20 @@ public final class FaunaRenderers {
         }
 
         @Override
-        public ResourceLocation getModelResource(T entity) { return resource("geo/" + id + ".geo.json"); }
+        public Identifier getModelResource(T entity) { return resource("geo/" + id + ".geo.json"); }
 
         @Override
-        public ResourceLocation getTextureResource(T entity) { return resource("textures/entities/" + texture.apply(entity) + ".png"); }
+        public Identifier getTextureResource(T entity) { return resource("textures/entities/" + texture.apply(entity) + ".png"); }
 
         @Override
-        public ResourceLocation getAnimationResource(T entity) { return resource("animations/" + id + ".animation.json"); }
+        public Identifier getAnimationResource(T entity) { return resource("animations/" + id + ".animation.json"); }
 
         @Override
-        public void setCustomAnimations(T entity, long id, AnimationState<T> state) {
+        public void setCustomAnimations(T entity, long id, AnimationTest<T> state) {
             super.setCustomAnimations(entity, id, state);
             if (!head) return;
             var bone = getAnimationProcessor().getBone(this.id.equals("chromefish") ? "body" : "head");
-            var data = state.getData(DataTickets.ENTITY_MODEL_DATA);
+            var data = com.hp.thermalshockreforged.compat.LegacyAnimationData.from(state);
             if (bone != null && data != null) {
                 bone.setRotX(data.headPitch() * net.minecraft.util.Mth.DEG_TO_RAD);
                 bone.setRotY(data.netHeadYaw() * net.minecraft.util.Mth.DEG_TO_RAD);
@@ -87,8 +80,8 @@ public final class FaunaRenderers {
         }
     }
 
-    private static final class Renderer<T extends Mob & GeoEntity> extends GeoEntityRenderer<T> {
-        private Renderer(EntityRendererProvider.Context context, GeoModel<T> model, float shadow, float scale, boolean glow) {
+    private static final class Renderer<T extends Mob & GeoEntity> extends LegacyGeoEntityRenderer<T> {
+        private Renderer(EntityRendererProvider.Context context, LegacyGeoModel<T> model, float shadow, float scale, boolean glow) {
             super(context, model);
             shadowRadius = shadow;
             withScale(scale);
@@ -96,17 +89,17 @@ public final class FaunaRenderers {
         }
 
         @Override
-        public RenderType getRenderType(T entity, ResourceLocation texture, MultiBufferSource buffers, float partialTick) { return RenderType.entityTranslucent(texture); }
+        public RenderType getRenderType(T entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
 
-    private static final class Glow<T extends Mob & GeoEntity> extends GeoRenderLayer<T> {
-        private static final ResourceLocation TEXTURE = resource("textures/entities/torpedoglow.png");
+    private static final class Glow<T extends Mob & GeoEntity> extends LegacyGeoRenderLayer<T> {
+        private static final Identifier TEXTURE = resource("textures/entities/torpedoglow.png");
 
-        private Glow(GeoRenderer<T> renderer) { super(renderer); }
+        private Glow(LegacyGeoEntityRenderer<T> renderer) { super(renderer); }
 
         @Override
         public void render(PoseStack pose, T entity, BakedGeoModel model, RenderType type, MultiBufferSource buffers, VertexConsumer vertices, float partialTick, int light, int overlay) {
-            var glow = RenderType.eyes(TEXTURE);
+            var glow = RenderTypes.eyes(TEXTURE);
             getRenderer().reRender(model, pose, buffers, entity, glow, buffers.getBuffer(glow), partialTick, light, OverlayTexture.NO_OVERLAY, -1);
         }
     }

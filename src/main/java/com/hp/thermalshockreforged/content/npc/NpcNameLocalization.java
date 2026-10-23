@@ -4,7 +4,7 @@ import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.Map;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
@@ -33,7 +33,7 @@ public final class NpcNameLocalization {
     private static void join(EntityJoinLevelEvent event) {
         if (event.getLevel().isClientSide()) return;
         Entity entity = event.getEntity();
-        ResourceLocation id = entity.getType().builtInRegistryHolder().key().location();
+        Identifier id = entity.getType().builtInRegistryHolder().key().location();
         if (!id.getNamespace().equals(ThermalShockReforged.MOD_ID)) return;
         NameEntry entry = NAMES.get(id.getPath());
         if (entry == null) return;

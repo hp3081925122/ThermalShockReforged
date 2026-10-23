@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.icesquad;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.registries.Registries;
@@ -13,7 +14,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
@@ -47,12 +48,12 @@ public final class IceSquadContent {
     public static final DeferredBlock<StriderConstructorBlock> STRIDER_CONSTRUCTOR = BLOCKS.register("icidrostrider_constructor", StriderConstructorBlock::new);
     public static final DeferredItem<BlockItem> STRIDER_CONSTRUCTOR_ITEM = ITEMS.registerSimpleBlockItem(STRIDER_CONSTRUCTOR);
     public static final DeferredHolder<EntityType<?>, EntityType<BastionEntity>> GUNNER = TYPES.register("icidrogunner", () -> EntityType.Builder.of(BastionEntity::new, MobCategory.MONSTER).sized(2.5F, 3.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":icidrogunner"));
-    public static final DeferredItem<DeferredSpawnEggItem> GUNNER_EGG = ITEMS.register("icidrogunner_spawn_egg", () -> new DeferredSpawnEggItem(GUNNER, -1, -1, new Item.Properties()));
+    public static final DeferredItem<SpawnEggItem> GUNNER_EGG = ITEMS.register("icidrogunner_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(GUNNER.get())));
     public static final DeferredHolder<EntityType<?>, EntityType<BastionEntity>> BURNER = TYPES.register("icidroburner", () -> EntityType.Builder.of(BastionEntity::new, MobCategory.MONSTER).sized(2.5F, 3.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":icidroburner"));
-    public static final DeferredItem<DeferredSpawnEggItem> BURNER_EGG = ITEMS.register("icidroburner_spawn_egg", () -> new DeferredSpawnEggItem(BURNER, -1, -1, new Item.Properties()));
+    public static final DeferredItem<SpawnEggItem> BURNER_EGG = ITEMS.register("icidroburner_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(BURNER.get())));
     public static final DeferredHolder<EntityType<?>, EntityType<IcidrostriderEntity>> STRIDER = TYPES.register("icidrostrider", () -> EntityType.Builder.of(IcidrostriderEntity::new, MobCategory.MONSTER).sized(1, 1.6F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":icidrostrider"));
     public static final DeferredHolder<EntityType<?>, EntityType<IcidrogruntEntity>> GRUNT = TYPES.register("icidrogrunt", () -> EntityType.Builder.of(IcidrogruntEntity::new, MobCategory.MONSTER).sized(0.6F, 1.6F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":icidrogrunt"));
-    public static final DeferredItem<DeferredSpawnEggItem> GRUNT_EGG = ITEMS.register("icidrogrunt_spawn_egg", () -> new DeferredSpawnEggItem(GRUNT, -1, -1, new Item.Properties()));
+    public static final DeferredItem<SpawnEggItem> GRUNT_EGG = ITEMS.register("icidrogrunt_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(GRUNT.get())));
     public static final DeferredHolder<EntityType<?>, EntityType<IceSquadProjectileEntity>> STRIDER_ATTACK = TYPES.register("strider_attack", () -> EntityType.Builder.<IceSquadProjectileEntity>of(IceSquadProjectileEntity::new, MobCategory.MISC).sized(.5F, .5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(1).build(ThermalShockReforged.MOD_ID + ":strider_attack"));
     public static final DeferredHolder<EntityType<?>, EntityType<IceSquadProjectileEntity>> CRYONIC_PROJECTILE = TYPES.register("cryonic_projectile", () -> EntityType.Builder.<IceSquadProjectileEntity>of(IceSquadProjectileEntity::new, MobCategory.MISC).sized(.5F, .5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(1).build(ThermalShockReforged.MOD_ID + ":cryonic_projectile"));
     public static final DeferredHolder<EntityType<?>, EntityType<IceSquadProjectileEntity>> ALT_CRYONIC_PROJECTILE = TYPES.register("alt_cryonic_projectile", () -> EntityType.Builder.<IceSquadProjectileEntity>of(IceSquadProjectileEntity::new, MobCategory.MISC).sized(.5F, .5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(1).build(ThermalShockReforged.MOD_ID + ":alt_cryonic_projectile"));

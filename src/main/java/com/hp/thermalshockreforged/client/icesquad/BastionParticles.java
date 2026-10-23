@@ -4,9 +4,10 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.ParticleRenderType;
+import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
 import net.minecraft.client.particle.SingleQuadParticle;
 import net.minecraft.client.particle.SpriteSet;
-import net.minecraft.client.particle.TextureSheetParticle;
+import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.Mth;
 
@@ -15,7 +16,7 @@ final class BastionParticles {
 
     private BastionParticles() { }
 
-    private abstract static class Animated extends TextureSheetParticle {
+    private abstract static class Animated extends LegacySingleQuadParticle {
         protected final SpriteSet sprites;
         protected Animated(ClientLevel level, double x, double y, double z, SpriteSet sprites, int lifetime) {
             super(level, x, y, z);
@@ -30,15 +31,15 @@ final class BastionParticles {
             super.tick();
             if (isAlive()) setSpriteFromAge(sprites);
         }
-        @Override public int getLightColor(float partialTick) { return FULL_BRIGHT; }
-        @Override public ParticleRenderType getRenderType() { return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT; }
+        public int getLightColor(float partialTick) { return FULL_BRIGHT; }
+        @Override public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
     }
 
     static final class Drift extends Animated {
         private final float baseSize;
         private final float grow;
         private Drift(ClientLevel level, double x, double y, double z, double dx, double dy, double dz, SpriteSet sprites, DriftProvider shape) {
-            super(level, x, y, z, sprites, shape.life() + level.random.nextInt(shape.lifeRandom() + 1));
+            super(level, x, y, z, sprites, shape.life() + level.getRandom().nextInt(shape.lifeRandom() + 1));
             xd = dx;
             yd = dy;
             zd = dz;
@@ -103,18 +104,18 @@ final class BastionParticles {
     }
 
     record DriftProvider(SpriteSet sprites, int life, int lifeRandom, float size, float grow, float gravity, float friction) implements ParticleProvider<SimpleParticleType> {
-        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) { return new Drift(level, x, y, z, dx, dy, dz, sprites, this); }
+        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz, net.minecraft.util.RandomSource random) { return new Drift(level, x, y, z, dx, dy, dz, sprites, this); }
     }
 
     record FlatProvider(SpriteSet sprites, int frames) implements ParticleProvider<SimpleParticleType> {
-        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) { return new Flat(level, x, y, z, dx, dy, dz, sprites, frames); }
+        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz, net.minecraft.util.RandomSource random) { return new Flat(level, x, y, z, dx, dy, dz, sprites, frames); }
     }
 
     record PillarProvider(SpriteSet sprites, int life) implements ParticleProvider<SimpleParticleType> {
-        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) { return new Pillar(level, x, y, z, dx, sprites, life); }
+        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz, net.minecraft.util.RandomSource random) { return new Pillar(level, x, y, z, dx, sprites, life); }
     }
 
     record BurstProvider(SpriteSet sprites, int life) implements ParticleProvider<SimpleParticleType> {
-        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) { return new Burst(level, x, y, z, dx, sprites, life); }
+        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz, net.minecraft.util.RandomSource random) { return new Burst(level, x, y, z, dx, sprites, life); }
     }
 }

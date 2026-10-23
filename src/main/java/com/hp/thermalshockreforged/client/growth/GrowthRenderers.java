@@ -1,14 +1,20 @@
 package com.hp.thermalshockreforged.client.growth;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.client.renderer.rendertype.RenderType;
+import com.geckolib.animation.state.AnimationTest;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoEntityRenderer;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoBlockRenderer;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
 
 import com.hp.thermalshockreforged.content.growth.*;
 import com.hp.thermalshockreforged.entity.growth.*;
 import net.minecraft.client.renderer.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.extensions.common.*;
-import software.bernie.geckolib.animatable.GeoAnimatable;
-import software.bernie.geckolib.model.GeoModel;
-import software.bernie.geckolib.renderer.*;
+import com.geckolib.animatable.GeoAnimatable;
+import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
+import com.geckolib.renderer.*;
 
 public final class GrowthRenderers {
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
@@ -20,45 +26,42 @@ public final class GrowthRenderers {
     public static void extensions(RegisterClientExtensionsEvent event) {
         event.registerItem(new IClientItemExtensions() {
             private ItemRenderer renderer;
-            @Override public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                if (renderer == null) renderer = new ItemRenderer();
-                return renderer;
-            }
+
         }, GrowthContent.GEL_BULB_ITEM.get());
     }
 
-    private static final class BlockRenderer extends GeoBlockRenderer<GelBulbBlockEntity> {
+    private static final class BlockRenderer extends LegacyGeoBlockRenderer<GelBulbBlockEntity> {
         private BlockRenderer() { super(new Model<>()); }
-        @Override public RenderType getRenderType(GelBulbBlockEntity entity, ResourceLocation texture, MultiBufferSource buffers, float partialTick) {
-            return RenderType.entityTranslucent(texture);
+        @Override public RenderType getRenderType(GelBulbBlockEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) {
+            return RenderTypes.entityTranslucent(texture);
         }
     }
 
-    private static final class ItemRenderer extends GeoItemRenderer<GelBulbItem> {
+    private static final class ItemRenderer extends LegacyGeoItemRenderer<GelBulbItem> {
         private ItemRenderer() { super(new Model<>()); }
-        @Override public RenderType getRenderType(GelBulbItem item, ResourceLocation texture, MultiBufferSource buffers, float partialTick) {
-            return RenderType.entityTranslucent(texture);
+        @Override public RenderType getRenderType(GelBulbItem item, Identifier texture, MultiBufferSource buffers, float partialTick) {
+            return RenderTypes.entityTranslucent(texture);
         }
     }
 
-    private static final class Model<T extends GeoAnimatable> extends GeoModel<T> {
-        @Override public ResourceLocation getModelResource(T entity) { return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "geo/gelbulb.geo.json"); }
-        @Override public ResourceLocation getTextureResource(T entity) { return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "textures/block/geldrop.png"); }
-        @Override public ResourceLocation getAnimationResource(T entity) { return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "animations/gelbulb.animation.json"); }
+    private static final class Model<T extends GeoAnimatable> extends LegacyGeoModel<T> {
+        @Override public Identifier getModelResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "geo/gelbulb.geo.json"); }
+        @Override public Identifier getTextureResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "textures/block/geldrop.png"); }
+        @Override public Identifier getAnimationResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "animations/gelbulb.animation.json"); }
     }
 
-    private static final class GelshooterRenderer extends GeoEntityRenderer<GelshooterEntity> {
+    private static final class GelshooterRenderer extends LegacyGeoEntityRenderer<GelshooterEntity> {
         private GelshooterRenderer(net.minecraft.client.renderer.entity.EntityRendererProvider.Context context) { super(context,new GelshooterModel()); shadowRadius=.2f; }
-        @Override public RenderType getRenderType(GelshooterEntity entity,ResourceLocation texture,MultiBufferSource buffers,float partialTick) { return RenderType.entityTranslucent(texture); }
+        @Override public RenderType getRenderType(GelshooterEntity entity,Identifier texture,MultiBufferSource buffers,float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class GelshooterModel extends GeoModel<GelshooterEntity> {
-        @Override public ResourceLocation getModelResource(GelshooterEntity entity) { return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged","geo/gelshooter.geo.json"); }
-        @Override public ResourceLocation getTextureResource(GelshooterEntity entity) { return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged","textures/entities/"+entity.texture()+".png"); }
-        @Override public ResourceLocation getAnimationResource(GelshooterEntity entity) { return ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged","animations/gelshooter.animation.json"); }
-        @Override public void setCustomAnimations(GelshooterEntity entity,long id,software.bernie.geckolib.animation.AnimationState<GelshooterEntity> state) {
+    private static final class GelshooterModel extends LegacyGeoModel<GelshooterEntity> {
+        @Override public Identifier getModelResource(GelshooterEntity entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged","geo/gelshooter.geo.json"); }
+        @Override public Identifier getTextureResource(GelshooterEntity entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged","textures/entities/"+entity.texture()+".png"); }
+        @Override public Identifier getAnimationResource(GelshooterEntity entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged","animations/gelshooter.animation.json"); }
+        @Override public void setCustomAnimations(GelshooterEntity entity,long id,com.geckolib.animation.state.AnimationTest<GelshooterEntity> state) {
             var head=getAnimationProcessor().getBone("head");
             if(head!=null) {
-                var data=state.getData(software.bernie.geckolib.constant.DataTickets.ENTITY_MODEL_DATA);
+                var data=state.getData(com.geckolib.constant.DataTickets.ENTITY_MODEL_DATA);
                 head.setRotX(data.headPitch()*(float)(Math.PI/180));
                 head.setRotY(data.netHeadYaw()*(float)(Math.PI/180));
             }

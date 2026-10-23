@@ -9,7 +9,7 @@ import java.util.UUID;
 import net.minecraft.core.registries.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.world.damagesource.DamageSource;
@@ -48,7 +48,7 @@ public final class HiVoltPulseEntity extends Entity implements ServerEndTickTask
             if (stage == 20) {
                 var targets = targets(level);
                 for (Entity target : targets) if (target instanceof LivingEntity living) living.addEffect(new MobEffectInstance(StatusContent.ELECTRIFIED, 360, 0));
-                level.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "galvanitehurt")), SoundSource.NEUTRAL, 1, 7);
+                level.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "galvanitehurt")), SoundSource.NEUTRAL, 1, 7);
                 level.playSound(null, blockPosition(), SoundEvents.IRON_GOLEM_HURT, SoundSource.NEUTRAL, .7F, 5);
             }
             if (stage == 120 || stage == 122) level.playSound(null, blockPosition(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, .7F, 4);
@@ -65,13 +65,13 @@ public final class HiVoltPulseEntity extends Entity implements ServerEndTickTask
         var damage = new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS));
         for (Entity target : targets(level)) target.hurt(damage, 1.5F);
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (owner != null) tag.putUUID("HiVoltOwner", owner);
-        tag.putInt("HiVoltElapsed", elapsed); tag.putBoolean("HiVoltElectric", electric); tag.putBoolean("HiVoltArmed", armed);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (owner != null) output.putString("HiVoltOwner", owner.toString());
+        output.putInt("HiVoltElapsed", elapsed); output.putBoolean("HiVoltElectric", electric); output.putBoolean("HiVoltArmed", armed);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        owner = tag.hasUUID("HiVoltOwner") ? tag.getUUID("HiVoltOwner") : null;
-        electric = tag.getBoolean("HiVoltElectric"); elapsed = Math.clamp(tag.getInt("HiVoltElapsed"), 0, electric ? 122 : 16);
-        armed = owner != null && elapsed < (electric ? 122 : 16) && tag.getBoolean("HiVoltArmed");
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        owner = input.getString("HiVoltOwner").map(java.util.UUID::fromString).orElse(null);
+        electric = input.getBooleanOr("HiVoltElectric", false); elapsed = Math.clamp(input.getIntOr("HiVoltElapsed", 0), 0, electric ? 122 : 16);
+        armed = owner != null && elapsed < (electric ? 122 : 16) && input.getBooleanOr("HiVoltArmed", false);
     }
 }

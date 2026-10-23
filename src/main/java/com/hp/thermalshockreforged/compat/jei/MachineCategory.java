@@ -11,7 +11,7 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 
@@ -70,7 +70,7 @@ public final class MachineCategory implements IRecipeCategory<MachineEntry> {
     }
 
     @Override
-    public void draw(MachineEntry entry, IRecipeSlotsView slots, GuiGraphics graphics, double mouseX, double mouseY) {
+    public void draw(MachineEntry entry, IRecipeSlotsView slots, GuiGraphicsExtractor graphics, double mouseX, double mouseY) {
         arrow.draw(graphics, layout.arrowX(), layout.arrowY() + 1);
         if (entry.xp() != null) NpcTradeListWidget.drawXp(graphics, layout.arrowX(), layout.arrowY() + 20, entry.xp());
     }

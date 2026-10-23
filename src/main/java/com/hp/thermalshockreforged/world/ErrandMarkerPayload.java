@@ -6,7 +6,7 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.NeoForge;
@@ -23,7 +23,7 @@ public record ErrandMarkerPayload(int done) implements CustomPacketPayload {
     public static final int LAUT = 4;
     private static final List<String> FINALS = List.of("blasphemy_4", "leaf_it_to_me_3", "icebreaker_2", "uneasy_alliance_1", "babies_or_pets");
     private static volatile int clientDone;
-    public static final Type<ErrandMarkerPayload> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errand_marker"));
+    public static final Type<ErrandMarkerPayload> TYPE = new Type<>(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "errand_marker"));
     public static final StreamCodec<RegistryFriendlyByteBuf, ErrandMarkerPayload> CODEC = StreamCodec.composite(ByteBufCodecs.VAR_INT, ErrandMarkerPayload::done, ErrandMarkerPayload::new);
     @Override public Type<ErrandMarkerPayload> type() { return TYPE; }
 
@@ -34,7 +34,7 @@ public record ErrandMarkerPayload(int done) implements CustomPacketPayload {
     private static void send(ServerPlayer player) {
         int done = 0;
         for (int index = 0; index < FINALS.size(); index++) {
-            var advancement = player.server.getAdvancements().get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, FINALS.get(index)));
+            var advancement = player.server.getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, FINALS.get(index)));
             if (advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone()) done |= 1 << index;
         }
         PacketDistributor.sendToPlayer(player, new ErrandMarkerPayload(done));

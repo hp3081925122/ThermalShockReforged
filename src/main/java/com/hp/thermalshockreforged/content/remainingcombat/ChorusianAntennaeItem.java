@@ -1,4 +1,10 @@
 package com.hp.thermalshockreforged.content.remainingcombat;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import java.util.List;
 import net.minecraft.core.component.DataComponents;
@@ -8,31 +14,31 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.GeoItem;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.constant.DataTickets;
+import com.geckolib.animatable.GeoItem;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.constant.DataTickets;
 
-public final class ChorusianAntennaeItem extends ArmorItem implements GeoItem {
+public final class ChorusianAntennaeItem extends Item implements GeoItem {
     private final CombatAnimationCache animations = new CombatAnimationCache(this);
-    public ChorusianAntennaeItem() { super(RemainingCombatContent.ANTENNAE_MATERIAL, Type.HELMET, new Properties().durability(275)); }
+    public ChorusianAntennaeItem() { super(new Properties().humanoidArmor(RemainingCombatContent.ANTENNAE_MATERIAL.value(), ArmorType.HELMET).durability(275)); }
     @Override public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
         super.inventoryTick(stack, level, entity, slot, selected);
         if (level instanceof ServerLevel server) GeoItem.getOrAssignId(stack, server);
     }
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.translatable("item.thermal_shock_reforged.chorusian_antennae_helmet.description_0"));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.chorusian_antennae_helmet.description_0"));
     }
     public void pruneAnimations() { animations.prune(); }
     public void clearAnimations() { animations.clear(); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         String[] previous = {"", ""};
-        controllers.add(new AnimationController<>(this, "controller", 5, state -> previous[1].isEmpty()
+        controllers.add(new LegacyAnimationController<>(this, "controller", 5, state -> previous[1].isEmpty()
                 ? state.setAndContinue(RawAnimation.begin().thenLoop("0")) : PlayState.STOP));
-        controllers.add(new AnimationController<>(this, "procedureController", 5, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "procedureController", 5, state -> {
             ItemStack stack = state.getData(DataTickets.ITEMSTACK);
-            String request = stack == null ? "" : stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("geckoAnim");
+            String request = stack == null ? "" : stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("geckoAnim").orElse("");
             if (request.equals("empty")) {
                 if (!previous[1].isEmpty()) {
                     state.getController().forceAnimationReset();
@@ -46,7 +52,7 @@ public final class ChorusianAntennaeItem extends ArmorItem implements GeoItem {
                 state.getController().forceAnimationReset();
                 state.getController().setAnimation(RawAnimation.begin().thenPlay(request));
                 previous[1] = request;
-            } else if (state.getController().getAnimationState() == AnimationController.State.STOPPED) previous[1] = "";
+            } else if (state.getController().getAnimationState() == LegacyAnimationController.State.STOPPED) previous[1] = "";
             previous[0] = request;
             return previous[1].isEmpty() ? PlayState.STOP : PlayState.CONTINUE;
         }));

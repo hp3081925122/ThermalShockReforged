@@ -1,4 +1,11 @@
 package com.hp.thermalshockreforged.entity.labmachinist;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
+import net.minecraft.world.InteractionResult;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
@@ -15,9 +22,9 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
-import software.bernie.geckolib.animatable.GeoItem;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
+import com.geckolib.animatable.GeoItem;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
 
 public final class SylviaRifleItem extends Item implements GeoItem {
     private static final String CHARGE = "thermal_shock_reforged:sylvia_charge";
@@ -28,7 +35,7 @@ public final class SylviaRifleItem extends Item implements GeoItem {
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
     @Override public int getEnchantmentValue() { return 5; }
     @Override public int getUseDuration(ItemStack stack, LivingEntity user) { return 20; }
-    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+    @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var stack = player.getItemInHand(hand);
         if (level instanceof ServerLevel server && !player.getCooldowns().isOnCooldown(this)) {
             player.getCooldowns().addCooldown(this, 10); triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "1");
@@ -36,7 +43,7 @@ public final class SylviaRifleItem extends Item implements GeoItem {
             var data = player.getPersistentData(); int charge = Math.min(255, Math.max(0, data.getInt(CHARGE)) + 1); data.putInt(CHARGE, charge); data.putInt(REMAINING, 27); data.putLong(CREATED, server.getGameTime());
             if (charge >= 4) server.playSound(null, player.blockPosition(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, 1, 1);
         }
-        return InteractionResultHolder.pass(stack);
+        return InteractionResult.PASS;
     }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
         if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this) || player.getPersistentData().getInt(REMAINING) <= 0 || player.getPersistentData().getInt(CHARGE) < 4) return false;
@@ -52,17 +59,17 @@ public final class SylviaRifleItem extends Item implements GeoItem {
     }
     @Override public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) { super.inventoryTick(stack, level, entity, slot, selected); if (level instanceof ServerLevel server) GeoItem.getOrAssignId(stack, server); if (selected && entity instanceof LivingEntity living) HeldWeaponState.refreshNoMelee(living); }
     public static void tickCharge(EntityTickEvent.Post event) {
-        if (!(event.getEntity() instanceof LivingEntity living) || living.level().isClientSide) return; var data = living.getPersistentData(); if (!data.contains(REMAINING)) return;
+        if (!(event.getEntity() instanceof LivingEntity living) || living.level().isClientSide()) return; var data = living.getPersistentData(); if (!data.contains(REMAINING)) return;
         if (living.isAlive() && data.getLong(CREATED) == living.level().getGameTime()) return;
         int remaining = living.isAlive() ? Math.clamp(data.getInt(REMAINING), 0, 27) - 1 : 0;
         if (remaining > 0) data.putInt(REMAINING, remaining); else { data.remove(CHARGE); data.remove(REMAINING); data.remove(CREATED); }
     }
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) { super.appendHoverText(stack, context, lines, flag); for (int i = 0; i < 5; i++) lines.add(Component.translatable("item.thermal_shock_reforged.sylvia_rifle.description_" + i)); }
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) { super.appendHoverText(stack, context, display, tooltipAdder, flag); for (int i = 0; i < 5; i++) tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.sylvia_rifle.description_" + i)); }
     public void pruneAnimations() { animations.prune(); }
     public void clearAnimations() { animations.clear(); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 0, state -> PlayState.STOP); for (String clip : List.of("1", "2")) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip)); controllers.add(procedure);
-        controllers.add(new AnimationController<>(this, "idle", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
+        var procedure = new LegacyAnimationController<>(this, "procedure", 0, state -> PlayState.STOP); for (String clip : List.of("1", "2")) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip)); controllers.add(procedure);
+        controllers.add(new LegacyAnimationController<>(this, "idle", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
 }

@@ -8,7 +8,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.entity.projectile.ItemSupplier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -48,14 +48,14 @@ public final class CavebloomerBombEntity extends AbstractArrow implements ItemSu
         super.onHitBlock(hit);
         if (!(level() instanceof ServerLevel server)) return;
         var type = (poison() ? CavebloomerContent.POISON_IMPACT : CavebloomerContent.SHOCK_IMPACT).get();
-        var carrier = type.create(server);
+        var carrier = type.create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
         if (carrier == null) return;
         var pos = hit.getBlockPos().above();
-        carrier.moveTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, server.random.nextFloat() * 360, 0);
+        carrier.moveTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, server.getRandom().nextFloat() * 360, 0);
         carrier.configureDamage(impactDamage < 0 ? poison() ? 6 : 10 : impactDamage);
-        EventHooks.finalizeMobSpawn(carrier, server, server.getCurrentDifficultyAt(pos), MobSpawnType.MOB_SUMMONED, null);
+        EventHooks.finalizeMobSpawn(carrier, server, server.getCurrentDifficultyAt(pos), EntitySpawnReason.MOB_SUMMONED, null);
         if (!carrier.initialized() || carrier.isSpawnCancelled()) { carrier.discard(); return; }
-        carrier.setYRot(server.random.nextFloat() * 360);
+        carrier.setYRot(server.getRandom().nextFloat() * 360);
         if (!carrier.isRemoved()) server.addFreshEntity(carrier);
     }
     @Override public void tick() {
@@ -63,15 +63,15 @@ public final class CavebloomerBombEntity extends AbstractArrow implements ItemSu
         level().addParticle(CavebloomerContent.RED_ORB.get(), getX(), getY(), getZ(), 0, 0, 0);
         if (inGround) discard();
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); if (caster != null) tag.putUUID("BombCaster", caster);
-        tag.putDouble("BombImpactDamage", impactDamage); tag.putDouble("BombKnockback", impactKnockback); tag.putBoolean("BombBlockCommitted", blockCommitted);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output); if (caster != null) output.putString("BombCaster", caster.toString());
+        output.putDouble("BombImpactDamage", impactDamage); output.putDouble("BombKnockback", impactKnockback); output.putBoolean("BombBlockCommitted", blockCommitted);
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag); caster = tag.hasUUID("BombCaster") ? tag.getUUID("BombCaster") : null;
-        double value = tag.contains("BombImpactDamage") ? tag.getDouble("BombImpactDamage") : -1;
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input); caster = input.getString("BombCaster").map(java.util.UUID::fromString).orElse(null);
+        double value = input.getString("BombImpactDamage").isPresent() ? input.getDoubleOr("BombImpactDamage", 0.0) : -1;
         impactDamage = Double.isFinite(value) ? Math.clamp(value, -1, Float.MAX_VALUE) : 0;
-        value = tag.getDouble("BombKnockback"); impactKnockback = Double.isFinite(value) ? Math.clamp(value, 0, 0.6) : 0;
-        blockCommitted = tag.getBoolean("BombBlockCommitted"); pickup = Pickup.DISALLOWED;
+        value = input.getDoubleOr("BombKnockback", 0.0); impactKnockback = Double.isFinite(value) ? Math.clamp(value, 0, 0.6) : 0;
+        blockCommitted = input.getBooleanOr("BombBlockCommitted", false); pickup = Pickup.DISALLOWED;
     }
 }

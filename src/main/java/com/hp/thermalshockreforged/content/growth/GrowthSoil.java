@@ -14,7 +14,7 @@ final class GrowthSoil {
         return id.getNamespace().equals("thermal_shock_reforged") && (sparkler ? SPARKLER : MATURE).contains(id.getPath());
     }
     static void checkMature(Level level, BlockPos pos) {
-        if (!level.isClientSide && !accepts(level, pos, false)) {
+        if (!level.isClientSide() && !accepts(level, pos, false)) {
             var current = level.getBlockState(pos);
             if (level.destroyBlock(pos, false) && !level.getBlockState(pos).is(current.getBlock())) Block.dropResources(current, level, pos, null);
         }

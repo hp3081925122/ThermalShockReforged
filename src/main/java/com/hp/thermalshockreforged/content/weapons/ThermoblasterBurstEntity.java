@@ -7,7 +7,7 @@ import java.util.UUID;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.*;
@@ -50,19 +50,19 @@ public final class ThermoblasterBurstEntity extends Entity implements ServerEndT
         if (wielder != null) lastLook = wielder.getLookAngle();
         ThermoblasterBulletBase.fireWeaponShot(level, wielder, owner, position().add(0, 1.5, 0), lastLook, false, zenith ? 10 : 8);
         if (wielder != null) (zenith ? WeaponContent.ZENITH_THERMOBLASTER : WeaponContent.COBALT_THERMOBLASTER).get().triggerAnim(wielder, animationInstance, "procedure", "1");
-        level.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "thermoblasterburstfire")), SoundSource.NEUTRAL, 1, 1);
+        level.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "thermoblasterburstfire")), SoundSource.NEUTRAL, 1, 1);
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (owner != null) tag.putUUID("ThermoblasterOwner", owner);
-        tag.putInt("ThermoblasterOwnerEntityId", ownerEntityId); tag.putLong("ThermoblasterAnimationInstance", animationInstance);
-        tag.putInt("ThermoblasterElapsed", elapsed); tag.putBoolean("ThermoblasterZenith", zenith); tag.putBoolean("ThermoblasterArmed", armed);
-        tag.putDouble("ThermoblasterLookX", lastLook.x); tag.putDouble("ThermoblasterLookY", lastLook.y); tag.putDouble("ThermoblasterLookZ", lastLook.z);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (owner != null) output.putString("ThermoblasterOwner", owner.toString());
+        output.putInt("ThermoblasterOwnerEntityId", ownerEntityId); output.putLong("ThermoblasterAnimationInstance", animationInstance);
+        output.putInt("ThermoblasterElapsed", elapsed); output.putBoolean("ThermoblasterZenith", zenith); output.putBoolean("ThermoblasterArmed", armed);
+        output.putDouble("ThermoblasterLookX", lastLook.x); output.putDouble("ThermoblasterLookY", lastLook.y); output.putDouble("ThermoblasterLookZ", lastLook.z);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        owner = tag.hasUUID("ThermoblasterOwner") ? tag.getUUID("ThermoblasterOwner") : null;
-        ownerEntityId = tag.getInt("ThermoblasterOwnerEntityId"); animationInstance = tag.getLong("ThermoblasterAnimationInstance");
-        elapsed = Math.clamp(tag.getInt("ThermoblasterElapsed"), 0, 4); zenith = tag.getBoolean("ThermoblasterZenith"); armed = owner != null && elapsed < 4 && tag.getBoolean("ThermoblasterArmed");
-        var look = new Vec3(tag.getDouble("ThermoblasterLookX"), tag.getDouble("ThermoblasterLookY"), tag.getDouble("ThermoblasterLookZ"));
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        owner = input.getString("ThermoblasterOwner").map(java.util.UUID::fromString).orElse(null);
+        ownerEntityId = input.getIntOr("ThermoblasterOwnerEntityId", 0); animationInstance = input.getLongOr("ThermoblasterAnimationInstance", 0L);
+        elapsed = Math.clamp(input.getIntOr("ThermoblasterElapsed", 0), 0, 4); zenith = input.getBooleanOr("ThermoblasterZenith", false); armed = owner != null && elapsed < 4 && input.getBooleanOr("ThermoblasterArmed", false);
+        var look = new Vec3(input.getDoubleOr("ThermoblasterLookX", 0.0), input.getDoubleOr("ThermoblasterLookY", 0.0), input.getDoubleOr("ThermoblasterLookZ", 0.0));
         lastLook = Double.isFinite(look.x) && Double.isFinite(look.y) && Double.isFinite(look.z) && look.lengthSqr() > 1.0E-8 ? look.normalize() : new Vec3(0, 0, 1);
     }
 }

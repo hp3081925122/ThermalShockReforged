@@ -1,13 +1,14 @@
 package com.hp.thermalshockreforged.client.fauna;
+import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
 
 import com.hp.thermalshockreforged.client.vfx.VfxManager;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
-final class WhiteOrbParticle extends TextureSheetParticle {
-    private static final ResourceLocation EFFECT = ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", "whiteorb");
+final class WhiteOrbParticle extends LegacySingleQuadParticle {
+    private static final Identifier EFFECT = Identifier.fromNamespaceAndPath("thermal_shock_reforged", "whiteorb");
 
     private WhiteOrbParticle(ClientLevel level, double x, double y, double z, SpriteSet sprites) {
         super(level, x, y, z);
@@ -22,7 +23,7 @@ final class WhiteOrbParticle extends TextureSheetParticle {
     }
 
     @Override
-    public ParticleRenderType getRenderType() { return ParticleRenderType.PARTICLE_SHEET_OPAQUE; }
+    public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
 
     @Override
     public void tick() {
@@ -34,6 +35,6 @@ final class WhiteOrbParticle extends TextureSheetParticle {
         private final SpriteSet sprites;
         Provider(SpriteSet sprites) { this.sprites = sprites; }
         @Override
-        public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) { return new WhiteOrbParticle(level, x, y, z, sprites); }
+        public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz, net.minecraft.util.RandomSource random) { return new WhiteOrbParticle(level, x, y, z, sprites); }
     }
 }

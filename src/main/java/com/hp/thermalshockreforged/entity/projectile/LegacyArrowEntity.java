@@ -10,7 +10,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.entity.projectile.ItemSupplier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -55,15 +55,15 @@ public abstract class LegacyArrowEntity extends AbstractArrow implements ItemSup
         }
     }
     @Override public void endTick(ServerLevel level) { if (!isRemoved() && remainingLifetime > 0 && --remainingLifetime == 0) discard(); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putDouble("ImpactKnockback", impactKnockback);
-        tag.putInt("ProjectileRemainingLifetime", remainingLifetime);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putDouble("ImpactKnockback", impactKnockback);
+        output.putInt("ProjectileRemainingLifetime", remainingLifetime);
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        setImpactKnockback(tag.getDouble("ImpactKnockback"));
-        remainingLifetime = tag.contains("ProjectileRemainingLifetime") ? Math.clamp(tag.getInt("ProjectileRemainingLifetime"), -1, lifetimeTicks()) : -1;
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        setImpactKnockback(input.getDoubleOr("ImpactKnockback", 0.0));
+        remainingLifetime = input.getString("ProjectileRemainingLifetime").isPresent() ? Math.clamp(input.getIntOr("ProjectileRemainingLifetime", 0), -1, lifetimeTicks()) : -1;
         if (remainingLifetime == 0 && lifetimeTicks() > 0) remainingLifetime = 1;
         pickup = Pickup.DISALLOWED;
         if (!Double.isFinite(getBaseDamage()) || getBaseDamage() < 0) {

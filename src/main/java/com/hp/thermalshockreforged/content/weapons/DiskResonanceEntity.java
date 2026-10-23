@@ -9,7 +9,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
@@ -48,7 +48,7 @@ public final class DiskResonanceEntity extends Entity implements ServerEndTickTa
         if (armed) ServerEndTickTasks.schedule(level, getUUID());
     }
     private void burst(ServerLevel level, Entity attacker) {
-        level.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "prism_breakout")), SoundSource.NEUTRAL, 1, 1);
+        level.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "prism_breakout")), SoundSource.NEUTRAL, 1, 1);
         level.sendParticles(WeaponContent.PRISM_CLUSTER.get(), getX(), getY(), getZ(), 1, .5, .5, .5, 0);
         var targets = level.getEntitiesOfClass(Entity.class, new AABB(position(), position()).inflate(3), entity -> entity != this);
         targets.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(position())));
@@ -56,13 +56,13 @@ public final class DiskResonanceEntity extends Entity implements ServerEndTickTa
         for (Entity target : targets) target.hurt(source, 4);
         ThermalShockReforged.LOGGER.debug("Liteprism core resonance: task={}, elapsed={}, targets={}", getUUID(), elapsed, targets.size());
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (owner != null) tag.putUUID("DiskResonanceOwner", owner);
-        tag.putInt("DiskResonanceOwnerEntityId", ownerEntityId); tag.putInt("DiskResonanceElapsed", elapsed); tag.putBoolean("DiskResonanceArmed", armed);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (owner != null) output.putString("DiskResonanceOwner", owner.toString());
+        output.putInt("DiskResonanceOwnerEntityId", ownerEntityId); output.putInt("DiskResonanceElapsed", elapsed); output.putBoolean("DiskResonanceArmed", armed);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        owner = tag.hasUUID("DiskResonanceOwner") ? tag.getUUID("DiskResonanceOwner") : null;
-        ownerEntityId = tag.getInt("DiskResonanceOwnerEntityId"); elapsed = Math.clamp(tag.getInt("DiskResonanceElapsed"), 0, 6);
-        armed = owner != null && elapsed < 6 && tag.getBoolean("DiskResonanceArmed");
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        owner = input.getString("DiskResonanceOwner").map(java.util.UUID::fromString).orElse(null);
+        ownerEntityId = input.getIntOr("DiskResonanceOwnerEntityId", 0); elapsed = Math.clamp(input.getIntOr("DiskResonanceElapsed", 0), 0, 6);
+        armed = owner != null && elapsed < 6 && input.getBooleanOr("DiskResonanceArmed", false);
     }
 }

@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.cavebloomer;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.attack.AttackCarrierBody;
@@ -11,7 +12,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraft.core.registries.BuiltInRegistries;
 import com.hp.thermalshockreforged.combat.AttackAttemptEvent;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.minecraft.server.level.ServerLevel;
@@ -47,9 +48,9 @@ public final class CavebloomerContent {
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> MAGNETIC_BOOM = PARTICLES.register("magnetic_boom", () -> new SimpleParticleType(true));
     public static final DeferredItem<CavebloomerBossBoxItem> BOSS_BOX = ITEMS.register("angry_cavebloomer_boss_box", CavebloomerBossBoxItem::new);
     static {
-        ITEMS.register("angry_cavebloomer_spawn_egg", () -> new DeferredSpawnEggItem(ANGRY, -1, -1, new Item.Properties()));
-        ITEMS.register("budding_bloomer_spawn_egg", () -> new DeferredSpawnEggItem(BUDDING, -1, -1, new Item.Properties()));
-        ITEMS.register("dandybloomer_spawn_egg", () -> new DeferredSpawnEggItem(DANDY, -1, -1, new Item.Properties()));
+        ITEMS.register("angry_cavebloomer_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(ANGRY.get())));
+        ITEMS.register("budding_bloomer_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(BUDDING.get())));
+        ITEMS.register("dandybloomer_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(DANDY.get())));
     }
     public static boolean isBoss(Entity entity) {
         var id = BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType());

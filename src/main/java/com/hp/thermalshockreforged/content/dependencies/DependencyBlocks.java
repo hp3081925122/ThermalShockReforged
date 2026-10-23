@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.content.dependencies;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.List;
@@ -27,9 +30,9 @@ public final class DependencyBlocks {
         private Muck() { super(Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.MUD).strength(0.8F, 4).speedFactor(0.6F).jumpFactor(0.7F)); }
         @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
         @Override
-        public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-            super.appendHoverText(stack, context, lines, flag);
-            lines.add(Component.translatable("block.thermal_shock_reforged.pure_muck.description_0"));
+        public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+            super.appendHoverText(stack, context, display, tooltipAdder, flag);
+            tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.pure_muck.description_0"));
         }
     }
 

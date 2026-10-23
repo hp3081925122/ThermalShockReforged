@@ -6,7 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -45,7 +45,7 @@ final class WorldTourRedemption {
                     pitch = 2;
                 }
             }
-            source.getLevel().playSound(null, BlockPos.containing(source.getPosition()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, sound)), SoundSource.NEUTRAL, 1, pitch);
+            source.getLevel().playSound(null, BlockPos.containing(source.getPosition()), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, sound)), SoundSource.NEUTRAL, 1, pitch);
             return 0;
         }));
     }

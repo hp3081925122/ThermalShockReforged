@@ -8,7 +8,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -32,7 +32,7 @@ public final class ErrandMaps {
             ThermalShockReforged.LOGGER.warn("Errand map skipped: Loqendia level unavailable, structure={}", structure);
             return;
         }
-        var key = ResourceKey.create(Registries.STRUCTURE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, structure));
+        var key = ResourceKey.create(Registries.STRUCTURE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, structure));
         var holder = level.registryAccess().registryOrThrow(Registries.STRUCTURE).getHolder(key);
         if (holder.isEmpty()) {
             ThermalShockReforged.LOGGER.warn("Errand map skipped: structure missing, structure={}", structure);

@@ -5,10 +5,10 @@ import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.particle.SpriteSet;
-import net.minecraft.client.particle.TextureSheetParticle;
+import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
 import net.minecraft.core.particles.SimpleParticleType;
 
-public final class GreenParticle extends TextureSheetParticle {
+public final class GreenParticle extends LegacySingleQuadParticle {
     private GreenParticle(ClientLevel level, double x, double y, double z, double dx, double dy, double dz, SpriteSet sprites) {
         super(level, x, y, z);
         setSize(.2F, .2F);
@@ -21,11 +21,11 @@ public final class GreenParticle extends TextureSheetParticle {
         zd = dz;
         pickSprite(sprites);
     }
-    @Override public int getLightColor(float partialTick) { return 0xF000F0; }
-    @Override public ParticleRenderType getRenderType() { return ParticleRenderType.PARTICLE_SHEET_LIT; }
+    public int getLightColor(float partialTick) { return 0xF000F0; }
+    @Override public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
     public static final class Provider implements ParticleProvider<SimpleParticleType> {
         private final SpriteSet sprites;
         public Provider(SpriteSet sprites) { this.sprites = sprites; }
-        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) { return new GreenParticle(level, x, y, z, dx, dy, dz, sprites); }
+        @Override public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz, net.minecraft.util.RandomSource random) { return new GreenParticle(level, x, y, z, dx, dy, dz, sprites); }
     }
 }

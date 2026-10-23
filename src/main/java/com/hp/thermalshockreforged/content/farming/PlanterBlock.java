@@ -5,7 +5,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
-import net.neoforged.neoforge.common.util.TriState;
+import net.minecraft.util.TriState;
 
 public final class PlanterBlock extends Block {
     public PlanterBlock(boolean metal) {

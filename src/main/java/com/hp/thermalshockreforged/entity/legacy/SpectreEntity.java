@@ -8,7 +8,7 @@ import java.util.List;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -30,7 +30,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
 public final class SpectreEntity extends AnimatedMonsterEntity {
-    private static final ResourceLocation MOVEMENT_LOCK = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "spectre_movement_lock");
+    private static final Identifier MOVEMENT_LOCK = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "spectre_movement_lock");
     private int cooldown;
     private int movementLock;
     private boolean attributesApplied;
@@ -70,7 +70,7 @@ public final class SpectreEntity extends AnimatedMonsterEntity {
     }
 
     private void syncMovementLock() {
-        if (level().isClientSide) return;
+        if (level().isClientSide()) return;
         var speed = getAttribute(Attributes.MOVEMENT_SPEED);
         if (movementLock > 0) {
             if (!speed.hasModifier(MOVEMENT_LOCK)) speed.addTransientModifier(new AttributeModifier(MOVEMENT_LOCK, -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
@@ -78,19 +78,19 @@ public final class SpectreEntity extends AnimatedMonsterEntity {
     }
     @Override public void baseTick() {
         super.baseTick();
-        if (level().isClientSide) return;
+        if (level().isClientSide()) return;
         if (cooldown > 0) cooldown--;
         if (movementLock > 0 && --movementLock == 0) syncMovementLock();
     }
-    @Override public boolean hurt(DamageSource source, float amount) {
-        return !source.is(DamageTypes.DROWN) && !source.is(DamageTypes.WITHER) && !source.is(DamageTypes.WITHER_SKULL) && super.hurt(source, amount);
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
+        return !source.is(DamageTypes.DROWN) && !source.is(DamageTypes.WITHER) && !source.is(DamageTypes.WITHER_SKULL) && super.hurtServer(level, source, amount);
     }
-    @Override protected SoundEvent getAmbientSound() { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "whistler_ambient")); }
-    @Override protected SoundEvent getHurtSound(DamageSource source) { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "whistler_hurt")); }
-    @Override protected SoundEvent getDeathSound() { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "whistler_death")); }
+    @Override protected SoundEvent getAmbientSound() { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "whistler_ambient")); }
+    @Override protected SoundEvent getHurtSound(DamageSource source) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "whistler_hurt")); }
+    @Override protected SoundEvent getDeathSound() { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "whistler_death")); }
 
     private void applyConfiguredAttributes() {
-        if (level().isClientSide || attributesApplied || !CombatConfig.SPEC.isLoaded()) return;
+        if (level().isClientSide() || attributesApplied || !CombatConfig.SPEC.isLoaded()) return;
         float health = getHealth();
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(CombatConfig.SPECTRE_HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(CombatConfig.SPECTRE_ARMOR.get());
@@ -103,14 +103,14 @@ public final class SpectreEntity extends AnimatedMonsterEntity {
         attributesApplied = true;
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguredAttributes(); syncMovementLock(); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putInt("SpectreCooldown", cooldown); tag.putInt("SpectreMovementLock", movementLock); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putInt("SpectreCooldown", cooldown); output.putInt("SpectreMovementLock", movementLock); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         loadedFromSave = true;
-        super.readAdditionalSaveData(tag);
+        super.readAdditionalSaveData(input);
         attributesApplied = false;
         applyConfiguredAttributes();
-        cooldown = Math.clamp(tag.getInt("SpectreCooldown"), 0, 72000);
-        movementLock = Math.clamp(tag.getInt("SpectreMovementLock"), 0, 20);
+        cooldown = Math.clamp(input.getIntOr("SpectreCooldown", 0), 0, 72000);
+        movementLock = Math.clamp(input.getIntOr("SpectreMovementLock", 0), 0, 20);
         syncMovementLock();
     }
     public static AttributeSupplier.Builder createAttributes() {

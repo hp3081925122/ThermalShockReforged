@@ -11,7 +11,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
@@ -40,11 +40,11 @@ public final class BeetleAttackEntity extends Entity implements ServerEndTickTas
     private boolean armed;
     public BeetleAttackEntity(EntityType<? extends BeetleAttackEntity> type, Level level) { super(type, level); noPhysics = true; setNoGravity(true); }
     static boolean submit(ServerLevel server, BeetleCombatEntity owner, LivingEntity victim, int skill) {
-        var task = BeetleContent.ATTACK.get().create(server);
+        var task = BeetleContent.ATTACK.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
         if (task == null) return false;
         task.caster = owner.getUUID(); task.target = victim.getUUID(); task.targetEntityId = victim.getId(); task.playerTarget = victim instanceof Player;
         if (task.playerTarget) task.originalPlayer = new WeakReference<>(victim);
-        task.soundOrigin = victim.position(); task.casterOrigin = owner.position(); task.look = owner.getLookAngle(); task.skill = skill; task.dimension = server.dimension().location().toString();
+        task.soundOrigin = victim.position(); task.casterOrigin = owner.position(); task.look = owner.getLookAngle(); task.skill = skill; task.dimension = server.dimension().identifier().toString();
         task.damage = finite(owner.getAttributeValue(Attributes.ATTACK_DAMAGE) * (skill < 2 ? BeetleConfig.CRASHER_STRIKE.get() : BeetleConfig.THRASHER_STRIKE.get()));
         task.knockback = finite(BeetleConfig.STRIKE_KNOCKBACK.get()); task.armed = true; task.setPos(owner.position());
         return server.addFreshEntity(task);
@@ -57,14 +57,14 @@ public final class BeetleAttackEntity extends Entity implements ServerEndTickTas
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
-            if (!armed || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
+            if (!armed || !dimension.equals(server.dimension().identifier().toString())) { discard(); return; }
             var owner = owner(server);
             if (owner != null) { casterOrigin = owner.position(); look = owner.getLookAngle(); setPos(casterOrigin); }
             ServerEndTickTasks.schedule(server, getUUID());
         }
     }
     @Override public void endTick(ServerLevel server) {
-        if (isRemoved() || !armed || !dimension.equals(server.dimension().location().toString())) return;
+        if (isRemoved() || !armed || !dimension.equals(server.dimension().identifier().toString())) return;
         var owner = owner(server);
         if (owner == null) for (var other : server.getServer().getAllLevels()) if (other != server && caster != null && other.getEntity(caster) != null) { armed = false; discard(); return; }
         if (owner != null) { casterOrigin = owner.position(); look = owner.getLookAngle(); setPos(casterOrigin); }
@@ -109,19 +109,19 @@ public final class BeetleAttackEntity extends Entity implements ServerEndTickTas
         float amount = (float) finite(damage - victim.getArmorValue() * .4);
         if (amount > 0) victim.hurt(new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC)), amount);
     }
-    private void sound(ServerLevel server, String name, float pitch) { server.playSound(null, BlockPos.containing(soundOrigin), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse(name)), SoundSource.NEUTRAL, 1, pitch); }
+    private void sound(ServerLevel server, String name, float pitch) { server.playSound(null, BlockPos.containing(soundOrigin), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse(name)), SoundSource.NEUTRAL, 1, pitch); }
     private static double finite(double value) { return Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0; }
     private static boolean valid(Vec3 vector) { return Double.isFinite(vector.x) && Double.isFinite(vector.y) && Double.isFinite(vector.z); }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (caster != null) tag.putUUID("BeetleCaster", caster); if (target != null) tag.putUUID("BeetleTarget", target);
-        tag.putInt("BeetleTargetEntityId", targetEntityId); tag.putBoolean("BeetlePlayerTarget", playerTarget); tag.putString("BeetleDimension", dimension); tag.putInt("BeetleSkill", skill); tag.putInt("BeetleElapsed", elapsed); tag.putBoolean("BeetleArmed", armed); tag.putDouble("BeetleDamage", damage); tag.putDouble("BeetleKnockback", knockback);
-        tag.putDouble("BeetleSoundX", soundOrigin.x); tag.putDouble("BeetleSoundY", soundOrigin.y); tag.putDouble("BeetleSoundZ", soundOrigin.z); tag.putDouble("BeetleCasterX", casterOrigin.x); tag.putDouble("BeetleCasterY", casterOrigin.y); tag.putDouble("BeetleCasterZ", casterOrigin.z); tag.putDouble("BeetleLookX", look.x); tag.putDouble("BeetleLookY", look.y); tag.putDouble("BeetleLookZ", look.z);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (caster != null) output.putString("BeetleCaster", caster.toString()); if (target != null) output.putString("BeetleTarget", target.toString());
+        output.putInt("BeetleTargetEntityId", targetEntityId); output.putBoolean("BeetlePlayerTarget", playerTarget); output.putString("BeetleDimension", dimension); output.putInt("BeetleSkill", skill); output.putInt("BeetleElapsed", elapsed); output.putBoolean("BeetleArmed", armed); output.putDouble("BeetleDamage", damage); output.putDouble("BeetleKnockback", knockback);
+        output.putDouble("BeetleSoundX", soundOrigin.x); output.putDouble("BeetleSoundY", soundOrigin.y); output.putDouble("BeetleSoundZ", soundOrigin.z); output.putDouble("BeetleCasterX", casterOrigin.x); output.putDouble("BeetleCasterY", casterOrigin.y); output.putDouble("BeetleCasterZ", casterOrigin.z); output.putDouble("BeetleLookX", look.x); output.putDouble("BeetleLookY", look.y); output.putDouble("BeetleLookZ", look.z);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        caster = tag.hasUUID("BeetleCaster") ? tag.getUUID("BeetleCaster") : null; target = tag.hasUUID("BeetleTarget") ? tag.getUUID("BeetleTarget") : null; targetEntityId = tag.getInt("BeetleTargetEntityId"); playerTarget = !tag.contains("BeetlePlayerTarget") || tag.getBoolean("BeetlePlayerTarget"); originalPlayer = null;
-        dimension = tag.getString("BeetleDimension"); skill = Math.clamp(tag.getInt("BeetleSkill"), 0, 3); elapsed = Math.clamp(tag.getInt("BeetleElapsed"), 0, 26); damage = finite(tag.getDouble("BeetleDamage")); knockback = Math.clamp(finite(tag.getDouble("BeetleKnockback")), 0, 2);
-        soundOrigin = new Vec3(tag.getDouble("BeetleSoundX"), tag.getDouble("BeetleSoundY"), tag.getDouble("BeetleSoundZ")); casterOrigin = new Vec3(tag.getDouble("BeetleCasterX"), tag.getDouble("BeetleCasterY"), tag.getDouble("BeetleCasterZ")); look = new Vec3(tag.getDouble("BeetleLookX"), tag.getDouble("BeetleLookY"), tag.getDouble("BeetleLookZ"));
-        armed = tag.getBoolean("BeetleArmed") && caster != null && target != null && !caster.equals(target) && valid(soundOrigin) && valid(casterOrigin) && valid(look) && look.lengthSqr() <= 1.01;
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        caster = input.getString("BeetleCaster").map(java.util.UUID::fromString).orElse(null); target = input.getString("BeetleTarget").map(java.util.UUID::fromString).orElse(null); targetEntityId = input.getIntOr("BeetleTargetEntityId", 0); playerTarget = !input.getString("BeetlePlayerTarget").isPresent() || input.getBooleanOr("BeetlePlayerTarget", false); originalPlayer = null;
+        dimension = input.getStringOr("BeetleDimension", ""); skill = Math.clamp(input.getIntOr("BeetleSkill", 0), 0, 3); elapsed = Math.clamp(input.getIntOr("BeetleElapsed", 0), 0, 26); damage = finite(input.getDoubleOr("BeetleDamage", 0.0)); knockback = Math.clamp(finite(input.getDoubleOr("BeetleKnockback", 0.0)), 0, 2);
+        soundOrigin = new Vec3(input.getDoubleOr("BeetleSoundX", 0.0), input.getDoubleOr("BeetleSoundY", 0.0), input.getDoubleOr("BeetleSoundZ", 0.0)); casterOrigin = new Vec3(input.getDoubleOr("BeetleCasterX", 0.0), input.getDoubleOr("BeetleCasterY", 0.0), input.getDoubleOr("BeetleCasterZ", 0.0)); look = new Vec3(input.getDoubleOr("BeetleLookX", 0.0), input.getDoubleOr("BeetleLookY", 0.0), input.getDoubleOr("BeetleLookZ", 0.0));
+        armed = input.getBooleanOr("BeetleArmed", false) && caster != null && target != null && !caster.equals(target) && valid(soundOrigin) && valid(casterOrigin) && valid(look) && look.lengthSqr() <= 1.01;
         noPhysics = true; setNoGravity(true);
     }
 }

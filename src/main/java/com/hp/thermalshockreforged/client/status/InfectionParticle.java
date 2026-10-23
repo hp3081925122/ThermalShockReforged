@@ -1,15 +1,16 @@
 package com.hp.thermalshockreforged.client.status;
+import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
 
 import com.hp.thermalshockreforged.client.vfx.VfxManager;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
-final class InfectionParticle extends TextureSheetParticle {
-    private final ResourceLocation effect;
+final class InfectionParticle extends LegacySingleQuadParticle {
+    private final Identifier effect;
 
-    private InfectionParticle(ClientLevel level, double x, double y, double z, double dx, double dy, double dz, SpriteSet sprites, ResourceLocation effect) {
+    private InfectionParticle(ClientLevel level, double x, double y, double z, double dx, double dy, double dz, SpriteSet sprites, Identifier effect) {
         super(level, x, y, z);
         this.effect = effect;
         setSize(0.2F, 0.2F);
@@ -23,7 +24,7 @@ final class InfectionParticle extends TextureSheetParticle {
     }
 
     @Override
-    public ParticleRenderType getRenderType() { return ParticleRenderType.PARTICLE_SHEET_OPAQUE; }
+    public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
 
     @Override
     public void tick() {
@@ -33,13 +34,13 @@ final class InfectionParticle extends TextureSheetParticle {
 
     static final class Provider implements ParticleProvider<SimpleParticleType> {
         private final SpriteSet sprites;
-        private final ResourceLocation effect;
+        private final Identifier effect;
         Provider(SpriteSet sprites, String effect) {
             this.sprites = sprites;
-            this.effect = ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", effect);
+            this.effect = Identifier.fromNamespaceAndPath("thermal_shock_reforged", effect);
         }
         @Override
-        public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz) {
+        public Particle createParticle(SimpleParticleType type, ClientLevel level, double x, double y, double z, double dx, double dy, double dz, net.minecraft.util.RandomSource random) {
             return new InfectionParticle(level, x, y, z, dx, dy, dz, sprites, effect);
         }
     }

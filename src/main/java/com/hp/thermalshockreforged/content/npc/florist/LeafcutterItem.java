@@ -4,7 +4,7 @@ import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
@@ -19,7 +19,7 @@ public final class LeafcutterItem extends ShearsItem {
     @Override public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity miner) {
         boolean result = super.mineBlock(stack, level, state, pos, miner);
         if (level instanceof ServerLevel server) {
-            server.playSound(null, pos, BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "leafcutter")), SoundSource.NEUTRAL, 1, 1);
+            server.playSound(null, pos, BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "leafcutter")), SoundSource.NEUTRAL, 1, 1);
         }
         return result;
     }

@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.sanctum;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.combat.AttackAttemptEvent;
@@ -26,20 +27,20 @@ public final class SanctumContent {
     public static final DeferredHolder<EntityType<?>, EntityType<FireBombActivationEntity>> FIRE_BOMB_ACTIVATION = TYPES.register("fire_bomb_activation", () -> EntityType.Builder.<FireBombActivationEntity>of(FireBombActivationEntity::new, MobCategory.MISC).noSummon().fireImmune().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":fire_bomb_activation"));
     public static final DeferredHolder<EntityType<?>, EntityType<ErrantEntity>> ERRANT = errant("errant");
     public static final DeferredHolder<EntityType<?>, EntityType<ErrantEntity>> SANCTUM_ERRANT = errant("sanctum_errant");
-    public static final DeferredItem<DeferredSpawnEggItem> ERRANT_EGG = ITEMS.register("errant_spawn_egg", () -> new DeferredSpawnEggItem(ERRANT, -1, -1, new Item.Properties()));
+    public static final DeferredItem<SpawnEggItem> ERRANT_EGG = ITEMS.register("errant_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(ERRANT.get())));
     public static final DeferredHolder<EntityType<?>, EntityType<RippleEntity>> RIPPLE = ripple("ripple");
     public static final DeferredHolder<EntityType<?>, EntityType<RippleEntity>> SANCTUM_RIPPLE = ripple("sanctum_ripple");
-    public static final DeferredItem<DeferredSpawnEggItem> RIPPLE_EGG = ITEMS.register("ripple_spawn_egg", () -> new DeferredSpawnEggItem(RIPPLE, -1, -1, new Item.Properties()));
+    public static final DeferredItem<SpawnEggItem> RIPPLE_EGG = ITEMS.register("ripple_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(RIPPLE.get())));
     public static final DeferredHolder<EntityType<?>, EntityType<ErrFieldEntity>> ERR = TYPES.register("err", () -> EntityType.Builder.of(ErrFieldEntity::new, MobCategory.MONSTER).sized(1, 2).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":err"));
     public static final DeferredHolder<EntityType<?>, EntityType<RippleCastEntity>> RIPPLE_CAST = TYPES.register("ripple_cast_task", () -> EntityType.Builder.<RippleCastEntity>of(RippleCastEntity::new, MobCategory.MISC).sized(.01F, .01F).clientTrackingRange(1).updateInterval(Integer.MAX_VALUE).build(ThermalShockReforged.MOD_ID + ":ripple_cast_task"));
     public static final DeferredHolder<EntityType<?>, EntityType<FrostilyteGunnerEntity>> FROSTILYTE_GUNNER = TYPES.register("frostilyte_gunner", () -> EntityType.Builder.of(FrostilyteGunnerEntity::new, MobCategory.MONSTER).sized(.6F, 1.7F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":frostilyte_gunner"));
-    public static final DeferredItem<DeferredSpawnEggItem> FROSTILYTE_GUNNER_EGG = ITEMS.register("frostilyte_gunner_spawn_egg", () -> new DeferredSpawnEggItem(FROSTILYTE_GUNNER, -1, -1, new Item.Properties()));
+    public static final DeferredItem<SpawnEggItem> FROSTILYTE_GUNNER_EGG = ITEMS.register("frostilyte_gunner_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(FROSTILYTE_GUNNER.get())));
     public static final DeferredHolder<EntityType<?>, EntityType<GunnerVolleyEntity>> GUNNER_VOLLEY = TYPES.register("gunner_volley_task", () -> EntityType.Builder.<GunnerVolleyEntity>of(GunnerVolleyEntity::new, MobCategory.MISC).sized(.01F, .01F).clientTrackingRange(1).updateInterval(Integer.MAX_VALUE).build(ThermalShockReforged.MOD_ID + ":gunner_volley_task"));
     public static final DeferredHolder<EntityType<?>, EntityType<KilolyteEntity>> KILOLYTE = TYPES.register("kilolyte", () -> EntityType.Builder.of(KilolyteEntity::new, MobCategory.MONSTER).sized(.6F, 1.7F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":kilolyte"));
-    public static final DeferredItem<DeferredSpawnEggItem> KILOLYTE_EGG = ITEMS.register("kilolyte_spawn_egg", () -> new DeferredSpawnEggItem(KILOLYTE, -1, -1, new Item.Properties()));
+    public static final DeferredItem<SpawnEggItem> KILOLYTE_EGG = ITEMS.register("kilolyte_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(KILOLYTE.get())));
     public static final DeferredHolder<EntityType<?>, EntityType<KilolyteAttackEntity>> KILOLYTE_ATTACK = TYPES.register("kilolyte_attack_task", () -> EntityType.Builder.<KilolyteAttackEntity>of(KilolyteAttackEntity::new, MobCategory.MISC).sized(.01F, .01F).clientTrackingRange(1).updateInterval(Integer.MAX_VALUE).build(ThermalShockReforged.MOD_ID + ":kilolyte_attack_task"));
     public static final DeferredHolder<EntityType<?>, EntityType<GuardianPylonEntity>> GUARDIAN_PYLON = TYPES.register("guardian_pylon", () -> EntityType.Builder.of(GuardianPylonEntity::new, MobCategory.MONSTER).sized(1, 1).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":guardian_pylon"));
-    public static final DeferredItem<DeferredSpawnEggItem> GUARDIAN_PYLON_EGG = ITEMS.register("guardian_pylon_spawn_egg", () -> new DeferredSpawnEggItem(GUARDIAN_PYLON, -1, -1, new Item.Properties()));
+    public static final DeferredItem<SpawnEggItem> GUARDIAN_PYLON_EGG = ITEMS.register("guardian_pylon_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(GUARDIAN_PYLON.get())));
     public static final DeferredHolder<EntityType<?>, EntityType<PylonActivationEntity>> PYLON_ACTIVATION = TYPES.register("pylon_activation_task", () -> EntityType.Builder.<PylonActivationEntity>of(PylonActivationEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(ThermalShockReforged.MOD_ID + ":pylon_activation_task"));
     private static DeferredHolder<EntityType<?>, EntityType<RippleEntity>> ripple(String name) {
         return TYPES.register(name, () -> EntityType.Builder.of(RippleEntity::new, MobCategory.MONSTER).sized(.6F, 2).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":" + name));

@@ -25,7 +25,7 @@ public final class SummonedManglerEntity extends ManglerEntity {
     @Override
     public void remove(RemovalReason reason) { if (reason.shouldDestroy() && summonOwner != null && level() instanceof ServerLevel server) SummonLedger.get(server).release(summonOwner, getUUID()); super.remove(reason); }
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putLong("SummonExpiresAt", expiresAt); if (summonOwner != null) tag.putUUID("SummonOwner", summonOwner); }
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putLong("SummonExpiresAt", expiresAt); if (summonOwner != null) output.putString("SummonOwner", summonOwner.toString()); }
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains("SummonExpiresAt")) expiresAt = tag.getLong("SummonExpiresAt"); summonOwner = tag.hasUUID("SummonOwner") ? tag.getUUID("SummonOwner") : null; }
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("SummonExpiresAt").isPresent()) expiresAt = input.getLongOr("SummonExpiresAt", 0L); summonOwner = input.getString("SummonOwner").map(java.util.UUID::fromString).orElse(null); }
 }

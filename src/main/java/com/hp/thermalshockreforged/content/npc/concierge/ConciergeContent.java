@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.npc.concierge;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.EnumMap;
@@ -12,7 +13,7 @@ import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.*;
@@ -24,11 +25,11 @@ public final class ConciergeContent {
     private static final EnumMap<ConciergePage, DeferredHolder<MenuType<?>, MenuType<ConciergeMenu>>> PAGES = new EnumMap<>(ConciergePage.class);
     public static final DeferredHolder<EntityType<?>, EntityType<ConciergeEntity>> CONCIERGE = TYPES.register("concierge", () -> EntityType.Builder.of(ConciergeEntity::new, MobCategory.MONSTER).sized(.6F, 1.8F).setShouldReceiveVelocityUpdates(true).fireImmune().clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":concierge"));
     static {
-        ITEMS.register("concierge_spawn_egg", () -> new DeferredSpawnEggItem(CONCIERGE, -1, -1, new Item.Properties()));
+        ITEMS.register("concierge_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(CONCIERGE.get())));
         for (var page : ConciergePage.values()) PAGES.put(page, MENUS.register(page.id, () -> IMenuTypeExtension.create((id, inventory, data) -> new ConciergeMenu(page, id, inventory, data.readVarInt(), data.readUUID(), data.readBlockPos(), data.readVarInt()))));
     }
     private ConciergeContent() { }
-    public static net.minecraft.resources.ResourceLocation id(String path) { return net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
+    public static net.minecraft.resources.Identifier id(String path) { return net.minecraft.resources.Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static MenuType<ConciergeMenu> menu(ConciergePage page) { return PAGES.get(page).get(); }
     public static boolean open(ServerPlayer player, ConciergeEntity npc, BlockPos anchor, ConciergePage page) {
         if (npc == null || !npc.isAlive() || npc.level() != player.level() || player.distanceToSqr(npc) > 64) return false;

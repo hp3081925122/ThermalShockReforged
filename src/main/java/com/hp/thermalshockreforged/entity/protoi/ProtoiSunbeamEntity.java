@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.protoi;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.config.CombatConfig;
 import com.hp.thermalshockreforged.entity.attack.BossDeathEffectEntity;
@@ -6,7 +9,7 @@ import com.hp.thermalshockreforged.entity.mangler.ManglerContent;
 import java.util.UUID;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
@@ -21,7 +24,7 @@ import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animation.*;
+import com.geckolib.animation.*;
 public final class ProtoiSunbeamEntity extends ProtoiEntityBase {
     private int cooldown;
     private UUID attackTask;
@@ -38,7 +41,7 @@ public final class ProtoiSunbeamEntity extends ProtoiEntityBase {
         return attributes(0, 100, 0, 20, 16).add(Attributes.KNOCKBACK_RESISTANCE, 1).add(Attributes.FLYING_SPEED, 0).add(Attributes.STEP_HEIGHT, 0);
     }
     private void applyConfiguredAttributes() {
-        if (level().isClientSide || attributesApplied || !CombatConfig.SPEC.isLoaded()) return;
+        if (level().isClientSide() || attributesApplied || !CombatConfig.SPEC.isLoaded()) return;
         float health = getHealth();
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(CombatConfig.SUNBEAM_HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(CombatConfig.SUNBEAM_ARMOR.get());
@@ -68,10 +71,10 @@ public final class ProtoiSunbeamEntity extends ProtoiEntityBase {
         });
         targetSelector.addGoal(3, new HurtByTargetGoal(this));
     }
-    private static SoundEvent sound(String id) { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id)); }
+    private static SoundEvent sound(String id) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id)); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return sound("delta_hurt"); }
     @Override protected SoundEvent getDeathSound() { return sound("delta_death"); }
-    @Override public void baseTick() { super.baseTick(); if (!level().isClientSide && cooldown > 0) cooldown--; }
+    @Override public void baseTick() { super.baseTick(); if (!level().isClientSide() && cooldown > 0) cooldown--; }
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
@@ -85,33 +88,33 @@ public final class ProtoiSunbeamEntity extends ProtoiEntityBase {
         deathVisualStarted = BossDeathEffectEntity.submit(server, ManglerContent.HERALD_DEATH_EFFECT.get(), position(), getEyeHeight());
         if (!deathVisualStarted) ThermalShockReforged.LOGGER.debug("Protoi Sunbeam death effect submission failed: entity={}", getUUID());
     }
-    @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
+    @Override protected void dropExperience(net.minecraft.server.level.ServerLevel level, Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
         if (++deathTime >= 60 && !isRemoved()) {
             remove(RemovalReason.KILLED);
             if (experiencePending && level() instanceof ServerLevel server) {
                 experiencePending = false;
-                super.dropExperience(experienceAttacker == null ? null : server.getEntity(experienceAttacker));
+                super.dropExperience(server, experienceAttacker == null ? null : server.getEntity(experienceAttacker));
             }
         }
     }
     @Override public void triggerProcedure(String animation) { if ("idle".equals(animation) || "attack".equals(animation)) triggerAnim("procedure", animation); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 0, state -> PlayState.STOP).triggerableAnim("idle", RawAnimation.begin().thenPlay("idle")).triggerableAnim("attack", RawAnimation.begin().thenPlay("attack"));
-        controllers.add(new AnimationController<>(this, "movement", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("idle"))));
+        var procedure = new LegacyAnimationController<>(this, "procedure", 0, state -> PlayState.STOP).triggerableAnim("idle", RawAnimation.begin().thenPlay("idle")).triggerableAnim("attack", RawAnimation.begin().thenPlay("attack"));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("idle"))));
         controllers.add(procedure);
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putInt("SunbeamCooldown", cooldown); tag.putBoolean("SunbeamDeathVisualStarted", deathVisualStarted);
-        if (attackTask != null) tag.putUUID("SunbeamAttackTask", attackTask);
-        tag.putBoolean("SunbeamExperiencePending", experiencePending);
-        if (experienceAttacker != null) tag.putUUID("SunbeamExperienceAttacker", experienceAttacker);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output); output.putInt("SunbeamCooldown", cooldown); output.putBoolean("SunbeamDeathVisualStarted", deathVisualStarted);
+        if (attackTask != null) output.putString("SunbeamAttackTask", attackTask.toString());
+        output.putBoolean("SunbeamExperiencePending", experiencePending);
+        if (experienceAttacker != null) output.putString("SunbeamExperienceAttacker", experienceAttacker.toString());
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        loadedFromSave = true; super.readAdditionalSaveData(tag); attributesApplied = false; applyConfiguredAttributes();
-        cooldown = Math.clamp(tag.getInt("SunbeamCooldown"), 0, 72000); deathVisualStarted = tag.getBoolean("SunbeamDeathVisualStarted");
-        attackTask = tag.hasUUID("SunbeamAttackTask") ? tag.getUUID("SunbeamAttackTask") : null;
-        experiencePending = tag.getBoolean("SunbeamExperiencePending");
-        experienceAttacker = tag.hasUUID("SunbeamExperienceAttacker") ? tag.getUUID("SunbeamExperienceAttacker") : null;
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = false; applyConfiguredAttributes();
+        cooldown = Math.clamp(input.getIntOr("SunbeamCooldown", 0), 0, 72000); deathVisualStarted = input.getBooleanOr("SunbeamDeathVisualStarted", false);
+        attackTask = input.getString("SunbeamAttackTask").map(java.util.UUID::fromString).orElse(null);
+        experiencePending = input.getBooleanOr("SunbeamExperiencePending", false);
+        experienceAttacker = input.getString("SunbeamExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
     }
 }

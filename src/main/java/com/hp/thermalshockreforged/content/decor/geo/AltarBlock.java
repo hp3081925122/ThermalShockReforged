@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.decor.geo;
+import net.minecraft.world.InteractionResult;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
@@ -19,11 +20,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
 public final class AltarBlock extends GeoDecorBlock {
-    public static final ResourceLocation UNLOCK_ADVANCEMENT = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "frigid_altar_get");
+    public static final Identifier UNLOCK_ADVANCEMENT = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "frigid_altar_get");
     AltarBlock(GeoDecorKind kind) { super(kind); }
 
     public static boolean unlocked(ServerPlayer player) {
-        if (!player.serverLevel().getGameRules().getBoolean(ModGameRules.LOQENDIA_ENFORCE_PROGRESSION)) return true;
+        if (!((net.minecraft.server.level.ServerLevel) player.level()).getGameRules().getBoolean(ModGameRules.LOQENDIA_ENFORCE_PROGRESSION)) return true;
         var advancement = player.server.getAdvancements().get(UNLOCK_ADVANCEMENT);
         return advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone();
     }
@@ -45,14 +46,14 @@ public final class AltarBlock extends GeoDecorBlock {
         server.playSound(null, pos, SoundEvents.AMETHYST_BLOCK_BREAK, SoundSource.NEUTRAL, 1, 1);
         server.playSound(null, pos, SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.NEUTRAL, 1, -1);
         server.sendParticles(owner, ParticleTypes.END_ROD, false, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 0, 0, .2, 0, 1);
-        owner.playNotifySound(BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "thermalshockjingle")), SoundSource.NEUTRAL, 1, 1);
+        owner.playNotifySound(BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "thermalshockjingle")), SoundSource.NEUTRAL, 1, 1);
         owner.displayClientMessage(Component.translatable("message.thermal_shock_reforged.altar.unlocked"), false);
         var progress = WorldProgressData.get(server);
         if (progress.unlockAltars()) {
             com.hp.thermalshockreforged.world.AltarProgressPayload.broadcast(server);
             for (ServerPlayer recipient : server.players()) recipient.displayClientMessage(Component.translatable("message.thermal_shock_reforged.altar.phobotite_unsealed"), false);
         }
-        ThermalShockReforged.LOGGER.debug("Altar unlocked for player: player={}, position={}, dimension={}, worldFirst={}", owner.getUUID(), pos, server.dimension().location(), progress.altarUnlocked());
+        ThermalShockReforged.LOGGER.debug("Altar unlocked for player: player={}, position={}, dimension={}, worldFirst={}", owner.getUUID(), pos, server.dimension().identifier(), progress.altarUnlocked());
         return true;
     }
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, net.minecraft.util.RandomSource random) {
@@ -65,6 +66,6 @@ public final class AltarBlock extends GeoDecorBlock {
         }
         if (random.nextInt(3) == 0) level.addAlwaysVisibleParticle(ParticleTypes.END_ROD, pos.getX() + .5, pos.getY() + 1, pos.getZ() + .5, 0, .35, 0);
     }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { return unlock(level, pos, player) ? ItemInteractionResult.SUCCESS : ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION; }
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { return unlock(level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS; }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { return unlock(level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS; }
 }

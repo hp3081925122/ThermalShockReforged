@@ -53,13 +53,13 @@ public final class BuzzsawSweepEntity extends Entity implements ServerEndTickTas
             level.sendParticles(WeaponContent.BLOOD_SPLATTER.get(), target.getX(), target.getEyeY(), target.getZ(), 0, 0, 1, 0, 1);
         }
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (owner != null) tag.putUUID("BuzzsawOwner", owner);
-        tag.putInt("BuzzsawOwnerEntityId", ownerEntityId); tag.putInt("BuzzsawElapsed", elapsed); tag.putBoolean("BuzzsawArmed", armed);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (owner != null) output.putString("BuzzsawOwner", owner.toString());
+        output.putInt("BuzzsawOwnerEntityId", ownerEntityId); output.putInt("BuzzsawElapsed", elapsed); output.putBoolean("BuzzsawArmed", armed);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        owner = tag.hasUUID("BuzzsawOwner") ? tag.getUUID("BuzzsawOwner") : null;
-        ownerEntityId = tag.getInt("BuzzsawOwnerEntityId"); elapsed = Math.clamp(tag.getInt("BuzzsawElapsed"), 0, 4);
-        armed = owner != null && elapsed < 4 && tag.getBoolean("BuzzsawArmed");
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        owner = input.getString("BuzzsawOwner").map(java.util.UUID::fromString).orElse(null);
+        ownerEntityId = input.getIntOr("BuzzsawOwnerEntityId", 0); elapsed = Math.clamp(input.getIntOr("BuzzsawElapsed", 0), 0, 4);
+        armed = owner != null && elapsed < 4 && input.getBooleanOr("BuzzsawArmed", false);
     }
 }

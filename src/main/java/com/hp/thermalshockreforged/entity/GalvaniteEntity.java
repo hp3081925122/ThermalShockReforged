@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.UUID;
@@ -8,7 +11,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -25,13 +28,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class GalvaniteEntity extends Monster implements GeoEntity {
-    private static final ResourceLocation SQUALL = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "squall");
+    private static final Identifier SQUALL = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "squall");
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(GalvaniteEntity.class, EntityDataSerializers.STRING);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     private boolean initialized;
@@ -68,11 +71,11 @@ public final class GalvaniteEntity extends Monster implements GeoEntity {
         });
     }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.CHAIN_PLACE, 0.15F, 1); }
-    private SoundEvent sound(String path) { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path)); }
+    private SoundEvent sound(String path) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path)); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return sound("galvanitehurt"); }
     @Override protected SoundEvent getDeathSound() { return sound("galvanitedeath"); }
-    @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.LIGHTNING_BOLT) && super.hurt(source, amount); }
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData data) {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.LIGHTNING_BOLT) && super.hurtServer(level, source, amount); }
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData data) {
         SpawnGroupData result = super.finalizeSpawn(level, difficulty, reason, data);
         if (!initialized && level instanceof ServerLevel server) {
             initialized = true;
@@ -86,33 +89,33 @@ public final class GalvaniteEntity extends Monster implements GeoEntity {
         if (!dead || deathCommitted || !(level() instanceof ServerLevel server)) return;
         deathCommitted = true;
     }
-    @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
+    @Override protected void dropExperience(net.minecraft.server.level.ServerLevel level, Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
         if (++deathTime >= 20 && !isRemoved()) {
             remove(RemovalReason.KILLED);
             if (experiencePending && level() instanceof ServerLevel server) {
                 experiencePending = false;
-                super.dropExperience(experienceAttacker == null ? null : server.getEntity(experienceAttacker));
+                super.dropExperience(server, experienceAttacker == null ? null : server.getEntity(experienceAttacker));
             }
         }
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putBoolean("GalvaniteInitialized", initialized);
-        tag.putBoolean("GalvaniteDeathCommitted", deathCommitted); tag.putBoolean("GalvaniteExperiencePending", experiencePending);
-        if (experienceAttacker != null) tag.putUUID("GalvaniteExperienceAttacker", experienceAttacker);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putBoolean("GalvaniteInitialized", initialized);
+        output.putBoolean("GalvaniteDeathCommitted", deathCommitted); output.putBoolean("GalvaniteExperiencePending", experiencePending);
+        if (experienceAttacker != null) output.putString("GalvaniteExperienceAttacker", experienceAttacker.toString());
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag); if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        initialized = tag.getBoolean("GalvaniteInitialized"); deathCommitted = tag.getBoolean("GalvaniteDeathCommitted");
-        experiencePending = tag.getBoolean("GalvaniteExperiencePending");
-        experienceAttacker = tag.hasUUID("GalvaniteExperienceAttacker") ? tag.getUUID("GalvaniteExperienceAttacker") : null;
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        initialized = input.getBooleanOr("GalvaniteInitialized", false); deathCommitted = input.getBooleanOr("GalvaniteDeathCommitted", false);
+        experiencePending = input.getBooleanOr("GalvaniteExperiencePending", false);
+        experienceAttacker = input.getString("GalvaniteExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
                 .triggerableAnim("idle", RawAnimation.begin().thenPlay("idle"))
                 .triggerableAnim("walk", RawAnimation.begin().thenPlay("walk"))
                 .triggerableAnim("run", RawAnimation.begin().thenPlay("run"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             boolean moving = state.isMoving();
             if ((moving || state.getLimbSwingAmount() <= -0.15F || state.getLimbSwingAmount() >= 0.15F) && !isAggressive()) return state.setAndContinue(RawAnimation.begin().thenLoop("walk"));

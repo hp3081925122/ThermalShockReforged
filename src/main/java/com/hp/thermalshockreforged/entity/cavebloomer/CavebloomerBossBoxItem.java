@@ -15,15 +15,15 @@ import net.minecraft.world.level.storage.loot.*;
 import net.minecraft.world.level.storage.loot.parameters.*;
 
 public final class CavebloomerBossBoxItem extends Item {
-    private static final ResourceKey<LootTable> LOOT = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "angry_cavebloomer_loot"));
+    private static final ResourceKey<LootTable> LOOT = ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "angry_cavebloomer_loot"));
     public CavebloomerBossBoxItem() { super(new Properties().stacksTo(1).rarity(Rarity.EPIC)); }
-    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+    @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (level instanceof ServerLevel server) {
             LootTable table = server.getServer().reloadableRegistries().getLootTable(LOOT);
             if (table == LootTable.EMPTY) {
                 ThermalShockReforged.LOGGER.warn("Cavebloomer reward table is not available; keeping boss box: {}", LOOT.location());
-                return InteractionResultHolder.fail(stack);
+                return InteractionResult.FAIL;
             }
             stack.shrink(1);
             var params = new LootParams.Builder(server).withParameter(LootContextParams.ORIGIN, player.position()).create(LootContextParamSets.CHEST);
@@ -35,6 +35,6 @@ public final class CavebloomerBossBoxItem extends Item {
             level.playLocalSound(player.getX(), player.getY(), player.getZ(), SoundEvents.BUNDLE_DROP_CONTENTS, SoundSource.NEUTRAL, 1, 1, false);
             level.playLocalSound(player.getX(), player.getY(), player.getZ(), SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.NEUTRAL, 1, 1, false);
         }
-        return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
+        return InteractionResult.SUCCESS;
     }
 }

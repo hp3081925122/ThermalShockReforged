@@ -10,6 +10,6 @@ public final class CacheBlockEntity extends GeoDecorBlockEntity {
     public CacheBlockEntity(GeoDecorKind kind, BlockPos pos, BlockState state) { super(kind, pos, state); }
     boolean claim() { if (consumed) return false; consumed = true; setChanged(); return true; }
     void release() { consumed = false; setChanged(); }
-    @Override protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) { super.loadAdditional(tag, registries); consumed = tag.getBoolean("CacheConsumed") || tag.getBoolean("EnchantedCacheConsumed"); }
-    @Override protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) { super.saveAdditional(tag, registries); tag.putBoolean("CacheConsumed", consumed); }
+    @Override protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) { super.loadAdditional(input); consumed = input.getBooleanOr("CacheConsumed", false) || input.getBooleanOr("EnchantedCacheConsumed", false); }
+    @Override protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput output) { super.saveAdditional(output); output.putBoolean("CacheConsumed", consumed); }
 }

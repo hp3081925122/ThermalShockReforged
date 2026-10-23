@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.labworldgen;
+import net.minecraft.world.InteractionResult;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
@@ -21,9 +22,9 @@ public final class DissolverGemlockBlock extends Block {
     public DissolverGemlockBlock() { super(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).sound(SoundType.STONE).strength(-1, 3600000).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK).lightLevel(state -> state.getValue(BLOCKSTATE) == 1 ? 15 : 0)); registerDefaultState(defaultBlockState().setValue(BLOCKSTATE, 0)); }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(BLOCKSTATE); }
     @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (hand == InteractionHand.MAIN_HAND && level instanceof ServerLevel server) activate(server, pos, player);
-        return ItemInteractionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { return InteractionResult.SUCCESS; }
     private void activate(ServerLevel level, BlockPos pos, Player player) {
@@ -48,6 +49,6 @@ public final class DissolverGemlockBlock extends Block {
         held.shrink(1);
         player.getInventory().setChanged();
         level.playSound(null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, 1, 1);
-        ThermalShockReforged.LOGGER.debug("Dissolver activated at {} in {} by {}", pos, level.dimension().location(), player.getUUID());
+        ThermalShockReforged.LOGGER.debug("Dissolver activated at {} in {} by {}", pos, level.dimension().identifier(), player.getUUID());
     }
 }

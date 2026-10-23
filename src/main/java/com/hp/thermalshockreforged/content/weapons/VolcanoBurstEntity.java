@@ -52,15 +52,15 @@ public final class VolcanoBurstEntity extends Entity implements ServerEndTickTas
         level.playSound(null, blockPosition(), SoundEvents.WITHER_SKELETON_HURT, SoundSource.NEUTRAL, .7F, 1);
         if (shooter != null) { shooter.setDeltaMovement(shooter.getDeltaMovement().add(lastLook.scale(-.3))); shooter.hurtMarked = true; }
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (owner != null) tag.putUUID("VolcanoOwner", owner);
-        tag.putInt("VolcanoOwnerEntityId", ownerEntityId); tag.putInt("VolcanoElapsed", elapsed); tag.putBoolean("VolcanoArmed", armed);
-        tag.putDouble("VolcanoLookX", lastLook.x); tag.putDouble("VolcanoLookY", lastLook.y); tag.putDouble("VolcanoLookZ", lastLook.z);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (owner != null) output.putString("VolcanoOwner", owner.toString());
+        output.putInt("VolcanoOwnerEntityId", ownerEntityId); output.putInt("VolcanoElapsed", elapsed); output.putBoolean("VolcanoArmed", armed);
+        output.putDouble("VolcanoLookX", lastLook.x); output.putDouble("VolcanoLookY", lastLook.y); output.putDouble("VolcanoLookZ", lastLook.z);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        owner = tag.hasUUID("VolcanoOwner") ? tag.getUUID("VolcanoOwner") : null;
-        ownerEntityId = tag.getInt("VolcanoOwnerEntityId"); elapsed = Math.clamp(tag.getInt("VolcanoElapsed"), 0, 20); armed = owner != null && elapsed < 20 && tag.getBoolean("VolcanoArmed");
-        var look = new Vec3(tag.getDouble("VolcanoLookX"), tag.getDouble("VolcanoLookY"), tag.getDouble("VolcanoLookZ"));
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        owner = input.getString("VolcanoOwner").map(java.util.UUID::fromString).orElse(null);
+        ownerEntityId = input.getIntOr("VolcanoOwnerEntityId", 0); elapsed = Math.clamp(input.getIntOr("VolcanoElapsed", 0), 0, 20); armed = owner != null && elapsed < 20 && input.getBooleanOr("VolcanoArmed", false);
+        var look = new Vec3(input.getDoubleOr("VolcanoLookX", 0.0), input.getDoubleOr("VolcanoLookY", 0.0), input.getDoubleOr("VolcanoLookZ", 0.0));
         lastLook = Double.isFinite(look.x) && Double.isFinite(look.y) && Double.isFinite(look.z) && look.lengthSqr() > 1.0E-8 ? look.normalize() : new Vec3(0, 0, 1);
     }
 }

@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.growth;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.content.growth.GrowthContent;
 import net.minecraft.core.particles.ParticleTypes;
@@ -15,10 +18,10 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class GelshooterEntity extends PathfinderMob implements RangedAttackMob,GeoEntity {
     private static final byte SHOOT_EVENT=120;
@@ -65,31 +68,31 @@ public final class GelshooterEntity extends PathfinderMob implements RangedAttac
     @Override public boolean hurt(DamageSource source,float amount) { return !source.is(DamageTypes.FALL)&&super.hurt(source,amount); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level,DifficultyInstance difficulty,MobSpawnType reason,SpawnGroupData group) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level,DifficultyInstance difficulty,EntitySpawnReason reason,SpawnGroupData group) {
         var result=super.finalizeSpawn(level,difficulty,reason,group);
         if (level instanceof ServerLevel server) server.sendParticles(ParticleTypes.POOF,getX(),getY(),getZ(),5,.1,.1,.1,.1);
         return result;
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture",texture()); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); setPersistenceRequired(); if(tag.contains("Texture"))setTexture(tag.getString("Texture")); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture",texture()); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); setPersistenceRequired(); if(input.getString("Texture").isPresent())setTexture(input.getStringOr("Texture", "")); }
     @Override public void aiStep() { super.aiStep(); updateSwingTime(); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this,"movement",4,state->animationprocedure.equals("empty")?state.setAndContinue(RawAnimation.begin().thenLoop("0")):PlayState.STOP));
-        controllers.add(new AnimationController<>(this,"attacking",4,state->{
+        controllers.add(new LegacyAnimationController<>(this,"movement",4,state->animationprocedure.equals("empty")?state.setAndContinue(RawAnimation.begin().thenLoop("0")):PlayState.STOP));
+        controllers.add(new LegacyAnimationController<>(this,"attacking",4,state->{
             if(getAttackAnim(state.getPartialTick())>0&&!swinging) { swinging=true; lastSwing=level().getGameTime(); }
             if(swinging&&lastSwing+7<=level().getGameTime())swinging=false;
-            if((shootAnimationRequested||swinging||entityData.get(SHOOT))&&state.getController().getAnimationState()==AnimationController.State.STOPPED) {
+            if((shootAnimationRequested||swinging||entityData.get(SHOOT))&&state.getController().getAnimationState()==LegacyAnimationController.State.STOPPED) {
                 shootAnimationRequested=false;
                 state.getController().forceAnimationReset();
                 return state.setAndContinue(RawAnimation.begin().thenPlay("shoot"));
             }
             return PlayState.CONTINUE;
         }));
-        controllers.add(new AnimationController<>(this,"procedure",4,state->{
-            if((!animationprocedure.equals("empty")&&state.getController().getAnimationState()==AnimationController.State.STOPPED)||(!animationprocedure.equals(previousAnimation)&&!animationprocedure.equals("empty"))) {
+        controllers.add(new LegacyAnimationController<>(this,"procedure",4,state->{
+            if((!animationprocedure.equals("empty")&&state.getController().getAnimationState()==LegacyAnimationController.State.STOPPED)||(!animationprocedure.equals(previousAnimation)&&!animationprocedure.equals("empty"))) {
                 if(!animationprocedure.equals(previousAnimation))state.getController().forceAnimationReset();
                 state.getController().setAnimation(RawAnimation.begin().thenPlay(animationprocedure));
-                if(state.getController().getAnimationState()==AnimationController.State.STOPPED) { animationprocedure="empty"; state.getController().forceAnimationReset(); }
+                if(state.getController().getAnimationState()==LegacyAnimationController.State.STOPPED) { animationprocedure="empty"; state.getController().forceAnimationReset(); }
             } else if(animationprocedure.equals("empty")) { previousAnimation="empty"; return PlayState.STOP; }
             previousAnimation=animationprocedure;
             return PlayState.CONTINUE;

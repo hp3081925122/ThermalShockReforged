@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.fauna;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.world.timing.ServerEndTickTask;
@@ -45,7 +46,7 @@ public final class GoreFlayerOrbEntity extends AbstractArrow implements ItemSupp
     public void tick() {
         super.tick();
         setNoGravity(true);
-        if (level().isClientSide) level().addParticle(FaunaEntities.WHITE_ORB.get(), getX(), getY(), getZ(), 0, 0, 0);
+        if (level().isClientSide()) level().addParticle(FaunaEntities.WHITE_ORB.get(), getX(), getY(), getZ(), 0, 0, 0);
         if (inGround) discard();
         if (!isRemoved() && level() instanceof ServerLevel server) {
             if (!lifetimeStarted) {
@@ -67,17 +68,17 @@ public final class GoreFlayerOrbEntity extends AbstractArrow implements ItemSupp
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putInt("RemainingTicks", remainingTicks);
-        tag.putBoolean("GoreOrbLifetimeStarted", lifetimeStarted);
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putInt("RemainingTicks", remainingTicks);
+        output.putBoolean("GoreOrbLifetimeStarted", lifetimeStarted);
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        remainingTicks = tag.contains("RemainingTicks") ? Math.clamp(tag.getInt("RemainingTicks"), 1, 40) : 40;
-        lifetimeStarted = tag.contains("GoreOrbLifetimeStarted") ? tag.getBoolean("GoreOrbLifetimeStarted") : tag.contains("RemainingTicks");
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        remainingTicks = input.getString("RemainingTicks").isPresent() ? Math.clamp(input.getIntOr("RemainingTicks", 0), 1, 40) : 40;
+        lifetimeStarted = input.getString("GoreOrbLifetimeStarted").isPresent() ? input.getBooleanOr("GoreOrbLifetimeStarted", false) : input.getString("RemainingTicks").isPresent();
     }
 
     public static GoreFlayerOrbEntity shoot(Level level, LivingEntity owner, float pullingPower) {

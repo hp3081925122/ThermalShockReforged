@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.content.npc.portrait;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.registries.Registries;
@@ -10,7 +11,7 @@ import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
+
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.*;
@@ -22,7 +23,7 @@ public final class PortraitContent {
     public static final DeferredHolder<EntityType<?>, EntityType<PortraitCharacterEntity>> PORTRAIT = TYPES.register("portrait_character", () -> EntityType.Builder.of(PortraitCharacterEntity::new, MobCategory.MONSTER).sized(1, 4.5F).fireImmune().clientTrackingRange(64).updateInterval(3).build(ThermalShockReforged.MOD_ID + ":portrait_character"));
     private static final DeferredHolder<MenuType<?>, MenuType<PortraitMenu>> NYX = menu("laven_civil_1_tlk", false);
     private static final DeferredHolder<MenuType<?>, MenuType<PortraitMenu>> IBEX = menu("laven_civil_2_tlk", true);
-    static { ITEMS.register("portrait_character_spawn_egg", () -> new DeferredSpawnEggItem(PORTRAIT, -1, -1, new Item.Properties())); }
+    static { ITEMS.register("portrait_character_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(PORTRAIT.get()))); }
     private PortraitContent() { }
     private static DeferredHolder<MenuType<?>, MenuType<PortraitMenu>> menu(String name, boolean ibex) {
         return MENUS.register(name, () -> IMenuTypeExtension.create((id, inventory, data) -> new PortraitMenu(ibex, id, inventory, data.readVarInt(), data.readUUID())));

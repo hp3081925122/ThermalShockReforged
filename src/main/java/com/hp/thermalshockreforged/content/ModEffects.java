@@ -2,7 +2,7 @@ package com.hp.thermalshockreforged.content;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -22,7 +22,7 @@ public final class ModEffects {
     private static final class HeartBoostEffect extends MobEffect {
         private HeartBoostEffect() {
             super(MobEffectCategory.BENEFICIAL, 0xFF6699);
-            addAttributeModifier(Attributes.MAX_HEALTH, ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "heart_boost"), 4, AttributeModifier.Operation.ADD_VALUE);
+            addAttributeModifier(Attributes.MAX_HEALTH, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "heart_boost"), 4, AttributeModifier.Operation.ADD_VALUE);
         }
     }
 }

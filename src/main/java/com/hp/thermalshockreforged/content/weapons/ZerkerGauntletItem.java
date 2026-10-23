@@ -1,11 +1,17 @@
 package com.hp.thermalshockreforged.content.weapons;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.ice.IceContent;
 import com.hp.thermalshockreforged.entity.ice.IceCreatureEntity;
 import java.util.List;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.*;
@@ -19,9 +25,9 @@ import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib.animatable.GeoItem;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
+import com.geckolib.animatable.GeoItem;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
 
 public final class ZerkerGauntletItem extends Item implements GeoItem {
     private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
@@ -50,7 +56,7 @@ public final class ZerkerGauntletItem extends Item implements GeoItem {
         if (!(victim.level() instanceof ServerLevel server) || victim == attacker) return result;
         if (!(attacker instanceof Player player) || !player.getCooldowns().isOnCooldown(this)) {
             server.playSound(null, victim.blockPosition(), SoundEvents.SHIELD_BREAK, SoundSource.NEUTRAL, 1, 2);
-            victim.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 35, 4, false, false));
+            victim.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 35, 4, false, false));
             double strength = 1 - Math.clamp(victim.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1);
             if (strength > 0) {
                 victim.setDeltaMovement(victim.getDeltaMovement().lerp(new Vec3(0, 1, 0), strength));
@@ -62,7 +68,7 @@ public final class ZerkerGauntletItem extends Item implements GeoItem {
             }
         }
         if (victim.getType() == IceContent.ICIDROZERK.get() && victim instanceof IceCreatureEntity ice && ice.hasCommittedDeath() && attacker instanceof ServerPlayer player) {
-            var advancement = player.server.getAdvancements().get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "icidrozerk_mace_kill_get"));
+            var advancement = player.server.getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "icidrozerk_mace_kill_get"));
             if (advancement != null) {
                 var progress = player.getAdvancements().getOrStartProgress(advancement);
                 if (!progress.isDone()) {
@@ -73,17 +79,17 @@ public final class ZerkerGauntletItem extends Item implements GeoItem {
         }
         return result;
     }
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.translatable("item.thermal_shock_reforged.titanium_mace.description_0"));
-        lines.add(Component.translatable("item.thermal_shock_reforged.titanium_mace.description_1"));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.titanium_mace.description_0"));
+        tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.titanium_mace.description_1"));
     }
     public void pruneAnimations() { animations.prune(); }
     public void clearAnimations() { animations.clear(); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 0, state -> PlayState.STOP).triggerableAnim("1", RawAnimation.begin().thenPlay("1"));
+        var procedure = new LegacyAnimationController<>(this, "procedure", 0, state -> PlayState.STOP).triggerableAnim("1", RawAnimation.begin().thenPlay("1"));
         controllers.add(procedure);
-        controllers.add(new AnimationController<>(this, "idle", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
+        controllers.add(new LegacyAnimationController<>(this, "idle", 0, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
 }

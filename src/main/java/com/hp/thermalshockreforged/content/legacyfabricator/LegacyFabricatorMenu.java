@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -16,7 +16,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ClickType;
+import net.minecraft.world.inventory.ContainerInput;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -28,7 +28,7 @@ import net.neoforged.neoforge.items.ItemStackHandler;
 import net.neoforged.neoforge.items.SlotItemHandler;
 
 public final class LegacyFabricatorMenu extends AbstractContainerMenu {
-    private static final ResourceLocation RECIPE = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "fabrication/ender_tentacle");
+    private static final Identifier RECIPE = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "fabrication/ender_tentacle");
     public final LegacyFabricatorContent.Page page;
     private final Player owner;
     private final Inventory inventory;
@@ -72,7 +72,7 @@ public final class LegacyFabricatorMenu extends AbstractContainerMenu {
         boundEntity = context.entityId() < 0 ? null : level.getEntity(context.entityId());
         boundBlock = hand == null && context.entityId() < 0 && level.hasChunkAt(pos) ? level.getBlockEntity(pos) : null;
         IItemHandler capability = null;
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             if (hand != null) capability = boundStack.getCapability(Capabilities.ItemHandler.ITEM);
             else if (boundEntity != null) capability = boundEntity.getCapability(Capabilities.ItemHandler.ENTITY);
             else if (boundBlock != null) capability = level.getCapability(Capabilities.ItemHandler.BLOCK, pos, null);
@@ -90,7 +90,7 @@ public final class LegacyFabricatorMenu extends AbstractContainerMenu {
     }
 
     public static boolean open(ServerPlayer player, BlockPos pos, LegacyFabricatorContent.Page page) {
-        if (!player.isAlive() || !player.serverLevel().hasChunkAt(pos)) return false;
+        if (!player.isAlive() || !((net.minecraft.server.level.ServerLevel) player.level()).hasChunkAt(pos)) return false;
         var context = new Context(pos.immutable(), null, -1);
         return player.openMenu(new SimpleMenuProvider((id, inventory, owner) -> new LegacyFabricatorMenu(id, inventory, context, page),
                 Component.translatable("gui.thermal_shock_reforged." + page.id + ".label_fabricator_guide")), buffer -> buffer.writeBlockPos(context.pos())).isPresent();
@@ -98,7 +98,7 @@ public final class LegacyFabricatorMenu extends AbstractContainerMenu {
 
     @Override public boolean stillValid(Player player) {
         if (closed || rejectedBinding || player != owner || !player.isAlive() || player.level() != level) return false;
-        if (level.isClientSide || !bound) return true;
+        if (level.isClientSide() || !bound) return true;
         if (hand != null) return owner.getItemInHand(hand) == boundStack;
         if (boundEntity != null) return boundEntity.isAlive() && boundEntity.level() == level;
         return boundBlock != null && !boundBlock.isRemoved() && level.hasChunkAt(pos) && level.getBlockEntity(pos) == boundBlock && player.distanceToSqr(pos.getCenter()) <= 64;
@@ -139,7 +139,7 @@ public final class LegacyFabricatorMenu extends AbstractContainerMenu {
         }
     }
 
-    @Override public void clicked(int slot, int button, ClickType type, Player player) {
+    @Override public void clicked(int slot, int button, ContainerInput type, Player player) {
         if (!transacting && stillValid(player)) super.clicked(slot, button, type, player);
     }
 

@@ -4,11 +4,14 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.saveddata.SavedData;
+import net.minecraft.world.level.saveddata.SavedDataType;
+import com.mojang.serialization.Codec;
+import net.minecraft.resources.Identifier;
 
 public final class QoProgressData extends SavedData {
-    private static final Factory<QoProgressData> FACTORY = new Factory<>(QoProgressData::new, QoProgressData::load);
+    private static final SavedDataType<QoProgressData> FACTORY = new SavedDataType<>(Identifier.fromNamespaceAndPath("thermal_shock_reforged", "qo_progress"), QoProgressData::new, Codec.unit(new QoProgressData()));
     private double contacts;
-    public static QoProgressData get(ServerLevel level) { return level.getServer().overworld().getDataStorage().computeIfAbsent(FACTORY, "thermal_shock_reforged_qo_progress"); }
+    public static QoProgressData get(ServerLevel level) { return level.getServer().overworld().getDataStorage().computeIfAbsent(FACTORY); }
     public double contacts() { return contacts; }
     public void advance() { contacts++; setDirty(); }
     private static QoProgressData load(CompoundTag tag, HolderLookup.Provider lookup) {

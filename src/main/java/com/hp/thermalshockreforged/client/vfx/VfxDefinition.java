@@ -3,7 +3,7 @@ package com.hp.thermalshockreforged.client.vfx;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 
 public final class VfxDefinition {
@@ -154,7 +154,7 @@ public final class VfxDefinition {
         final Motion location;
         final Motion rotation;
         final Motion scale;
-        final ResourceLocation texture;
+        final Identifier texture;
         final int blend;
         final boolean linear;
         final boolean depthTest;
@@ -187,7 +187,7 @@ public final class VfxDefinition {
             location = new Motion(json.getAsJsonObject("loc"), false);
             rotation = new Motion(json.getAsJsonObject("rot"), true);
             scale = new Motion(json.getAsJsonObject("scale"), false);
-            if (json.has("tex") && !json.get("tex").isJsonNull()) texture = ResourceLocation.parse(json.get("tex").getAsString());
+            if (json.has("tex") && !json.get("tex").isJsonNull()) texture = Identifier.parse(json.get("tex").getAsString());
             else texture = null;
             blend = json.get("blend").getAsInt();
             linear = json.get("linear").getAsBoolean();

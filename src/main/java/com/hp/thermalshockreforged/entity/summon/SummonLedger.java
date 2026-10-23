@@ -5,14 +5,17 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.saveddata.SavedData;
+import net.minecraft.world.level.saveddata.SavedDataType;
+import com.mojang.serialization.Codec;
+import net.minecraft.resources.Identifier;
 
 public final class SummonLedger extends SavedData {
-    private static final Factory<SummonLedger> FACTORY = new Factory<>(SummonLedger::new, SummonLedger::load);
+    private static final SavedDataType<SummonLedger> FACTORY = new SavedDataType<>(Identifier.fromNamespaceAndPath("thermal_shock_reforged", "mangler_summons"), SummonLedger::new, Codec.unit(new SummonLedger()));
     private final Map<UUID, Map<UUID, Long>> owners = new HashMap<>();
     private final TreeMap<Long, Set<Key>> expiry = new TreeMap<>();
     public static long clock(ServerLevel level) { return level.getServer().overworld().getGameTime(); }
     public static SummonLedger get(ServerLevel level) {
-        var ledger = level.getServer().overworld().getDataStorage().computeIfAbsent(FACTORY, "thermal_shock_reforged_mangler_summons");
+        var ledger = level.getServer().overworld().getDataStorage().computeIfAbsent(FACTORY);
         ledger.prune(clock(level));
         return ledger;
     }

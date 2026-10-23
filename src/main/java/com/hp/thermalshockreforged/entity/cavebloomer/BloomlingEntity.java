@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.cavebloomer;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.summon.SummonLedger;
@@ -7,7 +10,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.world.DifficultyInstance;
@@ -22,14 +25,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.*;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class BloomlingEntity extends Monster implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(BloomlingEntity.class, EntityDataSerializers.STRING);
-    private static final ResourceLocation MOVEMENT_LOCK = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "bloomling_movement_lock");
+    private static final Identifier MOVEMENT_LOCK = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "bloomling_movement_lock");
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     private UUID summonOwner;
     private long summonExpiresAt = -1;
@@ -74,14 +77,14 @@ public final class BloomlingEntity extends Monster implements GeoEntity {
         goalSelector.addGoal(7, new FloatGoal(this));
     }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
-    @Override public boolean canChangeDimensions(Level from, Level to) { return burstKind == 0 && super.canChangeDimensions(from, to); }
+    public boolean canChangeDimensions(Level from, Level to) { return burstKind == 0; }
     @Override protected SoundEvent getAmbientSound() { return SoundEvents.SPIDER_STEP; }
-    private SoundEvent sound(String name) { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name)); }
+    private SoundEvent sound(String name) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name)); }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(sound("budbloomer_ambient"), 0.15F, 1); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return sound("budbloomer_hurt"); }
     @Override protected SoundEvent getDeathSound() { return sound(dandy() ? "budbloomer_hurt" : "budbloomer_death"); }
-    @Override public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.FALL) && super.hurt(source, amount); }
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData data) {
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.FALL) && super.hurtServer(level, source, amount); }
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData data) {
         var result = super.finalizeSpawn(world, difficulty, reason, data);
         if (!initialized && world instanceof ServerLevel server) {
             initialized = true;
@@ -90,8 +93,8 @@ public final class BloomlingEntity extends Monster implements GeoEntity {
         }
         return result;
     }
-    @Override public boolean doHurtTarget(Entity target) {
-        if (!dandy()) return super.doHurtTarget(target);
+    @Override public boolean doHurtTarget(net.minecraft.server.level.ServerLevel level, Entity target) {
+        if (!dandy()) return super.doHurtTarget(level, target);
         beginVolley(target); return false;
     }
     public void beginVolley(Entity target) {
@@ -154,48 +157,48 @@ public final class BloomlingEntity extends Monster implements GeoEntity {
         if (movementLock > 0 && !attribute.hasModifier(MOVEMENT_LOCK)) attribute.addTransientModifier(new AttributeModifier(MOVEMENT_LOCK, -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
         else if (movementLock == 0) attribute.removeModifier(MOVEMENT_LOCK);
     }
-    @Override protected void dropExperience(Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
+    @Override protected void dropExperience(net.minecraft.server.level.ServerLevel level, Entity attacker) { experiencePending = true; experienceAttacker = attacker == null ? null : attacker.getUUID(); }
     @Override protected void tickDeath() {
         if (++deathTime >= (dandy() ? 20 : 40) && !isRemoved()) {
             remove(RemovalReason.KILLED);
             if (experiencePending && level() instanceof ServerLevel server) {
                 experiencePending = false;
-                super.dropExperience(experienceAttacker == null ? null : server.getEntity(experienceAttacker));
+                super.dropExperience(server, experienceAttacker == null ? null : server.getEntity(experienceAttacker));
             }
         }
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); if (summonOwner != null) tag.putUUID("BloomSummonOwner", summonOwner); tag.putLong("BloomSummonExpiresAt", summonExpiresAt); tag.putString("Texture", texture()); tag.putBoolean("BloomInitialized", initialized);
-        tag.putBoolean("BloomDeathCommitted", deathCommitted); tag.putBoolean("BloomExperiencePending", experiencePending);
-        if (experienceAttacker != null) tag.putUUID("BloomExperienceAttacker", experienceAttacker);
-        if (attackTarget != null) tag.putUUID("BloomAttackTarget", attackTarget);
-        tag.putInt("BloomCooldown", cooldown); tag.putInt("BloomMovementLock", movementLock);
-        tag.putInt("BloomBurstKind", burstKind); tag.putInt("BloomBurstRemaining", burstRemaining); tag.putBoolean("BloomBurstUsesEndTicks", true); tag.putInt("BloomBurstRetry", burstRetry);
-        if (burstTask != null) tag.putUUID("BloomBurstTask", burstTask);
-        tag.putDouble("BloomSoundX", soundOrigin.x); tag.putDouble("BloomSoundY", soundOrigin.y); tag.putDouble("BloomSoundZ", soundOrigin.z);
-        tag.putDouble("BloomTargetEyeHeight", targetEyeHeight); tag.putDouble("BloomBurstDamage", burstDamage);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output); if (summonOwner != null) output.putString("BloomSummonOwner", summonOwner.toString()); output.putLong("BloomSummonExpiresAt", summonExpiresAt); output.putString("Texture", texture()); output.putBoolean("BloomInitialized", initialized);
+        output.putBoolean("BloomDeathCommitted", deathCommitted); output.putBoolean("BloomExperiencePending", experiencePending);
+        if (experienceAttacker != null) output.putString("BloomExperienceAttacker", experienceAttacker.toString());
+        if (attackTarget != null) output.putString("BloomAttackTarget", attackTarget.toString());
+        output.putInt("BloomCooldown", cooldown); output.putInt("BloomMovementLock", movementLock);
+        output.putInt("BloomBurstKind", burstKind); output.putInt("BloomBurstRemaining", burstRemaining); output.putBoolean("BloomBurstUsesEndTicks", true); output.putInt("BloomBurstRetry", burstRetry);
+        if (burstTask != null) output.putString("BloomBurstTask", burstTask.toString());
+        output.putDouble("BloomSoundX", soundOrigin.x); output.putDouble("BloomSoundY", soundOrigin.y); output.putDouble("BloomSoundZ", soundOrigin.z);
+        output.putDouble("BloomTargetEyeHeight", targetEyeHeight); output.putDouble("BloomBurstDamage", burstDamage);
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag); summonOwner = tag.hasUUID("BloomSummonOwner") ? tag.getUUID("BloomSummonOwner") : null; summonExpiresAt = tag.contains("BloomSummonExpiresAt") ? tag.getLong("BloomSummonExpiresAt") : -1; if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
-        initialized = tag.getBoolean("BloomInitialized"); deathCommitted = tag.getBoolean("BloomDeathCommitted"); experiencePending = tag.getBoolean("BloomExperiencePending");
-        experienceAttacker = tag.hasUUID("BloomExperienceAttacker") ? tag.getUUID("BloomExperienceAttacker") : null;
-        attackTarget = tag.hasUUID("BloomAttackTarget") ? tag.getUUID("BloomAttackTarget") : null;
-        cooldown = Math.clamp(tag.getInt("BloomCooldown"), 0, 120); movementLock = Math.clamp(tag.getInt("BloomMovementLock"), 0, 75);
-        burstKind = tag.getInt("BloomBurstKind"); burstTask = tag.hasUUID("BloomBurstTask") ? tag.getUUID("BloomBurstTask") : null;
-        burstRemaining = Math.clamp(tag.getInt("BloomBurstRemaining"), 0, dandy() ? 20 : 40);
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input); summonOwner = input.getString("BloomSummonOwner").map(java.util.UUID::fromString).orElse(null); summonExpiresAt = input.getString("BloomSummonExpiresAt").isPresent() ? input.getLongOr("BloomSummonExpiresAt", 0L) : -1; if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        initialized = input.getBooleanOr("BloomInitialized", false); deathCommitted = input.getBooleanOr("BloomDeathCommitted", false); experiencePending = input.getBooleanOr("BloomExperiencePending", false);
+        experienceAttacker = input.getString("BloomExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
+        attackTarget = input.getString("BloomAttackTarget").map(java.util.UUID::fromString).orElse(null);
+        cooldown = Math.clamp(input.getIntOr("BloomCooldown", 0), 0, 120); movementLock = Math.clamp(input.getIntOr("BloomMovementLock", 0), 0, 75);
+        burstKind = input.getIntOr("BloomBurstKind", 0); burstTask = input.getString("BloomBurstTask").map(java.util.UUID::fromString).orElse(null);
+        burstRemaining = Math.clamp(input.getIntOr("BloomBurstRemaining", 0), 0, dandy() ? 20 : 40);
         if (burstTask == null && burstKind != 0) burstRemaining = Math.max(1, burstRemaining);
-        burstRetry = Math.clamp(tag.getInt("BloomBurstRetry"), 0, 20);
+        burstRetry = Math.clamp(input.getIntOr("BloomBurstRetry", 0), 0, 20);
         if (burstKind != (dandy() ? 1 : 2)) burstKind = 0;
-        double x = tag.getDouble("BloomSoundX"), y = tag.getDouble("BloomSoundY"), z = tag.getDouble("BloomSoundZ");
+        double x = input.getDoubleOr("BloomSoundX", 0.0), y = input.getDoubleOr("BloomSoundY", 0.0), z = input.getDoubleOr("BloomSoundZ", 0.0);
         if (Double.isFinite(x) && Double.isFinite(y) && Double.isFinite(z)) soundOrigin = new Vec3(x, y, z); else { soundOrigin = position(); burstKind = 0; }
-        double value = tag.getDouble("BloomTargetEyeHeight"); targetEyeHeight = Double.isFinite(value) ? Math.clamp(value, 0, 100) : 0;
-        value = tag.getDouble("BloomBurstDamage"); burstDamage = Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0;
+        double value = input.getDoubleOr("BloomTargetEyeHeight", 0.0); targetEyeHeight = Double.isFinite(value) ? Math.clamp(value, 0, 100) : 0;
+        value = input.getDoubleOr("BloomBurstDamage", 0.0); burstDamage = Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0;
         updateMovementLock();
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP);
         for (String clip : new String[]{"Idle", "walk", "volley"}) procedure.triggerableAnim(clip, RawAnimation.begin().thenPlay(clip));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> {
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {
             if (procedure.isPlayingTriggeredAnimation()) return PlayState.STOP;
             if (state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F) return state.setAndContinue(RawAnimation.begin().thenLoop("walk"));
             if (!dandy() && isDeadOrDying()) return state.setAndContinue(RawAnimation.begin().thenPlay("volley"));

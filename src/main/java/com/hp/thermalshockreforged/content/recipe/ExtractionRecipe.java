@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.item.ItemStack;
@@ -17,7 +17,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 
-public record ExtractionRecipe(Ingredient ingredient, int levels, Optional<Experience> experience, List<Output> outputs, Optional<ResourceLocation> advancement, List<RecipeSound> sounds, Optional<Holder<Block>> particleBlock) implements DataRecipe {
+public record ExtractionRecipe(Ingredient ingredient, int levels, Optional<Experience> experience, List<Output> outputs, Optional<Identifier> advancement, List<RecipeSound> sounds, Optional<Holder<Block>> particleBlock) implements DataRecipe {
     public record Experience(int value, IntProvider orbs) {
         public static final Codec<Experience> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                 Codec.intRange(1, Integer.MAX_VALUE).fieldOf("value").forGetter(Experience::value),
@@ -40,7 +40,7 @@ public record ExtractionRecipe(Ingredient ingredient, int levels, Optional<Exper
             Codec.intRange(0, Integer.MAX_VALUE).optionalFieldOf("levels", 0).forGetter(ExtractionRecipe::levels),
             Experience.CODEC.optionalFieldOf("experience").forGetter(ExtractionRecipe::experience),
             Output.CODEC.listOf().optionalFieldOf("outputs", List.of()).forGetter(ExtractionRecipe::outputs),
-            ResourceLocation.CODEC.optionalFieldOf("advancement").forGetter(ExtractionRecipe::advancement),
+            Identifier.CODEC.optionalFieldOf("advancement").forGetter(ExtractionRecipe::advancement),
             RecipeSound.CODEC.listOf().optionalFieldOf("sounds", List.of()).forGetter(ExtractionRecipe::sounds),
             BuiltInRegistries.BLOCK.holderByNameCodec().optionalFieldOf("particle_block").forGetter(ExtractionRecipe::particleBlock)
     ).apply(instance, ExtractionRecipe::new));

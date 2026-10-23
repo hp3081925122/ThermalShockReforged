@@ -1,11 +1,16 @@
 package com.hp.thermalshockreforged.content.weapons;
+import com.hp.thermalshockreforged.content.tools.SwordItem;
+import com.hp.thermalshockreforged.content.tools.Tier;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.status.StatusContent;
 import java.util.List;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.*;
 import net.minecraft.world.*;
@@ -27,22 +32,22 @@ public final class RustyEdgeItem extends SwordItem {
         @Override public Ingredient getRepairIngredient() { return Ingredient.EMPTY; }
     };
     public RustyEdgeItem() { super(TIER, new Properties().attributes(SwordItem.createAttributes(TIER, 3, -2.6F))); }
-    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+    @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var result = super.use(level, player, hand);
         if (player.getCooldowns().isOnCooldown(this)) return result;
         var look = player.getLookAngle();
         if (player.isShiftKeyDown()) player.setDeltaMovement(new Vec3(-look.x, 0, -look.z));
         else {
             player.setDeltaMovement(new Vec3(look.x * 1.5, .25, look.z * 1.5));
-            if (!level.isClientSide) player.addEffect(new MobEffectInstance(StatusContent.PARRYING, 10, 1));
+            if (!level.isClientSide()) player.addEffect(new MobEffectInstance(StatusContent.PARRYING, 10, 1));
         }
         player.getCooldowns().addCooldown(this, 100);
-        if (level.isClientSide) level.playLocalSound(player.getX(), player.getY(), player.getZ(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "propulsionbootsactivate")), SoundSource.NEUTRAL, 1, 4, false);
+        if (level.isClientSide()) level.playLocalSound(player.getX(), player.getY(), player.getZ(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "propulsionbootsactivate")), SoundSource.NEUTRAL, 1, 4, false);
         return result;
     }
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.translatable("item.thermal_shock_reforged.rusty_edge.description_0"));
-        lines.add(Component.translatable("item.thermal_shock_reforged.rusty_edge.description_1"));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.rusty_edge.description_0"));
+        tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.rusty_edge.description_1"));
     }
 }

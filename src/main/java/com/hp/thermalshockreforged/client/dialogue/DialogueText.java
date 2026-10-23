@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 
 public final class DialogueText {
@@ -19,13 +19,13 @@ public final class DialogueText {
 
     private DialogueText() { }
 
-    public static void draw(GuiGraphics graphics, Font font, Component text, int x, int y, int color, int imageWidth, int spacing) {
+    public static void draw(GuiGraphicsExtractor graphics, Font font, Component text, int x, int y, int color, int imageWidth, int spacing) {
         int step = spacing;
         if (step <= 0) step = font.lineHeight + 2;
         int width = Math.max(MIN_WIDTH, imageWidth - x - MARGIN);
         int lineY = y;
         for (var line : lines(font, text.getString(), width)) {
-            graphics.drawString(font, line, x, lineY, color, false);
+            graphics.text(font, line, x, lineY, color, false);
             lineY += step;
         }
     }

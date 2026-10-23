@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content.machines;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.List;
@@ -12,7 +14,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -42,16 +44,16 @@ public final class TransmutatorBlock extends Block {
         ThermalShockReforged.LOGGER.debug("Transmutation completed: player={}, position={}, output={}", player.getUUID(), pos, output);
         return true;
     }
-    @Override protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        return process(stack, level, pos, player) ? ItemInteractionResult.SUCCESS : ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        return process(stack, level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS;
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { return InteractionResult.PASS; }
     @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         if (random.nextDouble() < .1) level.addParticle(ParticleTypes.END_ROD, pos.getX() + .5, pos.getY() + 1, pos.getZ() + .5, 0, .2, 0);
     }
-    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.translatable("block.thermal_shock_reforged.transmutator.description_0"));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.transmutator.description_0"));
     }
 }

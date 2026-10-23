@@ -17,7 +17,7 @@ public final class AssimilatorEntity extends GraverFamilyEntity {
         if (!(victim instanceof GraverEntity) || !(level() instanceof ServerLevel server) || !isAlive() || converted || converting || victim.level() != level()) return;
         converting = true;
         try {
-            var replacement = GraverContent.ASSIMILATED.get().spawn(server, blockPosition(), MobSpawnType.MOB_SUMMONED);
+            var replacement = GraverContent.ASSIMILATED.get().spawn(server, blockPosition(), EntitySpawnReason.MOB_SUMMONED);
             if (replacement != null && !replacement.isRemoved() && server.getEntity(replacement.getUUID()) == replacement) {
                 converted = true;
                 replacement.setDeltaMovement(Vec3.ZERO);
@@ -25,6 +25,6 @@ public final class AssimilatorEntity extends GraverFamilyEntity {
             } else ThermalShockReforged.LOGGER.debug("Assimilator transformation rejected: source={}, victim={}", getUUID(), victim.getUUID());
         } finally { converting = false; }
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putBoolean("AssimilatorConverted", converted); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); converted = tag.getBoolean("AssimilatorConverted"); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putBoolean("AssimilatorConverted", converted); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); converted = input.getBooleanOr("AssimilatorConverted", false); }
 }

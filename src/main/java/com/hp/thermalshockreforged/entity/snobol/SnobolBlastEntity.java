@@ -67,9 +67,9 @@ public final class SnobolBlastEntity extends Entity {
     }
 
     @Override
-    protected void addAdditionalSaveData(CompoundTag tag) {
-        if (owner != null) tag.putUUID("Owner", owner);
-        tag.putBoolean("Detached", detached);
+    protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (owner != null) output.putString("Owner", owner.toString());
+        output.putBoolean("Detached", detached);
         var tasks = new ListTag();
         for (var blast : pending) {
             var task = new CompoundTag();
@@ -84,9 +84,9 @@ public final class SnobolBlastEntity extends Entity {
     }
 
     @Override
-    protected void readAdditionalSaveData(CompoundTag tag) {
-        owner = tag.hasUUID("Owner") ? tag.getUUID("Owner") : null;
-        detached = tag.getBoolean("Detached");
+    protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        owner = input.getString("Owner").map(java.util.UUID::fromString).orElse(null);
+        detached = input.getBooleanOr("Detached", false);
         pending.clear();
         var tasks = tag.getList("PendingBlasts", Tag.TAG_COMPOUND);
         for (int i = 0; i < Math.min(1, tasks.size()); i++) {

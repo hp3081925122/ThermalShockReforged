@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
@@ -20,7 +20,7 @@ public final class LiftbugConstructorBlock extends Block {
         for (int dx = -1; dx <= 1 && clear; dx++) for (int dz = -1; dz <= 1; dz++) if ((dx != 0 || dz != 0) && !level.isEmptyBlock(pos.offset(dx, 0, dz))) { clear = false; break; }
         if (clear) {
             level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
-            var bug = LiftbugContent.LIFTBUG.get().spawn(server, pos, MobSpawnType.MOB_SUMMONED);
+            var bug = LiftbugContent.LIFTBUG.get().spawn(server, pos, EntitySpawnReason.MOB_SUMMONED);
             if (bug != null && server.getEntity(bug.getUUID()) == bug) {
                 bug.setDeltaMovement(0, 0, 0);
                 server.sendParticles(ParticleTypes.POOF, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 20, .5, .5, .5, 0);

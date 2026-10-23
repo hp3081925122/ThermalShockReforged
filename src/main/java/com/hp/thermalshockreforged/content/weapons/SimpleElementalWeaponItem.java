@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content.weapons;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import java.util.List;
@@ -31,8 +33,8 @@ public final class SimpleElementalWeaponItem extends Item {
         return true;
     }
 
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        lines.add(Component.translatable("item." + ThermalShockReforged.MOD_ID + "." + id + ".description_0"));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        tooltipAdder.accept(Component.translatable("item." + ThermalShockReforged.MOD_ID + "." + id + ".description_0"));
     }
 }

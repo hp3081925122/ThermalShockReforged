@@ -1,4 +1,8 @@
 package com.hp.thermalshockreforged.content.remainingcombat;
+import net.minecraft.world.item.Item;
+import com.hp.thermalshockreforged.content.tools.Tier;
+import net.minecraft.world.item.component.TooltipDisplay;
+import java.util.function.Consumer;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
@@ -6,7 +10,7 @@ import com.hp.thermalshockreforged.content.weapons.WeaponContent;
 import java.util.List;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.*;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -33,7 +37,7 @@ public final class ClawSickleItem extends HoeItem {
     }
     @Override public boolean hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
         boolean result = super.hurtEnemy(stack, victim, attacker);
-        if (!victim.level().isClientSide) {
+        if (!victim.level().isClientSide()) {
             var existing = victim.getEffect(WeaponContent.SICKLE_WOUND);
             int amplifier = existing == null ? 0 : existing.getAmplifier() + 1;
             victim.addEffect(new MobEffectInstance(WeaponContent.SICKLE_WOUND, 20, amplifier));
@@ -41,15 +45,15 @@ public final class ClawSickleItem extends HoeItem {
             if (applied != null && applied.getAmplifier() >= 2) {
                 victim.removeEffect(WeaponContent.SICKLE_WOUND);
                 ThermalShockReforged.LOGGER.debug("Claw sickle wound burst committed: attacker={}, victim={}, appliedAmplifier={}", attacker.getUUID(), victim.getUUID(), applied.getAmplifier());
-                victim.level().playSound(null, victim.blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sickle_slash")), SoundSource.NEUTRAL, 1, 1);
+                victim.level().playSound(null, victim.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sickle_slash")), SoundSource.NEUTRAL, 1, 1);
                 float bonus = attacker.getMainHandItem().is(RemainingCombatContent.CLAW_SICKLE.get()) ? 12 : attacker.getMainHandItem().is(WeaponContent.STRATOSILVER_SICKLE.get()) ? 14 : 10;
                 victim.hurt(victim.damageSources().source(DamageTypes.GENERIC), bonus);
             }
         }
         return result;
     }
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
-        super.appendHoverText(stack, context, lines, flag);
-        for (int line = 0; line < 3; line++) lines.add(Component.translatable("item.thermal_shock_reforged.claw_sickle.description_" + line));
+    @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
+        super.appendHoverText(stack, context, display, tooltipAdder, flag);
+        for (int line = 0; line < 3; line++) tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.claw_sickle.description_" + line));
     }
 }

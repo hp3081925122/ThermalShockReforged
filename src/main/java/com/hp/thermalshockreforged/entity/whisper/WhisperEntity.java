@@ -7,7 +7,7 @@ import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
@@ -16,13 +16,13 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.ThrownPotion;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.AbstractThrownPotion;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 public final class WhisperEntity extends AnimatedPathfinderEntity {
-    private static final ResourceLocation NEARBY_LOCK = WhisperContent.id("whisper_nearby_lock");
+    private static final Identifier NEARBY_LOCK = WhisperContent.id("whisper_nearby_lock");
     public WhisperEntity(EntityType<? extends WhisperEntity> type, Level level) {
         super(type, level, "whisper26", 0);
         setCustomName(Component.translatable("entity.thermal_shock_reforged.whisper").withStyle(net.minecraft.ChatFormatting.GREEN));
@@ -43,17 +43,17 @@ public final class WhisperEntity extends AnimatedPathfinderEntity {
     @Override protected String movementAnimation(boolean moving) { return moving ? "walk" : isShiftKeyDown() ? "idle2" : "idle"; }
     @Override public void baseTick() {
         super.baseTick();
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             var speed = getAttribute(Attributes.MOVEMENT_SPEED);
             if (isAlive() && level().getNearestPlayer(this, 3) != null) {
                 if (!speed.hasModifier(NEARBY_LOCK)) speed.addTransientModifier(new AttributeModifier(NEARBY_LOCK, -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
             } else speed.removeModifier(NEARBY_LOCK);
         }
     }
-    @Override public boolean hurt(DamageSource source, float amount) {
-        if (!Float.isFinite(amount) || amount <= 0 || source.is(DamageTypes.IN_FIRE) || source.getDirectEntity() instanceof ThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
+        if (!Float.isFinite(amount) || amount <= 0 || source.is(DamageTypes.IN_FIRE) || source.getDirectEntity() instanceof AbstractThrownPotion || source.getDirectEntity() instanceof AreaEffectCloud
             || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT)) return false;
-        return super.hurt(source, amount);
+        return super.hurtServer(level, source, amount);
     }
     public boolean vanish() {
         if (!isAlive() || isRemoved() || !(level() instanceof ServerLevel server)) return false;
@@ -66,7 +66,7 @@ public final class WhisperEntity extends AnimatedPathfinderEntity {
         var parent = super.mobInteract(player, hand);
         if (parent.consumesAction() || !isAlive() || hand != InteractionHand.MAIN_HAND) return parent;
         if (player instanceof ServerPlayer server) WhisperContent.open(server, this, WhisperPage.MAIN);
-        return InteractionResult.sidedSuccess(level().isClientSide);
+        return InteractionResult.SUCCESS;
     }
     @Override protected SoundEvent getAmbientSound() { return SoundEvents.ALLAY_AMBIENT_WITHOUT_ITEM; }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.ALLAY_HURT; }

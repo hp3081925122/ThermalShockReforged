@@ -27,7 +27,7 @@ public final class CentrifugeMenu extends AbstractContainerMenu {
         owner = inventory.player;
         this.pos = pos.immutable();
         attached = level.hasChunkAt(pos) && level.getBlockEntity(pos) instanceof CentrifugeBlockEntity entity ? entity : null;
-        storage = !level.isClientSide && attached != null ? attached : new SimpleContainer(3) { @Override public int getMaxStackSize() { return 64; } };
+        storage = !level.isClientSide() && attached != null ? attached : new SimpleContainer(3) { @Override public int getMaxStackSize() { return 64; } };
         addSlot(new Slot(storage, 0, 59, 35) { @Override public boolean mayPlace(ItemStack stack) { return CentrifugeRecipe.accepts(level, 0, stack); } });
         addSlot(new Slot(storage, 1, 80, 10) { @Override public boolean mayPlace(ItemStack stack) { return CentrifugeRecipe.accepts(level, 1, stack); } });
         addSlot(new Slot(storage, 2, 101, 35) { @Override public boolean mayPlace(ItemStack stack) { return CentrifugeRecipe.accepts(level, 2, stack); } });
@@ -35,7 +35,7 @@ public final class CentrifugeMenu extends AbstractContainerMenu {
         for (int column = 0; column < 9; column++) addSlot(new Slot(inventory, column, 8 + column * 18, 142));
     }
     public static boolean open(ServerPlayer player, BlockPos pos) {
-        var level = player.serverLevel();
+        var level = ((net.minecraft.server.level.ServerLevel) player.level());
         if (!player.isAlive() || !level.hasChunkAt(pos) || player.distanceToSqr(pos.getCenter()) > 64
                 || !level.getBlockState(pos).is(CentrifugeContent.BLOCK.get()) || !(level.getBlockEntity(pos) instanceof CentrifugeBlockEntity)) return false;
         var fixed = pos.immutable();
@@ -45,7 +45,7 @@ public final class CentrifugeMenu extends AbstractContainerMenu {
     @Override public boolean stillValid(Player player) {
         return player == owner && player.isAlive() && player.level() == level && level.hasChunkAt(pos)
                 && player.distanceToSqr(pos.getCenter()) <= 64 && level.getBlockState(pos).is(CentrifugeContent.BLOCK.get())
-                && (level.isClientSide || attached != null && !attached.isRemoved() && level.getBlockEntity(pos) == attached);
+                && (level.isClientSide() || attached != null && !attached.isRemoved() && level.getBlockEntity(pos) == attached);
     }
     @Override public boolean clickMenuButton(Player player, int button) {
         if (button != 0 || !(player instanceof ServerPlayer) || player.containerMenu != this || !stillValid(player)) return false;
@@ -64,7 +64,7 @@ public final class CentrifugeMenu extends AbstractContainerMenu {
         ThermalShockReforged.LOGGER.debug("Centrifuge conversion completed: output={}, player={}, position={}", result, player.getUUID(), pos);
         return true;
     }
-    @Override public void clicked(int slot, int button, ClickType type, Player player) {
+    @Override public void clicked(int slot, int button, ContainerInput type, Player player) {
         if (stillValid(player)) super.clicked(slot, button, type, player);
     }
     @Override public ItemStack quickMoveStack(Player player, int index) {

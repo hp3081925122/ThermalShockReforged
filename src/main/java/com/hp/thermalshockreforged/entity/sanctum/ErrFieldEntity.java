@@ -13,7 +13,7 @@ public final class ErrFieldEntity extends AttackCarrierBody {
     private int remaining;
     private boolean initialized;
     public ErrFieldEntity(EntityType<? extends ErrFieldEntity> type, Level level) { super(type, level); }
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData data) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData data) {
         SpawnGroupData result = super.finalizeSpawn(level, difficulty, reason, data);
         if (!initialized && level instanceof ServerLevel server) {
             initialized = true;
@@ -30,12 +30,12 @@ public final class ErrFieldEntity extends AttackCarrierBody {
             target.addEffect(new MobEffectInstance(MobEffects.WITHER, 120, 4));
         }
     }
-    @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putInt("ErrRemaining", remaining); tag.putBoolean("ErrInitialized", initialized);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putInt("ErrRemaining", remaining); output.putBoolean("ErrInitialized", initialized);
     }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        remaining = Math.clamp(tag.getInt("ErrRemaining"), 0, 180); initialized = tag.getBoolean("ErrInitialized");
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
+        remaining = Math.clamp(input.getIntOr("ErrRemaining", 0), 0, 180); initialized = input.getBooleanOr("ErrInitialized", false);
     }
 }

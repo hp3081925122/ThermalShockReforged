@@ -14,7 +14,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 
 @EventBusSubscriber(modid = ThermalShockReforged.MOD_ID, value = Dist.CLIENT)
 public final class StriderInput {
-    private static final KeyMapping FIRE = new KeyMapping("key.thermal_shock_reforged.icidrostrider_attack", 32, "key.categories.gameplay");
+    private static final KeyMapping FIRE = new KeyMapping("key.thermal_shock_reforged.icidrostrider_attack", 32, KeyMapping.Category.GAMEPLAY);
     private StriderInput() { }
     @SubscribeEvent public static void tick(ClientTickEvent.Post event) {
         Minecraft client = Minecraft.getInstance();
@@ -22,7 +22,7 @@ public final class StriderInput {
             if (client.screen == null && client.player != null && client.getConnection() != null && client.player.getVehicle() instanceof IcidrostriderEntity strider && strider.getControllingPassenger() == client.player) PacketDistributor.sendToServer(StriderFirePayload.INSTANCE);
         }
     }
-    @EventBusSubscriber(modid = ThermalShockReforged.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
+    @EventBusSubscriber(modid = ThermalShockReforged.MOD_ID, value = Dist.CLIENT)
     public static final class Registration {
         @SubscribeEvent public static void register(RegisterKeyMappingsEvent event) { event.register(FIRE); }
     }

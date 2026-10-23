@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.entity.sootle;
+import com.geckolib.animation.object.PlayState;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
@@ -8,11 +11,11 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.animation.AnimationState;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.animation.state.AnimationTest;
+import com.geckolib.util.GeckoLibUtil;
 
 public abstract class AbstractSootleEntity extends Monster implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(AbstractSootleEntity.class, EntityDataSerializers.STRING);
@@ -27,19 +30,19 @@ public abstract class AbstractSootleEntity extends Monster implements GeoEntity 
     @Override
     public boolean removeWhenFarAway(double distance) { return false; }
     @Override
-    public boolean hurt(DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && super.hurt(source, amount); }
+    public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && super.hurtServer(level, source, amount); }
     @Override
     protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }
     @Override
     protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); }
+    public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); }
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); if (tag.contains("Texture")) setTexture(tag.getString("Texture")); }
-    protected abstract String movement(AnimationState<?> state);
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", "")); }
+    protected abstract String movement(AnimationTest<?> state);
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        var procedure = new AnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
+        var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP)
                 .triggerableAnim("idle", RawAnimation.begin().thenPlay("idle"))
                 .triggerableAnim("walk", RawAnimation.begin().thenPlay("walk"))
                 .triggerableAnim("run", RawAnimation.begin().thenPlay("run"))
@@ -47,7 +50,7 @@ public abstract class AbstractSootleEntity extends Monster implements GeoEntity 
                 .triggerableAnim("attack2", RawAnimation.begin().thenPlay("attack2"))
                 .triggerableAnim("dig", RawAnimation.begin().thenPlay("dig"))
                 .triggerableAnim("alert", RawAnimation.begin().thenPlay("alert"));
-        controllers.add(new AnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(movement(state)))));
+        controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop(movement(state)))));
         controllers.add(procedure);
     }
     @Override

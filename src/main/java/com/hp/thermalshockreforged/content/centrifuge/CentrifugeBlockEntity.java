@@ -20,15 +20,13 @@ public final class CentrifugeBlockEntity extends RandomizableContainerBlockEntit
     private final IItemHandler[] handlers = java.util.Arrays.stream(Direction.values()).map(side -> new SidedInvWrapper(this, side)).toArray(IItemHandler[]::new);
     public CentrifugeBlockEntity(BlockPos pos, BlockState state) { super(CentrifugeContent.ENTITY.get(), pos, state); }
     public IItemHandler itemHandler(Direction side) { return side == null ? null : handlers[side.ordinal()]; }
-    @Override protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
-        items = NonNullList.withSize(3, ItemStack.EMPTY);
-        if (!tryLoadLootTable(tag)) ContainerHelper.loadAllItems(tag, items, registries);
+    @Override protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
+        super.loadAdditional(input);        items = NonNullList.withSize(3, ItemStack.EMPTY);
+        if (!tryLoadLootTable(input)) ContainerHelper.loadAllItems(input, items);
     }
-    @Override protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        if (!trySaveLootTable(tag)) ContainerHelper.saveAllItems(tag, items, registries);
+    @Override protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput output) {
+        super.saveAdditional(output);
+        if (!trySaveLootTable(output)) ContainerHelper.saveAllItems(output, items);
     }
     @Override public ClientboundBlockEntityDataPacket getUpdatePacket() { return ClientboundBlockEntityDataPacket.create(this); }
     @Override public CompoundTag getUpdateTag(HolderLookup.Provider registries) { return saveWithoutMetadata(registries); }

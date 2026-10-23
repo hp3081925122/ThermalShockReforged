@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content.npc.portrait;
+import com.hp.thermalshockreforged.compat.LegacyAnimationController;
+import com.geckolib.animatable.manager.AnimatableManager;
 
 import com.hp.thermalshockreforged.content.atlas.AtlasContent;
 import net.minecraft.ChatFormatting;
@@ -15,10 +17,10 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.*;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.*;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animation.*;
+import com.geckolib.util.GeckoLibUtil;
 
 public final class PortraitCharacterEntity extends Monster implements GeoEntity {
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(PortraitCharacterEntity.class, EntityDataSerializers.STRING);
@@ -41,7 +43,7 @@ public final class PortraitCharacterEntity extends Monster implements GeoEntity 
     @Override protected EntityDimensions getDefaultDimensions(Pose pose) { return super.getDefaultDimensions(pose).scale(texture().equals(TEXTURES[0]) ? 1 : .5F).withEyeHeight(1.62F); }
     @Override protected void registerGoals() { super.registerGoals(); goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 16)); }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
-    @Override public boolean isInvulnerableTo(DamageSource source) {
+    public boolean isInvulnerableTo(DamageSource source) {
         if (source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_INVULNERABILITY)) return false;
         return !(source.getEntity() instanceof net.minecraft.world.entity.player.Player player && player.isCreative());
     }
@@ -55,16 +57,16 @@ public final class PortraitCharacterEntity extends Monster implements GeoEntity 
             } else if (texture().equals("portrait_default")) PortraitContent.open(server, this, false);
             else if (texture().equals("portrait_ibex")) PortraitContent.open(server, this, true);
         }
-        return InteractionResult.sidedSuccess(level().isClientSide);
+        return InteractionResult.SUCCESS;
     }
     @Override protected void tickDeath() { if (++deathTime >= 20) remove(RemovalReason.KILLED); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        super.readAdditionalSaveData(input);
         if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
-        if (tag.contains("Texture", 8)) texture(tag.getString("Texture"));
+        if (tag.contains("Texture", 8)) texture(input.getStringOr("Texture", ""));
         setPersistenceRequired();
     }
-    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { controllers.add(new AnimationController<>(this, "movement", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop("idle")))); }
+    @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop("idle")))); }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
 }

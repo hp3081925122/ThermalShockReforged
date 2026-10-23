@@ -4,11 +4,11 @@ import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockAndTintGetter;
+import net.minecraft.world.level.BlockAndLightGetter;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.MapColor;
@@ -33,16 +33,16 @@ public final class GlassContent {
     }
 
     private static final class DirectionalGlassBlock extends Block {
-        private static final DirectionProperty FACING = DirectionalBlock.FACING;
+        private static final EnumProperty<Direction> FACING = DirectionalBlock.FACING;
 
         private DirectionalGlassBlock(MapColor color) {
             super(Properties.of().mapColor(color).instrument(NoteBlockInstrument.HAT).sound(SoundType.GLASS).strength(0.5F, 0)
-                    .lightLevel(state -> 2).requiresCorrectToolForDrops().noOcclusion().hasPostProcess((s, l, p) -> true)
+                    .lightLevel(state -> 2).requiresCorrectToolForDrops().noOcclusion()
                     .emissiveRendering((s, l, p) -> true).isRedstoneConductor((s, l, p) -> false));
             registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH));
         }
 
-        @Override public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndTintGetter level, BlockPos pos, FluidState fluid) { return true; }
+        @Override public boolean shouldDisplayFluidOverlay(BlockState state, BlockAndLightGetter level, BlockPos pos, FluidState fluid) { return true; }
         @Override protected boolean skipRendering(BlockState state, BlockState adjacent, Direction side) { return adjacent.is(this) || super.skipRendering(state, adjacent, side); }
         @Override protected int getLightBlock(BlockState state, BlockGetter level, BlockPos pos) { return 15; }
         @Override protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.empty(); }

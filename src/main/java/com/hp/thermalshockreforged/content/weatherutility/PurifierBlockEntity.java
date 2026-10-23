@@ -13,12 +13,12 @@ public final class PurifierBlockEntity extends BlockEntity {
     boolean activated() { return pulse != null; }
     void assign(UUID id) { pulse = id; setChanged(); }
     boolean owns(UUID id) { return id.equals(pulse); }
-    @Override protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        pulse = tag.hasUUID("PurifierPulse") ? tag.getUUID("PurifierPulse") : null;
+    @Override protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
+        super.loadAdditional(input);
+        pulse = input.getString("PurifierPulse").map(java.util.UUID::fromString).orElse(null);
     }
-    @Override protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        if (pulse != null) tag.putUUID("PurifierPulse", pulse);
+    @Override protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput output) {
+        super.saveAdditional(output);
+        if (pulse != null) output.putString("PurifierPulse", pulse.toString());
     }
 }

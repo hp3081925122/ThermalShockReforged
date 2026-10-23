@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.Item;
@@ -21,15 +21,15 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
 
-public record NpcTradeRecipe(List<FabricationRecipe.Cost> costs, int levels, ItemStack result, Optional<ResourceLocation> requires) implements DataRecipe {
+public record NpcTradeRecipe(List<FabricationRecipe.Cost> costs, int levels, ItemStack result, Optional<Identifier> requires) implements DataRecipe {
     public static final MapCodec<NpcTradeRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
             FabricationRecipe.Cost.CODEC.listOf().optionalFieldOf("costs", List.of()).forGetter(NpcTradeRecipe::costs),
             Codec.intRange(0, Integer.MAX_VALUE).optionalFieldOf("levels", 0).forGetter(NpcTradeRecipe::levels),
             ItemStack.STRICT_CODEC.fieldOf("result").forGetter(NpcTradeRecipe::result),
-            ResourceLocation.CODEC.optionalFieldOf("requires").forGetter(NpcTradeRecipe::requires)
+            Identifier.CODEC.optionalFieldOf("requires").forGetter(NpcTradeRecipe::requires)
     ).apply(instance, NpcTradeRecipe::new));
 
-    public static ResourceLocation id(String page) { return RecipeContent.id("npc_trade/" + page); }
+    public static Identifier id(String page) { return RecipeContent.id("npc_trade/" + page); }
 
     public static NpcTradeRecipe get(Level level, String page) {
         var recipe = RecipeContent.NPC_TRADE.get(level, id(page));

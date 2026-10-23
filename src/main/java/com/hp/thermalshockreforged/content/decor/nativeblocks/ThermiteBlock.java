@@ -18,6 +18,6 @@ final class ThermiteBlock extends NativeDecorBlock {
     }
     @Override public void wasExploded(Level level, BlockPos pos, Explosion explosion) {
         super.wasExploded(level, pos, explosion);
-        if (level instanceof ServerLevel server && !ThermiteDetonationEntity.submit(server, pos)) ThermalShockReforged.LOGGER.warn("Thermite detonation submission was rejected: position={}, dimension={}", pos, server.dimension().location());
+        if (level instanceof ServerLevel server && !ThermiteDetonationEntity.submit(server, pos)) ThermalShockReforged.LOGGER.warn("Thermite detonation submission was rejected: position={}, dimension={}", pos, server.dimension().identifier());
     }
 }

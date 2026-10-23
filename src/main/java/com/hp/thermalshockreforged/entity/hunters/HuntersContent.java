@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.entity.hunters;
+import net.minecraft.world.item.SpawnEggItem;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.combat.AttackAttemptEvent;
@@ -21,8 +22,8 @@ public final class HuntersContent {
     public static final DeferredHolder<EntityType<?>, EntityType<RazorwingEntity>> RUBY_ARMOURED_RAZORWING = razorwing("ruby_armoured_razorwing");
     public static final DeferredHolder<EntityType<?>, EntityType<RazorwingEntity>> BLOOD_ARMOURED_RAZORWING = razorwing("blood_armoured_razorwing");
     static {
-        ITEMS.register("frostilyte_spawn_egg", () -> new DeferredSpawnEggItem(FROSTILYTE, -1, -1, new Item.Properties()));
-        ITEMS.register("razorwing_spawn_egg", () -> new DeferredSpawnEggItem(RAZORWING, -1, -1, new Item.Properties()));
+        ITEMS.register("frostilyte_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(FROSTILYTE.get())));
+        ITEMS.register("razorwing_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(RAZORWING.get())));
     }
     private HuntersContent() { }
     private static DeferredHolder<EntityType<?>, EntityType<RazorwingEntity>> razorwing(String id) {

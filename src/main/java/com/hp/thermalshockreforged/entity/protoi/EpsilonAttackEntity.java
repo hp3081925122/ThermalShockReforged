@@ -36,7 +36,7 @@ public final class EpsilonAttackEntity extends Entity implements ServerEndTickTa
         if (task == null) return null;
         task.caster = owner.getUUID(); task.target = victim.getUUID();
         task.targetEyes = victim.getEyePosition(); task.targetPosition = victim.position();
-        task.soundOrigin = victim.blockPosition(); task.dimension = level.dimension().location().toString(); task.capture(owner);
+        task.soundOrigin = victim.blockPosition(); task.dimension = level.dimension().identifier().toString(); task.capture(owner);
         return level.addFreshEntity(task) ? task.getUUID() : null;
     }
     void capture(ProtoiEpsilonEntity owner) {
@@ -65,14 +65,14 @@ public final class EpsilonAttackEntity extends Entity implements ServerEndTickTa
     @Override public void tick() {
         super.tick();
         if (level() instanceof ServerLevel server) {
-            if (caster == null || phase >= 2 || !dimension.equals(server.dimension().location().toString())) { discard(); return; }
+            if (caster == null || phase >= 2 || !dimension.equals(server.dimension().identifier().toString())) { discard(); return; }
             sampleTarget(server);
             if (server.getEntity(caster) instanceof ProtoiEpsilonEntity owner) capture(owner);
             ServerEndTickTasks.schedule(server, getUUID());
         }
     }
     @Override public void endTick(ServerLevel level) {
-        if (isRemoved() || caster == null || phase >= 2 || !dimension.equals(level.dimension().location().toString())) return;
+        if (isRemoved() || caster == null || phase >= 2 || !dimension.equals(level.dimension().identifier().toString())) return;
         if (--remaining > 0) { ServerEndTickTasks.schedule(level, getUUID()); return; }
         sampleTarget(level);
         ProtoiEpsilonEntity owner = level.getEntity(caster) instanceof ProtoiEpsilonEntity epsilon ? epsilon : null;
@@ -81,7 +81,7 @@ public final class EpsilonAttackEntity extends Entity implements ServerEndTickTa
         remaining = 20;
         if (action == 0) {
             level.playSound(null, soundOrigin, SoundEvents.BLAZE_SHOOT, SoundSource.HOSTILE, 1, 1);
-            var bomb = ProjectileContent.EPSILON_BOMB.get().spawn(level, BlockPos.containing(casterPosition.x, casterPosition.y + 1, casterPosition.z), MobSpawnType.MOB_SUMMONED);
+            var bomb = ProjectileContent.EPSILON_BOMB.get().spawn(level, BlockPos.containing(casterPosition.x, casterPosition.y + 1, casterPosition.z), EntitySpawnReason.MOB_SUMMONED);
             if (bomb != null && !bomb.isRemoved()) {
                 bomb.setYRot(getYRot()); bomb.setYBodyRot(getYRot()); bomb.setYHeadRot(getYRot()); bomb.setXRot(getXRot());
                 bomb.setDeltaMovement(look.x * 2, look.y * 1.5, look.z * 2);
@@ -99,23 +99,23 @@ public final class EpsilonAttackEntity extends Entity implements ServerEndTickTa
             discard();
         }
     }
-    @Override protected void addAdditionalSaveData(CompoundTag tag) {
-        if (caster != null) tag.putUUID("Caster", caster);
-        if (target != null) tag.putUUID("Target", target);
-        tag.putDouble("CasterX", casterPosition.x); tag.putDouble("CasterY", casterPosition.y); tag.putDouble("CasterZ", casterPosition.z);
-        tag.putDouble("TargetX", targetPosition.x); tag.putDouble("TargetY", targetPosition.y); tag.putDouble("TargetZ", targetPosition.z);
-        tag.putDouble("EyesX", targetEyes.x); tag.putDouble("EyesY", targetEyes.y); tag.putDouble("EyesZ", targetEyes.z);
-        tag.putDouble("EyeHeight", eyeHeight); tag.putLong("SoundOrigin", soundOrigin.asLong()); tag.putString("Dimension", dimension);
-        tag.putInt("Remaining", remaining); tag.putInt("Phase", phase);
+    @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
+        if (caster != null) output.putString("Caster", caster.toString());
+        if (target != null) output.putString("Target", target.toString());
+        output.putDouble("CasterX", casterPosition.x); output.putDouble("CasterY", casterPosition.y); output.putDouble("CasterZ", casterPosition.z);
+        output.putDouble("TargetX", targetPosition.x); output.putDouble("TargetY", targetPosition.y); output.putDouble("TargetZ", targetPosition.z);
+        output.putDouble("EyesX", targetEyes.x); output.putDouble("EyesY", targetEyes.y); output.putDouble("EyesZ", targetEyes.z);
+        output.putDouble("EyeHeight", eyeHeight); output.putLong("SoundOrigin", soundOrigin.asLong()); output.putString("Dimension", dimension);
+        output.putInt("Remaining", remaining); output.putInt("Phase", phase);
     }
-    @Override protected void readAdditionalSaveData(CompoundTag tag) {
-        caster = tag.hasUUID("Caster") ? tag.getUUID("Caster") : null;
-        target = tag.hasUUID("Target") ? tag.getUUID("Target") : null;
-        casterPosition = new Vec3(tag.getDouble("CasterX"), tag.getDouble("CasterY"), tag.getDouble("CasterZ"));
-        targetPosition = new Vec3(tag.getDouble("TargetX"), tag.getDouble("TargetY"), tag.getDouble("TargetZ"));
-        targetEyes = new Vec3(tag.getDouble("EyesX"), tag.getDouble("EyesY"), tag.getDouble("EyesZ"));
-        eyeHeight = tag.getDouble("EyeHeight"); soundOrigin = BlockPos.of(tag.getLong("SoundOrigin")); dimension = tag.getString("Dimension");
-        remaining = Math.clamp(tag.getInt("Remaining"), 1, 20); phase = Math.clamp(tag.getInt("Phase"), 0, 2);
+    @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
+        caster = input.getString("Caster").map(java.util.UUID::fromString).orElse(null);
+        target = input.getString("Target").map(java.util.UUID::fromString).orElse(null);
+        casterPosition = new Vec3(input.getDoubleOr("CasterX", 0.0), input.getDoubleOr("CasterY", 0.0), input.getDoubleOr("CasterZ", 0.0));
+        targetPosition = new Vec3(input.getDoubleOr("TargetX", 0.0), input.getDoubleOr("TargetY", 0.0), input.getDoubleOr("TargetZ", 0.0));
+        targetEyes = new Vec3(input.getDoubleOr("EyesX", 0.0), input.getDoubleOr("EyesY", 0.0), input.getDoubleOr("EyesZ", 0.0));
+        eyeHeight = input.getDoubleOr("EyeHeight", 0.0); soundOrigin = BlockPos.of(input.getLongOr("SoundOrigin", 0L)); dimension = input.getStringOr("Dimension", "");
+        remaining = Math.clamp(input.getIntOr("Remaining", 0), 1, 20); phase = Math.clamp(input.getIntOr("Phase", 0), 0, 2);
         if (!finite(casterPosition) || !finite(targetPosition) || !finite(targetEyes) || !Double.isFinite(eyeHeight)) phase = 2;
     }
     private static boolean finite(Vec3 value) { return Double.isFinite(value.x) && Double.isFinite(value.y) && Double.isFinite(value.z); }

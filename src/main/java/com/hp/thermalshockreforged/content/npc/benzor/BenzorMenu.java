@@ -61,7 +61,7 @@ public final class BenzorMenu extends AbstractContainerMenu {
         player.giveExperiencePoints(experience); input.setChanged(); broadcastChanges();
         ThermalShockReforged.LOGGER.debug("Benzor exchange committed: player={}, adamantine={}, mithral={}, tourmaline={}, xp={}", player.getUUID(), counts[0], counts[1], counts[2], experience); return true;
     }
-    @Override public void removed(Player player) { super.removed(player); if (!closed && !level.isClientSide && player == owner) clearContainer(player, input); closed = true; }
+    @Override public void removed(Player player) { super.removed(player); if (!closed && !level.isClientSide() && player == owner) clearContainer(player, input); closed = true; }
     @Override public ItemStack quickMoveStack(Player player, int index) {
         if (page != BenzorPage.SPICE || player != owner || closed || index < 0 || index >= slots.size()) return ItemStack.EMPTY;
         Slot slot = slots.get(index); if (!slot.hasItem()) return ItemStack.EMPTY; ItemStack stack = slot.getItem(); ItemStack original = stack.copy();
