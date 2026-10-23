@@ -42,8 +42,7 @@ public final class FloristEntity extends PathfinderMob implements GeoEntity {
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-        if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
-        if (input.getString("Texture").isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
+if (input.getString("Texture").isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
         setPersistenceRequired();
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop("Idle")))); }

@@ -127,7 +127,7 @@ public final class BrimstoneCakeConsumption extends Entity implements ServerEndT
         dimension = input.getStringOr("CakeDimension", "");
         phase = Math.clamp(input.getIntOr("CakePhase", 0), 1, 3);
         remaining = Math.clamp(input.getIntOr("CakeRemaining", 0), 1, 5);
-        armed = input.getBooleanOr("CakeArmed", false) && owner != null && tag.contains("CakeAnchor", 99) && Identifier.tryParse(dimension) != null;
+        armed = input.getBooleanOr("CakeArmed", false) && owner != null  && Identifier.tryParse(dimension) != null;
         consumed = input.getBooleanOr("CakeConsumed", false);
         noPhysics = true;
         setNoGravity(true);

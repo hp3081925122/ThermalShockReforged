@@ -103,7 +103,7 @@ public final class SpearItem extends Item implements GeoItem {
                 ThermalShockReforged.LOGGER.debug("Spear kill challenge skipped before committed death: victim={}, attacker={}", victim.getUUID(), attacker.getUUID());
                 return result;
             }
-            AdvancementHolder advancement = player.server.getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "spear_kill_get"));
+            AdvancementHolder advancement = player.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "spear_kill_get"));
             if (advancement != null) for (String criterion : player.getAdvancements().getOrStartProgress(advancement).getRemainingCriteria()) player.getAdvancements().award(advancement, criterion);
         }
         return result;

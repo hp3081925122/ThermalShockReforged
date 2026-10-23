@@ -75,9 +75,9 @@ public final class SootlingEntity extends net.minecraft.world.entity.monster.Mon
         if (target == null) { skillTick = -1; skillTarget = null; return; }
         if (resumeAnimation) { setAnimation("attack"); resumeAnimation = false; }
         skillTick++;
-        if (skillTick == 20) { face(target); var look = getLookAngle(); setDeltaMovement(look.x * 2, -0.5, look.z * 2); hasImpulse = true; }
+        if (skillTick == 20) { face(target); var look = getLookAngle(); setDeltaMovement(look.x * 2, -0.5, look.z * 2); hurtMarked = true; }
         if (skillTick >= 20 && skillTick <= 38 && (skillTick - 20) % 2 == 0 && distanceTo(target) <= 2) {
-            var source = new DamageSource(level().registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getHolderOrThrow(com.hp.thermalshockreforged.content.ModDamageTypes.THERM_IFRAME_BYPASS));
+            var source = new DamageSource(level().registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getOrThrow(com.hp.thermalshockreforged.content.ModDamageTypes.THERM_IFRAME_BYPASS));
             target.hurt(source, (float) (getAttributeValue(Attributes.ATTACK_DAMAGE) / 3));
         }
         if (skillTick >= 38) { skillTick = -1; skillTarget = null; }

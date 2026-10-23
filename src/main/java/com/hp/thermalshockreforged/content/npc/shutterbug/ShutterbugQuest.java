@@ -22,11 +22,11 @@ final class ShutterbugQuest {
         ThermalShockReforged.LOGGER.debug("Unette introduction committed: player={}", player.getUUID());
     }
     static boolean done(ServerPlayer player, String id) {
-        var advancement = player.server.getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id));
+        var advancement = player.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id));
         return advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone();
     }
     static boolean grantNew(ServerPlayer player, String id) {
-        var advancement = player.server.getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id));
+        var advancement = player.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id));
         if (advancement == null) { ThermalShockReforged.LOGGER.warn("Unette advancement unavailable: id={}, player={}", id, player.getUUID()); return false; }
         var progress = player.getAdvancements().getOrStartProgress(advancement);
         if (progress.isDone()) return false;

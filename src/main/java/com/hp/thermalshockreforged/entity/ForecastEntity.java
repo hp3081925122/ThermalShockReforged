@@ -175,7 +175,7 @@ public final class ForecastEntity extends Monster implements GeoEntity, ServerEn
         if (driftMovePending) {
             driftMovePending = false;
             setDeltaMovement(new Vec3(random.nextDouble() * 2 - 1, random.nextDouble() * 0.4 - 0.2, random.nextDouble() * 2 - 1));
-            hasImpulse = true;
+            hurtMarked = true;
             driftSlowPending = true;
             ThermalShockReforged.LOGGER.debug("Forecast drift pulse: entity={}, slowPending={}", getUUID(), driftSlowPending);
             ServerEndTickTasks.schedule(server, getUUID());

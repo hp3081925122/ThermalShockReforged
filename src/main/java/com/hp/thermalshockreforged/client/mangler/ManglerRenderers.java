@@ -78,7 +78,7 @@ public final class ManglerRenderers {
         }
 
         @Override
-        protected float getDeathMaxRotation(T entity) { return entity instanceof HeraldEntity ? 0 : super.getDeathMaxRotation(entity); }
+        protected float getDeathMaxRotation(com.geckolib.renderer.base.GeoRenderState state) { return entity instanceof HeraldEntity ? 0 : super.getDeathMaxRotation(entity); }
         @Override
         public RenderType getRenderType(T entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }

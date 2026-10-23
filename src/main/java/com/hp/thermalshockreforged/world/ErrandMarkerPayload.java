@@ -34,7 +34,7 @@ public record ErrandMarkerPayload(int done) implements CustomPacketPayload {
     private static void send(ServerPlayer player) {
         int done = 0;
         for (int index = 0; index < FINALS.size(); index++) {
-            var advancement = player.server.getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, FINALS.get(index)));
+            var advancement = player.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, FINALS.get(index)));
             if (advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone()) done |= 1 << index;
         }
         PacketDistributor.sendToPlayer(player, new ErrandMarkerPayload(done));

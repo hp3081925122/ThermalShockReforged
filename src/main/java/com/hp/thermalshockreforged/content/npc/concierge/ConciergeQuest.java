@@ -16,11 +16,11 @@ public final class ConciergeQuest {
     private static final String COMPLETE = "thermal_shock_reforged_concierge_blasphemy_paid";
     private static final String INFO = "thermal_shock_reforged_npc_info_vilebath";
     static boolean has(ServerPlayer player, String id) {
-        var advancement = player.server.getAdvancements().get(ConciergeContent.id(id));
+        var advancement = player.getServer().getAdvancements().get(ConciergeContent.id(id));
         return advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone();
     }
     static boolean award(ServerPlayer player, String id) {
-        var advancement = player.server.getAdvancements().get(ConciergeContent.id(id));
+        var advancement = player.getServer().getAdvancements().get(ConciergeContent.id(id));
         if (advancement == null) { ThermalShockReforged.LOGGER.warn("Concierge advancement missing: id={}", id); return false; }
         var progress = player.getAdvancements().getOrStartProgress(advancement);
         if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) player.getAdvancements().award(advancement, criterion);
@@ -30,7 +30,7 @@ public final class ConciergeQuest {
     static boolean vilebath(ServerPlayer player) { return player.getPersistentData().getBoolean(INFO) || has(player, "blasphemy_4"); }
     static boolean finish(ServerPlayer player, BlockPos anchor) {
         if (completed(player) || !has(player, "blasphemy_3")) return false;
-        var advancement = player.server.getAdvancements().get(ConciergeContent.id("blasphemy_4"));
+        var advancement = player.getServer().getAdvancements().get(ConciergeContent.id("blasphemy_4"));
         var reward = BuiltInRegistries.ITEM.get(ConciergeContent.id("panacea"));
         var payment = BuiltInRegistries.ITEM.get(ConciergeContent.id("primordial_blood"));
         if (advancement == null || reward == Items.AIR || payment == Items.AIR) {

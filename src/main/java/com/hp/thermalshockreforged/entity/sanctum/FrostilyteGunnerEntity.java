@@ -113,8 +113,7 @@ public final class FrostilyteGunnerEntity extends Monster implements GeoEntity {
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-        if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
-        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
         cooldown = Math.clamp(input.getIntOr("GunnerCooldown", 0), 0, 60);
         movementLock = Math.clamp(input.getIntOr("GunnerMovementLock", 0), 0, 29);
         if (!level().isClientSide()) syncMovementLock();

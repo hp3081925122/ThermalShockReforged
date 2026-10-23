@@ -4,6 +4,7 @@ import com.geckolib.animatable.GeoAnimatable;
 import com.geckolib.animation.RawAnimation;
 import com.geckolib.animation.state.AnimationTest;
 import com.geckolib.animation.object.PlayState;
+import com.geckolib.constant.DataTickets;
 
 public class LegacyAnimationController<T extends GeoAnimatable> extends com.geckolib.animation.AnimationController<T> {
     @FunctionalInterface
@@ -32,6 +33,8 @@ public class LegacyAnimationController<T extends GeoAnimatable> extends com.geck
         public void setAnimation(RawAnimation animation) { delegate.setAnimation(animation); }
         public boolean isMoving() { return delegate.isMoving(); }
         public float getLimbSwingAmount() { return 0.0F; }
+        public float getPartialTick() { return delegate.getDataOrDefault(DataTickets.PARTIAL_TICK, 0.0F); }
+        public boolean isCurrentAnimation(RawAnimation animation) { return delegate.isCurrentAnimation(animation); }
         public LegacyAnimationController<A> getController() { return (LegacyAnimationController<A>) delegate.controller(); }
     }
 }

@@ -125,8 +125,8 @@ public final class SquallEntity extends Monster {
         }
     }
 
-    @Override protected void customServerAiStep() {
-        super.customServerAiStep();
+    @Override protected void customServerAiStep(net.minecraft.server.level.ServerLevel level) {
+        super.customServerAiStep(level);
         applyConfiguredAttributes();
         if (!(level() instanceof ServerLevel server)) return;
         boolean wasLit = lit();
@@ -291,7 +291,7 @@ public final class SquallEntity extends Monster {
         for (LivingEntity victim : server.getEntitiesOfClass(LivingEntity.class, area, entity -> entity != this && entity.isAlive() && !(entity instanceof Enemy))) {
             if (victim instanceof Player player && (player.isCreative() || player.isSpectator())) continue;
             if (victim.position().subtract(center).horizontalDistanceSqr() > reach) continue;
-            if (!victim.hurt(damageSources().mobAttack(this), (float) damage)) continue;
+            if (!victim.hurtOrSimulate(damageSources().mobAttack(this), (float) damage)) continue;
             Vec3 away = victim.position().subtract(center);
             if (away.horizontalDistanceSqr() < 1.0E-4) away = victim.position().subtract(position());
             victim.knockback(SquallConfig.SKILL_KNOCKBACK.get(), -away.x, -away.z);
@@ -335,7 +335,7 @@ public final class SquallEntity extends Monster {
         super.die(source);
         if (!dead || deathAwarded || !(source.getEntity() instanceof ServerPlayer player)) return;
         deathAwarded = true;
-        var advancement = player.server.getAdvancements().get(SquallContent.id("squall_kill_get"));
+        var advancement = player.getServer().getAdvancements().get(SquallContent.id("squall_kill_get"));
         if (advancement == null) ThermalShockReforged.LOGGER.warn("Squall kill advancement is unavailable: squall_kill_get");
         else {
             var progress = player.getAdvancements().getOrStartProgress(advancement);

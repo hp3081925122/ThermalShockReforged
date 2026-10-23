@@ -52,7 +52,7 @@ public final class BreatherSpongeBlock extends Block {
             straw.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
             level.playSound(null, pos, SoundEvents.HONEY_DRINK, SoundSource.NEUTRAL, 1, 1);
             if (player instanceof ServerPlayer serverPlayer) {
-                var advancement = serverPlayer.server.getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "breather_sponge_get"));
+                var advancement = serverPlayer.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "breather_sponge_get"));
                 if (advancement != null) {
                     var progress = serverPlayer.getAdvancements().getOrStartProgress(advancement);
                     if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) serverPlayer.getAdvancements().award(advancement, criterion);

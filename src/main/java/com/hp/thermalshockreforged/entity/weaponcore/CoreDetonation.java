@@ -39,7 +39,7 @@ final class CoreDetonation {
     private static void detonate(Burst burst) {
         ServerLevel level = burst.level();
         Vec3 origin = burst.origin();
-        DamageSource source = new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS), burst.attacker());
+        DamageSource source = new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS), burst.attacker());
         level.sendParticles(CavebloomerContent.RED_EXPLODE.get(), origin.x, origin.y, origin.z, 1, .001, .001, .001, 0);
         var nearby = targets(level, origin, 3);
         for (Entity target : nearby) {
@@ -47,7 +47,7 @@ final class CoreDetonation {
             if (target instanceof LivingEntity living && BuiltInRegistries.ENTITY_TYPE.getKey(target.getType()).equals(FROST_TITAN)
                     && ((LivingDeathStateAccess) (Object) living).thermalShockReforged$isDeathCommitted()
                     && level.isEmptyBlock(BlockPos.containing(origin.x, origin.y - 1, origin.z)) && burst.attacker() instanceof ServerPlayer player) {
-                var advancement = player.server.getAdvancements().get(CHALLENGE);
+                var advancement = player.getServer().getAdvancements().get(CHALLENGE);
                 if (advancement != null) {
                     var progress = player.getAdvancements().getOrStartProgress(advancement);
                     if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) player.getAdvancements().award(advancement, criterion);

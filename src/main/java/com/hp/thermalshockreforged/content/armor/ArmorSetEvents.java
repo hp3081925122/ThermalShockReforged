@@ -71,7 +71,7 @@ final class ArmorSetEvents {
 
     private static void award(Player player, Identifier id) {
         if (player instanceof ServerPlayer serverPlayer) {
-            var advancement = serverPlayer.server.getAdvancements().get(id);
+            var advancement = serverPlayer.getServer().getAdvancements().get(id);
             if (advancement != null) {
                 var progress = serverPlayer.getAdvancements().getOrStartProgress(advancement);
                 if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) serverPlayer.getAdvancements().award(advancement, criterion);

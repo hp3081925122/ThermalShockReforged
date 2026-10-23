@@ -37,7 +37,7 @@ public final class BuzzsawItem extends Item implements GeoItem {
         if (wielder.level().isClientSide()) {
             if (wielder instanceof Player player) player.getCooldowns().addCooldown(this, 11);
             var look = wielder.getLookAngle();
-            wielder.setDeltaMovement(new Vec3(look.x, .1, look.z)); wielder.hasImpulse = true;
+            wielder.setDeltaMovement(new Vec3(look.x, .1, look.z)); wielder.hurtMarked = true;
             return false;
         }
         if (!(wielder.level() instanceof ServerLevel server)) return false;
@@ -47,7 +47,7 @@ public final class BuzzsawItem extends Item implements GeoItem {
         triggerAnim(wielder, GeoItem.getOrAssignId(stack, server), "procedure", "1");
         server.playSound(null, wielder.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "buzzsaw")), SoundSource.NEUTRAL, .7F, 1);
         var look = wielder.getLookAngle();
-        wielder.setDeltaMovement(new Vec3(look.x, .1, look.z)); wielder.hasImpulse = true; wielder.hurtMarked = true;
+        wielder.setDeltaMovement(new Vec3(look.x, .1, look.z)); wielder.hurtMarked = true; wielder.hurtMarked = true;
         sweep.cut(server, wielder);
         server.sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, wielder.getX(), wielder.getY(), wielder.getZ(), 0, 0, .1, 0, 1);
         ThermalShockReforged.LOGGER.debug("Buzzsaw sweep started: owner={}, entityId={}, hand={}, task={}", wielder.getUUID(), wielder.getId(), hand, sweep.getUUID());

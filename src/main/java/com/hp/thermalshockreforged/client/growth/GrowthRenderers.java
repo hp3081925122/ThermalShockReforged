@@ -61,9 +61,11 @@ public final class GrowthRenderers {
         @Override public void setCustomAnimations(GelshooterEntity entity,long id,com.geckolib.animation.state.AnimationTest<GelshooterEntity> state) {
             var head=getAnimationProcessor().getBone("head");
             if(head!=null) {
-                var data=state.getData(com.geckolib.constant.DataTickets.ENTITY_MODEL_DATA);
-                head.setRotX(data.headPitch()*(float)(Math.PI/180));
-                head.setRotY(data.netHeadYaw()*(float)(Math.PI/180));
+                float pitch=state.getDataOrDefault(com.geckolib.constant.DataTickets.ENTITY_PITCH, 0.0F);
+                float yaw=state.getDataOrDefault(com.geckolib.constant.DataTickets.ENTITY_YAW, 0.0F);
+                float body=state.getDataOrDefault(com.geckolib.constant.DataTickets.ENTITY_BODY_YAW, yaw);
+                head.setRotX(pitch*(float)(Math.PI/180));
+                head.setRotY((yaw-body)*(float)(Math.PI/180));
             }
         }
     }

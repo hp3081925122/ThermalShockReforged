@@ -53,7 +53,7 @@ public final class ElementalCombat {
             if (victim.getType().is(element.resist)) resisted = true;
         }
         if (active == 0) return;
-        DamageSource secondary = new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS));
+        DamageSource secondary = new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS));
         if (resisted) {
             event.setCanceled(true);
             victim.hurt(secondary, 1);
@@ -84,7 +84,7 @@ public final class ElementalCombat {
         double multiplier = Double.isFinite(resistance) ? 1 - Math.clamp(resistance, 0, 1) : 0;
         if (multiplier <= 0) return;
         direct.setDeltaMovement(direct.getLookAngle().scale(-.05 * multiplier));
-        direct.hasImpulse = true;
+        direct.hurtMarked = true;
         direct.hurtMarked = true;
     }
 

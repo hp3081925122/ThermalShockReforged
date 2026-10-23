@@ -64,7 +64,7 @@ public final class RippleCastEntity extends Entity implements ServerEndTickTask 
             if (err != null) err.setYRot(level.getRandom().nextFloat() * 360);
             for (Player player : level.getEntitiesOfClass(Player.class, new AABB(position(), position()).inflate(3.5), entity -> true)) {
                 double resistance = net.minecraft.util.Mth.clamp(player.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1);
-                if (resistance < 1) { player.setDeltaMovement(new Vec3(0, .5 * (1 - resistance), 0)); player.hasImpulse = true; player.hurtMarked = true; }
+                if (resistance < 1) { player.setDeltaMovement(new Vec3(0, .5 * (1 - resistance), 0)); player.hurtMarked = true; player.hurtMarked = true; }
             }
         } else {
             level.playSound(null, blockPosition(), sound("galvanitedeath"), SoundSource.HOSTILE, .6F, 3);

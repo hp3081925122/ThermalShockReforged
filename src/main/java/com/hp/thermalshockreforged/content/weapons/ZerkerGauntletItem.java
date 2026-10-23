@@ -68,7 +68,7 @@ public final class ZerkerGauntletItem extends Item implements GeoItem {
             }
         }
         if (victim.getType() == IceContent.ICIDROZERK.get() && victim instanceof IceCreatureEntity ice && ice.hasCommittedDeath() && attacker instanceof ServerPlayer player) {
-            var advancement = player.server.getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "icidrozerk_mace_kill_get"));
+            var advancement = player.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "icidrozerk_mace_kill_get"));
             if (advancement != null) {
                 var progress = player.getAdvancements().getOrStartProgress(advancement);
                 if (!progress.isDone()) {

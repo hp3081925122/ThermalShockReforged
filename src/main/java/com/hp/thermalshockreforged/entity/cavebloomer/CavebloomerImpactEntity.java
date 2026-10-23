@@ -57,8 +57,8 @@ public final class CavebloomerImpactEntity extends AttackCarrierBody implements 
         if (committed) return;
         committed = true;
         if (!poison()) server.playSound(null, BlockPos.containing(origin), SoundEvents.DRAGON_FIREBALL_EXPLODE, SoundSource.NEUTRAL, 1, 1);
-        var source = new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE)
-                .getHolderOrThrow(poison() ? DamageTypes.UNATTRIBUTED_FIREBALL : DamageTypes.EXPLOSION));
+        var source = new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE)
+                .getOrThrow(poison() ? DamageTypes.UNATTRIBUTED_FIREBALL : DamageTypes.EXPLOSION));
         var targets = server.getEntitiesOfClass(Player.class, new AABB(origin, origin).inflate(poison() ? 2 : 1.5), entity -> true)
                 .stream().sorted(Comparator.comparingDouble(entity -> entity.distanceToSqr(origin))).toList();
         for (Player target : targets) {

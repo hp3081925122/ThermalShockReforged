@@ -17,7 +17,7 @@ public final class LautQuest {
     public static Result accept(ServerPlayer player, LautEntity npc, BlockPos anchor) {
         if (npc.completed() || !npc.isAlive()) return Result.ALREADY_DONE;
         if (available(player) < 3) return Result.INSUFFICIENT;
-        var advancement = player.server.getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "babies_or_pets"));
+        var advancement = player.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "babies_or_pets"));
         var reward = BuiltInRegistries.ITEM.get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "adamantine_spice"));
         if (advancement == null || reward == net.minecraft.world.item.Items.AIR) { ThermalShockReforged.LOGGER.warn("Laut quest data is unavailable; keeping payment: player={}, npc={}", player.getUUID(), npc.getUUID()); return Result.UNAVAILABLE; }
         if (!npc.claim()) return Result.ALREADY_DONE;

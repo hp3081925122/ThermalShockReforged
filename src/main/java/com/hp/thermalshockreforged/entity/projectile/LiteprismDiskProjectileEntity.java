@@ -48,7 +48,7 @@ public final class LiteprismDiskProjectileEntity extends LegacyArrowEntity {
                 if (active == null) { active = new HashSet<>(); DISCHARGING.set(active); }
                 if (active.add(living)) {
                     try {
-                        living.hurt(new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS)), 10);
+                        living.hurt(new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS)), 10);
                         server.sendParticles(WeaponContent.PRISM_CLUSTER.get(), getX(), living.getEyeY(), getZ(), 1, .0001, .0001, .0001, 0);
                         living.removeEffect(WeaponContent.LITEPRISM_BUILDUP);
                         server.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "prism_breakout")), SoundSource.NEUTRAL, 1, 1);

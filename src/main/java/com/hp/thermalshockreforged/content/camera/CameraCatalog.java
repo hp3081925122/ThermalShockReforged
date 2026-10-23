@@ -100,7 +100,7 @@ final class CameraCatalog {
             if (Collections.disjoint(entry.types, subjects)) continue;
             player.displayClientMessage(Component.translatable(entry.translationKey), false);
             if (entry.photoQuest) {
-                var advancement = player.server.getAdvancements().get(id("leaf_it_to_me_2"));
+                var advancement = player.getServer().getAdvancements().get(id("leaf_it_to_me_2"));
                 if (advancement == null) { ThermalShockReforged.LOGGER.warn("Camera photo advancement unavailable: leaf_it_to_me_2"); continue; }
                 var progress = player.getAdvancements().getOrStartProgress(advancement);
                 if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) player.getAdvancements().award(advancement, criterion);

@@ -52,7 +52,7 @@ public final class DiskResonanceEntity extends Entity implements ServerEndTickTa
         level.sendParticles(WeaponContent.PRISM_CLUSTER.get(), getX(), getY(), getZ(), 1, .5, .5, .5, 0);
         var targets = level.getEntitiesOfClass(Entity.class, new AABB(position(), position()).inflate(3), entity -> entity != this);
         targets.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(position())));
-        var source = new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS), attacker);
+        var source = new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS), attacker);
         for (Entity target : targets) target.hurt(source, 4);
         ThermalShockReforged.LOGGER.debug("Liteprism core resonance: task={}, elapsed={}, targets={}", getUUID(), elapsed, targets.size());
     }

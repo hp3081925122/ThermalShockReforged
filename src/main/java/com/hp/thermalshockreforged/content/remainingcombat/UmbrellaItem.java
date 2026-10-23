@@ -21,7 +21,7 @@ public final class UmbrellaItem extends AnimatedCombatItem {
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var result = super.use(level, player, hand);
         if (player.getCooldowns().isOnCooldown(this)) return result;
-        player.setDeltaMovement(new Vec3(0, .5, 0)); player.hasImpulse = true;
+        player.setDeltaMovement(new Vec3(0, .5, 0)); player.hurtMarked = true;
         if (level instanceof ServerLevel server) {
             player.hurtMarked = true;
             player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, legendary ? 60 : 120, 1));

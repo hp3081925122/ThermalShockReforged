@@ -46,7 +46,7 @@ public final class GlastrekkerEntity extends AnimatedMonsterEntity {
         super.baseTick();
         if (!level().isClientSide() && isInWater()) {
             addEffect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 2, 3, true, false));
-            addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 2, 3, true, false));
+            addEffect(new MobEffectInstance(MobEffects.SPEED, 2, 3, true, false));
         }
     }
     @Override public void playerTouch(Player player) {
@@ -77,9 +77,9 @@ public final class GlastrekkerEntity extends AnimatedMonsterEntity {
         if (!server.addFreshEntity(replacement)) { replacement.discard(); return; }
         discard();
         if (!player.getAbilities().instabuild) player.getMainHandItem().shrink(1);
-        server.playSound(null, pos, SoundEvents.HORSE_ARMOR, SoundSource.NEUTRAL, 1, 1);
+        server.playSound(null, pos, SoundEvents.HORSE_ARMOR.value(), SoundSource.NEUTRAL, 1, 1);
         if (player instanceof ServerPlayer user) {
-            var advancement = user.server.getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "glastrekker_armor_get"));
+            var advancement = user.getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "glastrekker_armor_get"));
             if (advancement != null) {
                 var progress = user.getAdvancements().getOrStartProgress(advancement);
                 if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) user.getAdvancements().award(advancement, criterion);

@@ -35,7 +35,7 @@ public final class MonolithRenderers {
     }
     private static final class ActiveRenderer extends Renderer<MonolithEntity> {
         private ActiveRenderer(EntityRendererProvider.Context context) { super(context, true); addRenderLayer(new Glow(this)); }
-        protected float getDeathMaxRotation(MonolithEntity entity) { return 0; }
+        protected float getDeathMaxRotation(com.geckolib.renderer.base.GeoRenderState state) { return 0; }
     }
     private static final class DormantRenderer extends Renderer<DormantMonolithEntity> { private DormantRenderer(EntityRendererProvider.Context context) { super(context, false); } }
     private static final class Glow extends LegacyGeoRenderLayer<MonolithEntity> {

@@ -25,7 +25,7 @@ public final class AltarBlock extends GeoDecorBlock {
 
     public static boolean unlocked(ServerPlayer player) {
         if (!((net.minecraft.server.level.ServerLevel) player.level()).getGameRules().getBoolean(ModGameRules.LOQENDIA_ENFORCE_PROGRESSION)) return true;
-        var advancement = player.server.getAdvancements().get(UNLOCK_ADVANCEMENT);
+        var advancement = player.getServer().getAdvancements().get(UNLOCK_ADVANCEMENT);
         return advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone();
     }
 

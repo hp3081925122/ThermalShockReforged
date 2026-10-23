@@ -19,7 +19,7 @@ public final class GuardianPylonRenderer extends LegacyGeoEntityRenderer<Guardia
     public GuardianPylonRenderer(EntityRendererProvider.Context context) {
         super(context, new Model()); shadowRadius = 0; withScale(1); addRenderLayer(new Glow(this));
     }
-    protected float getDeathMaxRotation(GuardianPylonEntity entity) { return 0; }
+    protected float getDeathMaxRotation(com.geckolib.renderer.base.GeoRenderState state) { return 0; }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     @Override public RenderType getRenderType(GuardianPylonEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     private static final class Model extends LegacyGeoModel<GuardianPylonEntity> {

@@ -23,7 +23,7 @@ public final class AngryCavebloomerRenderer extends LegacyGeoEntityRenderer<Angr
     }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     @Override public RenderType getRenderType(AngryCavebloomerEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
-    protected float getDeathMaxRotation(AngryCavebloomerEntity entity) { return 0; }
+    protected float getDeathMaxRotation(com.geckolib.renderer.base.GeoRenderState state) { return 0; }
     private static final class Model extends LegacyGeoModel<AngryCavebloomerEntity> {
         @Override public Identifier getModelResource(AngryCavebloomerEntity entity) { return resource("geo/angry_cavebloomer.geo.json"); }
         @Override public Identifier getAnimationResource(AngryCavebloomerEntity entity) { return resource("animations/angry_cavebloomer.animation.json"); }

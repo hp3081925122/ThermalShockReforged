@@ -47,7 +47,7 @@ public final class ElectricSphereEntity extends AnimatedPathfinderEntity {
         super.playerTouch(player);
         if (!(level() instanceof ServerLevel server) || !isAlive() || distanceTo(player) > .75F) return;
         double damage = getAttributeValue(Attributes.ATTACK_DAMAGE) * .025;
-        if (Double.isFinite(damage) && damage > 0) player.hurt(new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS)), (float)Math.min(damage, Float.MAX_VALUE));
+        if (Double.isFinite(damage) && damage > 0) player.hurt(new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS)), (float)Math.min(damage, Float.MAX_VALUE));
     }
     public void rebound(Entity attacker) {
         if (!(level() instanceof ServerLevel server) || !isAlive() || attacker == null || attacker == this || attacker.level() != level()) return;

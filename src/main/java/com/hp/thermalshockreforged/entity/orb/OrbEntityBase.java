@@ -82,7 +82,7 @@ public abstract class OrbEntityBase extends Monster {
         if (!targets.isEmpty() && !level().isClientSide()) ThermalShockReforged.LOGGER.debug("Orb collision resolved: orb={}, type={}, position={}, targets={}, graceTicks={}", getUUID(), getType(), position(), targets.size(), graceTicks);
         for (Entity entity : targets) {
             if (entity instanceof Player player) {
-                player.hurt(new DamageSource(level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.INDIRECT_MAGIC)), 5.0F);
+                player.hurt(new DamageSource(level().registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.INDIRECT_MAGIC)), 5.0F);
                 if (level() instanceof net.minecraft.server.level.ServerLevel server) spawnImpactParticles(server);
             }
         }

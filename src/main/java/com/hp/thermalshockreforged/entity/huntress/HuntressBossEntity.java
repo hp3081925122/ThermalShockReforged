@@ -39,7 +39,7 @@ public final class HuntressBossEntity extends AnimatedMonsterEntity {
         applyConfiguration();
         if (distanceTo(victim) <= 3) {
             cooldown = HuntressConfig.ROLLBACK_COOLDOWN.get(); triggerProcedure("rollback");
-            var look = getLookAngle(); setDeltaMovement(-2 * look.x, 1, -2 * look.z); hasImpulse = true;
+            var look = getLookAngle(); setDeltaMovement(-2 * look.x, 1, -2 * look.z); hurtMarked = true;
             return;
         }
         int skill = random.nextDouble() < HuntressConfig.TRIPLE_CHANCE.get() ? 1 : 2;
@@ -72,7 +72,7 @@ public final class HuntressBossEntity extends AnimatedMonsterEntity {
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }
     @Override public void startSeenByPlayer(ServerPlayer player) { super.startSeenByPlayer(player); bossInfo.addPlayer(player); }
     @Override public void stopSeenByPlayer(ServerPlayer player) { super.stopSeenByPlayer(player); bossInfo.removePlayer(player); }
-    @Override protected void customServerAiStep() { super.customServerAiStep(); bossInfo.setProgress(getHealth() / getMaxHealth()); }
+    @Override protected void customServerAiStep(net.minecraft.server.level.ServerLevel level) { super.customServerAiStep(level); bossInfo.setProgress(getHealth() / getMaxHealth()); }
     @Override protected List<String> procedureAnimations() { return List.of("rollback", "triplehit", "dissa", "reappear2"); }
     @Override protected String movementAnimation(boolean moving) { return !onGround() ? "reappear" : moving ? "sprint" : "idle2"; }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putInt("HuntressCooldown", cooldown); output.putInt("HuntressMovementLock", movementLock); output.putInt("HuntressGravityFailsafe", gravityFailsafe); if (activeTask != null) output.putString("HuntressActiveTask", activeTask.toString()); }

@@ -65,7 +65,7 @@ public final class CavebloomerContent {
             event.setCanceled(true);
             var look = bloom.getLookAngle();
             bloom.setDeltaMovement(look.x * 1.3, 1, look.z * 1.3);
-            bloom.hasImpulse = true;
+            bloom.hurtMarked = true;
             level.playSound(null, bloom.blockPosition(), net.minecraft.sounds.SoundEvents.FIREWORK_ROCKET_LAUNCH, net.minecraft.sounds.SoundSource.HOSTILE, 1, 1);
             ThermalShockReforged.LOGGER.debug("Budding bloomer attack leap: caster={}, victim={}", bloom.getUUID(), event.getEntity().getUUID());
         }

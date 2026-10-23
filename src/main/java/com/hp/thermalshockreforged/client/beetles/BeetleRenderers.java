@@ -27,7 +27,7 @@ public final class BeetleRenderers {
     private static final class CrasherRenderer extends LegacyGeoEntityRenderer<BeetleCrasherEntity> {
         private CrasherRenderer(EntityRendererProvider.Context context) { super(context, new CombatModel<>("beetle_bastion", false)); shadowRadius = 1.5F; }
         @Override public RenderType getRenderType(BeetleCrasherEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
-        protected float getDeathMaxRotation(BeetleCrasherEntity entity) { return 0; }
+        protected float getDeathMaxRotation(com.geckolib.renderer.base.GeoRenderState state) { return 0; }
     }
     private static final class ThrasherRenderer extends LegacyGeoEntityRenderer<BeetleThrasherEntity> {
         private ThrasherRenderer(EntityRendererProvider.Context context) { super(context, new CombatModel<>("blood_beetle", true)); shadowRadius = .5F; }

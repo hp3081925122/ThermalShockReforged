@@ -19,7 +19,7 @@ public final class MagneticBombRenderer extends LegacyGeoEntityRenderer<Magnetic
     public MagneticBombRenderer(EntityRendererProvider.Context context) { super(context, new Model()); shadowRadius = .5F; addRenderLayer(new Glow(this)); }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     @Override public RenderType getRenderType(MagneticBombEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
-    protected float getDeathMaxRotation(MagneticBombEntity entity) { return 0; }
+    protected float getDeathMaxRotation(com.geckolib.renderer.base.GeoRenderState state) { return 0; }
     private static final class Model extends LegacyGeoModel<MagneticBombEntity> {
         @Override public Identifier getModelResource(MagneticBombEntity entity) { return resource("geo/magnetic_bomb.geo.json"); }
         @Override public Identifier getTextureResource(MagneticBombEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }

@@ -42,7 +42,7 @@ public final class StriderRenderers {
         private Renderer(EntityRendererProvider.Context context, String id, String bone, float scale, float shadow, String glow) {
             super(context, new Model(id, bone)); withScale(scale); shadowRadius = shadow; if (glow != null) addRenderLayer(new Glow(this, glow));
         }
-        protected float getDeathMaxRotation(IcidrostriderEntity entity) { return 0; }
+        protected float getDeathMaxRotation(com.geckolib.renderer.base.GeoRenderState state) { return 0; }
         @Override public RenderType getRenderType(IcidrostriderEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
     private static final class Glow extends LegacyGeoRenderLayer<IcidrostriderEntity> {

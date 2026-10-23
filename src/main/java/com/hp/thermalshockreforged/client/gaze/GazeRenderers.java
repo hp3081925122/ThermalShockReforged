@@ -48,6 +48,6 @@ public final class GazeRenderers {
         private final boolean fixedDeath;
         private Renderer(EntityRendererProvider.Context context, String name, float shadow, boolean fixedDeath) { super(context, new Model(name)); shadowRadius = shadow; this.fixedDeath = fixedDeath; }
         @Override public RenderType getRenderType(AnimatedMonsterEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
-        protected float getDeathMaxRotation(AnimatedMonsterEntity entity) { return fixedDeath ? 0 : super.getDeathMaxRotation(entity); }
+        protected float getDeathMaxRotation(com.geckolib.renderer.base.GeoRenderState state) { return fixedDeath ? 0 : super.getDeathMaxRotation(state); }
     }
 }

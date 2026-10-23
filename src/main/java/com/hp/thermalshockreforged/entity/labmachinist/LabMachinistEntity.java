@@ -58,7 +58,8 @@ public final class LabMachinistEntity extends PathfinderMob implements GeoEntity
     }
     @Override protected void tickDeath() { if (++deathTime >= 20) remove(RemovalReason.KILLED); }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); }
-    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData")); if (input.getString("Texture").isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", "")); setPersistenceRequired(); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input);
+if (input.getString("Texture").isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", "")); setPersistenceRequired(); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("notice", RawAnimation.begin().thenPlay("notice"));
         controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("idle"))));

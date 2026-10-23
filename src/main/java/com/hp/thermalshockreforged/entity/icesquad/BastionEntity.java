@@ -224,8 +224,8 @@ public final class BastionEntity extends Monster implements GeoEntity {
         super.tick();
     }
 
-    @Override protected void customServerAiStep() {
-        super.customServerAiStep();
+    @Override protected void customServerAiStep(net.minecraft.server.level.ServerLevel level) {
+        super.customServerAiStep(level);
         bossInfo.setProgress(getHealth() / getMaxHealth());
         if (!(level() instanceof ServerLevel server) || !isAlive()) return;
         if (!enraged() && getHealth() <= getMaxHealth() * BastionCombatConfig.PHASE_RATIO[kind()].get()) enrage(server);
@@ -410,7 +410,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
             double damage = getAttributeValue(Attributes.ATTACK_DAMAGE) * strike.multiplier();
             for (LivingEntity victim : server.getEntitiesOfClass(LivingEntity.class, new AABB(at, at).inflate(1, 1.8, 1), this::validVictim)) {
                 if (victim.position().subtract(at).horizontalDistanceSqr() > 1.2) continue;
-                if (!victim.hurt(damageSources().mobAttack(this), (float) damage)) continue;
+                if (!victim.hurtOrSimulate(damageSources().mobAttack(this), (float) damage)) continue;
                 thermalShock(server, victim, this, true);
                 victim.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 40, 0));
                 lift(victim, .3);
@@ -437,7 +437,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
             double damage = getAttributeValue(Attributes.ATTACK_DAMAGE) * strike.multiplier();
             for (LivingEntity victim : server.getEntitiesOfClass(LivingEntity.class, new AABB(at, at).inflate(radius, 3, radius), this::validVictim)) {
                 if (victim.position().subtract(at).horizontalDistanceSqr() > radius * radius) continue;
-                if (!victim.hurt(damageSources().mobAttack(this), (float) damage)) continue;
+                if (!victim.hurtOrSimulate(damageSources().mobAttack(this), (float) damage)) continue;
                 thermalShock(server, victim, this, false);
                 victim.igniteForSeconds(4);
                 lift(victim, .45);
@@ -599,7 +599,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
                     double distance = to.length();
                     if (distance > range || distance < 1.0E-4) continue;
                     if (to.scale(1 / distance).dot(facing) < .85) continue;
-                    if (!victim.hurt(damageSources().mobAttack(this), (float) damage)) continue;
+                    if (!victim.hurtOrSimulate(damageSources().mobAttack(this), (float) damage)) continue;
                     thermalShock(server, victim, this, false);
                     victim.igniteForSeconds(3);
                 }
@@ -655,7 +655,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
                 for (LivingEntity victim : server.getEntitiesOfClass(LivingEntity.class, getBoundingBox().inflate(radius, 2, radius), this::validVictim)) {
                     Vec3 away = victim.position().subtract(position());
                     if (away.horizontalDistanceSqr() > radius * radius) continue;
-                    if (!victim.hurt(damageSources().mobAttack(this), (float) damage)) continue;
+                    if (!victim.hurtOrSimulate(damageSources().mobAttack(this), (float) damage)) continue;
                     thermalShock(server, victim, this, false);
                     victim.igniteForSeconds(5);
                     victim.knockback(BastionCombatConfig.VENT_KNOCKBACK.get(), -away.x, -away.z);
@@ -702,7 +702,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
             double damage = getAttributeValue(Attributes.ATTACK_DAMAGE) * BastionCombatConfig.CHARGE_MULTIPLIER.get();
             for (LivingEntity victim : server.getEntitiesOfClass(LivingEntity.class, getBoundingBox().inflate(.6), this::validVictim)) {
                 if (!chargeHits.add(victim.getUUID())) continue;
-                if (!victim.hurt(damageSources().mobAttack(this), (float) damage)) continue;
+                if (!victim.hurtOrSimulate(damageSources().mobAttack(this), (float) damage)) continue;
                 thermalShock(server, victim, this, false);
                 victim.knockback(BastionCombatConfig.SKILL_KNOCKBACK[1].get(), -chargeDirection.x, -chargeDirection.z);
                 victim.igniteForSeconds(4);
@@ -814,7 +814,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
         for (LivingEntity victim : server.getEntitiesOfClass(LivingEntity.class, new AABB(at, at).inflate(radius + .5, radius + 1, radius + .5), this::validVictim)) {
             Vec3 away = victim.position().subtract(at);
             if (away.horizontalDistanceSqr() > reach) continue;
-            if (!victim.hurt(damageSources().mobAttack(this), (float) damage)) continue;
+            if (!victim.hurtOrSimulate(damageSources().mobAttack(this), (float) damage)) continue;
             thermalShock(server, victim, this, true);
             victim.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 60, 1));
             if (away.horizontalDistanceSqr() < 1.0E-4) away = victim.position().subtract(position());
@@ -832,7 +832,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
         getNavigation().stop();
         setAnimation("boost");
         setDeltaMovement(away.x * BastionCombatConfig.BOOST_VELOCITY.get(), .35, away.z * BastionCombatConfig.BOOST_VELOCITY.get());
-        hasImpulse = true;
+        hurtMarked = true;
         for (int i = 0; i < 8; i++) {
             double side = (random.nextDouble() - .5) * .2;
             server.sendParticles(IceSquadContent.LOD_PUFF.get(), getX() + (random.nextDouble() - .5) * 1.5, getY() + .3, getZ() + (random.nextDouble() - .5) * 1.5, 0, -away.x * .18 + side, .02, -away.z * .18 - side, 1);
@@ -907,7 +907,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
             if (distance > range || distance < 1.0E-4) continue;
             if (to.scale(1 / distance).dot(direction) < cone) continue;
             if (!hasLineOfSight(victim)) continue;
-            if (!victim.hurt(damageSources().mobAttack(this), (float) damage)) continue;
+            if (!victim.hurtOrSimulate(damageSources().mobAttack(this), (float) damage)) continue;
             thermalShock(server, victim, this, false);
             victim.igniteForSeconds(4);
         }
@@ -929,7 +929,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
         for (LivingEntity victim : server.getEntitiesOfClass(LivingEntity.class, new AABB(at, at).inflate(radius, 1.5, radius), this::validVictim)) {
             if (victim.position().subtract(at).horizontalDistanceSqr() > radius * radius) continue;
             if (Math.abs(victim.getY() - at.y) > 1.2) continue;
-            if (!victim.hurt(damageSources().mobAttack(this), (float) damage)) continue;
+            if (!victim.hurtOrSimulate(damageSources().mobAttack(this), (float) damage)) continue;
             thermalShock(server, victim, this, false);
             victim.igniteForSeconds(2);
         }

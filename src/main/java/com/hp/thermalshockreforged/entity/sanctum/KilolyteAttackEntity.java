@@ -84,7 +84,7 @@ public final class KilolyteAttackEntity extends Entity implements ServerEndTickT
             if (target != null && level.getEntity(target) instanceof LivingEntity victim && !caster.equals(victim.getUUID()) && victim.isAlive() && (float) Math.sqrt(victim.position().distanceToSqr(sourcePosition)) <= 3) {
                 double rawDamage = baseDamage * meleeMultiplier - victim.getArmorValue() * armorFactor;
                 if (rawDamage < 0) ThermalShockReforged.LOGGER.debug("Clamped negative kilolyte strike damage: caster={}, target={}, rawDamage={}", caster, target, rawDamage);
-                if (Double.isFinite(rawDamage)) victim.hurt(new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DAMAGE)), (float) finiteDamage(rawDamage));
+                if (Double.isFinite(rawDamage)) victim.hurt(new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DAMAGE)), (float) finiteDamage(rawDamage));
             }
         }
         if (phase >= (ring ? 4 : 1)) discard(); else ServerEndTickTasks.schedule(level, getUUID());

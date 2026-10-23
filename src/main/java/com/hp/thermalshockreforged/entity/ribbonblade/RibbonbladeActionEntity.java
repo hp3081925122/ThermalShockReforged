@@ -80,7 +80,7 @@ public final class RibbonbladeActionEntity extends Entity implements ServerEndTi
         var targets = level.getEntities(this, strikeBounds, entity -> !entity.getUUID().equals(caster) && !(entity instanceof LivingEntity living && living.isBlocking()));
         ThermalShockReforged.LOGGER.debug("Ribbonblade strike resolved: task={}, caster={}, targets={}, position={}, sweep={}", getUUID(), caster, targets.size(), position(), sweep);
         targets.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(position())));
-        var damageSource = new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DAMAGE));
+        var damageSource = new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DAMAGE));
         for (var victim : targets) {
             double amount = damage - (victim instanceof LivingEntity living ? living.getArmorValue() * .4 : 0);
             if (Double.isFinite(amount) && amount > 0) victim.hurt(damageSource, (float)Math.min(amount, Float.MAX_VALUE));

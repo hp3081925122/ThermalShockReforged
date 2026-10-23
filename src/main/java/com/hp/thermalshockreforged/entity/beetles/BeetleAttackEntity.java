@@ -76,20 +76,20 @@ public final class BeetleAttackEntity extends Entity implements ServerEndTickTas
         } else if (skill == 1) {
             if (current == 16) {
                 sound(server, ThermalShockReforged.MOD_ID + ":propulsionbootsactivate", -3);
-                if (owner != null) { owner.addEffect(new MobEffectInstance(AuraContent.DAMAGING_AURA, 10, 12, false, false)); owner.setDeltaMovement(look.x * 1.8, .2, look.z * 1.8); owner.hasImpulse = true; }
+                if (owner != null) { owner.addEffect(new MobEffectInstance(AuraContent.DAMAGING_AURA, 10, 12, false, false)); owner.setDeltaMovement(look.x * 1.8, .2, look.z * 1.8); owner.hurtMarked = true; }
             } else if (current == 23) {
                 sound(server, "minecraft:intentionally_empty", -3);
                 server.sendParticles(IceSquadContent.FOG_CLOUD.get(), soundOrigin.x, soundOrigin.y, soundOrigin.z, 2, 1, 1, 1, 0);
             }
         } else if (skill == 2) {
-            if (current == 7 && owner != null) { owner.setDeltaMovement(look); owner.hasImpulse = true; }
+            if (current == 7 && owner != null) { owner.setDeltaMovement(look); owner.hurtMarked = true; }
             if (current == 7 || current == 9 || current == 11) { strike(server, 2, true); sound(server, "minecraft:entity.player.attack.sweep", 4); }
         } else if (skill == 3) {
             if (current == 12) sound(server, "minecraft:entity.iron_golem.hurt", 7);
-            if (current == 6 || current == 12) { if (owner != null) { owner.setDeltaMovement(look); owner.hasImpulse = true; } strike(server, 2, true); sound(server, "minecraft:entity.player.attack.sweep", 4); }
+            if (current == 6 || current == 12) { if (owner != null) { owner.setDeltaMovement(look); owner.hurtMarked = true; } strike(server, 2, true); sound(server, "minecraft:entity.player.attack.sweep", 4); }
             if (current == 26) {
                 sound(server, "minecraft:entity.player.attack.sweep", 4); sound(server, "minecraft:block.anvil.place", 4);
-                if (owner != null) { owner.setDeltaMovement(-look.z, .5, -look.x); owner.hasImpulse = true; owner.addEffect(new MobEffectInstance(StatusContent.PARRYING, 5, 1, true, true)); }
+                if (owner != null) { owner.setDeltaMovement(-look.z, .5, -look.x); owner.hurtMarked = true; owner.addEffect(new MobEffectInstance(StatusContent.PARRYING, 5, 1, true, true)); }
             }
         }
         int end = switch (skill) { case 0 -> 7; case 1 -> 23; case 2 -> 11; default -> 26; };
@@ -104,10 +104,10 @@ public final class BeetleAttackEntity extends Entity implements ServerEndTickTas
             double resistance = Mth.clamp(victim.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1);
             if (!Double.isFinite(resistance)) resistance = 1;
             double strength = knockback * (1 - resistance);
-            if (strength > 0) { victim.setDeltaMovement(look.scale(strength)); victim.hasImpulse = true; victim.hurtMarked = true; }
+            if (strength > 0) { victim.setDeltaMovement(look.scale(strength)); victim.hurtMarked = true; victim.hurtMarked = true; }
         }
         float amount = (float) finite(damage - victim.getArmorValue() * .4);
-        if (amount > 0) victim.hurt(new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC)), amount);
+        if (amount > 0) victim.hurt(new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.GENERIC)), amount);
     }
     private void sound(ServerLevel server, String name, float pitch) { server.playSound(null, BlockPos.containing(soundOrigin), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.parse(name)), SoundSource.NEUTRAL, 1, pitch); }
     private static double finite(double value) { return Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0; }

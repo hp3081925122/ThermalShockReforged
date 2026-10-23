@@ -65,7 +65,7 @@ public final class GelshooterEntity extends PathfinderMob implements RangedAttac
         else super.handleEntityEvent(event);
     }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
-    @Override public boolean hurt(DamageSource source,float amount) { return !source.is(DamageTypes.FALL)&&super.hurt(source,amount); }
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level,DamageSource source,float amount) { return !source.is(DamageTypes.FALL)&&super.hurtServer(level,source,amount); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.GENERIC_HURT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level,DifficultyInstance difficulty,EntitySpawnReason reason,SpawnGroupData group) {
