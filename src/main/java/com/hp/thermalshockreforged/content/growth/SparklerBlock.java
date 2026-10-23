@@ -18,7 +18,7 @@ import net.minecraft.world.phys.shapes.*;
 public final class SparklerBlock extends Block implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public SparklerBlock(int light) {
-        super(Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).sound(SoundType.CHAIN).instabreak().lightLevel(s->light).noCollision().noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((s,l,p)->false));
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.TERRACOTTA_BLUE).sound(SoundType.CHAIN).instabreak().lightLevel(s->light).noCollision().noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((s,l,p)->false));
         registerDefaultState(defaultBlockState().setValue(WATERLOGGED, false));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { super.createBlockStateDefinition(builder); builder.add(WATERLOGGED); }

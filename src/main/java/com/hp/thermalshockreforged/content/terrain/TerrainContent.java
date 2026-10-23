@@ -32,13 +32,13 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class TerrainContent {
-    private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Blocks BLOCKS = com.hp.thermalshockreforged.ModRegistration.blocks(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     public static final DeferredBlock<Block> GRASSY_SHALE = BLOCKS.register("grassy_shale", () -> new GrassyShaleBlock(false));
     public static final DeferredBlock<Block> TWILIT_GRASSY_SHALE = BLOCKS.register("twilit_grassy_shale", () -> new GrassyShaleBlock(false,
-            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.BASEDRUM)
+            com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_PURPLE).instrument(NoteBlockInstrument.BASEDRUM)
                     .sound(SoundType.NETHERRACK).strength(1, 5).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> SLUSH = BLOCKS.register("slush", () -> new GrassyShaleBlock(true, BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).sound(SoundType.GRAVEL).strength(0.8F, 4).friction(0.7F)));
+    public static final DeferredBlock<Block> SLUSH = BLOCKS.register("slush", () -> new GrassyShaleBlock(true, com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.CLAY).sound(SoundType.GRAVEL).strength(0.8F, 4).friction(0.7F)));
     public static final DeferredBlock<Block> SNOWY_SHALE = BLOCKS.register("snowy_shale", () -> new GrassyShaleBlock(true));
     public static final DeferredBlock<Block> SNOWY_COBALT = BLOCKS.register("snowy_cobalt", () -> new PlantSoilBlock(cobaltProperties(MapColor.SNOW)));
     public static final DeferredBlock<Block> COBALT = BLOCKS.register("cobalt", CobaltBlock::new);
@@ -49,10 +49,10 @@ public final class TerrainContent {
     public static final DeferredBlock<Block> TALL_FROSTED_GRASS = BLOCKS.register("tall_frosted_grass", TerrainFlowerBlock::new);
     public static final DeferredBlock<Block> SHORT_LOQUE_GRASS = BLOCKS.register("short_loque_grass", TerrainFlowerBlock::new);
     public static final DeferredBlock<Block> VERMILLION_MOSS = BLOCKS.register("vermillion_moss", () -> new PlantSoilBlock(
-            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BASEDRUM)
+            com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BASEDRUM)
                     .sound(SoundType.NYLIUM).strength(1.6F, 10.0F).requiresCorrectToolForDrops().speedFactor(0.9F).jumpFactor(0.9F)));
     public static final DeferredBlock<Block> ADAMANTINE_SPICE_BLOCK = BLOCKS.register("adamantine_spice_block", () -> new SpiceFallingBlock(
-            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).instrument(NoteBlockInstrument.SNARE).sound(SoundType.GRAVEL).strength(0.7F, 12.0F)));
+            com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_LIGHT_GRAY).instrument(NoteBlockInstrument.SNARE).sound(SoundType.GRAVEL).strength(0.7F, 12.0F)));
 
     public static final DeferredBlock<Block> LOQUE_LEAVES = BLOCKS.register("loque_leaves", () -> new UnderbrushLeaves(MapColor.COLOR_LIGHT_BLUE, 8, false));
     public static final DeferredBlock<Block> DARK_LOQUE_LEAVES = BLOCKS.register("dark_loque_leaves", () -> new UnderbrushLeaves(MapColor.COLOR_BLUE, 12, false));
@@ -102,7 +102,7 @@ public final class TerrainContent {
     }
 
     private static BlockBehaviour.Properties cobaltProperties(MapColor color) {
-        return BlockBehaviour.Properties.of().mapColor(color).instrument(NoteBlockInstrument.BASEDRUM)
+        return com.hp.thermalshockreforged.ModRegistration.block().mapColor(color).instrument(NoteBlockInstrument.BASEDRUM)
                 .sound(SoundType.ANCIENT_DEBRIS).strength(1.0F, 8.001806F).requiresCorrectToolForDrops();
     }
 
@@ -121,7 +121,7 @@ public final class TerrainContent {
         private final boolean snowy;
 
         private GrassyShaleBlock(boolean snowy) {
-            this(snowy, Properties.of().mapColor(snowy ? MapColor.SNOW : MapColor.GRASS).instrument(NoteBlockInstrument.BASEDRUM)
+            this(snowy, com.hp.thermalshockreforged.ModRegistration.block().mapColor(snowy ? MapColor.SNOW : MapColor.GRASS).instrument(NoteBlockInstrument.BASEDRUM)
                     .sound(SoundType.NETHERRACK).strength(1.0F, 5.0F).requiresCorrectToolForDrops());
         }
         private GrassyShaleBlock(boolean snowy, Properties properties) { super(properties); this.snowy = snowy; }
@@ -174,7 +174,7 @@ public final class TerrainContent {
     private static final class TerrainFlowerBlock extends FlowerBlock {
         private TerrainFlowerBlock() {
             super(new SuspiciousStewEffects(List.of(new SuspiciousStewEffects.Entry(MobEffects.FIRE_RESISTANCE, 100))),
-                    Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).instabreak().noCollision().replaceable()
+                    com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.PLANT).sound(SoundType.GRASS).instabreak().noCollision().replaceable()
                             .offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY));
         }
 

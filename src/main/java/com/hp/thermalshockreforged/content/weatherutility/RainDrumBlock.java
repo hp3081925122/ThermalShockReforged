@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 
 public final class RainDrumBlock extends Block {
-    public RainDrumBlock() { super(Properties.of().mapColor(MapColor.COLOR_PURPLE).sound(SoundType.METAL).strength(.5F, 12).requiresCorrectToolForDrops()); }
+    public RainDrumBlock() { super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_PURPLE).sound(SoundType.METAL).strength(.5F, 12).requiresCorrectToolForDrops()); }
     @Override protected int getLightDampening(BlockState state) { return 15; }
     @Override public boolean canConnectRedstone(BlockState state, BlockGetter level, BlockPos pos, Direction side) { return true; }
     @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighbor, net.minecraft.world.level.redstone.Orientation fromPos, boolean moving) {

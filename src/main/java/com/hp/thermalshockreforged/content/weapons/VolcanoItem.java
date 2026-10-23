@@ -23,11 +23,10 @@ import com.geckolib.animation.*;
 public final class VolcanoItem extends Item implements GeoItem {
     private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
     public VolcanoItem() {
-        super(new Properties().durability(920).rarity(Rarity.UNCOMMON).fireResistant());
+        super(com.hp.thermalshockreforged.ModRegistration.item().enchantable(5).durability(920).rarity(Rarity.UNCOMMON).fireResistant());
         GeoItem.registerSyncedAnimatable(this);
     }
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
-    @Override public int getEnchantmentValue() { return 5; }
     @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {
         super.inventoryTick(stack, level, entity, slot);
         if (level instanceof ServerLevel server) GeoItem.getOrAssignId(stack, server);

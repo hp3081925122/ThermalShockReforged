@@ -24,7 +24,7 @@ public final class InfestedLogBlock extends Block {
     public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
 
     public InfestedLogBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_RED).ignitedByLava().sound(SoundType.STEM)
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_RED).ignitedByLava().sound(SoundType.STEM)
                 .strength(1.35F, 15.0F).requiresCorrectToolForDrops());
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
@@ -52,7 +52,7 @@ public final class InfestedLogBlock extends Block {
     @Override
     public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player,
             boolean willHarvest, FluidState fluid) {
-        boolean destroyed = super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
+        boolean destroyed = super.onDestroyedByPlayer(state, level, pos, player, toolStack, willHarvest, fluid);
         if (destroyed && level instanceof ServerLevel server) {
             double roll = server.getRandom().nextDouble();
             int count = roll < 0.25 ? 3 : roll < 0.8125 ? 4 : 5;

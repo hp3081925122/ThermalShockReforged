@@ -29,7 +29,7 @@ public final class ChillooEggBlock extends Block implements SimpleWaterloggedBlo
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public ChillooEggBlock() {
-        super(Properties.of().mapColor(net.minecraft.world.level.material.MapColor.ICE).sound(SoundType.POINTED_DRIPSTONE).strength(0.2F, 0).noOcclusion().isRedstoneConductor((state, level, pos) -> false));
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(net.minecraft.world.level.material.MapColor.ICE).sound(SoundType.POINTED_DRIPSTONE).strength(0.2F, 0).noOcclusion().isRedstoneConductor((state, level, pos) -> false));
         registerDefaultState(stateDefinition.any().setValue(WATERLOGGED, false));
     }
 

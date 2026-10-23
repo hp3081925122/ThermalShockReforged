@@ -16,14 +16,14 @@ import net.neoforged.neoforge.registries.*;
 
 public final class HuntersContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<FrostilyteEntity>> FROSTILYTE = TYPES.register("frostilyte", () -> EntityType.Builder.of(FrostilyteEntity::new, MobCategory.MONSTER).sized(0.6F, 1.7F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("frostilyte")));
     public static final DeferredHolder<EntityType<?>, EntityType<RazorwingEntity>> RAZORWING = razorwing("razorwing");
     public static final DeferredHolder<EntityType<?>, EntityType<RazorwingEntity>> RUBY_ARMOURED_RAZORWING = razorwing("ruby_armoured_razorwing");
     public static final DeferredHolder<EntityType<?>, EntityType<RazorwingEntity>> BLOOD_ARMOURED_RAZORWING = razorwing("blood_armoured_razorwing");
     static {
-        ITEMS.register("frostilyte_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(FROSTILYTE.get())));
-        ITEMS.register("razorwing_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(RAZORWING.get())));
+        ITEMS.register("frostilyte_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(FROSTILYTE.get())));
+        ITEMS.register("razorwing_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(RAZORWING.get())));
     }
     private HuntersContent() { }
     private static DeferredHolder<EntityType<?>, EntityType<RazorwingEntity>> razorwing(String id) {

@@ -12,7 +12,7 @@ public final class PurpleSparkleParticle extends LegacySingleQuadParticle {
         setSize(.2F, .2F); quadSize *= 1.3F; lifetime = 18 + random.nextInt(24); gravity = -.2F;
         hasPhysics = false; xd = dx; yd = dy; zd = dz; setSpriteFromAge(sprites);
     }
-    public int getLightColor(float partialTick) { return 0xF000F0; }
+    public int getLightCoords(float partialTick) { return 0xF000F0; }
     @Override public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
     @Override public void tick() { super.tick(); if (!removed) setSprite(sprites.get(age / 6 % 2 + 1, 2)); }
     public record Provider(SpriteSet sprites) implements ParticleProvider<SimpleParticleType> {

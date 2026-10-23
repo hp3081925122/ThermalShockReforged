@@ -20,7 +20,7 @@ public final class SimpleElementalWeaponItem extends Item {
     private final String id;
 
     public SimpleElementalWeaponItem(String id) {
-        super(new Properties().durability(100).attributes(ItemAttributeModifiers.builder()
+        super(com.hp.thermalshockreforged.ModRegistration.item().durability(100).attributes(ItemAttributeModifiers.builder()
                 .add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, 4.5, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND)
                 .add(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, -2.4, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build()));
         this.id = id;

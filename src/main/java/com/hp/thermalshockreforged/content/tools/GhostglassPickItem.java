@@ -15,7 +15,7 @@ import net.minecraft.world.item.context.UseOnContext;
 
 final class GhostglassPickItem extends PickaxeItem {
     private static final Identifier AQERON = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "aqeron");
-    GhostglassPickItem(Tier tier, Properties properties) { super(tier, properties); }
+    GhostglassPickItem(Tier tier, float damage, float speed, Properties properties) { super(tier, damage, speed, properties); }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
         super.appendHoverText(stack, context, display, tooltipAdder, flag); tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.ghostglass_pick.description_0"));
     }

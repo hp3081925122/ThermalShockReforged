@@ -12,7 +12,7 @@ import com.geckolib.util.GeckoLibUtil;
 public final class SpecialDoorItem extends BlockItem implements GeoItem {
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     public final DoorKind kind;
-    public SpecialDoorItem(Block block, DoorKind kind) { super(block, new Properties()); this.kind = kind; }
+    public SpecialDoorItem(Block block, DoorKind kind) { super(block, com.hp.thermalshockreforged.ModRegistration.blockItem(block)); this.kind = kind; }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {
         registrar.add(new LegacyAnimationController<>(this, "controller", 0, state -> state.setAndContinue(RawAnimation.begin().thenLoop("0"))));
     }

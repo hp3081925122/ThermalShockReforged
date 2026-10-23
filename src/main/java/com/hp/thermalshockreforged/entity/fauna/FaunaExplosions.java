@@ -12,8 +12,8 @@ final class FaunaExplosions {
         double attack = owner.getAttributeValue(Attributes.ATTACK_DAMAGE);
         var calculator = new ExplosionDamageCalculator() {
             @Override
-            public float getEntityDamageAmount(Explosion explosion, Entity target) {
-                return (float) (super.getEntityDamageAmount(explosion, target) * attack);
+            public float getEntityDamageAmount(Explosion explosion, Entity target, float seenPercent) {
+                return (float) (super.getEntityDamageAmount(explosion, target, seenPercent) * attack);
             }
 
             @Override

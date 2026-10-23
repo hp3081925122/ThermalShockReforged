@@ -17,7 +17,7 @@ import net.neoforged.neoforge.registries.*;
 
 public final class SnobolContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<SnobolEntity>> SNOBOL = TYPES.register("snobol", () -> EntityType.Builder.of(SnobolEntity::new, MobCategory.AMBIENT).sized(0.7F, 0.7F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("snobol")));
     public static final DeferredHolder<EntityType<?>, EntityType<ExplosiveSnobolEntity>> EXPLOSIVE_SNOBOL = TYPES.register("explosive_snobol", () -> EntityType.Builder.of(ExplosiveSnobolEntity::new, MobCategory.AMBIENT).sized(0.7F, 0.7F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("explosive_snobol")));
@@ -28,9 +28,9 @@ public final class SnobolContent {
     public static final DeferredItem<Item> BUCKET_OF_SIIBOL = ITEMS.register("bucket_of_siibol", BucketOfSiibolItem::new);
 
     static {
-        ITEMS.register("snobol_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SNOBOL.get())));
-        ITEMS.register("explosive_snobol_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(EXPLOSIVE_SNOBOL.get())));
-        ITEMS.register("siibol_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SIIBOL.get())));
+        ITEMS.register("snobol_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(SNOBOL.get())));
+        ITEMS.register("explosive_snobol_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(EXPLOSIVE_SNOBOL.get())));
+        ITEMS.register("siibol_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(SIIBOL.get())));
     }
 
     private SnobolContent() { }

@@ -16,7 +16,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class LoqendiaContent {
     public static final net.minecraft.resources.Identifier LOQENDIA_ID = net.minecraft.resources.Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "loqendia");
     public static final net.minecraft.resources.ResourceKey<net.minecraft.world.level.Level> DIMENSION = net.minecraft.resources.ResourceKey.create(Registries.DIMENSION, LOQENDIA_ID);
-    private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(Registries.BLOCK, ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister<Block> BLOCKS = com.hp.thermalshockreforged.ModRegistration.blocks(ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<Block, LoqendiaPortalBlock> PORTAL = BLOCKS.register("loqendia_portal", () -> new LoqendiaPortalBlock());
     private static final DeferredRegister<PoiType> POI_TYPES = DeferredRegister.create(Registries.POINT_OF_INTEREST_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<PoiType, PoiType> PORTAL_POI = POI_TYPES.register("loqendia_portal", () -> new PoiType(Set.copyOf(PORTAL.get().getStateDefinition().getPossibleStates()), 0, 1));

@@ -32,7 +32,7 @@ import net.minecraft.world.phys.shapes.*;
 public final class GrowthSeedBlock extends Block implements EntityBlock, com.hp.thermalshockreforged.content.BlockTooltips.Provider {
     public final GrowthKind kind;
     public GrowthSeedBlock(GrowthKind kind) {
-        super(Properties.of().mapColor(MapColor.PLANT).sound(SoundType.GRASS).strength(.5f, 0).noCollision().noOcclusion().isRedstoneConductor((s, l, p) -> false));
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.PLANT).sound(SoundType.GRASS).strength(.5f, 0).noCollision().noOcclusion().isRedstoneConductor((s, l, p) -> false));
         this.kind = kind;
     }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {

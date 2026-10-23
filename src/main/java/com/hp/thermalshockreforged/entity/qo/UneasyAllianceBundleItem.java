@@ -18,7 +18,7 @@ import net.minecraft.world.level.storage.loot.parameters.*;
 
 public final class UneasyAllianceBundleItem extends Item {
     private static final ResourceKey<LootTable> LOOT = ResourceKey.create(Registries.LOOT_TABLE, QoContent.id("gameplay/uneasy_alliance_loot"));
-    public UneasyAllianceBundleItem() { super(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)); }
+    public UneasyAllianceBundleItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).rarity(Rarity.RARE)); }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (level instanceof ServerLevel server && player instanceof ServerPlayer owner) {

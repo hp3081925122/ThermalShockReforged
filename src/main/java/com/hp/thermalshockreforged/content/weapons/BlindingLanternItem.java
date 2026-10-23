@@ -31,15 +31,13 @@ public final class BlindingLanternItem extends Item implements GeoItem {
     private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
 
     public BlindingLanternItem() {
-        super(new Properties().durability(565).rarity(Rarity.UNCOMMON));
+        super(com.hp.thermalshockreforged.ModRegistration.item().enchantable(6).durability(565).rarity(Rarity.UNCOMMON));
         GeoItem.registerSyncedAnimatable(this);
     }
 
     @Override
     public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
 
-    @Override
-    public int getEnchantmentValue() { return 6; }
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {

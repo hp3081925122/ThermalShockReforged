@@ -19,7 +19,7 @@ public final class GelBulbBlock extends Block implements EntityBlock {
     public static final IntegerProperty ANIMATION = IntegerProperty.create("animation", 0, 1);
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public GelBulbBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_MAGENTA).sound(SoundType.GRASS).strength(.5f,0).noCollision().noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((s,l,p)->false));
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_MAGENTA).sound(SoundType.GRASS).strength(.5f,0).noCollision().noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((s,l,p)->false));
         registerDefaultState(defaultBlockState().setValue(ANIMATION,0).setValue(FACING,Direction.NORTH));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block,BlockState> builder) { builder.add(ANIMATION,FACING); }

@@ -27,12 +27,11 @@ public final class FirearmItem extends Item implements GeoItem {
     private final boolean hailfall;
     private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
     public FirearmItem(boolean hailfall) {
-        super(new Properties().durability(hailfall ? 1000 : 920).fireResistant().rarity(Rarity.UNCOMMON));
+        super(com.hp.thermalshockreforged.ModRegistration.item().enchantable(5).durability(hailfall ? 1000 : 920).fireResistant().rarity(Rarity.UNCOMMON));
         this.hailfall = hailfall; GeoItem.registerSyncedAnimatable(this);
     }
     public boolean isHailfall() { return hailfall; }
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
-    @Override public int getEnchantmentValue() { return 5; }
     @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return hailfall ? ItemUseAnimation.BOW : super.getUseAnimation(stack); }
     @Override public int getUseDuration(ItemStack stack, LivingEntity entity) { return hailfall ? 60 : super.getUseDuration(stack, entity); }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {

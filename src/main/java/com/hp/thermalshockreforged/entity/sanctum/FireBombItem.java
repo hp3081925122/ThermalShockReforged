@@ -14,7 +14,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 public final class FireBombItem extends Item {
-    public FireBombItem() { super(new Properties().stacksTo(16).rarity(Rarity.COMMON)); }
+    public FireBombItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(16).rarity(Rarity.COMMON)); }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) { super.appendHoverText(stack, context, display, tooltipAdder, flag); tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.fire_bomb.description_0")); }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);

@@ -20,10 +20,10 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class MagnetiteContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<MagnetiteEntity>> MAGNETITE = TYPES.register("magnetite", () -> EntityType.Builder.of(MagnetiteEntity::new, MobCategory.MONSTER).sized(.8F, 2).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("magnetite")));
     public static final DeferredHolder<EntityType<?>, EntityType<MagnetiteBulletEntity>> BULLET = TYPES.register("magnetite_bullet", () -> EntityType.Builder.<MagnetiteBulletEntity>of(MagnetiteBulletEntity::new, MobCategory.MISC).sized(.5F, .5F).clientTrackingRange(64).updateInterval(1).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("magnetite_bullet")));
-    public static final DeferredHolder<Item, Item> EGG = ITEMS.register("magnetite_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(MAGNETITE.get())));
+    public static final DeferredHolder<Item, Item> EGG = ITEMS.register("magnetite_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(MAGNETITE.get())));
     private MagnetiteContent() { }
     public static void register(IEventBus bus) { TYPES.register(bus); ITEMS.register(bus); bus.addListener(MagnetiteContent::attributes); bus.addListener(MagnetiteContent::placements); }
     private static void placements(RegisterSpawnPlacementsEvent event) {

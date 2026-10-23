@@ -21,7 +21,7 @@ import com.geckolib.constant.DataTickets;
 
 public final class ChorusianAntennaeItem extends Item implements GeoItem {
     private final CombatAnimationCache animations = new CombatAnimationCache(this);
-    public ChorusianAntennaeItem() { super(new Properties().humanoidArmor(RemainingCombatContent.ANTENNAE_MATERIAL.value(), ArmorType.HELMET).durability(275)); }
+    public ChorusianAntennaeItem() { super(com.hp.thermalshockreforged.ModRegistration.item().humanoidArmor(RemainingCombatContent.ANTENNAE_MATERIAL.value(), ArmorType.HELMET).durability(275)); }
     @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {
         super.inventoryTick(stack, level, entity, slot);
         if (level instanceof ServerLevel server) GeoItem.getOrAssignId(stack, server);

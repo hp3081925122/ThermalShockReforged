@@ -11,7 +11,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.*;
 
 public final class SpireTipBlock extends Block {
-    public SpireTipBlock() { super(Properties.of().mapColor(MapColor.COLOR_PURPLE).sound(SoundType.SLIME_BLOCK).instabreak().lightLevel(s->7).noCollision().noOcclusion().isRedstoneConductor((s,l,p)->false)); }
+    public SpireTipBlock() { super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_PURPLE).sound(SoundType.SLIME_BLOCK).instabreak().lightLevel(s->7).noCollision().noOcclusion().isRedstoneConductor((s,l,p)->false)); }
     @Override protected int getLightDampening(BlockState state) { return 0; }
     @Override protected boolean propagatesSkylightDown(BlockState state) { return true; }
     @Override protected VoxelShape getVisualShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Shapes.empty(); }

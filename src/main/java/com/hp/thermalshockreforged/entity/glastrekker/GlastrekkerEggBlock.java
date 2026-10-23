@@ -21,7 +21,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 
 public final class GlastrekkerEggBlock extends Block implements com.hp.thermalshockreforged.content.BlockTooltips.Provider {
-    public GlastrekkerEggBlock() { super(Properties.of().mapColor(MapColor.QUARTZ).sound(SoundType.CALCITE).strength(.8F, .2F).friction(.7F)); }
+    public GlastrekkerEggBlock() { super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.QUARTZ).sound(SoundType.CALCITE).strength(.8F, .2F).friction(.7F)); }
     @Override public int getLightDampening(BlockState state) { return 10; }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
         tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.glastrekker_egg.description_0"));

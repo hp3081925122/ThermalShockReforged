@@ -42,15 +42,15 @@ public final class CavebloomerContent {
             .sized(1, 2.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("dandybloomer")));
     public static final DeferredHolder<EntityType<?>, EntityType<AngryCavebloomerEntity>> ANGRY = TYPES.register("angry_cavebloomer", () -> EntityType.Builder.of(AngryCavebloomerEntity::new, MobCategory.MONSTER)
             .sized(1, 4.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("angry_cavebloomer")));
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> NUKE_CLOUD = PARTICLES.register("nuke_cloud", () -> new SimpleParticleType(true));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> RED_EXPLODE = PARTICLES.register("red_explode", () -> new SimpleParticleType(false));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> MAGNETIC_BOOM = PARTICLES.register("magnetic_boom", () -> new SimpleParticleType(true));
     public static final DeferredItem<CavebloomerBossBoxItem> BOSS_BOX = ITEMS.register("angry_cavebloomer_boss_box", CavebloomerBossBoxItem::new);
     static {
-        ITEMS.register("angry_cavebloomer_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(ANGRY.get())));
-        ITEMS.register("budding_bloomer_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(BUDDING.get())));
-        ITEMS.register("dandybloomer_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(DANDY.get())));
+        ITEMS.register("angry_cavebloomer_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(ANGRY.get())));
+        ITEMS.register("budding_bloomer_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(BUDDING.get())));
+        ITEMS.register("dandybloomer_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(DANDY.get())));
     }
     public static boolean isBoss(Entity entity) {
         var id = BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType());

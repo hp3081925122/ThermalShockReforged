@@ -29,11 +29,10 @@ import com.geckolib.animation.*;
 public final class CarborGlItem extends Item implements GeoItem {
     private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
     public CarborGlItem() {
-        super(new Properties().durability(1000).fireResistant().rarity(Rarity.UNCOMMON));
+        super(com.hp.thermalshockreforged.ModRegistration.item().enchantable(5).durability(1000).fireResistant().rarity(Rarity.UNCOMMON));
         GeoItem.registerSyncedAnimatable(this);
     }
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
-    @Override public int getEnchantmentValue() { return 5; }
     @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.BOW; }
     @Override public int getUseDuration(ItemStack stack, LivingEntity user) { return 60; }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {

@@ -11,7 +11,7 @@ import net.minecraft.world.level.material.MapColor;
 
 final class GlitteryShaleBlock extends NativeDecorBlock {
     GlitteryShaleBlock() {
-        super(Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM)
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM)
                         .sound(SoundType.NETHERRACK).strength(1, 5).lightLevel(state -> 3)
                         .requiresCorrectToolForDrops().randomTicks(),
                 new Traits(15, false, false, false, 0, 0, false, false), null,

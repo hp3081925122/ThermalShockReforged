@@ -8,7 +8,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 
 final class BucketOfSiibolItem extends Item {
-    BucketOfSiibolItem() { super(new Properties().stacksTo(1)); }
+    BucketOfSiibolItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1)); }
 
     @Override
     public InteractionResult useOn(UseOnContext context) {

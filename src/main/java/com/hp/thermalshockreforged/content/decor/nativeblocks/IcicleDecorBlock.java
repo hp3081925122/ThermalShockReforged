@@ -20,7 +20,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 
 class IcicleDecorBlock extends NativeDecorBlock {
     IcicleDecorBlock(boolean glitter) {
-        super(Properties.of().mapColor(MapColor.ICE).sound(SoundType.GLASS).strength(0.1F, 0).lightLevel(state -> glitter ? 15 : 0)
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.ICE).sound(SoundType.GLASS).strength(0.1F, 0).lightLevel(state -> glitter ? 15 : 0)
                 .requiresCorrectToolForDrops().noCollision().noOcclusion().isRedstoneConductor((state, level, pos) -> false),
                 new Traits(0, true, true, false, 0, 0, false, false), Shapes.block());
     }

@@ -10,7 +10,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class RemainingUtilityContent {
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     public static final DeferredItem<DevCharacterToolItem> DEV_DELETOR = ITEMS.register("dev_deletor", () -> new DevCharacterToolItem(true));
     public static final DeferredItem<DevCharacterToolItem> DEV_ROTATOR = ITEMS.register("dev_rotator", () -> new DevCharacterToolItem(false));
     public static final DeferredItem<SnowMelterItem> HPSM = ITEMS.register("hpsm", SnowMelterItem::new);

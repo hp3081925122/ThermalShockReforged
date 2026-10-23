@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 
 final class GardenlingConstructorBlock extends Block {
-    GardenlingConstructorBlock() { super(Properties.of().mapColor(MapColor.COLOR_PURPLE).sound(SoundType.GLASS).strength(1, 10)); }
+    GardenlingConstructorBlock() { super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_PURPLE).sound(SoundType.GLASS).strength(1, 10)); }
 
     @Override
     protected int getLightDampening(BlockState state) { return 15; }

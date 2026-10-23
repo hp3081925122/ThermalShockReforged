@@ -9,7 +9,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 final class PanaceaItem extends Item {
-    PanaceaItem() { super(new Properties().stacksTo(1).fireResistant().rarity(Rarity.EPIC)); }
+    PanaceaItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).fireResistant().rarity(Rarity.EPIC)); }
 
     @Override
     public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.BOW; }

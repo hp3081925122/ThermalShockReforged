@@ -11,8 +11,8 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.*;
 
 public final class VermilliContent {
-    private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Blocks BLOCKS = com.hp.thermalshockreforged.ModRegistration.blocks(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, ThermalShockReforged.MOD_ID);
     public static final DeferredBlock<Block> VERMILLI_LEAVES = BLOCKS.register("vermilli_leaves", () -> new SnowCoveredLeaves(MapColor.COLOR_RED, 8, false));
     public static final DeferredBlock<Block> VERMILLION_SAPLING = BLOCKS.register("vermillion_sapling", () -> new ThermalSaplingBlock("vermillion", "vermillion_tree"));

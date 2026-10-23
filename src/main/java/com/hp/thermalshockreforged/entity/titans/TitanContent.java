@@ -23,7 +23,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class TitanContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     private static final TagKey<EntityType<?>> SKELETITAN_TAG = TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "skeletitan"));
     public static final DeferredHolder<EntityType<?>, EntityType<SkeletalTitanEntity>> SKELETITAN = titan(SkeletalTitanEntity.Kind.SKELETITAN);
     public static final DeferredHolder<EntityType<?>, EntityType<SkeletalTitanEntity>> FROST_TITAN = titan(SkeletalTitanEntity.Kind.FROST);
@@ -34,7 +34,7 @@ public final class TitanContent {
     private static DeferredHolder<EntityType<?>, EntityType<SkeletalTitanEntity>> titan(SkeletalTitanEntity.Kind kind) {
         var type = TYPES.register(kind.id(), () -> EntityType.Builder.<SkeletalTitanEntity>of((entityType, level) -> new SkeletalTitanEntity(entityType, level, kind), MobCategory.MONSTER)
             .sized(1, 2.5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey(kind.id())));
-        ITEMS.register(kind.id() + "_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(type.get())));
+        ITEMS.register(kind.id() + "_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(type.get())));
         return type;
     }
 

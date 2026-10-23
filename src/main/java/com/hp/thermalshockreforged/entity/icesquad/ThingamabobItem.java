@@ -17,7 +17,7 @@ import net.minecraft.world.level.Level;
 import java.util.List;
 
 public final class ThingamabobItem extends Item {
-    public ThingamabobItem() { super(new Properties().stacksTo(1).rarity(Rarity.UNCOMMON)); }
+    public ThingamabobItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).rarity(Rarity.UNCOMMON)); }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
         super.appendHoverText(stack, context, display, tooltipAdder, flag); tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.thingamabob.description_0"));
     }

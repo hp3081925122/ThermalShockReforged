@@ -12,7 +12,7 @@ import net.minecraft.world.level.material.MapColor;
 
 final class GlitterLotusBlock extends NativeDecorBlock {
     GlitterLotusBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.FUNGUS).strength(0.2F, 0).lightLevel(state -> 10)
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_LIGHT_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.FUNGUS).strength(0.2F, 0).lightLevel(state -> 10)
                 .noOcclusion().randomTicks().emissiveRendering((state, level, pos) -> true).isRedstoneConductor((state, level, pos) -> false),
                 new Traits(0, true, true, false, 0, 0, false, false), Block.box(5, 0, 5, 11, 6, 11));
     }

@@ -17,7 +17,7 @@ import net.minecraft.world.level.material.MapColor;
 import java.util.List;
 
 public final class StriderConstructorBlock extends Block implements com.hp.thermalshockreforged.content.BlockTooltips.Provider {
-    public StriderConstructorBlock() { super(Properties.of().mapColor(MapColor.METAL).sound(SoundType.GLASS).strength(1, 10)); }
+    public StriderConstructorBlock() { super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.METAL).sound(SoundType.GLASS).strength(1, 10)); }
     @Override protected int getLightDampening(BlockState state) { return 15; }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
         tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.icidrostrider_constructor.description_0"));

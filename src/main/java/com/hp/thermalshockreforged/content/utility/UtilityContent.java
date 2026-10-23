@@ -20,10 +20,10 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class UtilityContent {
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
-    public static final DeferredItem<Item> LOQUE_MILK = ITEMS.register("loque_milk", () -> new LoqueMilkItem(new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
+    public static final DeferredItem<Item> LOQUE_MILK = ITEMS.register("loque_milk", () -> new LoqueMilkItem(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).craftRemainder(Items.BUCKET)
             .food(new FoodProperties.Builder().nutrition(5).saturationModifier(1).usingConvertsTo(Items.BUCKET).build())));
-    public static final DeferredItem<Item> ADAMANTINE_SPICE = ITEMS.register("adamantine_spice", () -> new AdamantineSpiceItem(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final DeferredItem<Item> ADAMANTINE_SPICE = ITEMS.register("adamantine_spice", () -> new AdamantineSpiceItem(com.hp.thermalshockreforged.ModRegistration.item().rarity(Rarity.UNCOMMON)));
     public static final DeferredItem<Item> MUCK_PIE = ITEMS.register("muck_pie", () -> new NourishingFoodItem(ItemUseAnimation.EAT));
 
     public static final DeferredItem<Item> SNOWDAE = ITEMS.register("snowdae", () -> new NourishingFoodItem(ItemUseAnimation.EAT));
@@ -47,7 +47,7 @@ public final class UtilityContent {
     private static final class NourishingFoodItem extends Item {
         private final ItemUseAnimation animation;
         private NourishingFoodItem(ItemUseAnimation animation) {
-            super(new Item.Properties().stacksTo(1).food(new FoodProperties.Builder().nutrition(10).saturationModifier(2).build()));
+            super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).food(new FoodProperties.Builder().nutrition(10).saturationModifier(2).build()));
             this.animation = animation;
         }
         @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return animation; }
@@ -63,14 +63,14 @@ public final class UtilityContent {
 
     private static final class SlowFoodItem extends Item {
         private SlowFoodItem(float saturation) {
-            super(new Properties().food(new FoodProperties.Builder().nutrition(1).saturationModifier(saturation).build()));
+            super(com.hp.thermalshockreforged.ModRegistration.item().food(new FoodProperties.Builder().nutrition(1).saturationModifier(saturation).build()));
         }
         @Override public int getUseDuration(ItemStack stack, LivingEntity consumer) { return 48; }
     }
 
     private static final class BottledMilkItem extends Item {
         private BottledMilkItem() {
-            super(new Properties().stacksTo(1).food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.5F)
+            super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.5F)
                     .usingConvertsTo(Items.GLASS_BOTTLE).build()));
         }
         @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.DRINK; }

@@ -21,7 +21,7 @@ import java.util.List;
 public final class CauldronOfTrilobiteItem extends BlockItem implements GeoItem {
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
 
-    public CauldronOfTrilobiteItem(Block block, Properties properties) { super(block, properties); }
+    public CauldronOfTrilobiteItem(Block block, Properties properties) { super(block, com.hp.thermalshockreforged.ModRegistration.blockItem(block, properties)); }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {

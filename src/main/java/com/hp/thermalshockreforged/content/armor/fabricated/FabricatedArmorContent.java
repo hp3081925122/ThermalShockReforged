@@ -23,17 +23,17 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class FabricatedArmorContent {
     private static final DeferredRegister<ArmorMaterial> MATERIALS = DeferredRegister.create(Registries.ARMOR_MATERIAL, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<MobEffect, MobEffect> COOLDOWN_VISUAL = EFFECTS.register("propulsion_boots_cooldown", CooldownVisual::new);
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> PROPULSION_MATERIAL = MATERIALS.register("propulsion_boots", () -> ArmorMaterialFactory.create(Map.of(ArmorType.BOOTS, 3), 9, Holder.direct(SoundEvents.ARMOR_EQUIP_IRON), 1, 0, "corrial_ingot", "propulsion_boots"));
     private static final DeferredHolder<ArmorMaterial, ArmorMaterial> SILENCED_MATERIAL = MATERIALS.register("silenced_armor", () -> ArmorMaterialFactory.create(Map.of(ArmorType.HELMET, 7, ArmorType.CHESTPLATE, 5), 20, Holder.direct(SoundEvents.ARMOR_EQUIP_NETHERITE), 2, .1F, "stratus_alloy", "silenced_armor"));
     public static final DeferredItem<FabricatedArmorItem> PROPULSION_BOOTS = ITEMS.register("propulsion_boots_boots", () -> new FabricatedArmorItem(
-            PROPULSION_MATERIAL, ArmorType.BOOTS, FabricatedArmorItem.Style.PROPULSION, new Item.Properties().durability(234)));
+            PROPULSION_MATERIAL, ArmorType.BOOTS, FabricatedArmorItem.Style.PROPULSION, com.hp.thermalshockreforged.ModRegistration.item().durability(234)));
     public static final DeferredItem<FabricatedArmorItem> SILENCED_HELMET = ITEMS.register("silenced_armor_helmet", () -> new FabricatedArmorItem(
-            SILENCED_MATERIAL, ArmorType.HELMET, FabricatedArmorItem.Style.SILENCED, new Item.Properties().durability(572).fireResistant()));
+            SILENCED_MATERIAL, ArmorType.HELMET, FabricatedArmorItem.Style.SILENCED, com.hp.thermalshockreforged.ModRegistration.item().durability(572).fireResistant()));
     public static final DeferredItem<FabricatedArmorItem> SILENCED_CHESTPLATE = ITEMS.register("silenced_armor_chestplate", () -> new FabricatedArmorItem(
-            SILENCED_MATERIAL, ArmorType.CHESTPLATE, FabricatedArmorItem.Style.SILENCED, new Item.Properties().durability(832).fireResistant()));
+            SILENCED_MATERIAL, ArmorType.CHESTPLATE, FabricatedArmorItem.Style.SILENCED, com.hp.thermalshockreforged.ModRegistration.item().durability(832).fireResistant()));
     public static final List<DeferredItem<FabricatedArmorItem>> ALL = List.of(PROPULSION_BOOTS, SILENCED_HELMET, SILENCED_CHESTPLATE);
 
     public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }

@@ -27,7 +27,7 @@ import net.minecraft.world.phys.BlockHitResult;
 public final class StratusReactorCoreBlock extends Block implements EntityBlock, com.hp.thermalshockreforged.content.BlockTooltips.Provider {
     public static final IntegerProperty BLOCKSTATE = IntegerProperty.create("blockstate", 0, 1);
     public StratusReactorCoreBlock() {
-        super(Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2, 30).requiresCorrectToolForDrops().lightLevel(state -> state.getValue(BLOCKSTATE) == 1 ? 0 : 15));
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERITE_BLOCK).strength(2, 30).requiresCorrectToolForDrops().lightLevel(state -> state.getValue(BLOCKSTATE) == 1 ? 0 : 15));
         registerDefaultState(defaultBlockState().setValue(BLOCKSTATE, 0));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(BLOCKSTATE); }

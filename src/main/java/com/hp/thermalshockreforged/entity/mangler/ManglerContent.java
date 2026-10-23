@@ -19,15 +19,15 @@ import net.neoforged.neoforge.registries.*;
 
 public final class ManglerContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<ManglerEntity>> MANGLER = TYPES.register("mangler", () -> EntityType.Builder.of(ManglerEntity::new, MobCategory.AMBIENT).fireImmune().sized(0.9F, 0.8F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("mangler")));
     public static final DeferredHolder<EntityType<?>, EntityType<SummonedManglerEntity>> SUMMONED_MANGLER = TYPES.register("summoned_mangler", () -> EntityType.Builder.of(SummonedManglerEntity::new, MobCategory.AMBIENT).sized(0.9F, 0.8F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("summoned_mangler")));
     public static final DeferredHolder<EntityType<?>, EntityType<HeraldEntity>> HERALD = TYPES.register("herald", () -> EntityType.Builder.of(HeraldEntity::new, MobCategory.MONSTER).fireImmune().sized(2.1F, 7.6F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("herald")));
     public static final DeferredHolder<EntityType<?>, EntityType<BossDeathEffectEntity>> HERALD_DEATH_EFFECT = TYPES.register("herald_death_effect", () -> EntityType.Builder.<BossDeathEffectEntity>of(BossDeathEffectEntity::new, MobCategory.MISC).sized(0.01F, 0.01F).clientTrackingRange(64).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("herald_death_effect")));
     static {
-        ITEMS.register("mangler_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(MANGLER.get())));
-        ITEMS.register("summoned_mangler_spawn_egg", () -> new DeferredSpawnEggItem(SUMMONED_MANGLER, -9632219, -65536, new Item.Properties()));
-        ITEMS.register("herald_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(HERALD.get())));
+        ITEMS.register("mangler_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(MANGLER.get())));
+        ITEMS.register("summoned_mangler_spawn_egg", () -> new DeferredSpawnEggItem(SUMMONED_MANGLER, -9632219, -65536, com.hp.thermalshockreforged.ModRegistration.item()));
+        ITEMS.register("herald_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(HERALD.get())));
     }
     private ManglerContent() { }
     public static void register(IEventBus bus) { TYPES.register(bus); ITEMS.register(bus); bus.addListener(ManglerContent::attributes); bus.addListener(ManglerContent::placements); NeoForge.EVENT_BUS.addListener(ManglerContent::attack); NeoForge.EVENT_BUS.addListener(ManglerContent::damaged); NeoForge.EVENT_BUS.addListener(ManglerContent::death); NeoForge.EVENT_BUS.addListener(ManglerContent::join); }

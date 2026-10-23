@@ -37,14 +37,13 @@ public final class MagneticCrossbowItem extends Item implements GeoItem {
     private final boolean zenith;
     public MagneticCrossbowItem() { this(false); }
     public MagneticCrossbowItem(boolean zenith) {
-        super(new Properties().durability(800).fireResistant().rarity(Rarity.UNCOMMON));
+        super(com.hp.thermalshockreforged.ModRegistration.item().enchantable(5).durability(800).fireResistant().rarity(Rarity.UNCOMMON));
         this.zenith = zenith;
         GeoItem.registerSyncedAnimatable(this);
     }
     public String textureName() { return zenith ? "zenith_crossbow" : "magnetic_crossbow"; }
     public boolean isZenith() { return zenith; }
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
-    @Override public int getEnchantmentValue() { return 5; }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
         boolean result = super.onEntitySwing(stack, wielder, hand);
         if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this)) return result;

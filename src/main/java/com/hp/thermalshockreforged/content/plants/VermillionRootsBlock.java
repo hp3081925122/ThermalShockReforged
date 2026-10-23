@@ -15,7 +15,7 @@ final class VermillionRootsBlock extends Block implements SimpleWaterloggedBlock
     private static final VoxelShape SHAPE = box(5, 0, 5, 11, 16, 11);
 
     VermillionRootsBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.FUNGUS)
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.FUNGUS)
                 .strength(0.2F, 0).lightLevel(state -> 7).noCollision().speedFactor(0.7F).jumpFactor(0.9F).noOcclusion()
                 .emissiveRendering((s, l, p) -> true).isRedstoneConductor((s, l, p) -> false));
         registerDefaultState(stateDefinition.any().setValue(WATERLOGGED, false));

@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.MapColor;
 
 public final class ElectricSphereConstructorBlock extends Block implements com.hp.thermalshockreforged.content.BlockTooltips.Provider {
-    public ElectricSphereConstructorBlock() { super(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).sound(SoundType.BAMBOO).strength(1, 99)); }
+    public ElectricSphereConstructorBlock() { super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.METAL).sound(SoundType.BAMBOO).strength(1, 99)); }
     @Override public int getLightDampening(BlockState state) { return 15; }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
         tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.electric_sphere_constructor.description_0"));

@@ -20,7 +20,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class ModEntities {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> ZAP_PARTICLE = PARTICLES.register("zap_attack", () -> new SimpleParticleType(true));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> TELEPORT_FLASH = PARTICLES.register("teleport_flash", () -> new SimpleParticleType(true));
@@ -42,12 +42,12 @@ public final class ModEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<PondlerEntity>> PONDLER = TYPES.register("pondler", () -> EntityType.Builder.of(PondlerEntity::new, MobCategory.WATER_AMBIENT).sized(0.6F, 0.6F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("pondler")));
 
     static {
-        ITEMS.register("pondler_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(PONDLER.get())));
-        ITEMS.register("probosker_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(PROBOSKER.get())));
-        ITEMS.register("scarlet_ray_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SCARLET_RAY.get())));
-        ITEMS.register("crystal_koi_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(CRYSTAL_KOI.get())));
-        ITEMS.register("forecast_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(FORECAST.get())));
-        ITEMS.register("galvanite_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(GALVANITE.get())));
+        ITEMS.register("pondler_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(PONDLER.get())));
+        ITEMS.register("probosker_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(PROBOSKER.get())));
+        ITEMS.register("scarlet_ray_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(SCARLET_RAY.get())));
+        ITEMS.register("crystal_koi_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(CRYSTAL_KOI.get())));
+        ITEMS.register("forecast_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(FORECAST.get())));
+        ITEMS.register("galvanite_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(GALVANITE.get())));
     }
 
     private ModEntities() {

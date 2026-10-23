@@ -16,7 +16,7 @@ import net.minecraft.world.level.storage.loot.parameters.*;
 
 public final class CavebloomerBossBoxItem extends Item {
     private static final ResourceKey<LootTable> LOOT = ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "angry_cavebloomer_loot"));
-    public CavebloomerBossBoxItem() { super(new Properties().stacksTo(1).rarity(Rarity.EPIC)); }
+    public CavebloomerBossBoxItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).rarity(Rarity.EPIC)); }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (level instanceof ServerLevel server) {

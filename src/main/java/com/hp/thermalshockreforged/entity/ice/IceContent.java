@@ -14,7 +14,7 @@ import net.neoforged.neoforge.registries.*;
 
 public final class IceContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<IceCreatureEntity>> FROSTILYTE_SOLDIER = creature("frostilyte_soldier", 0.6F, 1.7F);
     public static final DeferredHolder<EntityType<?>, EntityType<IceCreatureEntity>> FROSTILYTE_CRYOMANCER = creature("frostilyte_cryomancer", 0.6F, 1.7F);
     public static final DeferredHolder<EntityType<?>, EntityType<IceCreatureEntity>> ICIDRONE = creature("icidrone", 0.8F, 0.8F);
@@ -22,10 +22,10 @@ public final class IceContent {
     public static final DeferredHolder<EntityType<?>, EntityType<IceBulletEntity>> ICE_BULLET = TYPES.register("ice_bullet", () -> EntityType.Builder.<IceBulletEntity>of(IceBulletEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(64).updateInterval(1).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("ice_bullet")));
     public static final DeferredHolder<EntityType<?>, EntityType<SoldierComboEntity>> SOLDIER_COMBO = TYPES.register("soldier_combo_task", () -> EntityType.Builder.<SoldierComboEntity>of(SoldierComboEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("soldier_combo_task")));
     static {
-        ITEMS.register("frostilyte_soldier_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(FROSTILYTE_SOLDIER.get())));
-        ITEMS.register("frostilyte_cryomancer_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(FROSTILYTE_CRYOMANCER.get())));
-        ITEMS.register("icidrone_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(ICIDRONE.get())));
-        ITEMS.register("icidrozerk_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(ICIDROZERK.get())));
+        ITEMS.register("frostilyte_soldier_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(FROSTILYTE_SOLDIER.get())));
+        ITEMS.register("frostilyte_cryomancer_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(FROSTILYTE_CRYOMANCER.get())));
+        ITEMS.register("icidrone_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(ICIDRONE.get())));
+        ITEMS.register("icidrozerk_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(ICIDROZERK.get())));
     }
     private IceContent() { }
     private static DeferredHolder<EntityType<?>, EntityType<IceCreatureEntity>> creature(String id, float width, float height) {

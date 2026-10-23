@@ -15,7 +15,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.*;
 
 final class TrainTerminalBlock extends FacingDecorBlock {
-    TrainTerminalBlock() { super(Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.METAL).strength(-1, 3600000).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false), new Traits(0, true, true, false, 0, 0, false, false), Outline.FULL); }
+    TrainTerminalBlock() { super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_GRAY).sound(SoundType.METAL).strength(-1, 3600000).noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false), new Traits(0, true, true, false, 0, 0, false, false), Outline.FULL); }
     @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) { return Block.box(1, 0, 1, 15, 14, 15); }
     private void interact(Level level, Player player) {
         if (!level.isClientSide() && player.getMainHandItem().is(MaterialContent.items().get("train_pass").get())) player.sendOverlayMessage(Component.translatable("message.thermal_shock_reforged.train.insufficient_credit"));

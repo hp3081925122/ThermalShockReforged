@@ -32,7 +32,7 @@ final class TridentLampBlock extends Block implements com.hp.thermalshockreforge
     static final IntegerProperty DESIGN = IntegerProperty.create("blockstate", 0, 2);
 
     TridentLampBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_CYAN).sound(SoundType.GRASS).strength(.5F, 0)
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_CYAN).sound(SoundType.GRASS).strength(.5F, 0)
                 .lightLevel(state -> 15).noCollision().noOcclusion()
                 .emissiveRendering((state, level, pos) -> true)
                 .isRedstoneConductor((state, level, pos) -> false));

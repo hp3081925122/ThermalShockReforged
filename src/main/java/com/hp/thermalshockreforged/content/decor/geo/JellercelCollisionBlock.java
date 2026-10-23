@@ -32,7 +32,7 @@ public final class JellercelCollisionBlock extends Block implements SimpleWaterl
     public static final IntegerProperty PART = IntegerProperty.create("part", 0, 7);
     private static final VoxelShape SHAPE = Block.box(.1, .1, .1, 15.9, 15.9, 15.9);
     public JellercelCollisionBlock() {
-        super(BlockBehaviour.Properties.of().sound(SoundType.EMPTY).strength(2, 1).noOcclusion().randomTicks().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false));
+        super(com.hp.thermalshockreforged.ModRegistration.block().sound(SoundType.EMPTY).strength(2, 1).noOcclusion().randomTicks().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false));
         registerDefaultState(defaultBlockState().setValue(PART, 0).setValue(BlockStateProperties.WATERLOGGED, false));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(PART, BlockStateProperties.WATERLOGGED); }
@@ -42,7 +42,7 @@ public final class JellercelCollisionBlock extends Block implements SimpleWaterl
     @Override protected int getLightDampening(BlockState state) { return 0; }
     @Override protected boolean propagatesSkylightDown(BlockState state) { return state.getFluidState().isEmpty(); }
     @Override protected FluidState getFluidState(BlockState state) { return state.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state); }
-    @Override public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) { return new ItemStack(GeoDecorContent.block(GeoDecorKind.LARGE_JELLERCEL)); }
+    @Override public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean includeData) { return new ItemStack(GeoDecorContent.block(GeoDecorKind.LARGE_JELLERCEL)); }
 
     private static BlockPos anchor(Level level, BlockPos pos, BlockState state) {
         int part = state.getValue(PART);

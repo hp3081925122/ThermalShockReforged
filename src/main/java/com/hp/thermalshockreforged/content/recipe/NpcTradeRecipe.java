@@ -25,7 +25,7 @@ public record NpcTradeRecipe(List<FabricationRecipe.Cost> costs, int levels, Ite
     public static final MapCodec<NpcTradeRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
             FabricationRecipe.Cost.CODEC.listOf().optionalFieldOf("costs", List.of()).forGetter(NpcTradeRecipe::costs),
             Codec.intRange(0, Integer.MAX_VALUE).optionalFieldOf("levels", 0).forGetter(NpcTradeRecipe::levels),
-            ItemStack.STRICT_CODEC.fieldOf("result").forGetter(NpcTradeRecipe::result),
+            ItemStack.CODEC.fieldOf("result").forGetter(NpcTradeRecipe::result),
             Identifier.CODEC.optionalFieldOf("requires").forGetter(NpcTradeRecipe::requires)
     ).apply(instance, NpcTradeRecipe::new));
 
@@ -97,9 +97,9 @@ public record NpcTradeRecipe(List<FabricationRecipe.Cost> costs, int levels, Ite
         return true;
     }
 
-    @Override public ItemStack getResultItem(HolderLookup.Provider registries) { return result; }
-    @Override public RecipeSerializer<?> getSerializer() { return RecipeContent.NPC_TRADE.serializer().get(); }
-    @Override public RecipeType<?> getType() { return RecipeContent.NPC_TRADE.type().get(); }
+    public ItemStack getResultItem(HolderLookup.Provider registries) { return result; }
+    @Override public RecipeSerializer<? extends DataRecipe> getSerializer() { return RecipeContent.NPC_TRADE.serializer().get(); }
+    @Override public RecipeType<? extends DataRecipe> getType() { return RecipeContent.NPC_TRADE.type().get(); }
 
     private record Debit(Container container, ItemStack stack, int count) { }
 }

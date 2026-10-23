@@ -20,7 +20,7 @@ public final class GemlockBlock extends Block {
     public static final IntegerProperty BLOCKSTATE = IntegerProperty.create("blockstate", 0, 1);
     public final GemlockKind kind;
     public GemlockBlock(GemlockKind kind) {
-        super(Properties.of().mapColor(kind.mapColor).sound(SoundType.STONE).strength(2, 30).requiresCorrectToolForDrops().lightLevel(state -> state.getValue(BLOCKSTATE) == 1 ? 15 : 0));
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(kind.mapColor).sound(SoundType.STONE).strength(2, 30).requiresCorrectToolForDrops().lightLevel(state -> state.getValue(BLOCKSTATE) == 1 ? 15 : 0));
         this.kind = kind;
         registerDefaultState(defaultBlockState().setValue(BLOCKSTATE, 0));
     }

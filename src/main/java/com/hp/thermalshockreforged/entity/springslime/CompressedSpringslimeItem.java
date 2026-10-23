@@ -9,7 +9,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 public final class CompressedSpringslimeItem extends Item {
-    public CompressedSpringslimeItem() { super(new Properties().stacksTo(16)); }
+    public CompressedSpringslimeItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(16)); }
     @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.BOW; }
     @Override public int getUseDuration(ItemStack stack, LivingEntity entity) { return 5; }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
@@ -17,12 +17,12 @@ public final class CompressedSpringslimeItem extends Item {
         player.startUsingItem(hand);
         return InteractionResult.SUCCESS;
     }
-    @Override public void releaseUsing(ItemStack stack, Level level, LivingEntity entity, int remaining) { fire(level, entity); }
+    @Override public boolean releaseUsing(ItemStack stack, Level level, LivingEntity entity, int remaining) { fire(level, entity); return false; }
     private void fire(Level level, LivingEntity entity) {
         if (!(entity instanceof ServerPlayer player)) return;
         var ammo = findAmmo(player);
         if (!player.getAbilities().instabuild && ammo.isEmpty()) return;
-        var projectile = SpringslimeContent.PROJECTILE.get().create(level);
+        var projectile = SpringslimeContent.PROJECTILE.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (projectile == null) return;
         projectile.setOwner(player);
         projectile.setPos(player.getX(), player.getEyeY() - .1, player.getZ());

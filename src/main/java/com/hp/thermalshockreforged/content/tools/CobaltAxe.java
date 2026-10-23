@@ -7,7 +7,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.item.AxeItem;
 import com.hp.thermalshockreforged.content.tools.Tier;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.RotatedPillarBlock;
@@ -19,7 +18,7 @@ final class CobaltAxe extends AxeItem {
             "ochre_wood", "stripped_ochre_wood", "vermilli_wood", "stripped_vermilli_wood",
             "shiverglitter_wood", "stripped_shiverglitter_wood", "kyaneos_wood", "stripped_kyaneos_wood");
 
-    CobaltAxe(Tier tier, Properties properties) { super(tier, properties); }
+    CobaltAxe(Tier tier, float damage, float speed, Properties properties) { super(tier, damage, speed, properties); }
 
     @Override
     public InteractionResult useOn(UseOnContext context) {

@@ -15,8 +15,8 @@ import net.neoforged.neoforge.capabilities.*;
 import net.neoforged.neoforge.registries.*;
 
 public final class GeoDecorContent {
-    private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Blocks BLOCKS = com.hp.thermalshockreforged.ModRegistration.blocks(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<BlockEntityType<?>> ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
     public static final List<DeferredHolder<ParticleType<?>, SimpleParticleType>> HOLOGRAM_PARTICLES = IntStream.rangeClosed(1, 5).mapToObj(index -> PARTICLES.register("holo_" + index, () -> new SimpleParticleType(false))).toList();
@@ -69,7 +69,7 @@ public final class GeoDecorContent {
                 default -> new GeoDecorBlock(kind);
             });
             BLOCK_VALUES.put(kind, block);
-            ITEM_VALUES.put(kind, ITEMS.register(kind.id, () -> new GeoDecorItem(block.get(), kind, new Item.Properties())));
+            ITEM_VALUES.put(kind, ITEMS.register(kind.id, () -> new GeoDecorItem(block.get(), kind, com.hp.thermalshockreforged.ModRegistration.item())));
             ENTITY_VALUES.put(kind, ENTITIES.register(kind.id, () -> new BlockEntityType<GeoDecorBlockEntity>((pos, state) -> switch (kind) { case GRAND_BLASPHEMER -> new GrandBlasphemerBlockEntity(pos, state); case SUSPICIOUS_CAVEBLOOMER -> new SuspiciousCavebloomerBlockEntity(pos, state); case ENCHANTED_CACHE, CRYONIC_CACHE, SUPER_CRYONIC_CACHE -> new CacheBlockEntity(kind, pos, state); case ICEBREAKER -> new com.hp.thermalshockreforged.content.icebreaker.IcebreakerBlockEntity(pos, state); default -> new GeoDecorBlockEntity(kind, pos, state); }, block.get())));
         }
     }

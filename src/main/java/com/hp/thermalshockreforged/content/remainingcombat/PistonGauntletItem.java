@@ -15,7 +15,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 public final class PistonGauntletItem extends AnimatedCombatItem {
-    public PistonGauntletItem() { super(new Properties().durability(50).rarity(Rarity.COMMON)); }
+    public PistonGauntletItem() { super(com.hp.thermalshockreforged.ModRegistration.item().durability(50).rarity(Rarity.COMMON)); }
     @Override public String modelName() { return "cobalt_fist"; }
     @Override public String textureName() { return "cobalt_fist"; }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {

@@ -11,7 +11,7 @@ import net.neoforged.neoforge.registries.*;
 
 public final class StatusContent {
     private static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, ThermalShockReforged.MOD_ID);
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    public static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(Registries.POTION, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<net.minecraft.core.particles.ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<MobEffect, MobEffect> PARRYING = EFFECTS.register("parrying", () -> new PlayerStatusEffect(MobEffectCategory.BENEFICIAL, -1, PlayerStatusEffect.Action.NONE, false));

@@ -11,7 +11,7 @@ final class LensVisageParticle extends LegacySingleQuadParticle {
         setSize(.2F, .2F); quadSize = 1.1F; lifetime = 1; gravity = 0; hasPhysics = false;
         xd = 0; yd = 0; zd = 0; pickSprite(sprites);
     }
-    public int getLightColor(float partialTick) { return 0xF000F0; }
+    public int getLightCoords(float partialTick) { return 0xF000F0; }
     @Override public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
     static final class Provider implements ParticleProvider<SimpleParticleType> {
         private final SpriteSet sprites;

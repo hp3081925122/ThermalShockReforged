@@ -21,11 +21,11 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 
 public final class FaunaEntities {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Blocks BLOCKS = com.hp.thermalshockreforged.ModRegistration.blocks(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredBlock<CauldronOfTrilobiteBlock> CAULDRON = BLOCKS.register("cauldron_of_trilobite", CauldronOfTrilobiteBlock::new);
-    public static final DeferredItem<CauldronOfTrilobiteItem> CAULDRON_ITEM = ITEMS.register("cauldron_of_trilobite", () -> new CauldronOfTrilobiteItem(CAULDRON.get(), new Item.Properties()));
+    public static final DeferredItem<CauldronOfTrilobiteItem> CAULDRON_ITEM = ITEMS.register("cauldron_of_trilobite", () -> new CauldronOfTrilobiteItem(CAULDRON.get(), com.hp.thermalshockreforged.ModRegistration.item()));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CauldronOfTrilobiteBlockEntity>> CAULDRON_ENTITY = BLOCK_ENTITIES.register("cauldron_of_trilobite", () -> new BlockEntityType<>(CauldronOfTrilobiteBlockEntity::new, CAULDRON.get()));
     public static final DeferredHolder<EntityType<?>, EntityType<BonerahnaEntity>> BONERAHNA = TYPES.register("bonerahna", () -> EntityType.Builder.of(BonerahnaEntity::new, MobCategory.WATER_AMBIENT).sized(0.400F, 0.400F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("bonerahna")));
     public static final DeferredHolder<EntityType<?>, EntityType<ChromefishEntity>> CHROMEFISH = TYPES.register("chromefish", () -> EntityType.Builder.of(ChromefishEntity::new, MobCategory.WATER_AMBIENT).sized(0.300F, 0.300F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("chromefish")));
@@ -40,12 +40,12 @@ public final class FaunaEntities {
     public static final DeferredItem<RawTorpedoItem> RAW_TORPEDO = ITEMS.register("raw_torpedo", RawTorpedoItem::new);
 
     static {
-        ITEMS.register("bonerahna_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(BONERAHNA.get())));
-        ITEMS.register("chromefish_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(CHROMEFISH.get())));
-        ITEMS.register("torpedo_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(TORPEDO.get())));
-        ITEMS.register("trilobite_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(TRILOBITE.get())));
-        ITEMS.register("willograde_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(WILLOGRADE.get())));
-        ITEMS.register("flare_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(FLARE.get())));
+        ITEMS.register("bonerahna_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(BONERAHNA.get())));
+        ITEMS.register("chromefish_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(CHROMEFISH.get())));
+        ITEMS.register("torpedo_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(TORPEDO.get())));
+        ITEMS.register("trilobite_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(TRILOBITE.get())));
+        ITEMS.register("willograde_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(WILLOGRADE.get())));
+        ITEMS.register("flare_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(FLARE.get())));
     }
 
     private FaunaEntities() { }

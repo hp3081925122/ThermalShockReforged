@@ -14,7 +14,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 final class AntitoxinItem extends Item {
-    AntitoxinItem() { super(new Properties().stacksTo(16).food(new FoodProperties.Builder().nutrition(0).saturationModifier(0).alwaysEdible().build())); }
+    AntitoxinItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(16).food(new FoodProperties.Builder().nutrition(0).saturationModifier(0).alwaysEdible().build())); }
 
     @Override
     public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.DRINK; }

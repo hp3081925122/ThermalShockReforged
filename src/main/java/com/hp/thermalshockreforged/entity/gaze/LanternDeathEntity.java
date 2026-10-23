@@ -47,9 +47,9 @@ public final class LanternDeathEntity extends Entity implements ServerEndTickTas
         var origin = position();
         discard();
         var calculator = new ExplosionDamageCalculator() {
-            @Override public float getEntityDamageAmount(Explosion explosion, Entity target) {
+            @Override public float getEntityDamageAmount(Explosion explosion, Entity target, float seenPercent) {
                 float diameter = explosion.radius() * 2;
-                double exposure = (1 - Math.sqrt(target.distanceToSqr(explosion.center())) / diameter) * Explosion.getSeenPercent(explosion.center(), target);
+                double exposure = (1 - Math.sqrt(target.distanceToSqr(explosion.center())) / diameter) * seenPercent;
                 int originalDamage = (int)((exposure * exposure + exposure) / 2 * 7 * diameter + 1);
                 return (float)(originalDamage * damageScale);
             }

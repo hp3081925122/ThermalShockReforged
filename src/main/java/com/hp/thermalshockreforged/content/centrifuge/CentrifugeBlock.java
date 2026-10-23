@@ -19,7 +19,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 
 public final class CentrifugeBlock extends Block implements EntityBlock, com.hp.thermalshockreforged.content.BlockTooltips.Provider {
-    public CentrifugeBlock() { super(Properties.of().mapColor(MapColor.METAL).sound(SoundType.METAL).strength(2, 20).lightLevel(state -> 10)); }
+    public CentrifugeBlock() { super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.METAL).sound(SoundType.METAL).strength(2, 20).lightLevel(state -> 10)); }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
         tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.centrifuge.description_0"));
     }

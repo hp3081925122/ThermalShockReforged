@@ -13,7 +13,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public final class VeinrootBlock extends Block {
     public VeinrootBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_RED).sound(SoundType.WEEPING_VINES).instabreak()
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_RED).sound(SoundType.WEEPING_VINES).instabreak()
                 .noCollision().noOcclusion().isRedstoneConductor((state, level, pos) -> false));
     }
 

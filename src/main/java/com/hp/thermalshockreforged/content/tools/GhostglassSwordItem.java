@@ -20,7 +20,7 @@ import com.hp.thermalshockreforged.content.tools.Tier;
 import net.minecraft.world.item.TooltipFlag;
 
 public final class GhostglassSwordItem extends SwordItem {
-    public GhostglassSwordItem(Tier tier, Properties properties) { super(tier, properties); }
+    public GhostglassSwordItem(Tier tier, float damage, float speed, Properties properties) { super(tier, damage, speed, properties); }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
         boolean result = super.onEntitySwing(stack, wielder, hand);
         if (!(wielder.level() instanceof ServerLevel server) || wielder instanceof Player player && player.getCooldowns().isOnCooldown(this)) return result;

@@ -15,7 +15,7 @@ import net.minecraft.world.phys.Vec3;
 
 public final class UmbrellaItem extends AnimatedCombatItem {
     private final boolean legendary;
-    public UmbrellaItem(boolean legendary) { super(new Properties().durability(250).rarity(legendary ? Rarity.UNCOMMON : Rarity.COMMON)); this.legendary = legendary; }
+    public UmbrellaItem(boolean legendary) { super(com.hp.thermalshockreforged.ModRegistration.item().durability(250).rarity(legendary ? Rarity.UNCOMMON : Rarity.COMMON)); this.legendary = legendary; }
     @Override public String modelName() { return "jellyumbrella"; }
     @Override public String textureName() { return "jellumnbra"; }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {

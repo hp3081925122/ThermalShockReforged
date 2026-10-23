@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public final class ClimbingPickItem extends Item {
     private final boolean jelly;
     public ClimbingPickItem(boolean jelly) {
-        super(new Properties().durability(jelly ? 1200 : 870).attributes(ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, 2, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, -2.4, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build())); this.jelly = jelly;
+        super(com.hp.thermalshockreforged.ModRegistration.item().durability(jelly ? 1200 : 870).attributes(ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_ID, 2, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, -2.4, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build())); this.jelly = jelly;
     }
     @Override public float getDestroySpeed(ItemStack stack, BlockState state) { return 1.6F; }
     @Override public InteractionResult useOn(UseOnContext context) {

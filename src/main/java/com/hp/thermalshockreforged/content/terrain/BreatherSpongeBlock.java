@@ -24,7 +24,7 @@ import net.minecraft.world.phys.BlockHitResult;
 
 public final class BreatherSpongeBlock extends Block {
     public BreatherSpongeBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.CORAL_BLOCK)
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.CORAL_BLOCK)
                 .strength(1.0F, 10.0F).lightLevel(state -> 5));
     }
 

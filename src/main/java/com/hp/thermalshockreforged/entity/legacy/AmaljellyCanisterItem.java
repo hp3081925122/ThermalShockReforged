@@ -22,7 +22,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 
 public final class AmaljellyCanisterItem extends Item {
-    public AmaljellyCanisterItem() { super(new Properties().stacksTo(1).rarity(Rarity.UNCOMMON)); }
+    public AmaljellyCanisterItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).rarity(Rarity.UNCOMMON)); }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
         super.appendHoverText(stack, context, display, tooltipAdder, flag);
         tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.amaljelly_canister.description_0"));

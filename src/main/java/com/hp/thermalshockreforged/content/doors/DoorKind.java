@@ -61,7 +61,7 @@ public enum DoorKind {
     }
 
     BlockBehaviour.Properties properties() {
-        return BlockBehaviour.Properties.of().mapColor(this == MAW ? MapColor.TERRACOTTA_PINK : MapColor.DEEPSLATE)
+        return com.hp.thermalshockreforged.ModRegistration.block().mapColor(this == MAW ? MapColor.TERRACOTTA_PINK : MapColor.DEEPSLATE)
                 .sound(this == MAW ? SoundType.WOOD : SoundType.METAL).strength(-1, 3600000)
                 .noOcclusion().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false);
     }

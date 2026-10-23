@@ -21,7 +21,7 @@ import net.neoforged.neoforge.registries.*;
 
 public final class QoContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, ThermalShockReforged.MOD_ID);
     private static final EnumMap<QoPage, DeferredHolder<MenuType<?>, MenuType<QoMenu>>> PAGES = new EnumMap<>(QoPage.class);
     public static final DeferredHolder<EntityType<?>, EntityType<DefectorMachinistEntity>> DEFECTOR_MACHINIST = TYPES.register("defector_machinist", () -> EntityType.Builder.of(DefectorMachinistEntity::new, MobCategory.MONSTER).sized(.9F, 1.4F).setShouldReceiveVelocityUpdates(true).fireImmune().clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("defector_machinist")));
@@ -29,7 +29,7 @@ public final class QoContent {
     public static final DeferredItem<IceArtifactItem> ICE_ARTIFACT = ITEMS.register("ice_artifact", IceArtifactItem::new);
     public static final DeferredItem<UneasyAllianceBundleItem> ALLIANCE_BUNDLE = ITEMS.register("uneasy_alliance_loot_bundle", UneasyAllianceBundleItem::new);
     static {
-        ITEMS.register("defector_machinist_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(DEFECTOR_MACHINIST.get())));
+        ITEMS.register("defector_machinist_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(DEFECTOR_MACHINIST.get())));
         for (var page : QoPage.values()) PAGES.put(page, MENUS.register(page.id, () -> IMenuTypeExtension.create((id, inventory, data) -> new QoMenu(page, id, inventory, data.readVarInt(), data.readUUID(), data.readBlockPos(), data.readUtf()))));
     }
     private QoContent() { }

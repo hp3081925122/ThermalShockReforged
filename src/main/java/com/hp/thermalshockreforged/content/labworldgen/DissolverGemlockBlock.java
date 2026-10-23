@@ -19,7 +19,7 @@ import net.minecraft.world.phys.BlockHitResult;
 
 public final class DissolverGemlockBlock extends Block {
     public static final IntegerProperty BLOCKSTATE = IntegerProperty.create("blockstate", 0, 1);
-    public DissolverGemlockBlock() { super(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).sound(SoundType.STONE).strength(-1, 3600000).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK).lightLevel(state -> state.getValue(BLOCKSTATE) == 1 ? 15 : 0)); registerDefaultState(defaultBlockState().setValue(BLOCKSTATE, 0)); }
+    public DissolverGemlockBlock() { super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.STONE).sound(SoundType.STONE).strength(-1, 3600000).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK).lightLevel(state -> state.getValue(BLOCKSTATE) == 1 ? 15 : 0)); registerDefaultState(defaultBlockState().setValue(BLOCKSTATE, 0)); }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(BLOCKSTATE); }
     @Override protected int getLightDampening(BlockState state) { return 15; }
     @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {

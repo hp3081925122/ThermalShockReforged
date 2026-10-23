@@ -8,7 +8,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 public final class BarbubbleMelonItem extends Item {
-    public BarbubbleMelonItem() { super(new Properties().stacksTo(64).rarity(Rarity.COMMON)); }
+    public BarbubbleMelonItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(64).rarity(Rarity.COMMON)); }
     @Override public int getUseDuration(ItemStack stack, LivingEntity entity) { return 32; }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var result = super.use(level, player, hand);

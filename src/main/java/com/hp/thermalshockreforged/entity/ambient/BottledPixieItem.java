@@ -9,7 +9,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 public final class BottledPixieItem extends Item {
-    public BottledPixieItem() { super(new Properties().stacksTo(16)); }
+    public BottledPixieItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(16)); }
     @Override
     public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.BOW; }
     @Override
@@ -21,17 +21,16 @@ public final class BottledPixieItem extends Item {
         return InteractionResult.SUCCESS;
     }
     @Override
-    public void releaseUsing(ItemStack stack, Level level, LivingEntity entity, int timeLeft) {
-        if (!(entity instanceof ServerPlayer player)) return;
+    public boolean releaseUsing(ItemStack stack, Level level, LivingEntity entity, int timeLeft) {
+        if (!(entity instanceof ServerPlayer player)) return false;
         var ammo = findAmmo(player);
-        if (!player.getAbilities().instabuild && ammo.isEmpty()) return;
+        if (!player.getAbilities().instabuild && ammo.isEmpty()) return false;
         var bottle = PixieBottleEntity.shoot(level, player, 0.7F);
         if (player.getAbilities().instabuild) bottle.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
         else {
             ammo.shrink(1);
             if (ammo.isEmpty()) player.getInventory().removeItem(ammo);
-        }
-    }
+        } return false; }
     private ItemStack findAmmo(Player player) {
         var held = ProjectileWeaponItem.getHeldProjectile(player, stack -> stack.is(this));
         if (!held.isEmpty()) return held;

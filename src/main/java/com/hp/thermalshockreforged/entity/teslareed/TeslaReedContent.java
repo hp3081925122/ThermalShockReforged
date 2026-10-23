@@ -13,12 +13,12 @@ import net.neoforged.neoforge.registries.*;
 
 public final class TeslaReedContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Blocks BLOCKS = com.hp.thermalshockreforged.ModRegistration.blocks(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<TeslaReedEntity>> TESLA_REED = TYPES.register("tesla_reed", () -> EntityType.Builder.of(TeslaReedEntity::new, MobCategory.MONSTER).sized(.7F, .7F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("tesla_reed")));
     public static final DeferredHolder<EntityType<?>, EntityType<TeslaPulseEntity>> PULSE = TYPES.register("tesla_pulse_task", () -> EntityType.Builder.<TeslaPulseEntity>of(TeslaPulseEntity::new, MobCategory.MISC).noSummon().sized(.01F, .01F).clientTrackingRange(0).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("tesla_pulse_task")));
     public static final DeferredBlock<Block> SEED = BLOCKS.register("tesla_reed_seed", TeslaReedSeedBlock::new);
-    static { ITEMS.register("tesla_reed_seed", () -> new BlockItem(SEED.get(), new Item.Properties())); }
+    static { ITEMS.register("tesla_reed_seed", () -> new BlockItem(SEED.get(), com.hp.thermalshockreforged.ModRegistration.blockItem(SEED.get()))); }
     public static void register(IEventBus bus) { TYPES.register(bus); BLOCKS.register(bus); ITEMS.register(bus); bus.addListener(TeslaReedContent::attributes); NeoForge.EVENT_BUS.addListener(TeslaReedContent::attack); }
     private static void attributes(EntityAttributeCreationEvent event) { event.put(TESLA_REED.get(), TeslaReedEntity.attributes().build()); }
     private static void attack(AttackAttemptEvent event) { if (event.getSource().getEntity() instanceof TeslaReedEntity caster) { event.setCanceled(true); caster.beginAttack(event.getEntity()); } }

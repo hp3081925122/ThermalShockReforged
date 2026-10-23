@@ -26,14 +26,14 @@ final class BounceBlocks {
         entity.setDeltaMovement(0, strong ? 3 : .9, 0);
     }
     static final class Full extends FacingDecorBlock {
-        Full() { super(Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(1.25F, 5).requiresCorrectToolForDrops(), new Traits(15, false, false, false, 0, 0, false, false), Outline.FULL); }
+        Full() { super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.STONE).strength(1.25F, 5).requiresCorrectToolForDrops(), new Traits(15, false, false, false, 0, 0, false, false), Outline.FULL); }
         @Override public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) { super.stepOn(level, pos, state, entity); bounce(level, pos, entity, false); }
     }
     static final class Slab extends SlabBlock {
         private final boolean strong;
         Slab(boolean strong) { super(properties(strong)); this.strong = strong; }
         private static Properties properties(boolean strong) {
-            var properties = Properties.of().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.SLIME_BLOCK).dynamicShape();
+            var properties = com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_GRAY).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.SLIME_BLOCK).dynamicShape();
             return strong ? properties.strength(-1, 3600000).emissiveRendering((state, level, pos) -> true) : properties.strength(1.25F, 0).requiresCorrectToolForDrops();
         }
         @Override public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) { super.stepOn(level, pos, state, entity); bounce(level, pos, entity, strong); }

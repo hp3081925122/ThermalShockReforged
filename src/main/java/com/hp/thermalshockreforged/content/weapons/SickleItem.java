@@ -18,10 +18,11 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.sounds.SoundSource;
 
-public final class SickleItem extends HoeItem {
+public final class SickleItem extends com.hp.thermalshockreforged.content.tools.HoeItem {
     private final String id;
     public SickleItem(String id, int durability, float speed, String repair) {
         this(id, durability, speed, repair, 4, 21);
@@ -30,8 +31,7 @@ public final class SickleItem extends HoeItem {
         this(id, new SickleTier(durability, speed, repair, damage, enchantmentValue));
     }
     private SickleItem(String id, Tier tier) {
-        super(tier, new Properties().attributes(DiggerItem.createAttributes(tier, 0, -2).withModifierAdded(Attributes.ATTACK_KNOCKBACK,
-                new AttributeModifier(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sickle_attack_knockback"), -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.MAINHAND)));
+        super(tier, 0, -2, com.hp.thermalshockreforged.ModRegistration.item(new SickleProperties()));
         this.id = id;
     }
     @Override public void hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
@@ -62,7 +62,12 @@ public final class SickleItem extends HoeItem {
         @Override public float getAttackDamageBonus() { return damage; }
         @Override public TagKey<Block> getIncorrectBlocksForDrops() { return BlockTags.INCORRECT_FOR_DIAMOND_TOOL; }
         @Override public int getEnchantmentValue() { return enchantmentValue; }
-        @Override public Ingredient getRepairIngredient() { return Ingredient.of(MaterialContent.items().get(repair).get()); }
+        @Override public TagKey<Item> getRepairItems() { return Tier.repairTag(repair); }
+    }
+    private static final class SickleProperties extends Properties {
+        @Override public Properties attributes(ItemAttributeModifiers attributes) {
+            return super.attributes(attributes.withModifierAdded(Attributes.ATTACK_KNOCKBACK, new AttributeModifier(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sickle_attack_knockback"), -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL), EquipmentSlotGroup.MAINHAND));
+        }
     }
     public static final class WoundEffect extends MobEffect {
         public WoundEffect() { super(MobEffectCategory.HARMFUL, -52429); }

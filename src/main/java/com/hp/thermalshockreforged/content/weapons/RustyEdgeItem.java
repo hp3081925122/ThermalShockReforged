@@ -29,9 +29,9 @@ public final class RustyEdgeItem extends SwordItem {
         @Override public float getAttackDamageBonus() { return 3; }
         @Override public TagKey<Block> getIncorrectBlocksForDrops() { return BlockTags.INCORRECT_FOR_IRON_TOOL; }
         @Override public int getEnchantmentValue() { return 0; }
-        @Override public Ingredient getRepairIngredient() { return Ingredient.EMPTY; }
+        @Override public TagKey<Item> getRepairItems() { return Tier.repairTag("none"); }
     };
-    public RustyEdgeItem() { super(TIER, new Properties().attributes(SwordItem.createAttributes(TIER, 3, -2.6F))); }
+    public RustyEdgeItem() { super(TIER, 3, -2.6F, com.hp.thermalshockreforged.ModRegistration.item()); }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var result = super.use(level, player, hand);
         if (player.getCooldowns().isOnCooldown(this)) return result;

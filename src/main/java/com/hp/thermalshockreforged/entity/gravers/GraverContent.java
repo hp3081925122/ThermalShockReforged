@@ -17,7 +17,7 @@ import net.neoforged.neoforge.registries.*;
 
 public final class GraverContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<GraverEntity>> GRAVER = TYPES.register("graver", () -> EntityType.Builder.of(GraverEntity::new, MobCategory.MONSTER).sized(.6F, 1.7F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("graver")));
     public static final DeferredHolder<EntityType<?>, EntityType<NeonLimeGraverEntity>> NEON = TYPES.register("neon_lime_graver", () -> EntityType.Builder.of(NeonLimeGraverEntity::new, MobCategory.MONSTER).sized(.6F, 1.7F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("neon_lime_graver")));
     public static final DeferredHolder<EntityType<?>, EntityType<AssimilatorEntity>> ASSIMILATOR = TYPES.register("assimilator", () -> EntityType.Builder.of(AssimilatorEntity::new, MobCategory.MONSTER).sized(.6F, .5F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("assimilator")));
@@ -25,10 +25,10 @@ public final class GraverContent {
     public static final DeferredHolder<EntityType<?>, EntityType<RazoraptorEntity>> RAZORAPTOR = TYPES.register("razoraptor", () -> EntityType.Builder.of(RazoraptorEntity::new, MobCategory.AMBIENT).sized(1.3F, 2.6F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("razoraptor")));
     public static final DeferredHolder<EntityType<?>, EntityType<RazoraptorStrikeEntity>> STRIKE = TYPES.register("razoraptor_strike_task", () -> EntityType.Builder.<RazoraptorStrikeEntity>of(RazoraptorStrikeEntity::new, MobCategory.MISC).noSummon().sized(.1F, .1F).clientTrackingRange(1).updateInterval(Integer.MAX_VALUE).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("razoraptor_strike_task")));
     static {
-        ITEMS.register("graver_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(GRAVER.get())));
-        ITEMS.register("assimilator_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(ASSIMILATOR.get())));
-        ITEMS.register("assimilated_graver_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(ASSIMILATED.get())));
-        ITEMS.register("razoraptor_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(RAZORAPTOR.get())));
+        ITEMS.register("graver_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(GRAVER.get())));
+        ITEMS.register("assimilator_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(ASSIMILATOR.get())));
+        ITEMS.register("assimilated_graver_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(ASSIMILATED.get())));
+        ITEMS.register("razoraptor_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(RAZORAPTOR.get())));
     }
     public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static void register(IEventBus bus) {

@@ -13,7 +13,7 @@ import com.geckolib.util.GeckoLibUtil;
 public final class GeoCropItem extends BlockItem implements GeoItem {
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     public final CropKind kind;
-    public GeoCropItem(Block block, CropKind kind) { super(block, new Properties()); this.kind = kind; }
+    public GeoCropItem(Block block, CropKind kind) { super(block, com.hp.thermalshockreforged.ModRegistration.blockItem(block)); this.kind = kind; }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {
         registrar.add(new LegacyAnimationController<>(this, "controller", 0, state -> switch (kind) {
             case ANCIENT_SKORIO, ANCIENT_BARBUBBLE, DEWLEAF, HEARTHFLY_BRANCH, NEOFLORM, VOLATINE -> state.setAndContinue(RawAnimation.begin().thenLoop("0"));

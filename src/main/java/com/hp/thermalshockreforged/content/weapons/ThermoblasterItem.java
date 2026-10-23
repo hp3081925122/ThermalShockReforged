@@ -28,12 +28,11 @@ public final class ThermoblasterItem extends Item implements GeoItem {
     private final boolean zenith;
     private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
     public ThermoblasterItem(boolean zenith) {
-        super(new Properties().durability(1400).rarity(Rarity.UNCOMMON));
+        super(com.hp.thermalshockreforged.ModRegistration.item().enchantable(5).durability(1400).rarity(Rarity.UNCOMMON));
         this.zenith = zenith; GeoItem.registerSyncedAnimatable(this);
     }
     public boolean isZenith() { return zenith; }
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
-    @Override public int getEnchantmentValue() { return 5; }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var result = super.use(level, player, hand);
         if (zenith) fire(player, player.getItemInHand(hand), true);

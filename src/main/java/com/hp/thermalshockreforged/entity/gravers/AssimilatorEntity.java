@@ -12,8 +12,8 @@ public final class AssimilatorEntity extends GraverFamilyEntity {
     private boolean converted;
     private boolean converting;
     public AssimilatorEntity(EntityType<? extends AssimilatorEntity> type, Level level) { super(type, level, "infected_snobol", 3); }
-    @Override public void awardKillScore(Entity victim, int score, DamageSource source) {
-        super.awardKillScore(victim, score, source);
+    @Override public void awardKillScore(Entity victim, DamageSource source) {
+        super.awardKillScore(victim, source);
         if (!(victim instanceof GraverEntity) || !(level() instanceof ServerLevel server) || !isAlive() || converted || converting || victim.level() != level()) return;
         converting = true;
         try {

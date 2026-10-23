@@ -24,7 +24,7 @@ public final class MetalStorageBlock extends Block {
     public static final EnumProperty<AttachFace> FACE = BlockStateProperties.ATTACH_FACE;
 
     public MetalStorageBlock(MapColor mapColor) {
-        super(Properties.of().mapColor(mapColor).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.METAL).strength(2, 10).requiresCorrectToolForDrops());
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(mapColor).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.METAL).strength(2, 10).requiresCorrectToolForDrops());
         registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH).setValue(FACE, AttachFace.WALL));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(FACING, FACE); }

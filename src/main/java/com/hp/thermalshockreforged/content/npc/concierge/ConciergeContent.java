@@ -20,12 +20,12 @@ import net.neoforged.neoforge.registries.*;
 
 public final class ConciergeContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, ThermalShockReforged.MOD_ID);
     private static final EnumMap<ConciergePage, DeferredHolder<MenuType<?>, MenuType<ConciergeMenu>>> PAGES = new EnumMap<>(ConciergePage.class);
     public static final DeferredHolder<EntityType<?>, EntityType<ConciergeEntity>> CONCIERGE = TYPES.register("concierge", () -> EntityType.Builder.of(ConciergeEntity::new, MobCategory.MONSTER).sized(.6F, 1.8F).setShouldReceiveVelocityUpdates(true).fireImmune().clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("concierge")));
     static {
-        ITEMS.register("concierge_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(CONCIERGE.get())));
+        ITEMS.register("concierge_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(CONCIERGE.get())));
         for (var page : ConciergePage.values()) PAGES.put(page, MENUS.register(page.id, () -> IMenuTypeExtension.create((id, inventory, data) -> new ConciergeMenu(page, id, inventory, data.readVarInt(), data.readUUID(), data.readBlockPos(), data.readVarInt()))));
     }
     private ConciergeContent() { }

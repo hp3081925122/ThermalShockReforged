@@ -17,8 +17,8 @@ import net.neoforged.neoforge.registries.*;
 
 public final class EcosystemContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Blocks BLOCKS = com.hp.thermalshockreforged.ModRegistration.blocks(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<ChillooEntity>> CHILLOO = TYPES.register("chilloo", () -> EntityType.Builder.of(ChillooEntity::new, MobCategory.AMBIENT).sized(1.2F, 1.3F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("chilloo")));
     public static final DeferredHolder<EntityType<?>, EntityType<SpringlingEntity>> SPRINGLING = TYPES.register("springling", () -> EntityType.Builder.of(SpringlingEntity::new, MobCategory.AMBIENT).sized(0.9F, 0.9F).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("springling")));
@@ -28,9 +28,9 @@ public final class EcosystemContent {
 
     static {
         ITEMS.registerSimpleBlockItem(CHILLOO_EGG);
-        ITEMS.register("chilloo_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(CHILLOO.get())));
-        ITEMS.register("springling_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SPRINGLING.get())));
-        ITEMS.register("raincatcher_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(RAINCATCHER.get())));
+        ITEMS.register("chilloo_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(CHILLOO.get())));
+        ITEMS.register("springling_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(SPRINGLING.get())));
+        ITEMS.register("raincatcher_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(RAINCATCHER.get())));
     }
 
     private EcosystemContent() { }

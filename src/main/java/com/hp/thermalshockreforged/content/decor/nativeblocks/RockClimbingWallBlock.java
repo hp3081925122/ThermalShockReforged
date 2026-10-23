@@ -18,7 +18,7 @@ final class RockClimbingWallBlock extends NativeDecorBlock {
     static final IntegerProperty VARIANT = IntegerProperty.create("blockstate", 0, 2);
     RockClimbingWallBlock() { this(MapColor.COLOR_GRAY); }
     RockClimbingWallBlock(MapColor color) {
-        super(Properties.of().mapColor(color).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1, 5).requiresCorrectToolForDrops(), new Traits(15, false, false, false, 0, 0, false, false), null);
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(color).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK).strength(1, 5).requiresCorrectToolForDrops(), new Traits(15, false, false, false, 0, 0, false, false), null);
         registerDefaultState(defaultBlockState().setValue(VARIANT, 0));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(VARIANT); }

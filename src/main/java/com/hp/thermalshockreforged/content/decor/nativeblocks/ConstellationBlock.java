@@ -28,7 +28,7 @@ final class ConstellationBlock extends NativeDecorBlock {
     static final IntegerProperty DESIGN = IntegerProperty.create("blockstate", 0, 6);
 
     ConstellationBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_BLACK).instrument(NoteBlockInstrument.BASEDRUM)
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_BLACK).instrument(NoteBlockInstrument.BASEDRUM)
                         .sound(SoundType.NETHERITE_BLOCK).strength(2, 30)
                         .lightLevel(state -> state.getValue(DESIGN) == 0 ? 0 : 15)
                         .requiresCorrectToolForDrops()

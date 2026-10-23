@@ -23,7 +23,7 @@ public final class SporePodBlock extends Block implements EntityBlock, SimpleWat
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     private static final VoxelShape SHAPE = box(4, 0.1, 4, 12, 12, 12);
     public SporePodBlock() {
-        super(Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.SLIME_BLOCK).strength(0.1F, 0).lightLevel(state -> 10).noOcclusion().pushReaction(PushReaction.DESTROY).emissiveRendering((state, level, pos) -> true).isRedstoneConductor((state, level, pos) -> false).noLootTable());
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.SLIME_BLOCK).strength(0.1F, 0).lightLevel(state -> 10).noOcclusion().pushReaction(PushReaction.DESTROY).emissiveRendering((state, level, pos) -> true).isRedstoneConductor((state, level, pos) -> false).noLootTable());
         registerDefaultState(stateDefinition.any().setValue(WATERLOGGED, false).setValue(ANIMATION, 0));
     }
     @Override
@@ -57,14 +57,14 @@ public final class SporePodBlock extends Block implements EntityBlock, SimpleWat
         if (spore != null) spore.setDeltaMovement(0, 0.2, 0);
     }
     @Override
-    public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
+    public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, ItemStack toolStack, boolean willHarvest, FluidState fluid) {
         var pod = pod(level, pos);
-        boolean removed = super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
+        boolean removed = super.onDestroyedByPlayer(state, level, pos, player, toolStack, willHarvest, fluid);
         if (removed && !level.getBlockState(pos).is(this)) attempt(level, pos, pod, true);
         return removed;
     }
     @Override
-    public void onBlockExploded(BlockState state, Level level, BlockPos pos, Explosion explosion) {
+    public void onBlockExploded(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, Explosion explosion) {
         var pod = pod(level, pos);
         super.onBlockExploded(state, level, pos, explosion);
         if (!level.getBlockState(pos).is(this)) attempt(level, pos, pod, true);

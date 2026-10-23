@@ -14,8 +14,8 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class MachineContent {
-    private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Blocks BLOCKS = com.hp.thermalshockreforged.ModRegistration.blocks(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<EntityType<?>> TASKS = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredBlock<TransmutatorBlock> TRANSMUTATOR = BLOCKS.register("transmutator", TransmutatorBlock::new);
     public static final DeferredHolder<EntityType<?>, EntityType<BlasphemerProcessEntity>> BLASPHEMER_PROCESS = TASKS.register("blasphemer_process_task", () -> EntityType.Builder.<BlasphemerProcessEntity>of(BlasphemerProcessEntity::new, MobCategory.MISC)

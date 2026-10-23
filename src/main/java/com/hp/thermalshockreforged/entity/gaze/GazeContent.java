@@ -20,7 +20,7 @@ import net.neoforged.neoforge.registries.*;
 
 public final class GazeContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<LanternbearerEntity>> LANTERNBEARER = TYPES.register("lanternbearer", () -> EntityType.Builder.of(LanternbearerEntity::new, MobCategory.MONSTER).sized(.6F, 1.7F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(16).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("lanternbearer")));
     public static final DeferredHolder<EntityType<?>, EntityType<LensEntity>> LENS = TYPES.register("lens", () -> EntityType.Builder.of(LensEntity::new, MobCategory.MONSTER).sized(.6F, 1.8F).setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("lens")));
@@ -29,9 +29,9 @@ public final class GazeContent {
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> LENS_VISAGE_1 = PARTICLES.register("lens_visage_1", () -> new SimpleParticleType(true));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> LENS_VISAGE_2 = PARTICLES.register("lens_visage_2", () -> new SimpleParticleType(true));
     static {
-        ITEMS.register("lanternbearer_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(LANTERNBEARER.get())));
-        ITEMS.register("lens_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(LENS.get())));
-        ITEMS.register("spirit_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(SPIRIT.get())));
+        ITEMS.register("lanternbearer_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(LANTERNBEARER.get())));
+        ITEMS.register("lens_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(LENS.get())));
+        ITEMS.register("spirit_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(SPIRIT.get())));
     }
     private GazeContent() { }
     public static void register(IEventBus bus) {

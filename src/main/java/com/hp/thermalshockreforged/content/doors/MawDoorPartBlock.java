@@ -38,7 +38,7 @@ public final class MawDoorPartBlock extends Block {
     private static boolean cleaning;
 
     public MawDoorPartBlock() {
-        super(BlockBehaviour.Properties.of().strength(-1, 3600000).noOcclusion().noLootTable().isRedstoneConductor((state, level, pos) -> false));
+        super(com.hp.thermalshockreforged.ModRegistration.block().strength(-1, 3600000).noOcclusion().noLootTable().isRedstoneConductor((state, level, pos) -> false));
         registerDefaultState(defaultBlockState().setValue(X, 1).setValue(Y, 0).setValue(Z, 1));
     }
 
@@ -116,7 +116,7 @@ public final class MawDoorPartBlock extends Block {
 
     @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, net.minecraft.world.level.material.FluidState fluid) {
         BlockPos main = main(level, pos, state);
-        if (main == null || level.isClientSide()) return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
+        if (main == null || level.isClientSide()) return super.onDestroyedByPlayer(state, level, pos, player, toolStack, willHarvest, fluid);
         BlockState target = level.getBlockState(main);
         if (willHarvest && !player.isCreative()) Block.dropResources(target, level, main, level.getBlockEntity(main), player, player.getMainHandItem());
         boolean destroyed = level.destroyBlock(main, false, player);
@@ -148,8 +148,8 @@ public final class MawDoorPartBlock extends Block {
         return main == null ? super.getSoundType(state, level, pos, entity) : level.getBlockState(main).getSoundType(level, main, entity);
     }
 
-    @Override public ItemStack getCloneItemStack(BlockState state, HitResult target, LevelReader level, BlockPos pos, Player player) {
+    @Override public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean includeData, Player player) {
         BlockPos main = main(level, pos, state);
-        return main == null ? ItemStack.EMPTY : level.getBlockState(main).getCloneItemStack(target, level, main, player);
+        return main == null ? ItemStack.EMPTY : level.getBlockState(main).getCloneItemStack(main, level, includeData, player);
     }
 }

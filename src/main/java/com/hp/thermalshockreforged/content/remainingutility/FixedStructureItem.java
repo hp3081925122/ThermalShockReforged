@@ -27,7 +27,7 @@ public final class FixedStructureItem extends Item {
     private final boolean marksShalespring;
 
     FixedStructureItem(String template, boolean marksShalespring) {
-        super(new Properties().stacksTo(1).rarity(Rarity.EPIC));
+        super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).rarity(Rarity.EPIC));
         templateId = RemainingUtilityContent.id(template);
         this.marksShalespring = marksShalespring;
     }

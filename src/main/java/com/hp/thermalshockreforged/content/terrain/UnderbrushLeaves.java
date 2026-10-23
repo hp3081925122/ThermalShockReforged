@@ -14,7 +14,7 @@ public class UnderbrushLeaves extends LeavesBlock {
     private final int opacity;
 
     public UnderbrushLeaves(MapColor color, int opacity, boolean dull) {
-        super(Properties.of().mapColor(color).ignitedByLava().sound(SoundType.GRASS)
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(color).ignitedByLava().sound(SoundType.GRASS)
                 .strength(dull ? 0.15F : 0.1F, dull ? 1.0F : 0.0F).noOcclusion());
         this.opacity = opacity;
     }

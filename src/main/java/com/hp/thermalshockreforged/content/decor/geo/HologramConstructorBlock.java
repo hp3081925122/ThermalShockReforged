@@ -18,7 +18,7 @@ import net.minecraft.world.level.material.MapColor;
 public final class HologramConstructorBlock extends Block implements com.hp.thermalshockreforged.content.BlockTooltips.Provider {
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public HologramConstructorBlock() {
-        super(Properties.of().mapColor(MapColor.METAL).sound(SoundType.ANVIL).strength(1, 10));
+        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.METAL).sound(SoundType.ANVIL).strength(1, 10));
         registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(FACING); }

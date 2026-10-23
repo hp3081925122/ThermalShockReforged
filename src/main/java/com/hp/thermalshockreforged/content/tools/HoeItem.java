@@ -1,7 +1,5 @@
 package com.hp.thermalshockreforged.content.tools;
 
-import net.minecraft.world.item.Item;
-
-public class HoeItem extends Item {
-    public HoeItem(Tier tier, Properties properties) { super(tier.toolMaterial().applyToolProperties(properties, tier.getIncorrectBlocksForDrops(), 0, -3.0F, 0)); }
+public class HoeItem extends net.minecraft.world.item.HoeItem {
+    public HoeItem(Tier tier, float damage, float speed, Properties properties) { super(tier.toolMaterial(), damage, speed, properties); }
 }

@@ -30,9 +30,9 @@ public final class LiteprismSwordItem extends SwordItem {
         @Override public float getAttackDamageBonus() { return -1.5F; }
         @Override public TagKey<Block> getIncorrectBlocksForDrops() { return BlockTags.INCORRECT_FOR_IRON_TOOL; }
         @Override public int getEnchantmentValue() { return 19; }
-        @Override public Ingredient getRepairIngredient() { return Ingredient.of(MaterialContent.items().get("bismuth").get()); }
+        @Override public TagKey<Item> getRepairItems() { return Tier.repairTag("bismuth"); }
     };
-    public LiteprismSwordItem() { super(TIER, new Properties().attributes(SwordItem.createAttributes(TIER, 3, 2))); }
+    public LiteprismSwordItem() { super(TIER, 3, 2, com.hp.thermalshockreforged.ModRegistration.item()); }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
         if (!(wielder.level() instanceof ServerLevel level)) return super.onEntitySwing(stack, wielder, hand);
         level.playSound(null, wielder.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "weapon_swing")), SoundSource.NEUTRAL, .7F, 1);

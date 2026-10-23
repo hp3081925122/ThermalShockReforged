@@ -19,10 +19,10 @@ import net.neoforged.neoforge.registries.*;
 
 public final class MaidenContent {
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<EntityType<?>, EntityType<MaidenEntity>> MAIDEN = TYPES.register("maiden", () -> EntityType.Builder.of(MaidenEntity::new, MobCategory.MONSTER).sized(1.2F, 3.1F).fireImmune().setShouldReceiveVelocityUpdates(true).clientTrackingRange(64).updateInterval(3).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("maiden")));
     public static final DeferredHolder<EntityType<?>, EntityType<MaidenVolleyEntity>> VOLLEY = TYPES.register("maiden_volley", () -> EntityType.Builder.<MaidenVolleyEntity>of(MaidenVolleyEntity::new, MobCategory.MISC).sized(.01F, .01F).noSummon().fireImmune().clientTrackingRange(0).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("maiden_volley")));
-    static { ITEMS.register("maiden_spawn_egg", () -> new SpawnEggItem(new Item.Properties().spawnEgg(MAIDEN.get()))); }
+    static { ITEMS.register("maiden_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(MAIDEN.get()))); }
     public static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     public static void register(IEventBus bus) { TYPES.register(bus); ITEMS.register(bus); bus.addListener(MaidenContent::attributes); bus.addListener(MaidenContent::placements); NeoForge.EVENT_BUS.addListener(MaidenContent::attack); NeoForge.EVENT_BUS.addListener(MaidenContent::shield); }
     private static void attributes(EntityAttributeCreationEvent event) { event.put(MAIDEN.get(), MaidenEntity.createAttributes().build()); }

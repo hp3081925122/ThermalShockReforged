@@ -14,8 +14,8 @@ import net.neoforged.neoforge.capabilities.*;
 import net.neoforged.neoforge.registries.*;
 
 public final class GrowthContent {
-    private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Blocks BLOCKS = com.hp.thermalshockreforged.ModRegistration.blocks(ThermalShockReforged.MOD_ID);
+    private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<BlockEntityType<?>> ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final Map<String, DeferredBlock<Block>> BLOCK_VALUES = new LinkedHashMap<>();
     private static final Map<String, DeferredHolder<BlockEntityType<?>, BlockEntityType<GrowthInventoryBlockEntity>>> INVENTORIES = new LinkedHashMap<>();

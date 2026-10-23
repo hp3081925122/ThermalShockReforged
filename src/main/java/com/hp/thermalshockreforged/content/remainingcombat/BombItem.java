@@ -13,7 +13,7 @@ import net.minecraft.world.level.Level;
 
 public final class BombItem extends Item {
     private final boolean ice;
-    public BombItem(boolean ice) { super(new Properties().stacksTo(ice ? 16 : 1).rarity(Rarity.COMMON)); this.ice = ice; }
+    public BombItem(boolean ice) { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(ice ? 16 : 1).rarity(Rarity.COMMON)); this.ice = ice; }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var result = super.use(level, player, hand);
         if (!(level instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this)) return result;

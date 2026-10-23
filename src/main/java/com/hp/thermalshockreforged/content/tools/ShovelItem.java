@@ -1,7 +1,5 @@
 package com.hp.thermalshockreforged.content.tools;
 
-import net.minecraft.world.item.Item;
-
-public class ShovelItem extends Item {
-    public ShovelItem(Tier tier, Properties properties) { super(tier.toolMaterial().applyToolProperties(properties, tier.getIncorrectBlocksForDrops(), 1, -2.8F, 0)); }
+public class ShovelItem extends net.minecraft.world.item.ShovelItem {
+    public ShovelItem(Tier tier, float damage, float speed, Properties properties) { super(tier.toolMaterial(), damage, speed, properties); }
 }

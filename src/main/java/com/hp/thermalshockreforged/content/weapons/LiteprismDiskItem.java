@@ -18,7 +18,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 public final class LiteprismDiskItem extends Item {
-    public LiteprismDiskItem() { super(new Properties().durability(790).rarity(Rarity.UNCOMMON)); }
+    public LiteprismDiskItem() { super(com.hp.thermalshockreforged.ModRegistration.item().durability(790).rarity(Rarity.UNCOMMON)); }
     @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.BOW; }
     @Override public int getUseDuration(ItemStack stack, LivingEntity user) { return 72000; }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
