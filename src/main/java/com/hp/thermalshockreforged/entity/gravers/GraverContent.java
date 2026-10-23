@@ -48,7 +48,7 @@ public final class GraverContent {
         event.register(ASSIMILATED.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, GraverContent::darkSpawn, RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(RAZORAPTOR.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }
-    private static boolean darkSpawn(EntityType<? extends Monster> type, net.minecraft.world.level.ServerLevelAccessor level, MobSpawnType reason, net.minecraft.core.BlockPos pos, net.minecraft.util.RandomSource random) { return level.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(level, pos, random) && Mob.checkMobSpawnRules(type, level, reason, pos, random); }
+    private static boolean darkSpawn(EntityType<? extends Monster> type, net.minecraft.world.level.ServerLevelAccessor level, MobSpawnType reason, net.minecraft.core.BlockPos pos, net.minecraft.util.RandomSource random) { return level.getDifficulty() != Difficulty.PEACEFUL && (MobSpawnType.ignoresLightRequirements(reason) || Monster.isDarkEnoughToSpawn(level, pos, random)) && Mob.checkMobSpawnRules(type, level, reason, pos, random); }
     private static void attack(AttackAttemptEvent event) { if (event.getSource().getEntity() instanceof RazoraptorEntity razoraptor) { event.setCanceled(true); razoraptor.beginAttack(event.getEntity()); } }
     private GraverContent() { }
 }
