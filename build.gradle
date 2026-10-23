@@ -95,6 +95,13 @@ tasks.withType(ProcessResources).configureEach {
     }
 }
 
+// 原作 MIT 许可要求分发副本保留版权声明，随成品一并打包。
+tasks.named('jar') {
+    from(rootProject.file('LICENSE')) {
+        rename { "${it}_${project.mod_id}" }
+    }
+}
+
 publishing {
     publications {
         register('mavenJava', MavenPublication) {

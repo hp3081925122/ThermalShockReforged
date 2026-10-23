@@ -25,7 +25,7 @@ public final class EffigyContent {
     public static void register(IEventBus bus) { TYPES.register(bus); ITEMS.register(bus); bus.addListener(EffigyContent::attributes); bus.addListener(EffigyContent::placements); NeoForge.EVENT_BUS.addListener(EffigyContent::attack); }
     private static void attributes(EntityAttributeCreationEvent event) { event.put(EFFIGY.get(), EffigyEntity.attributes().build()); }
     private static void placements(RegisterSpawnPlacementsEvent event) {
-        event.register(EFFIGY.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, pos, random) -> level.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(level, pos, random) && Mob.checkMobSpawnRules(type, level, reason, pos, random), RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        event.register(EFFIGY.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (type, level, reason, pos, random) -> level.getDifficulty() != Difficulty.PEACEFUL && (net.minecraft.world.entity.EntitySpawnReason.ignoresLightRequirements(reason) || Monster.isDarkEnoughToSpawn(level, pos, random)) && Mob.checkMobSpawnRules(type, level, reason, pos, random), RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }
     private static void attack(AttackAttemptEvent event) { if (event.getSource().getEntity() instanceof EffigyEntity caster) { event.setCanceled(true); caster.beginAttack(event.getEntity()); } }
     private EffigyContent() { }
