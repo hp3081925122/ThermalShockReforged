@@ -27,7 +27,7 @@ public final class PotContent {
     private static void attributes(EntityAttributeCreationEvent event) { event.put(SKULLSCOR.get(), SkullscorEntity.createAttributes().build()); }
     private static void placements(RegisterSpawnPlacementsEvent event) {
         event.register(SKULLSCOR.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                (type, level, reason, pos, random) -> level.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(level, pos, random)
+                (type, level, reason, pos, random) -> level.getDifficulty() != Difficulty.PEACEFUL && (net.minecraft.world.entity.EntitySpawnReason.ignoresLightRequirements(reason) || Monster.isDarkEnoughToSpawn(level, pos, random))
                         && Mob.checkMobSpawnRules(type, level, reason, pos, random), RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }
 }
