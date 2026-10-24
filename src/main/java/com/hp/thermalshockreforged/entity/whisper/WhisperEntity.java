@@ -29,7 +29,7 @@ public final class WhisperEntity extends AnimatedPathfinderEntity {
         setCustomNameVisible(true);
     }
     public static AttributeSupplier.Builder attributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 20).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 0)
+        return Mob.createMobAttributes().add(Attributes.TEMPT_RANGE, 10).add(Attributes.MAX_HEALTH, 20).add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 0)
             .add(Attributes.MOVEMENT_SPEED, .2).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, .6);
     }
     @Override protected void registerGoals() {

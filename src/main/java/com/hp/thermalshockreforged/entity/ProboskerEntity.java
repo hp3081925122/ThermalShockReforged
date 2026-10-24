@@ -54,7 +54,7 @@ public final class ProboskerEntity extends TamableAnimal implements GeoEntity {
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.25).add(Attributes.MAX_HEALTH, 32)
+        return Mob.createMobAttributes().add(Attributes.TEMPT_RANGE, 10).add(Attributes.MOVEMENT_SPEED, 0.25).add(Attributes.MAX_HEALTH, 32)
                 .add(Attributes.ARMOR, 0).add(Attributes.ATTACK_DAMAGE, 6).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, 0.6);
     }
 

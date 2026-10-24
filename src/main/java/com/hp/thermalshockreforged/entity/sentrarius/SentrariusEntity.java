@@ -34,7 +34,7 @@ public final class SentrariusEntity extends PathfinderMob implements GeoEntity {
     private boolean experiencePending;
     private UUID experienceAttacker;
     public SentrariusEntity(EntityType<? extends SentrariusEntity> type, Level level) { super(type, level); xpReward = 3; }
-    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 20).add(Attributes.ARMOR, 8).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.MOVEMENT_SPEED, .15).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, .5).add(Attributes.STEP_HEIGHT, 1); }
+    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.TEMPT_RANGE, 10).add(Attributes.MAX_HEALTH, 20).add(Attributes.ARMOR, 8).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.MOVEMENT_SPEED, .15).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, .5).add(Attributes.STEP_HEIGHT, 1); }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, "sentariusmouth"); }
     public String texture() { return entityData.get(TEXTURE); }
     public void setTexture(String texture) { entityData.set(TEXTURE, texture); }
