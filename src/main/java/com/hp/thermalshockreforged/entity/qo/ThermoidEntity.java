@@ -66,7 +66,7 @@ public final class ThermoidEntity extends Monster implements GeoEntity {
     @Override protected SoundEvent getDeathSound() { return SoundEvents.GENERIC_DEATH; }
     @Override protected void tickDeath() { if (++deathTime >= 20) remove(RemovalReason.KILLED); }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putInt("ThermoidRemainingTicks", remainingTicks); }
-    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", "")); remainingTicks = Math.clamp(input.getIntOr("ThermoidRemainingTicks", 0), 0, 320); setPersistenceRequired(); setNoGravity(true); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", "")); remainingTicks = Math.clamp(input.getIntOr("ThermoidRemainingTicks", 0), 0, 320); setPersistenceRequired(); setNoGravity(true); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop("idle")))); }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
 }

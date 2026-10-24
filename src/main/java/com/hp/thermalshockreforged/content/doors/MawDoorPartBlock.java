@@ -114,7 +114,7 @@ public final class MawDoorPartBlock extends Block {
         return main == null ? 1 : level.getBlockState(main).getDestroyProgress(player, level, main);
     }
 
-    @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, net.minecraft.world.level.material.FluidState fluid) {
+    @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, net.minecraft.world.item.ItemStack toolStack, boolean willHarvest, net.minecraft.world.level.material.FluidState fluid) {
         BlockPos main = main(level, pos, state);
         if (main == null || level.isClientSide()) return super.onDestroyedByPlayer(state, level, pos, player, toolStack, willHarvest, fluid);
         BlockState target = level.getBlockState(main);

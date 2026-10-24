@@ -71,7 +71,7 @@ public final class BlasphemerProcessEntity extends Entity implements ServerEndTi
     @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         anchor = BlockPos.of(input.getLongOr("MachineAnchor", 0L)); elapsed = Math.clamp(input.getIntOr("Elapsed", 0), 0, 180);
         token = input.getString("ProcessToken").map(java.util.UUID::fromString).orElse(null);
-        armed = input.getBooleanOr("Armed", false) && input.getString("MachineAnchor").isPresent() && token != null && elapsed < 180;
+        armed = input.getBooleanOr("Armed", false) && input.read("MachineAnchor", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() && token != null && elapsed < 180;
         noPhysics = true; setNoGravity(true);
     }
 }

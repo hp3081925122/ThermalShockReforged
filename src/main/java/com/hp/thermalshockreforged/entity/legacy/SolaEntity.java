@@ -57,7 +57,7 @@ public final class SolaEntity extends AnimatedMonsterEntity {
 
     @Override protected void tickEffects() {
         if (!com.hp.thermalshockreforged.content.remainingcombat.CryoCooldownVisual.tickClientEffects(
-                this, false, (effect, refresh) -> onEffectUpdated(effect, refresh, null))) super.tickEffects();
+                this, false)) super.tickEffects();
     }
     @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && super.hurtServer(level, source, amount); }
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.SLIME_JUMP, .15F, 1); }

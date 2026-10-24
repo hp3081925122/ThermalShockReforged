@@ -66,7 +66,7 @@ public final class GlastrekkerEntity extends AnimatedMonsterEntity {
         var replacement = GlastrekkerContent.ARMOURED_GLASTREKKER.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
         if (replacement == null) return;
         BlockPos pos = blockPosition();
-        replacement.moveTo(pos.getX() + .5, pos.getY(), pos.getZ() + .5, getYRot(), getXRot());
+        replacement.snapTo(pos.getX() + .5, pos.getY(), pos.getZ() + .5, getYRot(), getXRot());
         EventHooks.finalizeMobSpawn(replacement, server, server.getCurrentDifficultyAt(pos), EntitySpawnReason.MOB_SUMMONED, null);
         if (replacement.isSpawnCancelled() || replacement.isRemoved()) { replacement.discard(); return; }
         replacement.setYRot(getYRot()); replacement.yBodyRot = getYRot(); replacement.yHeadRot = getYRot(); replacement.setXRot(getXRot());

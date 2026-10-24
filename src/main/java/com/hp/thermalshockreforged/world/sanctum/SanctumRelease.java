@@ -50,7 +50,7 @@ public final class SanctumRelease {
                 int chunkZ = zPositions[z + 79] >> 4;
                 int end = z;
                 while (end < row.maxZ && zPositions[end + 80] >> 4 == chunkZ) end++;
-                long chunkKey = ChunkPos.asLong(chunkX, chunkZ);
+                long chunkKey = ChunkPos.pack(chunkX, chunkZ);
                 LevelChunk chunk = chunks.get(chunkKey);
                 if (chunk == null) { chunk = level.getChunk(chunkX, chunkZ); chunks.put(chunkKey, chunk); }
                 var section = chunk.getSection(chunk.getSectionIndex(y));

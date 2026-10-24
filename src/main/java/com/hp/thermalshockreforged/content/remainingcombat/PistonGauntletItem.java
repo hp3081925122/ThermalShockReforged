@@ -20,10 +20,10 @@ public final class PistonGauntletItem extends AnimatedCombatItem {
     @Override public String textureName() { return "cobalt_fist"; }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var result = super.use(level, player, hand);
-        if (!(level instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this) || !player.getOffhandItem().is(this)) return result;
+        if (!(level instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(getDefaultInstance()) || !player.getOffhandItem().is(this)) return result;
         var stack = player.getItemInHand(hand);
         animate(player, stack);
-        player.getCooldowns().addCooldown(this, 60);
+        player.getCooldowns().addCooldown(getDefaultInstance(), 60);
         var slot = hand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND;
         stack.hurtAndBreak(1, server, (net.minecraft.world.entity.LivingEntity) null, broken -> player.onEquippedItemBroken(broken, slot));
         server.playSound(null, player.blockPosition(), net.minecraft.sounds.SoundEvents.PISTON_EXTEND, net.minecraft.sounds.SoundSource.NEUTRAL, .8F, 4);

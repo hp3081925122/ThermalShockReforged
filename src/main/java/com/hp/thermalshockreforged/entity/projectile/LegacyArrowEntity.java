@@ -48,7 +48,7 @@ public abstract class LegacyArrowEntity extends AbstractArrow implements ItemSup
     @Override public void tick() {
         super.tick();
         if (fliesWithoutGravity()) setNoGravity(true);
-        if (inGround) discard();
+        if (isInGround()) discard();
         if (!isRemoved() && lifetimeTicks() > 0 && level() instanceof ServerLevel server) {
             if (remainingLifetime < 0) remainingLifetime = lifetimeTicks();
             ServerEndTickTasks.schedule(server, getUUID());
@@ -63,10 +63,10 @@ public abstract class LegacyArrowEntity extends AbstractArrow implements ItemSup
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
         setImpactKnockback(input.getDoubleOr("ImpactKnockback", 0.0));
-        remainingLifetime = input.getString("ProjectileRemainingLifetime").isPresent() ? Math.clamp(input.getIntOr("ProjectileRemainingLifetime", 0), -1, lifetimeTicks()) : -1;
+        remainingLifetime = input.read("ProjectileRemainingLifetime", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? Math.clamp(input.getIntOr("ProjectileRemainingLifetime", 0), -1, lifetimeTicks()) : -1;
         if (remainingLifetime == 0 && lifetimeTicks() > 0) remainingLifetime = 1;
         pickup = Pickup.DISALLOWED;
-        if (!Double.isFinite(getBaseDamage()) || getBaseDamage() < 0) {
+        if (!Double.isFinite(input.getDoubleOr("damage", 2.0)) || input.getDoubleOr("damage", 2.0) < 0) {
             ThermalShockReforged.LOGGER.debug("Reset invalid projectile base damage for {}", getUUID());
             setBaseDamage(0);
         }

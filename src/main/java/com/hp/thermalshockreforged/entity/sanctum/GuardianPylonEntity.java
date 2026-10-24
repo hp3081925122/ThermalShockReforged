@@ -107,7 +107,7 @@ public final class GuardianPylonEntity extends Monster implements GeoEntity {
         output.putBoolean("PylonExperiencePending", experiencePending); if (experienceAttacker != null) output.putString("PylonExperienceAttacker", experienceAttacker.toString());
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
-        super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        super.readAdditionalSaveData(input); if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
 activated = input.getBooleanOr("PylonActivated", false); deathVisualStarted = input.getBooleanOr("PylonDeathVisualStarted", false); experiencePending = input.getBooleanOr("PylonExperiencePending", false);
         experienceAttacker = input.getString("PylonExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
     }

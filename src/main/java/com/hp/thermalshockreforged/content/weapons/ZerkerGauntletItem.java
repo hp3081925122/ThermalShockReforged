@@ -53,7 +53,7 @@ public final class ZerkerGauntletItem extends Item implements GeoItem {
     @Override public void hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
         super.hurtEnemy(stack, victim, attacker);
         if (!(victim.level() instanceof ServerLevel server) || victim == attacker) return;
-        if (!(attacker instanceof Player player) || !player.getCooldowns().isOnCooldown(this)) {
+        if (!(attacker instanceof Player player) || !player.getCooldowns().isOnCooldown(getDefaultInstance())) {
             server.playSound(null, victim.blockPosition(), SoundEvents.SHIELD_BREAK.value(), SoundSource.NEUTRAL, 1, 2);
             victim.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 35, 4, false, false));
             double strength = 1 - Math.clamp(victim.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1);
@@ -62,7 +62,7 @@ public final class ZerkerGauntletItem extends Item implements GeoItem {
                 victim.hurtMarked = true;
             }
             if (attacker instanceof Player player) {
-                player.getCooldowns().addCooldown(this, 80);
+                player.getCooldowns().addCooldown(getDefaultInstance(), 80);
                 ThermalShockReforged.LOGGER.debug("Zerker Gauntlet special effect triggered: attacker={}, victim={}, cooldown={}", player.getUUID(), victim.getUUID(), 80);
             }
         }

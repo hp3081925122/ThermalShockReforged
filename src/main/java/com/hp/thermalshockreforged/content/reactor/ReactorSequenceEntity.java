@@ -74,6 +74,6 @@ public final class ReactorSequenceEntity extends Entity implements ServerEndTick
         output.putLong("ReactorAnchor", anchor.asLong()); output.putString("ReactorDimension", dimension); output.putInt("ReactorElapsed", elapsed); output.putInt("ReactorPulses", pulses); output.putBoolean("ReactorArmed", armed); output.putBoolean("ReactorFinished", finished);
     }
     @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
-        anchor = BlockPos.of(input.getLongOr("ReactorAnchor", 0L)); dimension = input.getStringOr("ReactorDimension", ""); elapsed = Math.clamp(input.getIntOr("ReactorElapsed", 0), 0, 1900); pulses = Math.clamp(input.getIntOr("ReactorPulses", 0), 0, 25); armed = input.getBooleanOr("ReactorArmed", false) && input.getString("ReactorAnchor").isPresent(); finished = input.getBooleanOr("ReactorFinished", false); noPhysics = true; setNoGravity(true);
+        anchor = BlockPos.of(input.getLongOr("ReactorAnchor", 0L)); dimension = input.getStringOr("ReactorDimension", ""); elapsed = Math.clamp(input.getIntOr("ReactorElapsed", 0), 0, 1900); pulses = Math.clamp(input.getIntOr("ReactorPulses", 0), 0, 25); armed = input.getBooleanOr("ReactorArmed", false) && input.read("ReactorAnchor", com.mojang.serialization.Codec.PASSTHROUGH).isPresent(); finished = input.getBooleanOr("ReactorFinished", false); noPhysics = true; setNoGravity(true);
     }
 }

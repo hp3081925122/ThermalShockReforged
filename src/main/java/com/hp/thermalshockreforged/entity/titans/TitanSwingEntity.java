@@ -105,7 +105,7 @@ public final class TitanSwingEntity extends Entity implements ServerEndTickTask 
         caster = input.getString("TitanSwingCaster").map(java.util.UUID::fromString).orElse(null);
         target = input.getString("TitanSwingTarget").map(java.util.UUID::fromString).orElse(null);
         targetEntityId = input.getIntOr("TitanSwingTargetEntityId", 0);
-        targetPlayer = !input.getString("TitanSwingTargetPlayer").isPresent() || input.getBooleanOr("TitanSwingTargetPlayer", false);
+        targetPlayer = !input.read("TitanSwingTargetPlayer", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() || input.getBooleanOr("TitanSwingTargetPlayer", false);
         originalPlayerTarget = null;
         targetOrigin = new Vec3(input.getDoubleOr("TitanSwingTargetX", 0.0), input.getDoubleOr("TitanSwingTargetY", 0.0), input.getDoubleOr("TitanSwingTargetZ", 0.0));
         damage = finiteDamage(input.getDoubleOr("TitanSwingDamage", 0.0));

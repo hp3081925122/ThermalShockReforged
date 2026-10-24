@@ -30,5 +30,5 @@ public final class BeetleCrasherEntity extends BeetleCombatEntity {
         if (isDeadOrDying() && !deathVisual && level() instanceof ServerLevel server) { deathVisual = true; BossDeathEffectEntity.submit(server, ManglerContent.HERALD_DEATH_EFFECT.get(), position(), getEyeHeight()); }
     }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putBoolean("BeetleInitialized", initialized); output.putBoolean("BeetleDeathVisual", deathVisual); }
-    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); initialized = !input.getString("BeetleInitialized").isPresent() || input.getBooleanOr("BeetleInitialized", false); deathVisual = input.getBooleanOr("BeetleDeathVisual", false); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); initialized = !input.read("BeetleInitialized", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() || input.getBooleanOr("BeetleInitialized", false); deathVisual = input.getBooleanOr("BeetleDeathVisual", false); }
 }

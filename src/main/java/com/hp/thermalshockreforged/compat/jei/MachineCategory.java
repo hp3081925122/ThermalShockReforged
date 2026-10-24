@@ -56,7 +56,7 @@ public final class MachineCategory implements IRecipeCategory<MachineEntry> {
             int[] position = layout.inputs()[index];
             slot(builder.addSlot(RecipeIngredientRole.INPUT, position[0] + 1, position[1] + 1), entry.inputs().get(index));
         }
-        if (!machines.isEmpty() && type != ASSEMBLER) builder.addSlot(RecipeIngredientRole.CATALYST, layout.arrowX() + 4, layout.arrowY() - 19).setStandardSlotBackground().addItemStacks(machines);
+        if (!machines.isEmpty() && type != ASSEMBLER) builder.addSlot(RecipeIngredientRole.CRAFTING_STATION, layout.arrowX() + 4, layout.arrowY() - 19).setStandardSlotBackground().addItemStacks(machines);
         for (int index = 0; index < entry.outputs().size(); index++) {
             int x = layout.outputX() + index % layout.outputColumns() * 18;
             int y = layout.outputY() + index / layout.outputColumns() * 18;

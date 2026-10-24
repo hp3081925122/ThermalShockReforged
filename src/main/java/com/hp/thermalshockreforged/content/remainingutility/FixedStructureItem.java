@@ -52,7 +52,7 @@ public final class FixedStructureItem extends Item {
             player.sendOverlayMessage(Component.translatable("message.thermal_shock_reforged.fixed_structure_start"));
             ThermalShockReforged.LOGGER.debug("Placing full fixed structure: template={}, position={}, dimension={}", templateId, ORIGIN, level.dimension().identifier());
             boolean placed = template.get().placeInWorld(serverLevel, ORIGIN, ORIGIN,
-                    new StructurePlaceSettings().setRotation(Rotation.NONE).setMirror(Mirror.NONE).setIgnoreEntities(false), serverLevel.random, 3);
+                    new StructurePlaceSettings().setRotation(Rotation.NONE).setMirror(Mirror.NONE).setIgnoreEntities(false), serverLevel.getRandom(), 3);
             if (!placed) {
                 ThermalShockReforged.LOGGER.error("Fixed structure placement failed: template={}, position={}, dimension={}", templateId, ORIGIN, level.dimension().identifier());
                 player.sendOverlayMessage(Component.translatable("message.thermal_shock_reforged.fixed_structure_failed"));

@@ -52,7 +52,7 @@ public final class PixieBottleEntity extends AbstractArrow implements ItemSuppli
         if (released) { pickup = Pickup.DISALLOWED; discard(); }
     }
     @Override
-    public void tick() { super.tick(); if (inGround) discard(); }
+    public void tick() { super.tick(); if (isInGround()) discard(); }
     public static PixieBottleEntity shoot(Level level, LivingEntity owner, float power) {
         var bottle = new PixieBottleEntity(owner, level);
         var view = owner.getViewVector(1);

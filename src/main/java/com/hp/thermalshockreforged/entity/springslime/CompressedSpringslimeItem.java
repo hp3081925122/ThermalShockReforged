@@ -36,7 +36,7 @@ public final class CompressedSpringslimeItem extends Item {
     private ItemStack findAmmo(Player player) {
         var held = ProjectileWeaponItem.getHeldProjectile(player, stack -> stack.is(this));
         if (!held.isEmpty()) return held;
-        for (var stack : player.getInventory().items) if (stack.is(this)) return stack;
+        for (var stack : player.getInventory().getNonEquipmentItems()) if (stack.is(this)) return stack;
         return ItemStack.EMPTY;
     }
 }

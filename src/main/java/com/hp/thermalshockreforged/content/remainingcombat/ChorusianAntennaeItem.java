@@ -12,16 +12,16 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 import com.geckolib.animatable.GeoItem;
 import com.geckolib.animatable.instance.AnimatableInstanceCache;
 import com.geckolib.animation.*;
-import com.geckolib.constant.DataTickets;
 
 public final class ChorusianAntennaeItem extends Item implements GeoItem {
     private final CombatAnimationCache animations = new CombatAnimationCache(this);
-    public ChorusianAntennaeItem() { super(com.hp.thermalshockreforged.ModRegistration.item().humanoidArmor(RemainingCombatContent.ANTENNAE_MATERIAL.value(), ArmorType.HELMET).durability(275)); }
+    public ChorusianAntennaeItem() { super(com.hp.thermalshockreforged.ModRegistration.item().humanoidArmor(RemainingCombatContent.ANTENNAE_MATERIAL.value(), ArmorType.HELMET)); }
     @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {
         super.inventoryTick(stack, level, entity, slot);
         if (level instanceof ServerLevel server) GeoItem.getOrAssignId(stack, server);
@@ -37,7 +37,7 @@ public final class ChorusianAntennaeItem extends Item implements GeoItem {
         controllers.add(new LegacyAnimationController<>(this, "controller", 5, state -> previous[1].isEmpty()
                 ? state.setAndContinue(RawAnimation.begin().thenLoop("0")) : PlayState.STOP));
         controllers.add(new LegacyAnimationController<>(this, "procedureController", 5, state -> {
-            ItemStack stack = state.getData(DataTickets.ITEMSTACK);
+            ItemStack stack = state.getData(com.hp.thermalshockreforged.compat.LegacyAnimationController.ITEMSTACK);
             String request = stack == null ? "" : stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("geckoAnim").orElse("");
             if (request.equals("empty")) {
                 if (!previous[1].isEmpty()) {

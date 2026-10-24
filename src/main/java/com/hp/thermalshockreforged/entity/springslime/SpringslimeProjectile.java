@@ -39,7 +39,7 @@ public final class SpringslimeProjectile extends AbstractArrow implements ItemSu
             }
         } finally { discard(); }
     }
-    @Override public void tick() { super.tick(); if (inGround || consumed) discard(); }
+    @Override public void tick() { super.tick(); if (isInGround() || consumed) discard(); }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putBoolean("SpringImpactConsumed", consumed); }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); consumed = input.getBooleanOr("SpringImpactConsumed", false); pickup = Pickup.DISALLOWED; }
 }

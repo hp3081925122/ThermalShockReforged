@@ -83,10 +83,10 @@ public final class SporePodBlockEntity extends RandomizableContainerBlockEntity 
     public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) { return true; }
     @Override
     public void registerControllers(com.geckolib.animatable.manager.AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new com.geckolib.animation.LegacyAnimationController<>(this, "controller", 0, state -> getBlockState().getValue(SporePodBlock.ANIMATION) == 0 ? state.setAndContinue(com.geckolib.animation.RawAnimation.begin().thenLoop("0")) : com.geckolib.animation.object.PlayState.STOP));
-        controllers.add(new com.geckolib.animation.LegacyAnimationController<>(this, "procedurecontroller", 0, state -> {
+        controllers.add(new com.hp.thermalshockreforged.compat.LegacyAnimationController<>(this, "controller", 0, state -> getBlockState().getValue(SporePodBlock.ANIMATION) == 0 ? state.setAndContinue(com.geckolib.animation.RawAnimation.begin().thenLoop("0")) : com.geckolib.animation.object.PlayState.STOP));
+        controllers.add(new com.hp.thermalshockreforged.compat.LegacyAnimationController<>(this, "procedurecontroller", 0, state -> {
             if (getBlockState().getValue(SporePodBlock.ANIMATION) == 0) return com.geckolib.animation.object.PlayState.STOP;
-            if (state.isCurrentAnimation(com.geckolib.animation.RawAnimation.begin().thenPlay("1")) && state.getController().getAnimationState() == com.geckolib.animation.LegacyAnimationController.State.STOPPED) {
+            if (state.isCurrentAnimation(com.geckolib.animation.RawAnimation.begin().thenPlay("1")) && state.getController().getAnimationState() == com.hp.thermalshockreforged.compat.LegacyAnimationController.State.STOPPED) {
                 if (level != null) level.setBlock(worldPosition, getBlockState().setValue(SporePodBlock.ANIMATION, 0), 3);
                 return com.geckolib.animation.object.PlayState.STOP;
             }

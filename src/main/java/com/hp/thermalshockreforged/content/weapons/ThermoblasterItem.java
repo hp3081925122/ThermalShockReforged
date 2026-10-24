@@ -43,7 +43,7 @@ public final class ThermoblasterItem extends Item implements GeoItem {
         return false;
     }
     private void fire(LivingEntity wielder, ItemStack stack, boolean shotgun) {
-        if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this)) return;
+        if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(getDefaultInstance())) return;
         Item ammo = MaterialContent.items().get("specialized_round").get();
         if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) {
             server.playSound(null, player.blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, 5);
@@ -55,7 +55,7 @@ public final class ThermoblasterItem extends Item implements GeoItem {
             triggerAnim(player, instance, "procedure", "2");
             server.playSound(null, player.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "thermoblasterspreadfire")), SoundSource.NEUTRAL, 1, 1);
         } else if (!ThermoblasterBurstEntity.submit(server, player, instance, zenith)) return;
-        player.getCooldowns().addCooldown(this, shotgun ? 20 : 10);
+        player.getCooldowns().addCooldown(getDefaultInstance(), shotgun ? 20 : 10);
         if (!player.getAbilities().instabuild) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
         ThermalShockReforged.LOGGER.debug("Thermoblaster fired: player={}, zenith={}, shotgun={}, instance={}", player.getUUID(), zenith, shotgun, instance);
     }

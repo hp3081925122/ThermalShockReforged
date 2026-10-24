@@ -22,17 +22,17 @@ final class AtlasTravel {
             player.sendOverlayMessage(Component.translatable("message.thermal_shock_reforged.atlas.already_here"));
             return true;
         }
-        var target = player.server.getLevel(destination);
+        var target = player.level().getServer().getLevel(destination);
         if (target == null) {
-            ThermalShockReforged.LOGGER.warn("Atlas destination is unavailable: player={}, destination={}", player.getUUID(), destination.location());
+            ThermalShockReforged.LOGGER.warn("Atlas destination is unavailable: player={}, destination={}", player.getUUID(), destination.identifier());
             player.sendOverlayMessage(Component.translatable("message.thermal_shock_reforged.atlas.destination_unavailable"));
             return false;
         }
         var point = AtlasCoordinates.get(player, destination);
         player.closeContainer();
-        player.teleportTo(target, point.x, point.y, point.z, player.getYRot(), player.getXRot());
+        player.teleportTo(target, point.x, point.y, point.z, java.util.Set.of(), player.getYRot(), player.getXRot(), true);
         if (((net.minecraft.server.level.ServerLevel) player.level()) != target) {
-            ThermalShockReforged.LOGGER.debug("Atlas travel was cancelled: player={}, source={}, destination={}", player.getUUID(), source.location(), destination.location());
+            ThermalShockReforged.LOGGER.debug("Atlas travel was cancelled: player={}, source={}, destination={}", player.getUUID(), source.identifier(), destination.identifier());
             return false;
         }
         AtlasCoordinates.set(player, source, origin);

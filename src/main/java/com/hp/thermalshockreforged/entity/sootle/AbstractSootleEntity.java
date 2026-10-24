@@ -38,8 +38,8 @@ public abstract class AbstractSootleEntity extends Monster implements GeoEntity 
     @Override
     public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); }
     @Override
-    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", "")); }
-    protected abstract String movement(AnimationTest<?> state);
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", "")); }
+    protected abstract String movement(com.hp.thermalshockreforged.compat.LegacyAnimationController.LegacyAnimationState<?> state);
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP)

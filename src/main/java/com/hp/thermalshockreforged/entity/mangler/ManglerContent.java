@@ -26,7 +26,7 @@ public final class ManglerContent {
     public static final DeferredHolder<EntityType<?>, EntityType<BossDeathEffectEntity>> HERALD_DEATH_EFFECT = TYPES.register("herald_death_effect", () -> EntityType.Builder.<BossDeathEffectEntity>of(BossDeathEffectEntity::new, MobCategory.MISC).sized(0.01F, 0.01F).clientTrackingRange(64).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("herald_death_effect")));
     static {
         ITEMS.register("mangler_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(MANGLER.get())));
-        ITEMS.register("summoned_mangler_spawn_egg", () -> new DeferredSpawnEggItem(SUMMONED_MANGLER, -9632219, -65536, com.hp.thermalshockreforged.ModRegistration.item()));
+        ITEMS.register("summoned_mangler_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(SUMMONED_MANGLER.get())));
         ITEMS.register("herald_spawn_egg", () -> new SpawnEggItem(com.hp.thermalshockreforged.ModRegistration.item().spawnEgg(HERALD.get())));
     }
     private ManglerContent() { }
@@ -35,7 +35,7 @@ public final class ManglerContent {
     private static void attributes(EntityAttributeCreationEvent event) { event.put(MANGLER.get(), ManglerEntity.createAttributes(false).build()); event.put(SUMMONED_MANGLER.get(), ManglerEntity.createAttributes(true).build()); event.put(HERALD.get(), HeraldEntity.createAttributes().build()); }
     private static void placements(RegisterSpawnPlacementsEvent event) { event.register(MANGLER.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE); }
     private static void attack(AttackAttemptEvent event) { if (event.getSource().getEntity() instanceof ManglerEntity caster) { event.setCanceled(true); caster.boost(event.getEntity()); } }
-    private static void damaged(LivingDamageEvent.Post event) { if (event.getEntity() instanceof HeraldEntity herald && event.getOriginalDamage() > 0 && event.getNewDamage() > 0 && herald.isAlive()) herald.acceptedDamage(); }
+    private static void damaged(LivingDamageEvent.Post event) { if (event.getEntity() instanceof HeraldEntity herald && event.getOriginalDamage() > 0 && event.getHealthDamage() > 0 && herald.isAlive()) herald.acceptedDamage(); }
     private static void death(LivingDeathEvent event) {
         var victim = event.getEntity(); if (victim.level().isClientSide()) return;
         var position = victim.position(); var heralds = victim.level().getEntitiesOfClass(HeraldEntity.class, new AABB(position, position).inflate(8), candidate -> candidate.isAlive());

@@ -27,13 +27,13 @@ public final class ErrandMaps {
     private ErrandMaps() { }
 
     public static void give(ServerPlayer player, String structure) {
-        ServerLevel level = player.server.getLevel(LoqendiaContent.DIMENSION);
+        ServerLevel level = player.level().getServer().getLevel(LoqendiaContent.DIMENSION);
         if (level == null) {
             ThermalShockReforged.LOGGER.warn("Errand map skipped: Loqendia level unavailable, structure={}", structure);
             return;
         }
         var key = ResourceKey.create(Registries.STRUCTURE, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, structure));
-        var holder = level.registryAccess().lookupOrThrow(Registries.STRUCTURE).getHolder(key);
+        var holder = level.registryAccess().lookupOrThrow(Registries.STRUCTURE).get(key);
         if (holder.isEmpty()) {
             ThermalShockReforged.LOGGER.warn("Errand map skipped: structure missing, structure={}", structure);
             return;
@@ -41,7 +41,7 @@ public final class ErrandMaps {
         Component name = Component.translatable("structure." + ThermalShockReforged.MOD_ID + "." + structure);
         BlockPos origin;
         if (player.level() == level) origin = player.blockPosition();
-        else origin = level.getSharedSpawnPos();
+        else origin = level.getRespawnData().pos();
         long start = System.nanoTime();
         var found = level.getChunkSource().getGenerator().findNearestMapStructure(level, HolderSet.<Structure>direct(holder.get()), origin, SEARCH_RADIUS, false);
         ThermalShockReforged.LOGGER.debug("Errand map search: player={}, structure={}, origin={}, result={}, millis={}", player.getUUID(), structure, origin, found, (System.nanoTime() - start) / 1_000_000);

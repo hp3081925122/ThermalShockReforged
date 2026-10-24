@@ -105,7 +105,7 @@ public final class GalvaniteEntity extends Monster implements GeoEntity {
         if (experienceAttacker != null) output.putString("GalvaniteExperienceAttacker", experienceAttacker.toString());
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
-        super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        super.readAdditionalSaveData(input); if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         initialized = input.getBooleanOr("GalvaniteInitialized", false); deathCommitted = input.getBooleanOr("GalvaniteDeathCommitted", false);
         experiencePending = input.getBooleanOr("GalvaniteExperiencePending", false);
         experienceAttacker = input.getString("GalvaniteExperienceAttacker").map(java.util.UUID::fromString).orElse(null);

@@ -59,8 +59,8 @@ public final class BossDeathEffectEntity extends Entity implements ServerEndTick
     @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         remaining = Math.clamp(input.getIntOr("Remaining", 0), 0, 15); delay = Math.clamp(input.getIntOr("Delay", 0), 1, 4);
         eyeHeight = input.getFloatOr("VisualEyeHeight", 0.0F); if (!Float.isFinite(eyeHeight)) eyeHeight = 0;
-        dimension = input.getString("BossVisualDimension").isPresent() ? input.getStringOr("BossVisualDimension", "") : level().dimension().identifier().toString();
-        origin = input.getString("BossVisualX").isPresent() ? new Vec3(input.getDoubleOr("BossVisualX", 0.0), input.getDoubleOr("BossVisualY", 0.0), input.getDoubleOr("BossVisualZ", 0.0)) : position();
+        dimension = input.read("BossVisualDimension", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getStringOr("BossVisualDimension", "") : level().dimension().identifier().toString();
+        origin = input.read("BossVisualX", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? new Vec3(input.getDoubleOr("BossVisualX", 0.0), input.getDoubleOr("BossVisualY", 0.0), input.getDoubleOr("BossVisualZ", 0.0)) : position();
         if (!Double.isFinite(origin.x) || !Double.isFinite(origin.y) || !Double.isFinite(origin.z)) remaining = 0;
     }
 }

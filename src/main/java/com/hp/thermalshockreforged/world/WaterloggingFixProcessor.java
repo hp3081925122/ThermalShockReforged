@@ -12,10 +12,10 @@ public final class WaterloggingFixProcessor extends StructureProcessor {
     private WaterloggingFixProcessor() { }
     @Override public StructureTemplate.StructureBlockInfo process(LevelReader level, BlockPos seed, BlockPos relative, StructureTemplate.StructureBlockInfo original, StructureTemplate.StructureBlockInfo current, StructurePlaceSettings settings, StructureTemplate template) {
         if (current.state().getFluidState().isEmpty() || !(level instanceof LevelAccessor mutable)) return current;
-        if (level instanceof WorldGenRegion region && !region.getCenter().equals(new ChunkPos(current.pos()))) return current;
+        if (level instanceof WorldGenRegion region && !region.getCenter().equals(ChunkPos.containing(current.pos()))) return current;
         var chunk = level.getChunk(current.pos());
         int y = current.pos().getY();
-        if (y >= chunk.getMinBuildHeight() && y <= chunk.getMaxBuildHeight()) mutable.scheduleTick(current.pos(), current.state().getBlock(), 0);
+        if (y >= chunk.getMinY() && y <= (chunk.getMaxY() + 1)) mutable.scheduleTick(current.pos(), current.state().getBlock(), 0);
         return current;
     }
     @Override protected StructureProcessorType<?> getType() { return LoqendiaContent.WATERLOGGING_FIX.get(); }

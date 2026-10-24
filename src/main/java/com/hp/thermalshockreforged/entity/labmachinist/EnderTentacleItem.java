@@ -25,7 +25,7 @@ public final class EnderTentacleItem extends Item {
         if (level.dimension().identifier().equals(LabContent.id("aqeron"))) { if (!level.isClientSide()) level.playSound(null, player.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(LabContent.id("flarealtshoot")), SoundSource.PLAYERS, .5F, -3); return InteractionResult.PASS; }
         var start = player.getEyePosition(); var look = player.getViewVector(1); var hit = level.clip(new ClipContext(start, start.add(look.scale(64)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, player));
         if (level.isEmptyBlock(hit.getBlockPos())) return InteractionResult.PASS;
-        player.getCooldowns().addCooldown(this, 90);
+        player.getCooldowns().addCooldown(getDefaultInstance(), 90);
         var hook = level.clip(new ClipContext(start, start.add(look.scale(32)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, player)).getBlockPos();
         player.lookAt(EntityAnchorArgument.Anchor.EYES, new Vec3(hook.getX(), hook.getY(), hook.getZ())); player.setDeltaMovement(player.getLookAngle().scale(5));
         if (level instanceof ServerLevel server) {

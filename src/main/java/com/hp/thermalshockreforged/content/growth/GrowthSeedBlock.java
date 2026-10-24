@@ -86,7 +86,7 @@ public final class GrowthSeedBlock extends Block implements EntityBlock, com.hp.
         var data = seed.getPersistentData();
         boolean canWater=BuiltInRegistries.ITEM.getKey(player.getMainHandItem().getItem()).equals(Identifier.fromNamespaceAndPath("thermal_shock_reforged", "watering_can"))&&data.getBooleanOr("thirsty", false);
         if(kind==GrowthKind.SPARKLER&&(data.getDoubleOr("waterings", 0)==3||canWater&&data.getDoubleOr("waterings", 0)==2)
-                &&(pos.getY()+2>=server.getMaxBuildHeight()||!level.getBlockState(pos.above()).canBeReplaced()||!level.getBlockState(pos.above(2)).canBeReplaced())) {
+                &&(pos.getY()+2>=(server.getMaxY() + 1)||!level.getBlockState(pos.above()).canBeReplaced()||!level.getBlockState(pos.above(2)).canBeReplaced())) {
             ThermalShockReforged.LOGGER.debug("Sparkler maturation blocked: position={}, upper={}, top={}, waterings={}", pos, level.getBlockState(pos.above()), level.getBlockState(pos.above(2)), data.getDouble("waterings"));
             return;
         }

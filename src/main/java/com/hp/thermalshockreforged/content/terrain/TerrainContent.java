@@ -205,5 +205,10 @@ public final class TerrainContent {
         protected int getLightDampening(BlockState state) {
             return 15;
         }
+
+        @Override
+        public int getDustColor(BlockState state, BlockGetter level, BlockPos pos) {
+            return -16777216;
+        }
     }
 }

@@ -57,7 +57,7 @@ public final class EffigyStrikeEntity extends Entity implements ServerEndTickTas
         var victim = level.getEntity(target);
         if (!(victim instanceof LivingEntity living) || !living.isAlive() || playerTarget && victim.getId() != targetEntityId || victim.distanceToSqr(position()) > 9) return;
         double amount = damage - living.getArmorValue() * .6;
-        if (Double.isFinite(amount) && amount > 0) { boolean accepted = living.hurt(new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DAMAGE)), (float)Math.min(amount, Float.MAX_VALUE)); ThermalShockReforged.LOGGER.debug("Effigy strike resolved: task={}, target={}, damage={}, accepted={}", getUUID(), target, amount, accepted); }
+        if (Double.isFinite(amount) && amount > 0) { boolean accepted = living.hurtServer(level, new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DAMAGE)), (float)Math.min(amount, Float.MAX_VALUE)); ThermalShockReforged.LOGGER.debug("Effigy strike resolved: task={}, target={}, damage={}, accepted={}", getUUID(), target, amount, accepted); }
     }
     @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
         if (caster != null) output.putString("Caster", caster.toString()); if (target != null) output.putString("Target", target.toString());
@@ -69,6 +69,6 @@ public final class EffigyStrikeEntity extends Entity implements ServerEndTickTas
         targetEntityId = input.getIntOr("TargetEntityId", 0); playerTarget = input.getBooleanOr("PlayerTarget", false); soundOrigin = BlockPos.of(input.getLongOr("SoundOrigin", 0L));
         double amount = input.getDoubleOr("Damage", 0.0); damage = Double.isFinite(amount) ? Math.clamp(amount, 0, Float.MAX_VALUE) : 0;
         remaining = Math.clamp(input.getIntOr("Remaining", 0), 1, 19); armed = input.getBooleanOr("Armed", false) && caster != null && target != null && !caster.equals(target);
-        followCaster = !input.getString("FollowCaster").isPresent() || input.getBooleanOr("FollowCaster", false);
+        followCaster = !input.read("FollowCaster", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() || input.getBooleanOr("FollowCaster", false);
     }
 }

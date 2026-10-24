@@ -45,7 +45,7 @@ public final class LensEntity extends AnimatedMonsterEntity {
     @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.DROWN) && super.hurtServer(level, source, amount); }
     @Override protected void tickEffects() {
         if (!com.hp.thermalshockreforged.content.remainingcombat.CryoCooldownVisual.tickClientEffects(
-                this, false, (effect, refresh) -> onEffectUpdated(effect, refresh, null))) super.tickEffects();
+                this, false)) super.tickEffects();
     }
     @Override protected int animationTransitionTicks() { return 5; }
     @Override protected String movementAnimation(boolean moving) { return isShiftKeyDown() ? "open" : "idle"; }

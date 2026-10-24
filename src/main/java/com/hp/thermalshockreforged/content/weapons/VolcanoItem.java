@@ -33,14 +33,14 @@ public final class VolcanoItem extends Item implements GeoItem {
         if (slot == net.minecraft.world.entity.EquipmentSlot.MAINHAND && entity instanceof LivingEntity living) HeldWeaponState.refreshNoMelee(living);
     }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
-        if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this)) return false;
+        if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(getDefaultInstance())) return false;
         Item ammo = MaterialContent.items().get("heavy_round").get();
         if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) {
             server.playSound(null, player.blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, 5);
             return false;
         }
         if (!VolcanoBurstEntity.submit(server, player)) return false;
-        player.getCooldowns().addCooldown(this, 31);
+        player.getCooldowns().addCooldown(getDefaultInstance(), 31);
         triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "1");
         if (!player.getAbilities().instabuild) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
         return false;

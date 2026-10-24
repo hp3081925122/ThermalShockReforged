@@ -179,7 +179,7 @@ public final class BloomlingEntity extends Monster implements GeoEntity {
         output.putDouble("BloomTargetEyeHeight", targetEyeHeight); output.putDouble("BloomBurstDamage", burstDamage);
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
-        super.readAdditionalSaveData(input); summonOwner = input.getString("BloomSummonOwner").map(java.util.UUID::fromString).orElse(null); summonExpiresAt = input.getString("BloomSummonExpiresAt").isPresent() ? input.getLongOr("BloomSummonExpiresAt", 0L) : -1; if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        super.readAdditionalSaveData(input); summonOwner = input.getString("BloomSummonOwner").map(java.util.UUID::fromString).orElse(null); summonExpiresAt = input.read("BloomSummonExpiresAt", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getLongOr("BloomSummonExpiresAt", 0L) : -1; if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         initialized = input.getBooleanOr("BloomInitialized", false); deathCommitted = input.getBooleanOr("BloomDeathCommitted", false); experiencePending = input.getBooleanOr("BloomExperiencePending", false);
         experienceAttacker = input.getString("BloomExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
         attackTarget = input.getString("BloomAttackTarget").map(java.util.UUID::fromString).orElse(null);

@@ -49,7 +49,7 @@ public final class FirearmItem extends Item implements GeoItem {
         }
     }
     private void fire(LivingEntity wielder, ItemStack stack) {
-        if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this)) return;
+        if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(getDefaultInstance())) return;
         Item ammo = MaterialContent.items().get("light_round").get();
         if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) {
             server.playSound(null, player.blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, 5); return;
@@ -60,7 +60,7 @@ public final class FirearmItem extends Item implements GeoItem {
         bullet.setPos(player.getX(), player.getY() + 1.5, player.getZ());
         var look = player.getLookAngle(); bullet.shoot(look.x, look.y, look.z, 6, hailfall ? 2 : 0);
         if (!server.addFreshEntity(bullet)) return;
-        player.getCooldowns().addCooldown(this, hailfall ? 5 : 11);
+        player.getCooldowns().addCooldown(getDefaultInstance(), hailfall ? 5 : 11);
         triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "1");
         server.playSound(null, player.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, hailfall ? "misc_gun_2" : "flint_gun_25")), SoundSource.NEUTRAL, 1, hailfall ? .75F : 1 + server.getRandom().nextInt(2));
         if (!hailfall) RifleCycleSoundEntity.submit(server, player.getX(), player.getY(), player.getZ());

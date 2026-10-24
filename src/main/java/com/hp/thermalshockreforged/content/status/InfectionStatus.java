@@ -67,7 +67,7 @@ public final class InfectionStatus {
 
     private static CompoundTag state(LivingEntity entity) {
         CompoundTag data = entity.getPersistentData();
-        if (!data.getCompoundOrEmpty(KEY).isPresent()) data.put(KEY, new CompoundTag());
+        if (!data.getCompound(KEY).isPresent()) data.put(KEY, new CompoundTag());
         return data.getCompoundOrEmpty(KEY);
     }
 
@@ -84,7 +84,7 @@ public final class InfectionStatus {
 
     public static void tick(EntityTickEvent.Post event) {
         if (!(event.getEntity() instanceof LivingEntity patient) || !(patient.level() instanceof ServerLevel level)) return;
-        if (!patient.getPersistentData().getCompoundOrEmpty(KEY).isPresent()) return;
+        if (!patient.getPersistentData().getCompound(KEY).isPresent()) return;
         CompoundTag state = state(patient);
         if (!patient.isAlive() || !state.getString("Dimension").equals(level.dimension().identifier().toString())) {
             cancel(patient);
@@ -151,7 +151,7 @@ public final class InfectionStatus {
 
     public static void join(EntityJoinLevelEvent event) {
         if (!(event.getEntity() instanceof LivingEntity patient) || event.getLevel().isClientSide()
-                || !patient.getPersistentData().getCompoundOrEmpty(KEY).isPresent()) return;
+                || !patient.getPersistentData().getCompound(KEY).isPresent()) return;
         CompoundTag state = state(patient);
         ListTag tasks = state.getListOrEmpty("Tasks");
         while (tasks.size() > 20) tasks.remove(tasks.size() - 1);

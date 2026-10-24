@@ -85,7 +85,7 @@ public final class RazoraptorStrikeEntity extends Entity implements ServerEndTic
     }
     @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         caster = input.getString("RazoraptorCaster").map(java.util.UUID::fromString).orElse(null); target = input.getString("RazoraptorTarget").map(java.util.UUID::fromString).orElse(null);
-        targetEntityId = input.getIntOr("RazoraptorTargetEntityId", 0); playerTarget = !input.getString("RazoraptorPlayerTarget").isPresent() || input.getBooleanOr("RazoraptorPlayerTarget", false); originalPlayer = null; dimension = input.getStringOr("RazoraptorDimension", "");
+        targetEntityId = input.getIntOr("RazoraptorTargetEntityId", 0); playerTarget = !input.read("RazoraptorPlayerTarget", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() || input.getBooleanOr("RazoraptorPlayerTarget", false); originalPlayer = null; dimension = input.getStringOr("RazoraptorDimension", "");
         soundOrigin = new Vec3(input.getDoubleOr("RazoraptorSoundX", 0.0), input.getDoubleOr("RazoraptorSoundY", 0.0), input.getDoubleOr("RazoraptorSoundZ", 0.0)); look = new Vec3(input.getDoubleOr("RazoraptorLookX", 0.0), input.getDoubleOr("RazoraptorLookY", 0.0), input.getDoubleOr("RazoraptorLookZ", 0.0));
         damage = finite(input.getDoubleOr("RazoraptorDamage", 0.0)); knockback = Math.clamp(finite(input.getDoubleOr("RazoraptorKnockback", 0.0)), 0, 2); elapsed = Math.clamp(input.getIntOr("RazoraptorElapsed", 0), 0, 10);
         armed = input.getBooleanOr("RazoraptorArmed", false) && elapsed < 10 && caster != null && target != null && !caster.equals(target) && valid(soundOrigin) && valid(look) && look.lengthSqr() <= 1.01;

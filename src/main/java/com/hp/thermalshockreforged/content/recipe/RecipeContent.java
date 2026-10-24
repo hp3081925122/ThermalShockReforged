@@ -57,7 +57,7 @@ public final class RecipeContent {
     }
 
     private static void syncRecipes(OnDatapackSyncEvent event) {
-        event.sendRecipes(KINDS.stream().<RecipeType<?>>map(kind -> kind.type().get()).toList());
+        event.sendRecipes(java.util.stream.Stream.concat(KINDS.stream().<RecipeType<?>>map(kind -> kind.type().get()), java.util.stream.Stream.of(com.hp.thermalshockreforged.content.fabrication.FabricationContent.TYPE.get())).toList());
     }
 
     public static void acceptClientRecipes(RecipeMap recipes) {
@@ -65,7 +65,7 @@ public final class RecipeContent {
         ThermalShockReforged.LOGGER.debug("Thermal Shock Reforged client recipes received: {}", recipes.values().size());
     }
 
-    private static RecipeMap recipes(Level level) {
+    public static RecipeMap recipes(Level level) {
         return level instanceof ServerLevel server ? server.recipeAccess().recipeMap() : clientRecipes;
     }
 

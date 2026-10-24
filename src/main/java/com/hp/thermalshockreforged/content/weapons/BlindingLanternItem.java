@@ -55,11 +55,11 @@ public final class BlindingLanternItem extends Item implements GeoItem {
     @Override
     public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
         if (!(wielder.level() instanceof ServerLevel server)
-                || wielder instanceof Player player && player.getCooldowns().isOnCooldown(this)) return false;
-        if (wielder instanceof Player player) player.getCooldowns().addCooldown(this, 265);
+                || wielder instanceof Player player && player.getCooldowns().isOnCooldown(getDefaultInstance())) return false;
+        if (wielder instanceof Player player) player.getCooldowns().addCooldown(getDefaultInstance(), 265);
         triggerAnim(wielder, GeoItem.getOrAssignId(stack, server), "procedure", "1");
         var origin = wielder.position();
-        server.sendParticles(ParticleTypes.FLASH, origin.x, origin.y, origin.z, 45, 5, 5, 5, 0.3);
+        server.sendParticles(net.minecraft.core.particles.ColorParticleOption.create(ParticleTypes.FLASH, -1), origin.x, origin.y, origin.z, 45, 5, 5, 5, 0.3);
         server.playSound(null, wielder.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(SOUND), SoundSource.NEUTRAL, 1, 1);
         for (Entity target : server.getEntitiesOfClass(Entity.class, new AABB(origin, origin).inflate(6),
                 candidate -> candidate != wielder && !(candidate instanceof TamableAnimal pet && pet.isTame()))

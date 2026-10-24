@@ -45,7 +45,7 @@ public final class KofoniEntity extends PathfinderMob implements GeoEntity, Serv
             if (isShiftKeyDown()) {
                 triggerAnim("procedure", "wake");
                 wakeSchedule |= 1 << 19;
-                ServerEndTickTasks.schedule(server((net.minecraft.server.level.ServerLevel) player.level()), getUUID());
+                ServerEndTickTasks.schedule(serverPlayer.level(), getUUID());
                 ThermalShockReforged.LOGGER.debug("Kofoni wake armed: entity={}, pendingEndTickSlots={}", getUUID(), Integer.bitCount(wakeSchedule));
             } else {
                 KofoniContent.open(serverPlayer, this, blockPosition(), KofoniPage.MAIN);
@@ -70,10 +70,10 @@ public final class KofoniEntity extends PathfinderMob implements GeoEntity, Serv
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putInt("KofoniWakeSchedule", wakeSchedule); output.putBoolean("KofoniWakeShifted", isShiftKeyDown()); }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-if (input.getString("Texture").isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
+if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
         int legacyTicks = Math.clamp(input.getIntOr("KofoniWakeTicks", 0), 0, 20);
-        wakeSchedule = input.getString("KofoniWakeSchedule").isPresent() ? input.getIntOr("KofoniWakeSchedule", 0) & 0xfffff : legacyTicks > 0 ? 1 << (legacyTicks - 1) : 0;
-        if (wakeSchedule != 0) setShiftKeyDown(!input.getString("KofoniWakeShifted").isPresent() || input.getBooleanOr("KofoniWakeShifted", false));
+        wakeSchedule = input.read("KofoniWakeSchedule", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getIntOr("KofoniWakeSchedule", 0) & 0xfffff : legacyTicks > 0 ? 1 << (legacyTicks - 1) : 0;
+        if (wakeSchedule != 0) setShiftKeyDown(!input.read("KofoniWakeShifted", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() || input.getBooleanOr("KofoniWakeShifted", false));
         setPersistenceRequired();
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {

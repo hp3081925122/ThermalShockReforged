@@ -103,6 +103,6 @@ public final class PurifierPulseEntity extends Entity implements ServerEndTickTa
     }
     @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         anchor = BlockPos.of(input.getLongOr("PurifierAnchor", 0L)); dimension = input.getStringOr("PurifierDimension", ""); remaining = Math.clamp(input.getIntOr("PurifierRemaining", 0), 1, 20);
-        armed = input.getBooleanOr("PurifierArmed", false) && input.getString("PurifierAnchor").isPresent(); noPhysics = true; setNoGravity(true);
+        armed = input.getBooleanOr("PurifierArmed", false) && input.read("PurifierAnchor", com.mojang.serialization.Codec.PASSTHROUGH).isPresent(); noPhysics = true; setNoGravity(true);
     }
 }

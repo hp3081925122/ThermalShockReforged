@@ -1143,12 +1143,12 @@ public final class BastionEntity extends Monster implements GeoEntity {
         attributesApplied = false;
         applyConfiguredAttributes();
         setPersistenceRequired();
-        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         entityData.set(ENRAGED, input.getBooleanOr("BastionEnraged", false));
         deathCommitted = input.getBooleanOr("BastionDeathCommitted", false);
         experiencePending = input.getBooleanOr("BastionExperiencePending", false);
         experienceAttacker = null;
-        if (input.getString("BastionExperienceAttacker").isPresent()) experienceAttacker = java.util.UUID.fromString(input.getStringOr("BastionExperienceAttacker", "00000000-0000-0000-0000-000000000000"));
+        if (input.read("BastionExperienceAttacker", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) experienceAttacker = java.util.UUID.fromString(input.getStringOr("BastionExperienceAttacker", "00000000-0000-0000-0000-000000000000"));
         bossInfo.setName(getDisplayName());
     }
 

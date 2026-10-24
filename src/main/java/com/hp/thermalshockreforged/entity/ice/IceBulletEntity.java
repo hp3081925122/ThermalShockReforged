@@ -34,7 +34,7 @@ public final class IceBulletEntity extends AbstractArrow implements ItemSupplier
     }
     public void configureUnowned(UUID source, double damage) {
         caster = source;
-        setOwner(null);
+        setOwner((net.minecraft.world.entity.Entity) null);
         setBaseDamage(Double.isFinite(damage) ? Math.clamp(damage, 0, Float.MAX_VALUE) : 0);
         impactKnockback = 0;
         pickup = Pickup.DISALLOWED;
@@ -52,10 +52,10 @@ public final class IceBulletEntity extends AbstractArrow implements ItemSupplier
         super.tick();
         setNoGravity(true);
         level().addParticle(FaunaEntities.WHITE_ORB.get(), getX(), getY(), getZ(), 0, 0, 0);
-        if (inGround) discard();
+        if (isInGround()) discard();
         if (!isRemoved() && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
     }
     @Override public void endTick(ServerLevel level) { if (!isRemoved() && ++lifetime >= 40) discard(); }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putInt("IceLifetime", lifetime); output.putDouble("IceKnockback", impactKnockback); if (caster != null) output.putString("IceCaster", caster.toString()); }
-    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); pickup = Pickup.DISALLOWED; lifetime = Math.max(0, Math.min(40, input.getIntOr("IceLifetime", 0))); double kb = input.getDoubleOr("IceKnockback", 0.0); impactKnockback = Double.isFinite(kb) ? Math.max(0, Math.min(2, kb)) : 0; caster = input.getString("IceCaster").map(java.util.UUID::fromString).orElse(null); if (!Double.isFinite(getBaseDamage()) || getBaseDamage() < 0) setBaseDamage(0); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); pickup = Pickup.DISALLOWED; lifetime = Math.max(0, Math.min(40, input.getIntOr("IceLifetime", 0))); double kb = input.getDoubleOr("IceKnockback", 0.0); impactKnockback = Double.isFinite(kb) ? Math.max(0, Math.min(2, kb)) : 0; caster = input.getString("IceCaster").map(java.util.UUID::fromString).orElse(null); if (!Double.isFinite(input.getDoubleOr("damage", 2.0)) || input.getDoubleOr("damage", 2.0) < 0) setBaseDamage(0); }
 }

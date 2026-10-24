@@ -50,7 +50,7 @@ public final class InfestedLogBlock extends Block {
     }
 
     @Override
-    public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player,
+    public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, net.minecraft.world.item.ItemStack toolStack,
             boolean willHarvest, FluidState fluid) {
         boolean destroyed = super.onDestroyedByPlayer(state, level, pos, player, toolStack, willHarvest, fluid);
         if (destroyed && level instanceof ServerLevel server) {

@@ -102,7 +102,7 @@ public final class SootleEntity extends AbstractSootleEntity implements ServerEn
     @Override
     protected boolean isImmobile() { return actionLock > 0 || super.isImmobile(); }
     @Override
-    protected String movement(AnimationTest<?> state) {
+    protected String movement(com.hp.thermalshockreforged.compat.LegacyAnimationController.LegacyAnimationState<?> state) {
         if (!isAggressive() && (state.isMoving() || Math.abs(state.getLimbSwingAmount()) >= 0.15F)) return "walk";
         if (isShiftKeyDown()) return "dig";
         return isAggressive() && state.isMoving() ? "run" : "idle";
@@ -117,7 +117,7 @@ public final class SootleEntity extends AbstractSootleEntity implements ServerEn
     @Override
     public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-        cooldown = Math.max(0, input.getIntOr("SkillCooldown", 0)); actionLock = Math.max(0, Math.min(18, input.getIntOr("ActionLock", 0))); skillAge = input.getString("SkillAge").isPresent() ? input.getIntOr("SkillAge", 0) : -1; singleAttack = input.getBooleanOr("SingleAttack", false);
+        cooldown = Math.max(0, input.getIntOr("SkillCooldown", 0)); actionLock = Math.max(0, Math.min(18, input.getIntOr("ActionLock", 0))); skillAge = input.read("SkillAge", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getIntOr("SkillAge", 0) : -1; singleAttack = input.getBooleanOr("SingleAttack", false);
         skillTarget = input.getString("SkillTarget").map(java.util.UUID::fromString).orElse(null); skillDimension = input.getStringOr("SkillDimension", ""); origin = new Vec3(input.getDoubleOr("OriginX", 0.0), input.getDoubleOr("OriginY", 0.0), input.getDoubleOr("OriginZ", 0.0)); resumeAnimation = skillAge >= 0;
     }
 }

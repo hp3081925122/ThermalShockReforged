@@ -118,7 +118,7 @@ public final class ErrantEntity extends Monster implements GeoEntity, com.hp.the
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
         super.addAdditionalSaveData(output);
         output.putString("Texture", texture());
-        combat.save(tag);
+        combat.save(output);
         output.putBoolean("SanctumErrantDeathCommitted", deathCommitted);
         output.putBoolean("SanctumErrantExperiencePending", experiencePending);
         if (experienceAttacker != null) output.putString("SanctumErrantExperienceAttacker", experienceAttacker.toString());
@@ -127,12 +127,12 @@ public final class ErrantEntity extends Monster implements GeoEntity, com.hp.the
         loadedFromSave = true;
         attributesApplied = false;
         super.readAdditionalSaveData(input);
-if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         deathCommitted = input.getBooleanOr("SanctumErrantDeathCommitted", false);
         experiencePending = input.getBooleanOr("SanctumErrantExperiencePending", false);
         experienceAttacker = input.getString("SanctumErrantExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
         applyConfiguredAttributes();
-        combat.load(tag);
+        combat.load(input);
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         var procedure = new LegacyAnimationController<>(this, "procedure", 2, state -> PlayState.STOP);

@@ -49,7 +49,7 @@ public final class ZapWarningEntity extends AttackCarrierBody {
         var zap = ModEntities.ZAP.get().create(level, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
         if (zap == null) return null;
         zap.configureDamage(owner, damage); zap.ignoreCaster = ignoreCaster;
-        zap.moveTo(pos.getX() + .5, pos.getY(), pos.getZ() + .5, net.minecraft.util.Mth.wrapDegrees(level.getRandom().nextFloat() * 360), 0);
+        zap.snapTo(pos.getX() + .5, pos.getY(), pos.getZ() + .5, net.minecraft.util.Mth.wrapDegrees(level.getRandom().nextFloat() * 360), 0);
         zap.yHeadRot = zap.getYRot(); zap.yBodyRot = zap.getYRot();
         net.neoforged.neoforge.event.EventHooks.finalizeMobSpawn(zap, level, level.getCurrentDifficultyAt(pos), EntitySpawnReason.MOB_SUMMONED, null);
         if (!zap.initialized || zap.isSpawnCancelled() || zap.isRemoved()) { zap.discard(); return null; }
@@ -119,11 +119,11 @@ public final class ZapWarningEntity extends AttackCarrierBody {
         super.readAdditionalSaveData(input);
         ignoreCaster = input.getBooleanOr("ZapIgnoreCaster", false);
         caster = input.getString("Caster").map(java.util.UUID::fromString).orElse(null);
-        double value = input.getString("ZapDamage").isPresent() ? input.getDoubleOr("ZapDamage", 0.0)
-                : CombatConfig.FORECAST_DAMAGE.getDefault() * (input.getString("Multiplier").isPresent() ? input.getDoubleOr("Multiplier", 0.0) : 1);
+        double value = input.read("ZapDamage", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getDoubleOr("ZapDamage", 0.0)
+                : CombatConfig.FORECAST_DAMAGE.getDefault() * (input.read("Multiplier", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getDoubleOr("Multiplier", 0.0) : 1);
         damage = Double.isFinite(value) ? Math.clamp(value, 0, Float.MAX_VALUE) : 0;
-        damageConfigured = input.getBooleanOr("ZapDamageConfigured", false) || input.getString("ZapDamage").isPresent();
-        remainingTicks = input.getString("RemainingTicks").isPresent() ? Math.clamp(input.getIntOr("RemainingTicks", 0), 0, 20) : 20;
+        damageConfigured = input.getBooleanOr("ZapDamageConfigured", false) || input.read("ZapDamage", com.mojang.serialization.Codec.PASSTHROUGH).isPresent();
+        remainingTicks = input.read("RemainingTicks", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? Math.clamp(input.getIntOr("RemainingTicks", 0), 0, 20) : 20;
         detonationTask = input.getString("ZapDetonationTask").map(java.util.UUID::fromString).orElse(null);
         if (detonationTask == null) remainingTicks = Math.max(1, remainingTicks);
         submissionRetry = Math.clamp(input.getIntOr("ZapSubmissionRetry", 0), 0, 20);
@@ -131,7 +131,7 @@ public final class ZapWarningEntity extends AttackCarrierBody {
         origin = new Vec3(input.getDoubleOr("WarningOriginX", 0.0), input.getDoubleOr("WarningOriginY", 0.0), input.getDoubleOr("WarningOriginZ", 0.0));
         if (!Double.isFinite(origin.x) || !Double.isFinite(origin.y) || !Double.isFinite(origin.z)) { committed = true; }
         originDimension = input.getStringOr("WarningDimension", "");
-        if (!initialized && !input.getString("WarningInitialized").isPresent() && input.getString("RemainingTicks").isPresent()) {
+        if (!initialized && !input.read("WarningInitialized", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() && input.read("RemainingTicks", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) {
             initialized = true; emitted = true; origin = position(); originDimension = level().dimension().identifier().toString();
         }
     }

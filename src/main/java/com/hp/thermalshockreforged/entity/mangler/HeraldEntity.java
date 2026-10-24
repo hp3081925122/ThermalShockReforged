@@ -74,7 +74,7 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
     @Override
     public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
         if (!keyDropped) {
-            ThermalShockReforged.LOGGER.debug("Herald damage blocked before key generation: entity={}, amount={}, source={}", getUUID(), amount, source.typeHolder().unwrapKey().map(key -> key.location()).orElse(null));
+            ThermalShockReforged.LOGGER.debug("Herald damage blocked before key generation: entity={}, amount={}, source={}", getUUID(), amount, source.typeHolder().unwrapKey().map(key -> key.identifier()).orElse(null));
             return false;
         }
         if (source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL)) return false;
@@ -179,12 +179,12 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
         super.readAdditionalSaveData(input);
         configuredAttributes = false;
         applyConfiguredAttributes();
-        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", "")); summonReadyAt = input.getLongOr("SummonReadyAt", 0L);
-        var legacy = getPersistentData(); killCount = Math.max(0, Math.min(10, input.getStringOr("HeraldKillCount", "").isPresent() ? input.getIntOr("HeraldKillCount", 0) : (int) legacy.getDoubleOr("HeraldKillCount", 0))); active = input.getBooleanOr("HeraldBloom", false) || legacy.getStringOr("HeraldActive", "").equals("Yup"); keyDropped = input.getBooleanOr("KeyDropped", false) || active; deathVisualStarted = input.getBooleanOr("DeathVisualStarted", false);
-        activationRemaining = !keyDropped && input.getString("ActivationRemaining").isPresent() ? Math.clamp(input.getIntOr("ActivationRemaining", 0), -1, 20) : -1; activationOrigin = new Vec3(input.getDoubleOr("ActivationX", 0.0), input.getDoubleOr("ActivationY", 0.0), input.getDoubleOr("ActivationZ", 0.0));
+        if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", "")); summonReadyAt = input.getLongOr("SummonReadyAt", 0L);
+        var legacy = getPersistentData(); killCount = Math.max(0, Math.min(10, input.read("HeraldKillCount", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getIntOr("HeraldKillCount", 0) : (int) legacy.getDoubleOr("HeraldKillCount", 0))); active = input.getBooleanOr("HeraldBloom", false) || legacy.getStringOr("HeraldActive", "").equals("Yup"); keyDropped = input.getBooleanOr("KeyDropped", false) || active; deathVisualStarted = input.getBooleanOr("DeathVisualStarted", false);
+        activationRemaining = !keyDropped && input.read("ActivationRemaining", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? Math.clamp(input.getIntOr("ActivationRemaining", 0), -1, 20) : -1; activationOrigin = new Vec3(input.getDoubleOr("ActivationX", 0.0), input.getDoubleOr("ActivationY", 0.0), input.getDoubleOr("ActivationZ", 0.0));
         if (!Double.isFinite(activationOrigin.x) || !Double.isFinite(activationOrigin.y) || !Double.isFinite(activationOrigin.z)) activationRemaining = -1;
-        var anchorTag = input.getString("HeraldXpos").isPresent() ? tag : legacy;
-        if (anchorinput.getString("HeraldXpos").isPresent() && anchorinput.getString("HeraldYpos").isPresent() && anchorinput.getString("HeraldZpos").isPresent()) { anchor = new Vec3(anchorinput.getDoubleOr("HeraldXpos", 0.0), anchorinput.getDoubleOr("HeraldYpos", 0.0), anchorinput.getDoubleOr("HeraldZpos", 0.0)); anchorDimension = input.getString("AnchorDimension").isPresent() ? input.getStringOr("AnchorDimension", "") : level().dimension().identifier().toString(); }
+        if (input.read("HeraldXpos", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) { if (input.read("HeraldYpos", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() && input.read("HeraldZpos", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) { anchor = new Vec3(input.getDoubleOr("HeraldXpos", 0.0), input.getDoubleOr("HeraldYpos", 0.0), input.getDoubleOr("HeraldZpos", 0.0)); anchorDimension = input.read("AnchorDimension", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getStringOr("AnchorDimension", "") : level().dimension().identifier().toString(); } }
+        else if (legacy.contains("HeraldXpos") && legacy.contains("HeraldYpos") && legacy.contains("HeraldZpos")) { anchor = new Vec3(legacy.getDoubleOr("HeraldXpos", 0.0), legacy.getDoubleOr("HeraldYpos", 0.0), legacy.getDoubleOr("HeraldZpos", 0.0)); anchorDimension = input.read("AnchorDimension", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getStringOr("AnchorDimension", "") : level().dimension().identifier().toString(); }
     }
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {

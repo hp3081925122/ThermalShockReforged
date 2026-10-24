@@ -44,14 +44,14 @@ public final class OreChoiceTooltips {
                 added.add(Component.translatable(KEY + "generated").withStyle(ChatFormatting.GREEN));
             } else added.add(Component.translatable(KEY + "absent").withStyle(ChatFormatting.RED));
             var stack = event.getItemStack();
-            for (var holder : level.getRecipeManager().getAllRecipesFor(RecipeContent.TRANSMUTATION.type().get())) {
+            for (var holder : RecipeContent.recipes(level).byType(RecipeContent.TRANSMUTATION.type().get())) {
                 var recipe = holder.value();
                 if (generated && recipe.ingredient().test(stack)) {
                     added.add(Component.translatable(KEY + "transmute_to", recipe.result().getHoverName()).withStyle(ChatFormatting.AQUA));
                     break;
                 }
-                if (!generated && recipe.result().is(stack.getItem()) && recipe.ingredient().getItems().length > 0) {
-                    added.add(Component.translatable(KEY + "transmute_from", recipe.ingredient().getItems()[0].getHoverName(), stack.getHoverName()).withStyle(ChatFormatting.AQUA));
+                if (!generated && recipe.result().is(stack.getItem()) && recipe.ingredient().items().findFirst().isPresent()) {
+                    added.add(Component.translatable(KEY + "transmute_from", new net.minecraft.world.item.ItemStack(recipe.ingredient().items().findFirst().orElseThrow()).getHoverName(), stack.getHoverName()).withStyle(ChatFormatting.AQUA));
                     break;
                 }
             }

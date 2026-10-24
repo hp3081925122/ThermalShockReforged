@@ -12,11 +12,22 @@ import net.minecraft.world.level.material.MapColor;
 
 public class UnderbrushLeaves extends LeavesBlock {
     private final int opacity;
+    private final com.mojang.serialization.MapCodec<UnderbrushLeaves> codec;
 
     public UnderbrushLeaves(MapColor color, int opacity, boolean dull) {
-        super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(color).ignitedByLava().sound(SoundType.GRASS)
+        super(0.0F, com.hp.thermalshockreforged.ModRegistration.block().mapColor(color).ignitedByLava().sound(SoundType.GRASS)
                 .strength(dull ? 0.15F : 0.1F, dull ? 1.0F : 0.0F).noOcclusion());
         this.opacity = opacity;
+        this.codec = com.mojang.serialization.MapCodec.unit(this);
+    }
+
+    @Override
+    public com.mojang.serialization.MapCodec<? extends LeavesBlock> codec() {
+        return codec;
+    }
+
+    @Override
+    protected void spawnFallingLeavesParticle(net.minecraft.world.level.Level level, BlockPos pos, net.minecraft.util.RandomSource random) {
     }
 
     @Override

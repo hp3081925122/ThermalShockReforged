@@ -128,7 +128,7 @@ public final class SkeletalTitanEntity extends AnimatedMonsterEntity {
         var replacement = variant.create(server, reason);
         if (replacement == null) return result;
         BlockPos pos = blockPosition();
-        replacement.moveTo(pos.getX() + .5, pos.getY(), pos.getZ() + .5, server.getRandom().nextFloat() * 360, 0);
+        replacement.snapTo(pos.getX() + .5, pos.getY(), pos.getZ() + .5, server.getRandom().nextFloat() * 360, 0);
         replacement.yHeadRot = replacement.getYRot();
         replacement.yBodyRot = replacement.getYRot();
         EventHooks.finalizeMobSpawn(replacement, server, server.getCurrentDifficultyAt(pos), EntitySpawnReason.MOB_SUMMONED, null);

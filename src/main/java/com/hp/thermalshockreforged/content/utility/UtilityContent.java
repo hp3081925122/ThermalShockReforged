@@ -22,7 +22,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class UtilityContent {
     private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
     public static final DeferredItem<Item> LOQUE_MILK = ITEMS.register("loque_milk", () -> new LoqueMilkItem(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).craftRemainder(Items.BUCKET)
-            .food(new FoodProperties.Builder().nutrition(5).saturationModifier(1).usingConvertsTo(Items.BUCKET).build())));
+            .food(new FoodProperties.Builder().nutrition(5).saturationModifier(1).build(), net.minecraft.world.item.component.Consumables.defaultDrink().consumeSeconds(2.25F).build()).usingConvertsTo(Items.BUCKET)));
     public static final DeferredItem<Item> ADAMANTINE_SPICE = ITEMS.register("adamantine_spice", () -> new AdamantineSpiceItem(com.hp.thermalshockreforged.ModRegistration.item().rarity(Rarity.UNCOMMON)));
     public static final DeferredItem<Item> MUCK_PIE = ITEMS.register("muck_pie", () -> new NourishingFoodItem(ItemUseAnimation.EAT));
 
@@ -47,7 +47,7 @@ public final class UtilityContent {
     private static final class NourishingFoodItem extends Item {
         private final ItemUseAnimation animation;
         private NourishingFoodItem(ItemUseAnimation animation) {
-            super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).food(new FoodProperties.Builder().nutrition(10).saturationModifier(2).build()));
+            super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).food(new FoodProperties.Builder().nutrition(10).saturationModifier(2).build(), (animation == ItemUseAnimation.DRINK ? net.minecraft.world.item.component.Consumables.defaultDrink() : net.minecraft.world.item.component.Consumables.defaultFood()).consumeSeconds(3.0F).build()));
             this.animation = animation;
         }
         @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return animation; }
@@ -55,7 +55,7 @@ public final class UtilityContent {
         @Override
         public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity consumer) {
             ItemStack result = super.finishUsingItem(stack, level, consumer);
-            if (!level.isClientSide()) BuiltInRegistries.MOB_EFFECT.getHolder(Identifier.fromNamespaceAndPath("farmersdelight", "nourishment"))
+            if (!level.isClientSide()) BuiltInRegistries.MOB_EFFECT.get(Identifier.fromNamespaceAndPath("farmersdelight", "nourishment"))
                     .ifPresent(effect -> consumer.addEffect(new MobEffectInstance(effect, 4000, 0)));
             return result;
         }
@@ -71,7 +71,7 @@ public final class UtilityContent {
     private static final class BottledMilkItem extends Item {
         private BottledMilkItem() {
             super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.5F)
-                    .usingConvertsTo(Items.GLASS_BOTTLE).build()));
+                    .build(), net.minecraft.world.item.component.Consumables.defaultDrink().consumeSeconds(1.0F).build()).usingConvertsTo(Items.GLASS_BOTTLE));
         }
         @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.DRINK; }
         @Override public int getUseDuration(ItemStack stack, LivingEntity consumer) { return 20; }

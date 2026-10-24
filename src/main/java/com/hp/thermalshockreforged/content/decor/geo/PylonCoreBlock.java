@@ -37,7 +37,7 @@ public final class PylonCoreBlock extends GeoDecorBlock {
         var recipe = AltarConversionRecipe.find(level, this, level.getBlockState(pos.below()));
         if (recipe == null) return;
         boolean unlocked = placer instanceof ServerPlayer player && AltarBlock.unlocked(player);
-        ThermalShockReforged.LOGGER.debug("Pylon core placed on altar: position={}, placer={}, unlocked={}, loot={}", pos, placer, unlocked, recipe.lootTable().location());
+        ThermalShockReforged.LOGGER.debug("Pylon core placed on altar: position={}, placer={}, unlocked={}, loot={}", pos, placer, unlocked, recipe.lootTable().identifier());
         if (unlocked) {
             PylonCoreActivationEntity.begin(server, pos, recipe.lootTable());
             return;
@@ -45,7 +45,7 @@ public final class PylonCoreBlock extends GeoDecorBlock {
         if (placer instanceof ServerPlayer player) player.sendOverlayMessage(Component.translatable("message.thermal_shock_reforged.altar.locked"));
         if (WorldRulesConfig.PYLON_CORES_EXPLODE.get()) PylonCoreActivationEntity.begin(server, pos, null);
     }
-    @Override public PathType getBlockPathType(BlockState state, BlockGetter level, BlockPos pos, Mob mob) { return PathType.DANGER_OTHER; }
+    @Override public PathType getBlockPathType(BlockState state, BlockGetter level, BlockPos pos, Mob mob) { return PathType.DAMAGING_IN_NEIGHBOR; }
     @Override protected List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
         var entity = builder.getOptionalParameter(LootContextParams.BLOCK_ENTITY);
         return entity != null && entity.getPersistentData().read(ACTIVATION_TOKEN, net.minecraft.core.UUIDUtil.CODEC).isPresent() ? List.of() : super.getDrops(state, builder);

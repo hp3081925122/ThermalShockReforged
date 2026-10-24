@@ -18,9 +18,7 @@ final class PanaceaItem extends Item {
     @Override
     public boolean isFoil(ItemStack stack) { return true; }
     @Override
-    public boolean hasCraftingRemainingItem(ItemStack stack) { return true; }
-    @Override
-    public ItemStack getCraftingRemainingItem(ItemStack stack) { return new ItemStack(this); }
+    public ItemStackTemplate getCraftingRemainder(ItemInstance instance) { return new ItemStackTemplate(this); }
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
         player.startUsingItem(hand);

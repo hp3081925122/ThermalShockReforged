@@ -34,14 +34,14 @@ public final class RustyEdgeItem extends SwordItem {
     public RustyEdgeItem() { super(TIER, 3, -2.6F, com.hp.thermalshockreforged.ModRegistration.item()); }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var result = super.use(level, player, hand);
-        if (player.getCooldowns().isOnCooldown(this)) return result;
+        if (player.getCooldowns().isOnCooldown(getDefaultInstance())) return result;
         var look = player.getLookAngle();
         if (player.isShiftKeyDown()) player.setDeltaMovement(new Vec3(-look.x, 0, -look.z));
         else {
             player.setDeltaMovement(new Vec3(look.x * 1.5, .25, look.z * 1.5));
             if (!level.isClientSide()) player.addEffect(new MobEffectInstance(StatusContent.PARRYING, 10, 1));
         }
-        player.getCooldowns().addCooldown(this, 100);
+        player.getCooldowns().addCooldown(getDefaultInstance(), 100);
         if (level.isClientSide()) level.playLocalSound(player.getX(), player.getY(), player.getZ(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "propulsionbootsactivate")), SoundSource.NEUTRAL, 1, 4, false);
         return result;
     }

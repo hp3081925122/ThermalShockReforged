@@ -104,7 +104,7 @@ public final class IcidrostriderEntity extends Monster implements GeoEntity {
         output.putBoolean("StriderExperiencePending", experiencePending); if (experienceAttacker != null) output.putString("StriderExperienceAttacker", experienceAttacker.toString());
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
-        super.readAdditionalSaveData(input); setPersistenceRequired(); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        super.readAdditionalSaveData(input); setPersistenceRequired(); if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         nextFireAt = level().getGameTime() + Math.clamp(input.getIntOr("StriderFireCooldown", 0), 0, 10);
         experiencePending = input.getBooleanOr("StriderExperiencePending", false); experienceAttacker = input.getString("StriderExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
     }

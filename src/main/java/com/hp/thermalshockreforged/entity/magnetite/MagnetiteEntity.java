@@ -62,7 +62,7 @@ public final class MagnetiteEntity extends AnimatedMonsterEntity implements Rang
     }
     @Override protected void tickEffects() {
         if (!com.hp.thermalshockreforged.content.remainingcombat.CryoCooldownVisual.tickClientEffects(
-                this, false, (effect, refresh) -> onEffectUpdated(effect, refresh, null))) super.tickEffects();
+                this, false)) super.tickEffects();
     }
     @Override protected SoundEvent getAmbientSound() { return SoundEvents.BLAZE_AMBIENT; }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.BLAZE_HURT; }

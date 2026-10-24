@@ -82,7 +82,7 @@ final class ArmorSetEvents {
     private static boolean wearing(Player player, List<DeferredItem<GeoSetArmorItem>> armor) {
         for (var entry : armor) {
             var item = entry.get();
-            if (!player.getItemBySlot(item.getEquipmentSlot()).is(item)) return false;
+            if (!player.getItemBySlot(item.getType().getSlot()).is(item)) return false;
         }
         return true;
     }

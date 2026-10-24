@@ -54,7 +54,7 @@ public final class SuspiciousCavebloomerBlockEntity extends GeoDecorBlockEntity 
         try {
             var boss = CavebloomerContent.ANGRY.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
             if (boss == null) return;
-            boss.moveTo(worldPosition.getX() + 0.5, worldPosition.getY(), worldPosition.getZ() + 0.5, Mth.wrapDegrees(server.getRandom().nextFloat() * 360), 0);
+            boss.snapTo(worldPosition.getX() + 0.5, worldPosition.getY(), worldPosition.getZ() + 0.5, Mth.wrapDegrees(server.getRandom().nextFloat() * 360), 0);
             boss.yHeadRot = boss.getYRot(); boss.yBodyRot = boss.getYRot();
             EventHooks.finalizeMobSpawn(boss, server, server.getCurrentDifficultyAt(worldPosition), EntitySpawnReason.MOB_SUMMONED, null);
             if (boss.isSpawnCancelled() || boss.isRemoved() || isRemoved() || server.getBlockEntity(worldPosition) != this) { boss.discard(); return; }
@@ -80,11 +80,11 @@ public final class SuspiciousCavebloomerBlockEntity extends GeoDecorBlockEntity 
         if (level instanceof ServerLevel server) updateTicker(server);
     }
     @Override protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput output) {
-        super.saveAdditional(output); output.putInt("CavebloomerSummonsRemaining", remaining); output.putInt("CavebloomerSummonDelay", delay); tag.putLong("CavebloomerSummonStartedAt", startedAt);
+        super.saveAdditional(output); output.putInt("CavebloomerSummonsRemaining", remaining); output.putInt("CavebloomerSummonDelay", delay); output.putLong("CavebloomerSummonStartedAt", startedAt);
     }
     @Override protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
         super.loadAdditional(input); remaining = Math.clamp(input.getIntOr("CavebloomerSummonsRemaining", 0), 0, 3); delay = Math.clamp(input.getIntOr("CavebloomerSummonDelay", 0), 0, 7);
-        startedAt = input.getString("CavebloomerSummonStartedAt").isPresent() ? input.getLongOr("CavebloomerSummonStartedAt", Long.MIN_VALUE) : Long.MIN_VALUE;
+        startedAt = input.read("CavebloomerSummonStartedAt", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getLongOr("CavebloomerSummonStartedAt", Long.MIN_VALUE) : Long.MIN_VALUE;
         if (getPersistentData().getDoubleOr("phase", 0) != 1) { remaining = 0; delay = 0; }
     }
 }

@@ -47,7 +47,7 @@ public final class ZapGauntletItem extends Item implements GeoItem {
         if (slot == net.minecraft.world.entity.EquipmentSlot.MAINHAND && entity instanceof LivingEntity living) HeldWeaponState.refreshNoMelee(living);
     }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
-        if (!(wielder.level() instanceof ServerLevel server) || wielder instanceof Player player && player.getCooldowns().isOnCooldown(this)) return false;
+        if (!(wielder.level() instanceof ServerLevel server) || wielder instanceof Player player && player.getCooldowns().isOnCooldown(getDefaultInstance())) return false;
         Item ammo = MaterialContent.items().get("specialized_round").get();
         if (wielder instanceof Player player && !player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) {
             server.playSound(null, player.blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, 5);
@@ -57,7 +57,7 @@ public final class ZapGauntletItem extends Item implements GeoItem {
         var look = wielder.getViewVector(1);
         var prerequisite = server.clip(new ClipContext(eyes, eyes.add(look.scale(12)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, wielder));
         if (server.isEmptyBlock(prerequisite.getBlockPos())) return false;
-        if (wielder instanceof Player player) player.getCooldowns().addCooldown(this, 90);
+        if (wielder instanceof Player player) player.getCooldowns().addCooldown(getDefaultInstance(), 90);
         var impact = server.clip(new ClipContext(eyes, eyes.add(look.scale(10)), ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, wielder)).getBlockPos();
         var zap = ZapWarningEntity.spawn(server, impact.above(), wielder.getUUID(), 10, false);
         if (zap != null) zap.setYRot(server.getRandom().nextFloat() * 360);

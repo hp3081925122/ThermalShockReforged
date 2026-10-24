@@ -101,7 +101,7 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
     protected boolean isImmobile() { return buried() || super.isImmobile(); }
 
     @Override
-    public boolean doHurtTarget(net.minecraft.server.level.ServerLevel level, Entity target) { return !buried() && super.doHurtTarget(target); }
+    public boolean doHurtTarget(net.minecraft.server.level.ServerLevel level, Entity target) { return !buried() && super.doHurtTarget(level, target); }
 
     @Override
     protected float getDamageAfterMagicAbsorb(DamageSource source, float amount) {
@@ -165,8 +165,7 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
     protected void tickEffects() {
         if (!level().isClientSide() || !entityData.get(FEED_COOLDOWN_VISIBLE)) { super.tickEffects(); return; }
         for (var effect : new ArrayList<>(getActiveEffects())) {
-            boolean active = onEffectUpdated(effect, true, null);
-            if (active && effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null);
+            effect.tickClient();
         }
         if (isInvisible() ? random.nextInt(15) == 0 : random.nextBoolean()) LegacyEffectParticles.emit(this, -1, 2);
     }
@@ -186,8 +185,8 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
     @Override
     public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
-        buryAge = input.getString("BuryAge").isPresent() ? input.getIntOr("BuryAge", 0) : -1;
+        if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
+        buryAge = input.read("BuryAge", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getIntOr("BuryAge", 0) : -1;
         feedCooldown = Math.max(0, input.getIntOr("FeedCooldown", 0));
         entityData.set(FEED_COOLDOWN_VISIBLE, feedCooldown > 0);
         buryOrigin = new net.minecraft.world.phys.Vec3(input.getDoubleOr("BuryX", 0.0), input.getDoubleOr("BuryY", 0.0), input.getDoubleOr("BuryZ", 0.0));

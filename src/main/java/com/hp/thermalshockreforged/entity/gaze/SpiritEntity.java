@@ -81,7 +81,7 @@ public final class SpiritEntity extends AnimatedMonsterEntity {
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(COOLDOWN_VISIBLE, false); }
     @Override protected void tickEffects() {
         if (!com.hp.thermalshockreforged.content.remainingcombat.CryoCooldownVisual.tickClientEffects(
-                this, entityData.get(COOLDOWN_VISIBLE), (effect, refresh) -> onEffectUpdated(effect, refresh, null))) super.tickEffects();
+                this, entityData.get(COOLDOWN_VISIBLE))) super.tickEffects();
     }
     @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
         return !source.is(DamageTypes.FALL) && !source.is(DamageTypes.DROWN) && !source.is(DamageTypes.WITHER) && !source.is(DamageTypes.WITHER_SKULL) && super.hurtServer(level, source, amount);

@@ -47,7 +47,7 @@ public final class GoreFlayerOrbEntity extends AbstractArrow implements ItemSupp
         super.tick();
         setNoGravity(true);
         if (level().isClientSide()) level().addParticle(FaunaEntities.WHITE_ORB.get(), getX(), getY(), getZ(), 0, 0, 0);
-        if (inGround) discard();
+        if (isInGround()) discard();
         if (!isRemoved() && level() instanceof ServerLevel server) {
             if (!lifetimeStarted) {
                 lifetimeStarted = true;
@@ -77,8 +77,8 @@ public final class GoreFlayerOrbEntity extends AbstractArrow implements ItemSupp
     @Override
     public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-        remainingTicks = input.getString("RemainingTicks").isPresent() ? Math.clamp(input.getIntOr("RemainingTicks", 0), 1, 40) : 40;
-        lifetimeStarted = input.getString("GoreOrbLifetimeStarted").isPresent() ? input.getBooleanOr("GoreOrbLifetimeStarted", false) : input.getString("RemainingTicks").isPresent();
+        remainingTicks = input.read("RemainingTicks", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? Math.clamp(input.getIntOr("RemainingTicks", 0), 1, 40) : 40;
+        lifetimeStarted = input.read("GoreOrbLifetimeStarted", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getBooleanOr("GoreOrbLifetimeStarted", false) : input.read("RemainingTicks", com.mojang.serialization.Codec.PASSTHROUGH).isPresent();
     }
 
     public static GoreFlayerOrbEntity shoot(Level level, LivingEntity owner, float pullingPower) {

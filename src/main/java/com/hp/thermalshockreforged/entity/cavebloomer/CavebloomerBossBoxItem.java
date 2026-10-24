@@ -22,7 +22,7 @@ public final class CavebloomerBossBoxItem extends Item {
         if (level instanceof ServerLevel server) {
             LootTable table = server.getServer().reloadableRegistries().getLootTable(LOOT);
             if (table == LootTable.EMPTY) {
-                ThermalShockReforged.LOGGER.warn("Cavebloomer reward table is not available; keeping boss box: {}", LOOT.location());
+                ThermalShockReforged.LOGGER.warn("Cavebloomer reward table is not available; keeping boss box: {}", LOOT.identifier());
                 return InteractionResult.FAIL;
             }
             stack.shrink(1);

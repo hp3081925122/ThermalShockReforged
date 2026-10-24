@@ -46,7 +46,7 @@ public final class MagneticCrossbowItem extends Item implements GeoItem {
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
         boolean result = super.onEntitySwing(stack, wielder, hand);
-        if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this)) return result;
+        if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(getDefaultInstance())) return result;
         Item ammo = MaterialContent.items().get("specialized_round").get();
         if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) {
             server.playSound(null, player.blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, 5);
@@ -58,7 +58,7 @@ public final class MagneticCrossbowItem extends Item implements GeoItem {
             return result;
         }
         bomb.setDeltaMovement(player.getLookAngle().scale(2));
-        player.getCooldowns().addCooldown(this, 40);
+        player.getCooldowns().addCooldown(getDefaultInstance(), 40);
         triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "1");
         server.playSound(null, player.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "magnet_bow_25")), SoundSource.NEUTRAL, .7F, 1);
         MagneticCycleSoundEntity.submit(server, player.getX(), player.getY(), player.getZ());

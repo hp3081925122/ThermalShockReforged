@@ -60,8 +60,8 @@ public final class SpearItem extends Item implements GeoItem {
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var result = super.use(level, player, hand);
         if (kind == Kind.HI_VOLT) {
-            if (level instanceof net.minecraft.server.level.ServerLevel server && !player.getCooldowns().isOnCooldown(this)) {
-                player.getCooldowns().addCooldown(this, 120);
+            if (level instanceof net.minecraft.server.level.ServerLevel server && !player.getCooldowns().isOnCooldown(getDefaultInstance())) {
+                player.getCooldowns().addCooldown(getDefaultInstance(), 120);
                 triggerAnim(player, GeoItem.getOrAssignId(player.getItemInHand(hand), server), "procedure", "2");
                 player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.SLOWNESS, 20, 1, false, true));
                 HiVoltPulseEntity.submit(server, player, true);
@@ -69,8 +69,8 @@ public final class SpearItem extends Item implements GeoItem {
             }
             return result;
         }
-        if (!player.getCooldowns().isOnCooldown(this)) {
-            player.getCooldowns().addCooldown(this, 26);
+        if (!player.getCooldowns().isOnCooldown(getDefaultInstance())) {
+            player.getCooldowns().addCooldown(getDefaultInstance(), 26);
             var look = player.getLookAngle();
             player.setDeltaMovement(player.getDeltaMovement().add(look.x, .25, look.z));
             if (!level.isClientSide()) {

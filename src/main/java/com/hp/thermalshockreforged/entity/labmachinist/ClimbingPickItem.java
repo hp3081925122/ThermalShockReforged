@@ -22,7 +22,7 @@ public final class ClimbingPickItem extends Item {
         player.setDeltaMovement(0, jelly ? .7 : .4, 0);
         var pos = context.getClickedPos();
         if (context.getLevel().isClientSide()) { context.getLevel().playLocalSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.CALCITE_BREAK, SoundSource.NEUTRAL, 1, 1, false); context.getLevel().playLocalSound(pos.getX(), pos.getY(), pos.getZ(), jelly ? BuiltInRegistries.SOUND_EVENT.getValue(LabContent.id("jellyumbrelladeploy")) : SoundEvents.RABBIT_JUMP, SoundSource.NEUTRAL, jelly ? .8F : 1, jelly ? 3 : 1, false); }
-        player.getCooldowns().addCooldown(this, jelly ? 8 : 5); return InteractionResult.SUCCESS;
+        player.getCooldowns().addCooldown(getDefaultInstance(), jelly ? 8 : 5); return InteractionResult.SUCCESS;
     }
     @Override public void hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) { stack.hurtAndBreak(1, attacker, EquipmentSlot.MAINHAND); }
 }

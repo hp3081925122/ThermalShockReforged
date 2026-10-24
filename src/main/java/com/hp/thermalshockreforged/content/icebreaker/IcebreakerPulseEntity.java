@@ -135,7 +135,7 @@ public final class IcebreakerPulseEntity extends Entity implements ServerEndTick
         dimension = input.getStringOr("IcebreakerDimension", "");
         phase = input.getIntOr("IcebreakerPhase", 0);
         remaining = Math.clamp(input.getIntOr("IcebreakerRemaining", 0), 1, phase == 0 ? 20 : 10);
-        armed = input.getBooleanOr("IcebreakerArmed", false) && input.getString("IcebreakerAnchor").isPresent() && phase >= 0 && phase < 2;
+        armed = input.getBooleanOr("IcebreakerArmed", false) && input.read("IcebreakerAnchor", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() && phase >= 0 && phase < 2;
         noPhysics = true;
         setNoGravity(true);
     }

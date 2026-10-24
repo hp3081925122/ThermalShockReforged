@@ -80,14 +80,14 @@ public final class MagneticBombEntity extends PathfinderMob implements GeoEntity
         return super.hurtServer(level, source, amount);
     }
     @Override public void die(DamageSource source) { super.die(source); if (level() instanceof ServerLevel server) prime(server); }
-    @Override protected void tickDeath() { if (++deathTime == 10) { remove(Entity.RemovalReason.KILLED); dropExperience(getLastDamageSource() == null ? null : getLastDamageSource().getEntity()); } }
+    @Override protected void tickDeath() { if (++deathTime == 10) { remove(Entity.RemovalReason.KILLED); if (level() instanceof net.minecraft.server.level.ServerLevel serverLevel) dropExperience(serverLevel, getLastDamageSource() == null ? null : getLastDamageSource().getEntity()); } }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
         super.addAdditionalSaveData(output); output.putInt("MagneticFuse", fuse); output.putBoolean("MagneticDetonating", detonating()); output.putString("Texture", texture());
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
-        super.readAdditionalSaveData(input); fuse = input.getString("MagneticFuse").isPresent() ? Math.clamp(input.getIntOr("MagneticFuse", 0), -1, 40) : -1;
+        super.readAdditionalSaveData(input); fuse = input.read("MagneticFuse", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? Math.clamp(input.getIntOr("MagneticFuse", 0), -1, 40) : -1;
         entityData.set(DETONATING, input.getBooleanOr("MagneticDetonating", false));
-        if (input.getString("Texture").isPresent() && input.getStringOr("Texture", "").matches("[a-z0-9_]+")) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
+        if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() && input.getStringOr("Texture", "").matches("[a-z0-9_]+")) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> detonating() ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("0"))));

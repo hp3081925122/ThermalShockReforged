@@ -15,6 +15,8 @@ class CrateBlock extends FallingBlock {
     @Override protected MapCodec<? extends FallingBlock> codec() { return CODEC; }
     @Override protected int getLightDampening(BlockState state) { return 15; }
 
+    @Override public int getDustColor(BlockState state, BlockGetter level, BlockPos pos) { return -16777216; }
+
     static final class Frigid extends CrateBlock {
         private static final MapCodec<Frigid> CODEC = simpleCodec(Frigid::new);
         private static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;

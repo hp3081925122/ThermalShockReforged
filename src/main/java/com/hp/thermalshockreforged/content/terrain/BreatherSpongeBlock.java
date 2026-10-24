@@ -43,11 +43,11 @@ public final class BreatherSpongeBlock extends Block {
         ItemStack straw = player.getMainHandItem();
         boolean silly = straw.is(MaterialContent.items().get("silly_straw").get());
         boolean drinking = straw.is(MaterialContent.items().get("drinking_straw").get());
-        if ((!silly && !drinking) || player.getCooldowns().isOnCooldown(straw.getItem())) {
+        if ((!silly && !drinking) || player.getCooldowns().isOnCooldown(straw)) {
             return InteractionResult.PASS;
         }
         if (!level.isClientSide()) {
-            player.getCooldowns().addCooldown(straw.getItem(), silly ? 60 : 20);
+            player.getCooldowns().addCooldown(straw, silly ? 60 : 20);
             player.setAirSupply(silly ? 300 : Math.min(300, player.getAirSupply() + 60));
             straw.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
             level.playSound(null, pos, SoundEvents.HONEY_DRINK.value(), SoundSource.NEUTRAL, 1, 1);

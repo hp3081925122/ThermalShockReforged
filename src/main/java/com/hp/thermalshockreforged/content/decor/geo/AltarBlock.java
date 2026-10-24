@@ -45,8 +45,8 @@ public final class AltarBlock extends GeoDecorBlock {
         for (String criterion : state.getRemainingCriteria()) owner.getAdvancements().award(advancement, criterion);
         server.playSound(null, pos, SoundEvents.AMETHYST_BLOCK_BREAK, SoundSource.NEUTRAL, 1, 1);
         server.playSound(null, pos, SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.NEUTRAL, 1, -1);
-        server.sendParticles(owner, ParticleTypes.END_ROD, false, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 0, 0, .2, 0, 1);
-        owner.playNotifySound(BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "thermalshockjingle")), SoundSource.NEUTRAL, 1, 1);
+        server.sendParticles(owner, ParticleTypes.END_ROD, false, false, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 0, 0, .2, 0, 1);
+        owner.connection.send(new net.minecraft.network.protocol.game.ClientboundSoundPacket(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "thermalshockjingle"))), SoundSource.NEUTRAL, owner.getX(), owner.getY(), owner.getZ(), 1, 1, owner.getRandom().nextLong()));
         owner.sendSystemMessage(Component.translatable("message.thermal_shock_reforged.altar.unlocked"));
         var progress = WorldProgressData.get(server);
         if (progress.unlockAltars()) {

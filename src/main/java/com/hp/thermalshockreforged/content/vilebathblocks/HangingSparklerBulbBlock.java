@@ -17,7 +17,7 @@ final class HangingSparklerBulbBlock extends Block {
     @Override protected boolean propagatesSkylightDown(BlockState state) { return true; }
     @Override protected int getLightDampening(BlockState state) { return 0; }
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) { if (random.nextDouble() < .4) level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.CONDUIT_AMBIENT_SHORT, SoundSource.NEUTRAL, 1, 1, false); }
-    @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, ItemStack toolStack, boolean harvest, FluidState fluid) { boolean removed = super.onDestroyedByPlayer(state, level, pos, player, toolStack, harvest, fluid); if (removed) SparklerDetonations.submit(level, pos); return removed; }
+    @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, net.minecraft.world.item.ItemStack toolStack, boolean harvest, FluidState fluid) { boolean removed = super.onDestroyedByPlayer(state, level, pos, player, toolStack, harvest, fluid); if (removed) SparklerDetonations.submit(level, pos); return removed; }
     @Override public void wasExploded(net.minecraft.server.level.ServerLevel level, BlockPos pos, Explosion explosion) { super.wasExploded(level, pos, explosion); SparklerDetonations.submit(level, pos); }
     @Override protected void onProjectileHit(Level level, BlockState state, BlockHitResult hit, Projectile projectile) { if (level.getBlockState(hit.getBlockPos()).is(this)) SparklerDetonations.submit(level, hit.getBlockPos()); }
 }

@@ -18,11 +18,20 @@ public final class LunarPanelBlock extends GeoDecorBlock {
         if (level.hasChunkAt(below) && level.getBlockEntity(below) != null) {
             int amount = 150;
             if (level.isBrightOutside()) {
-                var unsided = level.getCapability(Capabilities.EnergyStorage.BLOCK, below, null);
-                if (unsided != null && unsided.canReceive()) amount = 5;
+                var unsided = level.getCapability(Capabilities.Energy.BLOCK, below, null);
+                if (unsided != null) {
+                    try (var simulation = net.neoforged.neoforge.transfer.transaction.Transaction.openRoot()) {
+                        if (unsided.insert(1, simulation) > 0) amount = 5;
+                    }
+                }
             }
-            var receiver = level.getCapability(Capabilities.EnergyStorage.BLOCK, below, Direction.UP);
-            if (receiver != null) receiver.receiveEnergy(amount, false);
+            var receiver = level.getCapability(Capabilities.Energy.BLOCK, below, Direction.UP);
+            if (receiver != null) {
+                try (var transaction = net.neoforged.neoforge.transfer.transaction.Transaction.openRoot()) {
+                    receiver.insert(amount, transaction);
+                    transaction.commit();
+                }
+            }
         }
         level.scheduleTick(pos, this, 1);
     }

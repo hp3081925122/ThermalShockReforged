@@ -66,7 +66,7 @@ public final class PrismaticSupernovaEntity extends PathfinderMob implements Geo
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putBoolean("SupernovaAwaitingTimer", awaitingTimer); }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-        if (input.getString("Texture").isPresent() && input.getStringOr("Texture", "").matches("[a-z0-9_./-]+")) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
+        if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() && input.getStringOr("Texture", "").matches("[a-z0-9_./-]+")) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
         awaitingTimer = input.getBooleanOr("SupernovaAwaitingTimer", false);
     }
     public void setAnimation(String animation) { if (java.util.List.of("idle", "move", "idle3").contains(animation)) triggerAnim("procedure", animation); }

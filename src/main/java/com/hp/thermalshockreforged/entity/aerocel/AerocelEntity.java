@@ -48,7 +48,7 @@ public final class AerocelEntity extends AnimatedPathfinderEntity {
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData group) {
         var result = super.finalizeSpawn(level, difficulty, reason, group);
         var destination = getBoundingBox().move(0, 5, 0);
-        if (destination.minY >= level.getMinBuildHeight() && destination.maxY <= level.getMaxBuildHeight()
+        if (destination.minY >= level.getMinY() && destination.maxY <= (level.getMaxY() + 1)
             && level.hasChunksAt(BlockPos.containing(destination.minX, destination.minY, destination.minZ), BlockPos.containing(destination.maxX, destination.maxY, destination.maxZ))
             && level.isEmptyBlock(BlockPos.containing(getX(), getY() + 5, getZ())) && level.noCollision(this, destination)) teleportTo(getX(), getY() + 5, getZ());
         return result;

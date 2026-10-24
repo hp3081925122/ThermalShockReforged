@@ -96,7 +96,7 @@ public final class CombatItemTaskEntity extends Entity implements ServerEndTickT
         kind = input.getIntOr("CombatItemKind", 0); elapsed = input.getIntOr("CombatItemElapsed", 0);
         anchor = new Vec3(input.getDoubleOr("CombatItemX", 0.0), input.getDoubleOr("CombatItemY", 0.0), input.getDoubleOr("CombatItemZ", 0.0)); dimension = input.getStringOr("CombatItemDimension", "");
         armed = input.getBooleanOr("CombatItemArmed", false) && kind >= ICE && kind <= JUDGE && elapsed >= 0 && elapsed < (kind == JUDGE ? 30 : 20)
-                && input.getString("CombatItemX").isPresent() && input.getString("CombatItemY").isPresent() && input.getString("CombatItemZ").isPresent()
+                && input.read("CombatItemX", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() && input.read("CombatItemY", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() && input.read("CombatItemZ", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()
                 && Double.isFinite(anchor.x) && Double.isFinite(anchor.y) && Double.isFinite(anchor.z) && Identifier.tryParse(dimension) != null;
     }
 }

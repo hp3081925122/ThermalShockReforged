@@ -32,9 +32,9 @@ public final class BuzzsawItem extends Item implements GeoItem {
     }
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
-        if (!wielder.isAlive() || wielder instanceof Player player && player.getCooldowns().isOnCooldown(this)) return false;
+        if (!wielder.isAlive() || wielder instanceof Player player && player.getCooldowns().isOnCooldown(getDefaultInstance())) return false;
         if (wielder.level().isClientSide()) {
-            if (wielder instanceof Player player) player.getCooldowns().addCooldown(this, 11);
+            if (wielder instanceof Player player) player.getCooldowns().addCooldown(getDefaultInstance(), 11);
             var look = wielder.getLookAngle();
             wielder.setDeltaMovement(new Vec3(look.x, .1, look.z)); wielder.hurtMarked = true;
             return false;
@@ -42,7 +42,7 @@ public final class BuzzsawItem extends Item implements GeoItem {
         if (!(wielder.level() instanceof ServerLevel server)) return false;
         var sweep = BuzzsawSweepEntity.submit(server, wielder);
         if (sweep == null) return false;
-        if (wielder instanceof Player player) player.getCooldowns().addCooldown(this, 11);
+        if (wielder instanceof Player player) player.getCooldowns().addCooldown(getDefaultInstance(), 11);
         triggerAnim(wielder, GeoItem.getOrAssignId(stack, server), "procedure", "1");
         server.playSound(null, wielder.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "buzzsaw")), SoundSource.NEUTRAL, .7F, 1);
         var look = wielder.getLookAngle();

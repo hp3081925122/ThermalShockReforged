@@ -115,14 +115,14 @@ public final class LegacyFabricatorMenu extends AbstractContainerMenu {
                 || transacting || !stillValid(player)) return false;
         transacting = true;
         try {
-            var holder = level.getRecipeManager().byKey(RECIPE).orElse(null);
+            var holder = ((net.minecraft.server.level.ServerLevel) level).recipeAccess().byKey(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.RECIPE, RECIPE)).orElse(null);
             if (holder == null || !(holder.value() instanceof FabricationRecipe recipe)) return false;
             var materials = new ArrayList<ItemStack>(inventory.getContainerSize());
             for (int slot = 0; slot < inventory.getContainerSize(); slot++) materials.add(inventory.getItem(slot));
             var input = new FabricationRecipe.Input(materials, stackIn(1));
             var plan = recipe.removalPlan(input);
             if (plan == null) return false;
-            var result = recipe.assemble(input, level.registryAccess());
+            var result = recipe.assemble(input);
             var previous = stackIn(0);
             int existing = previous.isEmpty() ? 0 : previous.getCount();
             int limit = result.isEmpty() ? 0 : (int) Math.min(storage.getCapacityAsLong(0, ItemResource.of(result)), result.getMaxStackSize());

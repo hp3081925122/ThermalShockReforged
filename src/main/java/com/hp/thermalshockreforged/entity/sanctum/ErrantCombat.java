@@ -90,7 +90,7 @@ final class ErrantCombat {
             victim.hurtMarked = true;
         }
     }
-    void save(CompoundTag tag) {
+    void save(net.minecraft.world.level.storage.ValueOutput tag) {
         tag.putInt("ErrantCooldown", cooldown);
         tag.putInt("ErrantMovementLock", movementLock);
         tag.putInt("ErrantStrikeRemaining", strikeRemaining);
@@ -98,7 +98,7 @@ final class ErrantCombat {
         tag.putLong("ErrantSoundOrigin", soundOrigin.asLong());
         if (target != null) tag.store("ErrantStrikeTarget", net.minecraft.core.UUIDUtil.CODEC, target);
     }
-    void load(CompoundTag tag) {
+    void load(net.minecraft.world.level.storage.ValueInput tag) {
         cooldown = Math.clamp(tag.getIntOr("ErrantCooldown", 0), 0, 50);
         movementLock = Math.clamp(tag.getIntOr("ErrantMovementLock", 0), 0, 30);
         strikeRemaining = Math.clamp(tag.getIntOr("ErrantStrikeRemaining", 0), 0, 12);

@@ -36,7 +36,7 @@ public final class PesticideItem extends Item {
             var targets = server.getEntitiesOfClass(SkullscorEntity.class, new AABB(origin, origin).inflate(1.75), entity -> true);
             targets.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(origin)));
             for (SkullscorEntity target : targets) target.hurt(source, 50);
-            if (consumer instanceof Player player) { stack.shrink(1); player.getCooldowns().addCooldown(this, 80); }
+            if (consumer instanceof Player player) { stack.shrink(1); player.getCooldowns().addCooldown(getDefaultInstance(), 80); }
         }
         return stack;
     }

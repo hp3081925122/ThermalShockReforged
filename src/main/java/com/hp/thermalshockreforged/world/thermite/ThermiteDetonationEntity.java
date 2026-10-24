@@ -48,7 +48,7 @@ public final class ThermiteDetonationEntity extends Entity implements com.hp.the
     }
     @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         anchor = BlockPos.of(input.getLongOr("ThermiteAnchor", 0L)); dimension = input.getStringOr("ThermiteDimension", "");
-        remaining = Math.clamp(input.getIntOr("ThermiteRemaining", 0), 1, 3); armed = input.getBooleanOr("ThermiteArmed", false) && input.getString("ThermiteAnchor").isPresent(); consumed = input.getBooleanOr("ThermiteConsumed", false);
+        remaining = Math.clamp(input.getIntOr("ThermiteRemaining", 0), 1, 3); armed = input.getBooleanOr("ThermiteArmed", false) && input.read("ThermiteAnchor", com.mojang.serialization.Codec.PASSTHROUGH).isPresent(); consumed = input.getBooleanOr("ThermiteConsumed", false);
         noPhysics = true; setNoGravity(true);
     }
 }

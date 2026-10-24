@@ -25,5 +25,8 @@ public final class LoqendiaContent {
     private static final DeferredRegister<StructureProcessorType<?>> PROCESSORS = DeferredRegister.create(Registries.STRUCTURE_PROCESSOR, ThermalShockReforged.MOD_ID);
     public static final DeferredHolder<StructureProcessorType<?>, StructureProcessorType<WaterloggingFixProcessor>> WATERLOGGING_FIX = PROCESSORS.register("waterlogging_fix", () -> () -> WaterloggingFixProcessor.CODEC);
     private LoqendiaContent() { }
-    public static void register(IEventBus bus) { BLOCKS.register(bus); POI_TYPES.register(bus); PARTICLES.register(bus); PROCESSORS.register(bus); LoqendiaRules.register(); }
+    private static final DeferredRegister<net.minecraft.server.level.TicketType> TICKETS = DeferredRegister.create(Registries.TICKET_TYPE, ThermalShockReforged.MOD_ID);
+    public static final net.neoforged.neoforge.registries.DeferredHolder<net.minecraft.server.level.TicketType, net.minecraft.server.level.TicketType> PORTAL_TICKET = TICKETS.register("loqendia_portal", () -> new net.minecraft.server.level.TicketType(300L, net.minecraft.server.level.TicketType.FLAG_LOADING | net.minecraft.server.level.TicketType.FLAG_SIMULATION | net.minecraft.server.level.TicketType.FLAG_KEEP_DIMENSION_ACTIVE));
+
+    public static void register(IEventBus bus) { BLOCKS.register(bus); TICKETS.register(bus); POI_TYPES.register(bus); PARTICLES.register(bus); PROCESSORS.register(bus); LoqendiaRules.register(); }
 }
