@@ -1,5 +1,5 @@
 package com.hp.thermalshockreforged.client.electricsphere;
-import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
+import net.minecraft.client.particle.SingleQuadParticle;
 
 import com.hp.thermalshockreforged.client.vfx.VfxManager;
 import com.hp.thermalshockreforged.entity.electricsphere.ElectricSphereContent;
@@ -7,10 +7,10 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 
-public final class ElectricGlowParticle extends LegacySingleQuadParticle {
-    private ElectricGlowParticle(ClientLevel level, double x, double y, double z, SpriteSet sprites) { super(level, x, y, z); setSize(.2F, .2F); lifetime = 0; gravity = 0; hasPhysics = true; xd = 0; yd = 0; zd = 0; pickSprite(sprites); }
-    public int getLightCoords(float partialTick) { return 0xF000F0; }
-    @Override public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
+public final class ElectricGlowParticle extends SingleQuadParticle {
+    private ElectricGlowParticle(ClientLevel level, double x, double y, double z, SpriteSet sprites) { super(level, x, y, z, sprites.get(level.getRandom())); setSize(.2F, .2F); lifetime = 0; gravity = 0; hasPhysics = true; xd = 0; yd = 0; zd = 0; }
+    @Override public int getLightCoords(float partialTick) { return 0xF000F0; }
+    @Override protected SingleQuadParticle.Layer getLayer() { return SingleQuadParticle.Layer.OPAQUE; }
     @Override public void tick() { super.tick(); VfxManager.play(level, ElectricSphereContent.id("electricglow"), x, y, z); }
     public static final class Provider implements ParticleProvider<SimpleParticleType> {
         private final SpriteSet sprites;

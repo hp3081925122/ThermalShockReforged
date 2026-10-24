@@ -4,10 +4,10 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.ParticleRenderType;
-import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
+import net.minecraft.client.particle.SingleQuadParticle;
 import net.minecraft.client.particle.SingleQuadParticle;
 import net.minecraft.client.particle.SpriteSet;
-import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
+import net.minecraft.client.particle.SingleQuadParticle;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.Mth;
 
@@ -16,10 +16,10 @@ final class BastionParticles {
 
     private BastionParticles() { }
 
-    private abstract static class Animated extends LegacySingleQuadParticle {
+    private abstract static class Animated extends SingleQuadParticle {
         protected final SpriteSet sprites;
         protected Animated(ClientLevel level, double x, double y, double z, SpriteSet sprites, int lifetime) {
-            super(level, x, y, z);
+            super(level, x, y, z, sprites.get(0, 1));
             this.sprites = sprites;
             this.lifetime = Math.max(1, lifetime);
             gravity = 0;
@@ -31,8 +31,8 @@ final class BastionParticles {
             super.tick();
             if (isAlive()) setSpriteFromAge(sprites);
         }
-        public int getLightCoords(float partialTick) { return FULL_BRIGHT; }
-        @Override public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
+        @Override public int getLightCoords(float partialTick) { return FULL_BRIGHT; }
+        @Override protected SingleQuadParticle.Layer getLayer() { return SingleQuadParticle.Layer.TRANSLUCENT; }
     }
 
     static final class Drift extends Animated {

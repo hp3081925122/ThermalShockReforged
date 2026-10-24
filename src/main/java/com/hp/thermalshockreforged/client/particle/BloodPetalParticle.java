@@ -5,12 +5,12 @@ import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.particle.SpriteSet;
-import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
+import net.minecraft.client.particle.SingleQuadParticle;
 import net.minecraft.core.particles.SimpleParticleType;
 
-public final class BloodPetalParticle extends LegacySingleQuadParticle {
+public final class BloodPetalParticle extends SingleQuadParticle {
     private BloodPetalParticle(ClientLevel level, double x, double y, double z, double dx, double dy, double dz, SpriteSet sprites) {
-        super(level, x, y, z);
+        super(level, x, y, z, sprites.get(level.getRandom()));
         setSize(0.1F, 0.1F);
         lifetime = Math.max(1, 60 + random.nextInt(20) - 10);
         gravity = -0.4F;
@@ -18,10 +18,10 @@ public final class BloodPetalParticle extends LegacySingleQuadParticle {
         xd = dx * 0.6;
         yd = dy * 0.6;
         zd = dz * 0.6;
-        pickSprite(sprites);
+       
     }
 
-    @Override public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
+    @Override protected SingleQuadParticle.Layer getLayer() { return SingleQuadParticle.Layer.OPAQUE; }
 
     @Override public void tick() {
         super.tick();

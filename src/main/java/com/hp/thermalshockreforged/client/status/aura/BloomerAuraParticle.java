@@ -1,5 +1,5 @@
 package com.hp.thermalshockreforged.client.status.aura;
-import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
+import net.minecraft.client.particle.SingleQuadParticle;
 
 import com.hp.thermalshockreforged.client.vfx.VfxManager;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -7,21 +7,21 @@ import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.Identifier;
 
-final class BloomerAuraParticle extends LegacySingleQuadParticle {
+final class BloomerAuraParticle extends SingleQuadParticle {
     private static final Identifier EFFECT = Identifier.fromNamespaceAndPath("thermal_shock_reforged", "bloomeraura");
     private BloomerAuraParticle(ClientLevel level, double x, double y, double z, SpriteSet sprites) {
-        super(level, x, y, z);
+        super(level, x, y, z, sprites.get(level.getRandom()));
         setSize(0.2F, 0.2F);
         lifetime = 0;
         gravity = 0;
         hasPhysics = true;
         xd = 0; yd = 0; zd = 0;
-        pickSprite(sprites);
+       
     }
     @Override
     public int getLightCoords(float partialTick) { return 0xF000F0; }
     @Override
-    public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
+    protected SingleQuadParticle.Layer getLayer() { return SingleQuadParticle.Layer.OPAQUE; }
     @Override
     public void tick() { super.tick(); VfxManager.play(level, EFFECT, x, y, z); }
     static final class Provider implements ParticleProvider<SimpleParticleType> {

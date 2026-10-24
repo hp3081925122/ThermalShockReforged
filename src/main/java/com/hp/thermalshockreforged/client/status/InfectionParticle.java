@@ -1,5 +1,5 @@
 package com.hp.thermalshockreforged.client.status;
-import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
+import net.minecraft.client.particle.SingleQuadParticle;
 
 import com.hp.thermalshockreforged.client.vfx.VfxManager;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -7,11 +7,11 @@ import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.Identifier;
 
-final class InfectionParticle extends LegacySingleQuadParticle {
+final class InfectionParticle extends SingleQuadParticle {
     private final Identifier effect;
 
     private InfectionParticle(ClientLevel level, double x, double y, double z, double dx, double dy, double dz, SpriteSet sprites, Identifier effect) {
-        super(level, x, y, z);
+        super(level, x, y, z, sprites.get(level.getRandom()));
         this.effect = effect;
         setSize(0.2F, 0.2F);
         lifetime = 1;
@@ -20,11 +20,11 @@ final class InfectionParticle extends LegacySingleQuadParticle {
         xd = dx;
         yd = dy;
         zd = dz;
-        pickSprite(sprites);
+       
     }
 
     @Override
-    public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
+    protected SingleQuadParticle.Layer getLayer() { return SingleQuadParticle.Layer.OPAQUE; }
 
     @Override
     public void tick() {

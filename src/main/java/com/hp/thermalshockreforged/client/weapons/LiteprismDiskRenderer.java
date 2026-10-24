@@ -1,25 +1,18 @@
 package com.hp.thermalshockreforged.client.weapons;
-import com.hp.thermalshockreforged.client.compat.LegacyEntityRenderer;
-import net.minecraft.client.renderer.rendertype.RenderType;
+import com.hp.thermalshockreforged.client.PartProjectileRenderer;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.projectile.LiteprismDiskProjectileEntity;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.*;
-import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.Identifier;
-import net.minecraft.util.Mth;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
-public final class LiteprismDiskRenderer extends LegacyEntityRenderer<LiteprismDiskProjectileEntity> {
+public final class LiteprismDiskRenderer extends PartProjectileRenderer<LiteprismDiskProjectileEntity> {
     private static final ModelLayerLocation LAYER = new ModelLayerLocation(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "modellitediskproj"), "main");
     private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/liteprism_disk_proj.png");
-    private final ModelPart bone;
-    public LiteprismDiskRenderer(EntityRendererProvider.Context context) { super(context); bone = context.bakeLayer(LAYER).getChild("bone"); }
+    public LiteprismDiskRenderer(EntityRendererProvider.Context context) { super(context, context.bakeLayer(LAYER).getChild("bone"), TEXTURE); }
     public static void layers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(LAYER, () -> {
             var mesh = new MeshDefinition();
@@ -30,13 +23,4 @@ public final class LiteprismDiskRenderer extends LegacyEntityRenderer<LiteprismD
             return LayerDefinition.create(mesh, 48, 48);
         });
     }
-    @Override public void render(LiteprismDiskProjectileEntity entity, float yaw, float partialTick, PoseStack pose, MultiBufferSource buffers, int light) {
-        pose.pushPose();
-        pose.mulPose(Axis.YP.rotationDegrees(Mth.lerp(partialTick, entity.yRotO, entity.getYRot()) - 90));
-        pose.mulPose(Axis.ZP.rotationDegrees(90 + Mth.lerp(partialTick, entity.xRotO, entity.getXRot())));
-        bone.render(pose, buffers.getBuffer(RenderType.entityCutout(TEXTURE)), light, OverlayTexture.NO_OVERLAY, -1);
-        pose.popPose();
-        super.render(entity, yaw, partialTick, pose, buffers, light);
-    }
-    @Override public Identifier getTextureLocation(LiteprismDiskProjectileEntity entity) { return TEXTURE; }
 }

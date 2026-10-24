@@ -1,15 +1,15 @@
 package com.hp.thermalshockreforged.client.snobol;
-import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
+import net.minecraft.client.particle.SingleQuadParticle;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 
-final class ToxicBubbleParticle extends LegacySingleQuadParticle {
+final class ToxicBubbleParticle extends SingleQuadParticle {
     private final SpriteSet sprites;
 
     private ToxicBubbleParticle(ClientLevel level, double x, double y, double z, double vx, double vy, double vz, SpriteSet sprites) {
-        super(level, x, y, z);
+        super(level, x, y, z, sprites.get(0, 1));
         this.sprites = sprites;
         setSize(0.2F, 0.2F);
         quadSize *= 1.3F;
@@ -26,7 +26,7 @@ final class ToxicBubbleParticle extends LegacySingleQuadParticle {
     protected int getLightCoords(float partialTick) { return 0xF000F0; }
 
     @Override
-    public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
+    protected SingleQuadParticle.Layer getLayer() { return SingleQuadParticle.Layer.OPAQUE; }
 
     @Override
     public void tick() {
