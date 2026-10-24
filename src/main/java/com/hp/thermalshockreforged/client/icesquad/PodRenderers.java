@@ -1,6 +1,5 @@
 package com.hp.thermalshockreforged.client.icesquad;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
-import com.hp.thermalshockreforged.client.compat.LegacyEntityRenderer;
 import net.minecraft.client.renderer.rendertype.RenderType;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
@@ -18,7 +17,7 @@ public final class PodRenderers {
     private PodRenderers() { }
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(IceSquadContent.DROP_POD.get(), PodRenderer::new);
-        event.registerEntityRenderer(IceSquadContent.DEPLOYMENT_TASK.get(), InvisibleRenderer::new);
+        event.registerEntityRenderer(IceSquadContent.DEPLOYMENT_TASK.get(), com.hp.thermalshockreforged.client.InvisibleRenderer::new);
     }
     public static void particles(RegisterParticleProvidersEvent event) { event.registerSpriteSet(IceSquadContent.FOG_CLOUD.get(), FogCloudParticle.Provider::new); }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
@@ -30,10 +29,5 @@ public final class PodRenderers {
     private static final class PodRenderer extends LegacyGeoEntityRenderer<BlizzardDropPodEntity> {
         private PodRenderer(EntityRendererProvider.Context context) { super(context, new Model()); shadowRadius = 0.5F; withScale(1); }
         @Override public RenderType getRenderType(BlizzardDropPodEntity pod, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
-    }
-    private static final class InvisibleRenderer extends LegacyEntityRenderer<DeploymentTaskEntity> {
-        private InvisibleRenderer(EntityRendererProvider.Context context) { super(context); }
-        @Override public void render(DeploymentTaskEntity task, float yaw, float partialTick, PoseStack pose, MultiBufferSource buffers, int light) { }
-        @Override public Identifier getTextureLocation(DeploymentTaskEntity task) { return Identifier.withDefaultNamespace("textures/misc/white.png"); }
     }
 }

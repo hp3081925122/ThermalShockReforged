@@ -57,7 +57,7 @@ public final class RemainingCombatClient {
     }
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) { event.registerEntityRenderer(RemainingCombatContent.TASK.get(), NoopRenderer::new); }
     public static void particles(RegisterParticleProvidersEvent event) {
-        event.registerSpriteSet(RemainingCombatContent.ICE_BOMB_EFFECT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "icebomb", 0, ParticleRenderType.SINGLE_QUADS, false, true, 0));
+        event.registerSpriteSet(RemainingCombatContent.ICE_BOMB_EFFECT.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "icebomb", 0, net.minecraft.client.particle.SingleQuadParticle.Layer.OPAQUE, false, true, 0));
     }
     private static void tick(ClientTickEvent.Post event) { RemainingCombatContent.pruneAnimations(); }
     private static void logout(ClientPlayerNetworkEvent.LoggingOut event) { RemainingCombatContent.clearAnimations(); }

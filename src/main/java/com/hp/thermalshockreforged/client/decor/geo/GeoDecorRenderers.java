@@ -26,7 +26,7 @@ public final class GeoDecorRenderers {
     public static void particles(RegisterParticleProvidersEvent event) {
         for (int index = 0; index < GeoDecorContent.HOLOGRAM_PARTICLES.size(); index++) {
             String effect = "holo" + (index + 1);
-            event.registerSpriteSet(GeoDecorContent.HOLOGRAM_PARTICLES.get(index).get(), sprites -> new AaaStationaryParticle.Provider(sprites, effect, 0, ParticleRenderType.SINGLE_QUADS, true, false, 0));
+            event.registerSpriteSet(GeoDecorContent.HOLOGRAM_PARTICLES.get(index).get(), sprites -> new AaaStationaryParticle.Provider(sprites, effect, 0, net.minecraft.client.particle.SingleQuadParticle.Layer.OPAQUE, true, false, 0));
         }
     }
 

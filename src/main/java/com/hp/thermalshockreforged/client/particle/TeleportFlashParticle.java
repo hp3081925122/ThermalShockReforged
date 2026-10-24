@@ -1,5 +1,5 @@
 package com.hp.thermalshockreforged.client.particle;
-import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
+import net.minecraft.client.particle.SingleQuadParticle;
 
 import com.hp.thermalshockreforged.client.vfx.VfxManager;
 import com.hp.thermalshockreforged.ThermalShockReforged;
@@ -8,14 +8,14 @@ import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.Identifier;
 
-public final class TeleportFlashParticle extends LegacySingleQuadParticle {
+public final class TeleportFlashParticle extends SingleQuadParticle {
     private static final Identifier EFFECT = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "teleportflash");
     private TeleportFlashParticle(ClientLevel level, double x, double y, double z, SpriteSet sprites) {
-        super(level, x, y, z); setSize(0.2F, 0.2F); lifetime = 0; gravity = 0; hasPhysics = true;
-        xd = 0; yd = 0; zd = 0; pickSprite(sprites);
+        super(level, x, y, z, sprites.get(level.getRandom())); setSize(0.2F, 0.2F); lifetime = 0; gravity = 0; hasPhysics = true;
+        xd = 0; yd = 0; zd = 0;
     }
-    public int getLightCoords(float partialTick) { return 0xF000F0; }
-    @Override public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
+    @Override public int getLightCoords(float partialTick) { return 0xF000F0; }
+    @Override protected SingleQuadParticle.Layer getLayer() { return SingleQuadParticle.Layer.OPAQUE; }
     @Override public void tick() {
         super.tick();
         VfxManager.play(level, EFFECT, x, y, z);

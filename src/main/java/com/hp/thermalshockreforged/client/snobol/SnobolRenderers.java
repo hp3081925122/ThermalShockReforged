@@ -28,19 +28,11 @@ public final class SnobolRenderers {
         event.registerEntityRenderer(SnobolContent.SNOBOL.get(), factory("snobol", SnobolEntity::texture, 0.3F, 1, false));
         event.registerEntityRenderer(SnobolContent.EXPLOSIVE_SNOBOL.get(), factory("snobomb", ExplosiveSnobolEntity::texture, 0.3F, 1, false));
         event.registerEntityRenderer(SnobolContent.SIIBOL.get(), factory("sybol", SiibolEntity::texture, 0.3F, 1, false));
-        event.registerEntityRenderer(SnobolContent.BLAST.get(), Invisible::new);
+        event.registerEntityRenderer(SnobolContent.BLAST.get(), com.hp.thermalshockreforged.client.InvisibleRenderer::new);
     }
 
     public static void particles(net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(SnobolContent.TOXIC_BUBBLE.get(), ToxicBubbleParticle.Provider::new);
-    }
-
-    private static final class Invisible extends com.hp.thermalshockreforged.client.compat.LegacyEntityRenderer<SnobolBlastEntity> {
-        private Invisible(EntityRendererProvider.Context context) { super(context); }
-        @Override
-        public void render(SnobolBlastEntity entity, float yaw, float partialTick, PoseStack pose, MultiBufferSource buffers, int light) { }
-        @Override
-        public Identifier getTextureLocation(SnobolBlastEntity entity) { return Identifier.withDefaultNamespace("textures/misc/white.png"); }
     }
 
     private static <T extends Mob & GeoEntity> EntityRendererProvider<T> factory(String id, Function<T, String> texture, float shadow, float scale, boolean glow) {

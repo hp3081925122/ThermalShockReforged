@@ -1,5 +1,5 @@
 package com.hp.thermalshockreforged.client.fauna;
-import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
+import net.minecraft.client.particle.SingleQuadParticle;
 
 import com.hp.thermalshockreforged.client.vfx.VfxManager;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -7,11 +7,11 @@ import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.Identifier;
 
-final class WhiteOrbParticle extends LegacySingleQuadParticle {
+final class WhiteOrbParticle extends SingleQuadParticle {
     private static final Identifier EFFECT = Identifier.fromNamespaceAndPath("thermal_shock_reforged", "whiteorb");
 
     private WhiteOrbParticle(ClientLevel level, double x, double y, double z, SpriteSet sprites) {
-        super(level, x, y, z);
+        super(level, x, y, z, sprites.get(level.getRandom()));
         setSize(0.2F, 0.2F);
         lifetime = 1;
         gravity = 0;
@@ -19,11 +19,11 @@ final class WhiteOrbParticle extends LegacySingleQuadParticle {
         xd = 0;
         yd = 0;
         zd = 0;
-        pickSprite(sprites);
+       
     }
 
     @Override
-    public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
+    protected SingleQuadParticle.Layer getLayer() { return SingleQuadParticle.Layer.OPAQUE; }
 
     @Override
     public void tick() {

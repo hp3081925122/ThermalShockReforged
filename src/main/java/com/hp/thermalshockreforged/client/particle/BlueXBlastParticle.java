@@ -5,13 +5,13 @@ import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.particle.SpriteSet;
-import com.hp.thermalshockreforged.client.compat.LegacySingleQuadParticle;
+import net.minecraft.client.particle.SingleQuadParticle;
 import net.minecraft.core.particles.SimpleParticleType;
 
-public final class BlueXBlastParticle extends LegacySingleQuadParticle {
+public final class BlueXBlastParticle extends SingleQuadParticle {
     private final SpriteSet sprites;
     private BlueXBlastParticle(ClientLevel level, double x, double y, double z, SpriteSet sprites) {
-        super(level, x, y, z);
+        super(level, x, y, z, sprites.get(0, 1));
         this.sprites = sprites;
         setSize(.2F, .2F);
         quadSize *= 8;
@@ -23,8 +23,8 @@ public final class BlueXBlastParticle extends LegacySingleQuadParticle {
         zd = 0;
         setSpriteFromAge(sprites);
     }
-    public int getLightCoords(float partialTick) { return 0xF000F0; }
-    @Override public ParticleRenderType getGroup() { return ParticleRenderType.SINGLE_QUADS; }
+    @Override public int getLightCoords(float partialTick) { return 0xF000F0; }
+    @Override protected SingleQuadParticle.Layer getLayer() { return SingleQuadParticle.Layer.OPAQUE; }
     @Override public void tick() { super.tick(); if (!removed) setSprite(sprites.get(age % 9 + 1, 9)); }
     public static final class Provider implements ParticleProvider<SimpleParticleType> {
         private final SpriteSet sprites;

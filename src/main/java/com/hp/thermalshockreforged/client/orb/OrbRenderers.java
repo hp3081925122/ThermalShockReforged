@@ -2,22 +2,21 @@ package com.hp.thermalshockreforged.client.orb;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.entity.orb.*;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
-import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.RenderLayerParent;
+import net.minecraft.client.renderer.entity.layers.EyesLayer;
+import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
+import net.minecraft.client.renderer.rendertype.RenderType;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.entity.Entity;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 public final class OrbRenderers {
@@ -37,16 +36,32 @@ public final class OrbRenderers {
     }
     private static final class TaleOrbModel extends EntityModel<LivingEntityRenderState> {
         private final ModelPart head;
-        private TaleOrbModel(ModelPart root) { head = root.getChild("head"); }
-        @Override public void setupAnim(LivingEntityRenderState state) { head.xRot = state.ageInTicks / 20; }
+        private TaleOrbModel(ModelPart root) {
+            super(root);
+            head = root.getChild("head");
+        }
+        @Override public void setupAnim(LivingEntityRenderState state) {
+            super.setupAnim(state);
+            head.xRot = state.ageInTicks / 20;
+        }
     }
-    private static final class Renderer<T extends OrbEntityBase> extends com.hp.thermalshockreforged.client.compat.LegacyMobRenderer<T> {
+    private static final class Renderer<T extends OrbEntityBase> extends MobRenderer<T, LivingEntityRenderState, TaleOrbModel> {
         private final Identifier texture;
         private Renderer(EntityRendererProvider.Context context, String texture) {
-            super(context, new TaleOrbModel<>(context.bakeLayer(LAYER)), 0);
+            super(context, new TaleOrbModel(context.bakeLayer(LAYER)), 0);
             this.texture = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/" + texture + ".png");
+            addLayer(new Eyes(this, this.texture));
         }
-        @Override public Identifier getTextureLocation(T entity) { return texture; }
-        @Override protected boolean isBodyVisible(T entity) { return false; }
+        @Override public LivingEntityRenderState createRenderState() { return new LivingEntityRenderState(); }
+        @Override public Identifier getTextureLocation(LivingEntityRenderState state) { return texture; }
+        @Override protected boolean isBodyVisible(LivingEntityRenderState state) { return false; }
+    }
+    private static final class Eyes extends EyesLayer<LivingEntityRenderState, TaleOrbModel> {
+        private final RenderType renderType;
+        private Eyes(RenderLayerParent<LivingEntityRenderState, TaleOrbModel> parent, Identifier texture) {
+            super(parent);
+            renderType = RenderTypes.eyes(texture);
+        }
+        @Override public RenderType renderType() { return renderType; }
     }
 }

@@ -20,11 +20,11 @@ public final class CavebloomerClient {
         event.registerEntityRenderer(CavebloomerContent.POISON_IMPACT.get(), AttackCarrierRenderer::new);
     }
     public static void particles(RegisterParticleProvidersEvent event) {
-        event.registerSpriteSet(CavebloomerContent.NUKE_CLOUD.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "boomshroom", 0, ParticleRenderType.SINGLE_QUADS, true));
-        event.registerSpriteSet(CavebloomerContent.RED_EXPLODE.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "redexplode", 0, ParticleRenderType.SINGLE_QUADS, false));
-        event.registerSpriteSet(CavebloomerContent.MAGNETIC_BOOM.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "greenexplode", 0, ParticleRenderType.SINGLE_QUADS, false, false, 1));
-        event.registerSpriteSet(CavebloomerContent.SHOCK_ATTACK.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "shockattack", 0, ParticleRenderType.SINGLE_QUADS, true));
-        event.registerSpriteSet(CavebloomerContent.POISON_CLOUD.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "poisoncloud", 0, ParticleRenderType.SINGLE_QUADS, true));
-        event.registerSpriteSet(CavebloomerContent.RED_ORB.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "redorb", 1, ParticleRenderType.SINGLE_QUADS, false));
+        event.registerSpriteSet(CavebloomerContent.NUKE_CLOUD.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "boomshroom", 0, net.minecraft.client.particle.SingleQuadParticle.Layer.OPAQUE, true));
+        event.registerSpriteSet(CavebloomerContent.RED_EXPLODE.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "redexplode", 0, net.minecraft.client.particle.SingleQuadParticle.Layer.OPAQUE, false));
+        event.registerSpriteSet(CavebloomerContent.MAGNETIC_BOOM.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "greenexplode", 0, net.minecraft.client.particle.SingleQuadParticle.Layer.OPAQUE, false, false, 1));
+        event.registerSpriteSet(CavebloomerContent.SHOCK_ATTACK.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "shockattack", 0, net.minecraft.client.particle.SingleQuadParticle.Layer.OPAQUE, true));
+        event.registerSpriteSet(CavebloomerContent.POISON_CLOUD.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "poisoncloud", 0, net.minecraft.client.particle.SingleQuadParticle.Layer.OPAQUE, true));
+        event.registerSpriteSet(CavebloomerContent.RED_ORB.get(), sprites -> new AaaStationaryParticle.Provider(sprites, "redorb", 1, net.minecraft.client.particle.SingleQuadParticle.Layer.OPAQUE, false));
     }
 }

@@ -94,3 +94,11 @@
 - Kilolyte 动画偏移：GeckoLib 4 的 `adjustTick` 等价于把「过渡+动画」整条时间线前移 offset tick。26.1 改为在 `triggerAnimation` 后执行 `triggeredAnimTime -= clientAnimationOffset`。
 - 暂停时播放动画：GeckoLib 5 删除了 `shouldPlayAnimsWhileGamePaused`，动画时间改用 `level.getGameTime()`。LabMachinist、Concierge、Florist、Ly、Shutterbug 保留该方法（不再是 override）。**渲染阶段待办**：这些 NPC 的渲染器在游戏暂停时要改用真实时间推进 animatable age，才能还原单人暂停时继续播放待机动画的效果。
 - 其他待核对：affectNeighborsAfterRemoval 时序、tooltip 顺序、武器 ITEM_USED 统计、gamerule 名称、部分实体 UUID 以字符串保存。
+- 渲染批次 1（原版渲染器与粒子，已删除 `LegacyEntityRenderer`/`LegacyMobRenderer`/`LegacySingleQuadParticle`/`AnimationState` 空桩）：
+  - 弹射物渲染器改为 `extractRenderState` + `submit`。俯仰与偏航用 `Entity.getXRot/getYRot(partialTick)` 插值，和 1.21.1 的 `Mth.lerp(pt, xRotO, xRot)` 相同；模型部件用 `submitModelPart` 提交，并传入 outlineColor，所以发光描边保持不变。
+  - Shard、Squall 面片改用 `submitCustomGeometry`。原版自定义几何不参与实体描边，因此这两种实体被「发光」效果标记时不再显示轮廓（原版 26.1 的龙火球同样如此）。
+  - 隐形实体（铝热爆炸、部署任务、Snobol 爆炸）使用共用的 `InvisibleRenderer`，`submit` 为空，与 1.21.1 重写空 `render` 一致（不显示名字）。
+  - 光球（Stopper/Mover Orb）：迁移时丢失的 `eyes` 发光层已恢复（`EyesLayer` + `RenderTypes.eyes`）。本体不可见，与原版一致。
+  - 粒子：1.21.1 的 `PARTICLE_SHEET_OPAQUE` 和 `PARTICLE_SHEET_LIT` 都是不混合的 cutout，对应 26.1 的 `Layer.OPAQUE`；`PARTICLE_SHEET_TRANSLUCENT` 对应 `Layer.TRANSLUCENT`（Bastion、Squall、Liteprism）。按原代码显式指定，不用 `Layer.bySprite` 自动判断。`AaaStationaryParticle.Provider` 的参数改为 `SingleQuadParticle.Layer`，所有注册点都是 OPAQUE。
+  - `pickSprite` 改为构造时 `sprites.get(level.getRandom())`，仍然是随机帧。
+  - Liteprism 光束是任意长度、按 0.5 格分段的矩形条带，26.1 的方形四边形粒子无法表示。为此新增 `ParticleRenderType` 和 `BeamGroup`（`RegisterParticleGroupsEvent`），用 `TRANSLUCENT_PARTICLE` 管线、粒子图集和粒子输出目标通过 `submitCustomGeometry` 绘制。剔除沿用 NeoForge 1.21.1 的整条 AABB（26.1 原版只检查粒子原点）。
