@@ -14,7 +14,6 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.util.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
-import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -112,7 +111,12 @@ public final class NpcTradeCategory implements IRecipeCategory<NpcTradeEntry> {
             entity.tickCount = (int) (Util.getMillis() / 50L);
             float scale = MODEL_SIZE * MODEL_SCALES.getOrDefault(entry.npc(), 1F) / Math.max(entity.getBbHeight(), entity.getBbWidth()) / entity.getScale();
             try {
-                InventoryScreen.renderEntityInInventory(graphics, centerX, centerY, scale, new Vector3f(0F, entity.getBbHeight() / 2F, 0F), pose, camera, entity);
+                var renderState = Minecraft.getInstance().getEntityRenderDispatcher().getRenderer(entity).createRenderState(entity, 1F);
+                renderState.shadowPieces.clear();
+                renderState.outlineColor = 0;
+                var topLeft = graphics.pose().transformPosition(0F, 0F, new org.joml.Vector2f());
+                var bottomRight = graphics.pose().transformPosition(MODEL_WIDTH, MODEL_HEIGHT, new org.joml.Vector2f());
+                graphics.entity(renderState, scale, new Vector3f(0F, entity.getBbHeight() / 2F, 0F), pose, camera, Math.round(topLeft.x), Math.round(topLeft.y), Math.round(bottomRight.x), Math.round(bottomRight.y));
             } catch (Exception exception) {
                 FAILED.add(entry.npc());
                 ThermalShockReforged.LOGGER.warn("JEI npc trade entity render failed: {}", entry.npc(), exception);
@@ -135,16 +139,16 @@ public final class NpcTradeCategory implements IRecipeCategory<NpcTradeEntry> {
             if (parts.size() * LINE * scale <= MODEL_HEIGHT) break;
             scale = Math.max(0.5F, scale * MODEL_HEIGHT / (parts.size() * LINE * scale));
         }
-        graphics.pose().pushPose();
-        graphics.pose().translate(TEXT_X, (MODEL_HEIGHT - parts.size() * LINE * scale) / 2F, 0);
-        graphics.pose().scale(scale, scale, 1F);
+        graphics.pose().pushMatrix();
+        graphics.pose().translate(TEXT_X, (MODEL_HEIGHT - parts.size() * LINE * scale) / 2F);
+        graphics.pose().scale(scale, scale);
         int width = (int) (TEXT_WIDTH / scale);
         int y = 0;
         for (var part : parts) {
-            graphics.drawString(font, part, (width - font.width(part)) / 2, y, COLOR, false);
+            graphics.text(font, part, (width - font.width(part)) / 2, y, COLOR, false);
             y += LINE;
         }
-        graphics.pose().popPose();
+        graphics.pose().popMatrix();
     }
 
     private static LivingEntity entity(String npc) {

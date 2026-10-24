@@ -39,10 +39,10 @@ public final class LegacyFabricatorScreen extends AbstractContainerScreen<Legacy
     }
 
     @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
-        com.mojang.blaze3d.opengl.GlStateManager._enableBlend();
         
-        graphics.blit(BACKGROUND, leftPos, topPos, 0, 0, 246, 163, 246, 163);
-        com.mojang.blaze3d.opengl.GlStateManager._disableBlend();
+        
+        graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, BACKGROUND, leftPos, topPos, 0, 0, 246, 163, 246, 163);
+        
     }
 
     private void label(GuiGraphicsExtractor graphics, String suffix, int x, int y) {
@@ -72,10 +72,10 @@ public final class LegacyFabricatorScreen extends AbstractContainerScreen<Legacy
             if (minecraft != null && minecraft.gameMode != null) minecraft.gameMode.handleInventoryButtonClick(menu.containerId, 0);
         }
         @Override protected void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
-            com.mojang.blaze3d.opengl.GlStateManager._enableBlend();
             
-            graphics.blit(CRAFT, getX(), getY(), 0, isHoveredOrFocused() ? 18 : 0, 40, 18, 40, 36); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, CRAFT, getX(), getY(), 40, 18, isHoveredOrFocused());
-            com.mojang.blaze3d.opengl.GlStateManager._disableBlend();
+            
+            graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, CRAFT, getX(), getY(), 0, isHoveredOrFocused() ? 18 : 0, 40, 18, 40, 36); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, CRAFT, getX(), getY(), 40, 18, isHoveredOrFocused());
+            
         }
         @Override protected void updateWidgetNarration(NarrationElementOutput output) { defaultButtonNarrationText(output); }
     }

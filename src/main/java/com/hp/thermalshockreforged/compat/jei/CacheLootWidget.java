@@ -50,7 +50,7 @@ public final class CacheLootWidget implements ISlottedRecipeWidget, IJeiInputHan
             int y = visible * ROW;
             if (line.title() != null) {
                 graphics.fill(0, y, GRID_WIDTH, y + ROW, 0xFF9E9E9E);
-                graphics.drawString(font, line.title(), line.slots().size() * ROW + 4, y + 5, 0xFFFFFFFF, true);
+                graphics.text(font, line.title(), line.slots().size() * ROW + 4, y + 5, 0xFFFFFFFF, true);
             }
             var slots = lines.get(index);
             for (int column = 0; column < slots.size(); column++) {

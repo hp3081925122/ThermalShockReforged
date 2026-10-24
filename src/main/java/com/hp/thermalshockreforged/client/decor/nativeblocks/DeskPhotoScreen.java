@@ -24,10 +24,10 @@ public final class DeskPhotoScreen extends AbstractContainerScreen<DeskPhotoMenu
 
     @Override
     public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
-        com.mojang.blaze3d.opengl.GlStateManager._enableBlend();
         
-        graphics.blit(PHOTO, leftPos + 6, topPos + 1, 0, 0, 164, 164, 164, 164);
-        com.mojang.blaze3d.opengl.GlStateManager._disableBlend();
+        
+        graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, PHOTO, leftPos + 6, topPos + 1, 0, 0, 164, 164, 164, 164);
+        
     }
 
     @Override

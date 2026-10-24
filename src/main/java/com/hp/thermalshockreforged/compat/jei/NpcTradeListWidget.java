@@ -29,7 +29,7 @@ public final class NpcTradeListWidget implements ISlottedRecipeWidget, IJeiInput
     private static final int RESULT_X = ARROW_X + 28;
     private static final int LOCK_X = RESULT_X + 22;
     private static final int SCROLLBAR_WIDTH = 6;
-    private static final Identifier ORB = Identifier.withDefaultNamespace("textures/entity/experience_orb.png");
+    private static final Identifier ORB = Identifier.withDefaultNamespace("textures/entity/experience/experience_orb.png");
     private static final Identifier LOCK = Identifier.withDefaultNamespace("widget/locked_button");
     private final ScreenPosition position;
     private final int width;
@@ -81,7 +81,7 @@ public final class NpcTradeListWidget implements ISlottedRecipeWidget, IJeiInput
             result.setPosition(RESULT_X + 1, y + 1);
             result.draw(graphics);
             if (result.isMouseOver(mouseX, mouseY)) result.drawHoverOverlays(graphics);
-            if (row.condition() != null) graphics.blitSprite(LOCK, LOCK_X, y + 3, 12, 12);
+            if (row.condition() != null) graphics.blitSprite(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, LOCK, LOCK_X, y + 3, 12, 12);
         }
         hideRows();
         if (hiddenRows() > 0) {
@@ -95,10 +95,8 @@ public final class NpcTradeListWidget implements ISlottedRecipeWidget, IJeiInput
     }
 
     public static void drawXp(GuiGraphicsExtractor graphics, int x, int y, Component text) {
-        graphics.setColor(0.6F, 1F, 0.3F, 1F);
-        graphics.blit(ORB, x, y, 10, 10, 0, 0, 16, 16, 64, 64);
-        graphics.setColor(1F, 1F, 1F, 1F);
-        graphics.drawString(Minecraft.getInstance().font, text, x + 11, y + 1, 0xFF80FF20, true);
+        graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, ORB, x, y, 0, 0, 10, 10, 16, 16, 64, 64, net.minecraft.util.ARGB.colorFromFloat(1F, 0.6F, 1F, 0.3F));
+        graphics.text(Minecraft.getInstance().font, text, x + 11, y + 1, 0xFF80FF20, true);
     }
 
     private void hideRows() {

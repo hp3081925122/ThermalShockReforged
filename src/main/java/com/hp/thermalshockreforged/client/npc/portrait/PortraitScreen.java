@@ -14,10 +14,10 @@ public final class PortraitScreen extends AbstractContainerScreen<PortraitMenu> 
     public PortraitScreen(PortraitMenu menu, Inventory inventory, Component title) { super(menu, inventory, title, 276, 182); }
     @Override public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractRenderState(graphics, mouseX, mouseY, partialTick);  }
     @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
-        com.mojang.blaze3d.opengl.GlStateManager._enableBlend(); 
-        graphics.blit(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/screens/mainspeechbox.png"), leftPos, topPos + 103, 0, 0, 276, 276, 276, 276);
-        graphics.blit(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/screens/mainlabelbox.png"), leftPos, topPos - 30, 0, 0, 134, 134, 134, 134);
-        com.mojang.blaze3d.opengl.GlStateManager._disableBlend();
+        
+        graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/screens/mainspeechbox.png"), leftPos, topPos + 103, 0, 0, 276, 276, 276, 276);
+        graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/screens/mainlabelbox.png"), leftPos, topPos - 30, 0, 0, 134, 134, 134, 134);
+        
     }
     private Component text(String key) { return Component.translatable("gui." + ThermalShockReforged.MOD_ID + ".laven_civil_" + (menu.ibex ? "2" : "1") + "_tlk.label_" + key); }
     private Component dialogue() {

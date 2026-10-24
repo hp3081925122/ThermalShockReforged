@@ -36,13 +36,13 @@ public final class SopelScreen extends AbstractContainerScreen<SopelMenu> {
     @Override protected void containerTick() { if (menu.page != SopelPage.CHOICE) clock.frame = clock.frame > 12 ? 0 : clock.frame + .125; }
     @Override public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractRenderState(graphics, mouseX, mouseY, partialTick);  }
     @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
-        com.mojang.blaze3d.opengl.GlStateManager._enableBlend(); 
-        graphics.blit(id("mainspeechbox"), leftPos, topPos + (menu.page == SopelPage.CHOICE ? 50 : 104), 0, 0, 276, 276, 276, 276);
+        
+        graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, id("mainspeechbox"), leftPos, topPos + (menu.page == SopelPage.CHOICE ? 50 : 104), 0, 0, 276, 276, 276, 276);
         if (menu.page != SopelPage.CHOICE) {
-            graphics.blit(id("mainlabelbox"), leftPos + 62, topPos - 29, 0, 0, 134, 134, 134, 134);
-            graphics.blit(id("sopelidleportrait"), leftPos - 30, topPos - 23, 0, Mth.clamp((int)clock.frame * 128, 0, 1408), 128, 128, 128, 1536);
+            graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, id("mainlabelbox"), leftPos + 62, topPos - 29, 0, 0, 134, 134, 134, 134);
+            graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, id("sopelidleportrait"), leftPos - 30, topPos - 23, 0, Mth.clamp((int)clock.frame * 128, 0, 1408), 128, 128, 128, 1536);
         }
-        com.mojang.blaze3d.opengl.GlStateManager._disableBlend();
+        
     }
     @Override protected void extractLabels(GuiGraphicsExtractor graphics, int mouseX, int mouseY) { for (var line : menu.page.lines) DialogueText.draw(graphics, font, Component.translatable(line.key()), line.x(), line.y(), line.color(), imageWidth, line.spacing()); }
     private static final class Clock { double frame; }
@@ -53,7 +53,7 @@ public final class SopelScreen extends AbstractContainerScreen<SopelMenu> {
             super(leftPos + x, topPos + y, width, height, Component.translatable(labelKey)); this.action = action; this.texture = id("atlas/imagebutton_" + texture);
         }
         @Override public void onPress(net.minecraft.client.input.InputWithModifiers input) { if (minecraft != null && minecraft.gameMode != null) minecraft.gameMode.handleInventoryButtonClick(menu.containerId, action); }
-        @Override protected void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { com.mojang.blaze3d.opengl.GlStateManager._enableBlend();  graphics.blit(texture, getX(), getY(), 0, isHoveredOrFocused() ? height : 0, width, height, width, height * 2); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, texture, getX(), getY(), width, height, isHoveredOrFocused()); com.mojang.blaze3d.opengl.GlStateManager._disableBlend(); }
+        @Override protected void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, texture, getX(), getY(), 0, isHoveredOrFocused() ? height : 0, width, height, width, height * 2); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, texture, getX(), getY(), width, height, isHoveredOrFocused()); }
         @Override protected void updateWidgetNarration(NarrationElementOutput output) { defaultButtonNarrationText(output); }
     }
 }

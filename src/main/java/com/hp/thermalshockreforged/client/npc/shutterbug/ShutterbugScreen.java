@@ -41,9 +41,9 @@ public final class ShutterbugScreen extends AbstractContainerScreen<ShutterbugMe
     private void button(int action, int x, int y, int width, int height, String texture, String labelKey) { addRenderableWidget(new ImageButton(action, x, y, width, height, texture, Component.translatable(labelKey))); }
     @Override protected void containerTick() { if (menu.page != ShutterbugPage.TRADE) clock.frame = clock.frame > 12 ? 0 : clock.frame + 1; }
     @Override public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractRenderState(graphics, mouseX, mouseY, partialTick);  if (menu.getCarried().isEmpty()) for (var line : menu.page.lines) if (com.hp.thermalshockreforged.client.npc.NpcTradeLabels.tooltip(graphics, font, line.key(), leftPos + line.x(), topPos + line.y(), mouseX, mouseY)) break; }
-    private void blit(GuiGraphicsExtractor graphics, String texture, int x, int y, int width, int height) { graphics.blit(id(texture), leftPos + x, topPos + y, 0, 0, width, height, width, height); }
+    private void blit(GuiGraphicsExtractor graphics, String texture, int x, int y, int width, int height) { graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, id(texture), leftPos + x, topPos + y, 0, 0, width, height, width, height); }
     @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
-        com.mojang.blaze3d.opengl.GlStateManager._enableBlend(); 
+        
         if (menu.page == ShutterbugPage.TRADE) {
             blit(graphics, "unettetrademenu", -20, 0, 246, 180); blit(graphics, "camera", 47, 26, 16, 16);
         } else if (menu.page == ShutterbugPage.INFO) blit(graphics, "uneinfobox", 0, 0, 212, 116);
@@ -53,10 +53,10 @@ public final class ShutterbugScreen extends AbstractContainerScreen<ShutterbugMe
             } else {
                 blit(graphics, "mainspeechbox", 0, 104, 276, 276); blit(graphics, "mainlabelbox", 62, -29, 134, 134);
             }
-            graphics.blit(id("unette" + menu.page.portrait + "portrait"), leftPos - 32, topPos + (menu.page == ShutterbugPage.MAIN ? -18 : -17), 0, Mth.clamp(clock.frame * 128, 0, 1408), 128, 128, 128, 1536);
+            graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, id("unette" + menu.page.portrait + "portrait"), leftPos - 32, topPos + (menu.page == ShutterbugPage.MAIN ? -18 : -17), 0, Mth.clamp(clock.frame * 128, 0, 1408), 128, 128, 128, 1536);
             if (menu.page == ShutterbugPage.INTRO_5 || menu.page == ShutterbugPage.INTRO_6) blit(graphics, "camera", 233, 33, 16, 16);
         }
-        com.mojang.blaze3d.opengl.GlStateManager._disableBlend();
+        
     }
     @Override protected void extractLabels(GuiGraphicsExtractor graphics, int mouseX, int mouseY) {
         for (var line : menu.page.lines) DialogueText.draw(graphics, font, com.hp.thermalshockreforged.client.npc.NpcTradeLabels.text(line.key()), line.x(), line.y(), line.color(), imageWidth, line.spacing());
@@ -68,7 +68,7 @@ public final class ShutterbugScreen extends AbstractContainerScreen<ShutterbugMe
         private final Identifier texture;
         ImageButton(int action, int x, int y, int width, int height, String texture, Component label) { super(leftPos + x, topPos + y, width, height, label); this.action = action; this.texture = id("atlas/imagebutton_" + texture); }
         @Override public void onPress(net.minecraft.client.input.InputWithModifiers input) { if (minecraft != null && minecraft.gameMode != null) minecraft.gameMode.handleInventoryButtonClick(menu.containerId, action); }
-        @Override protected void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { com.mojang.blaze3d.opengl.GlStateManager._enableBlend();  graphics.blit(texture, getX(), getY(), 0, isHoveredOrFocused() ? height : 0, width, height, width, height * 2); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, texture, getX(), getY(), width, height, isHoveredOrFocused()); com.mojang.blaze3d.opengl.GlStateManager._disableBlend(); }
+        @Override protected void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, texture, getX(), getY(), 0, isHoveredOrFocused() ? height : 0, width, height, width, height * 2); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, texture, getX(), getY(), width, height, isHoveredOrFocused()); }
         @Override protected void updateWidgetNarration(NarrationElementOutput output) { defaultButtonNarrationText(output); }
     }
 }

@@ -216,8 +216,8 @@ public final class FabricatorScreen extends AbstractContainerScreen<FabricatorMe
     public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
         int x = leftPos;
         int y = topPos;
-        com.mojang.blaze3d.opengl.GlStateManager._enableBlend();
-        graphics.blit(BACKGROUND, x, y, 0, 0, imageWidth, imageHeight, 256, 194);
+        
+        graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, BACKGROUND, x, y, 0, 0, imageWidth, imageHeight, 256, 194);
         for (int index = 0; index < FabricatorPage.CATEGORIES.size(); index++) {
             int tabX = x + TAB_X + index * (TAB_WIDTH + 1);
             boolean active = FabricatorPage.CATEGORIES.get(index) == category;
@@ -267,9 +267,9 @@ public final class FabricatorScreen extends AbstractContainerScreen<FabricatorMe
             }
             int v = 0;
             if (inside(mouseX, mouseY, x + CRAFT_X, y + CRAFT_Y, CRAFT_WIDTH, CRAFT_HEIGHT)) v = CRAFT_HEIGHT;
-            graphics.blit(CRAFT, x + CRAFT_X, y + CRAFT_Y, 0, v, CRAFT_WIDTH, CRAFT_HEIGHT, CRAFT_WIDTH, CRAFT_HEIGHT * 2); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, CRAFT, x + CRAFT_X, y + CRAFT_Y, CRAFT_WIDTH, CRAFT_HEIGHT, v > 0);
+            graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, CRAFT, x + CRAFT_X, y + CRAFT_Y, 0, v, CRAFT_WIDTH, CRAFT_HEIGHT, CRAFT_WIDTH, CRAFT_HEIGHT * 2); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, CRAFT, x + CRAFT_X, y + CRAFT_Y, CRAFT_WIDTH, CRAFT_HEIGHT, v > 0);
         }
-        com.mojang.blaze3d.opengl.GlStateManager._disableBlend();
+        
     }
 
     @Override

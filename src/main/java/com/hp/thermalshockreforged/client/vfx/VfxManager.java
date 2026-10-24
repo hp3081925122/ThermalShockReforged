@@ -49,7 +49,7 @@ public final class VfxManager {
             return;
         }
         Camera camera = Minecraft.getInstance().gameRenderer.getMainCamera();
-        if (camera.getPosition().distanceToSqr(x, y, z) > MAX_DISTANCE_SQUARED) return;
+        if (camera.position().distanceToSqr(x, y, z) > MAX_DISTANCE_SQUARED) return;
         if (world != level) {
             EMITTERS.clear();
             level = world;
@@ -59,8 +59,7 @@ public final class VfxManager {
     }
 
     @SubscribeEvent
-    public static void render(RenderLevelStageEvent event) {
-        if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_WEATHER) return;
+    public static void render(RenderLevelStageEvent.AfterWeather event) {
         Minecraft minecraft = Minecraft.getInstance();
         long now = System.nanoTime();
         float frames = 0;
@@ -75,11 +74,11 @@ public final class VfxManager {
         while (iterator.hasNext()) {
             if (!iterator.next().update(frames)) iterator.remove();
         }
-        Camera camera = event.getCamera();
-        Vec3 position = camera.getPosition();
+        Camera camera = minecraft.gameRenderer.getMainCamera();
+        Vec3 position = camera.position();
         List<VfxEmitter> sorted = new ArrayList<>(EMITTERS);
         sorted.sort((first, second) -> Double.compare(distance(second, position), distance(first, position)));
-        BATCH.begin(camera.getLookVector());
+        BATCH.begin(camera.forwardVector());
         for (VfxEmitter emitter : sorted) {
             BATCH.origin(emitter.x - position.x, emitter.y - position.y, emitter.z - position.z);
             emitter.render(BATCH);
@@ -101,12 +100,18 @@ public final class VfxManager {
 
         @SubscribeEvent
         public static void register(AddClientReloadListenersEvent event) {
-            event.registerReloadListener((ResourceManagerReloadListener) VfxManager::reload);
+            event.addListener(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "vfx"), (ResourceManagerReloadListener) VfxManager::reload);
+        }
+
+        @SubscribeEvent
+        public static void pipelines(net.neoforged.neoforge.client.event.RegisterRenderPipelinesEvent event) {
+            VfxBatch.registerPipelines(event);
         }
     }
 
     private static void reload(ResourceManager manager) {
         DEFINITIONS.clear();
+        VfxBatch.clearTypes();
         MISSING.clear();
         EMITTERS.clear();
         for (Map.Entry<Identifier, Resource> entry : manager.listResources("vfx", location -> location.getPath().endsWith(".json")).entrySet()) {

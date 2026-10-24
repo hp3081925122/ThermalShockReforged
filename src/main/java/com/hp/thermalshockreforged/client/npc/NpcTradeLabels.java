@@ -41,17 +41,17 @@ public final class NpcTradeLabels {
         String suffix = key.substring(key.lastIndexOf('.') + 1);
         if (suffix.equals("label_lorem_ipsum")) {
             if (!inside(mouseX, mouseY, x - ICON_OFFSET_X, y - ICON_OFFSET_Y, ICON_SIZE, ICON_SIZE) || recipe.result().isEmpty()) return false;
-            graphics.renderTooltip(font, recipe.result(), mouseX, mouseY);
+            graphics.setTooltipForNextFrame(font, recipe.result(), mouseX, mouseY);
             return true;
         }
         if (suffix.equals("label_xxx")) {
             if (!inside(mouseX, mouseY, x - SPICE_OFFSET_X, y - SPICE_OFFSET_Y, LEVEL_WIDTH, SPICE_SIZE)) return false;
-            graphics.renderTooltip(font, Component.translatable(PREFIX + "trade.experience"), mouseX, mouseY);
+            graphics.setTooltipForNextFrame(font, Component.translatable(PREFIX + "trade.experience"), mouseX, mouseY);
             return true;
         }
         var spice = spice(suffix);
         if (spice == null || !inside(mouseX, mouseY, x - SPICE_OFFSET_X, y - SPICE_OFFSET_Y, SPICE_SIZE, SPICE_SIZE)) return false;
-        graphics.renderTooltip(font, new ItemStack(spice).getHoverName(), mouseX, mouseY);
+        graphics.setTooltipForNextFrame(font, new ItemStack(spice).getHoverName(), mouseX, mouseY);
         return true;
     }
 
