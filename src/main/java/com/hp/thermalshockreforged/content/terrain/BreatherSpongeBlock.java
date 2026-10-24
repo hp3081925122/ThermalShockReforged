@@ -44,7 +44,7 @@ public final class BreatherSpongeBlock extends Block {
         boolean silly = straw.is(MaterialContent.items().get("silly_straw").get());
         boolean drinking = straw.is(MaterialContent.items().get("drinking_straw").get());
         if ((!silly && !drinking) || player.getCooldowns().isOnCooldown(straw)) {
-            return InteractionResult.PASS;
+            return InteractionResult.TRY_WITH_EMPTY_HAND;
         }
         if (!level.isClientSide()) {
             player.getCooldowns().addCooldown(straw, silly ? 60 : 20);

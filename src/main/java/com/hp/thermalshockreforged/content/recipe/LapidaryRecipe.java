@@ -10,17 +10,18 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.loot.LootTable;
 
-public record LapidaryRecipe(Ingredient ingredient, Optional<ResourceKey<LootTable>> lootTable, Optional<ItemStack> result, RecipeSound sound, float extraRollChance, float springlingChance, Optional<Identifier> advancement) implements DataRecipe {
+public record LapidaryRecipe(Ingredient ingredient, Optional<ResourceKey<LootTable>> lootTable, Optional<ItemStackTemplate> result, RecipeSound sound, float extraRollChance, float springlingChance, Optional<Identifier> advancement) implements DataRecipe {
     public static final MapCodec<LapidaryRecipe> CODEC = RecordCodecBuilder.<LapidaryRecipe>mapCodec(instance -> instance.group(
             Ingredient.CODEC.fieldOf("ingredient").forGetter(LapidaryRecipe::ingredient),
             ResourceKey.codec(Registries.LOOT_TABLE).optionalFieldOf("loot_table").forGetter(LapidaryRecipe::lootTable),
-            ItemStack.CODEC.optionalFieldOf("result").forGetter(LapidaryRecipe::result),
+            ItemStackTemplate.CODEC.optionalFieldOf("result").forGetter(LapidaryRecipe::result),
             RecipeSound.CODEC.fieldOf("sound").forGetter(LapidaryRecipe::sound),
             Codec.floatRange(0, 1).optionalFieldOf("extra_roll_chance", 0F).forGetter(LapidaryRecipe::extraRollChance),
             Codec.floatRange(0, 1).optionalFieldOf("springling_chance", 0F).forGetter(LapidaryRecipe::springlingChance),
@@ -36,7 +37,7 @@ public record LapidaryRecipe(Ingredient ingredient, Optional<ResourceKey<LootTab
         return null;
     }
 
-    public ItemStack getResultItem(HolderLookup.Provider registries) { return result.orElse(ItemStack.EMPTY); }
+    public ItemStack getResultItem(HolderLookup.Provider registries) { return result.map(ItemStackTemplate::create).orElse(ItemStack.EMPTY); }
     @Override public RecipeSerializer<? extends DataRecipe> getSerializer() { return RecipeContent.LAPIDARY.serializer().get(); }
     @Override public RecipeType<? extends DataRecipe> getType() { return RecipeContent.LAPIDARY.type().get(); }
 }

@@ -208,11 +208,11 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
                 else inputs.add(new MachineEntry.Slot(List.of(), List.of()));
             }
             inputs.add(new MachineEntry.Slot(List.of(new ItemStack(recipe.energy().item(), recipe.energy().count())), List.of(Component.translatable(KEY + "machine.energy"))));
-            fabrication.add(new MachineEntry(inputs, List.of(slot(recipe.result())), null, List.of()));
+            fabrication.add(new MachineEntry(inputs, List.of(slot(recipe.result().copy())), null, List.of()));
         }
         registration.addRecipes(MachineCategory.FABRICATOR, fabrication);
         var transmutation = new ArrayList<MachineEntry>();
-        for (var holder : RecipeContent.TRANSMUTATION.all(level)) transmutation.add(new MachineEntry(List.of(slot(holder.value().ingredient())), List.of(slot(holder.value().result().copy())), null, List.of()));
+        for (var holder : RecipeContent.TRANSMUTATION.all(level)) transmutation.add(new MachineEntry(List.of(slot(holder.value().ingredient())), List.of(slot(holder.value().result().create())), null, List.of()));
         registration.addRecipes(MachineCategory.TRANSMUTATOR, transmutation);
         var extraction = new ArrayList<MachineEntry>();
         for (var holder : RecipeContent.EXTRACTION.all(level)) {
@@ -224,7 +224,7 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
                 var notes = new ArrayList<Component>();
                 if (!output.guaranteed()) notes.add(Component.translatable(KEY + "sickle_harvest.chance", percent(output.chance())));
                 if (output.repeat().minInclusive() != output.repeat().maxInclusive()) notes.add(Component.translatable(KEY + "sickle_harvest.count", range(output.repeat())));
-                outputs.add(new MachineEntry.Slot(List.of(output.item().copyWithCount(output.item().getCount() * Math.max(1, output.repeat().maxInclusive()))), notes));
+                outputs.add(new MachineEntry.Slot(List.of(output.item().create().copyWithCount(output.item().count() * Math.max(1, output.repeat().maxInclusive()))), notes));
             }
             Component xp = null;
             var xpTooltip = new ArrayList<Component>();
@@ -246,7 +246,7 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
         var centrifuge = new ArrayList<MachineEntry>();
         for (var holder : RecipeContent.CENTRIFUGE.all(level)) {
             var recipe = holder.value();
-            centrifuge.add(new MachineEntry(List.of(slot(recipe.energy().get(0)), slot(recipe.energy().get(1)), slot(recipe.ingredient())), List.of(slot(recipe.result().copy())), null, List.of()));
+            centrifuge.add(new MachineEntry(List.of(slot(recipe.energy().get(0)), slot(recipe.energy().get(1)), slot(recipe.ingredient())), List.of(slot(recipe.result().create())), null, List.of()));
         }
         registration.addRecipes(MachineCategory.CENTRIFUGE, centrifuge);
         var lapidary = new ArrayList<MachineEntry>();
@@ -260,7 +260,7 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
             if (recipe.result().isPresent()) {
                 var resultNotes = new ArrayList<Component>();
                 if (recipe.advancement().isPresent()) resultNotes.add(Component.translatable(KEY + "machine.advancement", advancementTitle(recipe.advancement().get())));
-                outputs.add(new MachineEntry.Slot(List.of(recipe.result().get().copy()), resultNotes));
+                outputs.add(new MachineEntry.Slot(List.of(recipe.result().get().create()), resultNotes));
             }
             if (!outputs.isEmpty()) lapidary.add(new MachineEntry(List.of(new MachineEntry.Slot(recipe.ingredient().items().map(ItemStack::new).toList(), notes)), outputs, null, List.of()));
         }
@@ -270,7 +270,7 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
             var recipe = holder.value();
             var inputs = new ArrayList<MachineEntry.Slot>();
             for (var cost : recipe.materials()) inputs.add(slot(new ItemStack(cost.item().value(), cost.count())));
-            assembly.add(new MachineEntry(inputs, List.of(slot(recipe.result())), null, List.of()));
+            assembly.add(new MachineEntry(inputs, List.of(slot(recipe.result().create())), null, List.of()));
         }
         registration.addRecipes(MachineCategory.ASSEMBLER, assembly);
         var altars = new ArrayList<MachineEntry>();
@@ -347,7 +347,7 @@ public final class ThermalShockJeiPlugin implements IModPlugin {
         for (var cost : recipe.costs()) costs.add(new ItemStack(cost.item(), cost.count()));
         Component condition = null;
         if (recipe.requires().isPresent()) condition = requires(recipe.requires().get());
-        rows.computeIfAbsent(npc, ignored -> new ArrayList<>()).add(new NpcTradeEntry.Row(costs, recipe.levels(), recipe.result().copy(), condition));
+        rows.computeIfAbsent(npc, ignored -> new ArrayList<>()).add(new NpcTradeEntry.Row(costs, recipe.levels(), recipe.result().create(), condition));
     }
 
     private static MachineEntry.Slot slot(ItemStack stack) { return new MachineEntry.Slot(List.of(stack), List.of()); }

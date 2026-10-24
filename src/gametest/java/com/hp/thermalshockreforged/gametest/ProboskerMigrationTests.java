@@ -3,7 +3,6 @@ package com.hp.thermalshockreforged.gametest;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
 import com.hp.thermalshockreforged.entity.ModEntities;
-import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
@@ -13,19 +12,14 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameType;
-import net.neoforged.neoforge.gametest.GameTestHolder;
-import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
-@GameTestHolder(ThermalShockReforged.MOD_ID)
-@PrefixGameTestTemplate(false)
 public final class ProboskerMigrationTests {
-    @GameTest(template = "migration_empty")
     public static void ownerCommandsAndFeedingDoNotInterfere(GameTestHelper helper) {
         var pet = helper.spawnWithNoFreeWill(ModEntities.PROBOSKER.get(), 3, 2, 3);
         var owner = new net.neoforged.neoforge.common.util.FakePlayer(helper.getLevel(), new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(), "probosker-owner"));
         try {
             helper.getLevel().addNewPlayer(owner);
-            owner.moveTo(pet.position());
+            owner.snapTo(pet.position());
             pet.tame(owner);
             pet.setAge(0);
             owner.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
@@ -55,12 +49,10 @@ public final class ProboskerMigrationTests {
         }
         helper.succeed();
     }
-
-    @GameTest(template = "migration_empty", timeoutTicks = 30)
     public static void sittingRetainsDamageAndPersistsColorOwnerAndPose(GameTestHelper helper) {
         var pet = helper.spawnWithNoFreeWill(ModEntities.PROBOSKER.get(), 3, 2, 3);
         var owner = java.util.UUID.randomUUID();
-        pet.setOwnerUUID(owner);
+        pet.setOwnerReference(net.minecraft.world.entity.EntityReference.of(owner));
         pet.setTame(true, false);
         pet.setOrderedToSit(true);
         pet.setInSittingPose(true);
@@ -70,21 +62,17 @@ public final class ProboskerMigrationTests {
         helper.assertTrue(sitting.canUse(), "Tamed pet must accept native sitting goal");
         sitting.start();
         helper.assertTrue(pet.getNavigation().isDone(), "Sitting must stop navigation without a potion");
-        CompoundTag saved = new CompoundTag();
-        pet.addAdditionalSaveData(saved);
-        var restored = ModEntities.PROBOSKER.get().create(helper.getLevel());
-        restored.readAdditionalSaveData(saved);
-        helper.assertTrue(restored.texture().equals("purple_probosker") && owner.equals(restored.getOwnerUUID()) && restored.isOrderedToSit() && restored.isInSittingPose(), "Color, owner and sitting must survive NBT");
+        var restored = ModEntities.PROBOSKER.get().create(helper.getLevel(), net.minecraft.world.entity.EntitySpawnReason.LOAD);
+        restored.load(TsrGameTests.roundTrip(helper, pet));
+        helper.assertTrue(restored.texture().equals("purple_probosker") && restored.getOwnerReference() != null && owner.equals(restored.getOwnerReference().getUUID()) && restored.isOrderedToSit() && restored.isInSittingPose(), "Color, owner and sitting must survive NBT");
         helper.assertTrue(pet.getAttributeValue(Attributes.ATTACK_DAMAGE) == 6 && pet.getMaxHealth() == 32, "Source combat attributes must be preserved");
-        helper.assertTrue(!pet.hurt(helper.getLevel().damageSources().drown(), 4), "Original drowning immunity must remain");
-        helper.assertTrue(pet.hurt(helper.getLevel().damageSources().generic(), 4) && pet.getHealth() == 28, "Sitting must not grant damage immunity");
+        helper.assertTrue(!pet.hurtServer(helper.getLevel(), helper.getLevel().damageSources().drown(), 4), "Original drowning immunity must remain");
+        helper.assertTrue(pet.hurtServer(helper.getLevel(), helper.getLevel().damageSources().generic(), 4) && pet.getHealth() == 28, "Sitting must not grant damage immunity");
         helper.runAfterDelay(5, () -> {
-            helper.assertTrue(!pet.hasEffect(MobEffects.MOVEMENT_SLOWDOWN) && !pet.hasEffect(MobEffects.DAMAGE_RESISTANCE), "Sitting must not use extreme potion markers");
+            helper.assertTrue(!pet.hasEffect(MobEffects.SLOWNESS) && !pet.hasEffect(MobEffects.RESISTANCE), "Sitting must not use extreme potion markers");
             helper.succeed();
         });
     }
-
-    @GameTest(template = "migration_empty")
     public static void tamingKeepsBothRandomOutcomesAndFoodSet(GameTestHelper helper) {
         var player = helper.makeMockPlayer(GameType.SURVIVAL);
         for (boolean success : new boolean[]{false, true}) {

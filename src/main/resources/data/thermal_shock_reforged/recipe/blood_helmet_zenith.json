@@ -1,14 +1,8 @@
 {
   "type": "minecraft:smithing_transform",
-  "template": {
-    "item": "thermal_shock_reforged:zenith_smithing_template"
-  },
-  "base": {
-    "item": "thermal_shock_reforged:blood_armor_helmet"
-  },
-  "addition": {
-    "item": "thermal_shock_reforged:bloodstone"
-  },
+  "template": "thermal_shock_reforged:zenith_smithing_template",
+  "base": "thermal_shock_reforged:blood_armor_helmet",
+  "addition": "thermal_shock_reforged:bloodstone",
   "result": {
     "id": "thermal_shock_reforged:blood_zenith_armor_helmet"
   }

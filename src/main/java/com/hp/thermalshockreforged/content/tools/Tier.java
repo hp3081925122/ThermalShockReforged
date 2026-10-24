@@ -16,7 +16,10 @@ public interface Tier {
     int getEnchantmentValue();
     TagKey<Item> getRepairItems();
     default ToolMaterial toolMaterial() {
-        return new ToolMaterial(getIncorrectBlocksForDrops(), getUses(), getSpeed(), getAttackDamageBonus(), getEnchantmentValue(), getRepairItems());
+        return new ToolMaterial(getIncorrectBlocksForDrops(), getUses(), getSpeed(), getAttackDamageBonus(), Math.max(1, getEnchantmentValue()), getRepairItems());
+    }
+    default Item.Properties enchantability(Item.Properties properties) {
+        return getEnchantmentValue() > 0 ? properties : properties.component(net.minecraft.core.component.DataComponents.ENCHANTABLE, null);
     }
     static TagKey<Item> repairTag(String id) {
         return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "tool_repair/" + id));

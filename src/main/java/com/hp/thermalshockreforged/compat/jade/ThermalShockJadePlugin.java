@@ -49,11 +49,11 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
 
     @Override
     public void register(IWailaCommonRegistration registration) {
-        registration.registerBlockDataProvider(AltarProvider.INSTANCE, AltarBlock.class);
-        registration.registerBlockDataProvider(PhobotiteProvider.INSTANCE, GeoDecorBlock.class);
-        registration.registerBlockDataProvider(SeedProvider.INSTANCE, FarmSeedBlock.class);
-        registration.registerBlockDataProvider(SeedProvider.INSTANCE, GrowthSeedBlock.class);
-        registration.registerEntityDataProvider(HeraldProvider.INSTANCE, HeraldEntity.class);
+        registration.registerBlockDataProvider(AltarProviderData.INSTANCE, AltarBlock.class);
+        registration.registerBlockDataProvider(PhobotiteProviderData.INSTANCE, GeoDecorBlock.class);
+        registration.registerBlockDataProvider(SeedProviderData.INSTANCE, FarmSeedBlock.class);
+        registration.registerBlockDataProvider(SeedProviderData.INSTANCE, GrowthSeedBlock.class);
+        registration.registerEntityDataProvider(HeraldProviderData.INSTANCE, HeraldEntity.class);
     }
 
     @Override
@@ -73,13 +73,8 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
         registration.registerEntityComponent(HeraldProvider.INSTANCE, HeraldEntity.class);
     }
 
-    private enum HeraldProvider implements IEntityComponentProvider, IServerDataProvider<EntityAccessor> {
+    private enum HeraldProvider implements IEntityComponentProvider {
         INSTANCE;
-
-        @Override
-        public void appendServerData(CompoundTag data, EntityAccessor accessor) {
-            if (accessor.getEntity() instanceof HeraldEntity herald) data.putInt(HERALD_KILLS, herald.killCount());
-        }
 
         @Override
         public void appendTooltip(ITooltip tooltip, EntityAccessor accessor, IPluginConfig config) {
@@ -91,17 +86,20 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
         public Identifier getUid() { return HERALD; }
     }
 
-    private enum AltarProvider implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
+    private enum HeraldProviderData implements IServerDataProvider<EntityAccessor> {
         INSTANCE;
 
         @Override
-        public void appendServerData(CompoundTag data, BlockAccessor accessor) {
-            if (!(accessor.getPlayer() instanceof ServerPlayer player)) return;
-            int status = 0;
-            if (!ModGameRules.get(player.level(), ModGameRules.LOQENDIA_ENFORCE_PROGRESSION)) status = 2;
-            else if (AltarBlock.unlocked(player)) status = 1;
-            data.putInt(STATUS, status);
+        public void appendServerData(CompoundTag data, EntityAccessor accessor) {
+            if (accessor.getEntity() instanceof HeraldEntity herald) data.putInt(HERALD_KILLS, herald.killCount());
         }
+
+        @Override
+        public Identifier getUid() { return HERALD; }
+    }
+
+    private enum AltarProvider implements IBlockComponentProvider {
+        INSTANCE;
 
         @Override
         public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
@@ -121,7 +119,35 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
         public Identifier getUid() { return ALTAR; }
     }
 
-    private enum PhobotiteProvider implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
+    private enum AltarProviderData implements IServerDataProvider<BlockAccessor> {
+        INSTANCE;
+
+        @Override
+        public void appendServerData(CompoundTag data, BlockAccessor accessor) {
+            if (!(accessor.getPlayer() instanceof ServerPlayer player)) return;
+            int status = 0;
+            if (!ModGameRules.get(player.level(), ModGameRules.LOQENDIA_ENFORCE_PROGRESSION)) status = 2;
+            else if (AltarBlock.unlocked(player)) status = 1;
+            data.putInt(STATUS, status);
+        }
+
+        @Override
+        public Identifier getUid() { return ALTAR; }
+    }
+
+    private enum PhobotiteProvider implements IBlockComponentProvider {
+        INSTANCE;
+
+        @Override
+        public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
+            if (accessor.getServerData().getBooleanOr(PHOBOTITE_STATUS, false)) tooltip.add(Component.translatable(PHOBOTITE_KEY + "locked"));
+        }
+
+        @Override
+        public Identifier getUid() { return PHOBOTITE; }
+    }
+
+    private enum PhobotiteProviderData implements IServerDataProvider<BlockAccessor> {
         INSTANCE;
 
         private static boolean isPhobotite(BlockAccessor accessor) {
@@ -138,25 +164,11 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
         }
 
         @Override
-        public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
-            if (accessor.getServerData().getBooleanOr(PHOBOTITE_STATUS, false)) tooltip.add(Component.translatable(PHOBOTITE_KEY + "locked"));
-        }
-
-        @Override
         public Identifier getUid() { return PHOBOTITE; }
     }
 
-    private enum SeedProvider implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
+    private enum SeedProvider implements IBlockComponentProvider {
         INSTANCE;
-
-        @Override
-        public void appendServerData(CompoundTag data, BlockAccessor accessor) {
-            var entity = accessor.getBlockEntity();
-            if (entity == null) return;
-            var seed = entity.getPersistentData();
-            data.putBoolean(THIRSTY, seed.getBooleanOr("thirsty", false));
-            data.putInt(WATERINGS, (int) seed.getDoubleOr("waterings", 0));
-        }
 
         @Override
         public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
@@ -166,6 +178,22 @@ public final class ThermalShockJadePlugin implements IWailaPlugin {
             if (data.getBooleanOr(THIRSTY, false)) answer = "yes";
             tooltip.add(Component.translatable(SEED_KEY + "thirsty", Component.translatable(SEED_KEY + answer)));
             tooltip.add(Component.translatable(SEED_KEY + "waterings", Math.min(data.getIntOr(WATERINGS, 0), MAX_WATERINGS), MAX_WATERINGS));
+        }
+
+        @Override
+        public Identifier getUid() { return SEED; }
+    }
+
+    private enum SeedProviderData implements IServerDataProvider<BlockAccessor> {
+        INSTANCE;
+
+        @Override
+        public void appendServerData(CompoundTag data, BlockAccessor accessor) {
+            var entity = accessor.getBlockEntity();
+            if (entity == null) return;
+            var seed = entity.getPersistentData();
+            data.putBoolean(THIRSTY, seed.getBooleanOr("thirsty", false));
+            data.putInt(WATERINGS, (int) seed.getDoubleOr("waterings", 0));
         }
 
         @Override

@@ -3,24 +3,9 @@
   "temperature": -0.5,
   "downfall": 0.3,
   "effects": {
-    "music": {
-      "sound": "thermal_shock_reforged:stardustgarden",
-      "min_delay": 12000,
-      "max_delay": 24000,
-      "replace_current_music": true
-    },
-    "particle": {
-      "options": {
-        "type": "white_ash"
-      },
-      "probability": 0.02
-    },
-    "foliage_color": 10387789,
-    "grass_color": 9470285,
-    "sky_color": -5921366,
-    "fog_color": -1,
-    "water_color": -13224390,
-    "water_fog_color": -14737109
+    "foliage_color": "#9e814d",
+    "grass_color": "#90814d",
+    "water_color": "#36363a"
   },
   "spawners": {
     "monster": [],
@@ -33,7 +18,7 @@
     "misc": []
   },
   "spawn_costs": {},
-  "carvers": {},
+  "carvers": [],
   "features": [
     [],
     [],
@@ -46,5 +31,31 @@
     [],
     [],
     []
-  ]
+  ],
+  "attributes": {
+    "minecraft:audio/background_music": {
+      "default": {
+        "sound": "thermal_shock_reforged:stardustgarden",
+        "min_delay": 12000,
+        "max_delay": 24000,
+        "replace_current_music": true
+      },
+      "creative": {
+        "max_delay": 24000,
+        "min_delay": 12000,
+        "sound": "minecraft:music.creative"
+      }
+    },
+    "minecraft:visual/ambient_particles": [
+      {
+        "particle": {
+          "type": "white_ash"
+        },
+        "probability": 0.02
+      }
+    ],
+    "minecraft:visual/sky_color": "#a5a5aa",
+    "minecraft:visual/fog_color": "#ffffff",
+    "minecraft:visual/water_fog_color": "#1f212b"
+  }
 }

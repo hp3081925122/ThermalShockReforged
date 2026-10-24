@@ -1,8 +1,21 @@
 {
-  "type": "minecraft:forest_rock",
+  "type": "minecraft:block_blob",
   "config": {
     "state": {
       "Name": "thermal_shock_reforged:mossy_cobbled_shale"
+    },
+    "can_place_on": {
+      "type": "minecraft:any_of",
+      "predicates": [
+        {
+          "type": "minecraft:matching_block_tag",
+          "tag": "minecraft:dirt"
+        },
+        {
+          "type": "minecraft:matching_block_tag",
+          "tag": "minecraft:base_stone_overworld"
+        }
+      ]
     }
   }
 }

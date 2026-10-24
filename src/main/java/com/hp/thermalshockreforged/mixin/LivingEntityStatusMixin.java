@@ -45,10 +45,6 @@ public abstract class LivingEntityStatusMixin {
         com.hp.thermalshockreforged.content.atlas.AtlasArrivalVisuals.tick(entity);
         com.hp.thermalshockreforged.world.sanctum.PylonBuildingLock.tick(entity);
     }
-    @Inject(method = "onSyncedDataUpdated", at = @At("TAIL"))
-    private void thermalShockReforged$arrivalDataUpdated(net.minecraft.network.syncher.EntityDataAccessor<?> key, CallbackInfo callback) {
-        if ((Object)this instanceof com.hp.thermalshockreforged.content.atlas.AtlasArrivalState arrival) arrival.receiveArrivalProtectionData(key);
-    }
 
     @Inject(method = "removeAllEffects", at = @At("TAIL"), cancellable = true)
     private void thermalShockReforged$clearArrival(CallbackInfoReturnable<Boolean> callback) {
@@ -62,8 +58,8 @@ public abstract class LivingEntityStatusMixin {
         if (entity.hasEffect(net.minecraft.world.effect.MobEffects.RESISTANCE)) return;
         if (!entity.level().isClientSide() && effect.equals(net.minecraft.world.effect.MobEffects.RESISTANCE) && entity instanceof com.hp.thermalshockreforged.content.atlas.AtlasArrivalState arrival && arrival.arrivalProtectionTicks() > 0) { arrival.beginArrivalProtection(0); callback.setReturnValue(true); }
     }
-    @Inject(method = "hurt", at = @At("HEAD"), cancellable = true)
-    private void thermalShockReforged$infectionAttack(DamageSource source, float amount, CallbackInfoReturnable<Boolean> callback) {
+    @Inject(method = "hurtServer", at = @At("HEAD"), cancellable = true)
+    private void thermalShockReforged$infectionAttack(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount, CallbackInfoReturnable<Boolean> callback) {
         LivingEntity entity = (LivingEntity) (Object) this;
         if (!(entity instanceof Player)) {
             InfectionStatus.onAttack(entity, source);
@@ -71,9 +67,9 @@ public abstract class LivingEntityStatusMixin {
         }
     }
 
-    @Inject(method = "onEffectRemoved", at = @At("TAIL"))
-    private void thermalShockReforged$infectionRemoved(MobEffectInstance instance, CallbackInfo callback) {
-        if (instance.is(StatusContent.INFECTED)) InfectionStatus.onRemoved((LivingEntity) (Object) this);
+    @Inject(method = "onEffectsRemoved", at = @At("TAIL"))
+    private void thermalShockReforged$infectionRemoved(java.util.Collection<MobEffectInstance> instances, CallbackInfo callback) {
+        for (MobEffectInstance instance : instances) if (instance.is(StatusContent.INFECTED)) InfectionStatus.onRemoved((LivingEntity) (Object) this);
     }
 
     @Inject(method = "onEffectAdded", at = @At("TAIL"))
@@ -93,7 +89,7 @@ public abstract class LivingEntityStatusMixin {
     }
 
     @Inject(method = "actuallyHurt", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getDamageAfterArmorAbsorb(Lnet/minecraft/world/damagesource/DamageSource;F)F", ordinal = 0), require = 1)
-    private void thermalShockReforged$parryBeforeArmor(DamageSource source, float amount, CallbackInfo callback) {
+    private void thermalShockReforged$parryBeforeArmor(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount, CallbackInfo callback) {
         LivingEntity entity = (LivingEntity) (Object) this;
         if (!(entity instanceof Player)) {
             ParryingStatus.beforeArmor(entity);

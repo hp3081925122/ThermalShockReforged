@@ -1,0 +1,116 @@
+{
+  "clock": "minecraft:overworld",
+  "tracks": {
+    "minecraft:gameplay/sky_light_level": {
+      "keyframes": [
+        {
+          "ticks": 0,
+          "value": 0.26666668
+        }
+      ],
+      "modifier": "multiply"
+    },
+    "minecraft:gameplay/surface_slime_spawn_chance": {
+      "keyframes": [
+        {
+          "ticks": 0,
+          "value": 0.5
+        }
+      ],
+      "modifier": "maximum"
+    },
+    "minecraft:gameplay/turtle_egg_hatch_chance": {
+      "keyframes": [
+        {
+          "ticks": 0,
+          "value": 0.002
+        }
+      ],
+      "modifier": "maximum"
+    },
+    "minecraft:visual/fog_color": {
+      "keyframes": [
+        {
+          "ticks": 0,
+          "value": "#000000"
+        }
+      ]
+    },
+    "minecraft:visual/moon_angle": {
+      "keyframes": [
+        {
+          "ticks": 0,
+          "value": 360.0
+        }
+      ]
+    },
+    "minecraft:visual/moon_phase": {
+      "keyframes": [
+        {
+          "ticks": 0,
+          "value": "full_moon"
+        }
+      ]
+    },
+    "minecraft:visual/sky_color": {
+      "keyframes": [
+        {
+          "ticks": 0,
+          "value": "#000000"
+        }
+      ],
+      "modifier": "multiply"
+    },
+    "minecraft:visual/sky_light_color": {
+      "keyframes": [
+        {
+          "ticks": 0,
+          "value": "#7a7aff"
+        }
+      ],
+      "modifier": "multiply"
+    },
+    "minecraft:visual/sky_light_factor": {
+      "keyframes": [
+        {
+          "ticks": 0,
+          "value": 0.24
+        }
+      ],
+      "modifier": "multiply"
+    },
+    "minecraft:visual/star_angle": {
+      "keyframes": [
+        {
+          "ticks": 0,
+          "value": 180.0
+        }
+      ]
+    },
+    "minecraft:visual/star_brightness": {
+      "keyframes": [
+        {
+          "ticks": 0,
+          "value": 0.5
+        }
+      ],
+      "modifier": "maximum"
+    },
+    "minecraft:visual/sun_angle": {
+      "keyframes": [
+        {
+          "ticks": 0,
+          "value": 180.0
+        }
+      ]
+    },
+    "minecraft:visual/sunrise_sunset_color": {
+      "keyframes": [
+        {
+          "ticks": 0,
+          "value": "#00b33333"
+        }
+      ]
+    }
+  }
+}

@@ -1,16 +1,10 @@
 {
   "type": "thermal_shock_reforged:centrifuge",
   "energy": [
-    {
-      "item": "thermal_shock_reforged:pyrogenic_energy"
-    },
-    {
-      "item": "thermal_shock_reforged:pyrogenic_energy"
-    }
+    "thermal_shock_reforged:pyrogenic_energy",
+    "thermal_shock_reforged:pyrogenic_energy"
   ],
-  "ingredient": {
-    "item": "thermal_shock_reforged:frost_pearl"
-  },
+  "ingredient": "thermal_shock_reforged:frost_pearl",
   "result": {
     "id": "thermal_shock_reforged:cryonic_energy",
     "count": 1

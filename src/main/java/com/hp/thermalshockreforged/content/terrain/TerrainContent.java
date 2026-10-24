@@ -131,7 +131,7 @@ public final class TerrainContent {
                 Player player, InteractionHand hand, BlockHitResult hit) {
             if (player.isShiftKeyDown() || !player.getMainHandItem().is(Items.BONE_MEAL) || hit.getDirection() != Direction.UP
                     || !level.getBlockState(pos.above()).canBeReplaced()) {
-                return InteractionResult.PASS;
+                return InteractionResult.TRY_WITH_EMPTY_HAND;
             }
             if (!level.isClientSide()) {
                 Block plant = state.is(TWILIT_GRASSY_SHALE.get()) ? com.hp.thermalshockreforged.content.plants.PlantContent.TWILIT_SHRUB.get()

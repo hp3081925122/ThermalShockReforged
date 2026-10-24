@@ -1,14 +1,8 @@
 {
   "type": "minecraft:smithing_transform",
-  "template": {
-    "item": "thermal_shock_reforged:zenith_smithing_template"
-  },
-  "base": {
-    "item": "thermal_shock_reforged:cobalt_thermoblaster"
-  },
-  "addition": {
-    "item": "thermal_shock_reforged:stratus_alloy"
-  },
+  "template": "thermal_shock_reforged:zenith_smithing_template",
+  "base": "thermal_shock_reforged:cobalt_thermoblaster",
+  "addition": "thermal_shock_reforged:stratus_alloy",
   "result": {
     "id": "thermal_shock_reforged:zenith_thermoblaster"
   }

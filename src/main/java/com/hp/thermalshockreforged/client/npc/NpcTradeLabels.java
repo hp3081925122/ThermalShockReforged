@@ -40,8 +40,8 @@ public final class NpcTradeLabels {
         if (recipe == null) return false;
         String suffix = key.substring(key.lastIndexOf('.') + 1);
         if (suffix.equals("label_lorem_ipsum")) {
-            if (!inside(mouseX, mouseY, x - ICON_OFFSET_X, y - ICON_OFFSET_Y, ICON_SIZE, ICON_SIZE) || recipe.result().isEmpty()) return false;
-            graphics.setTooltipForNextFrame(font, recipe.result(), mouseX, mouseY);
+            if (!inside(mouseX, mouseY, x - ICON_OFFSET_X, y - ICON_OFFSET_Y, ICON_SIZE, ICON_SIZE) || recipe.result().count() < 1) return false;
+            graphics.setTooltipForNextFrame(font, recipe.result().create(), mouseX, mouseY);
             return true;
         }
         if (suffix.equals("label_xxx")) {

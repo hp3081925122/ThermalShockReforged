@@ -54,7 +54,7 @@ public final class CentrifugeMenu extends AbstractContainerMenu {
         var ingredient = storage.getItem(2);
         var recipe = CentrifugeRecipe.find(level, first, second, ingredient);
         if (recipe == null) return false;
-        var result = recipe.result().copy();
+        var result = recipe.result().create();
         first.shrink(1);
         second.shrink(1);
         ingredient.shrink(1);

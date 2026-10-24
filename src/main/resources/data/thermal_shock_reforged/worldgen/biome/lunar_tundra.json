@@ -3,12 +3,9 @@
   "temperature": 0,
   "downfall": 0,
   "effects": {
-    "foliage_color": 10387789,
-    "grass_color": 9470285,
-    "sky_color": -15856113,
-    "fog_color": -16777216,
-    "water_color": 4159204,
-    "water_fog_color": 329011
+    "foliage_color": "#9e814d",
+    "grass_color": "#90814d",
+    "water_color": "#3f76e4"
   },
   "spawners": {
     "monster": [],
@@ -21,7 +18,7 @@
     "misc": []
   },
   "spawn_costs": {},
-  "carvers": {},
+  "carvers": [],
   "features": [
     [],
     [],
@@ -34,5 +31,10 @@
     [],
     [],
     []
-  ]
+  ],
+  "attributes": {
+    "minecraft:visual/sky_color": "#0e0e0f",
+    "minecraft:visual/fog_color": "#000000",
+    "minecraft:visual/water_fog_color": "#050533"
+  }
 }

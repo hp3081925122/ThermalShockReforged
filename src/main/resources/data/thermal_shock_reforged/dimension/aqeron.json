@@ -54,50 +54,122 @@
         },
         "depth": 0,
         "ridges": 0,
-        "initial_density_without_jaggedness": {
-          "type": "minecraft:add",
-          "argument1": -0.234375,
-          "argument2": {
-            "type": "minecraft:mul",
-            "argument1": {
-              "type": "minecraft:y_clamped_gradient",
-              "from_y": 4,
-              "to_y": 32,
-              "from_value": 0,
-              "to_value": 1
-            },
-            "argument2": {
+        "preliminary_surface_level": {
+          "type": "minecraft:range_choice",
+          "input": {
+            "type": "minecraft:find_top_surface",
+            "density": {
               "type": "minecraft:add",
-              "argument1": 0.234375,
+              "argument1": -0.390625,
               "argument2": {
                 "type": "minecraft:add",
-                "argument1": -23.4375,
+                "argument1": -0.234375,
                 "argument2": {
                   "type": "minecraft:mul",
                   "argument1": {
                     "type": "minecraft:y_clamped_gradient",
-                    "from_y": 56,
-                    "to_y": 312,
-                    "from_value": 1,
-                    "to_value": 0
+                    "from_y": 4,
+                    "to_y": 32,
+                    "from_value": 0,
+                    "to_value": 1
                   },
                   "argument2": {
                     "type": "minecraft:add",
-                    "argument1": 23.4375,
+                    "argument1": 0.234375,
                     "argument2": {
                       "type": "minecraft:add",
-                      "argument1": -0.703125,
+                      "argument1": -23.4375,
                       "argument2": {
-                        "type": "minecraft:cache_2d",
-                        "argument": {
-                          "type": "minecraft:end_islands"
+                        "type": "minecraft:mul",
+                        "argument1": {
+                          "type": "minecraft:y_clamped_gradient",
+                          "from_y": 56,
+                          "to_y": 312,
+                          "from_value": 1,
+                          "to_value": 0
+                        },
+                        "argument2": {
+                          "type": "minecraft:add",
+                          "argument1": 23.4375,
+                          "argument2": {
+                            "type": "minecraft:add",
+                            "argument1": -0.703125,
+                            "argument2": {
+                              "type": "minecraft:cache_2d",
+                              "argument": {
+                                "type": "minecraft:end_islands"
+                              }
+                            }
+                          }
                         }
                       }
                     }
                   }
                 }
               }
-            }
+            },
+            "upper_bound": 128.0,
+            "lower_bound": -4,
+            "cell_height": 4
+          },
+          "min_inclusive": -4.0,
+          "max_exclusive": -3.0,
+          "when_in_range": 1000000.0,
+          "when_out_of_range": {
+            "type": "minecraft:find_top_surface",
+            "density": {
+              "type": "minecraft:add",
+              "argument1": -0.390625,
+              "argument2": {
+                "type": "minecraft:add",
+                "argument1": -0.234375,
+                "argument2": {
+                  "type": "minecraft:mul",
+                  "argument1": {
+                    "type": "minecraft:y_clamped_gradient",
+                    "from_y": 4,
+                    "to_y": 32,
+                    "from_value": 0,
+                    "to_value": 1
+                  },
+                  "argument2": {
+                    "type": "minecraft:add",
+                    "argument1": 0.234375,
+                    "argument2": {
+                      "type": "minecraft:add",
+                      "argument1": -23.4375,
+                      "argument2": {
+                        "type": "minecraft:mul",
+                        "argument1": {
+                          "type": "minecraft:y_clamped_gradient",
+                          "from_y": 56,
+                          "to_y": 312,
+                          "from_value": 1,
+                          "to_value": 0
+                        },
+                        "argument2": {
+                          "type": "minecraft:add",
+                          "argument1": 23.4375,
+                          "argument2": {
+                            "type": "minecraft:add",
+                            "argument1": -0.703125,
+                            "argument2": {
+                              "type": "minecraft:cache_2d",
+                              "argument": {
+                                "type": "minecraft:end_islands"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "upper_bound": 128.0,
+            "lower_bound": -4,
+            "cell_height": 4
           }
         },
         "final_density": {

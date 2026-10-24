@@ -3,30 +3,9 @@
   "temperature": -0.2,
   "downfall": 1,
   "effects": {
-    "mood_sound": {
-      "sound": "thermal_shock_reforged:windchime",
-      "tick_delay": 25008,
-      "offset": 8,
-      "block_search_extent": 2
-    },
-    "music": {
-      "sound": "thermal_shock_reforged:graveyard",
-      "min_delay": 12000,
-      "max_delay": 24000,
-      "replace_current_music": true
-    },
-    "particle": {
-      "options": {
-        "type": "ash"
-      },
-      "probability": 0.01
-    },
-    "foliage_color": 10387789,
-    "grass_color": 9470285,
-    "sky_color": -11383211,
-    "fog_color": -11383211,
-    "water_color": -13556443,
-    "water_fog_color": -15265519
+    "foliage_color": "#9e814d",
+    "grass_color": "#90814d",
+    "water_color": "#312525"
   },
   "spawners": {
     "monster": [],
@@ -39,7 +18,7 @@
     "misc": []
   },
   "spawn_costs": {},
-  "carvers": {},
+  "carvers": [],
   "features": [
     [],
     [],
@@ -52,5 +31,39 @@
     [],
     [],
     []
-  ]
+  ],
+  "attributes": {
+    "minecraft:audio/ambient_sounds": {
+      "mood": {
+        "sound": "thermal_shock_reforged:windchime",
+        "tick_delay": 25008,
+        "offset": 8,
+        "block_search_extent": 2
+      }
+    },
+    "minecraft:audio/background_music": {
+      "default": {
+        "sound": "thermal_shock_reforged:graveyard",
+        "min_delay": 12000,
+        "max_delay": 24000,
+        "replace_current_music": true
+      },
+      "creative": {
+        "max_delay": 24000,
+        "min_delay": 12000,
+        "sound": "minecraft:music.creative"
+      }
+    },
+    "minecraft:visual/ambient_particles": [
+      {
+        "particle": {
+          "type": "ash"
+        },
+        "probability": 0.01
+      }
+    ],
+    "minecraft:visual/sky_color": "#524e55",
+    "minecraft:visual/fog_color": "#524e55",
+    "minecraft:visual/water_fog_color": "#171111"
+  }
 }

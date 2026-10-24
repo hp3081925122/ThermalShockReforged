@@ -4,7 +4,6 @@ import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.MaterialContent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -13,16 +12,10 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.gametest.GameTestHolder;
-import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
-@GameTestHolder(ThermalShockReforged.MOD_ID)
-@PrefixGameTestTemplate(false)
 public final class AxisMigrationTests {
     private record Expected(String id, int flammability) {
     }
-
-    @GameTest(template = "migration_empty")
     public static void allPillarsRetainPlacementRotationLightAndFire(GameTestHelper helper) {
         Expected[] expected = {
             new Expected("vermilli_wood", 6),
@@ -59,7 +52,7 @@ public final class AxisMigrationTests {
             var block = MaterialContent.blocks().get(item.id()).get();
             var state = block.defaultBlockState();
             helper.assertTrue(state.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y, "Default pillar axis must remain Y: " + item.id());
-            helper.assertTrue(state.getLightBlock(helper.getLevel(), position) == 15, "Pillar light blocking must remain 15: " + item.id());
+            helper.assertTrue(state.getLightDampening() == 15, "Pillar light blocking must remain 15: " + item.id());
             if (item.flammability() >= 0) helper.assertTrue(block.getFlammability(state, helper.getLevel(), position, Direction.UP) == item.flammability(), "Pillar fire behavior must retain source value: " + item.id());
             for (Direction face : Direction.values()) {
                 var context = new BlockPlaceContext(helper.getLevel(), null, InteractionHand.MAIN_HAND, block.asItem().getDefaultInstance(), new BlockHitResult(Vec3.atCenterOf(position), face, position, false));

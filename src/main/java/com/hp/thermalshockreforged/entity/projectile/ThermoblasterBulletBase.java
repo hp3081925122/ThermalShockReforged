@@ -28,7 +28,7 @@ public abstract class ThermoblasterBulletBase extends LegacyArrowEntity {
     public static void fireWeaponShot(ServerLevel level, LivingEntity shooter, java.util.UUID owner, net.minecraft.world.phys.Vec3 origin, net.minecraft.world.phys.Vec3 direction, boolean shotgun, float speed) {
         ThermoblasterBulletBase bullet = shotgun ? new ThermoblasterShotgunBulletEntity(ProjectileContent.THERMOBLASTER_SHOTGUN_BULLET.get(), level) : new ThermoblasterBulletEntity(ProjectileContent.THERMOBLASTER_BULLET.get(), level);
         if (shooter != null) bullet.setOwner(shooter);
-        else ((com.hp.thermalshockreforged.mixin.ProjectileOwnerAccess) (Object) bullet).thermalShockReforged$setOwnerUUID(owner);
+        else bullet.setOwner(net.minecraft.world.entity.EntityReference.<net.minecraft.world.entity.Entity>of(owner));
         bullet.setPos(origin); bullet.setBaseDamage(shotgun ? 8 : .5); bullet.setImpactKnockback(shotgun ? 1 : 0); bullet.setSilent(true); bullet.setCritArrow(false);
         if (shotgun) ((com.hp.thermalshockreforged.mixin.ArrowPiercingAccess) (Object) bullet).thermalShockReforged$setPierceLevel((byte) 2);
         bullet.shoot(direction.x, direction.y, direction.z, speed, shotgun ? 20 : 1); level.addFreshEntity(bullet);

@@ -32,7 +32,7 @@ public final class TransmutatorBlock extends Block implements com.hp.thermalshoc
     private boolean process(ItemStack input, Level level, BlockPos pos, Player player) {
         var recipe = TransmutationRecipe.find(level, input);
         if (recipe == null) return false;
-        var output = recipe.result().copy();
+        var output = recipe.result().create();
         if (!(level instanceof ServerLevel server)) return true;
         input.shrink(1);
         if (!MachineContent.drop(server, pos.getX() + .5, pos.getY() + 1, pos.getZ() + .5, output)) {
@@ -45,7 +45,7 @@ public final class TransmutatorBlock extends Block implements com.hp.thermalshoc
         return true;
     }
     @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        return process(stack, level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS;
+        return process(stack, level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.TRY_WITH_EMPTY_HAND;
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { return InteractionResult.PASS; }
     @Override protected int getLightDampening(BlockState state) { return 15; }

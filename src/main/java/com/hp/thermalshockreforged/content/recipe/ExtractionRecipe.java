@@ -11,6 +11,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -25,9 +26,9 @@ public record ExtractionRecipe(Ingredient ingredient, int levels, Optional<Exper
         ).apply(instance, Experience::new));
     }
 
-    public record Output(ItemStack item, float chance, IntProvider repeat) {
+    public record Output(ItemStackTemplate item, float chance, IntProvider repeat) {
         public static final Codec<Output> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-                ItemStack.CODEC.fieldOf("item").forGetter(Output::item),
+                ItemStackTemplate.CODEC.fieldOf("item").forGetter(Output::item),
                 Codec.floatRange(0, 1).optionalFieldOf("chance", 1F).forGetter(Output::chance),
                 net.minecraft.util.valueproviders.IntProviders.POSITIVE_CODEC.optionalFieldOf("repeat", ConstantInt.of(1)).forGetter(Output::repeat)
         ).apply(instance, Output::new));

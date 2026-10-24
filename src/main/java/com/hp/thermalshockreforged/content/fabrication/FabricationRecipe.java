@@ -17,6 +17,7 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeInput;
@@ -29,7 +30,7 @@ import net.minecraft.world.level.Level;
 public final class FabricationRecipe implements Recipe<FabricationRecipe.Input> {
     public record Cost(Holder<Item> item, int count) {
         public static final Codec<Cost> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-                ItemStack.CODEC.xmap(stack -> BuiltInRegistries.ITEM.wrapAsHolder(stack.getItem()), holder -> new ItemStack(holder.value())).fieldOf("item").forGetter(Cost::item),
+                Item.CODEC.fieldOf("item").forGetter(Cost::item),
                 Codec.intRange(1, 4096).fieldOf("count").forGetter(Cost::count)
         ).apply(instance, Cost::new));
         public static final StreamCodec<RegistryFriendlyByteBuf, Cost> STREAM_CODEC = StreamCodec.composite(
@@ -37,7 +38,7 @@ public final class FabricationRecipe implements Recipe<FabricationRecipe.Input> 
                 ByteBufCodecs.VAR_INT, Cost::count, Cost::new);
 
         public Cost {
-            if (new ItemStack(item).isEmpty() || count < 1 || count > 4096) throw new IllegalArgumentException("Invalid fabrication cost");
+            if (item.value() == net.minecraft.world.item.Items.AIR || count < 1 || count > 4096) throw new IllegalArgumentException("Invalid fabrication cost");
         }
         public boolean matches(ItemStack stack) { return stack.is(item.value()) && stack.getCount() >= count; }
     }
@@ -50,14 +51,14 @@ public final class FabricationRecipe implements Recipe<FabricationRecipe.Input> 
 
     private final List<Cost> materials;
     private final Cost energy;
-    private final ItemStack result;
+    private final ItemStackTemplate result;
     private final Map<Item, Integer> totals;
 
-    public FabricationRecipe(List<Cost> materials, Cost energy, ItemStack result) {
-        if (materials.isEmpty() || materials.size() > 64 || result.isEmpty()) throw new IllegalArgumentException("Invalid fabrication recipe");
+    public FabricationRecipe(List<Cost> materials, Cost energy, ItemStackTemplate result) {
+        if (materials.isEmpty() || materials.size() > 64 || result.item().value() == net.minecraft.world.item.Items.AIR || result.count() < 1) throw new IllegalArgumentException("Invalid fabrication recipe");
         this.materials = List.copyOf(materials);
         this.energy = energy;
-        this.result = result.copy();
+        this.result = result;
         var counts = new LinkedHashMap<Item, Integer>();
         for (var cost : materials) counts.merge(cost.item().value(), cost.count(), Integer::sum);
         totals = Map.copyOf(counts);
@@ -82,11 +83,11 @@ public final class FabricationRecipe implements Recipe<FabricationRecipe.Input> 
     }
 
     public int energyCount() { return energy.count(); }
-    public ItemStack result() { return result.copy(); }
+    public ItemStack result() { return result.create(); }
     public List<Cost> materials() { return materials; }
     public Cost energy() { return energy; }
     @Override public boolean matches(Input input, Level level) { return removalPlan(input) != null; }
-    @Override public ItemStack assemble(Input input) { return result.copy(); }
+    @Override public ItemStack assemble(Input input) { return result.create(); }
     public boolean canCraftInDimensions(int width, int height) { return false; }
     @Override public boolean isSpecial() { return true; }
     @Override public boolean showNotification() { return false; }
@@ -109,12 +110,12 @@ public final class FabricationRecipe implements Recipe<FabricationRecipe.Input> 
         private static final MapCodec<FabricationRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
                 MATERIALS_CODEC.fieldOf("materials").forGetter(recipe -> recipe.materials),
                 Cost.CODEC.fieldOf("energy").forGetter(recipe -> recipe.energy),
-                ItemStack.CODEC.fieldOf("result").forGetter(recipe -> recipe.result)
+                ItemStackTemplate.CODEC.fieldOf("result").forGetter(recipe -> recipe.result)
         ).apply(instance, FabricationRecipe::new));
         private static final StreamCodec<RegistryFriendlyByteBuf, FabricationRecipe> STREAM_CODEC = StreamCodec.composite(
                 Cost.STREAM_CODEC.apply(ByteBufCodecs.list(64)), recipe -> recipe.materials,
                 Cost.STREAM_CODEC, recipe -> recipe.energy,
-                ItemStack.STREAM_CODEC, recipe -> recipe.result,
+                ItemStackTemplate.STREAM_CODEC, recipe -> recipe.result,
                 FabricationRecipe::new);
         public static final RecipeSerializer<FabricationRecipe> INSTANCE = new RecipeSerializer<>(CODEC, STREAM_CODEC);
     }
