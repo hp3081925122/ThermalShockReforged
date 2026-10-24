@@ -30,7 +30,7 @@ public final class ChillooEntity extends PathfinderMob implements GeoEntity {
         xpReward = 6;
     }
 
-    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.3).add(Attributes.MAX_HEALTH, 20).add(Attributes.ARMOR, 2).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, 0.6).add(Attributes.ATTACK_KNOCKBACK, 0.6); }
+    public static AttributeSupplier.Builder createAttributes() { return Mob.createMobAttributes().add(Attributes.TEMPT_RANGE, 10).add(Attributes.MOVEMENT_SPEED, 0.3).add(Attributes.MAX_HEALTH, 20).add(Attributes.ARMOR, 2).add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.STEP_HEIGHT, 0.6).add(Attributes.ATTACK_KNOCKBACK, 0.6); }
 
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {

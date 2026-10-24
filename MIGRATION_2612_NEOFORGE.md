@@ -195,3 +195,18 @@
 - GameTest 模拟玩家：
   - 登录后需要调用 `connection.markClientLoaded()`。26.1 中，客户端尚未加载完成的 `ServerPlayer` 对所有伤害免疫（`!connection.hasClientLoaded()`），服务端也会忽略它的大部分操作包。
   - 频道协商时排除 NeoForge 的 `ConfigFilePayload`：模拟玩家没有经过配置阶段，`ConfigSync` 中没有它的条目，会在 tick 末尾抛出异常。
+- 诱惑 AI 属性：26.1 的 `TemptGoal` 会读取实体的 `Attributes.TEMPT_RANGE` 作为诱惑距离（1.21.1 固定为 10 格）。原版只在 `Animal.createAnimalAttributes()` 里加入了这个属性，而本模组的 Chilloo、Probosker、Sentrarius、Whisper 是用 `Mob.createMobAttributes()` 构建属性的，缺少它，服务端 tick 这些实体时会崩溃。现在四个实体都补上了 `TEMPT_RANGE = 10`，与 1.21.1 的距离一致。
+- 结构模板离线升级：
+  - **问题**：游戏加载模板时会用 DataFixer 把 1.21.1（DataVersion 3955/3465）升级到当前版本，但原版 schema 里没有本模组的实体和方块实体 id，只要模板中含有一个本模组 id，整份模板就不会被升级，按原样加载。服务端测试中出现了 63 次属性解码失败（`minecraft:generic.*`）和画/物品展示框“invalid position”，就是这个原因。
+  - **处理**：已用游戏自带的 DataFixer 离线升级全部 195 份模板。升级前先把本模组的实体 id 临时换成 `minecraft:silverfish`、方块实体 id 换成 `minecraft:chest`，升级后再换回原 id。现在 195 份模板都已是 DataVersion 4790。
+  - 升级带来的变化（都是原版 DataFixer 本应做的转换）：
+    - 属性 id 去掉 `generic.` 前缀；
+    - `CustomName`、告示牌文字、书本、物品名由 JSON 字符串改为文本组件；
+    - 画和物品展示框的 `TileX/Y/Z` 改为 `block_pos`；
+    - `FallDistance` 改为 `fall_distance`；
+    - 熔炉、烟熏炉的字段名改为新名称；
+    - 盔甲架装备改为 `equipment`；
+    - 方块调色板中的 `minecraft:chain` 改为 `minecraft:iron_chain`。
+  - 本模组方块实体的数据逐项比对过，没有任何改动。模组实体的 `HandItems`/`ArmorItems` 都是空列表，没有丢失装备。遗留的 `ForgeCaps` 字段 1.21.1 本来就不读取，原样保留。
+  - 模板中有 45 个实体（分布在 benzor_home、cathedral、cathedral_base、junkyard、vilebath_castle、whisper_home）的属性列表里残留了 Forge 1.20 时代的 `forge:step_height`。1.21.1 读到这个未知属性时只跳过这一条；26.1 则只要列表里有一个未知 key，就会丢掉整个属性列表，导致这些实体的移速、跟随距离等属性设置全部失效。现已用保留类型的 NBT 编辑脚本只删除这一条，删除前已逐字节做往返校验，删除后再逐项比对，确认没有改动其他内容。
+  - 画和物品展示框在模板中保存的 `block_pos` 是建造时的世界坐标，放置结构时会报 “Block-attached entity at invalid position”。1.21.1 的 `BlockAttachedEntity` 有完全相同的检查和报错，这是原模组模板本身就有的问题，不属于迁移回退，未处理。
