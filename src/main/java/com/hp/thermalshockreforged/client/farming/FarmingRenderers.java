@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.client.farming;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoBlockRenderer;
@@ -10,7 +15,6 @@ import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.extensions.common.*;
 import com.geckolib.animatable.GeoAnimatable;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
 import com.geckolib.renderer.*;
 
 public final class FarmingRenderers {
@@ -47,7 +51,7 @@ public final class FarmingRenderers {
         }
     }
 
-    private static final class Model<T extends GeoAnimatable> extends LegacyGeoModel<T> {
+    private static final class Model<T extends GeoAnimatable> extends TsrGeoModel<T> {
         private CropKind kind(T entity) { return entity instanceof GeoCropBlockEntity block ? block.kind : ((GeoCropItem)entity).kind; }
         @Override public Identifier getModelResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "geo/" + kind(entity).model() + ".geo.json"); }
         @Override public Identifier getTextureResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "textures/block/" + kind(entity).id + ".png"); }

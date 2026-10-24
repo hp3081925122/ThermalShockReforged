@@ -92,7 +92,7 @@
   - `isMoving()` 和 `getLimbSwingAmount()` 按 GeckoLib 4.9.2 原公式实现：摆动量取 `walkAnimation.speed(pt)`，上限 1，死亡或坐骑坐姿时为 0；移动判定为水平平均速度 ≥ 0.015 且摆动量 ≠ 0。
   - `ITEMSTACK` 是自定义 DataTicket，必须由天线头盔的装甲渲染器在 `addRenderData` 中写入（渲染阶段待办）。
 - Kilolyte 动画偏移：GeckoLib 4 的 `adjustTick` 等价于把「过渡+动画」整条时间线前移 offset tick。26.1 改为在 `triggerAnimation` 后执行 `triggeredAnimTime -= clientAnimationOffset`。
-- 暂停时播放动画：GeckoLib 5 删除了 `shouldPlayAnimsWhileGamePaused`，动画时间改用 `level.getGameTime()`。LabMachinist、Concierge、Florist、Ly、Shutterbug 保留该方法（不再是 override）。**渲染阶段待办**：这些 NPC 的渲染器在游戏暂停时要改用真实时间推进 animatable age，才能还原单人暂停时继续播放待机动画的效果。
+- 暂停时播放动画：GeckoLib 5 删除了 `shouldPlayAnimsWhileGamePaused`。核对 GeckoLib 4.8.4 源码：实体的动画时间是 `GeoEntity.getTick() = tickCount` 加 `partialTick`，单人暂停时两者都冻结，所以这个开关对 LabMachinist、Concierge、Florist、Ly、Shutterbug 实际没有可见效果。GeckoLib 5 用 `EntityRenderState.ageInTicks`，暂停时同样冻结，表现一致，因此删除了这些残留方法，渲染端不需要补偿。
 - 其他待核对：affectNeighborsAfterRemoval 时序、tooltip 顺序、武器 ITEM_USED 统计、gamerule 名称、部分实体 UUID 以字符串保存。
 - 渲染批次 1（原版渲染器与粒子，已删除 `LegacyEntityRenderer`/`LegacyMobRenderer`/`LegacySingleQuadParticle`/`AnimationState` 空桩）：
   - 弹射物渲染器改为 `extractRenderState` + `submit`。俯仰与偏航用 `Entity.getXRot/getYRot(partialTick)` 插值，和 1.21.1 的 `Mth.lerp(pt, xRotO, xRot)` 相同；模型部件用 `submitModelPart` 提交，并传入 outlineColor，所以发光描边保持不变。
@@ -102,3 +102,11 @@
   - 粒子：1.21.1 的 `PARTICLE_SHEET_OPAQUE` 和 `PARTICLE_SHEET_LIT` 都是不混合的 cutout，对应 26.1 的 `Layer.OPAQUE`；`PARTICLE_SHEET_TRANSLUCENT` 对应 `Layer.TRANSLUCENT`（Bastion、Squall、Liteprism）。按原代码显式指定，不用 `Layer.bySprite` 自动判断。`AaaStationaryParticle.Provider` 的参数改为 `SingleQuadParticle.Layer`，所有注册点都是 OPAQUE。
   - `pickSprite` 改为构造时 `sprites.get(level.getRandom())`，仍然是随机帧。
   - Liteprism 光束是任意长度、按 0.5 格分段的矩形条带，26.1 的方形四边形粒子无法表示。为此新增 `ParticleRenderType` 和 `BeamGroup`（`RegisterParticleGroupsEvent`），用 `TRANSLUCENT_PARTICLE` 管线、粒子图集和粒子输出目标通过 `submitCustomGeometry` 绘制。剔除沿用 NeoForge 1.21.1 的整条 AABB（26.1 原版只检查粒子原点）。
+- 渲染批次 2（GeckoLib 实体，已删除 `LegacyGeoEntityRenderer`/`LegacyGeoRenderLayer`/`LegacyAnimationData` 空桩）：
+  - 编译需要 GeckoLib 的接口注入（`EntityRenderState`、`BlockEntityRenderState` 实现 `GeoRenderState`），`build.gradle` 中通过 `interfaceInjectionData` 引入 `gradle/interface_injections/geckolib.json`（从 GeckoLib jar 复制）。
+  - 新增 `client/geo`：`TsrGeoModel` 在 `addAdditionalStateData` 中按实体计算模型/贴图并写入 DataTicket，渲染时再读出，避免共享字段导致多个实体贴图串用。`TsrGeoEntityRenderer` 负责隐身判定（与 GeckoLib 4 相同：对玩家可见的隐身用半透明，否则只画描边）、可见时的渲染类型、逐实体缩放和骨骼调整。
+  - 头部转向：GeckoLib 4 的 `setRotX/Y` 是绝对值，GeckoLib 5 的快照是相对 `baseRot` 的偏移，`lookAt` 改为设置「目标角度减去 baseRot」，结果与原版相同。俯仰取 `ENTITY_PITCH`，偏航取 `LivingEntityRenderState.yRot`（即 netHeadYaw）。按实体类型的守卫（Gaze 仅 Spirit、Protoi 仅 Delta/Sunbeam、Magnetite/LilJelly 等）改用 `ANIMATABLE_CLASS` 判断。
+  - 31 个 eyes 发光层统一改为 `GeoEyesLayer`，用 `GeoReRender` 临时替换光照/覆盖/颜色后在 `order(1)` 重新提交模型，对应原来的 `reRender`。原来写死光照的层（如 Forecast 的 15728640）保留固定光照。Titan 的发光层仍然只在 MANTLE 变种上绘制。
+  - 死亡翻转：Bloomling 仅 dandy 变种翻转（通过 DataTicket 记录），Herald 与 Protoi Sunbeam 不翻转，其余按原代码返回 0。
+  - 默认渲染类型：GeckoLib 4 默认 `entityCutoutNoCull`，26.1 改名为 `entityCutout`（剔除版是 `entityCutoutCull`），所以默认值保持一致。
+  - `preRender` 中的整体缩放（Titan 1.6、Monolith 1.7、Sola `visualScale()`）改为 `withScale` 或 `renderScale`。

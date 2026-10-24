@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.client.decor.geo;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoBlockRenderer;
@@ -14,7 +19,6 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.extensions.common.*;
 import com.geckolib.animatable.GeoAnimatable;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
 import com.geckolib.renderer.*;
 
 public final class GeoDecorRenderers {
@@ -81,7 +85,7 @@ public final class GeoDecorRenderers {
         }
     }
 
-    private static final class Model<T extends GeoAnimatable> extends LegacyGeoModel<T> {
+    private static final class Model<T extends GeoAnimatable> extends TsrGeoModel<T> {
         private GeoDecorKind kind(T entity) { return entity instanceof GeoDecorBlockEntity block ? block.kind : ((GeoDecorItem)entity).kind; }
         private String civilianAsset(T entity) {
             int variant = entity instanceof GeoDecorBlockEntity block ? block.getBlockState().getValue(DialogueBlock.VARIANT) : 0;

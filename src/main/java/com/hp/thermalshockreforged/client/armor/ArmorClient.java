@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.client.armor;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
@@ -20,7 +25,6 @@ import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsE
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoArmorRenderer;
 
 public final class ArmorClient {
@@ -64,7 +68,7 @@ public final class ArmorClient {
         }
     }
 
-    private static final class Model extends LegacyGeoModel<GeoSetArmorItem> {
+    private static final class Model extends TsrGeoModel<GeoSetArmorItem> {
         private Identifier resource(GeoSetArmorItem item, String prefix, String suffix) {
             return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, prefix + item.modelName() + suffix);
         }

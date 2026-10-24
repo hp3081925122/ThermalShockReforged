@@ -1,11 +1,15 @@
 package com.hp.thermalshockreforged.client.spore;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
 
 import com.hp.thermalshockreforged.entity.spore.block.SporePodBlockEntity;
 import net.minecraft.client.renderer.*;
 import net.minecraft.resources.Identifier;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoBlockRenderer;
 
 final class SporePodRenderer extends LegacyGeoBlockRenderer<SporePodBlockEntity> {
@@ -14,7 +18,7 @@ final class SporePodRenderer extends LegacyGeoBlockRenderer<SporePodBlockEntity>
     @Override
     public RenderType getRenderType(SporePodBlockEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
 
-    private static final class Model extends LegacyGeoModel<SporePodBlockEntity> {
+    private static final class Model extends TsrGeoModel<SporePodBlockEntity> {
         @Override
         public Identifier getModelResource(SporePodBlockEntity entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "geo/spore_pod.geo.json"); }
 

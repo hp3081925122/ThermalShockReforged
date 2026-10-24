@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.client.armor.fabricated;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 
 import com.hp.thermalshockreforged.content.armor.fabricated.FabricatedArmorContent;
@@ -31,7 +36,6 @@ import net.neoforged.neoforge.client.extensions.common.IClientMobEffectExtension
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.client.network.ClientPacketDistributor;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoArmorRenderer;
 
 public final class FabricatedArmorClient {
@@ -112,7 +116,7 @@ public final class FabricatedArmorClient {
         @Override public RenderType getRenderType(FabricatedArmorItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
 
-    private static final class Model extends LegacyGeoModel<FabricatedArmorItem> {
+    private static final class Model extends TsrGeoModel<FabricatedArmorItem> {
         @Override public Identifier getModelResource(FabricatedArmorItem item) { return FabricatedArmorContent.id("geo/" + item.modelName() + ".geo.json"); }
         @Override public Identifier getTextureResource(FabricatedArmorItem item) { return FabricatedArmorContent.id("textures/item/" + item.textureName() + ".png"); }
         @Override public Identifier getAnimationResource(FabricatedArmorItem item) { return FabricatedArmorContent.id("animations/" + item.modelName() + ".animation.json"); }

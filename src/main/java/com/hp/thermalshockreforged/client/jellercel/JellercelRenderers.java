@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.client.jellercel;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
@@ -14,9 +19,6 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import com.geckolib.cache.model.BakedGeoModel;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoEntityRenderer;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoRenderLayer;
 
 public final class JellercelRenderers {
     private JellercelRenderers() { }
@@ -24,7 +26,7 @@ public final class JellercelRenderers {
         for (JellercelKind kind : JellercelKind.values()) event.registerEntityRenderer(JellercelContent.type(kind), context -> new Renderer(context, kind));
     }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
-    private static final class Model extends LegacyGeoModel<JellercelEntity> {
+    private static final class Model extends TsrGeoModel<JellercelEntity> {
         private final Identifier model;
         private final Identifier animation;
         private Model(JellercelKind kind) { model = resource("geo/" + kind.id + ".geo.json"); animation = resource("animations/" + kind.id + ".animation.json"); }
@@ -32,20 +34,17 @@ public final class JellercelRenderers {
         @Override public Identifier getTextureResource(JellercelEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
         @Override public Identifier getAnimationResource(JellercelEntity entity) { return animation; }
     }
-    private static final class Renderer extends LegacyGeoEntityRenderer<JellercelEntity> {
+    private static final class Renderer extends TsrGeoEntityRenderer<JellercelEntity> {
         private Renderer(EntityRendererProvider.Context context, JellercelKind kind) {
             super(context, new Model(kind));
             shadowRadius = kind.shadow;
-            addRenderLayer(new Glow(this, kind));
+            withRenderLayer(new Glow(this, kind));
         }
-        @Override public RenderType getRenderType(JellercelEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
+        @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class Glow extends LegacyGeoRenderLayer<JellercelEntity> {
+    private static final class Glow extends GeoEyesLayer<JellercelEntity, Void, EntityRenderState> {
         private final Identifier texture;
         private Glow(Renderer renderer, JellercelKind kind) { super(renderer); texture = resource("textures/entities/" + kind.glow + ".png"); }
-        @Override public void render(PoseStack pose, JellercelEntity entity, BakedGeoModel model, RenderType type, MultiBufferSource buffers, VertexConsumer buffer, float partialTick, int light, int overlay) {
-            RenderType glow = RenderTypes.eyes(texture);
-            getRenderer().reRender(model, pose, buffers, entity, glow, buffers.getBuffer(glow), partialTick, light, OverlayTexture.NO_OVERLAY, -1);
-        }
+        @Override protected Identifier texture(JellercelEntity entity) { return texture; }
     }
 }

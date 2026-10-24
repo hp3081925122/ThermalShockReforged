@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.client.legacy;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
@@ -19,9 +24,6 @@ import net.minecraft.util.Mth;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import com.geckolib.animation.state.AnimationTest;
 import com.geckolib.cache.model.BakedGeoModel;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoEntityRenderer;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoRenderLayer;
 
 public final class LegacyMonsterRenderers {
     private LegacyMonsterRenderers() { }
@@ -32,7 +34,7 @@ public final class LegacyMonsterRenderers {
         event.registerEntityRenderer(LegacyContent.LIL_JELLY.get(), context -> new Renderer(context, "liljelly", .2F, null));
     }
 
-    private static final class Model extends LegacyGeoModel<AnimatedMonsterEntity> {
+    private static final class Model extends TsrGeoModel<AnimatedMonsterEntity> {
         private final Identifier model;
         private final Identifier animation;
         private Model(String id) {
@@ -42,36 +44,22 @@ public final class LegacyMonsterRenderers {
         @Override public Identifier getModelResource(AnimatedMonsterEntity entity) { return model; }
         @Override public Identifier getTextureResource(AnimatedMonsterEntity entity) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/" + entity.texture() + ".png"); }
         @Override public Identifier getAnimationResource(AnimatedMonsterEntity entity) { return animation; }
-        @Override public void setCustomAnimations(AnimatedMonsterEntity entity, long instanceId, AnimationTest<AnimatedMonsterEntity> state) {
-            super.setCustomAnimations(entity, instanceId, state);
-            if (entity instanceof MagnetiteEntity || entity instanceof LilJellyEntity) {
-                var head = getAnimationProcessor().getBone("head");
-                var data = com.hp.thermalshockreforged.compat.LegacyAnimationData.from(state);
-                if (head != null && data != null) { head.setRotX(data.headPitch() * Mth.DEG_TO_RAD); head.setRotY(data.netHeadYaw() * Mth.DEG_TO_RAD); }
-            }
-        }
+        @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { if (is(state, MagnetiteEntity.class) || is(state, LilJellyEntity.class)) lookAt(state, bones, "head"); }
     }
 
-    private static final class Renderer extends LegacyGeoEntityRenderer<AnimatedMonsterEntity> {
+    private static final class Renderer extends TsrGeoEntityRenderer<AnimatedMonsterEntity> {
         private Renderer(EntityRendererProvider.Context context, String id, float shadow, String glow) {
             super(context, new Model(id));
             shadowRadius = shadow;
-            if (glow != null) addRenderLayer(new Glow(this, glow));
+            if (glow != null) withRenderLayer(new Glow(this, glow));
         }
-        @Override public RenderType getRenderType(AnimatedMonsterEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
-        @Override public void preRender(PoseStack pose, AnimatedMonsterEntity entity, BakedGeoModel model, MultiBufferSource buffers, VertexConsumer buffer, boolean isReRender, float partialTick, int light, int overlay, int color) {
-            float scale = entity instanceof SolaEntity sola ? sola.visualScale() : 1;
-            scaleWidth = scale; scaleHeight = scale;
-            super.preRender(pose, entity, model, buffers, buffer, isReRender, partialTick, light, overlay, color);
-        }
+        @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
+        @Override protected float renderScale(AnimatedMonsterEntity entity) { return entity instanceof SolaEntity sola ? sola.visualScale() : 1; }
     }
 
-    private static final class Glow extends LegacyGeoRenderLayer<AnimatedMonsterEntity> {
+    private static final class Glow extends GeoEyesLayer<AnimatedMonsterEntity, Void, EntityRenderState> {
         private final Identifier texture;
         private Glow(Renderer renderer, String id) { super(renderer); texture = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/" + id + ".png"); }
-        @Override public void render(PoseStack pose, AnimatedMonsterEntity entity, BakedGeoModel model, RenderType type, MultiBufferSource buffers, VertexConsumer buffer, float partialTick, int light, int overlay) {
-            RenderType glow = RenderTypes.eyes(texture);
-            getRenderer().reRender(model, pose, buffers, entity, glow, buffers.getBuffer(glow), partialTick, light, OverlayTexture.NO_OVERLAY, -1);
-        }
+        @Override protected Identifier texture(AnimatedMonsterEntity entity) { return texture; }
     }
 }

@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.client.outcrops;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoBlockRenderer;
@@ -11,7 +16,6 @@ import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.extensions.common.*;
 import com.geckolib.animatable.GeoAnimatable;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
 import com.geckolib.renderer.*;
 
 public final class OutcropRenderers {
@@ -32,7 +36,7 @@ public final class OutcropRenderers {
         private ItemRenderer() { super(new Model<>()); }
         @Override public RenderType getRenderType(OutcropItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class Model<T extends GeoAnimatable> extends LegacyGeoModel<T> {
+    private static final class Model<T extends GeoAnimatable> extends TsrGeoModel<T> {
         @Override public Identifier getModelResource(T entity) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "geo/fluorite_ore.geo.json"); }
         @Override public Identifier getAnimationResource(T entity) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "animations/fluorite_ore.animation.json"); }
         @Override public Identifier getTextureResource(T entity) {

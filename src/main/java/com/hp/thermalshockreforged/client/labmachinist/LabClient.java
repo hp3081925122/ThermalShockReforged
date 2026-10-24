@@ -1,7 +1,11 @@
 package com.hp.thermalshockreforged.client.labmachinist;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoEntityRenderer;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoBlockRenderer;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
 
@@ -20,7 +24,6 @@ import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.extensions.common.*;
 import net.neoforged.neoforge.common.NeoForge;
 import com.geckolib.animatable.GeoAnimatable;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
 import com.geckolib.renderer.*;
 
 public final class LabClient {
@@ -42,11 +45,11 @@ public final class LabClient {
     }
     private static void tick(ClientTickEvent.Post event) { LabContent.SYLVIA_RIFLE.get().pruneAnimations(); }
     private static void logout(ClientPlayerNetworkEvent.LoggingOut event) { LabContent.SYLVIA_RIFLE.get().clearAnimations(); }
-    private static final class NpcRenderer extends LegacyGeoEntityRenderer<LabMachinistEntity> {
+    private static final class NpcRenderer extends TsrGeoEntityRenderer<LabMachinistEntity> {
         NpcRenderer(EntityRendererProvider.Context context) { super(context, new NpcModel()); shadowRadius = 1.7F; withScale(1); }
-        @Override public RenderType getRenderType(LabMachinistEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
+        @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class NpcModel extends LegacyGeoModel<LabMachinistEntity> {
+    private static final class NpcModel extends TsrGeoModel<LabMachinistEntity> {
         @Override public Identifier getModelResource(LabMachinistEntity entity) { return LabContent.id("geo/labqo.geo.json"); }
         @Override public Identifier getTextureResource(LabMachinistEntity entity) { return LabContent.id("textures/entities/" + entity.texture() + ".png"); }
         @Override public Identifier getAnimationResource(LabMachinistEntity entity) { return LabContent.id("animations/labqo.animation.json"); }
@@ -59,7 +62,7 @@ public final class LabClient {
         MachineItemRenderer() { super(new MachineModel<>()); }
         @Override public RenderType getRenderType(LabMachineItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class MachineModel<T extends GeoAnimatable> extends LegacyGeoModel<T> {
+    private static final class MachineModel<T extends GeoAnimatable> extends TsrGeoModel<T> {
         private boolean wallbore(T entity) { return entity instanceof LabMachineBlockEntity machine ? machine.wallbore : ((LabMachineItem) entity).wallbore; }
         @Override public Identifier getModelResource(T entity) { return LabContent.id(wallbore(entity) ? "geo/wallbore.geo.json" : "geo/fabricator.geo.json"); }
         @Override public Identifier getAnimationResource(T entity) { return LabContent.id(wallbore(entity) ? "animations/wallbore.animation.json" : "animations/fabricator.animation.json"); }
@@ -69,7 +72,7 @@ public final class LabClient {
         RifleRenderer() { super(new RifleModel()); }
         @Override public RenderType getRenderType(SylviaRifleItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class RifleModel extends LegacyGeoModel<SylviaRifleItem> {
+    private static final class RifleModel extends TsrGeoModel<SylviaRifleItem> {
         @Override public Identifier getModelResource(SylviaRifleItem item) { return LabContent.id("geo/railgun.geo.json"); }
         @Override public Identifier getAnimationResource(SylviaRifleItem item) { return LabContent.id("animations/railgun.animation.json"); }
         @Override public Identifier getTextureResource(SylviaRifleItem item) { return LabContent.id("textures/item/sylvia_rifle.png"); }

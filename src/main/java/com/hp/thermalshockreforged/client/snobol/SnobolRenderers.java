@@ -1,7 +1,11 @@
 package com.hp.thermalshockreforged.client.snobol;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoEntityRenderer;
 
 import com.hp.thermalshockreforged.entity.snobol.*;
 import com.mojang.blaze3d.vertex.*;
@@ -16,9 +20,7 @@ import com.geckolib.animatable.GeoEntity;
 import com.geckolib.animation.state.AnimationTest;
 import com.geckolib.cache.model.BakedGeoModel;
 import com.geckolib.constant.DataTickets;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
 import com.geckolib.renderer.*;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoRenderLayer;
 import java.util.function.Function;
 
 public final class SnobolRenderers {
@@ -41,7 +43,7 @@ public final class SnobolRenderers {
 
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", path); }
 
-    private static final class Model<T extends Mob & GeoEntity> extends LegacyGeoModel<T> {
+    private static final class Model<T extends Mob & GeoEntity> extends TsrGeoModel<T> {
         private final String id;
         private final Function<T, String> texture;
 
@@ -62,15 +64,14 @@ public final class SnobolRenderers {
 
     }
 
-    private static final class Renderer<T extends Mob & GeoEntity> extends LegacyGeoEntityRenderer<T> {
-        private Renderer(EntityRendererProvider.Context context, LegacyGeoModel<T> model, float shadow, float scale, boolean glow) {
+    private static final class Renderer<T extends Mob & GeoEntity> extends TsrGeoEntityRenderer<T> {
+        private Renderer(EntityRendererProvider.Context context, TsrGeoModel<T> model, float shadow, float scale, boolean glow) {
             super(context, model);
             shadowRadius = shadow;
             withScale(scale);
         }
 
-        @Override
-        public RenderType getRenderType(T entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
+        @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     }
 
 }

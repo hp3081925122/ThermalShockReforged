@@ -1,8 +1,12 @@
 package com.hp.thermalshockreforged.client.growth;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import com.geckolib.animation.state.AnimationTest;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoEntityRenderer;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoBlockRenderer;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
 
@@ -13,7 +17,6 @@ import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.extensions.common.*;
 import com.geckolib.animatable.GeoAnimatable;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
 import com.geckolib.renderer.*;
 
 public final class GrowthRenderers {
@@ -44,29 +47,20 @@ public final class GrowthRenderers {
         }
     }
 
-    private static final class Model<T extends GeoAnimatable> extends LegacyGeoModel<T> {
+    private static final class Model<T extends GeoAnimatable> extends TsrGeoModel<T> {
         @Override public Identifier getModelResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "geo/gelbulb.geo.json"); }
         @Override public Identifier getTextureResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "textures/block/geldrop.png"); }
         @Override public Identifier getAnimationResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "animations/gelbulb.animation.json"); }
     }
 
-    private static final class GelshooterRenderer extends LegacyGeoEntityRenderer<GelshooterEntity> {
+    private static final class GelshooterRenderer extends TsrGeoEntityRenderer<GelshooterEntity> {
         private GelshooterRenderer(net.minecraft.client.renderer.entity.EntityRendererProvider.Context context) { super(context,new GelshooterModel()); shadowRadius=.2f; }
-        @Override public RenderType getRenderType(GelshooterEntity entity,Identifier texture,MultiBufferSource buffers,float partialTick) { return RenderTypes.entityTranslucent(texture); }
+        @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class GelshooterModel extends LegacyGeoModel<GelshooterEntity> {
+    private static final class GelshooterModel extends TsrGeoModel<GelshooterEntity> {
         @Override public Identifier getModelResource(GelshooterEntity entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged","geo/gelshooter.geo.json"); }
         @Override public Identifier getTextureResource(GelshooterEntity entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged","textures/entities/"+entity.texture()+".png"); }
         @Override public Identifier getAnimationResource(GelshooterEntity entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged","animations/gelshooter.animation.json"); }
-        @Override public void setCustomAnimations(GelshooterEntity entity,long id,com.geckolib.animation.state.AnimationTest<GelshooterEntity> state) {
-            var head=getAnimationProcessor().getBone("head");
-            if(head!=null) {
-                float pitch=state.getDataOrDefault(com.geckolib.constant.DataTickets.ENTITY_PITCH, 0.0F);
-                float yaw=state.getDataOrDefault(com.geckolib.constant.DataTickets.ENTITY_YAW, 0.0F);
-                float body=state.getDataOrDefault(com.geckolib.constant.DataTickets.ENTITY_BODY_YAW, yaw);
-                head.setRotX(pitch*(float)(Math.PI/180));
-                head.setRotY((yaw-body)*(float)(Math.PI/180));
-            }
-        }
+        @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { lookAt(state, bones, "head"); }
     }
 }
