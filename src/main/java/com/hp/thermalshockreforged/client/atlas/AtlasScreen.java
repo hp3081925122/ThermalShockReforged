@@ -23,9 +23,9 @@ public final class AtlasScreen extends AbstractContainerScreen<AtlasMenu> {
     }
     @Override public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractRenderState(graphics, mouseX, mouseY, partialTick);  }
     @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
-        com.mojang.blaze3d.opengl.GlStateManager._enableBlend(); 
-        graphics.blit(BACKGROUND, leftPos + 2, topPos + 2, 0, 0, 192, 192, 192, 192);
-        com.mojang.blaze3d.opengl.GlStateManager._disableBlend();
+        
+        graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, BACKGROUND, leftPos + 2, topPos + 2, 0, 0, 192, 192, 192, 192);
+        
     }
     @Override protected void extractLabels(GuiGraphicsExtractor graphics, int mouseX, int mouseY) { graphics.text(font, Component.translatable("gui.thermal_shock_reforged.atlas_menu.label_fabricator_guide"), 2, -9, -1, false); }
     private final class AtlasButton extends AbstractButton {
@@ -34,9 +34,9 @@ public final class AtlasScreen extends AbstractContainerScreen<AtlasMenu> {
         AtlasButton(int destination, int x, int y, String texture, Component label) { super(leftPos + x, topPos + y, 20, 20, label); this.destination = destination; this.texture = id("textures/screens/atlas/imagebutton_" + texture + ".png"); }
         @Override public void onPress(net.minecraft.client.input.InputWithModifiers input) { if (minecraft != null && minecraft.gameMode != null) minecraft.gameMode.handleInventoryButtonClick(menu.containerId, destination); }
         @Override protected void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
-            com.mojang.blaze3d.opengl.GlStateManager._enableBlend(); 
-            graphics.blit(texture, getX(), getY(), 0, isHoveredOrFocused() ? 20 : 0, 20, 20, 20, 40);
-            com.mojang.blaze3d.opengl.GlStateManager._disableBlend();
+            
+            graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, texture, getX(), getY(), 0, isHoveredOrFocused() ? 20 : 0, 20, 20, 20, 40);
+            
         }
         @Override protected void updateWidgetNarration(NarrationElementOutput output) { defaultButtonNarrationText(output); }
     }

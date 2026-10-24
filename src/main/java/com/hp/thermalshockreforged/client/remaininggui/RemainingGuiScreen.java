@@ -15,7 +15,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
-import net.neoforged.neoforge.network.PacketDistributor;
 
 public final class RemainingGuiScreen extends AbstractContainerScreen<RemainingGuiMenu> {
     private EditBox vaultCode;
@@ -49,29 +48,29 @@ public final class RemainingGuiScreen extends AbstractContainerScreen<RemainingG
         if (menu.page == RemainingGuiPage.CIVIL_8_TLK_2) speechFrame = speechFrame > 12 ? 0 : speechFrame + 1;
     }
 
-    @Override public void resize(Minecraft minecraft, int width, int height) {
+    @Override public void resize(int width, int height) {
         String value = vaultCode == null ? null : vaultCode.getValue();
-        super.resize(minecraft, width, height);
+        super.resize(width, height);
         if (value != null && vaultCode != null) vaultCode.setValue(value);
     }
 
-    @Override public boolean keyPressed(int key, int scanCode, int modifiers) {
-        if (key == 256 && minecraft != null && minecraft.player != null) { minecraft.player.closeContainer(); return true; }
-        if (vaultCode != null && vaultCode.isFocused()) return vaultCode.keyPressed(key, scanCode, modifiers);
-        return super.keyPressed(key, scanCode, modifiers);
+    @Override public boolean keyPressed(net.minecraft.client.input.KeyEvent event) {
+        if (event.key() == 256 && minecraft != null && minecraft.player != null) { minecraft.player.closeContainer(); return true; }
+        if (vaultCode != null && vaultCode.isFocused()) return vaultCode.keyPressed(event);
+        return super.keyPressed(event);
     }
 
     @Override public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
         super.extractRenderState(graphics, mouseX, mouseY, partialTick);
-        if (vaultCode != null) vaultCode.render(graphics, mouseX, mouseY, partialTick);
+        if (vaultCode != null) vaultCode.extractRenderState(graphics, mouseX, mouseY, partialTick);
          if (menu.getCarried().isEmpty() && hoveredSlot == null) for (var image : menu.page.images) if (com.hp.thermalshockreforged.client.npc.NpcIcons.tooltip(graphics, font, image.texture(), leftPos + image.x(), topPos + image.y(), image.width(), image.height(), mouseX, mouseY)) break;
     }
 
     @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
-        com.mojang.blaze3d.opengl.GlStateManager._enableBlend();
         
-        for (var image : menu.page.images) if (!com.hp.thermalshockreforged.client.npc.NpcIcons.draw(graphics, image.texture(), leftPos + image.x(), topPos + image.y(), image.width(), image.height())) graphics.blit(texture(image.texture()), leftPos + image.x(), topPos + image.y(), 0, 0, image.width(), image.height(), image.width(), image.height());
-        com.mojang.blaze3d.opengl.GlStateManager._disableBlend();
+        
+        for (var image : menu.page.images) if (!com.hp.thermalshockreforged.client.npc.NpcIcons.draw(graphics, image.texture(), leftPos + image.x(), topPos + image.y(), image.width(), image.height())) graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, texture(image.texture()), leftPos + image.x(), topPos + image.y(), 0, 0, image.width(), image.height(), image.width(), image.height());
+        
     }
 
     @Override protected void extractLabels(GuiGraphicsExtractor graphics, int mouseX, int mouseY) {
@@ -90,15 +89,15 @@ public final class RemainingGuiScreen extends AbstractContainerScreen<RemainingG
 
         @Override public void onPress(net.minecraft.client.input.InputWithModifiers input) {
             if (button.action() < 0 || minecraft == null || minecraft.gameMode == null) return;
-            if (menu.page == RemainingGuiPage.LIMBO_VAULT_GUI) PacketDistributor.sendToServer(new VaultCodePayload(menu.containerId, vaultCode.getValue()));
+            if (menu.page == RemainingGuiPage.LIMBO_VAULT_GUI) net.neoforged.neoforge.client.network.ClientPacketDistributor.sendToServer(new VaultCodePayload(menu.containerId, vaultCode.getValue()));
             else minecraft.gameMode.handleInventoryButtonClick(menu.containerId, button.action());
         }
 
         @Override protected void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
-            com.mojang.blaze3d.opengl.GlStateManager._enableBlend();
             
-            graphics.blit(texture, getX(), getY(), 0, isHoveredOrFocused() ? height : 0, width, height, width, height * 2); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, texture, getX(), getY(), width, height, isHoveredOrFocused());
-            com.mojang.blaze3d.opengl.GlStateManager._disableBlend();
+            
+            graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, texture, getX(), getY(), 0, isHoveredOrFocused() ? height : 0, width, height, width, height * 2); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, texture, getX(), getY(), width, height, isHoveredOrFocused());
+            
         }
 
         @Override protected void updateWidgetNarration(NarrationElementOutput output) { defaultButtonNarrationText(output); }

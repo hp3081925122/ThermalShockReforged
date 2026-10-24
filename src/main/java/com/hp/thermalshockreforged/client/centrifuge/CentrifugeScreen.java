@@ -29,12 +29,12 @@ public final class CentrifugeScreen extends AbstractContainerScreen<CentrifugeMe
             graphics.setTooltipForNextFrame(font, Component.translatable("gui.thermal_shock_reforged.centrifuge_page.tooltip_place_frost_pearl_or_hearth_hone"), mouseX, mouseY);
     }
     @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
-        com.mojang.blaze3d.opengl.GlStateManager._enableBlend();
         
-        graphics.blit(BACKGROUND, leftPos, topPos, 0, 0, 176, 166, 176, 166);
-        graphics.blit(QUESTION, leftPos + 15, topPos + 34, 0, 0, 18, 18, 18, 18);
-        graphics.blit(QUESTION, leftPos + 141, topPos + 34, 0, 0, 18, 18, 18, 18);
-        com.mojang.blaze3d.opengl.GlStateManager._disableBlend();
+        
+        graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, BACKGROUND, leftPos, topPos, 0, 0, 176, 166, 176, 166);
+        graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, QUESTION, leftPos + 15, topPos + 34, 0, 0, 18, 18, 18, 18);
+        graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, QUESTION, leftPos + 141, topPos + 34, 0, 0, 18, 18, 18, 18);
+        
     }
     @Override protected void extractLabels(GuiGraphicsExtractor graphics, int mouseX, int mouseY) {
         graphics.text(font, Component.translatable("gui.thermal_shock_reforged.centrifuge_page.label_centrifuge"), 5, -10, -1, false);
@@ -45,10 +45,10 @@ public final class CentrifugeScreen extends AbstractContainerScreen<CentrifugeMe
             if (minecraft != null && minecraft.gameMode != null) minecraft.gameMode.handleInventoryButtonClick(menu.containerId, 0);
         }
         @Override protected void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
-            com.mojang.blaze3d.opengl.GlStateManager._enableBlend();
             
-            graphics.blit(BUTTON, getX(), getY(), 0, isHoveredOrFocused() ? 18 : 0, width, height, 40, 36); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, BUTTON, getX(), getY(), 40, 18, isHoveredOrFocused());
-            com.mojang.blaze3d.opengl.GlStateManager._disableBlend();
+            
+            graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, BUTTON, getX(), getY(), 0, isHoveredOrFocused() ? 18 : 0, width, height, 40, 36); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, BUTTON, getX(), getY(), 40, 18, isHoveredOrFocused());
+            
         }
         @Override protected void updateWidgetNarration(NarrationElementOutput output) { defaultButtonNarrationText(output); }
     }

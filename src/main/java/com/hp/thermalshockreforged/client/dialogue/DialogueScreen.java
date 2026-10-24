@@ -17,10 +17,10 @@ public final class DialogueScreen extends AbstractContainerScreen<DialogueMenu> 
     public static void register(RegisterMenuScreensEvent event) { for (var page : DialoguePage.values()) event.register(DialogueContent.type(page), DialogueScreen::new); }
     @Override public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractRenderState(graphics, mouseX, mouseY, partialTick);  }
     @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
-        com.mojang.blaze3d.opengl.GlStateManager._enableBlend(); 
-        graphics.blit(SPEECH, leftPos, topPos + 103, 0, 0, 276, 276, 276, 276);
-        graphics.blit(LABEL, leftPos, topPos - 30, 0, 0, 134, 134, 134, 134);
-        com.mojang.blaze3d.opengl.GlStateManager._disableBlend();
+        
+        graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, SPEECH, leftPos, topPos + 103, 0, 0, 276, 276, 276, 276);
+        graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, LABEL, leftPos, topPos - 30, 0, 0, 134, 134, 134, 134);
+        
     }
     @Override protected void extractLabels(GuiGraphicsExtractor graphics, int mouseX, int mouseY) { for (var line : menu.page.lines) DialogueText.draw(graphics, font, Component.translatable(line.key()), line.x(), line.y(), -1, imageWidth, line.spacing()); }
 }

@@ -40,12 +40,11 @@ public final class ErrandMarkers {
     }
 
     @SubscribeEvent
-    public static void render(RenderLevelStageEvent event) {
-        if (event.getStage() != RenderLevelStageEvent.Stage.AFTER_ENTITIES) return;
+    public static void render(RenderLevelStageEvent.AfterOpaqueFeatures event) {
         Minecraft minecraft = Minecraft.getInstance();
         if (minecraft.level == null || minecraft.options.hideGui) return;
-        float partial = event.getPartialTick().getGameTimeDeltaPartialTick(false);
-        var camera = event.getCamera().getPosition();
+        float partial = minecraft.getDeltaTracker().getGameTimeDeltaPartialTick(false);
+        var camera = minecraft.gameRenderer.getMainCamera().position();
         var buffers = MultiBufferSource.immediate(BUFFER);
         Font font = minecraft.font;
         float bob = Mth.sin((minecraft.level.getGameTime() + partial) * 0.1F) * 0.08F;
@@ -58,7 +57,7 @@ public final class ErrandMarkers {
             if (camera.distanceToSqr(x, y, z) > MAX_DISTANCE_SQUARED) continue;
             PoseStack pose = new PoseStack();
             pose.translate(x - camera.x, y - camera.y, z - camera.z);
-            pose.mulPose(minecraft.getEntityRenderDispatcher().cameraOrientation());
+            pose.mulPose(minecraft.gameRenderer.getMainCamera().rotation());
             pose.scale(SCALE, -SCALE, SCALE);
             font.drawInBatch("!", -font.width("!") / 2.0F, -font.lineHeight / 2.0F, COLOR, true, pose.last().pose(), buffers, Font.DisplayMode.NORMAL, 0, LightCoordsUtil.FULL_BRIGHT);
             drawn = true;

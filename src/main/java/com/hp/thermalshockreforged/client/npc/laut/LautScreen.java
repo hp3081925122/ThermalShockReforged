@@ -35,11 +35,11 @@ public final class LautScreen extends AbstractContainerScreen<LautMenu> {
     @Override protected void containerTick() { if (menu.page != LautPage.CONFIRM) clock.frame = clock.frame > 12 ? 0 : clock.frame + 1; }
     @Override public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractRenderState(graphics, mouseX, mouseY, partialTick);  }
     @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
-        com.mojang.blaze3d.opengl.GlStateManager._enableBlend(); 
-        graphics.blit(SPEECH, leftPos, topPos + (menu.page == LautPage.CONFIRM ? 50 : 104), 0, 0, 276, 276, 276, 276);
-        if (menu.page != LautPage.CONFIRM) graphics.blit(LABEL, leftPos + 62, topPos - 29, 0, 0, 134, 134, 134, 134);
-        if (menu.page.portrait()) graphics.blit(PORTRAIT, leftPos - 32, topPos - 23, 0, Mth.clamp(clock.frame * 128, 0, 1408), 128, 128, 128, 1536);
-        com.mojang.blaze3d.opengl.GlStateManager._disableBlend();
+        
+        graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, SPEECH, leftPos, topPos + (menu.page == LautPage.CONFIRM ? 50 : 104), 0, 0, 276, 276, 276, 276);
+        if (menu.page != LautPage.CONFIRM) graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, LABEL, leftPos + 62, topPos - 29, 0, 0, 134, 134, 134, 134);
+        if (menu.page.portrait()) graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, PORTRAIT, leftPos - 32, topPos - 23, 0, Mth.clamp(clock.frame * 128, 0, 1408), 128, 128, 128, 1536);
+        
     }
     @Override protected void extractLabels(GuiGraphicsExtractor graphics, int mouseX, int mouseY) { for (var line : menu.page.lines) DialogueText.draw(graphics, font, Component.translatable(line.key()), line.x(), line.y(), line.color(), imageWidth, line.spacing()); }
     private static final class Clock { int frame; }
@@ -48,7 +48,7 @@ public final class LautScreen extends AbstractContainerScreen<LautMenu> {
         private final Identifier texture;
         Button(int action, int x, int y, int width, String name, Component label) { super(leftPos + x, topPos + y, width, 20, label); this.action = action; texture = id("textures/screens/atlas/imagebutton_" + name + ".png"); }
         @Override public void onPress(net.minecraft.client.input.InputWithModifiers input) { if (minecraft != null && minecraft.gameMode != null) minecraft.gameMode.handleInventoryButtonClick(menu.containerId, action); }
-        @Override protected void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { com.mojang.blaze3d.opengl.GlStateManager._enableBlend();  graphics.blit(texture, getX(), getY(), 0, isHoveredOrFocused() ? 20 : 0, width, 20, width, 40); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, texture, getX(), getY(), width, 20, isHoveredOrFocused()); com.mojang.blaze3d.opengl.GlStateManager._disableBlend(); }
+        @Override protected void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, texture, getX(), getY(), 0, isHoveredOrFocused() ? 20 : 0, width, 20, width, 40); com.hp.thermalshockreforged.client.ButtonLabels.draw(graphics, texture, getX(), getY(), width, 20, isHoveredOrFocused()); }
         @Override protected void updateWidgetNarration(NarrationElementOutput output) { defaultButtonNarrationText(output); }
     }
 }

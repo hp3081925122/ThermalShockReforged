@@ -50,11 +50,11 @@ public final class NpcIcons {
     public static boolean draw(GuiGraphicsExtractor graphics, String texture, int x, int y, int width, int height) {
         ItemStack stack = stack(texture, width, height);
         if (stack.isEmpty()) return false;
-        graphics.pose().pushPose();
-        graphics.pose().translate(x, y, 0);
-        graphics.pose().scale(width / 16.0F, height / 16.0F, 1);
-        graphics.renderItem(stack, 0, 0);
-        graphics.pose().popPose();
+        graphics.pose().pushMatrix();
+        graphics.pose().translate(x, y);
+        graphics.pose().scale(width / 16.0F, height / 16.0F);
+        graphics.item(stack, 0, 0);
+        graphics.pose().popMatrix();
         return true;
     }
 
@@ -62,7 +62,7 @@ public final class NpcIcons {
         if (mouseX < x || mouseX >= x + width || mouseY < y || mouseY >= y + height) return false;
         ItemStack stack = stack(texture, width, height);
         if (stack.isEmpty()) return false;
-        graphics.renderTooltip(font, stack, mouseX, mouseY);
+        graphics.setTooltipForNextFrame(font, stack, mouseX, mouseY);
         return true;
     }
 
