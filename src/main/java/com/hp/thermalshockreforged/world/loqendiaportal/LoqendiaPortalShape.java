@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 public final class LoqendiaPortalShape {
-    private final LevelAccessor level;
+    private final net.minecraft.world.level.LevelReader level;
     private final Direction.Axis axis;
     private final Direction right;
     private final BlockPos bottomLeft;
@@ -17,11 +17,11 @@ public final class LoqendiaPortalShape {
     private final int height;
     private int portalBlocks;
 
-    public LoqendiaPortalShape(LevelAccessor level, BlockPos pos, Direction.Axis axis) {
+    public LoqendiaPortalShape(net.minecraft.world.level.LevelReader level, BlockPos pos, Direction.Axis axis) {
         this.level = level;
         this.axis = axis;
         right = axis == Direction.Axis.X ? Direction.WEST : Direction.SOUTH;
-        int lowest = Math.max(level.getMinBuildHeight(), pos.getY() - 21);
+        int lowest = Math.max(level.getMinY(), pos.getY() - 21);
         while (pos.getY() > lowest && isEmpty(level.getBlockState(pos.below()))) pos = pos.below();
         int leftDistance = distanceToFrame(pos, right.getOpposite()) - 1;
         bottomLeft = leftDistance < 0 ? null : pos.relative(right.getOpposite(), leftDistance);
@@ -73,10 +73,10 @@ public final class LoqendiaPortalShape {
     public boolean isComplete() { return isValid() && portalBlocks == width * height; }
 
     public boolean createPortalBlocks() {
-        if (!isValid()) return false;
+        if (!isValid() || !(level instanceof LevelAccessor writable)) return false;
         var portal = LoqendiaContent.PORTAL.get().defaultBlockState().setValue(LoqendiaPortalBlock.AXIS, axis);
         for (BlockPos pos : BlockPos.betweenClosed(bottomLeft, bottomLeft.above(height - 1).relative(right, width - 1))) {
-            if (!level.setBlock(pos, portal, 18) && !level.getBlockState(pos).equals(portal)) return false;
+            if (!writable.setBlock(pos, portal, 18) && !level.getBlockState(pos).equals(portal)) return false;
         }
         return true;
     }

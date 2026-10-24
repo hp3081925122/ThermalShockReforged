@@ -42,10 +42,10 @@ public final class ShutterbugEntity extends PathfinderMob implements GeoEntity {
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-if (input.getString("Texture").isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
+if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
         setPersistenceRequired();
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop("idle2")))); }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
-    @Override public boolean shouldPlayAnimsWhileGamePaused() { return true; }
+    public boolean shouldPlayAnimsWhileGamePaused() { return true; }
 }

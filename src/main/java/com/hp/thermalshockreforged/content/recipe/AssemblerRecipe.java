@@ -25,7 +25,7 @@ import net.minecraft.world.level.Level;
 public record AssemblerRecipe(List<Cost> materials, ItemStack result) implements DataRecipe {
     public record Cost(Holder<Item> item, int count) {
         public static final Codec<Cost> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-                ItemStack.ITEM_NON_AIR_CODEC.fieldOf("item").forGetter(Cost::item),
+                Item.CODEC.fieldOf("item").forGetter(Cost::item),
                 Codec.intRange(1, 4096).fieldOf("count").forGetter(Cost::count)
         ).apply(instance, Cost::new));
         public static final StreamCodec<RegistryFriendlyByteBuf, Cost> STREAM_CODEC = StreamCodec.composite(

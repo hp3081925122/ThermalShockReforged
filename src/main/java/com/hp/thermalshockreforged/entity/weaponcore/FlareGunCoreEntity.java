@@ -87,7 +87,7 @@ public final class FlareGunCoreEntity extends PathfinderMob implements GeoEntity
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-        if (input.getString("Texture").isPresent() && input.getStringOr("Texture", "").matches("[a-z0-9_./-]+")) setTexture(input.getStringOr("Texture", ""));
+        if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() && input.getStringOr("Texture", "").matches("[a-z0-9_./-]+")) setTexture(input.getStringOr("Texture", ""));
         entityData.set(LANDED, input.getBooleanOr("FlareCoreLanded", false)); initialized = input.getBooleanOr("FlareCoreInitialized", false);
         remaining = Math.clamp(input.getIntOr("FlareCoreRemaining", 0), 0, 120); deathHandled = input.getBooleanOr("FlareCoreDeathHandled", false);
     }

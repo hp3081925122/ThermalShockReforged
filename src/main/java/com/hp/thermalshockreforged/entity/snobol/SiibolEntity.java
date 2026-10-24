@@ -192,7 +192,7 @@ public final class SiibolEntity extends PathfinderMob implements GeoEntity, Serv
     @Override
     public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         cooldown = Math.max(0, Math.min(50, input.getIntOr("SkillCooldown", 0)));
         remainingCast = Math.max(0, Math.min(20, input.getIntOr("RemainingCast", 0)));
         castPosition = new net.minecraft.world.phys.Vec3(input.getDoubleOr("CastX", 0.0), input.getDoubleOr("CastY", 0.0), input.getDoubleOr("CastZ", 0.0));

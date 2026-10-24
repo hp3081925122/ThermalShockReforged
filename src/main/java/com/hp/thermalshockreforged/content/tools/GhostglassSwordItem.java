@@ -23,7 +23,7 @@ public final class GhostglassSwordItem extends SwordItem {
     public GhostglassSwordItem(Tier tier, float damage, float speed, Properties properties) { super(tier, damage, speed, properties); }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
         boolean result = super.onEntitySwing(stack, wielder, hand);
-        if (!(wielder.level() instanceof ServerLevel server) || wielder instanceof Player player && player.getCooldowns().isOnCooldown(this)) return result;
+        if (!(wielder.level() instanceof ServerLevel server) || wielder instanceof Player player && player.getCooldowns().isOnCooldown(getDefaultInstance())) return result;
         var bullet = ProjectileContent.GHOSTGLASS_SWORD_BULLET.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
         if (bullet == null) return result;
         bullet.setOwner(wielder); bullet.setBaseDamage(1.5); bullet.setSilent(true);
@@ -31,7 +31,7 @@ public final class GhostglassSwordItem extends SwordItem {
         var look = wielder.getLookAngle(); bullet.shoot(look.x, look.y, look.z, 1, 0);
         if (!server.addFreshEntity(bullet)) return result;
         server.playSound(null, wielder.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "ghostbullet")), SoundSource.NEUTRAL, .5F, 1);
-        if (wielder instanceof Player player) player.getCooldowns().addCooldown(this, 5);
+        if (wielder instanceof Player player) player.getCooldowns().addCooldown(getDefaultInstance(), 5);
         return result;
     }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {

@@ -182,7 +182,7 @@ public final class KilolyteEntity extends Monster implements GeoEntity {
             entityData.set(ANIMATION_SEQUENCE, entityData.get(ANIMATION_SEQUENCE) + 1);
         }
         applyConfiguredAttributes();
-if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         cooldown = Math.clamp(input.getIntOr("KilolyteCooldown", 0), 0, 35);
         movementLock = Math.clamp(input.getIntOr("KilolyteMovementLock", 0), 0, 45);
         if (!level().isClientSide()) syncMovementLock();
@@ -201,9 +201,10 @@ if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Textur
     }
     private final class PhaseController extends LegacyAnimationController<KilolyteEntity> {
         private PhaseController() { super(KilolyteEntity.this, "procedure", 4, state -> PlayState.STOP); }
-        @Override protected double adjustTick(double tick) {
-            double offset = getAnimationState() == State.TRANSITIONING ? clientAnimationOffset : Math.max(0, clientAnimationOffset - transitionLength);
-            return super.adjustTick(tick) + offset;
+        @Override public boolean triggerAnimation(String animation) {
+            if (!super.triggerAnimation(animation)) return false;
+            triggeredAnimTime -= clientAnimationOffset;
+            return true;
         }
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }

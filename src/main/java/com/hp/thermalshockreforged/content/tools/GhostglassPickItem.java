@@ -24,7 +24,7 @@ final class GhostglassPickItem extends PickaxeItem {
         var face = context.getClickedFace();
         if (player == null || player.isShiftKeyDown() || face == Direction.UP || face == Direction.DOWN || context.getLevel().dimension().identifier().equals(AQERON)) return InteractionResult.PASS;
         player.setDeltaMovement(0, 0.4, 0);
-        player.getCooldowns().addCooldown(this, 5);
+        player.getCooldowns().addCooldown(getDefaultInstance(), 5);
         if (context.getLevel().isClientSide()) {
             var pos = context.getClickedPos();
             context.getLevel().playLocalSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.CALCITE_BREAK, SoundSource.NEUTRAL, 1, 1, false);

@@ -88,7 +88,7 @@ public final class FarmSeedBlock extends Block implements EntityBlock, com.hp.th
         boolean watering = BuiltInRegistries.ITEM.getKey(player.getMainHandItem().getItem()).equals(Identifier.fromNamespaceAndPath("thermal_shock_reforged", "watering_can")) && data.getBooleanOr("thirsty", false);
         double waterings = data.getDoubleOr("waterings", 0);
         if (kind == CropKind.BARBUBBLE && (watering && waterings == 2 || waterings == 3)
-                && (pos.getY() + 1 >= server.getMaxBuildHeight() || !level.getBlockState(pos.above()).canBeReplaced())) {
+                && (pos.getY() + 1 >= (server.getMaxY() + 1) || !level.getBlockState(pos.above()).canBeReplaced())) {
             ThermalShockReforged.LOGGER.debug("Barbubble maturation blocked: position={}, upper={}, waterings={}", pos, level.getBlockState(pos.above()), waterings);
             return;
         }

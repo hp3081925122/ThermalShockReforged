@@ -70,7 +70,7 @@ public abstract class ProtoiEntityBase extends PathfinderMob implements GeoEntit
     @Override protected SoundEvent getAmbientSound() { return null; }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, ""); }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putString("Procedure", procedure); }
-    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", "")); procedure = input.getString("Procedure").isPresent() ? input.getStringOr("Procedure", "") : "empty"; }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", "")); procedure = input.read("Procedure", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getStringOr("Procedure", "") : "empty"; }
     @Override public void aiStep() { super.aiStep(); if (flying) setNoGravity(true); updateSwingTime(); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {

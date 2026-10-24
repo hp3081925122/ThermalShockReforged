@@ -73,8 +73,8 @@ public final class ElementalBladeItem extends SwordItem {
     }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var result = super.use(level, player, hand);
-        if (kind != Kind.KNIGHTS_EDGE || player.getCooldowns().isOnCooldown(this)) return result;
-        player.getCooldowns().addCooldown(this, 100);
+        if (kind != Kind.KNIGHTS_EDGE || player.getCooldowns().isOnCooldown(getDefaultInstance())) return result;
+        player.getCooldowns().addCooldown(getDefaultInstance(), 100);
         player.setDeltaMovement(Vec3.ZERO);
         if (level.isClientSide()) level.playLocalSound(player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.PLAYERS, 1, 3, false);
         if (level instanceof ServerLevel server) {

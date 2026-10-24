@@ -123,7 +123,7 @@ public abstract class BeetleCombatEntity extends Monster implements GeoEntity {
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putInt("BeetleCooldown", cooldown); output.putInt("BeetleMovementLock", movementLock); output.putInt("BeetleSleepLock", sleepLock); output.putBoolean("BeetleEmerging", entityData.get(EMERGING)); output.putBoolean("BeetleExperiencePending", experiencePending); if (experienceAttacker != null) output.putString("BeetleExperienceAttacker", experienceAttacker.toString()); }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = false;
-        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         cooldown = Math.clamp(input.getIntOr("BeetleCooldown", 0), 0, 72000); movementLock = Math.clamp(input.getIntOr("BeetleMovementLock", 0), 0, 35); sleepLock = Math.clamp(input.getIntOr("BeetleSleepLock", 0), 0, 5); entityData.set(EMERGING, input.getBooleanOr("BeetleEmerging", false) && cooldown > 0);
         var legacySleep = getEffect(MobEffects.SLOWNESS);
         if (thrasher() && legacySleep != null && legacySleep.getAmplifier() == 255 && legacySleep.getDuration() <= 5 && legacySleep.isAmbient() && !legacySleep.isVisible()) { sleepLock = Math.max(sleepLock, Math.max(0, legacySleep.getDuration())); removeEffect(MobEffects.SLOWNESS); }

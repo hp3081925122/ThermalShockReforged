@@ -15,11 +15,11 @@ public final class IceArtifactItem extends Item {
     public IceArtifactItem() { super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).rarity(Rarity.UNCOMMON)); }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        if (player.getCooldowns().isOnCooldown(this)) return InteractionResult.FAIL;
+        if (player.getCooldowns().isOnCooldown(getDefaultInstance())) return InteractionResult.FAIL;
         if (level instanceof ServerLevel server) {
             var entity = QoContent.THERMOID.get().spawn(server, BlockPos.containing(player.position()), EntitySpawnReason.MOB_SUMMONED);
             if (entity == null || entity.isRemoved() || !entity.isAddedToLevel()) { ThermalShockReforged.LOGGER.debug("Ice artifact summon cancelled: player={}", player.getUUID()); return InteractionResult.FAIL; }
-            entity.setYRot(server.getRandom().nextFloat() * 360); player.getCooldowns().addCooldown(this, 320);
+            entity.setYRot(server.getRandom().nextFloat() * 360); player.getCooldowns().addCooldown(getDefaultInstance(), 320);
             server.playSound(null, player.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(QoContent.id("thermoid_cries")), SoundSource.NEUTRAL, 1, 1);
         }
         return InteractionResult.SUCCESS;

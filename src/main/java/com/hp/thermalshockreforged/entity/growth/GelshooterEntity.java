@@ -74,7 +74,7 @@ public final class GelshooterEntity extends PathfinderMob implements RangedAttac
         return result;
     }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture",texture()); }
-    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); setPersistenceRequired(); if(input.getString("Texture").isPresent())setTexture(input.getStringOr("Texture", "")); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); setPersistenceRequired(); if(input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent())setTexture(input.getStringOr("Texture", "")); }
     @Override public void aiStep() { super.aiStep(); updateSwingTime(); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new LegacyAnimationController<>(this,"movement",4,state->animationprocedure.equals("empty")?state.setAndContinue(RawAnimation.begin().thenLoop("0")):PlayState.STOP));

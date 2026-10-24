@@ -75,7 +75,7 @@ public final class IcidrogruntEntity extends Monster implements GeoEntity {
         if (experienceAttacker != null) output.putString("GruntExperienceAttacker", experienceAttacker.toString());
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
-        super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        super.readAdditionalSaveData(input); if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         experiencePending = input.getBooleanOr("GruntExperiencePending", false); experienceAttacker = input.getString("GruntExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {

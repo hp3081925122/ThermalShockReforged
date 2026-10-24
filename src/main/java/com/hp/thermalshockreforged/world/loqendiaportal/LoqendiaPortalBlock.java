@@ -78,7 +78,7 @@ public final class LoqendiaPortalBlock extends Block implements Portal {
         }
         entity.setPortalCooldown();
         var transition = LoqendiaPortalTravel.destination(server, destination, entity, pos);
-        if (entity.changeDimension(transition) != null) {
+        if (entity.teleport(transition) != null) {
             ThermalShockReforged.LOGGER.debug("Loqendia portal travel completed: entity={}, from={}, to={}, entrance={}",
                     entity.getUUID(), server.dimension().identifier(), destination.dimension().identifier(), pos);
         }

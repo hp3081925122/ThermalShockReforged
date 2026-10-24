@@ -33,7 +33,7 @@ public final class NpcNameLocalization {
     private static void join(EntityJoinLevelEvent event) {
         if (event.getLevel().isClientSide()) return;
         Entity entity = event.getEntity();
-        Identifier id = entity.getType().builtInRegistryHolder().key().location();
+        Identifier id = entity.getType().builtInRegistryHolder().key().identifier();
         if (!id.getNamespace().equals(ThermalShockReforged.MOD_ID)) return;
         NameEntry entry = NAMES.get(id.getPath());
         if (entry == null) return;

@@ -41,7 +41,7 @@ public final class ShalePillarBlock extends GeoDecorBlock.Directional implements
         previous.clearContent();
         boolean changed = level.setBlock(pos, replacement, 3);
         if (changed && level.getBlockEntity(pos) instanceof GeoDecorBlockEntity next) {
-            next.loadWithComponents(saved, level.registryAccess());
+            next.loadWithComponents(net.minecraft.world.level.storage.TagValueInput.create(net.minecraft.util.ProblemReporter.DISCARDING, level.registryAccess(), saved));
             next.setChanged();
             level.sendBlockUpdated(pos, replacement, replacement, 3);
             level.levelEvent(2001, pos, Block.getId(MaterialContent.blocks().get("cobbled_shale").get().defaultBlockState()));
@@ -49,7 +49,7 @@ public final class ShalePillarBlock extends GeoDecorBlock.Directional implements
             return true;
         }
         if (changed) level.setBlock(pos, state, 3);
-        if (level.getBlockEntity(pos) instanceof GeoDecorBlockEntity restored) { restored.loadWithComponents(saved, level.registryAccess()); restored.setChanged(); }
+        if (level.getBlockEntity(pos) instanceof GeoDecorBlockEntity restored) { restored.loadWithComponents(net.minecraft.world.level.storage.TagValueInput.create(net.minecraft.util.ProblemReporter.DISCARDING, level.registryAccess(), saved)); restored.setChanged(); }
         ThermalShockReforged.LOGGER.warn("Shale pillar style conversion failed at {} in {}", pos, level.dimension().identifier());
         return true;
     }

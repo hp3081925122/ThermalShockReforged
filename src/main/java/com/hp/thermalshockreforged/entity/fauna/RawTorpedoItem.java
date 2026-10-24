@@ -57,7 +57,7 @@ public final class RawTorpedoItem extends Item {
     private ItemStack findAmmo(Player player) {
         var ammo = ProjectileWeaponItem.getHeldProjectile(player, stack -> stack.is(FaunaEntities.item("gore_projectile")));
         if (!ammo.isEmpty()) return ammo;
-        for (var stack : player.getInventory().items) if (stack.is(FaunaEntities.item("gore_projectile"))) return stack;
+        for (var stack : player.getInventory().getNonEquipmentItems()) if (stack.is(FaunaEntities.item("gore_projectile"))) return stack;
         return ItemStack.EMPTY;
     }
 }

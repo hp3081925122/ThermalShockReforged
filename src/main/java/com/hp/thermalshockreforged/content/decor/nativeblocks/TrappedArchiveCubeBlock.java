@@ -19,7 +19,7 @@ public final class TrappedArchiveCubeBlock extends NativeDecorBlock {
     public TrappedArchiveCubeBlock() {
         super(com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.WARPED_WART_BLOCK).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.ANCIENT_DEBRIS).strength(1, 0).lightLevel(state -> 15).requiresCorrectToolForDrops(), new Traits(15, false, false, false, 2, 0, false, false), null);
     }
-    @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, ItemStack toolStack, boolean harvest, FluidState fluid) {
+    @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, net.minecraft.world.item.ItemStack toolStack, boolean harvest, FluidState fluid) {
         boolean removed = super.onDestroyedByPlayer(state, level, pos, player, toolStack, harvest, fluid);
         if (!removed || !(level instanceof ServerLevel server)) return removed;
         for (int y = -3; y <= 3; y++) for (int x = -3; x <= 3; x++) for (int z = -3; z <= 3; z++) {

@@ -105,7 +105,7 @@ public final class IceSquadProjectileEntity extends AbstractArrow implements Ite
         if (reactive()) level().addParticle(IceSquadContent.LOD_TRAIL.get(), getX(), getY(), getZ(), 0, 0, 0);
         else if (!strider()) level().addParticle(ParticleTypes.SOUL_FIRE_FLAME, getX(), getY(), getZ(), 0, 0, 0);
         setNoGravity(true);
-        if (inGround) discard();
+        if (isInGround()) discard();
         if (!isRemoved() && level() instanceof ServerLevel server) {
             if (!lifetimeStarted) {
                 lifetimeStarted = true; remainingEndTicks = lifetime();
@@ -133,10 +133,10 @@ public final class IceSquadProjectileEntity extends AbstractArrow implements Ite
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input); pickup = Pickup.DISALLOWED;
         int legacyAge = Math.clamp(input.getIntOr("SquadProjectileAge", 0), 0, lifetime());
-        lifetimeStarted = input.getString("SquadProjectileLifetimeStarted").isPresent() ? input.getBooleanOr("SquadProjectileLifetimeStarted", false) : legacyAge > 0;
-        remainingEndTicks = input.getString("SquadProjectileRemainingEndTicks").isPresent() ? Math.clamp(input.getIntOr("SquadProjectileRemainingEndTicks", 0), 0, lifetime()) : lifetime() - legacyAge;
+        lifetimeStarted = input.read("SquadProjectileLifetimeStarted", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getBooleanOr("SquadProjectileLifetimeStarted", false) : legacyAge > 0;
+        remainingEndTicks = input.read("SquadProjectileRemainingEndTicks", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? Math.clamp(input.getIntOr("SquadProjectileRemainingEndTicks", 0), 0, lifetime()) : lifetime() - legacyAge;
         impactKnockback = Double.isFinite(input.getDoubleOr("SquadProjectileKnockback", 0.0)) ? Math.clamp(input.getDoubleOr("SquadProjectileKnockback", 0.0), 0, 0.6) : 0;
         hitConsumed = input.getBooleanOr("SquadProjectileHit", false); caster = input.getString("SquadProjectileCaster").map(java.util.UUID::fromString).orElse(null);
-        if (!Double.isFinite(getBaseDamage()) || getBaseDamage() < 0) setBaseDamage(0);
+        if (!Double.isFinite(input.getDoubleOr("damage", 2.0)) || input.getDoubleOr("damage", 2.0) < 0) setBaseDamage(0);
     }
 }

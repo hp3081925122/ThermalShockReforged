@@ -55,12 +55,12 @@ public final class SootleIdleEntity extends AbstractSootleEntity {
         if (active != null) { active.setYRot(rotation); active.yBodyRot = rotation; active.yHeadRot = rotation; active.setDeltaMovement(0, 0, 0); }
     }
     @Override
-    protected String movement(AnimationTest<?> state) { return "dig"; }
+    protected String movement(com.hp.thermalshockreforged.compat.LegacyAnimationController.LegacyAnimationState<?> state) { return "dig"; }
     @Override
     public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putBoolean("ConversionClaimed", conversionClaimed); output.putInt("ConversionRemaining", conversionRemaining); output.putString("ConversionDimension", conversionDimension); }
     @Override
     public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-        conversionClaimed = input.getBooleanOr("ConversionClaimed", false); conversionRemaining = conversionClaimed && input.getString("ConversionRemaining").isPresent() && input.getIntOr("ConversionRemaining", 0) >= 0 ? Math.max(1, Math.min(10, input.getIntOr("ConversionRemaining", 0))) : -1; conversionDimension = input.getStringOr("ConversionDimension", ""); resumeAnimation = conversionClaimed && conversionRemaining >= 0;
+        conversionClaimed = input.getBooleanOr("ConversionClaimed", false); conversionRemaining = conversionClaimed && input.read("ConversionRemaining", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() && input.getIntOr("ConversionRemaining", 0) >= 0 ? Math.max(1, Math.min(10, input.getIntOr("ConversionRemaining", 0))) : -1; conversionDimension = input.getStringOr("ConversionDimension", ""); resumeAnimation = conversionClaimed && conversionRemaining >= 0;
     }
 }

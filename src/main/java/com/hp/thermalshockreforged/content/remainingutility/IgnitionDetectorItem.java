@@ -30,8 +30,8 @@ public final class IgnitionDetectorItem extends Item {
 
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
-        if (!player.getCooldowns().isOnCooldown(this)) {
-            player.getCooldowns().addCooldown(this, 100);
+        if (!player.getCooldowns().isOnCooldown(getDefaultInstance())) {
+            player.getCooldowns().addCooldown(getDefaultInstance(), 100);
             if (level.isClientSide()) {
                 level.playLocalSound(player.getX(), player.getY(), player.getZ(), RemainingUtilityContent.sound("ignition_detector_click"), SoundSource.NEUTRAL, 1, 1, false);
             } else {

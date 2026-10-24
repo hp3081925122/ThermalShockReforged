@@ -20,11 +20,10 @@ import net.neoforged.neoforge.registries.*;
 
 public final class RemainingCombatContent {
     private static final DeferredRegister.Items ITEMS = com.hp.thermalshockreforged.ModRegistration.items(ThermalShockReforged.MOD_ID);
-    private static final DeferredRegister<ArmorMaterial> MATERIALS = DeferredRegister.create(Registries.ARMOR_MATERIAL, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<EntityType<?>> TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<net.minecraft.core.particles.ParticleType<?>> PARTICLES = DeferredRegister.create(Registries.PARTICLE_TYPE, ThermalShockReforged.MOD_ID);
     private static final DeferredRegister<net.minecraft.world.effect.MobEffect> EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, ThermalShockReforged.MOD_ID);
-    public static final DeferredHolder<ArmorMaterial, ArmorMaterial> ANTENNAE_MATERIAL = MATERIALS.register("chorusian_antennae", () -> ArmorMaterialFactory.create(Map.of(ArmorType.HELMET, 2), 9, Holder.direct(SoundEvents.AMETHYST_BLOCK_PLACE), 0, 0, "chorusian_antennae", "chorusian_antennae"));
+    public static final Holder<ArmorMaterial> ANTENNAE_MATERIAL = Holder.direct(ArmorMaterialFactory.create(25, Map.of(ArmorType.HELMET, 2), 9, net.minecraft.core.registries.BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.AMETHYST_BLOCK_PLACE), 0, 0, "none", "chorusian_antennae"));
     public static final DeferredItem<ChorusianAntennaeItem> ANTENNAE = ITEMS.register("chorusian_antennae_helmet", ChorusianAntennaeItem::new);
     public static final DeferredItem<ClawSickleItem> CLAW_SICKLE = ITEMS.register("claw_sickle", ClawSickleItem::new);
     public static final DeferredItem<BombItem> FLOWER_BOMB = ITEMS.register("flower_bomb", () -> new BombItem(false));
@@ -41,7 +40,7 @@ public final class RemainingCombatContent {
     public static final List<DeferredItem<? extends Item>> ALL = List.of(ANTENNAE, CLAW_SICKLE, FLOWER_BOMB, ICE_BOMB, JELLY_UMBRELLA, LEGENDARY_JELLY_UMBRELLA, NET_LAUNCHER, THE_JUDGE, PISTON_GAUNTLET);
     private RemainingCombatContent() { }
     public static void register(IEventBus bus) {
-        MATERIALS.register(bus); ITEMS.register(bus); TYPES.register(bus); PARTICLES.register(bus); EFFECTS.register(bus);
+        ITEMS.register(bus); TYPES.register(bus); PARTICLES.register(bus); EFFECTS.register(bus);
         NeoForge.EVENT_BUS.addListener(RemainingCombatState::tick);
         NeoForge.EVENT_BUS.addListener(RemainingCombatState::join);
         NeoForge.EVENT_BUS.addListener(RemainingCombatState::removed);

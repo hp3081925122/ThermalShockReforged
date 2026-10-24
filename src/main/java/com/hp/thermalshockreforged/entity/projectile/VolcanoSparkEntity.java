@@ -74,20 +74,18 @@ public final class VolcanoSparkEntity extends Entity implements ServerEndTickTas
     }
     @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
         if (source != null) output.putString("VolcanoSource", source.toString());
-        ListTag sparks = new ListTag();
+        var sparks = output.childrenList("PendingSparks");
         for (PendingSpark spark : pending) {
-            CompoundTag value = new CompoundTag();
+            var value = sparks.addChild();
             value.putInt("Delay", spark.delay); value.putLong("SoundAnchor", spark.soundAnchor.asLong());
-            sparks.add(value);
         }
-        tag.put("PendingSparks", sparks);
     }
     @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         source = input.getString("VolcanoSource").map(java.util.UUID::fromString).orElse(null);
         pending.clear();
-        ListTag sparks = tag.getListOrEmpty("PendingSparks");
-        for (int i = 0; i < Math.min(3, sparks.size()); i++) {
-            CompoundTag value = sparks.getCompoundOrEmpty(i);
+        int read = 0;
+        for (var value : input.childrenListOrEmpty("PendingSparks")) {
+            if (read++ >= 3) break;
             pending.add(new PendingSpark(Math.clamp(value.getIntOr("Delay", 0), 1, 3), BlockPos.of(value.getLongOr("SoundAnchor", 0L))));
         }
         if (!Double.isFinite(getX()) || !Double.isFinite(getY()) || !Double.isFinite(getZ())) pending.clear();

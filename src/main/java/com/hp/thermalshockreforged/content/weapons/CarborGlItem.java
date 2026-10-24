@@ -58,14 +58,14 @@ public final class CarborGlItem extends Item implements GeoItem {
         return player.getAbilities().instabuild || player.getInventory().contains(new ItemStack(MaterialContent.items().get("heavy_round").get()));
     }
     private void fire(Player player, ItemStack stack) {
-        if (!(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this)) return;
+        if (!(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(getDefaultInstance())) return;
         Item ammo = MaterialContent.items().get("heavy_round").get();
         if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) {
             server.playSound(null, player.blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, 5);
             return;
         }
         if (!GrenadeBulletEntity.fireWeaponShot(server, player)) return;
-        player.getCooldowns().addCooldown(this, 6);
+        player.getCooldowns().addCooldown(getDefaultInstance(), 6);
         triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "1");
         server.playSound(null, player.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "flareshoot")), SoundSource.NEUTRAL, 1, 1);
         if (!player.getAbilities().instabuild) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());

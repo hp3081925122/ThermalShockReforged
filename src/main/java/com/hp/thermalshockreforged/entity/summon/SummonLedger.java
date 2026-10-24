@@ -10,7 +10,7 @@ import com.mojang.serialization.Codec;
 import net.minecraft.resources.Identifier;
 
 public final class SummonLedger extends SavedData {
-    private static final SavedDataType<SummonLedger> FACTORY = new SavedDataType<>(Identifier.fromNamespaceAndPath("thermal_shock_reforged", "mangler_summons"), SummonLedger::new, Codec.unit(new SummonLedger()));
+    private static final SavedDataType<SummonLedger> FACTORY = new SavedDataType<>(Identifier.fromNamespaceAndPath("thermal_shock_reforged", "mangler_summons"), SummonLedger::new, net.minecraft.nbt.CompoundTag.CODEC.xmap(SummonLedger::load, data -> data.save(new net.minecraft.nbt.CompoundTag())));
     private final Map<UUID, Map<UUID, Long>> owners = new HashMap<>();
     private final TreeMap<Long, Set<Key>> expiry = new TreeMap<>();
     public static long clock(ServerLevel level) { return level.getServer().overworld().getGameTime(); }
@@ -44,7 +44,7 @@ public final class SummonLedger extends SavedData {
         var bucket = expiry.get(until); if (bucket != null) { bucket.remove(new Key(owner, child)); if (bucket.isEmpty()) expiry.remove(until); }
         setDirty();
     }
-    private static SummonLedger load(CompoundTag tag, HolderLookup.Provider registries) {
+    private static SummonLedger load(CompoundTag tag) {
         var ledger = new SummonLedger();
         for (var value : tag.getListOrEmpty("Leases")) {
             var lease = (CompoundTag) value;
@@ -54,8 +54,7 @@ public final class SummonLedger extends SavedData {
         }
         return ledger;
     }
-    @Override
-    public CompoundTag save(CompoundTag tag, HolderLookup.Provider registries) {
+    private CompoundTag save(CompoundTag tag) {
         var leases = new ListTag();
         owners.forEach((owner, children) -> children.forEach((child, until) -> { var value = new CompoundTag(); value.store("Owner", net.minecraft.core.UUIDUtil.CODEC, owner); value.store("Child", net.minecraft.core.UUIDUtil.CODEC, child); value.putLong("Until", until); leases.add(value); }));
         tag.put("Leases", leases); return tag;

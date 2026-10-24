@@ -112,7 +112,7 @@ public final class BlizzardDropPodEntity extends Monster implements GeoEntity, S
         output.putBoolean("PodExperiencePending", experiencePending); if (experienceAttacker != null) output.putString("PodExperienceAttacker", experienceAttacker.toString());
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
-        loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = false; applyConfiguredAttributes(); setPersistenceRequired(); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = false; applyConfiguredAttributes(); setPersistenceRequired(); if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         initialized = input.getBooleanOr("PodInitialized", false); smokeSent = input.getBooleanOr("PodSmokeSent", false); handedOff = input.getBooleanOr("PodHandedOff", false); deploymentAge = Math.clamp(input.getIntOr("PodAge", 0), 0, 25);
         anchor = new Vec3(input.getDoubleOr("PodAnchorX", 0.0), input.getDoubleOr("PodAnchorY", 0.0), input.getDoubleOr("PodAnchorZ", 0.0)); dimension = input.getStringOr("PodDimension", "");
         if (!Double.isFinite(anchor.x) || !Double.isFinite(anchor.y) || !Double.isFinite(anchor.z)) initialized = false;

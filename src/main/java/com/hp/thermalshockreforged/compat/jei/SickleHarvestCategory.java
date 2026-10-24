@@ -41,7 +41,7 @@ public final class SickleHarvestCategory implements IRecipeCategory<SickleHarves
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, SickleHarvestEntry entry, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.CATALYST, 1, 1).setStandardSlotBackground().addItemStacks(entry.sickles());
+        builder.addSlot(RecipeIngredientRole.CRAFTING_STATION, 1, 1).setStandardSlotBackground().addItemStacks(entry.sickles());
         var plant = builder.addSlot(RecipeIngredientRole.INPUT, 1, PLANT_Y + 1).setStandardSlotBackground().addItemStacks(entry.plant());
         if (!entry.biomes().isEmpty()) {
             plant.addRichTooltipCallback((view, tooltip) -> {
@@ -49,7 +49,7 @@ public final class SickleHarvestCategory implements IRecipeCategory<SickleHarves
                 for (Component biome : entry.biomes()) tooltip.add(Component.literal(" - ").append(biome));
             });
         }
-        if (!planters.isEmpty()) builder.addSlot(RecipeIngredientRole.CATALYST, ARROW_X + 4, 3).setStandardSlotBackground().addItemStacks(planters);
+        if (!planters.isEmpty()) builder.addSlot(RecipeIngredientRole.CRAFTING_STATION, ARROW_X + 4, 3).setStandardSlotBackground().addItemStacks(planters);
         for (int index = 0; index < entry.drops().size(); index++) {
             var drop = entry.drops().get(index);
             var role = RecipeIngredientRole.OUTPUT;

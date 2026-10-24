@@ -113,8 +113,7 @@ public class ManglerEntity extends Monster implements GeoEntity, ServerEndTickTa
         if (!level().isClientSide() || !entityData.get(COOLDOWN_VISIBLE)) { super.tickEffects(); return; }
         boolean ambient = entityData.get(COOLDOWN_AMBIENT);
         for (var effect : new java.util.ArrayList<>(getActiveEffects())) {
-            boolean active = onEffectUpdated(effect, true, null);
-            if (active && effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null);
+            effect.tickClient();
             if (effect.isVisible() && !effect.isAmbient()) ambient = false;
         }
         boolean emit = isInvisible() ? random.nextInt(15) == 0 : random.nextBoolean();
@@ -139,10 +138,10 @@ public class ManglerEntity extends Monster implements GeoEntity, ServerEndTickTa
     public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putInt("AttackCooldown", attackCooldown); output.putLong("StunEndSchedule", stunSchedule); output.putBoolean("StunAnimation", stunnedAnimation); output.putString("CombatDimension", combatDimension); output.putBoolean("CooldownVisible", entityData.get(COOLDOWN_VISIBLE)); output.putBoolean("CooldownAmbient", entityData.get(COOLDOWN_AMBIENT)); }
     @Override
     public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
-        super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", "")); attackCooldown = Math.max(0, input.getIntOr("AttackCooldown", 0));
+        super.readAdditionalSaveData(input); if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", "")); attackCooldown = Math.max(0, input.getIntOr("AttackCooldown", 0));
         int legacyRemaining = Math.clamp(input.getIntOr("StunRemaining", 0), 0, 60);
-        stunSchedule = input.getString("StunEndSchedule").isPresent() ? input.getLongOr("StunEndSchedule", 0L) & 0x0fffffffffffffffL : legacyRemaining > 0 ? 1L << (legacyRemaining - 1) : 0;
-        stunnedAnimation = input.getString("StunAnimation").isPresent() ? input.getBooleanOr("StunAnimation", false) : stunSchedule != 0;
+        stunSchedule = input.read("StunEndSchedule", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getLongOr("StunEndSchedule", 0L) & 0x0fffffffffffffffL : legacyRemaining > 0 ? 1L << (legacyRemaining - 1) : 0;
+        stunnedAnimation = input.read("StunAnimation", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getBooleanOr("StunAnimation", false) : stunSchedule != 0;
         combatDimension = input.getStringOr("CombatDimension", ""); entityData.set(COOLDOWN_VISIBLE, attackCooldown > 0 && input.getBooleanOr("CooldownVisible", false)); entityData.set(COOLDOWN_AMBIENT, input.getBooleanOr("CooldownAmbient", false)); resumeStun = stunnedAnimation;
     }
     @Override

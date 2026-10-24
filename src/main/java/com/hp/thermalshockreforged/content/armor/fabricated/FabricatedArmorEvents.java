@@ -45,7 +45,7 @@ public final class FabricatedArmorEvents {
         player.hurtMarked = true;
         server.connection.send(new ClientboundSetEntityMotionPacket(player));
         ((net.minecraft.server.level.ServerLevel) server.level()).sendParticles(ParticleTypes.POOF, player.getX(), player.getY() + 1, player.getZ(), 12, .8, .1, .8, 1);
-        server.playNotifySound(BuiltInRegistries.SOUND_EVENT.getValue(FabricatedArmorContent.id("propulsionbootsactivate")), SoundSource.NEUTRAL, 1, 1);
+        server.connection.send(new net.minecraft.network.protocol.game.ClientboundSoundPacket(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(BuiltInRegistries.SOUND_EVENT.getValue(FabricatedArmorContent.id("propulsionbootsactivate"))), SoundSource.NEUTRAL, server.getX(), server.getY(), server.getZ(), 1, 1, server.getRandom().nextLong()));
         com.hp.thermalshockreforged.ThermalShockReforged.LOGGER.debug("Propulsion boots launch sound sent to owner: player={}, dimension={}, position={}", server.getUUID(), server.level().dimension().identifier(), server.position());
         syncVisual(server);
     }

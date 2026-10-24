@@ -63,10 +63,10 @@ public final class FlareEntity extends Monster implements GeoEntity {
     }
 
     @Override
-    protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.WOLF_HURT; }
+    protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.WOLF_SOUNDS.get(net.minecraft.world.entity.animal.wolf.WolfSoundVariants.SoundSet.CLASSIC).adultSounds().hurtSound().value(); }
 
     @Override
-    protected SoundEvent getDeathSound() { return SoundEvents.WOLF_DEATH; }
+    protected SoundEvent getDeathSound() { return SoundEvents.WOLF_SOUNDS.get(net.minecraft.world.entity.animal.wolf.WolfSoundVariants.SoundSet.CLASSIC).adultSounds().deathSound().value(); }
 
     @Override
     public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return !source.is(DamageTypes.IN_FIRE) && super.hurtServer(level, source, amount); }
@@ -80,7 +80,7 @@ public final class FlareEntity extends Monster implements GeoEntity {
     @Override
     public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
     }
 
     @Override

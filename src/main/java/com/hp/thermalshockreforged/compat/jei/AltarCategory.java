@@ -35,7 +35,7 @@ public final class AltarCategory implements IRecipeCategory<MachineEntry> {
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, MachineEntry entry, IFocusGroup focuses) {
         slot(builder.addSlot(RecipeIngredientRole.INPUT, 1, ROW_Y + 1), entry.inputs().get(0));
-        for (int index = 1; index < entry.inputs().size(); index++) slot(builder.addSlot(RecipeIngredientRole.CATALYST, ARROW_X - 8 + (index - 1) * 20, 1), entry.inputs().get(index));
+        for (int index = 1; index < entry.inputs().size(); index++) slot(builder.addSlot(RecipeIngredientRole.CRAFTING_STATION, ARROW_X - 8 + (index - 1) * 20, 1), entry.inputs().get(index));
         for (int index = 0; index < entry.outputs().size(); index++) slot(builder.addSlot(RecipeIngredientRole.OUTPUT, ARROW_X + 31 + index * 18, ROW_Y + 1), entry.outputs().get(index));
     }
 

@@ -14,7 +14,7 @@ import net.minecraft.world.level.Level;
 
 final class CocoaItem extends Item {
     CocoaItem() {
-        super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).food(new FoodProperties.Builder().nutrition(6).saturationModifier(2.0F).build()));
+        super(com.hp.thermalshockreforged.ModRegistration.item().stacksTo(1).food(new FoodProperties.Builder().nutrition(6).saturationModifier(2.0F).build(), net.minecraft.world.item.component.Consumables.DEFAULT_DRINK));
     }
 
     @Override

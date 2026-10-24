@@ -57,7 +57,7 @@ public final class SporePodBlock extends Block implements EntityBlock, SimpleWat
         if (spore != null) spore.setDeltaMovement(0, 0.2, 0);
     }
     @Override
-    public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, ItemStack toolStack, boolean willHarvest, FluidState fluid) {
+    public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, net.minecraft.world.item.ItemStack toolStack, boolean willHarvest, FluidState fluid) {
         var pod = pod(level, pos);
         boolean removed = super.onDestroyedByPlayer(state, level, pos, player, toolStack, willHarvest, fluid);
         if (removed && !level.getBlockState(pos).is(this)) attempt(level, pos, pod, true);

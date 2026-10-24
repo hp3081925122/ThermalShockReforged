@@ -11,7 +11,7 @@ import net.minecraft.resources.Identifier;
 
 public final class WorldProgressData extends SavedData {
     private static final String ID = ThermalShockReforged.MOD_ID + "_world_progress";
-    private static final SavedDataType<WorldProgressData> FACTORY = new SavedDataType<>(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "world_progress"), WorldProgressData::new, Codec.unit(new WorldProgressData()));
+    private static final SavedDataType<WorldProgressData> FACTORY = new SavedDataType<>(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "world_progress"), WorldProgressData::new, net.minecraft.nbt.CompoundTag.CODEC.xmap(WorldProgressData::load, data -> data.save(new net.minecraft.nbt.CompoundTag())));
     private static final java.util.concurrent.ConcurrentMap<net.minecraft.server.MinecraftServer, WorldProgressData> LOADED = new java.util.concurrent.ConcurrentHashMap<>();
     private double worldCrux;
     private volatile boolean altarUnlocked;
@@ -138,7 +138,7 @@ public final class WorldProgressData extends SavedData {
             setDirty();
         }
     }
-    private static WorldProgressData load(CompoundTag tag, HolderLookup.Provider lookup) {
+    private static WorldProgressData load(CompoundTag tag) {
         var data = new WorldProgressData();
         double value = tag.getDoubleOr("WorldCrux", 0);
         data.worldCrux = Double.isFinite(value) ? Math.max(0, value) : 0;
@@ -158,7 +158,7 @@ public final class WorldProgressData extends SavedData {
         return data;
     }
     private static int validOreTier(int value) { return value == 1 || value == 2 ? value : 0; }
-    @Override public CompoundTag save(CompoundTag tag, HolderLookup.Provider lookup) {
+    private CompoundTag save(CompoundTag tag) {
         tag.putDouble("WorldCrux", worldCrux);
         tag.putBoolean("AltarUnlocked", altarUnlocked);
         tag.putBoolean("SquallSpawn", squallSpawn);

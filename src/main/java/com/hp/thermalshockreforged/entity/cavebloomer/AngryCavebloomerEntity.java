@@ -148,7 +148,7 @@ public final class AngryCavebloomerEntity extends Monster implements GeoEntity, 
         if (experienceAttacker != null) output.putString("CavebloomerExperienceAttacker", experienceAttacker.toString());
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
-        super.readAdditionalSaveData(input); applyConfiguredAttributes(false); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        super.readAdditionalSaveData(input); applyConfiguredAttributes(false); if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         attacks.load(new CompoundTag()); deathSequence.load(new CompoundTag()); deathCommitted = input.getBooleanOr("CavebloomerDeathCommitted", false); experiencePending = input.getBooleanOr("CavebloomerExperiencePending", false);
         experienceAttacker = input.getString("CavebloomerExperienceAttacker").map(java.util.UUID::fromString).orElse(null); bossBar.setName(getDisplayName());
     }

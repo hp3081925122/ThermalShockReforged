@@ -23,7 +23,7 @@ public final class DormantMonolithEntity extends MonolithBaseEntity {
             var replacement = MonolithContent.ACTIVE.get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
             if (replacement == null) { conversionRetry = 20; return false; }
             var pos = blockPosition();
-            replacement.moveTo(pos.getX() + .5, pos.getY(), pos.getZ() + .5, getYRot(), 0);
+            replacement.snapTo(pos.getX() + .5, pos.getY(), pos.getZ() + .5, getYRot(), 0);
             EventHooks.finalizeMobSpawn(replacement, server, server.getCurrentDifficultyAt(pos), EntitySpawnReason.MOB_SUMMONED, null);
             replacement.setYRot(getYRot()); replacement.yBodyRot = getYRot(); replacement.yHeadRot = getYRot(); replacement.setXRot(getXRot()); replacement.setDeltaMovement(Vec3.ZERO);
             if (replacement.isRemoved() || replacement.isSpawnCancelled() || !server.addFreshEntity(replacement)) { replacement.discard(); conversionRetry = 20; ThermalShockReforged.LOGGER.debug("Dormant monolith wake rejected: source={}, position={}", getUUID(), pos); return false; }

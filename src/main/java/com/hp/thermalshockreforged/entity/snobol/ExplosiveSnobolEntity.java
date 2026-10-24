@@ -81,7 +81,7 @@ public final class ExplosiveSnobolEntity extends Monster implements GeoEntity, S
     @Override
     public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
         if (level() instanceof net.minecraft.server.level.ServerLevel server && isAlive() && fuseRemaining == 0
-                && amount > 0 && !source.is(DamageTypes.FALL) && !isInvulnerableTo(source)) {
+                && amount > 0 && !source.is(DamageTypes.FALL) && !isInvulnerableTo(server, source)) {
             fuseRemaining = 20;
             fuseDimension = server.dimension().identifier().toString();
             fuseOrigin = position();
@@ -138,10 +138,10 @@ public final class ExplosiveSnobolEntity extends Monster implements GeoEntity, S
     @Override
     public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         fuseRemaining = input.getStringOr("FuseDimension", "").equals(level().dimension().identifier().toString())
                 ? Math.max(0, Math.min(20, input.getIntOr("FuseRemaining", 0))) : 0;
-        fuseOrigin = input.getString("FuseX").isPresent() ? new net.minecraft.world.phys.Vec3(input.getDoubleOr("FuseX", 0.0), input.getDoubleOr("FuseY", 0.0), input.getDoubleOr("FuseZ", 0.0)) : position();
+        fuseOrigin = input.read("FuseX", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? new net.minecraft.world.phys.Vec3(input.getDoubleOr("FuseX", 0.0), input.getDoubleOr("FuseY", 0.0), input.getDoubleOr("FuseZ", 0.0)) : position();
         fuseDamage = Math.max(0, input.getDoubleOr("FuseDamage", 0.0));
         if (!Double.isFinite(fuseDamage)) fuseDamage = 0;
         fuseDimension = input.getStringOr("FuseDimension", "");

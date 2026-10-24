@@ -59,16 +59,14 @@ public final class PylonActivationEntity extends Entity implements ServerEndTick
     @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
         output.putDouble("PylonAnchorX", anchor.x); output.putDouble("PylonAnchorY", anchor.y); output.putDouble("PylonAnchorZ", anchor.z);
         output.putString("PylonDimension", dimension); output.putInt("PylonRemaining", remaining); output.putInt("PylonPhase", phase); output.putBoolean("PylonArmed", armed);
-        var players = new ListTag();
-        for (UUID id : recipients) { var entry = new CompoundTag(); entry.store("Player", net.minecraft.core.UUIDUtil.CODEC, id); players.add(entry); }
-        tag.put("PylonRecipients", players);
+        var players = output.childrenList("PylonRecipients");
+        for (UUID id : recipients) players.addChild().store("Player", net.minecraft.core.UUIDUtil.CODEC, id);
     }
     @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         anchor = new Vec3(input.getDoubleOr("PylonAnchorX", 0.0), input.getDoubleOr("PylonAnchorY", 0.0), input.getDoubleOr("PylonAnchorZ", 0.0));
         dimension = input.getStringOr("PylonDimension", ""); phase = Math.clamp(input.getIntOr("PylonPhase", 0), 0, 2);
         remaining = Math.clamp(input.getIntOr("PylonRemaining", 0), 1, phase == 0 ? 80 : 40); armed = input.getBooleanOr("PylonArmed", false);
-        var ids = new LinkedHashSet<UUID>(); var players = tag.getListOrEmpty("PylonRecipients");
-        if (phase == 0) for (int i = 0; i < players.size(); i++) { var entry = players.getCompound(i); if (entry.read("Player", net.minecraft.core.UUIDUtil.CODEC).isPresent()) ids.add(entry.read("Player", net.minecraft.core.UUIDUtil.CODEC).orElseThrow()); }
+        var ids = new LinkedHashSet<UUID>(); if (phase == 0) for (var entry : input.childrenListOrEmpty("PylonRecipients")) entry.read("Player", net.minecraft.core.UUIDUtil.CODEC).ifPresent(ids::add);
         recipients = List.copyOf(ids);
         if (!Double.isFinite(anchor.x) || !Double.isFinite(anchor.y) || !Double.isFinite(anchor.z)) armed = false;
     }

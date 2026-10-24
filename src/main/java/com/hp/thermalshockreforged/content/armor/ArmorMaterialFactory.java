@@ -16,9 +16,9 @@ import net.minecraft.world.item.equipment.EquipmentAssets;
 public final class ArmorMaterialFactory {
     private ArmorMaterialFactory() { }
 
-    public static ArmorMaterial create(Map<ArmorType, Integer> defense, int enchantment, Holder<SoundEvent> sound, float toughness, float knockback, String repair, String asset) {
-        TagKey<Item> repairTag = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("thermal_shock_reforged", "repair/" + repair));
+    public static ArmorMaterial create(int durability, Map<ArmorType, Integer> defense, int enchantment, Holder<SoundEvent> sound, float toughness, float knockback, String repair, String asset) {
+        TagKey<Item> repairTag = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("thermal_shock_reforged", "tool_repair/" + repair));
         ResourceKey<EquipmentAsset> assetKey = ResourceKey.create(EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath("thermal_shock_reforged", asset));
-        return new ArmorMaterial(35, defense, enchantment, sound, toughness, knockback, repairTag, assetKey);
+        return new ArmorMaterial(durability, defense, enchantment, sound, toughness, knockback, repairTag, assetKey);
     }
 }

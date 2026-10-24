@@ -25,14 +25,14 @@ public final class CameraItem extends Item {
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flags) { super.appendHoverText(stack, context, display, tooltipAdder, flags); if (flash) tooltipAdder.accept(Component.translatable("item.thermal_shock_reforged.e_xpolar_camera.description_0")); }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        if (player.getCooldowns().isOnCooldown(this)) return InteractionResult.FAIL;
+        if (player.getCooldowns().isOnCooldown(getDefaultInstance())) return InteractionResult.FAIL;
         if (level instanceof ServerLevel server && player instanceof ServerPlayer photographer) {
-            player.getCooldowns().addCooldown(this, 60);
+            player.getCooldowns().addCooldown(getDefaultInstance(), 60);
             Vec3 eye = player.getEyePosition(1);
             Vec3 view = player.getViewVector(1);
             Vec3 end = eye.add(view.scale(5));
             BlockHitResult blockHit = server.clip(new ClipContext(eye, end, ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, player));
-            EntityHitResult entityHit = ProjectileUtil.getEntityHitResult(server, player, eye, end, player.getBoundingBox().expandTowards(view.scale(5)).inflate(1), entity -> entity instanceof LivingEntity living && living.isPickable() && entity != player);
+            EntityHitResult entityHit = ProjectileUtil.getEntityHitResult(server, player, eye, end, player.getBoundingBox().expandTowards(view.scale(5)).inflate(1), entity -> entity instanceof LivingEntity living && living.isPickable() && entity != player, 0.3F);
             LivingEntity target = entityHit != null && entityHit.getEntity() instanceof LivingEntity living && (blockHit.getType() == HitResult.Type.MISS || entityHit.getLocation().distanceToSqr(eye) <= blockHit.getLocation().distanceToSqr(eye)) ? living : null;
             BlockPos focus = target != null ? target.blockPosition() : blockHit.getBlockPos();
             List<LivingEntity> subjects = target == null ? List.of() : List.of(target);

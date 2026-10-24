@@ -301,15 +301,15 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = false; applyConfiguredAttributes();
         soldierExperiencePending = input.getBooleanOr("SoldierExperiencePending", false); soldierExperienceAttacker = input.getString("SoldierExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
-        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         cooldown = Math.max(0, Math.min(72000, input.getIntOr("IceCooldown", 0))); movementLock = Math.max(0, Math.min(29, input.getIntOr("IceMovementLock", 0)));
-        pendingTarget = input.getString("IceTarget").map(java.util.UUID::fromString).orElse(null); attackAge = pendingTarget != null && input.getString("IceAttackAge").isPresent() ? Math.max(-1, Math.min(22, input.getIntOr("IceAttackAge", 0))) : -1;
+        pendingTarget = input.getString("IceTarget").map(java.util.UUID::fromString).orElse(null); attackAge = pendingTarget != null && input.read("IceAttackAge", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? Math.max(-1, Math.min(22, input.getIntOr("IceAttackAge", 0))) : -1;
         attackOrigin = new Vec3(input.getDoubleOr("IceOriginX", 0.0), input.getDoubleOr("IceOriginY", 0.0), input.getDoubleOr("IceOriginZ", 0.0));
         if (!Double.isFinite(attackOrigin.x) || !Double.isFinite(attackOrigin.y) || !Double.isFinite(attackOrigin.z)) { pendingTarget = null; attackAge = -1; attackOrigin = position(); }
         combatDimension = input.getStringOr("IceDimension", ""); alternate = input.getBooleanOr("IceAlternate", false);
-        int legacyDriftPhase = input.getString("IceDriftPhase").isPresent() ? Math.clamp(input.getIntOr("IceDriftPhase", 0), -1, 1) : -1;
-        driftMovePending = input.getString("IceDriftMovePending").isPresent() ? input.getBooleanOr("IceDriftMovePending", false) : legacyDriftPhase == 1;
-        driftSlowPending = input.getString("IceDriftSlowPending").isPresent() ? input.getBooleanOr("IceDriftSlowPending", false) : legacyDriftPhase == 0;
+        int legacyDriftPhase = input.read("IceDriftPhase", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? Math.clamp(input.getIntOr("IceDriftPhase", 0), -1, 1) : -1;
+        driftMovePending = input.read("IceDriftMovePending", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getBooleanOr("IceDriftMovePending", false) : legacyDriftPhase == 1;
+        driftSlowPending = input.read("IceDriftSlowPending", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getBooleanOr("IceDriftSlowPending", false) : legacyDriftPhase == 0;
         driftCooldown = Math.clamp(input.getIntOr("IceDriftCooldown", 0), 0, 40); deathSpawned = input.getBooleanOr("IceDeathSpawned", false);
         entityData.set(COOLDOWN_VISIBLE, kind() == 3 && cooldown > 0); if (!level().isClientSide()) syncMovementLock(); restoreAnimation = attackAge >= 0; startedAt = Long.MIN_VALUE;
     }

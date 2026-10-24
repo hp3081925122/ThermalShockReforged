@@ -92,7 +92,7 @@ public final class PylonCoreActivationEntity extends Entity implements ServerEnd
         level.sendParticles(ParticleTypes.END_ROD, anchor.getX(), anchor.getY() + 1.5, anchor.getZ(), 30, .2, .2, .2, .2);
     }
     @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
-        output.putLong("CoreAnchor", anchor.asLong()); output.putString("CoreDimension", dimension); output.putBoolean("CoreExplosive", explosive); if (loot != null) output.putString("CoreLoot", loot.location().toString()); output.putBoolean("CoreArmed", armed); output.putBoolean("CoreConsumed", consumed); output.putInt("CoreRemaining", remaining);
+        output.putLong("CoreAnchor", anchor.asLong()); output.putString("CoreDimension", dimension); output.putBoolean("CoreExplosive", explosive); if (loot != null) output.putString("CoreLoot", loot.identifier().toString()); output.putBoolean("CoreArmed", armed); output.putBoolean("CoreConsumed", consumed); output.putInt("CoreRemaining", remaining);
     }
     @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         anchor = BlockPos.of(input.getLongOr("CoreAnchor", 0L)); dimension = input.getStringOr("CoreDimension", ""); explosive = input.getBooleanOr("CoreExplosive", false); consumed = input.getBooleanOr("CoreConsumed", false); remaining = Math.clamp(input.getIntOr("CoreRemaining", 0), 1, 40);

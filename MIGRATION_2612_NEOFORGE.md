@@ -68,6 +68,29 @@
 
 ## 当前状态
 
-构建工具链和资源格式已切换到目标版本，目标依赖可以解析，Gradle Wrapper 已更新到 9.4.0，Java 25 可用。源码编译尚未通过：首次编译暴露出 26.1 的公共映射和渲染 API 大范围变化，尤其是 `Identifier`、装备组件、实体生成原因、粒子、GUI、实体渲染状态，以及 GeckoLib 5.5.2 的 `GeoRenderState`/新动画管理器。当前没有把临时兼容桩保留进分支，避免用删减或空实现掩盖迁移工作；后续应按服务端公共 API、数据/菜单、客户端渲染和 GeckoLib 四组逐步迁移，再重新编译和运行验收。
+截至 compile-9：公共/服务端 Java 的编译错误已清零。剩余约 105 个错误全部在 `client/` 渲染层，以及 JEI 分类的 GUI 绘制（`GuiGraphicsExtractor`、`Matrix3x2fStack`、`RenderPipeline`、`RenderLevelStageEvent`、实体 RenderState、GeckoLib 5 渲染器）。下一阶段是渲染重写。
+编译日志：`D:\AI临时文件	sr2612-compile-9.log`。
 
-首次目标编译日志：`D:\AI临时文件\thermalshock-2612-compile.log`、`D:\AI临时文件\thermalshock-2612-compile-2.log`。
+## 语义变化与等价实现记录
+
+- 注册 id：26.1 要求 Item/Block Properties 带 id，统一由 `ModRegistration` 的 ThreadLocal 注入。在注册 lambda 之外创建 Properties 会直接抛异常。约 70 处通过 helper 创建的 Properties 还没有逐个核对。
+- 工具：改用 26.1 的 `ToolMaterial` 和 `Properties.sword/pickaxe`，斧、锄、锹继承原版类，保留去皮、耕地、铺路行为。修复材料改为标签 `tool_repair/*`。
+- 装甲：`ArmorMaterial` 不再是注册表，改为 `Holder.direct(record)`。`humanoidArmor()` 会按 `material.durability × 部位系数` 覆盖耐久，所以材质倍率取原来每件物品的耐久除以部位系数（原值全部能整除）：潜水 30、开发者围巾 23、怪丝 15、锈丝 5、红宝石/碳化硅 35、红宝石天顶 35、血石/血石天顶 32、哨卫 23、推进靴 18、静默 52、天线 25。修复标签复用 `tool_repair/*`；原 `Ingredient.EMPTY` 对应 `tool_repair/none`；怪丝套用 `tool_repair/strangesilk`（锈丝头盔+胸甲）。装备音效用原版 Holder 或 `wrapAsHolder`。
+- 配方：26.1 配方只在服务端。通过 `OnDatapackSyncEvent.sendRecipes` 同步本模组所有类型（包括 fabrication），客户端由 `RecipesReceivedEvent` 接收，JEI 和矿石提示通过 `RecipeContent.recipes(level)` 读取。
+- 饮品：使用 `Consumables.DEFAULT_DRINK` 或 `defaultDrink().consumeSeconds(...)`，保持 1.21.1 的饮用音效和时长。
+- SavedData：改为 `CompoundTag.CODEC.xmap(load, save)`，存档内容不变。
+- 实体存档：`ValueInput/ValueOutput`；判断键是否存在用 `read(key, Codec.PASSTHROUGH).isPresent()`，非字符串键也能正确判断。
+- 箭类：26.1 删除了 `getBaseDamage()`，读档后的伤害合法性检查改为直接读取父类刚读出的 `damage` 字段。
+- 河豚环境音：1.21.1 的 sounds.json 为空，26.1 改为返回 null，效果相同（无声）。
+- 狼受伤/死亡音效：取 `WOLF_SOUNDS` 的 CLASSIC 变体。
+- 刷怪蛋：26.1 不再有刷怪蛋颜色参数，由物品模型决定外观。
+- 月光板：能量 API 改为事务式 `EnergyHandler`。`canReceive()` 用「不提交的事务里模拟插入 1 点」判断；储能已满时的差异不影响实际输入量。
+- 相机：`ProjectileUtil.getEntityHitResult` 显式传入 1.21.1 的默认边距 0.3F。
+- JEI：`RecipeIngredientRole.CATALYST` 更名为 `CRAFTING_STATION`；`Ingredient.getItems()` 改为 `items().map(ItemStack::new)`。
+- 叶子：`UnderbrushLeaves` 的落叶粒子几率为 0，`spawnFallingLeavesParticle` 为空，与 1.21.1 一致（1.21.1 没有落叶粒子）。FallingBlock 的 `getDustColor` 返回 1.21.1 默认值 `-16777216`。
+- GeckoLib 4 → 5 兼容层 `compat/LegacyAnimationController`：
+  - `isMoving()` 和 `getLimbSwingAmount()` 按 GeckoLib 4.9.2 原公式实现：摆动量取 `walkAnimation.speed(pt)`，上限 1，死亡或坐骑坐姿时为 0；移动判定为水平平均速度 ≥ 0.015 且摆动量 ≠ 0。
+  - `ITEMSTACK` 是自定义 DataTicket，必须由天线头盔的装甲渲染器在 `addRenderData` 中写入（渲染阶段待办）。
+- Kilolyte 动画偏移：GeckoLib 4 的 `adjustTick` 等价于把「过渡+动画」整条时间线前移 offset tick。26.1 改为在 `triggerAnimation` 后执行 `triggeredAnimTime -= clientAnimationOffset`。
+- 暂停时播放动画：GeckoLib 5 删除了 `shouldPlayAnimsWhileGamePaused`，动画时间改用 `level.getGameTime()`。LabMachinist、Concierge、Florist、Ly、Shutterbug 保留该方法（不再是 override）。**渲染阶段待办**：这些 NPC 的渲染器在游戏暂停时要改用真实时间推进 animatable age，才能还原单人暂停时继续播放待机动画的效果。
+- 其他待核对：affectNeighborsAfterRemoval 时序、tooltip 顺序、武器 ITEM_USED 统计、gamerule 名称、部分实体 UUID 以字符串保存。

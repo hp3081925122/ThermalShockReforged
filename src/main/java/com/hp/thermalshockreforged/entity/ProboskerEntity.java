@@ -81,8 +81,8 @@ public final class ProboskerEntity extends TamableAnimal implements GeoEntity {
         targetSelector.addGoal(4, new OwnerHurtTargetGoal(this));
         goalSelector.addGoal(5, new RandomLookAroundGoal(this));
         goalSelector.addGoal(6, new FloatGoal(this));
-        targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 10, false, false, entity -> hasType(entity, "infestophage_seed")));
-        targetSelector.addGoal(8, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 10, false, false, entity -> hasType(entity, "louse")));
+        targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 10, false, false, (entity, targetLevel) -> hasType(entity, "infestophage_seed")));
+        targetSelector.addGoal(8, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 10, false, false, (entity, targetLevel) -> hasType(entity, "louse")));
         goalSelector.addGoal(9, new MeleeAttackGoal(this, 1.6, false));
         goalSelector.addGoal(10, new AvoidEntityGoal<>(this, LivingEntity.class, 6, 1, 1.2, entity -> hasType(entity, "monolith")));
     }
@@ -168,7 +168,7 @@ public final class ProboskerEntity extends TamableAnimal implements GeoEntity {
     }
 
     @Override
-    public SoundEvent getAmbientSound() { return SoundEvents.PUFFER_FISH_AMBIENT; }
+    public SoundEvent getAmbientSound() { return null; }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.PUFFER_FISH_HURT; }

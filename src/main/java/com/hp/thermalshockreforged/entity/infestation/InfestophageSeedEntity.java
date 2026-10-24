@@ -155,7 +155,7 @@ public final class InfestophageSeedEntity extends PathfinderMob implements GeoEn
     @Override
     public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         experiencePending = input.getBooleanOr("ExperiencePending", false);
         experienceSource = input.getString("ExperienceSource").map(java.util.UUID::fromString).orElse(null);
         deathTime = Math.max(0, Math.min(40, input.getIntOr("SeedDeathTime", 0)));

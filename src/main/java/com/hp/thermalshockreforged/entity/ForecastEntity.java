@@ -87,7 +87,7 @@ public final class ForecastEntity extends Monster implements GeoEntity, ServerEn
     public static void attack(AttackAttemptEvent event) {
         if (event.getSource().getEntity() instanceof ForecastEntity forecast) {
             event.setCanceled(true);
-            forecast.doHurtTarget(event.getEntity());
+            if (forecast.level() instanceof ServerLevel forecastLevel) forecast.doHurtTarget(forecastLevel, event.getEntity());
         }
     }
 
@@ -149,7 +149,7 @@ public final class ForecastEntity extends Monster implements GeoEntity, ServerEn
         if (!(level() instanceof ServerLevel server) || !isAlive()) return;
         if (!server.getEntitiesOfClass(Player.class, AABB.ofSize(position(), 10, 10, 10), player -> true).isEmpty()) {
             try {
-                var players = NEAREST_PLAYER.findPlayers(createCommandSourceStack().withPermission(2));
+                var players = NEAREST_PLAYER.findPlayers(createCommandSourceStackForNameResolution(server).withPermission(net.minecraft.server.permissions.LevelBasedPermissionSet.GAMEMASTER));
                 if (!players.isEmpty()) {
                     lookAt(EntityAnchorArgument.Anchor.FEET, players.getFirst().position());
                     setYBodyRot(getYRot());
@@ -232,7 +232,7 @@ public final class ForecastEntity extends Monster implements GeoEntity, ServerEn
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         attackCooldown = Math.clamp(input.getIntOr("ZapCooldown", 0), 0, 72000);
         driftCooldown = Math.clamp(input.getIntOr("DriftCooldown", 0), 0, 40);
         driftMovePending = input.getBooleanOr("DriftMovePending", false); driftSlowPending = input.getBooleanOr("DriftSlowPending", false); spawnInitialized = input.getBooleanOr("ForecastSpawnInitialized", false);

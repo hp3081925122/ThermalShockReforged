@@ -130,9 +130,9 @@ public final class RazorwingEntity extends TamableAnimal implements GeoEntity {
             replacement = type.create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
             if (replacement == null) { ThermalShockReforged.LOGGER.debug("Razorwing armor conversion failed to create replacement: source={}", getUUID()); return false; }
             replacement.finalizeSpawn(server, server.getCurrentDifficultyAt(blockPosition()), EntitySpawnReason.CONVERSION, null);
-            CompoundTag state = saveWithoutId(new CompoundTag());
+            var stateOutput = net.minecraft.world.level.storage.TagValueOutput.createWithContext(net.minecraft.util.ProblemReporter.DISCARDING, server.registryAccess()); saveWithoutId(stateOutput); CompoundTag state = stateOutput.buildResult();
             state.remove("UUID"); state.remove("Passengers"); state.remove("Texture");
-            replacement.load(state);
+            replacement.load(net.minecraft.world.level.storage.TagValueInput.create(net.minecraft.util.ProblemReporter.DISCARDING, server.registryAccess(), state));
             replacement.setTexture(replacement.defaultTexture());
             replacement.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.35);
             replacement.getAttribute(Attributes.ARMOR).setBaseValue(10);
@@ -143,8 +143,8 @@ public final class RazorwingEntity extends TamableAnimal implements GeoEntity {
             replacement.setDeltaMovement(Vec3.ZERO);
             if (!server.addFreshEntity(replacement)) { replacement.discard(); ThermalShockReforged.LOGGER.debug("Razorwing armor conversion join rejected: source={}, replacement={}", getUUID(), replacement.getUUID()); return false; }
             if (!player.getAbilities().instabuild) armor.shrink(1);
-            for (Entity passenger : List.copyOf(getPassengers())) passenger.startRiding(replacement, true);
-            ThermalShockReforged.LOGGER.debug("Razorwing armor conversion committed: source={}, replacement={}, owner={}, health={}, type={}", getUUID(), replacement.getUUID(), replacement.getOwnerUUID(), replacement.getHealth(), BuiltInRegistries.ENTITY_TYPE.getKey(type));
+            for (Entity passenger : List.copyOf(getPassengers())) passenger.startRiding(replacement, true, true);
+            ThermalShockReforged.LOGGER.debug("Razorwing armor conversion committed: source={}, replacement={}, owner={}, health={}, type={}", getUUID(), replacement.getUUID(), (replacement.getOwnerReference() == null ? null : replacement.getOwnerReference().getUUID()), replacement.getHealth(), BuiltInRegistries.ENTITY_TYPE.getKey(type));
             discard();
             server.playSound(null, blockPosition(), SoundEvents.STRIDER_HAPPY, SoundSource.NEUTRAL, 1, 1);
             server.playSound(null, blockPosition(), SoundEvents.HORSE_ARMOR.value(), SoundSource.NEUTRAL, 1, 1);
@@ -196,7 +196,7 @@ public final class RazorwingEntity extends TamableAnimal implements GeoEntity {
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.STRIDER_STEP, 0.15F, 1); }
     @Override public void aiStep() { super.aiStep(); updateSwingTime(); }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); }
-    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", "")); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", "")); }
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> {

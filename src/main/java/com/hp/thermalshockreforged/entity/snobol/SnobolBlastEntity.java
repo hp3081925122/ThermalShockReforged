@@ -71,17 +71,15 @@ public final class SnobolBlastEntity extends Entity {
     protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
         if (owner != null) output.putString("Owner", owner.toString());
         output.putBoolean("Detached", detached);
-        var tasks = new ListTag();
+        var tasks = output.childrenList("PendingBlasts");
         for (var blast : pending) {
-            var task = new CompoundTag();
+            var task = tasks.addChild();
             task.putDouble("X", blast.position.x);
             task.putDouble("Y", blast.position.y);
             task.putDouble("Z", blast.position.z);
             task.putDouble("Damage", blast.damage);
             task.putInt("Remaining", blast.remaining);
-            tasks.add(task);
         }
-        tag.put("PendingBlasts", tasks);
     }
 
     @Override
@@ -89,12 +87,12 @@ public final class SnobolBlastEntity extends Entity {
         owner = input.getString("Owner").map(java.util.UUID::fromString).orElse(null);
         detached = input.getBooleanOr("Detached", false);
         pending.clear();
-        var tasks = tag.getListOrEmpty("PendingBlasts");
-        for (int i = 0; i < Math.min(1, tasks.size()); i++) {
-            var task = tasks.getCompound(i);
-            double damage = Math.max(0, task.getDouble("Damage"));
+        int read = 0;
+        for (var task : input.childrenListOrEmpty("PendingBlasts")) {
+            if (read++ >= 1) break;
+            double damage = Math.max(0, task.getDoubleOr("Damage", 0.0));
             if (!Double.isFinite(damage)) damage = 0;
-            pending.add(new Blast(new Vec3(task.getDouble("X"), task.getDouble("Y"), task.getDouble("Z")), damage, Math.max(1, Math.min(20, task.getInt("Remaining"))), Long.MIN_VALUE));
+            pending.add(new Blast(new Vec3(task.getDoubleOr("X", 0.0), task.getDoubleOr("Y", 0.0), task.getDoubleOr("Z", 0.0)), damage, Math.max(1, Math.min(20, task.getIntOr("Remaining", 0))), Long.MIN_VALUE));
         }
     }
 

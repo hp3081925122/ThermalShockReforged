@@ -20,12 +20,12 @@ public final class UmbrellaItem extends AnimatedCombatItem {
     @Override public String textureName() { return "jellumnbra"; }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var result = super.use(level, player, hand);
-        if (player.getCooldowns().isOnCooldown(this)) return result;
+        if (player.getCooldowns().isOnCooldown(getDefaultInstance())) return result;
         player.setDeltaMovement(new Vec3(0, .5, 0)); player.hurtMarked = true;
         if (level instanceof ServerLevel server) {
             player.hurtMarked = true;
             player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, legendary ? 60 : 120, 1));
-            player.getCooldowns().addCooldown(this, legendary ? 80 : 200);
+            player.getCooldowns().addCooldown(getDefaultInstance(), legendary ? 80 : 200);
             CombatItemTaskEntity.sound(server, player.position(), "jellyumbrelladeploy", 1, 1);
             animate(player, player.getItemInHand(hand));
             if (legendary) com.hp.thermalshockreforged.ThermalShockReforged.LOGGER.debug("Legendary umbrella activation animation submitted: player={}", player.getUUID());

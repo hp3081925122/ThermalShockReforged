@@ -106,7 +106,7 @@ public final class RibbonbladeGalvaniteEntity extends AnimatedMonsterEntity impl
     @Override public void endTick(ServerLevel level) { if (!isRemoved() && chargeDelay > 0 && --chargeDelay == 0) addEffect(new MobEffectInstance(StatusContent.ELECTRIFIED, 30, 0, false, true)); if (chargeDelay > 0) ServerEndTickTasks.schedule(level, getUUID()); }
     @Override protected void tickEffects() {
         if (!level().isClientSide() || !entityData.get(COOLDOWN_VISIBLE)) { super.tickEffects(); return; }
-        for (var effect : new ArrayList<>(getActiveEffects())) { boolean active = onEffectUpdated(effect, true, null); if (active && effect.getDuration() % 600 == 0) onEffectUpdated(effect, false, null); }
+        for (var effect : new ArrayList<>(getActiveEffects())) effect.tickClient();
         if (isInvisible() ? random.nextInt(15) == 0 : random.nextBoolean()) LegacyEffectParticles.emit(this, -1, 1);
     }
     @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) { return Float.isFinite(amount) && amount > 0 && !source.is(DamageTypes.LIGHTNING_BOLT) && super.hurtServer(level, source, amount); }

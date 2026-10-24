@@ -23,7 +23,7 @@ public final class GelshooterBulletEntity extends AbstractArrow implements ItemS
         super.onHitEntity(hit);
         if(!level().isClientSide()&&hit.getEntity() instanceof LivingEntity target) target.addEffect(new MobEffectInstance(MobEffects.SLOWNESS,20,0));
     }
-    @Override public void tick() { super.tick(); if(inGround)discard(); }
+    @Override public void tick() { super.tick(); if(isInGround())discard(); }
     public static GelshooterBulletEntity shoot(LivingEntity owner,LivingEntity target) {
         var arrow=new GelshooterBulletEntity(owner);
         double dx=target.getX()-owner.getX();

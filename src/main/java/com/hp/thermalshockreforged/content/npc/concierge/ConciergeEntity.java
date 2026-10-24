@@ -43,7 +43,7 @@ public final class ConciergeEntity extends PathfinderMob implements GeoEntity, S
             if (isShiftKeyDown()) {
                 triggerAnim("procedure", "notice");
                 noticeSchedule |= 1 << 19;
-                ServerEndTickTasks.schedule(server((net.minecraft.server.level.ServerLevel) player.level()), getUUID());
+                ServerEndTickTasks.schedule(serverPlayer.level(), getUUID());
                 ThermalShockReforged.LOGGER.debug("Concierge notice armed: entity={}, pendingEndTickSlots={}", getUUID(), Integer.bitCount(noticeSchedule));
             } else {
                 ConciergeContent.open(serverPlayer, this, blockPosition(), ConciergePage.MAIN);
@@ -68,10 +68,10 @@ public final class ConciergeEntity extends PathfinderMob implements GeoEntity, S
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putInt("ConciergeNoticeSchedule", noticeSchedule); output.putBoolean("ConciergeNoticeShifted", isShiftKeyDown()); }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-if (input.getString("Texture").isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
+if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
         int legacyTicks = Math.clamp(input.getIntOr("ConciergeNoticeTicks", 0), 0, 20);
-        noticeSchedule = input.getString("ConciergeNoticeSchedule").isPresent() ? input.getIntOr("ConciergeNoticeSchedule", 0) & 0xfffff : legacyTicks > 0 ? 1 << (legacyTicks - 1) : 0;
-        if (noticeSchedule != 0) setShiftKeyDown(!input.getString("ConciergeNoticeShifted").isPresent() || input.getBooleanOr("ConciergeNoticeShifted", false));
+        noticeSchedule = input.read("ConciergeNoticeSchedule", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getIntOr("ConciergeNoticeSchedule", 0) & 0xfffff : legacyTicks > 0 ? 1 << (legacyTicks - 1) : 0;
+        if (noticeSchedule != 0) setShiftKeyDown(!input.read("ConciergeNoticeShifted", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() || input.getBooleanOr("ConciergeNoticeShifted", false));
         setPersistenceRequired();
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
@@ -80,5 +80,5 @@ if (input.getString("Texture").isPresent()) entityData.set(TEXTURE, input.getStr
         controllers.add(procedure);
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
-    @Override public boolean shouldPlayAnimsWhileGamePaused() { return true; }
+    public boolean shouldPlayAnimsWhileGamePaused() { return true; }
 }

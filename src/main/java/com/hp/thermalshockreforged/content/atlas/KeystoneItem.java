@@ -25,7 +25,7 @@ class KeystoneItem extends Item {
     }
     @Override public InteractionResult useOn(UseOnContext context) {
         var player = context.getPlayer(); var level = context.getLevel(); var pos = context.getClickedPos();
-        if (player == null || !(level instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this) || (!level.dimension().equals(Level.OVERWORLD) && !level.dimension().equals(LoqendiaContent.DIMENSION))) return InteractionResult.SUCCESS;
+        if (player == null || !(level instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(getDefaultInstance()) || (!level.dimension().equals(Level.OVERWORLD) && !level.dimension().equals(LoqendiaContent.DIMENSION))) return InteractionResult.SUCCESS;
         for (int x = -1; x <= 1; x++) for (int z = -1; z <= 1; z++) if (!level.getBlockState(pos.offset(x, 0, z)).is(Blocks.OBSIDIAN)) return InteractionResult.SUCCESS;
         if (!level.mayInteract(player, pos.above()) || !player.mayUseItemAt(pos.above(), context.getClickedFace(), context.getItemInHand())) return InteractionResult.SUCCESS;
         if (server.getStructureManager().get(AtlasContent.BASE_TEMPLATE).isEmpty()) { ThermalShockReforged.LOGGER.warn("Atlas activation template is missing: {}", AtlasContent.BASE_TEMPLATE); return InteractionResult.SUCCESS; }
@@ -36,7 +36,7 @@ class KeystoneItem extends Item {
         var atlas = GeoDecorContent.block(GeoDecorKind.ATLAS);
         boolean changed = server.setBlock(pos.above(), atlas.withPropertiesOf(server.getBlockState(pos.above())), 3);
         if (!changed && !server.getBlockState(pos.above()).is(atlas)) { task.discard(); return InteractionResult.SUCCESS; }
-        player.getCooldowns().addCooldown(this, 100);
+        player.getCooldowns().addCooldown(getDefaultInstance(), 100);
         server.playSound(null, pos, SoundEvents.END_PORTAL_FRAME_FILL, SoundSource.NEUTRAL, 1, 3);
         return InteractionResult.SUCCESS;
     }

@@ -165,11 +165,11 @@ public final class FrostilyteEntity extends Monster implements GeoEntity, Server
     @Override
     public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         cooldown = Math.max(0, Math.min(12, input.getIntOr("AttackCooldown", 0)));
         movementLock = Math.max(0, Math.min(20, input.getIntOr("MovementLock", 0)));
         pendingTarget = input.getString("PendingTarget").map(java.util.UUID::fromString).orElse(null);
-        attackRemaining = pendingTarget != null && input.getString("AttackRemaining").isPresent() ? Math.max(-1, Math.min(11, input.getIntOr("AttackRemaining", 0))) : -1;
+        attackRemaining = pendingTarget != null && input.read("AttackRemaining", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? Math.max(-1, Math.min(11, input.getIntOr("AttackRemaining", 0))) : -1;
         attackOrigin = new Vec3(input.getDoubleOr("AttackX", 0.0), input.getDoubleOr("AttackY", 0.0), input.getDoubleOr("AttackZ", 0.0));
         if (!Double.isFinite(attackOrigin.x) || !Double.isFinite(attackOrigin.y) || !Double.isFinite(attackOrigin.z)) { pendingTarget = null; attackRemaining = -1; }
         combatDimension = input.getStringOr("CombatDimension", "");

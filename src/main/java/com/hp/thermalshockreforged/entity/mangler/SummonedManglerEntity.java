@@ -27,5 +27,5 @@ public final class SummonedManglerEntity extends ManglerEntity {
     @Override
     public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putLong("SummonExpiresAt", expiresAt); if (summonOwner != null) output.putString("SummonOwner", summonOwner.toString()); }
     @Override
-    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("SummonExpiresAt").isPresent()) expiresAt = input.getLongOr("SummonExpiresAt", 0L); summonOwner = input.getString("SummonOwner").map(java.util.UUID::fromString).orElse(null); }
+    public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.read("SummonExpiresAt", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) expiresAt = input.getLongOr("SummonExpiresAt", 0L); summonOwner = input.getString("SummonOwner").map(java.util.UUID::fromString).orElse(null); }
 }

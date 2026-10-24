@@ -33,7 +33,7 @@ public final class RemainingGunItem extends AnimatedCombatItem {
         if (slot == net.minecraft.world.entity.EquipmentSlot.MAINHAND && entity instanceof LivingEntity living) HeldWeaponState.refreshNoMelee(living);
     }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
-        if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this)) return false;
+        if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(getDefaultInstance())) return false;
         Item ammo = judge ? MaterialContent.items().get("heavy_round").get() : Items.STRING;
         if (!player.getInventory().contains(new ItemStack(ammo))) {
             server.playSound(null, player.blockPosition(), net.minecraft.sounds.SoundEvents.STONE_BUTTON_CLICK_ON, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 5);
@@ -56,7 +56,7 @@ public final class RemainingGunItem extends AnimatedCombatItem {
         }
         if (!spawned) return false;
         animate(player, stack);
-        player.getCooldowns().addCooldown(this, judge ? 32 : 21);
+        player.getCooldowns().addCooldown(getDefaultInstance(), judge ? 32 : 21);
         if (!CombatItemTaskEntity.submit(server, player.position(), judge ? CombatItemTaskEntity.JUDGE : CombatItemTaskEntity.NET))
             com.hp.thermalshockreforged.ThermalShockReforged.LOGGER.debug("Combat item reload task rejected: player={}, judge={}", player.getUUID(), judge);
         if (judge) {

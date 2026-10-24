@@ -44,13 +44,13 @@ public final class CoreEjectFlareGunItem extends Item implements GeoItem {
         return result;
     }
     private void fire(Player player, ItemStack stack, boolean alternate) {
-        if (!(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this)) return;
+        if (!(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(getDefaultInstance())) return;
         Item ammo = MaterialContent.items().get(alternate ? "heavy_round" : "light_round").get();
         if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) {
             server.playSound(null, player.blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, 5);
             return;
         }
-        player.getCooldowns().addCooldown(this, alternate ? 35 : 25);
+        player.getCooldowns().addCooldown(getDefaultInstance(), alternate ? 35 : 25);
         triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", alternate ? "2" : "1");
         server.playSound(null, player.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, alternate ? "flarealtshoot" : "flareshoot")), SoundSource.NEUTRAL, 1, 1);
         if (alternate) {

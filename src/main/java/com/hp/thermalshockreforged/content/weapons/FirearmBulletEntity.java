@@ -59,7 +59,7 @@ public final class FirearmBulletEntity extends AbstractArrow implements ItemSupp
         super.tick();
         setNoGravity(true);
         if (isHailfall()) level().addParticle(ParticleTypes.SNOWFLAKE, getX() + .5, getY() + .5, getZ() + .5, 0, 0, 0);
-        if (inGround) discard();
+        if (isInGround()) discard();
         if (!isRemoved() && level() instanceof ServerLevel server) { armed = true; ServerEndTickTasks.schedule(server, getUUID()); }
     }
     @Override public void endTick(ServerLevel level) {
@@ -69,8 +69,8 @@ public final class FirearmBulletEntity extends AbstractArrow implements ItemSupp
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putInt("FirearmRemaining", remaining); output.putBoolean("FirearmArmed", armed); }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-        remaining = input.getString("FirearmRemaining").isPresent() ? Math.clamp(input.getIntOr("FirearmRemaining", 0), 1, isHailfall() ? 40 : 7) : isHailfall() ? 40 : 7;
+        remaining = input.read("FirearmRemaining", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? Math.clamp(input.getIntOr("FirearmRemaining", 0), 1, isHailfall() ? 40 : 7) : isHailfall() ? 40 : 7;
         armed = input.getBooleanOr("FirearmArmed", false); pickup = Pickup.DISALLOWED;
-        if (!Double.isFinite(getBaseDamage()) || getBaseDamage() < 0) setBaseDamage(0);
+        if (!Double.isFinite(input.getDoubleOr("damage", 2.0)) || input.getDoubleOr("damage", 2.0) < 0) setBaseDamage(0);
     }
 }

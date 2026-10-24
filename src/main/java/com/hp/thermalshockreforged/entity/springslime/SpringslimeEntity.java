@@ -46,7 +46,7 @@ public final class SpringslimeEntity extends PathfinderMob implements GeoEntity 
         server.playSound(null, blockPosition(), SoundEvents.SLIME_SQUISH, SoundSource.NEUTRAL, 1, 1);
     }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putBoolean("SpringPopped", entityData.get(POPPED)); }
-    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.getString("Texture").isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", "")); entityData.set(POPPED, input.getBooleanOr("SpringPopped", false)); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", "")); entityData.set(POPPED, input.getBooleanOr("SpringPopped", false)); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         var procedure = new LegacyAnimationController<>(this, "procedure", 4, state -> PlayState.STOP).triggerableAnim("2", RawAnimation.begin().thenPlay("2"));
         controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> procedure.isPlayingTriggeredAnimation() ? PlayState.STOP : isDeadOrDying() ? state.setAndContinue(RawAnimation.begin().thenPlay("2")) : state.setAndContinue(RawAnimation.begin().thenLoop("1"))));

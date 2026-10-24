@@ -87,8 +87,8 @@ public final class CavebloomerImpactEntity extends AttackCarrierBody implements 
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
         initialized = input.getBooleanOr("ImpactInitialized", false); committed = input.getBooleanOr("ImpactCommitted", false);
-        remaining = input.getString("ImpactRemaining").isPresent() ? Math.clamp(input.getIntOr("ImpactRemaining", 0), 0, 20) : 20;
-        dimension = input.getStringOr("ImpactDimension", ""); damage = input.getString("ImpactDamage").isPresent() ? input.getDoubleOr("ImpactDamage", 0.0) : poison() ? 6 : 10;
+        remaining = input.read("ImpactRemaining", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? Math.clamp(input.getIntOr("ImpactRemaining", 0), 0, 20) : 20;
+        dimension = input.getStringOr("ImpactDimension", ""); damage = input.read("ImpactDamage", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getDoubleOr("ImpactDamage", 0.0) : poison() ? 6 : 10;
         damage = Double.isFinite(damage) ? Math.clamp(damage, 0, Float.MAX_VALUE) : 0;
         origin = new Vec3(input.getDoubleOr("ImpactX", 0.0), input.getDoubleOr("ImpactY", 0.0), input.getDoubleOr("ImpactZ", 0.0));
         if (!Double.isFinite(origin.x) || !Double.isFinite(origin.y) || !Double.isFinite(origin.z)) committed = true;

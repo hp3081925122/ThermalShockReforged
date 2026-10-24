@@ -33,10 +33,10 @@ public final class SnowMelterItem extends Item {
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
-        if (!(context.getPlayer() instanceof ServerPlayer player) || player.getCooldowns().isOnCooldown(this)) return InteractionResult.SUCCESS;
+        if (!(context.getPlayer() instanceof ServerPlayer player) || player.getCooldowns().isOnCooldown(getDefaultInstance())) return InteractionResult.SUCCESS;
         ServerLevel level = ((net.minecraft.server.level.ServerLevel) player.level());
         var pos = context.getClickedPos();
-        player.getCooldowns().addCooldown(this, 5);
+        player.getCooldowns().addCooldown(getDefaultInstance(), 5);
         var advancement = player.level().getServer().getAdvancements().get(RemainingUtilityContent.id("hpsm_get"));
         if (advancement != null) {
             var progress = player.getAdvancements().getOrStartProgress(advancement);

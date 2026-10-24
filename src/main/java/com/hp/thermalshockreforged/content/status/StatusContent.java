@@ -28,7 +28,7 @@ public final class StatusContent {
     public static final DeferredHolder<MobEffect, MobEffect> ELECTRIFIED = EFFECTS.register("electrified", () -> new PlayerStatusEffect(MobEffectCategory.HARMFUL, -13369345, PlayerStatusEffect.Action.NONE, true));
     public static final DeferredItem<Item> COCOA = ITEMS.register("cocoa", CocoaItem::new);
     public static final DeferredItem<Item> PANACEA = ITEMS.register("panacea", PanaceaItem::new);
-    public static final DeferredHolder<Potion, Potion> ELECTRIFYING = POTIONS.register("electrifying", () -> new Potion(new MobEffectInstance(ELECTRIFIED, 360, 1, false, true)));
+    public static final DeferredHolder<Potion, Potion> ELECTRIFYING = POTIONS.register("electrifying", () -> new Potion("electrifying", new MobEffectInstance(ELECTRIFIED, 360, 1, false, true)));
 
     private StatusContent() { }
 

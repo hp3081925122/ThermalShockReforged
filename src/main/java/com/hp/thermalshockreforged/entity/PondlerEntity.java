@@ -171,7 +171,7 @@ public final class PondlerEntity extends PathfinderMob implements GeoEntity {
     @Override
     public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
-        if (input.getString("Texture").isPresent()) setTexture(input.getStringOr("Texture", ""));
+        if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         jumpCooldown = Math.max(0, Math.min(300, input.getIntOr("PondlerJumpCooldown", 0)));
     }
 

@@ -21,7 +21,7 @@ public record ExtractionRecipe(Ingredient ingredient, int levels, Optional<Exper
     public record Experience(int value, IntProvider orbs) {
         public static final Codec<Experience> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                 Codec.intRange(1, Integer.MAX_VALUE).fieldOf("value").forGetter(Experience::value),
-                IntProvider.POSITIVE_CODEC.optionalFieldOf("orbs", ConstantInt.of(1)).forGetter(Experience::orbs)
+                net.minecraft.util.valueproviders.IntProviders.POSITIVE_CODEC.optionalFieldOf("orbs", ConstantInt.of(1)).forGetter(Experience::orbs)
         ).apply(instance, Experience::new));
     }
 
@@ -29,7 +29,7 @@ public record ExtractionRecipe(Ingredient ingredient, int levels, Optional<Exper
         public static final Codec<Output> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                 ItemStack.CODEC.fieldOf("item").forGetter(Output::item),
                 Codec.floatRange(0, 1).optionalFieldOf("chance", 1F).forGetter(Output::chance),
-                IntProvider.POSITIVE_CODEC.optionalFieldOf("repeat", ConstantInt.of(1)).forGetter(Output::repeat)
+                net.minecraft.util.valueproviders.IntProviders.POSITIVE_CODEC.optionalFieldOf("repeat", ConstantInt.of(1)).forGetter(Output::repeat)
         ).apply(instance, Output::new));
 
         public boolean guaranteed() { return chance >= 1; }

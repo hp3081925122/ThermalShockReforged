@@ -10,7 +10,7 @@ import net.minecraft.world.level.material.FluidState;
 
 public final class PathioliteOutcropBlock extends GeoDecorBlock {
     public PathioliteOutcropBlock() { super(GeoDecorKind.PATHIOLITE_OUTCROP); }
-    @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, ItemStack toolStack, boolean harvest, FluidState fluid) {
+    @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, net.minecraft.world.item.ItemStack toolStack, boolean harvest, FluidState fluid) {
         boolean removed = super.onDestroyedByPlayer(state, level, pos, player, toolStack, harvest, fluid);
         if (removed && !level.isClientSide() && !level.getBlockState(pos).is(this)) level.setBlock(pos, Blocks.LAVA.defaultBlockState(), 3);
         return removed;

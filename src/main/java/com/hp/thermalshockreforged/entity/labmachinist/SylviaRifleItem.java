@@ -36,8 +36,8 @@ public final class SylviaRifleItem extends Item implements GeoItem {
     @Override public int getUseDuration(ItemStack stack, LivingEntity user) { return 20; }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var stack = player.getItemInHand(hand);
-        if (level instanceof ServerLevel server && !player.getCooldowns().isOnCooldown(this)) {
-            player.getCooldowns().addCooldown(this, 10); triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "1");
+        if (level instanceof ServerLevel server && !player.getCooldowns().isOnCooldown(getDefaultInstance())) {
+            player.getCooldowns().addCooldown(getDefaultInstance(), 10); triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "1");
             server.playSound(null, player.blockPosition(), SoundEvents.PISTON_CONTRACT, SoundSource.NEUTRAL, 1, 3); server.playSound(null, player.blockPosition(), SoundEvents.FIREWORK_ROCKET_LAUNCH, SoundSource.NEUTRAL, 1, 3);
             var data = player.getPersistentData(); int charge = Math.min(255, Math.max(0, data.getIntOr(CHARGE, 0)) + 1); data.putInt(CHARGE, charge); data.putInt(REMAINING, 27); data.putLong(CREATED, server.getGameTime());
             if (charge >= 4) server.playSound(null, player.blockPosition(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, 1, 1);
@@ -45,12 +45,12 @@ public final class SylviaRifleItem extends Item implements GeoItem {
         return InteractionResult.PASS;
     }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
-        if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this) || player.getPersistentData().getIntOr(REMAINING, 0) <= 0 || player.getPersistentData().getIntOr(CHARGE, 0) < 4) return false;
+        if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(getDefaultInstance()) || player.getPersistentData().getIntOr(REMAINING, 0) <= 0 || player.getPersistentData().getIntOr(CHARGE, 0) < 4) return false;
         var ammo = MaterialContent.items().get("specialized_round").get(); if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) return false;
         var direction = player.getLookAngle();
         int emitted = LiteprismBeamEntity.fireSylviaLine(server, player);
         if (emitted == 0) return false;
-        player.getCooldowns().addCooldown(this, 600); triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "2");
+        player.getCooldowns().addCooldown(getDefaultInstance(), 600); triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "2");
         server.playSound(null, player.blockPosition(), SoundEvents.DRAGON_FIREBALL_EXPLODE, SoundSource.NEUTRAL, 1, 1); server.playSound(null, player.blockPosition(), SoundEvents.WARDEN_SONIC_BOOM, SoundSource.NEUTRAL, 1, 1);
         player.setDeltaMovement(new Vec3(-direction.x * 4, -direction.y * 2, -direction.z * 4)); player.hurtMarked = true;
         if (!player.getAbilities().instabuild) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());

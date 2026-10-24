@@ -51,6 +51,6 @@ public final class AtlasActivationEntity extends Entity implements ServerEndTick
     }
     @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { output.putLong("AtlasAnchor", anchor.asLong()); output.putString("AtlasDimension", dimension); output.putInt("AtlasFace", direction.ordinal()); output.putInt("AtlasRemaining", remaining); output.putInt("AtlasPhase", phase); output.putBoolean("AtlasArmed", armed); }
     @Override protected void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
-        anchor = BlockPos.of(input.getLongOr("AtlasAnchor", 0L)); dimension = input.getStringOr("AtlasDimension", ""); direction = Direction.values()[Math.clamp(input.getIntOr("AtlasFace", 0), 0, 5)]; phase = Math.clamp(input.getIntOr("AtlasPhase", 0), 0, 2); remaining = Math.clamp(input.getIntOr("AtlasRemaining", 0), 1, phase == 0 ? 20 : 60); armed = input.getBooleanOr("AtlasArmed", false) && input.getString("AtlasAnchor").isPresent(); noPhysics = true; setNoGravity(true);
+        anchor = BlockPos.of(input.getLongOr("AtlasAnchor", 0L)); dimension = input.getStringOr("AtlasDimension", ""); direction = Direction.values()[Math.clamp(input.getIntOr("AtlasFace", 0), 0, 5)]; phase = Math.clamp(input.getIntOr("AtlasPhase", 0), 0, 2); remaining = Math.clamp(input.getIntOr("AtlasRemaining", 0), 1, phase == 0 ? 20 : 60); armed = input.getBooleanOr("AtlasArmed", false) && input.read("AtlasAnchor", com.mojang.serialization.Codec.PASSTHROUGH).isPresent(); noPhysics = true; setNoGravity(true);
     }
 }

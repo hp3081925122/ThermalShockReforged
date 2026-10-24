@@ -30,7 +30,7 @@ public final class AmaljellyCanisterItem extends Item {
 
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        if (player.getCooldowns().isOnCooldown(this)) return InteractionResult.FAIL;
+        if (player.getCooldowns().isOnCooldown(getDefaultInstance())) return InteractionResult.FAIL;
         if (level instanceof ServerLevel server) {
             BlockPos pos = BlockPos.containing(player.getX(), player.getY() + 1, player.getZ());
             LilJellyEntity jelly = LegacyContent.LIL_JELLY.get().spawn(server, pos, EntitySpawnReason.MOB_SUMMONED);
@@ -43,7 +43,7 @@ public final class AmaljellyCanisterItem extends Item {
             server.playSound(null, player.blockPosition(), SoundEvents.EVOKER_CAST_SPELL, SoundSource.NEUTRAL, 1, 3);
             server.sendParticles(ParticleTypes.WITCH, player.getX(), player.getY(), player.getZ(), 15, 1, 1, 1, .1);
             exchangeOne(player, hand, new ItemStack(MaterialContent.items().get("empty_amaljelly_canister").get()));
-            player.getCooldowns().addCooldown(this, 60);
+            player.getCooldowns().addCooldown(getDefaultInstance(), 60);
         }
         return InteractionResult.SUCCESS;
     }

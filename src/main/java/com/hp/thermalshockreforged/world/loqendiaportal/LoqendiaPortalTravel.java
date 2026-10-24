@@ -25,7 +25,6 @@ import net.minecraft.world.level.portal.PortalShape;
 import net.minecraft.world.phys.Vec3;
 
 public final class LoqendiaPortalTravel {
-    private static final TicketType PORTAL_TICKET = TicketType.create("thermal_shock_reforged:loqendia_portal", Vec3i::compareTo, 300);
     private final ServerLevel level;
 
     private LoqendiaPortalTravel(ServerLevel level) { this.level = level; }
@@ -75,7 +74,7 @@ public final class LoqendiaPortalTravel {
                 .filter(pos -> level.getBlockState(pos).is(LoqendiaContent.PORTAL.get()))
                 .min(Comparator.<BlockPos>comparingDouble(pos -> pos.distSqr(search)).thenComparingInt(Vec3i::getY))
                 .map(pos -> {
-                    level.getChunkSource().addRegionTicket(PORTAL_TICKET, new ChunkPos(pos), 3, pos);
+                    level.getChunkSource().addTicketWithRadius(com.hp.thermalshockreforged.world.LoqendiaContent.PORTAL_TICKET.get(), ChunkPos.containing(pos), 3);
                     var state = level.getBlockState(pos);
                     return BlockUtil.getLargestRectangleAround(pos, state.getValue(LoqendiaPortalBlock.AXIS), 21, Direction.Axis.Y, 21,
                             candidate -> level.getBlockState(candidate) == state);
@@ -84,7 +83,7 @@ public final class LoqendiaPortalTravel {
 
     private Optional<BlockUtil.FoundRectangle> createPortal(BlockPos target, Direction.Axis axis) {
         Direction along = Direction.get(Direction.AxisDirection.POSITIVE, axis);
-        int ceiling = Math.min(level.getMaxBuildHeight(), level.getMinBuildHeight() + level.getLogicalHeight()) - 1;
+        int ceiling = Math.min((level.getMaxY() + 1), level.getMinY() + level.getLogicalHeight()) - 1;
         WorldBorder border = level.getWorldBorder();
         BlockPos preferred = null;
         BlockPos fallback = null;
@@ -95,11 +94,11 @@ public final class LoqendiaPortalTravel {
             int top = Math.min(ceiling, level.getHeight(Heightmap.Types.MOTION_BLOCKING, candidate.getX(), candidate.getZ()));
             if (!border.isWithinBounds(candidate) || !border.isWithinBounds(candidate.move(along, 1))) continue;
             candidate.move(along.getOpposite(), 1);
-            for (int y = top; y >= level.getMinBuildHeight(); y--) {
+            for (int y = top; y >= level.getMinY(); y--) {
                 candidate.setY(y);
                 if (!canReplace(candidate)) continue;
                 int columnTop = y;
-                while (y > level.getMinBuildHeight() && canReplace(candidate.move(Direction.DOWN))) y--;
+                while (y > level.getMinY() && canReplace(candidate.move(Direction.DOWN))) y--;
                 int gap = columnTop - y;
                 if (y + 4 > ceiling || gap > 0 && gap < 3) continue;
                 candidate.setY(y);
@@ -118,7 +117,7 @@ public final class LoqendiaPortalTravel {
         }
         BlockPos origin = preferred != null ? preferred : fallback;
         if (origin == null) {
-            int lowest = Math.max(level.getMinBuildHeight() + 1, 70);
+            int lowest = Math.max(level.getMinY() + 1, 70);
             int highest = ceiling - 9;
             if (highest < lowest) return Optional.empty();
             origin = new BlockPos(target.getX(), Mth.clamp(target.getY(), lowest, highest), target.getZ());
