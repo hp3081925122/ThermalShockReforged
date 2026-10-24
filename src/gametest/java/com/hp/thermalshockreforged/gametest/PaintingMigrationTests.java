@@ -3,25 +3,18 @@ package com.hp.thermalshockreforged.gametest;
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.PaintingVariantTags;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.decoration.Painting;
-import net.neoforged.neoforge.gametest.GameTestHolder;
-import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
+import net.minecraft.world.entity.decoration.painting.Painting;
 
-@GameTestHolder(ThermalShockReforged.MOD_ID)
-@PrefixGameTestTemplate(false)
 public final class PaintingMigrationTests {
     private record Expected(String id, int width, int height) {
     }
-
-    @GameTest(template = "migration_empty")
     public static void paintingDimensionsAndPlaceableTagsLoad(GameTestHelper helper) {
-        var registry = helper.getLevel().registryAccess().registryOrThrow(Registries.PAINTING_VARIANT);
+        var registry = helper.getLevel().registryAccess().lookupOrThrow(Registries.PAINTING_VARIANT);
         Expected[] expected = {
             new Expected("pylon_painting", 4, 2),
             new Expected("showcase_painting", 4, 2),
@@ -42,8 +35,8 @@ public final class PaintingMigrationTests {
             new Expected("kiosk_sign", 3, 1)
         };
         for (var item : expected) {
-            var id = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, item.id());
-            var holder = registry.getHolder(id).orElseThrow();
+            var id = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, item.id());
+            var holder = registry.get(id).orElseThrow();
             var value = holder.value();
             helper.assertTrue(value.width() == item.width() && value.height() == item.height(), "Painting dimensions must convert pixels to blocks without resizing: " + item.id());
             helper.assertTrue(value.assetId().equals(id), "Painting must reference its original texture: " + item.id());
@@ -51,17 +44,13 @@ public final class PaintingMigrationTests {
         }
         helper.succeed();
     }
-
-    @GameTest(template = "migration_empty")
     public static void largePaintingKeepsVariantAndPhysicalSizeOnSave(GameTestHelper helper) {
-        var registry = helper.getLevel().registryAccess().registryOrThrow(Registries.PAINTING_VARIANT);
-        var variant = registry.getHolder(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "flowergirl")).orElseThrow();
+        var registry = helper.getLevel().registryAccess().lookupOrThrow(Registries.PAINTING_VARIANT);
+        var variant = registry.get(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "flowergirl")).orElseThrow();
         var painting = new Painting(helper.getLevel(), helper.absolutePos(new net.minecraft.core.BlockPos(3, 2, 3)), Direction.SOUTH, variant);
         helper.assertTrue(Math.abs(painting.getBoundingBox().getXsize() - 7) < 0.001 && Math.abs(painting.getBoundingBox().getYsize() - 9) < 0.001, "The original 112 by 144 pixel painting must occupy 7 by 9 blocks");
-        var saved = new CompoundTag();
-        painting.saveWithoutId(saved);
         var loaded = new Painting(EntityType.PAINTING, helper.getLevel());
-        loaded.load(saved);
+        loaded.load(TsrGameTests.roundTrip(helper, painting));
         helper.assertTrue(loaded.getPos().equals(painting.getPos()), "Painting anchor position must persist through the complete entity save flow");
         helper.assertTrue(loaded.getVariant().is(variant.unwrapKey().orElseThrow()), "Painting variant must persist across save and load");
         helper.assertTrue(Math.abs(loaded.getBoundingBox().getYsize() - 9) < 0.001, "Painting physical size must persist");

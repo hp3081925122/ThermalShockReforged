@@ -100,7 +100,7 @@ public class KeystonePuzzleBlock extends GeoDecorBlock {
         if (state.getBlock().getStateDefinition().getProperty("animation") instanceof IntegerProperty property && property.getPossibleValues().contains(1)) level.setBlock(pos, state.setValue(property, 1), 3);
     }
     @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        return interact(level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS;
+        return interact(level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.TRY_WITH_EMPTY_HAND;
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         return interact(level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS;

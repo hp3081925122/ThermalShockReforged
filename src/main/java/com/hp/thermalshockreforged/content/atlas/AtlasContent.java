@@ -22,5 +22,15 @@ public final class AtlasContent {
     public static final DeferredHolder<MenuType<?>, MenuType<AtlasMenu>> MENU = MENUS.register("atlas_menu", () -> IMenuTypeExtension.create(AtlasMenu::new));
     public static final DeferredHolder<EntityType<?>, EntityType<AtlasActivationEntity>> ACTIVATION = ENTITIES.register("atlas_activation", () -> EntityType.Builder.of(AtlasActivationEntity::new, MobCategory.MISC).noSummon().fireImmune().sized(0.01F, 0.01F).clientTrackingRange(0).updateInterval(20).build(com.hp.thermalshockreforged.ThermalShockReforged.entityKey("atlas_activation")));
     private AtlasContent() { }
-    public static void register(IEventBus bus) { ITEMS.register(bus); MENUS.register(bus); ENTITIES.register(bus); }
+    private static final DeferredRegister<net.neoforged.neoforge.attachment.AttachmentType<?>> ATTACHMENTS = DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, ThermalShockReforged.MOD_ID);
+    public static final DeferredHolder<net.neoforged.neoforge.attachment.AttachmentType<?>, net.neoforged.neoforge.attachment.AttachmentType<Integer>> ARRIVAL_VISUAL = ATTACHMENTS.register("arrival_protection_visual", () -> net.neoforged.neoforge.attachment.AttachmentType.builder(() -> 0).sync(new net.neoforged.neoforge.attachment.AttachmentSyncHandler<Integer>() {
+        @Override public void write(net.minecraft.network.RegistryFriendlyByteBuf buf, Integer ticks, boolean initialSync) { buf.writeVarInt(ticks); }
+        @Override public Integer read(net.neoforged.neoforge.attachment.IAttachmentHolder holder, net.minecraft.network.RegistryFriendlyByteBuf buf, Integer previous) {
+            int ticks = buf.readVarInt();
+            if (holder instanceof AtlasArrivalState arrival) arrival.receiveArrivalProtectionData(ticks);
+            return ticks;
+        }
+    }).build());
+
+    public static void register(IEventBus bus) { ITEMS.register(bus); MENUS.register(bus); ENTITIES.register(bus); ATTACHMENTS.register(bus); }
 }

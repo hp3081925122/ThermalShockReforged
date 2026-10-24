@@ -9,7 +9,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.flag.FeatureFlags;
@@ -19,13 +18,8 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.EmptyBlockGetter;
 import net.minecraft.core.BlockPos;
-import net.neoforged.neoforge.gametest.GameTestHolder;
-import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
-@GameTestHolder(ThermalShockReforged.MOD_ID)
-@PrefixGameTestTemplate(false)
 public final class WikiDumpGameTests {
-    @GameTest(template = "migration_empty")
     public static void dumpWikiData(GameTestHelper helper) {
         JsonObject root = new JsonObject();
         JsonObject tabs = new JsonObject();
@@ -53,23 +47,31 @@ public final class WikiDumpGameTests {
             o.addProperty("maxStack", stack.getMaxStackSize());
             o.addProperty("maxDamage", stack.getMaxDamage());
             o.addProperty("rarity", stack.getRarity().name());
-            o.addProperty("fireResistant", stack.has(DataComponents.FIRE_RESISTANT));
+            var resistant = stack.get(DataComponents.DAMAGE_RESISTANT);
+            o.addProperty("fireResistant", resistant != null && resistant.types().unwrapKey().map(key -> key.equals(net.minecraft.tags.DamageTypeTags.IS_FIRE)).orElse(false));
             var food = stack.get(DataComponents.FOOD);
             if (food != null) {
                 JsonObject f = new JsonObject();
                 f.addProperty("nutrition", food.nutrition());
                 f.addProperty("saturation", food.saturation());
                 f.addProperty("alwaysEat", food.canAlwaysEat());
-                f.addProperty("eatSeconds", food.eatSeconds());
+                var consumable = stack.get(DataComponents.CONSUMABLE);
+                f.addProperty("eatSeconds", consumable == null ? 0 : consumable.consumeSeconds());
                 JsonArray effects = new JsonArray();
-                for (var e : food.effects()) effects.add(e.effect().getEffect().getRegisteredName() + "|" + e.effect().getAmplifier() + "|" + e.effect().getDuration() + "|" + e.probability());
+                if (consumable != null) for (var consume : consumable.onConsumeEffects()) {
+                    if (consume instanceof net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect apply) {
+                        for (var e : apply.effects()) effects.add(e.getEffect().getRegisteredName() + "|" + e.getAmplifier() + "|" + e.getDuration() + "|" + apply.probability());
+                    }
+                }
                 f.add("effects", effects);
                 o.add("food", f);
             }
             JsonArray hover = new JsonArray();
             try {
                 java.util.List<net.minecraft.network.chat.Component> lines = new java.util.ArrayList<>();
-                item.appendHoverText(stack, net.minecraft.world.item.Item.TooltipContext.of(helper.getLevel()), lines, net.minecraft.world.item.TooltipFlag.NORMAL);
+                var context = net.minecraft.world.item.Item.TooltipContext.of(helper.getLevel());
+                item.appendHoverText(stack, context, net.minecraft.world.item.component.TooltipDisplay.DEFAULT, lines::add, net.minecraft.world.item.TooltipFlag.NORMAL);
+                net.neoforged.neoforge.common.tooltip.ItemTooltipHandler.addDetailsToTooltipMiddle(stack, context, net.minecraft.world.item.component.TooltipDisplay.DEFAULT, null, net.minecraft.world.item.TooltipFlag.NORMAL, lines::add);
                 for (var line : lines) hover.add(net.minecraft.network.chat.ComponentSerialization.CODEC.encodeStart(helper.getLevel().registryAccess().createSerializationContext(com.mojang.serialization.JsonOps.INSTANCE), line).getOrThrow());
             } catch (Throwable t) {
                 hover.add("error|" + t);
@@ -78,7 +80,6 @@ public final class WikiDumpGameTests {
             JsonArray attrs = new JsonArray();
             try {
                 var mods = stack.getAttributeModifiers();
-                if (mods.modifiers().isEmpty()) mods = item.getDefaultAttributeModifiers(stack);
                 for (var entry : mods.modifiers()) {
                     attrs.add(entry.attribute().getRegisteredName() + "|" + entry.modifier().amount() + "|" + entry.modifier().operation().name() + "|" + entry.slot().getSerializedName());
                 }

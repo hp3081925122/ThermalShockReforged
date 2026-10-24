@@ -57,7 +57,7 @@ public final class ExtractorBlock extends GeoDecorBlock.Waterlogged {
             if (!output.guaranteed()) continue;
             int repeat = output.repeat().sample(server.getRandom());
             for (int count = 0; count < repeat; count++) {
-                if (!MachineContent.drop(server, pos.getX(), pos.getY(), pos.getZ(), output.item().copy())) {
+                if (!MachineContent.drop(server, pos.getX(), pos.getY(), pos.getZ(), output.item().create())) {
                     input.grow(1);
                     ThermalShockReforged.LOGGER.debug("Extractor output rejected; input restored: player={}, position={}, input={}", player.getUUID(), pos, inputId);
                     return true;
@@ -73,7 +73,7 @@ public final class ExtractorBlock extends GeoDecorBlock.Waterlogged {
         for (var output : recipe.outputs()) {
             if (output.guaranteed() || server.getRandom().nextFloat() >= output.chance()) continue;
             int repeat = output.repeat().sample(server.getRandom());
-            for (int count = 0; count < repeat; count++) MachineContent.drop(server, pos.getX(), pos.getY(), pos.getZ(), output.item().copy());
+            for (int count = 0; count < repeat; count++) MachineContent.drop(server, pos.getX(), pos.getY(), pos.getZ(), output.item().create());
         }
         for (var sound : recipe.sounds()) sound.play(server, pos, SoundSource.NEUTRAL);
         if (recipe.particleBlock().isPresent()) server.levelEvent(2001, pos, Block.getId(recipe.particleBlock().get().value().defaultBlockState()));

@@ -23,6 +23,21 @@ base {
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(25)
 
+// GameTest 与百科导出代码独立成源集，只进入开发运行，不进入发布 jar。
+sourceSets {
+    gametest {
+        java.srcDirs = ['src/gametest/java']
+        resources.srcDirs = ['src/gametest/resources']
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+
+configurations {
+    gametestImplementation.extendsFrom implementation
+    gametestRuntimeOnly.extendsFrom runtimeOnly
+}
+
 neoForge {
     version = project.neo_version
 
@@ -49,7 +64,16 @@ neoForge {
 
         gameTestServer {
             type = 'gameTestServer'
+            gameDirectory = project.file('run/gametest')
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        // 百科图标导出：带 gametest 源集启动客户端，在标题界面渲染指定物品后自动退出。
+        wikiIconClient {
+            client()
+            systemProperty 'tsr.wikiIcons', (project.findProperty('wikiIcons') ?: '').toString()
+            systemProperty 'tsr.wikiIconRotY', (project.findProperty('wikiIconRotY') ?: '').toString()
+            systemProperty 'tsr.wikiIconDir', (project.findProperty('wikiIconDir') ?: 'D:/AI临时文件/icons_render').toString()
         }
 
         data {
@@ -58,14 +82,18 @@ neoForge {
         }
     }
 
+    addModdingDependenciesTo(sourceSets.gametest)
+
     mods {
         "${project.mod_id}" {
             sourceSet(sourceSets.main)
+            sourceSet(sourceSets.gametest)
         }
     }
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
+
 
 dependencies {
     implementation "net.neoforged:neoforge:${project.neo_version}"

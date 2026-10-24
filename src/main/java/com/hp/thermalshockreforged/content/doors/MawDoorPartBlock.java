@@ -96,7 +96,7 @@ public final class MawDoorPartBlock extends Block {
 
     @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         BlockPos main = main(level, pos, state);
-        return main == null ? InteractionResult.PASS : level.getBlockState(main).useItemOn(stack, level, player, hand, hit.withPosition(main));
+        return main == null ? InteractionResult.TRY_WITH_EMPTY_HAND : level.getBlockState(main).useItemOn(stack, level, player, hand, hit.withPosition(main));
     }
 
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {

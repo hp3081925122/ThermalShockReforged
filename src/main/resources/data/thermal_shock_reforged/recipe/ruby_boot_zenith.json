@@ -1,14 +1,8 @@
 {
   "type": "minecraft:smithing_transform",
-  "template": {
-    "item": "thermal_shock_reforged:zenith_smithing_template"
-  },
-  "base": {
-    "item": "thermal_shock_reforged:ruby_armor_boots"
-  },
-  "addition": {
-    "item": "thermal_shock_reforged:ruby"
-  },
+  "template": "thermal_shock_reforged:zenith_smithing_template",
+  "base": "thermal_shock_reforged:ruby_armor_boots",
+  "addition": "thermal_shock_reforged:ruby",
   "result": {
     "id": "thermal_shock_reforged:ruby_zenith_armor_boots"
   }

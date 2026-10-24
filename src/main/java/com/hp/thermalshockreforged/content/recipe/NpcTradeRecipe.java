@@ -16,16 +16,17 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
 
-public record NpcTradeRecipe(List<FabricationRecipe.Cost> costs, int levels, ItemStack result, Optional<Identifier> requires) implements DataRecipe {
+public record NpcTradeRecipe(List<FabricationRecipe.Cost> costs, int levels, ItemStackTemplate result, Optional<Identifier> requires) implements DataRecipe {
     public static final MapCodec<NpcTradeRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
             FabricationRecipe.Cost.CODEC.listOf().optionalFieldOf("costs", List.of()).forGetter(NpcTradeRecipe::costs),
             Codec.intRange(0, Integer.MAX_VALUE).optionalFieldOf("levels", 0).forGetter(NpcTradeRecipe::levels),
-            ItemStack.CODEC.fieldOf("result").forGetter(NpcTradeRecipe::result),
+            ItemStackTemplate.CODEC.fieldOf("result").forGetter(NpcTradeRecipe::result),
             Identifier.CODEC.optionalFieldOf("requires").forGetter(NpcTradeRecipe::requires)
     ).apply(instance, NpcTradeRecipe::new));
 
@@ -71,10 +72,10 @@ public record NpcTradeRecipe(List<FabricationRecipe.Cost> costs, int levels, Ite
             }
         }
         if (levels > 0) player.giveExperienceLevels(-levels);
-        ItemHandlerHelper.giveItemToPlayer(player, result.copy());
+        ItemHandlerHelper.giveItemToPlayer(player, result.create());
         player.getInventory().setChanged();
         player.containerMenu.broadcastChanges();
-        ThermalShockReforged.LOGGER.debug("NPC trade committed: player={}, result={}, count={}, levels={}, costs={}", player.getUUID(), result.getItem(), result.getCount(), levels, totals);
+        ThermalShockReforged.LOGGER.debug("NPC trade committed: player={}, result={}, count={}, levels={}, costs={}", player.getUUID(), result.item().value(), result.count(), levels, totals);
         return true;
     }
 
@@ -97,7 +98,7 @@ public record NpcTradeRecipe(List<FabricationRecipe.Cost> costs, int levels, Ite
         return true;
     }
 
-    public ItemStack getResultItem(HolderLookup.Provider registries) { return result; }
+    public ItemStack getResultItem(HolderLookup.Provider registries) { return result.create(); }
     @Override public RecipeSerializer<? extends DataRecipe> getSerializer() { return RecipeContent.NPC_TRADE.serializer().get(); }
     @Override public RecipeType<? extends DataRecipe> getType() { return RecipeContent.NPC_TRADE.type().get(); }
 

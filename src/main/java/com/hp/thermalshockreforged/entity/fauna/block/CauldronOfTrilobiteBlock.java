@@ -65,7 +65,7 @@ public final class CauldronOfTrilobiteBlock extends Block implements EntityBlock
 
     @Override
     protected InteractionResult useItemOn(ItemStack held, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        if (!held.is(Items.BUCKET)) return InteractionResult.PASS;
+        if (!held.is(Items.BUCKET)) return InteractionResult.TRY_WITH_EMPTY_HAND;
         if (!level.isClientSide()) {
             held.shrink(1);
             var milk = new ItemStack(FaunaEntities.item("loque_milk"));

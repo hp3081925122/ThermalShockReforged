@@ -17,12 +17,13 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 
-public record AssemblerRecipe(List<Cost> materials, ItemStack result) implements DataRecipe {
+public record AssemblerRecipe(List<Cost> materials, ItemStackTemplate result) implements DataRecipe {
     public record Cost(Holder<Item> item, int count) {
         public static final Codec<Cost> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                 Item.CODEC.fieldOf("item").forGetter(Cost::item),
@@ -33,7 +34,7 @@ public record AssemblerRecipe(List<Cost> materials, ItemStack result) implements
                 ByteBufCodecs.VAR_INT, Cost::count, Cost::new);
 
         public Cost {
-            if (new ItemStack(item).isEmpty() || count < 1 || count > 4096) throw new IllegalArgumentException("Invalid assembler cost");
+            if (item.value() == net.minecraft.world.item.Items.AIR || count < 1 || count > 4096) throw new IllegalArgumentException("Invalid assembler cost");
         }
     }
 
@@ -41,16 +42,15 @@ public record AssemblerRecipe(List<Cost> materials, ItemStack result) implements
             materials.isEmpty() || materials.size() > 8 ? DataResult.error(() -> "Assembler needs 1 to 8 material entries") : DataResult.success(materials));
     public static final MapCodec<AssemblerRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
             MATERIALS_CODEC.fieldOf("materials").forGetter(AssemblerRecipe::materials),
-            ItemStack.CODEC.fieldOf("result").forGetter(AssemblerRecipe::result)
+            ItemStackTemplate.CODEC.fieldOf("result").forGetter(AssemblerRecipe::result)
     ).apply(instance, AssemblerRecipe::new));
     private static final StreamCodec<RegistryFriendlyByteBuf, AssemblerRecipe> STREAM_CODEC = StreamCodec.composite(
             Cost.STREAM_CODEC.apply(ByteBufCodecs.list(8)), AssemblerRecipe::materials,
-            ItemStack.STREAM_CODEC, AssemblerRecipe::result,
+            ItemStackTemplate.STREAM_CODEC, AssemblerRecipe::result,
             AssemblerRecipe::new);
     public AssemblerRecipe {
-        if (materials.isEmpty() || materials.size() > 8 || result.isEmpty()) throw new IllegalArgumentException("Invalid assembler recipe");
+        if (materials.isEmpty() || materials.size() > 8 || result.item().value() == net.minecraft.world.item.Items.AIR || result.count() < 1) throw new IllegalArgumentException("Invalid assembler recipe");
         materials = List.copyOf(materials);
-        result = result.copy();
     }
 
     private Map<Item, Integer> totals() {
@@ -81,7 +81,7 @@ public record AssemblerRecipe(List<Cost> materials, ItemStack result) implements
 
     public boolean matches(Container inventory) { return removalPlan(inventory) != null; }
     public void consume(Container inventory, int[] plan) { for (int slot = 0; slot < plan.length; slot++) if (plan[slot] > 0) inventory.getItem(slot).shrink(plan[slot]); }
-    public ItemStack getResultItem(HolderLookup.Provider registries) { return result.copy(); }
+    public ItemStack getResultItem(HolderLookup.Provider registries) { return result.create(); }
     public RecipeSerializer<? extends DataRecipe> getSerializer() { return RecipeContent.ASSEMBLER.serializer().get(); }
     public RecipeType<? extends DataRecipe> getType() { return RecipeContent.ASSEMBLER.type().get(); }
     public NonNullList<Ingredient> getIngredients() {

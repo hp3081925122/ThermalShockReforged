@@ -1,16 +1,10 @@
 {
   "type": "thermal_shock_reforged:centrifuge",
   "energy": [
-    {
-      "item": "thermal_shock_reforged:cryonic_energy"
-    },
-    {
-      "item": "thermal_shock_reforged:cryonic_energy"
-    }
+    "thermal_shock_reforged:cryonic_energy",
+    "thermal_shock_reforged:cryonic_energy"
   ],
-  "ingredient": {
-    "item": "thermal_shock_reforged:hearth_honey"
-  },
+  "ingredient": "thermal_shock_reforged:hearth_honey",
   "result": {
     "id": "thermal_shock_reforged:pyrogenic_energy",
     "count": 1

@@ -53,7 +53,7 @@ public final class SpiderLiliesBlock extends GeoFlowerBlock {
     }
 
     @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        return addPetal(state, level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS;
+        return addPetal(state, level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.TRY_WITH_EMPTY_HAND;
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         return addPetal(state, level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS;

@@ -6,19 +6,20 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import java.util.List;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 
-public record CentrifugeRecipe(List<Ingredient> energy, Ingredient ingredient, ItemStack result) implements DataRecipe {
+public record CentrifugeRecipe(List<Ingredient> energy, Ingredient ingredient, ItemStackTemplate result) implements DataRecipe {
     public static final MapCodec<CentrifugeRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
             Ingredient.CODEC.listOf().validate(list -> {
                 if (list.size() == 2) return DataResult.success(list);
                 return DataResult.error(() -> "Centrifuge needs exactly 2 energy ingredients");
             }).fieldOf("energy").forGetter(CentrifugeRecipe::energy),
             Ingredient.CODEC.fieldOf("ingredient").forGetter(CentrifugeRecipe::ingredient),
-            ItemStack.CODEC.fieldOf("result").forGetter(CentrifugeRecipe::result)
+            ItemStackTemplate.CODEC.fieldOf("result").forGetter(CentrifugeRecipe::result)
     ).apply(instance, CentrifugeRecipe::new));
 
     public boolean matches(ItemStack first, ItemStack second, ItemStack extra) {
@@ -39,7 +40,7 @@ public record CentrifugeRecipe(List<Ingredient> energy, Ingredient ingredient, I
         return false;
     }
 
-    public ItemStack getResultItem(HolderLookup.Provider registries) { return result; }
+    public ItemStack getResultItem(HolderLookup.Provider registries) { return result.create(); }
     @Override public RecipeSerializer<? extends DataRecipe> getSerializer() { return RecipeContent.CENTRIFUGE.serializer().get(); }
     @Override public RecipeType<? extends DataRecipe> getType() { return RecipeContent.CENTRIFUGE.type().get(); }
 }

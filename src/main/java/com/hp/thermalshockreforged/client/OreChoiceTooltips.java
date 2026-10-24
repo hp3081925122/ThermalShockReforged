@@ -47,7 +47,7 @@ public final class OreChoiceTooltips {
             for (var holder : RecipeContent.recipes(level).byType(RecipeContent.TRANSMUTATION.type().get())) {
                 var recipe = holder.value();
                 if (generated && recipe.ingredient().test(stack)) {
-                    added.add(Component.translatable(KEY + "transmute_to", recipe.result().getHoverName()).withStyle(ChatFormatting.AQUA));
+                    added.add(Component.translatable(KEY + "transmute_to", recipe.result().create().getHoverName()).withStyle(ChatFormatting.AQUA));
                     break;
                 }
                 if (!generated && recipe.result().is(stack.getItem()) && recipe.ingredient().items().findFirst().isPresent()) {

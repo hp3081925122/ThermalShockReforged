@@ -126,7 +126,7 @@ public final class DecorPartBlock extends Block implements SimpleWaterloggedBloc
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         var main = main(level, pos, state);
-        if (main == null) return InteractionResult.PASS;
+        if (main == null) return InteractionResult.TRY_WITH_EMPTY_HAND;
         return level.getBlockState(main).useItemOn(stack, level, player, hand, hit.withPosition(main));
     }
 

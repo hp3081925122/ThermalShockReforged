@@ -71,7 +71,7 @@ public final class LabMenu extends AbstractContainerMenu {
         if (plan == null) return false;
         recipe.consume(player.getInventory(), plan);
         player.getInventory().setChanged();
-        output.setItem(0, recipe.result().copy()); output.setChanged();
+        output.setItem(0, recipe.result().create()); output.setChanged();
         player.level().playSound(null, anchor, SoundEvents.CONDUIT_ACTIVATE, SoundSource.NEUTRAL, 1, 2);
         player.level().playSound(null, anchor, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, 1, 1);
         LabPlayerState.award(player, "icebreaker_2"); LabPlayerState.sound(player, LabContent.id("thermalshockjingle"), anchor, 1, 1);

@@ -55,7 +55,7 @@ final class LapidarianWorkbenchBlock extends FacingDecorBlock {
             if (springling) recipe.sound().play(server, pos, SoundSource.BLOCKS);
             if (Math.random() < recipe.extraRollChance()) spawnLoot(server, origin, table);
         } else {
-            var drop = new ItemEntity(server, origin.x, origin.y, origin.z, recipe.result().get().copy());
+            var drop = new ItemEntity(server, origin.x, origin.y, origin.z, recipe.result().get().create());
             drop.setPickUpDelay(10); server.addFreshEntity(drop);
         }
         if (advancement != null && player instanceof ServerPlayer owner) {
@@ -76,6 +76,6 @@ final class LapidarianWorkbenchBlock extends FacingDecorBlock {
             drop.setDefaultPickUpDelay(); level.addFreshEntity(drop);
         }
     }
-    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { return process(level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS; }
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { return process(level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.TRY_WITH_EMPTY_HAND; }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { return process(level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS; }
 }

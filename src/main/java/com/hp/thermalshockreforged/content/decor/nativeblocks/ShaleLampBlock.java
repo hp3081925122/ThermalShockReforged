@@ -43,7 +43,7 @@ class ShaleLampBlock extends NativeDecorBlock {
         return true;
     }
     @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        return toggle(state, level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS;
+        return toggle(state, level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.TRY_WITH_EMPTY_HAND;
     }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         return toggle(state, level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS;

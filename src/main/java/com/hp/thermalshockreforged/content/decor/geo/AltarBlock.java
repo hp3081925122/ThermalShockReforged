@@ -66,6 +66,6 @@ public final class AltarBlock extends GeoDecorBlock {
         }
         if (random.nextInt(3) == 0) level.addAlwaysVisibleParticle(ParticleTypes.END_ROD, pos.getX() + .5, pos.getY() + 1, pos.getZ() + .5, 0, .35, 0);
     }
-    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { return unlock(level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS; }
+    @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) { return unlock(level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.TRY_WITH_EMPTY_HAND; }
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) { return unlock(level, pos, player) ? InteractionResult.SUCCESS : InteractionResult.PASS; }
 }

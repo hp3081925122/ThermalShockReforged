@@ -3,18 +3,9 @@
   "temperature": 0,
   "downfall": 0.2,
   "effects": {
-    "particle": {
-      "options": {
-        "type": "thermal_shock_reforged:gold_glitter"
-      },
-      "probability": 0.0003
-    },
-    "foliage_color": 10387789,
-    "grass_color": 9470285,
-    "sky_color": -11509387,
-    "fog_color": -12035989,
-    "water_color": -10983560,
-    "water_fog_color": -13480083
+    "foliage_color": "#9e814d",
+    "grass_color": "#90814d",
+    "water_color": "#586778"
   },
   "spawners": {
     "monster": [],
@@ -27,7 +18,7 @@
     "misc": []
   },
   "spawn_costs": {},
-  "carvers": {},
+  "carvers": [],
   "features": [
     [],
     [],
@@ -40,5 +31,18 @@
     [],
     [],
     []
-  ]
+  ],
+  "attributes": {
+    "minecraft:visual/ambient_particles": [
+      {
+        "particle": {
+          "type": "thermal_shock_reforged:gold_glitter"
+        },
+        "probability": 0.0003
+      }
+    ],
+    "minecraft:visual/sky_color": "#506175",
+    "minecraft:visual/fog_color": "#48586b",
+    "minecraft:visual/water_fog_color": "#324f6d"
+  }
 }

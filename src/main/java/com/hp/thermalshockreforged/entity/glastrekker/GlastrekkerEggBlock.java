@@ -27,7 +27,7 @@ public final class GlastrekkerEggBlock extends Block implements com.hp.thermalsh
         tooltipAdder.accept(Component.translatable("block.thermal_shock_reforged.glastrekker_egg.description_0"));
     }
     @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        if (!stack.is(Items.BONE_MEAL)) return InteractionResult.PASS;
+        if (!stack.is(Items.BONE_MEAL)) return InteractionResult.TRY_WITH_EMPTY_HAND;
         if (level instanceof ServerLevel server) {
             if (!player.getAbilities().instabuild) stack.shrink(1);
             server.sendParticles(ParticleTypes.HAPPY_VILLAGER, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 12, .9, .9, .9, .05);
