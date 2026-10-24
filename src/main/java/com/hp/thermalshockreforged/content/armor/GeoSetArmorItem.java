@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.content.armor;
+import com.hp.thermalshockreforged.compat.TsrDataTickets;
+import com.geckolib.animatable.client.GeoRenderProvider;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 import net.minecraft.world.item.component.TooltipDisplay;
 import java.util.function.Consumer;
@@ -29,6 +32,7 @@ import com.geckolib.animation.RawAnimation;
 import com.geckolib.constant.DataTickets;
 
 public final class GeoSetArmorItem extends Item implements GeoItem {
+    @Override public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) { GeoRenderProviders.accept(this, consumer); }
     private final ArmorCache animations = new ArmorCache(this);
     private final Style style;
     private final ArmorType type;
@@ -124,7 +128,13 @@ public final class GeoSetArmorItem extends Item implements GeoItem {
         if (!style.tooltipKey.isEmpty()) tooltipAdder.accept(Component.translatable(style.tooltipKey));
     }
 
-    private Playback playback(LegacyAnimationController.LegacyAnimationState<GeoSetArmorItem> state) { return null; }
+    private Playback playback(LegacyAnimationController.LegacyAnimationState<GeoSetArmorItem> state) {
+        LivingEntity owner = state.getData(TsrDataTickets.ENTITY);
+        ItemStack stack = state.getData(TsrDataTickets.ITEMSTACK);
+        EquipmentSlot slot = state.getData(TsrDataTickets.EQUIPMENT_SLOT);
+        if (owner == null || stack == null || slot == null) return null;
+        return animations.bindings.get(prepareInstance(owner, stack, slot));
+    }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {

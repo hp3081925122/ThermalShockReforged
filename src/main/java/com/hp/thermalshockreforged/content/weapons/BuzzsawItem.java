@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content.weapons;
+import com.geckolib.animatable.client.GeoRenderProvider;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 import com.geckolib.animation.object.PlayState;
 import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 import net.minecraft.world.item.Item;
@@ -25,6 +27,7 @@ import com.geckolib.animatable.instance.AnimatableInstanceCache;
 import com.geckolib.animation.*;
 
 public final class BuzzsawItem extends Item implements GeoItem {
+    @Override public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) { GeoRenderProviders.accept(this, consumer); }
     private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
     public BuzzsawItem() {
         super(com.hp.thermalshockreforged.ModRegistration.item().enchantable(5).durability(1350).rarity(Rarity.UNCOMMON));

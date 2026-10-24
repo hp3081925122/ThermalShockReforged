@@ -18,24 +18,22 @@ import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 
 final class SpearClient {
     private SpearClient() { }
     static void extensions(RegisterClientExtensionsEvent event) {
         event.registerItem(new IClientItemExtensions() {
-            private Renderer renderer;
-
             @Override public boolean applyForgeHandTransform(PoseStack pose, LocalPlayer player, HumanoidArm arm, ItemStack stack, float partialTick, float equipProcess, float swingProcess) {
                 pose.translate((arm == HumanoidArm.RIGHT ? 1 : -1) * .56F, -.52F, -.72F);
                 if (player.getUseItem() == stack) pose.translate(.05, .05, .05);
                 return true;
             }
         }, WeaponContent.SPELEOTHEM.get(), WeaponContent.RUBY_SPEAR.get(), WeaponContent.CARBORUNDUM_SPEAR.get(), WeaponContent.HI_VOLT_LANCE.get(), WeaponContent.BLOODSTONE_HALBERD.get(), WeaponContent.CARBORUNDUM_HALBERD.get());
+        GeoRenderProviders.register(TsrRenderProvider.item(Renderer::new), WeaponContent.SPELEOTHEM.get(), WeaponContent.RUBY_SPEAR.get(), WeaponContent.CARBORUNDUM_SPEAR.get(), WeaponContent.HI_VOLT_LANCE.get(), WeaponContent.BLOODSTONE_HALBERD.get(), WeaponContent.CARBORUNDUM_HALBERD.get());
     }
-    private static final class Renderer extends LegacyGeoItemRenderer<SpearItem> {
+    private static final class Renderer extends TsrGeoItemRenderer<SpearItem> {
         private Renderer() { super(new Model()); }
-        @Override public RenderType getRenderType(SpearItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
     private static final class Model extends TsrGeoModel<SpearItem> {
         private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }

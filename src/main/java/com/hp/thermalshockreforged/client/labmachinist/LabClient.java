@@ -6,8 +6,7 @@ import net.minecraft.client.renderer.entity.state.EntityRenderState;
 
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoBlockRenderer;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 
 import com.hp.thermalshockreforged.client.weapons.ZapGauntletArmPose;
 import com.hp.thermalshockreforged.entity.labmachinist.*;
@@ -28,16 +27,12 @@ import com.geckolib.renderer.*;
 
 public final class LabClient {
     private LabClient() { }
-    public static void renderers(EntityRenderersEvent.RegisterRenderers event) { event.registerEntityRenderer(LabContent.LAB_MACHINIST.get(), NpcRenderer::new); event.registerEntityRenderer(LabContent.WALLBORE_CYCLE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new); event.registerBlockEntityRenderer(LabContent.ASSEMBLER_ENTITY.get(), context -> new MachineRenderer()); event.registerBlockEntityRenderer(LabContent.WALLBORE_ENTITY.get(), context -> new MachineRenderer()); }
+    public static void renderers(EntityRenderersEvent.RegisterRenderers event) { event.registerEntityRenderer(LabContent.LAB_MACHINIST.get(), NpcRenderer::new); event.registerEntityRenderer(LabContent.WALLBORE_CYCLE.get(), net.minecraft.client.renderer.entity.NoopRenderer::new); event.registerBlockEntityRenderer(LabContent.ASSEMBLER_ENTITY.get(), MachineRenderer::new); event.registerBlockEntityRenderer(LabContent.WALLBORE_ENTITY.get(), MachineRenderer::new); }
     public static void screens(RegisterMenuScreensEvent event) { for (var page : LabPage.values()) event.register(LabContent.menu(page), LabScreen::new); }
     public static void extensions(RegisterClientExtensionsEvent event) {
-        for (var item : java.util.List.of(LabContent.ASSEMBLER_ITEM.get(), LabContent.WALLBORE_ITEM.get())) event.registerItem(new IClientItemExtensions() {
-            private MachineItemRenderer renderer;
-
-        }, item);
+        for (var item : java.util.List.of(LabContent.ASSEMBLER_ITEM.get(), LabContent.WALLBORE_ITEM.get())) GeoRenderProviders.register(TsrRenderProvider.item(() -> new TsrGeoItemRenderer<LabMachineItem>(new MachineModel<>())), item);
+        GeoRenderProviders.register(TsrRenderProvider.item(() -> new TsrGeoItemRenderer<SylviaRifleItem>(new RifleModel())), LabContent.SYLVIA_RIFLE.get());
         event.registerItem(new IClientItemExtensions() {
-            private RifleRenderer renderer;
-
             @Override public HumanoidModel.ArmPose getArmPose(LivingEntity entity, InteractionHand hand, ItemStack stack) { return !stack.isEmpty() && entity.getUsedItemHand() == hand ? ZapGauntletArmPose.POSE.getValue() : HumanoidModel.ArmPose.EMPTY; }
             @Override public boolean applyForgeHandTransform(PoseStack pose, LocalPlayer player, HumanoidArm arm, ItemStack stack, float partialTick, float equipProcess, float swingProcess) { pose.translate((arm == HumanoidArm.RIGHT ? 1 : -1) * .56F, -.52F, -.72F); if (player.getUseItem() == stack) pose.translate(.05, .05, .05); return true; }
         }, LabContent.SYLVIA_RIFLE.get());
@@ -54,23 +49,14 @@ public final class LabClient {
         @Override public Identifier getTextureResource(LabMachinistEntity entity) { return LabContent.id("textures/entities/" + entity.texture() + ".png"); }
         @Override public Identifier getAnimationResource(LabMachinistEntity entity) { return LabContent.id("animations/labqo.animation.json"); }
     }
-    private static final class MachineRenderer extends LegacyGeoBlockRenderer<LabMachineBlockEntity> {
-        MachineRenderer() { super(new MachineModel<>()); }
-        @Override public RenderType getRenderType(LabMachineBlockEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
-    }
-    private static final class MachineItemRenderer extends LegacyGeoItemRenderer<LabMachineItem> {
-        MachineItemRenderer() { super(new MachineModel<>()); }
-        @Override public RenderType getRenderType(LabMachineItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
+    private static final class MachineRenderer extends TsrGeoBlockRenderer<LabMachineBlockEntity> {
+        MachineRenderer(net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider.Context context) { super(context, new MachineModel<>()); }
     }
     private static final class MachineModel<T extends GeoAnimatable> extends TsrGeoModel<T> {
         private boolean wallbore(T entity) { return entity instanceof LabMachineBlockEntity machine ? machine.wallbore : ((LabMachineItem) entity).wallbore; }
         @Override public Identifier getModelResource(T entity) { return LabContent.id(wallbore(entity) ? "geo/wallbore.geo.json" : "geo/fabricator.geo.json"); }
         @Override public Identifier getAnimationResource(T entity) { return LabContent.id(wallbore(entity) ? "animations/wallbore.animation.json" : "animations/fabricator.animation.json"); }
         @Override public Identifier getTextureResource(T entity) { return LabContent.id(wallbore(entity) ? entity instanceof LabMachineBlockEntity machine && machine.getBlockState().getValue(LabMachineBlock.MODE) == 1 ? "textures/block/wallbore_freezing.png" : "textures/block/wallbore.png" : "textures/block/assembler.png"); }
-    }
-    private static final class RifleRenderer extends LegacyGeoItemRenderer<SylviaRifleItem> {
-        RifleRenderer() { super(new RifleModel()); }
-        @Override public RenderType getRenderType(SylviaRifleItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
     private static final class RifleModel extends TsrGeoModel<SylviaRifleItem> {
         @Override public Identifier getModelResource(SylviaRifleItem item) { return LabContent.id("geo/railgun.geo.json"); }

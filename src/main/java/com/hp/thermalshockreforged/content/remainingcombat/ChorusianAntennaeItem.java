@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content.remainingcombat;
+import com.geckolib.animatable.client.GeoRenderProvider;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 import com.geckolib.animation.object.PlayState;
 import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 import net.minecraft.world.item.Item;
@@ -20,6 +22,7 @@ import com.geckolib.animatable.instance.AnimatableInstanceCache;
 import com.geckolib.animation.*;
 
 public final class ChorusianAntennaeItem extends Item implements GeoItem {
+    @Override public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) { GeoRenderProviders.accept(this, consumer); }
     private final CombatAnimationCache animations = new CombatAnimationCache(this);
     public ChorusianAntennaeItem() { super(com.hp.thermalshockreforged.ModRegistration.item().humanoidArmor(RemainingCombatContent.ANTENNAE_MATERIAL.value(), ArmorType.HELMET)); }
     @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {
@@ -37,7 +40,7 @@ public final class ChorusianAntennaeItem extends Item implements GeoItem {
         controllers.add(new LegacyAnimationController<>(this, "controller", 5, state -> previous[1].isEmpty()
                 ? state.setAndContinue(RawAnimation.begin().thenLoop("0")) : PlayState.STOP));
         controllers.add(new LegacyAnimationController<>(this, "procedureController", 5, state -> {
-            ItemStack stack = state.getData(com.hp.thermalshockreforged.compat.LegacyAnimationController.ITEMSTACK);
+            ItemStack stack = state.getData(com.hp.thermalshockreforged.compat.TsrDataTickets.ITEMSTACK);
             String request = stack == null ? "" : stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("geckoAnim").orElse("");
             if (request.equals("empty")) {
                 if (!previous[1].isEmpty()) {

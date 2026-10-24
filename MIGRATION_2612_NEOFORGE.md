@@ -90,7 +90,7 @@
 - 叶子：`UnderbrushLeaves` 的落叶粒子几率为 0，`spawnFallingLeavesParticle` 为空，与 1.21.1 一致（1.21.1 没有落叶粒子）。FallingBlock 的 `getDustColor` 返回 1.21.1 默认值 `-16777216`。
 - GeckoLib 4 → 5 兼容层 `compat/LegacyAnimationController`：
   - `isMoving()` 和 `getLimbSwingAmount()` 按 GeckoLib 4.9.2 原公式实现：摆动量取 `walkAnimation.speed(pt)`，上限 1，死亡或坐骑坐姿时为 0；移动判定为水平平均速度 ≥ 0.015 且摆动量 ≠ 0。
-  - `ITEMSTACK` 是自定义 DataTicket，必须由天线头盔的装甲渲染器在 `addRenderData` 中写入（渲染阶段待办）。
+  - `ITEMSTACK`/`ENTITY`/`EQUIPMENT_SLOT` 改为 `compat/TsrDataTickets`，由 `TsrGeoArmorRenderer.addRenderData` 写入渲染状态，动画谓词通过 `AnimationTest.getData` 读取（对应 GeckoLib 4 盔甲渲染器写入的同名 DataTickets）。
 - Kilolyte 动画偏移：GeckoLib 4 的 `adjustTick` 等价于把「过渡+动画」整条时间线前移 offset tick。26.1 改为在 `triggerAnimation` 后执行 `triggeredAnimTime -= clientAnimationOffset`。
 - 暂停时播放动画：GeckoLib 5 删除了 `shouldPlayAnimsWhileGamePaused`。核对 GeckoLib 4.8.4 源码：实体的动画时间是 `GeoEntity.getTick() = tickCount` 加 `partialTick`，单人暂停时两者都冻结，所以这个开关对 LabMachinist、Concierge、Florist、Ly、Shutterbug 实际没有可见效果。GeckoLib 5 用 `EntityRenderState.ageInTicks`，暂停时同样冻结，表现一致，因此删除了这些残留方法，渲染端不需要补偿。
 - 其他待核对：affectNeighborsAfterRemoval 时序、tooltip 顺序、武器 ITEM_USED 统计、gamerule 名称、部分实体 UUID 以字符串保存。
@@ -110,3 +110,15 @@
   - 死亡翻转：Bloomling 仅 dandy 变种翻转（通过 DataTicket 记录），Herald 与 Protoi Sunbeam 不翻转，其余按原代码返回 0。
   - 默认渲染类型：GeckoLib 4 默认 `entityCutoutNoCull`，26.1 改名为 `entityCutout`（剔除版是 `entityCutoutCull`），所以默认值保持一致。
   - `preRender` 中的整体缩放（Titan 1.6、Monolith 1.7、Sola `visualScale()`）改为 `withScale` 或 `renderScale`。
+- 渲染批次 3（GeckoLib 方块/物品/盔甲，已删除 `LegacyGeoModel`/`LegacyGeoBlockRenderer`/`LegacyGeoItemRenderer`/`LegacyGeoArmorRenderer`，`client/compat` 目录清空）：
+  - GeckoLib 5 只能通过物品自身的 `createGeoRenderer` 提供渲染器，`IClientItemExtensions.getCustomRenderer`/`getHumanoidArmorModel` 路径已失效。新增公共的 `compat/GeoRenderProviders`（物品 → `GeoRenderProvider`），由客户端在 `RegisterClientExtensionsEvent` 中注册；27 个 GeoItem 类的 `createGeoRenderer` 从中查表。服务端不会调用，不加载客户端类。手持姿势与第一人称变换仍保留在 `IClientItemExtensions`。
+  - 新增 `TsrGeoBlockRenderer`/`TsrGeoItemRenderer`/`TsrGeoArmorRenderer`（默认 `entityTranslucent`，与原代码一致）和 `TsrRenderProvider`（懒加载渲染器）。
+  - Outcrop 方块用 1.21.1 的 `entityTranslucentCull`，26.1 原版只剩输出到物品目标的版本，因此在 `TsrRenderTypes` 中用 `ENTITY_TRANSLUCENT_CULL` 管线重建了主目标版本。
+  - 寒霜祭坛信标光束：`addRenderData` 记录 `floorMod(gameTime, 40) + partialTick`，`submit` 后调用 `BeaconRenderer.submitBeaconBeam`，参数与 1.21.1 `renderBeaconBeam` 相同；离屏渲染、256 格水平距离判定与包围盒保留。`shouldRenderOffScreen()` 不再有实体参数，改为每种装饰方块类型各自一个渲染器实例。
+  - 装饰部件方块被击打时的裂纹粒子：迁移时被留空，现在改用 `ClientLevel.addBreakingBlockEffect(main, direction, hit)`（即 1.21.1 `ParticleEngine.crack` 的 26.1 位置）。
+  - 盔甲：`GeoSetArmorItem`/`FabricatedArmorItem` 的 `playback()` 迁移时被写成 `return null`（触发动画永远不播），已按原逻辑恢复。实例 ID 通过 `getInstanceId(item, RenderData)` 继续使用 `renderInstance`；Fabricated 盔甲每帧的 `observeAnimation` 移到 `addRenderData`（早于动画控制器处理，同一帧生效）。天线头盔的实例 ID 公式保持不变。
+  - 磁力弩 Zenith 第一人称弓臂缩放 0.75：用 `CURRENT_ITEM` 和 `ITEM_RENDER_PERSPECTIVE` 判断，在骨骼快照上设置缩放（与 GeckoLib 4 一样是绝对值）。
+  - 外部武器动画：`getData/setData` 改为 `getAnimatableData/setAnimatableData`，`forceAnimationReset` 改为 `reset`，`tryTriggerAnimation` 改为 `triggerAnimation`，正在播放的触发动画用 `getCurrentRawAnimation` 比较。
+  - 物品资源：26.1 每个物品都需要 `assets/<ns>/items/<id>.json`，原来完全缺失。已为 998 个物品模型生成定义：88 个原本父链指向 `builtin/entity` 的物品（全部是 GeckoLib 物品，与 1.21.1 的 `getCustomRenderer` 用户一致）使用 `minecraft:special` + `geckolib:geckolib`，以原模型作为 base 保留展示变换；其余使用 `minecraft:model`。26.1 已删除 `builtin/entity`，54 个模型去掉了该父模型（默认 `gui_light` 仍为 side，与原来一致）。
+  - 刷怪蛋：guardian_pylon、portrait_character 原来用 `template_spawn_egg`，颜色为 -1/-1（不染色）。26.1 删除了该模板，因此把 1.21.1 的 `spawn_egg.png`/`spawn_egg_overlay.png` 复制为 `legacy_spawn_egg*.png` 作为两层贴图，外观相同。
+  - 杂项：Squall 雾效的 `RenderFog` 在 26.1 直接修改 FogData，不可取消，去掉 `setCanceled`；Strider 开火改用 `ClientPacketDistributor`；删除没有调用方的 `FarmingRenderers.layers()`（cutout 由方块模型 `render_type` 控制）。

@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content.weapons;
+import com.geckolib.animatable.client.GeoRenderProvider;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 import net.minecraft.world.item.component.TooltipDisplay;
 import java.util.function.Consumer;
@@ -30,6 +32,7 @@ import com.geckolib.animation.object.PlayState;
 import com.geckolib.animation.RawAnimation;
 
 public final class SpearItem extends Item implements GeoItem {
+    @Override public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) { GeoRenderProviders.accept(this, consumer); }
     public enum Kind {
         SPELEOTHEM(1800, 9, 5, 32, 35, "speleothem", "speleothem", true),
         RUBY(1200, 5.5, 3, 20, 23, "rubyspearalt", "rubyspearalt", false),

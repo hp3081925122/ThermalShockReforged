@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.client.fauna;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 import com.hp.thermalshockreforged.client.geo.*;
 import com.geckolib.renderer.base.GeoRenderState;
 import com.geckolib.renderer.base.BoneSnapshots;
@@ -33,7 +34,7 @@ public final class FaunaRenderers {
         event.registerEntityRenderer(FaunaEntities.WILLOGRADE.get(), factory("roly_poly", WillogradeEntity::texture, false, 1, 1, false));
         event.registerEntityRenderer(FaunaEntities.FLARE.get(), factory("flare25", FlareEntity::texture, true, 0.3F, 1, false));
         event.registerEntityRenderer(FaunaEntities.GORE_FLAYER_ORB.get(), net.minecraft.client.renderer.entity.ThrownItemRenderer::new);
-        event.registerBlockEntityRenderer(FaunaEntities.CAULDRON_ENTITY.get(), context -> new CauldronRenderer());
+        event.registerBlockEntityRenderer(FaunaEntities.CAULDRON_ENTITY.get(), CauldronRenderer::new);
     }
 
     public static void particles(net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent event) {
@@ -41,6 +42,7 @@ public final class FaunaRenderers {
     }
 
     public static void extensions(RegisterClientExtensionsEvent event) {
+        GeoRenderProviders.register(TsrRenderProvider.item(CauldronItemRenderer::new), FaunaEntities.CAULDRON_ITEM.get());
     }
 
     private static <T extends Mob & GeoEntity> EntityRendererProvider<T> factory(String id, Function<T, String> texture, boolean head, float shadow, float scale, boolean glow) {

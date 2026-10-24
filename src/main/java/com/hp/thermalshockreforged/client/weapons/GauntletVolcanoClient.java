@@ -18,13 +18,15 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.extensions.common.*;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 
 final class GauntletVolcanoClient {
     private GauntletVolcanoClient() { }
     static void extensions(RegisterClientExtensionsEvent event) {
         event.registerItem(new Extension(false), WeaponContent.TITANIUM_MACE.get());
         event.registerItem(new Extension(true), WeaponContent.VOLCANO.get());
+        GeoRenderProviders.register(TsrRenderProvider.item(GauntletRenderer::new), WeaponContent.TITANIUM_MACE.get());
+        GeoRenderProviders.register(TsrRenderProvider.item(VolcanoRenderer::new), WeaponContent.VOLCANO.get());
     }
     private static final class Extension implements IClientItemExtensions {
         private final boolean volcano;
@@ -40,13 +42,11 @@ final class GauntletVolcanoClient {
         }
     }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
-    private static final class GauntletRenderer extends LegacyGeoItemRenderer<ZerkerGauntletItem> {
+    private static final class GauntletRenderer extends TsrGeoItemRenderer<ZerkerGauntletItem> {
         private GauntletRenderer() { super(new GauntletModel()); }
-        @Override public RenderType getRenderType(ZerkerGauntletItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class VolcanoRenderer extends LegacyGeoItemRenderer<VolcanoItem> {
+    private static final class VolcanoRenderer extends TsrGeoItemRenderer<VolcanoItem> {
         private VolcanoRenderer() { super(new VolcanoModel()); }
-        @Override public RenderType getRenderType(VolcanoItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
     private static final class GauntletModel extends TsrGeoModel<ZerkerGauntletItem> {
         @Override public Identifier getModelResource(ZerkerGauntletItem item) { return resource("geo/titaniummace.geo.json"); }

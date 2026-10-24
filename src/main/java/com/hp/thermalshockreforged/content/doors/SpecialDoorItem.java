@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.content.doors;
+import com.geckolib.animatable.client.GeoRenderProvider;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
+import java.util.function.Consumer;
 import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 import com.geckolib.animatable.manager.AnimatableManager;
 
@@ -10,6 +13,7 @@ import com.geckolib.animation.*;
 import com.geckolib.util.GeckoLibUtil;
 
 public final class SpecialDoorItem extends BlockItem implements GeoItem {
+    @Override public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) { GeoRenderProviders.accept(this, consumer); }
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     public final DoorKind kind;
     public SpecialDoorItem(Block block, DoorKind kind) { super(block, com.hp.thermalshockreforged.ModRegistration.blockItem(block)); this.kind = kind; }

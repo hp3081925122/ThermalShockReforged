@@ -23,7 +23,7 @@ public final class ExternalWeaponAnimationClient {
             "hailfall", "hi_volt_lance", "jelly_umbrella", "legendary_jelly_umbrella", "liteprism_laser", "magnetic_crossbow",
             "net_launcher", "piston_gauntlet", "ruby_spear", "speleothem", "sylvia_rifle", "the_judge", "thistle_bow",
             "titanium_mace", "volcano", "zap_gauntlet", "zenith_crossbow", "zenith_thermoblaster");
-    private static final DataTicket<String> OBSERVED = new DataTicket<>("thermal_shock_reforged:external_weapon_animation", String.class);
+    private static final DataTicket<String> OBSERVED = DataTicket.create("thermal_shock_reforged:external_weapon_animation", String.class);
     private static final String EXTERNAL = "thermal_shock_reforged:external";
 
     private ExternalWeaponAnimationClient() { }
@@ -47,19 +47,19 @@ public final class ExternalWeaponAnimationClient {
 
     static boolean observe(AnimatableManager<?> manager, String request) {
         var controller = manager.getAnimationControllers().get("procedure");
-        if (controller == null || request.equals(manager.getData(OBSERVED))) return false;
-        manager.setData(OBSERVED, request);
+        if (controller == null || request.equals(manager.getAnimatableData(OBSERVED))) return false;
+        manager.setAnimatableData(OBSERVED, request);
         if (request.isEmpty()) return false;
         if (request.equals("empty")) {
             manager.stopTriggeredAnimation("procedure", null);
-            controller.forceAnimationReset();
+            controller.reset();
             return true;
         }
         var animation = RawAnimation.begin().thenPlay(request);
-        if (animation.equals(controller.getTriggeredAnimation()) && controller.isPlayingTriggeredAnimation()) return false;
+        if (animation.equals(controller.getCurrentRawAnimation()) && controller.isPlayingTriggeredAnimation()) return false;
         manager.stopTriggeredAnimation("procedure", null);
-        controller.forceAnimationReset();
+        controller.reset();
         controller.triggerableAnim(EXTERNAL, animation);
-        return controller.tryTriggerAnimation(EXTERNAL);
+        return controller.triggerAnimation(EXTERNAL);
     }
 }

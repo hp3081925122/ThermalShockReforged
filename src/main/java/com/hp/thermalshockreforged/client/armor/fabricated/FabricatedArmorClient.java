@@ -1,10 +1,10 @@
 package com.hp.thermalshockreforged.client.armor.fabricated;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 import com.hp.thermalshockreforged.client.geo.*;
 import com.geckolib.renderer.base.GeoRenderState;
 import com.geckolib.renderer.base.BoneSnapshots;
 import net.minecraft.client.renderer.entity.state.EntityRenderState;
 
-import net.minecraft.client.renderer.rendertype.RenderTypes;
 
 import com.hp.thermalshockreforged.content.armor.fabricated.FabricatedArmorContent;
 import com.hp.thermalshockreforged.content.armor.fabricated.FabricatedArmorItem;
@@ -13,12 +13,8 @@ import java.util.HashMap;
 import java.util.Map;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.HumanoidModel;
-import net.minecraft.client.model.Model;
-import net.minecraft.client.resources.model.EquipmentClientInfo;
+import net.minecraft.client.renderer.entity.state.HumanoidRenderState;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ColorParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
@@ -31,12 +27,10 @@ import net.minecraft.world.item.component.CustomData;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
-import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.IClientMobEffectExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.client.network.ClientPacketDistributor;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoArmorRenderer;
 
 public final class FabricatedArmorClient {
     private static final Map<Integer, FabricatedArmorPayloads.Visual> VISUALS = new HashMap<>();
@@ -58,7 +52,8 @@ public final class FabricatedArmorClient {
     public static void keys(RegisterKeyMappingsEvent event) { event.register(LAUNCH); }
 
     public static void extensions(RegisterClientExtensionsEvent event) {
-        for (var item : FabricatedArmorContent.ALL) event.registerItem(new Extension(), item.get());
+        var provider = TsrRenderProvider.armor(Renderer::new);
+        for (var item : FabricatedArmorContent.ALL) GeoRenderProviders.register(provider, item.get());
         event.registerMobEffect(new IClientMobEffectExtensions() {
             @Override public boolean isVisibleInInventory(MobEffectInstance effect) { return false; }
             @Override public boolean isVisibleInGui(MobEffectInstance effect) { return false; }
@@ -106,14 +101,13 @@ public final class FabricatedArmorClient {
 
     private static void logout(ClientPlayerNetworkEvent.LoggingOut event) { prepareLevel(null); }
 
-    private static final class Extension implements IClientItemExtensions {
-        public Model getGenericArmorModel(ItemStack stack, EquipmentClientInfo.LayerType layerType, Model original) { return original; }
-    }
-
-    private static final class Renderer extends LegacyGeoArmorRenderer<FabricatedArmorItem> {
+    private static final class Renderer extends TsrGeoArmorRenderer<FabricatedArmorItem> {
         private Renderer() { super(new Model()); }
-        @Override public long getInstanceId(FabricatedArmorItem item) { return item.renderInstance((LivingEntity) currentEntity, currentStack, currentSlot); }
-        @Override public RenderType getRenderType(FabricatedArmorItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
+        @Override public void addRenderData(FabricatedArmorItem item, RenderData data, HumanoidRenderState state, float partialTick) {
+            item.observeAnimation(data.entity(), data.itemStack(), data.slot(), data.itemStack().getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY).copyTag().getString("geckoAnim").orElse(""));
+            super.addRenderData(item, data, state, partialTick);
+        }
+        @Override public long getInstanceId(FabricatedArmorItem item, RenderData data) { return item.renderInstance(data.entity(), data.itemStack(), data.slot()); }
     }
 
     private static final class Model extends TsrGeoModel<FabricatedArmorItem> {
