@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.client.remainingcombat;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoArmorRenderer;
@@ -22,7 +27,6 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.extensions.common.*;
 import net.neoforged.neoforge.common.NeoForge;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
 import com.geckolib.renderer.*;
 
 public final class RemainingCombatClient {
@@ -66,7 +70,7 @@ public final class RemainingCombatClient {
         private ItemRenderer() { super(new ItemModel()); }
         @Override public RenderType getRenderType(AnimatedCombatItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class ItemModel extends LegacyGeoModel<AnimatedCombatItem> {
+    private static final class ItemModel extends TsrGeoModel<AnimatedCombatItem> {
         @Override public Identifier getModelResource(AnimatedCombatItem item) { return resource("geo/" + item.modelName() + ".geo.json"); }
         @Override public Identifier getTextureResource(AnimatedCombatItem item) { return resource("textures/item/" + item.textureName() + ".png"); }
         @Override public Identifier getAnimationResource(AnimatedCombatItem item) { return resource("animations/" + item.modelName() + ".animation.json"); }
@@ -78,7 +82,7 @@ public final class RemainingCombatClient {
         }
         @Override public RenderType getRenderType(ChorusianAntennaeItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class ArmorModel extends LegacyGeoModel<ChorusianAntennaeItem> {
+    private static final class ArmorModel extends TsrGeoModel<ChorusianAntennaeItem> {
         @Override public Identifier getModelResource(ChorusianAntennaeItem item) { return resource("geo/chorantenna.geo.json"); }
         @Override public Identifier getTextureResource(ChorusianAntennaeItem item) { return resource("textures/item/chorantennaealt.png"); }
         @Override public Identifier getAnimationResource(ChorusianAntennaeItem item) { return resource("animations/chorantenna.animation.json"); }

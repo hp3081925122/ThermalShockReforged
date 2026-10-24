@@ -80,5 +80,4 @@ if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent(
         controllers.add(procedure);
     }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
-    public boolean shouldPlayAnimsWhileGamePaused() { return true; }
 }

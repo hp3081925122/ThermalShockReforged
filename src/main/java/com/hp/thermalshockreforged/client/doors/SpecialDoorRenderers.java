@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.client.doors;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoBlockRenderer;
@@ -10,7 +15,6 @@ import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.extensions.common.*;
 import com.geckolib.animatable.GeoAnimatable;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
 import com.geckolib.renderer.*;
 
 public final class SpecialDoorRenderers {
@@ -39,7 +43,7 @@ public final class SpecialDoorRenderers {
         }
     }
 
-    private static final class Model<T extends GeoAnimatable> extends LegacyGeoModel<T> {
+    private static final class Model<T extends GeoAnimatable> extends TsrGeoModel<T> {
         private DoorKind kind(T entity) { return entity instanceof SpecialDoorBlockEntity block ? block.kind : ((SpecialDoorItem)entity).kind; }
         @Override public Identifier getModelResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "geo/" + kind(entity).asset + ".geo.json"); }
         @Override public Identifier getTextureResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "textures/block/" + kind(entity).asset + ".png"); }

@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.client.weapons;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
 
@@ -13,7 +18,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.extensions.common.*;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
 
 final class GauntletVolcanoClient {
@@ -44,12 +48,12 @@ final class GauntletVolcanoClient {
         private VolcanoRenderer() { super(new VolcanoModel()); }
         @Override public RenderType getRenderType(VolcanoItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class GauntletModel extends LegacyGeoModel<ZerkerGauntletItem> {
+    private static final class GauntletModel extends TsrGeoModel<ZerkerGauntletItem> {
         @Override public Identifier getModelResource(ZerkerGauntletItem item) { return resource("geo/titaniummace.geo.json"); }
         @Override public Identifier getTextureResource(ZerkerGauntletItem item) { return resource("textures/item/novazerk.png"); }
         @Override public Identifier getAnimationResource(ZerkerGauntletItem item) { return resource("animations/titaniummace.animation.json"); }
     }
-    private static final class VolcanoModel extends LegacyGeoModel<VolcanoItem> {
+    private static final class VolcanoModel extends TsrGeoModel<VolcanoItem> {
         @Override public Identifier getModelResource(VolcanoItem item) { return resource("geo/volcano_rubicon.geo.json"); }
         @Override public Identifier getTextureResource(VolcanoItem item) { return resource("textures/item/volcano_rubicon.png"); }
         @Override public Identifier getAnimationResource(VolcanoItem item) { return resource("animations/volcano_rubicon.animation.json"); }

@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.client;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
@@ -11,23 +16,17 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.Identifier;
 import com.geckolib.cache.model.BakedGeoModel;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoEntityRenderer;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoRenderLayer;
 
-public final class ForecastRenderer extends LegacyGeoEntityRenderer<ForecastEntity> {
+public final class ForecastRenderer extends TsrGeoEntityRenderer<ForecastEntity> {
     public ForecastRenderer(EntityRendererProvider.Context context) {
         super(context, new Model());
         shadowRadius = 0.2F;
-        addRenderLayer(new Glow(this));
+        withRenderLayer(new Glow(this));
     }
 
-    @Override
-    public RenderType getRenderType(ForecastEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) {
-        return RenderTypes.entityTranslucent(texture);
-    }
+    @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
 
-    private static final class Model extends LegacyGeoModel<ForecastEntity> {
+    private static final class Model extends TsrGeoModel<ForecastEntity> {
         @Override
         public Identifier getModelResource(ForecastEntity entity) {
             return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "geo/forecast.geo.json");
@@ -44,17 +43,13 @@ public final class ForecastRenderer extends LegacyGeoEntityRenderer<ForecastEnti
         }
     }
 
-    private static final class Glow extends LegacyGeoRenderLayer<ForecastEntity> {
+    private static final class Glow extends GeoEyesLayer<ForecastEntity, Void, EntityRenderState> {
         private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/forecast_glow.png");
 
         private Glow(ForecastRenderer renderer) {
             super(renderer);
         }
 
-        @Override
-        public void render(PoseStack pose, ForecastEntity entity, BakedGeoModel model, RenderType type, MultiBufferSource buffers, VertexConsumer vertices, float partialTick, int light, int overlay) {
-            RenderType glow = RenderTypes.eyes(TEXTURE);
-            getRenderer().reRender(model, pose, buffers, entity, glow, buffers.getBuffer(glow), partialTick, 15728640, OverlayTexture.NO_OVERLAY, -1);
-        }
+        @Override protected Identifier texture(ForecastEntity entity) { return TEXTURE; } @Override protected int light(int packedLight) { return 15728640; }
     }
 }

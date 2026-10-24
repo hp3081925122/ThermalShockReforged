@@ -46,5 +46,4 @@ if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent(
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> state.setAndContinue(RawAnimation.begin().thenLoop("0")))); }
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return animations; }
-    public boolean shouldPlayAnimsWhileGamePaused() { return true; }
 }

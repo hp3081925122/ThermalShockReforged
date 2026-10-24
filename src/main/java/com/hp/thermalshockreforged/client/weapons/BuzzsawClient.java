@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.client.weapons;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
 
@@ -13,7 +18,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.extensions.common.*;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
 
 final class BuzzsawClient {
@@ -37,7 +41,7 @@ final class BuzzsawClient {
         private Renderer() { super(new Model()); }
         @Override public RenderType getRenderType(BuzzsawItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class Model extends LegacyGeoModel<BuzzsawItem> {
+    private static final class Model extends TsrGeoModel<BuzzsawItem> {
         @Override public Identifier getModelResource(BuzzsawItem item) { return resource("geo/buzzsaw.geo.json"); }
         @Override public Identifier getTextureResource(BuzzsawItem item) { return resource("textures/item/buzzsaw.png"); }
         @Override public Identifier getAnimationResource(BuzzsawItem item) { return resource("animations/buzzsaw.animation.json"); }

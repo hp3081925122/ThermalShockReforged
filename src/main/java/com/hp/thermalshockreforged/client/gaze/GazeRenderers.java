@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.client.gaze;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
 
@@ -11,8 +16,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 import net.neoforged.neoforge.client.event.*;
 import com.geckolib.animation.state.AnimationTest;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoEntityRenderer;
 
 public final class GazeRenderers {
     private GazeRenderers() { }
@@ -26,7 +29,7 @@ public final class GazeRenderers {
         event.registerSpriteSet(GazeContent.LENS_VISAGE_1.get(), LensVisageParticle.Provider::new);
         event.registerSpriteSet(GazeContent.LENS_VISAGE_2.get(), LensVisageParticle.Provider::new);
     }
-    private static final class Model extends LegacyGeoModel<AnimatedMonsterEntity> {
+    private static final class Model extends TsrGeoModel<AnimatedMonsterEntity> {
         private final Identifier model;
         private final Identifier animation;
         private Model(String name) {
@@ -36,18 +39,12 @@ public final class GazeRenderers {
         @Override public Identifier getModelResource(AnimatedMonsterEntity entity) { return model; }
         @Override public Identifier getAnimationResource(AnimatedMonsterEntity entity) { return animation; }
         @Override public Identifier getTextureResource(AnimatedMonsterEntity entity) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/" + entity.texture() + ".png"); }
-        @Override public void setCustomAnimations(AnimatedMonsterEntity entity, long instance, AnimationTest<AnimatedMonsterEntity> state) {
-            super.setCustomAnimations(entity, instance, state);
-            if (!(entity instanceof SpiritEntity)) return;
-            var head = getAnimationProcessor().getBone("head");
-            var data = com.hp.thermalshockreforged.compat.LegacyAnimationData.from(state);
-            if (head != null && data != null) { head.setRotX(data.headPitch() * Mth.DEG_TO_RAD); head.setRotY(data.netHeadYaw() * Mth.DEG_TO_RAD); }
-        }
+        @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { if (!is(state, SpiritEntity.class)) return; lookAt(state, bones, "head"); }
     }
-    private static final class Renderer extends LegacyGeoEntityRenderer<AnimatedMonsterEntity> {
+    private static final class Renderer extends TsrGeoEntityRenderer<AnimatedMonsterEntity> {
         private final boolean fixedDeath;
         private Renderer(EntityRendererProvider.Context context, String name, float shadow, boolean fixedDeath) { super(context, new Model(name)); shadowRadius = shadow; this.fixedDeath = fixedDeath; }
-        @Override public RenderType getRenderType(AnimatedMonsterEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
-        protected float getDeathMaxRotation(com.geckolib.renderer.base.GeoRenderState state) { return fixedDeath ? 0 : super.getDeathMaxRotation(state); }
+        @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
+        @Override protected float getDeathMaxRotation(GeoRenderState state) { return fixedDeath ? 0 : super.getDeathMaxRotation(state); }
     }
 }

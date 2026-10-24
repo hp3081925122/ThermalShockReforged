@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.client.weapons;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
@@ -19,7 +24,6 @@ import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import com.geckolib.animation.state.AnimationTest;
 import com.geckolib.constant.DataTickets;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
 
 final class MagneticCrossbowClient {
@@ -43,7 +47,7 @@ final class MagneticCrossbowClient {
         private Renderer() { super(new Model()); }
         @Override public RenderType getRenderType(MagneticCrossbowItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class Model extends LegacyGeoModel<MagneticCrossbowItem> {
+    private static final class Model extends TsrGeoModel<MagneticCrossbowItem> {
         @Override public void setCustomAnimations(MagneticCrossbowItem item, long instanceId, AnimationTest<MagneticCrossbowItem> state) {
             super.setCustomAnimations(item, instanceId, state);
             if (!item.isZenith()) return;

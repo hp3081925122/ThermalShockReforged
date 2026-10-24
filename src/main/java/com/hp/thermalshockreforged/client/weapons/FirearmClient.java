@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.client.weapons;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
 
@@ -13,7 +18,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.extensions.common.*;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
 
 final class FirearmClient {
@@ -37,7 +41,7 @@ final class FirearmClient {
         private Renderer() { super(new Model()); }
         @Override public RenderType getRenderType(FirearmItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
-    private static final class Model extends LegacyGeoModel<FirearmItem> {
+    private static final class Model extends TsrGeoModel<FirearmItem> {
         @Override public Identifier getModelResource(FirearmItem item) { return resource(item.isHailfall() ? "geo/hailfall.geo.json" : "geo/flint-steel_rifle.geo.json"); }
         @Override public Identifier getTextureResource(FirearmItem item) { return resource(item.isHailfall() ? "textures/item/hailfall.png" : "textures/item/flintsteel_rifle_rubicon.png"); }
         @Override public Identifier getAnimationResource(FirearmItem item) { return resource(item.isHailfall() ? "animations/hailfall.animation.json" : "animations/flint-steel_rifle.animation.json"); }

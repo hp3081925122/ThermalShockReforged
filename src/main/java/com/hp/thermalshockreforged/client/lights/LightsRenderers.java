@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.client.lights;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoBlockRenderer;
@@ -10,7 +15,6 @@ import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.extensions.common.*;
 import com.geckolib.animatable.GeoAnimatable;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
 import com.geckolib.renderer.*;
 
 public final class LightsRenderers {
@@ -39,7 +43,7 @@ public final class LightsRenderers {
         }
     }
 
-    private static final class Model<T extends GeoAnimatable> extends LegacyGeoModel<T> {
+    private static final class Model<T extends GeoAnimatable> extends TsrGeoModel<T> {
         @Override public Identifier getModelResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "geo/glowstick.geo.json"); }
         @Override public Identifier getTextureResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "textures/block/glowstick.png"); }
         @Override public Identifier getAnimationResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "animations/glowstick.animation.json"); }

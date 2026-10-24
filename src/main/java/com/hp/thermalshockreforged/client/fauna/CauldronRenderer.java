@@ -1,11 +1,15 @@
 package com.hp.thermalshockreforged.client.fauna;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
 
 import com.hp.thermalshockreforged.entity.fauna.block.CauldronOfTrilobiteBlockEntity;
 import net.minecraft.client.renderer.*;
 import net.minecraft.resources.Identifier;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
 import com.hp.thermalshockreforged.client.compat.LegacyGeoBlockRenderer;
 
 final class CauldronRenderer extends LegacyGeoBlockRenderer<CauldronOfTrilobiteBlockEntity> {
@@ -14,7 +18,7 @@ final class CauldronRenderer extends LegacyGeoBlockRenderer<CauldronOfTrilobiteB
     @Override
     public RenderType getRenderType(CauldronOfTrilobiteBlockEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
 
-    private static final class Model extends LegacyGeoModel<CauldronOfTrilobiteBlockEntity> {
+    private static final class Model extends TsrGeoModel<CauldronOfTrilobiteBlockEntity> {
         @Override
         public Identifier getModelResource(CauldronOfTrilobiteBlockEntity entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "geo/trilobitcauldron.geo.json"); }
 

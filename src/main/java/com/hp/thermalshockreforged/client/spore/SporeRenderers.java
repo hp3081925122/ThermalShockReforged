@@ -1,4 +1,9 @@
 package com.hp.thermalshockreforged.client.spore;
+import com.hp.thermalshockreforged.client.geo.*;
+import com.geckolib.renderer.base.GeoRenderState;
+import com.geckolib.renderer.base.BoneSnapshots;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
 
@@ -7,8 +12,6 @@ import net.minecraft.client.renderer.*;
 import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.extensions.common.*;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoModel;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoEntityRenderer;
 
 public final class SporeRenderers {
     private SporeRenderers() { }
@@ -19,14 +22,12 @@ public final class SporeRenderers {
     public static void extensions(RegisterClientExtensionsEvent event) {
     }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", path); }
-    private static final class Renderer extends LegacyGeoEntityRenderer<BlightedSporeEntity> {
+    private static final class Renderer extends TsrGeoEntityRenderer<BlightedSporeEntity> {
         private Renderer(net.minecraft.client.renderer.entity.EntityRendererProvider.Context context) { super(context, new Model()); shadowRadius = 0.3F; withScale(1); }
-        @Override
-        public RenderType getRenderType(BlightedSporeEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
-        @Override
-        protected float getDeathMaxRotation(com.geckolib.renderer.base.GeoRenderState state) { return 0; }
+        @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
+        @Override protected float getDeathMaxRotation(GeoRenderState state) { return 0; }
     }
-    private static final class Model extends LegacyGeoModel<BlightedSporeEntity> {
+    private static final class Model extends TsrGeoModel<BlightedSporeEntity> {
         @Override
         public Identifier getModelResource(BlightedSporeEntity entity) { return resource("geo/blighted_spore.geo.json"); }
         @Override
