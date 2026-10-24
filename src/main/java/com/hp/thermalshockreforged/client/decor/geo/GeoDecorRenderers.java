@@ -1,29 +1,34 @@
 package com.hp.thermalshockreforged.client.decor.geo;
-import com.hp.thermalshockreforged.client.geo.*;
-import com.geckolib.renderer.base.GeoRenderState;
-import com.geckolib.renderer.base.BoneSnapshots;
-import net.minecraft.client.renderer.entity.state.EntityRenderState;
 
-import net.minecraft.client.renderer.rendertype.RenderTypes;
-import net.minecraft.client.renderer.rendertype.RenderType;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoBlockRenderer;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
-
-import com.hp.thermalshockreforged.content.decor.geo.*;
+import com.geckolib.animatable.GeoAnimatable;
+import com.geckolib.constant.dataticket.DataTicket;
+import com.hp.thermalshockreforged.client.geo.TsrGeoBlockRenderer;
+import com.hp.thermalshockreforged.client.geo.TsrGeoItemRenderer;
+import com.hp.thermalshockreforged.client.geo.TsrGeoModel;
+import com.hp.thermalshockreforged.client.geo.TsrRenderProvider;
 import com.hp.thermalshockreforged.client.particle.AaaStationaryParticle;
-import net.minecraft.client.particle.ParticleRenderType;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
+import com.hp.thermalshockreforged.content.decor.geo.*;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.blockentity.BeaconRenderer;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.client.renderer.blockentity.state.BlockEntityRenderState;
 import net.minecraft.client.renderer.entity.NoopRenderer;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
-import net.neoforged.neoforge.client.extensions.common.*;
-import com.geckolib.animatable.GeoAnimatable;
-import com.geckolib.renderer.*;
+import net.neoforged.neoforge.client.extensions.common.IClientBlockExtensions;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
+import org.jspecify.annotations.Nullable;
 
 public final class GeoDecorRenderers {
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
-        for (GeoDecorKind kind : GeoDecorKind.values()) event.registerBlockEntityRenderer(GeoDecorContent.entity(kind), context -> new BlockRenderer());
+        for (GeoDecorKind kind : GeoDecorKind.values()) event.registerBlockEntityRenderer(GeoDecorContent.entity(kind), context -> new BlockRenderer(context, kind));
         event.registerEntityRenderer(BrimstoneCakeConsumption.TYPE.get(), NoopRenderer::new);
     }
 
@@ -37,51 +42,43 @@ public final class GeoDecorRenderers {
     public static void extensions(RegisterClientExtensionsEvent event) {
         event.registerBlock(new IClientBlockExtensions() {
             @Override public boolean addHitEffects(net.minecraft.world.level.block.state.BlockState state, net.minecraft.world.level.Level level, net.minecraft.world.phys.HitResult target, net.minecraft.client.particle.ParticleEngine manager) {
-                if (target instanceof net.minecraft.world.phys.BlockHitResult hit) {
+                if (target instanceof net.minecraft.world.phys.BlockHitResult hit && level instanceof ClientLevel client) {
                     var main = DecorPartBlock.main(level, hit.getBlockPos(), state);
-                    if (main != null) { }
+                    if (main != null) client.addBreakingBlockEffect(main, hit.getDirection(), hit);
                 }
                 return true;
             }
             @Override public boolean addDestroyEffects(net.minecraft.world.level.block.state.BlockState state, net.minecraft.world.level.Level level, net.minecraft.core.BlockPos pos, net.minecraft.client.particle.ParticleEngine manager) { return true; }
         }, GeoDecorContent.DECOR_PART.get());
-        for (GeoDecorKind kind : GeoDecorKind.values()) event.registerItem(new IClientItemExtensions() {
-            private ItemRenderer renderer;
-
-        }, GeoDecorContent.item(kind));
+        for (GeoDecorKind kind : GeoDecorKind.values()) GeoRenderProviders.register(TsrRenderProvider.item(() -> new TsrGeoItemRenderer<GeoDecorItem>(new Model<>())), GeoDecorContent.item(kind));
     }
 
-    private static final class BlockRenderer extends LegacyGeoBlockRenderer<GeoDecorBlockEntity> {
+    private static final class BlockRenderer extends TsrGeoBlockRenderer<GeoDecorBlockEntity> {
+        private static final DataTicket<Float> BEAM_TIME = DataTicket.create("thermal_shock_reforged:decor_beam_time", Float.class);
         private static final int BEAM_COLOR = 0xFF5FD4FF;
         private static final int BEAM_RANGE = 256;
-        private BlockRenderer() { super(new Model<>()); }
-        private static boolean beacon(GeoDecorBlockEntity entity) { return entity.kind == GeoDecorKind.FRIGID_ALTAR; }
-        @Override public void render(GeoDecorBlockEntity entity, float partialTick, com.mojang.blaze3d.vertex.PoseStack poseStack, MultiBufferSource buffers, int packedLight, int packedOverlay) {
-            super.render(entity, partialTick, poseStack, buffers, packedLight, packedOverlay);
-            if (!beacon(entity) || entity.getLevel() == null) return;
-            int height = net.minecraft.client.renderer.blockentity.BeaconRenderer.MAX_RENDER_Y - entity.getBlockPos().getY();
+        private final boolean beacon;
+        private BlockRenderer(BlockEntityRendererProvider.Context context, GeoDecorKind kind) { super(context, new Model<>()); beacon = kind == GeoDecorKind.FRIGID_ALTAR; }
+        @Override public void addRenderData(GeoDecorBlockEntity entity, @Nullable Void relatedObject, BlockEntityRenderState state, float partialTick) {
+            if (beacon && entity.getLevel() != null) state.addGeckolibData(BEAM_TIME, Math.floorMod(entity.getLevel().getGameTime(), 40) + partialTick);
+        }
+        @Override public void submit(BlockEntityRenderState state, PoseStack poseStack, SubmitNodeCollector renderTasks, CameraRenderState cameraRenderState) {
+            super.submit(state, poseStack, renderTasks, cameraRenderState);
+            Float time = state.getGeckolibData(BEAM_TIME);
+            if (time == null) return;
+            int height = BeaconRenderer.MAX_RENDER_Y - state.blockPos.getY();
             if (height <= 1) return;
-            if (height > 1) { }
+            BeaconRenderer.submitBeaconBeam(poseStack, renderTasks, BeaconRenderer.BEAM_LOCATION, 1, time, 1, height, BEAM_COLOR, .2F, .25F);
         }
-        @Override public boolean shouldRenderOffScreen(GeoDecorBlockEntity entity) { return beacon(entity) || super.shouldRenderOffScreen(entity); }
-        @Override public boolean shouldRender(GeoDecorBlockEntity entity, net.minecraft.world.phys.Vec3 camera) {
-            if (!beacon(entity)) return super.shouldRender(entity, camera);
-            return net.minecraft.world.phys.Vec3.atCenterOf(entity.getBlockPos()).multiply(1, 0, 1).closerThan(camera.multiply(1, 0, 1), BEAM_RANGE);
+        @Override public boolean shouldRenderOffScreen() { return beacon || super.shouldRenderOffScreen(); }
+        @Override public boolean shouldRender(GeoDecorBlockEntity entity, Vec3 camera) {
+            if (!beacon) return super.shouldRender(entity, camera);
+            return Vec3.atCenterOf(entity.getBlockPos()).multiply(1, 0, 1).closerThan(camera.multiply(1, 0, 1), BEAM_RANGE);
         }
-        @Override public net.minecraft.world.phys.AABB getRenderBoundingBox(GeoDecorBlockEntity entity) {
-            if (!beacon(entity)) return super.getRenderBoundingBox(entity);
+        @Override public AABB getRenderBoundingBox(GeoDecorBlockEntity entity) {
+            if (!beacon) return super.getRenderBoundingBox(entity);
             var pos = entity.getBlockPos();
-            return new net.minecraft.world.phys.AABB(pos.getX(), pos.getY(), pos.getZ(), pos.getX() + 1, net.minecraft.client.renderer.blockentity.BeaconRenderer.MAX_RENDER_Y, pos.getZ() + 1);
-        }
-        @Override public RenderType getRenderType(GeoDecorBlockEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) {
-            return RenderTypes.entityTranslucent(texture);
-        }
-    }
-
-    private static final class ItemRenderer extends LegacyGeoItemRenderer<GeoDecorItem> {
-        private ItemRenderer() { super(new Model<>()); }
-        @Override public RenderType getRenderType(GeoDecorItem item, Identifier texture, MultiBufferSource buffers, float partialTick) {
-            return RenderTypes.entityTranslucent(texture);
+            return new AABB(pos.getX(), pos.getY(), pos.getZ(), pos.getX() + 1, BeaconRenderer.MAX_RENDER_Y, pos.getZ() + 1);
         }
     }
 

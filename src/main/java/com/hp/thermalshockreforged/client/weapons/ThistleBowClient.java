@@ -18,14 +18,12 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.extensions.common.*;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 
 final class ThistleBowClient {
     private ThistleBowClient() { }
     static void extensions(RegisterClientExtensionsEvent event) {
         event.registerItem(new IClientItemExtensions() {
-            private Renderer renderer;
-
             @Override public HumanoidModel.ArmPose getArmPose(LivingEntity entity, InteractionHand hand, ItemStack stack) {
                 return !stack.isEmpty() && entity.getUsedItemHand() == hand ? ZapGauntletArmPose.POSE.getValue() : HumanoidModel.ArmPose.EMPTY;
             }
@@ -35,11 +33,11 @@ final class ThistleBowClient {
                 return true;
             }
         }, WeaponContent.THISTLE_BOW.get());
+        GeoRenderProviders.register(TsrRenderProvider.item(Renderer::new), WeaponContent.THISTLE_BOW.get());
     }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
-    private static final class Renderer extends LegacyGeoItemRenderer<ThistleBowItem> {
+    private static final class Renderer extends TsrGeoItemRenderer<ThistleBowItem> {
         private Renderer() { super(new Model()); }
-        @Override public RenderType getRenderType(ThistleBowItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
     private static final class Model extends TsrGeoModel<ThistleBowItem> {
         @Override public Identifier getModelResource(ThistleBowItem item) { return resource("geo/thistle_bow.geo.json"); }

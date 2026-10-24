@@ -1,46 +1,28 @@
 package com.hp.thermalshockreforged.client.doors;
-import com.hp.thermalshockreforged.client.geo.*;
-import com.geckolib.renderer.base.GeoRenderState;
-import com.geckolib.renderer.base.BoneSnapshots;
-import net.minecraft.client.renderer.entity.state.EntityRenderState;
 
-import net.minecraft.client.renderer.rendertype.RenderTypes;
-import net.minecraft.client.renderer.rendertype.RenderType;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoBlockRenderer;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
-
+import com.geckolib.animatable.GeoAnimatable;
+import com.hp.thermalshockreforged.client.geo.TsrGeoBlockRenderer;
+import com.hp.thermalshockreforged.client.geo.TsrGeoItemRenderer;
+import com.hp.thermalshockreforged.client.geo.TsrGeoModel;
+import com.hp.thermalshockreforged.client.geo.TsrRenderProvider;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 import com.hp.thermalshockreforged.content.doors.*;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.extensions.common.*;
-import com.geckolib.animatable.GeoAnimatable;
-import com.geckolib.renderer.*;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 
 public final class SpecialDoorRenderers {
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
-        for (DoorKind kind : DoorKind.values()) event.registerBlockEntityRenderer(SpecialDoorsContent.entity(kind), context -> new BlockRenderer());
+        for (DoorKind kind : DoorKind.values()) event.registerBlockEntityRenderer(SpecialDoorsContent.entity(kind), BlockRenderer::new);
     }
 
     public static void extensions(RegisterClientExtensionsEvent event) {
-        for (DoorKind kind : DoorKind.values()) event.registerItem(new IClientItemExtensions() {
-            private ItemRenderer renderer;
-
-        }, SpecialDoorsContent.item(kind));
+        for (DoorKind kind : DoorKind.values()) GeoRenderProviders.register(TsrRenderProvider.item(() -> new TsrGeoItemRenderer<SpecialDoorItem>(new Model<>())), SpecialDoorsContent.item(kind));
     }
 
-    private static final class BlockRenderer extends LegacyGeoBlockRenderer<SpecialDoorBlockEntity> {
-        private BlockRenderer() { super(new Model<>()); }
-        @Override public RenderType getRenderType(SpecialDoorBlockEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) {
-            return RenderTypes.entityTranslucent(texture);
-        }
-    }
-
-    private static final class ItemRenderer extends LegacyGeoItemRenderer<SpecialDoorItem> {
-        private ItemRenderer() { super(new Model<>()); }
-        @Override public RenderType getRenderType(SpecialDoorItem item, Identifier texture, MultiBufferSource buffers, float partialTick) {
-            return RenderTypes.entityTranslucent(texture);
-        }
+    private static final class BlockRenderer extends TsrGeoBlockRenderer<SpecialDoorBlockEntity> {
+        private BlockRenderer(BlockEntityRendererProvider.Context context) { super(context, new Model<>()); }
     }
 
     private static final class Model<T extends GeoAnimatable> extends TsrGeoModel<T> {

@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.entity.labmachinist;
+import com.geckolib.animatable.client.GeoRenderProvider;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 import com.geckolib.animation.object.PlayState;
 import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 import net.minecraft.world.item.Item;
@@ -27,6 +29,7 @@ import com.geckolib.animatable.instance.AnimatableInstanceCache;
 import com.geckolib.animation.*;
 
 public final class SylviaRifleItem extends Item implements GeoItem {
+    @Override public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) { GeoRenderProviders.accept(this, consumer); }
     private static final String CHARGE = "thermal_shock_reforged:sylvia_charge";
     private static final String REMAINING = "thermal_shock_reforged:sylvia_charge_remaining";
     private static final String CREATED = "thermal_shock_reforged:sylvia_charge_created";

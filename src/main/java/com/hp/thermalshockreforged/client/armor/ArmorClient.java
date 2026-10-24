@@ -1,35 +1,30 @@
 package com.hp.thermalshockreforged.client.armor;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 import com.hp.thermalshockreforged.client.geo.*;
 import com.geckolib.renderer.base.GeoRenderState;
 import com.geckolib.renderer.base.BoneSnapshots;
 import net.minecraft.client.renderer.entity.state.EntityRenderState;
 
-import net.minecraft.client.renderer.rendertype.RenderTypes;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.armor.ArmorContent;
 import com.hp.thermalshockreforged.content.armor.GeoSetArmorItem;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.client.model.Model;
-import net.minecraft.client.resources.model.EquipmentClientInfo;
 import net.minecraft.world.item.component.CustomData;
-import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoArmorRenderer;
 
 public final class ArmorClient {
     public static void extensions(RegisterClientExtensionsEvent event) {
-        for (var entry : ArmorContent.ALL) event.registerItem(new Extension(), entry.get());
+        var provider = TsrRenderProvider.armor(Renderer::new);
+        for (var entry : ArmorContent.ALL) GeoRenderProviders.register(provider, entry.get());
         NeoForge.EVENT_BUS.addListener(ArmorClient::logout);
     }
 
@@ -50,21 +45,12 @@ public final class ArmorClient {
         for (var entry : ArmorContent.ALL) entry.get().clearInstances();
     }
 
-    private static final class Extension implements IClientItemExtensions {
-        public Model getGenericArmorModel(ItemStack stack, EquipmentClientInfo.LayerType layerType, Model original) { return original; }
-    }
-
-    private static final class Renderer extends LegacyGeoArmorRenderer<GeoSetArmorItem> {
+    private static final class Renderer extends TsrGeoArmorRenderer<GeoSetArmorItem> {
         private Renderer() { super(new Model()); }
 
         @Override
-        public long getInstanceId(GeoSetArmorItem item) {
-            return item.renderInstance((LivingEntity) currentEntity, currentStack, currentSlot);
-        }
-
-        @Override
-        public RenderType getRenderType(GeoSetArmorItem item, Identifier texture, MultiBufferSource buffers, float partialTick) {
-            return RenderTypes.entityTranslucent(texture);
+        public long getInstanceId(GeoSetArmorItem item, RenderData data) {
+            return item.renderInstance(data.entity(), data.itemStack(), data.slot());
         }
     }
 

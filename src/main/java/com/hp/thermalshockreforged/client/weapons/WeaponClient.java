@@ -18,7 +18,7 @@ import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.extensions.common.*;
 import net.neoforged.neoforge.common.NeoForge;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 
 public final class WeaponClient {
     private WeaponClient() { }
@@ -36,9 +36,6 @@ public final class WeaponClient {
         CoreEjectFlareGunClient.extensions(event);
         CarborGlClient.extensions(event);
         event.registerItem(new IClientItemExtensions() {
-            private Renderer renderer;
-            @Override
-
             @Override
             public boolean applyForgeHandTransform(PoseStack pose, LocalPlayer player, HumanoidArm arm,
                     ItemStack stack, float partialTick, float equipProcess, float swingProcess) {
@@ -47,6 +44,7 @@ public final class WeaponClient {
                 return true;
             }
         }, WeaponContent.BLINDING_LANTERN.get());
+        GeoRenderProviders.register(TsrRenderProvider.item(Renderer::new), WeaponContent.BLINDING_LANTERN.get());
         NeoForge.EVENT_BUS.addListener(WeaponClient::tick);
         NeoForge.EVENT_BUS.addListener(WeaponClient::logout);
     }
@@ -54,12 +52,8 @@ public final class WeaponClient {
     private static void tick(ClientTickEvent.Post event) { WeaponContent.pruneAnimations(); }
     private static void logout(ClientPlayerNetworkEvent.LoggingOut event) { WeaponContent.clearAnimations(); }
 
-    private static final class Renderer extends LegacyGeoItemRenderer<BlindingLanternItem> {
+    private static final class Renderer extends TsrGeoItemRenderer<BlindingLanternItem> {
         private Renderer() { super(new Model()); }
-        @Override
-        public RenderType getRenderType(BlindingLanternItem item, Identifier texture, MultiBufferSource buffers, float partialTick) {
-            return RenderTypes.entityTranslucent(texture);
-        }
     }
 
     private static final class Model extends TsrGeoModel<BlindingLanternItem> {

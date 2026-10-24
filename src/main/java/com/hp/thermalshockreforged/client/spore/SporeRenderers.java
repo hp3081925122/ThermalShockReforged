@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.client.spore;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 import com.hp.thermalshockreforged.client.geo.*;
 import com.geckolib.renderer.base.GeoRenderState;
 import com.geckolib.renderer.base.BoneSnapshots;
@@ -17,9 +18,10 @@ public final class SporeRenderers {
     private SporeRenderers() { }
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(SporeContent.BLIGHTED_SPORE.get(), context -> new Renderer(context));
-        event.registerBlockEntityRenderer(SporeContent.SPORE_POD_ENTITY.get(), context -> new SporePodRenderer());
+        event.registerBlockEntityRenderer(SporeContent.SPORE_POD_ENTITY.get(), SporePodRenderer::new);
     }
     public static void extensions(RegisterClientExtensionsEvent event) {
+        GeoRenderProviders.register(TsrRenderProvider.item(SporePodItemRenderer::new), SporeContent.SPORE_POD_ITEM.get());
     }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", path); }
     private static final class Renderer extends TsrGeoEntityRenderer<BlightedSporeEntity> {

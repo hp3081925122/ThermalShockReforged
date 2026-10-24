@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content.weapons;
+import com.geckolib.animatable.client.GeoRenderProvider;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 import net.minecraft.world.item.component.TooltipDisplay;
 import java.util.function.Consumer;
@@ -33,6 +35,7 @@ import com.geckolib.animation.object.PlayState;
 import com.geckolib.animation.RawAnimation;
 
 public final class MagneticCrossbowItem extends Item implements GeoItem {
+    @Override public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) { GeoRenderProviders.accept(this, consumer); }
     private final BoundedItemAnimationCache animations = new BoundedItemAnimationCache(this);
     private final boolean zenith;
     public MagneticCrossbowItem() { this(false); }

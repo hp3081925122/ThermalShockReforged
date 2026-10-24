@@ -1,54 +1,32 @@
 package com.hp.thermalshockreforged.client.farming;
-import com.hp.thermalshockreforged.client.geo.*;
-import com.geckolib.renderer.base.GeoRenderState;
-import com.geckolib.renderer.base.BoneSnapshots;
-import net.minecraft.client.renderer.entity.state.EntityRenderState;
 
-import net.minecraft.client.renderer.rendertype.RenderTypes;
-import net.minecraft.client.renderer.rendertype.RenderType;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoBlockRenderer;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
-
+import com.geckolib.animatable.GeoAnimatable;
+import com.hp.thermalshockreforged.client.geo.TsrGeoBlockRenderer;
+import com.hp.thermalshockreforged.client.geo.TsrGeoItemRenderer;
+import com.hp.thermalshockreforged.client.geo.TsrGeoModel;
+import com.hp.thermalshockreforged.client.geo.TsrRenderProvider;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 import com.hp.thermalshockreforged.content.farming.*;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.extensions.common.*;
-import com.geckolib.animatable.GeoAnimatable;
-import com.geckolib.renderer.*;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 
 public final class FarmingRenderers {
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
-        for (CropKind kind : CropKind.values()) if (kind.geo) event.registerBlockEntityRenderer(FarmingContent.cropEntity(kind), context -> new BlockRenderer());
+        for (CropKind kind : CropKind.values()) if (kind.geo) event.registerBlockEntityRenderer(FarmingContent.cropEntity(kind), BlockRenderer::new);
     }
 
     public static void extensions(RegisterClientExtensionsEvent event) {
-        for (CropKind kind : CropKind.values()) if (kind.geo) event.registerItem(new IClientItemExtensions() {
-            private ItemRenderer renderer;
-
-        }, FarmingContent.geoItem(kind));
-    }
-
-    public static void layers() {
-        // 26.1：方块 cutout 由模型 JSON 的 render_type 控制，ItemBlockRenderTypes 已移除
+        for (CropKind kind : CropKind.values()) if (kind.geo) GeoRenderProviders.register(TsrRenderProvider.item(() -> new TsrGeoItemRenderer<GeoCropItem>(new Model<>())), FarmingContent.geoItem(kind));
     }
 
     public static void particles(net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(FarmingContent.HEARTHFLY.get(), HearthflyParticle.Provider::new);
     }
 
-    private static final class BlockRenderer extends LegacyGeoBlockRenderer<GeoCropBlockEntity> {
-        private BlockRenderer() { super(new Model<>()); }
-        @Override public RenderType getRenderType(GeoCropBlockEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) {
-            return RenderTypes.entityTranslucent(texture);
-        }
-    }
-
-    private static final class ItemRenderer extends LegacyGeoItemRenderer<GeoCropItem> {
-        private ItemRenderer() { super(new Model<>()); }
-        @Override public RenderType getRenderType(GeoCropItem item, Identifier texture, MultiBufferSource buffers, float partialTick) {
-            return RenderTypes.entityTranslucent(texture);
-        }
+    private static final class BlockRenderer extends TsrGeoBlockRenderer<GeoCropBlockEntity> {
+        private BlockRenderer(BlockEntityRendererProvider.Context context) { super(context, new Model<>()); }
     }
 
     private static final class Model<T extends GeoAnimatable> extends TsrGeoModel<T> {

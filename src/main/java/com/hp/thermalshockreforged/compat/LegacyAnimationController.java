@@ -14,7 +14,6 @@ public class LegacyAnimationController<T extends GeoAnimatable> extends com.geck
 
     public enum State { STOPPED, RUNNING }
 
-    public static final com.geckolib.constant.dataticket.DataTicket<net.minecraft.world.item.ItemStack> ITEMSTACK = com.geckolib.constant.dataticket.DataTicket.create("thermal_shock_reforged_itemstack", net.minecraft.world.item.ItemStack.class);
 
     public LegacyAnimationController(T animatable, String name, int transitionTicks, LegacyAnimationHandler<T> handler) {
         super(name, transitionTicks, state -> handler.handle(new LegacyAnimationState<>(state)));

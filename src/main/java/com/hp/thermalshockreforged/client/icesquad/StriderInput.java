@@ -10,7 +10,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
-import net.neoforged.neoforge.network.PacketDistributor;
+import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 
 @EventBusSubscriber(modid = ThermalShockReforged.MOD_ID, value = Dist.CLIENT)
 public final class StriderInput {
@@ -19,7 +19,7 @@ public final class StriderInput {
     @SubscribeEvent public static void tick(ClientTickEvent.Post event) {
         Minecraft client = Minecraft.getInstance();
         while (FIRE.consumeClick()) {
-            if (client.screen == null && client.player != null && client.getConnection() != null && client.player.getVehicle() instanceof IcidrostriderEntity strider && strider.getControllingPassenger() == client.player) PacketDistributor.sendToServer(StriderFirePayload.INSTANCE);
+            if (client.screen == null && client.player != null && client.getConnection() != null && client.player.getVehicle() instanceof IcidrostriderEntity strider && strider.getControllingPassenger() == client.player) ClientPacketDistributor.sendToServer(StriderFirePayload.INSTANCE);
         }
     }
     @EventBusSubscriber(modid = ThermalShockReforged.MOD_ID, value = Dist.CLIENT)

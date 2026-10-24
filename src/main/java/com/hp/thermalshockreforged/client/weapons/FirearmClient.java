@@ -18,14 +18,12 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.client.extensions.common.*;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 
 final class FirearmClient {
     private FirearmClient() { }
     static void extensions(RegisterClientExtensionsEvent event) {
         event.registerItem(new IClientItemExtensions() {
-            private Renderer renderer;
-
             @Override public HumanoidModel.ArmPose getArmPose(LivingEntity entity, InteractionHand hand, ItemStack stack) {
                 return !stack.isEmpty() && entity.getUsedItemHand() == hand ? ZapGauntletArmPose.POSE.getValue() : HumanoidModel.ArmPose.EMPTY;
             }
@@ -35,11 +33,11 @@ final class FirearmClient {
                 return true;
             }
         }, WeaponContent.FLINTSTEEL_RIFLE.get(), WeaponContent.HAILFALL.get());
+        GeoRenderProviders.register(TsrRenderProvider.item(Renderer::new), WeaponContent.FLINTSTEEL_RIFLE.get(), WeaponContent.HAILFALL.get());
     }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
-    private static final class Renderer extends LegacyGeoItemRenderer<FirearmItem> {
+    private static final class Renderer extends TsrGeoItemRenderer<FirearmItem> {
         private Renderer() { super(new Model()); }
-        @Override public RenderType getRenderType(FirearmItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
     private static final class Model extends TsrGeoModel<FirearmItem> {
         @Override public Identifier getModelResource(FirearmItem item) { return resource(item.isHailfall() ? "geo/hailfall.geo.json" : "geo/flint-steel_rifle.geo.json"); }

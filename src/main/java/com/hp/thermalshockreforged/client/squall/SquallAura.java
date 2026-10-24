@@ -62,7 +62,6 @@ public final class SquallAura {
         float far = Math.min(event.getFarPlaneDistance(), Mth.lerp(strength, event.getFarPlaneDistance(), FOG_FAR));
         event.setFarPlaneDistance(far);
         event.setNearPlaneDistance(Math.min(event.getNearPlaneDistance(), far * (1 - strength)));
-        event.setCanceled(true);
     }
 
     @SubscribeEvent

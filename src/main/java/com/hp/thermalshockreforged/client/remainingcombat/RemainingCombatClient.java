@@ -6,8 +6,7 @@ import net.minecraft.client.renderer.entity.state.EntityRenderState;
 
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.rendertype.RenderType;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoArmorRenderer;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.client.particle.AaaStationaryParticle;
@@ -32,9 +31,10 @@ import com.geckolib.renderer.*;
 public final class RemainingCombatClient {
     private RemainingCombatClient() { }
     public static void extensions(RegisterClientExtensionsEvent event) {
+        var items = new net.minecraft.world.item.Item[]{RemainingCombatContent.JELLY_UMBRELLA.get(), RemainingCombatContent.LEGENDARY_JELLY_UMBRELLA.get(), RemainingCombatContent.NET_LAUNCHER.get(), RemainingCombatContent.THE_JUDGE.get(), RemainingCombatContent.PISTON_GAUNTLET.get()};
+        GeoRenderProviders.register(TsrRenderProvider.item(() -> new TsrGeoItemRenderer<AnimatedCombatItem>(new ItemModel())), items);
+        GeoRenderProviders.register(TsrRenderProvider.armor(ArmorRenderer::new), RemainingCombatContent.ANTENNAE.get());
         event.registerItem(new IClientItemExtensions() {
-            private ItemRenderer renderer;
-
             @Override public HumanoidModel.ArmPose getArmPose(LivingEntity entity, InteractionHand hand, ItemStack stack) {
                 return stack.getItem() instanceof RemainingGunItem && entity.getUsedItemHand() == hand ? ZapGauntletArmPose.POSE.getValue() : HumanoidModel.ArmPose.EMPTY;
             }
@@ -43,15 +43,7 @@ public final class RemainingCombatClient {
                 if (player.getUseItem() == stack) pose.translate(.05, .05, .05);
                 return true;
             }
-        }, RemainingCombatContent.JELLY_UMBRELLA.get(), RemainingCombatContent.LEGENDARY_JELLY_UMBRELLA.get(), RemainingCombatContent.NET_LAUNCHER.get(), RemainingCombatContent.THE_JUDGE.get(), RemainingCombatContent.PISTON_GAUNTLET.get());
-        event.registerItem(new IClientItemExtensions() {
-            private ArmorRenderer renderer;
-            @Override public HumanoidModel<?> getHumanoidArmorModel(LivingEntity entity, ItemStack stack, EquipmentSlot slot, HumanoidModel<?> original) {
-                if (renderer == null) renderer = new ArmorRenderer();
-                renderer.prepForRender(entity, stack, slot, original);
-                return renderer;
-            }
-        }, RemainingCombatContent.ANTENNAE.get());
+        }, items);
         event.registerMobEffect(new IClientMobEffectExtensions() {
             @Override public boolean isVisibleInInventory(MobEffectInstance effect) { return false; }
             @Override public boolean isVisibleInGui(MobEffectInstance effect) { return false; }
@@ -66,21 +58,16 @@ public final class RemainingCombatClient {
     private static void tick(ClientTickEvent.Post event) { RemainingCombatContent.pruneAnimations(); }
     private static void logout(ClientPlayerNetworkEvent.LoggingOut event) { RemainingCombatContent.clearAnimations(); }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
-    private static final class ItemRenderer extends LegacyGeoItemRenderer<AnimatedCombatItem> {
-        private ItemRenderer() { super(new ItemModel()); }
-        @Override public RenderType getRenderType(AnimatedCombatItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
-    }
     private static final class ItemModel extends TsrGeoModel<AnimatedCombatItem> {
         @Override public Identifier getModelResource(AnimatedCombatItem item) { return resource("geo/" + item.modelName() + ".geo.json"); }
         @Override public Identifier getTextureResource(AnimatedCombatItem item) { return resource("textures/item/" + item.textureName() + ".png"); }
         @Override public Identifier getAnimationResource(AnimatedCombatItem item) { return resource("animations/" + item.modelName() + ".animation.json"); }
     }
-    private static final class ArmorRenderer extends LegacyGeoArmorRenderer<ChorusianAntennaeItem> {
+    private static final class ArmorRenderer extends TsrGeoArmorRenderer<ChorusianAntennaeItem> {
         private ArmorRenderer() { super(new ArmorModel()); }
-        @Override public long getInstanceId(ChorusianAntennaeItem item) {
-            return ((long) currentEntity.getId() << 32) | ((long) currentSlot.ordinal() << 28) | (com.geckolib.animatable.GeoItem.getId(currentStack) & 0x0fffffffL);
+        @Override public long getInstanceId(ChorusianAntennaeItem item, RenderData data) {
+            return ((long) data.entity().getId() << 32) | ((long) data.slot().ordinal() << 28) | (com.geckolib.animatable.GeoItem.getId(data.itemStack()) & 0x0fffffffL);
         }
-        @Override public RenderType getRenderType(ChorusianAntennaeItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
     private static final class ArmorModel extends TsrGeoModel<ChorusianAntennaeItem> {
         @Override public Identifier getModelResource(ChorusianAntennaeItem item) { return resource("geo/chorantenna.geo.json"); }

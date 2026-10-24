@@ -1,40 +1,31 @@
 package com.hp.thermalshockreforged.client.outcrops;
-import com.hp.thermalshockreforged.client.geo.*;
-import com.geckolib.renderer.base.GeoRenderState;
-import com.geckolib.renderer.base.BoneSnapshots;
-import net.minecraft.client.renderer.entity.state.EntityRenderState;
 
-import net.minecraft.client.renderer.rendertype.RenderTypes;
-import net.minecraft.client.renderer.rendertype.RenderType;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoBlockRenderer;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
-
+import com.geckolib.animatable.GeoAnimatable;
 import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.client.geo.TsrGeoBlockRenderer;
+import com.hp.thermalshockreforged.client.geo.TsrGeoItemRenderer;
+import com.hp.thermalshockreforged.client.geo.TsrGeoModel;
+import com.hp.thermalshockreforged.client.geo.TsrRenderProvider;
+import com.hp.thermalshockreforged.client.geo.TsrRenderTypes;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 import com.hp.thermalshockreforged.content.outcrops.*;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.client.renderer.blockentity.state.BlockEntityRenderState;
+import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.extensions.common.*;
-import com.geckolib.animatable.GeoAnimatable;
-import com.geckolib.renderer.*;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 
 public final class OutcropRenderers {
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
-        for (var kind : OutcropKind.values()) event.registerBlockEntityRenderer(OutcropContent.entity(kind), context -> new BlockRenderer());
+        for (var kind : OutcropKind.values()) event.registerBlockEntityRenderer(OutcropContent.entity(kind), BlockRenderer::new);
     }
     public static void extensions(RegisterClientExtensionsEvent event) {
-        for (var kind : OutcropKind.values()) event.registerItem(new IClientItemExtensions() {
-            private ItemRenderer renderer;
-
-        }, OutcropContent.item(kind));
+        for (var kind : OutcropKind.values()) GeoRenderProviders.register(TsrRenderProvider.item(() -> new TsrGeoItemRenderer<OutcropItem>(new Model<>())), OutcropContent.item(kind));
     }
-    private static final class BlockRenderer extends LegacyGeoBlockRenderer<OutcropBlockEntity> {
-        private BlockRenderer() { super(new Model<>()); }
-        @Override public RenderType getRenderType(OutcropBlockEntity entity, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucentCull(texture); }
-    }
-    private static final class ItemRenderer extends LegacyGeoItemRenderer<OutcropItem> {
-        private ItemRenderer() { super(new Model<>()); }
-        @Override public RenderType getRenderType(OutcropItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
+    private static final class BlockRenderer extends TsrGeoBlockRenderer<OutcropBlockEntity> {
+        private BlockRenderer(BlockEntityRendererProvider.Context context) { super(context, new Model<>()); }
+        @Override public RenderType getRenderType(BlockEntityRenderState state, Identifier texture) { return TsrRenderTypes.entityTranslucentCull(texture); }
     }
     private static final class Model<T extends GeoAnimatable> extends TsrGeoModel<T> {
         @Override public Identifier getModelResource(T entity) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "geo/fluorite_ore.geo.json"); }

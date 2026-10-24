@@ -1,4 +1,6 @@
 package com.hp.thermalshockreforged.content.decor.geo;
+import com.geckolib.animatable.client.GeoRenderProvider;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 import com.geckolib.animation.object.PlayState;
 import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 import net.minecraft.world.item.Item;
@@ -21,6 +23,7 @@ import com.geckolib.util.GeckoLibUtil;
 import java.util.List;
 
 public final class GeoDecorItem extends BlockItem implements GeoItem {
+    @Override public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) { GeoRenderProviders.accept(this, consumer); }
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     public final GeoDecorKind kind;
     public GeoDecorItem(Block block, GeoDecorKind kind, Properties properties) { super(block, com.hp.thermalshockreforged.ModRegistration.blockItem(block, properties)); this.kind = kind; }

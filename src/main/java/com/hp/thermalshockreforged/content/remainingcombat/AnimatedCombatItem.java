@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.content.remainingcombat;
+import com.geckolib.animatable.client.GeoRenderProvider;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
+import java.util.function.Consumer;
 import com.geckolib.animation.object.PlayState;
 import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 import com.geckolib.animatable.manager.AnimatableManager;
@@ -14,6 +17,7 @@ import com.geckolib.animatable.instance.AnimatableInstanceCache;
 import com.geckolib.animation.*;
 
 public abstract class AnimatedCombatItem extends Item implements GeoItem {
+    @Override public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) { GeoRenderProviders.accept(this, consumer); }
     private final CombatAnimationCache animations = new CombatAnimationCache(this);
     protected AnimatedCombatItem(Properties properties) { super(properties); GeoItem.registerSyncedAnimatable(this); }
     public abstract String modelName();

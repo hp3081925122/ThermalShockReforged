@@ -1,4 +1,5 @@
 package com.hp.thermalshockreforged.client.weapons;
+import com.geckolib.renderer.GeoItemRenderer;
 import com.hp.thermalshockreforged.client.geo.*;
 import com.geckolib.renderer.base.GeoRenderState;
 import com.geckolib.renderer.base.BoneSnapshots;
@@ -24,14 +25,12 @@ import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import com.geckolib.animation.state.AnimationTest;
 import com.geckolib.constant.DataTickets;
-import com.hp.thermalshockreforged.client.compat.LegacyGeoItemRenderer;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
 
 final class MagneticCrossbowClient {
     private MagneticCrossbowClient() { }
     static void extensions(RegisterClientExtensionsEvent event) {
         event.registerItem(new IClientItemExtensions() {
-            private Renderer renderer;
-
             @Override public HumanoidModel.ArmPose getArmPose(LivingEntity entity, InteractionHand hand, ItemStack stack) {
                 return !stack.isEmpty() && entity.getUsedItemHand() == hand ? ZapGauntletArmPose.POSE.getValue() : HumanoidModel.ArmPose.EMPTY;
             }
@@ -41,22 +40,19 @@ final class MagneticCrossbowClient {
                 return true;
             }
         }, WeaponContent.MAGNETIC_CROSSBOW.get(), WeaponContent.ZENITH_CROSSBOW.get());
+        GeoRenderProviders.register(TsrRenderProvider.item(Renderer::new), WeaponContent.MAGNETIC_CROSSBOW.get(), WeaponContent.ZENITH_CROSSBOW.get());
     }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
-    private static final class Renderer extends LegacyGeoItemRenderer<MagneticCrossbowItem> {
+    private static final class Renderer extends TsrGeoItemRenderer<MagneticCrossbowItem> {
         private Renderer() { super(new Model()); }
-        @Override public RenderType getRenderType(MagneticCrossbowItem item, Identifier texture, MultiBufferSource buffers, float partialTick) { return RenderTypes.entityTranslucent(texture); }
     }
     private static final class Model extends TsrGeoModel<MagneticCrossbowItem> {
-        @Override public void setCustomAnimations(MagneticCrossbowItem item, long instanceId, AnimationTest<MagneticCrossbowItem> state) {
-            super.setCustomAnimations(item, instanceId, state);
-            if (!item.isZenith()) return;
-            var perspective = state.getData(DataTickets.ITEM_RENDER_PERSPECTIVE);
+        @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) {
+            if (!(state.getGeckolibData(GeoItemRenderer.CURRENT_ITEM) instanceof MagneticCrossbowItem item) || !item.isZenith()) return;
+            var perspective = state.getGeckolibData(DataTickets.ITEM_RENDER_PERSPECTIVE);
             if (perspective != ItemDisplayContext.FIRST_PERSON_RIGHT_HAND && perspective != ItemDisplayContext.FIRST_PERSON_LEFT_HAND) return;
-            var left = getAnimationProcessor().getBone("leftbowarm");
-            var right = getAnimationProcessor().getBone("rightbowarm");
-            if (left != null) { left.setScaleX(.75F); left.setScaleY(.75F); left.setScaleZ(.75F); }
-            if (right != null) { right.setScaleX(.75F); right.setScaleY(.75F); right.setScaleZ(.75F); }
+            bones.ifPresent("leftbowarm", bone -> bone.setScale(.75F, .75F, .75F));
+            bones.ifPresent("rightbowarm", bone -> bone.setScale(.75F, .75F, .75F));
         }
         @Override public Identifier getModelResource(MagneticCrossbowItem item) { return resource("geo/magnetic_crossbow.geo.json"); }
         @Override public Identifier getTextureResource(MagneticCrossbowItem item) { return resource("textures/item/" + item.textureName() + ".png"); }

@@ -1,4 +1,7 @@
 package com.hp.thermalshockreforged.content.lights;
+import com.geckolib.animatable.client.GeoRenderProvider;
+import com.hp.thermalshockreforged.compat.GeoRenderProviders;
+import java.util.function.Consumer;
 import com.geckolib.animation.object.PlayState;
 import com.hp.thermalshockreforged.compat.LegacyAnimationController;
 import com.geckolib.animatable.manager.AnimatableManager;
@@ -11,6 +14,7 @@ import com.geckolib.animation.*;
 import com.geckolib.util.GeckoLibUtil;
 
 public final class GlowstickItem extends BlockItem implements GeoItem {
+    @Override public void createGeoRenderer(Consumer<GeoRenderProvider> consumer) { GeoRenderProviders.accept(this, consumer); }
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     public GlowstickItem(Block block, Properties properties) { super(block, com.hp.thermalshockreforged.ModRegistration.blockItem(block, properties)); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar registrar) {
