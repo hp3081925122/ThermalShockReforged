@@ -63,6 +63,7 @@ public final class WorldProgressData extends SavedData {
     public static WorldProgressData get(ServerLevel level) {
         return level.getServer().overworld().getDataStorage().computeIfAbsent(FACTORY, ID);
     }
+    public boolean palaceExists() { return palaceExists; }
     public boolean beginPalacePlacement() {
         if (palaceExists || palacePlacing) return false;
         palacePlacing = true;

@@ -153,6 +153,12 @@ runs {
         systemProperty 'tsr.wikiIcons', (project.findProperty('wikiIcons') ?: '').toString()
         systemProperty 'tsr.wikiIconRotY', (project.findProperty('wikiIconRotY') ?: '').toString()
         systemProperty 'tsr.wikiIconDir', (project.findProperty('wikiIconDir') ?: 'D:/AI临时文件/icons_render').toString()
+        // 实体图标：进入指定存档后渲染实体，缩放与角度按 key:值 逐个覆盖。
+        systemProperty 'tsr.wikiEntities', (project.findProperty('wikiEntities') ?: '').toString()
+        systemProperty 'tsr.wikiEntityScale', (project.findProperty('wikiEntityScale') ?: '').toString()
+        systemProperty 'tsr.wikiEntityYaw', (project.findProperty('wikiEntityYaw') ?: '').toString()
+        systemProperty 'tsr.wikiEntityPitch', (project.findProperty('wikiEntityPitch') ?: '').toString()
+        if (project.findProperty('wikiWorld')) programArguments.addAll '--quickPlaySingleplayer', project.findProperty('wikiWorld').toString()
     }
 }
 

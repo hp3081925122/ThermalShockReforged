@@ -133,6 +133,67 @@ public final class WikiDumpGameTests {
             blocks.add(b);
         }
         root.add("blocksWithoutItem", blocks);
+        JsonArray entities = new JsonArray();
+        for (var type : BuiltInRegistries.ENTITY_TYPE) {
+            var id = BuiltInRegistries.ENTITY_TYPE.getKey(type);
+            if (!id.getNamespace().equals(ThermalShockReforged.MOD_ID)) continue;
+            JsonObject e = new JsonObject();
+            e.addProperty("id", id.toString());
+            e.addProperty("category", type.getCategory().getName());
+            e.addProperty("width", type.getWidth());
+            e.addProperty("height", type.getHeight());
+            e.addProperty("fireImmune", type.fireImmune());
+            e.addProperty("summonable", type.canSummon());
+            e.addProperty("lootTable", type.getDefaultLootTable().location().toString());
+            try {
+                var instance = type.create(helper.getLevel());
+                e.addProperty("class", instance == null ? "" : instance.getClass().getName());
+                if (instance instanceof net.minecraft.world.entity.Mob mob) {
+                    var field = net.minecraft.world.entity.Mob.class.getDeclaredField("xpReward");
+                    field.setAccessible(true);
+                    e.addProperty("xp", field.getInt(mob));
+                    JsonArray goals = new JsonArray();
+                    for (var goal : mob.goalSelector.getAvailableGoals()) goals.add(goal.getPriority() + "|" + goal.getGoal().getClass().getName());
+                    e.add("goals", goals);
+                    JsonArray targets = new JsonArray();
+                    for (var goal : mob.targetSelector.getAvailableGoals()) targets.add(goal.getPriority() + "|" + goal.getGoal().getClass().getName());
+                    e.add("targets", targets);
+                }
+                if (instance != null) instance.discard();
+            } catch (Throwable t) {
+                e.addProperty("class", "error|" + t);
+            }
+            JsonObject attrs = new JsonObject();
+            if (net.minecraft.world.entity.ai.attributes.DefaultAttributes.hasSupplier(type)) {
+                @SuppressWarnings("unchecked")
+                var supplier = net.minecraft.world.entity.ai.attributes.DefaultAttributes.getSupplier((net.minecraft.world.entity.EntityType<? extends net.minecraft.world.entity.LivingEntity>) type);
+                BuiltInRegistries.ATTRIBUTE.holders().forEach(holder -> {
+                    if (supplier.hasAttribute(holder)) attrs.addProperty(holder.key().location().toString(), supplier.getBaseValue(holder));
+                });
+            }
+            e.add("attributes", attrs);
+            entities.add(e);
+        }
+        root.add("entities", entities);
+        JsonArray spawns = new JsonArray();
+        var biomes = helper.getLevel().registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.BIOME);
+        for (var entry : biomes.entrySet()) {
+            for (var category : net.minecraft.world.entity.MobCategory.values()) {
+                for (var data : entry.getValue().getMobSettings().getMobs(category).unwrap()) {
+                    var typeId = BuiltInRegistries.ENTITY_TYPE.getKey(data.type);
+                    if (!typeId.getNamespace().equals(ThermalShockReforged.MOD_ID)) continue;
+                    JsonObject s = new JsonObject();
+                    s.addProperty("entity", typeId.toString());
+                    s.addProperty("biome", entry.getKey().location().toString());
+                    s.addProperty("category", category.getName());
+                    s.addProperty("weight", data.getWeight().asInt());
+                    s.addProperty("min", data.minCount);
+                    s.addProperty("max", data.maxCount);
+                    spawns.add(s);
+                }
+            }
+        }
+        root.add("spawns", spawns);
         try {
             Path out = Path.of(System.getProperty("tsr.wikiDump", "D:/AI临时文件/tsr_wiki_dump.json"));
             Files.createDirectories(out.getParent());

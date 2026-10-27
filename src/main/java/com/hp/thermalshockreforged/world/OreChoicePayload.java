@@ -48,6 +48,7 @@ public record OreChoicePayload(int tier1, int tier2) implements CustomPacketPayl
         event.registrar("1").playToClient(TYPE, CODEC, (payload, context) -> {
             clientTier1 = payload.tier1();
             clientTier2 = payload.tier2();
+            ThermalShockReforged.LOGGER.debug("Ore choices synchronized: tier1={}, tier2={}", payload.tier1(), payload.tier2());
         });
     }
     public static void register(IEventBus bus) {

@@ -2,6 +2,9 @@ package com.hp.thermalshockreforged.content.atlas;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.world.LoqendiaContent;
+import com.hp.thermalshockreforged.world.PalaceGeneration;
+import com.hp.thermalshockreforged.content.decor.geo.GeoDecorContent;
+import com.hp.thermalshockreforged.content.decor.geo.GeoDecorKind;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundLevelEventPacket;
@@ -29,6 +32,16 @@ final class AtlasTravel {
             return false;
         }
         var point = AtlasCoordinates.get(player, destination);
+        if (destination.equals(AtlasContent.PALACE) && !target.getBlockState(BlockPos.containing(point)).is(GeoDecorContent.block(GeoDecorKind.ATLAS))) {
+            boolean returnReady = target.getBlockState(PalaceGeneration.RETURN_ATLAS).is(GeoDecorContent.block(GeoDecorKind.ATLAS));
+            if (!returnReady) returnReady = PalaceGeneration.ensureGenerated(target) && target.getBlockState(PalaceGeneration.RETURN_ATLAS).is(GeoDecorContent.block(GeoDecorKind.ATLAS));
+            if (!returnReady) {
+                ThermalShockReforged.LOGGER.warn("Atlas entry blocked without a return Atlas: player={}, destination={}, structurePlaced={}", player.getUUID(), destination.location(), com.hp.thermalshockreforged.world.WorldProgressData.get(target).palaceExists());
+                player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.atlas.arrival_unavailable"), true);
+                return false;
+            }
+            point = new net.minecraft.world.phys.Vec3(0, 194, 0);
+        }
         player.closeContainer();
         player.teleportTo(target, point.x, point.y, point.z, player.getYRot(), player.getXRot());
         if (player.serverLevel() != target) {

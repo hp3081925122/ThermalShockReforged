@@ -10,28 +10,42 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.player.AdvancementEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import com.hp.thermalshockreforged.content.atlas.AtlasContent;
 
 public final class PalaceGeneration {
     private static final ResourceLocation ARRIVAL = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "palace_get");
     private static final ResourceLocation TEMPLATE = ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "lavender_palace");
     private static final BlockPos ORIGIN = new BlockPos(-74, 178, -132);
+    public static final BlockPos RETURN_ATLAS = ORIGIN.offset(73, 7, 131);
 
     private PalaceGeneration() { }
     public static void register() {
         NeoForge.EVENT_BUS.addListener(PalaceGeneration::advancement);
-        ThermalShockReforged.LOGGER.debug("Registered Palace generation listener for AdvancementEarnEvent: advancement={}", ARRIVAL);
+        NeoForge.EVENT_BUS.addListener((PlayerEvent.PlayerChangedDimensionEvent event) -> arrived(event));
+        NeoForge.EVENT_BUS.addListener((PlayerEvent.PlayerLoggedInEvent event) -> arrived(event));
+        ThermalShockReforged.LOGGER.debug("Registered Palace generation and arrival recovery listeners: advancement={}", ARRIVAL);
     }
-    private static void advancement(AdvancementEvent.AdvancementEarnEvent event) {
-        if (!ARRIVAL.equals(event.getAdvancement().id()) || !(event.getEntity().level() instanceof ServerLevel level)
-                || !level.getGameRules().getBoolean(ModGameRules.LOQENDIA_GENERATE_SPECIAL_STRUCTURES)) return;
+    private static void advancement(AdvancementEvent.AdvancementProgressEvent event) {
+        if (event.getProgressType() != AdvancementEvent.AdvancementProgressEvent.ProgressType.GRANT
+                || !event.getAdvancementProgress().isDone() || !ARRIVAL.equals(event.getAdvancement().id())
+                || !(event.getEntity().level() instanceof ServerLevel level)) return;
+        ensureGenerated(level);
+    }
+    private static void arrived(PlayerEvent event) {
+        if (event.getEntity().level() instanceof ServerLevel level && level.dimension().equals(AtlasContent.PALACE)) ensureGenerated(level);
+    }
+    public static boolean ensureGenerated(ServerLevel level) {
+        if (!level.dimension().equals(AtlasContent.PALACE)) return false;
         WorldProgressData progress = WorldProgressData.get(level);
-        if (!progress.beginPalacePlacement()) return;
+        if (progress.palaceExists()) return true;
+        if (!level.getGameRules().getBoolean(ModGameRules.LOQENDIA_GENERATE_SPECIAL_STRUCTURES) || !progress.beginPalacePlacement()) return false;
         boolean placed = false;
         try {
             var template = level.getStructureManager().get(TEMPLATE);
             if (template.isEmpty()) {
                 ThermalShockReforged.LOGGER.error("Palace template is missing: template={}, dimension={}", TEMPLATE, level.dimension().location());
-                return;
+                return false;
             }
             ThermalShockReforged.LOGGER.debug("Placing full Palace template: position={}, dimension={}", ORIGIN, level.dimension().location());
             placed = template.get().placeInWorld(level, ORIGIN, ORIGIN,
@@ -41,5 +55,6 @@ public final class PalaceGeneration {
         } finally {
             progress.finishPalacePlacement(placed);
         }
+        return placed;
     }
 }
