@@ -63,19 +63,20 @@ public final class ThistleBowItem extends Item implements GeoItem {
     @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, Entity holder, net.minecraft.world.entity.EquipmentSlot slot) {
         super.inventoryTick(stack, level, holder, slot);
         if (level instanceof ServerLevel server) GeoItem.getOrAssignId(stack, server);
+        if (slot == net.minecraft.world.entity.EquipmentSlot.MAINHAND && holder instanceof LivingEntity living) HeldWeaponState.refreshNoMelee(living);
     }
 
     private void fire(Player player, ItemStack stack) {
         if (!(player.level() instanceof ServerLevel level) || player.getCooldowns().isOnCooldown(getDefaultInstance())) return;
         Item ammo = MaterialContent.items().get("specialized_round").get();
-        if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) return;
+        if (!WeaponAmmo.has(player, ammo)) return;
         int emitted = ThistleBeamEntity.fireWeaponLine(level, player);
         if (emitted == 0) return;
         player.getCooldowns().addCooldown(getDefaultInstance(), 11);
         triggerAnim(player, GeoItem.getOrAssignId(stack, level), "procedure", "1");
         level.playSound(null, player.blockPosition(), SoundEvents.CROSSBOW_SHOOT, SoundSource.NEUTRAL, 1, 1);
         level.playSound(null, player.blockPosition(), SoundEvents.CROSSBOW_QUICK_CHARGE_1.value(), SoundSource.NEUTRAL, 1, 1);
-        if (!player.getAbilities().instabuild) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
+        WeaponAmmo.consume(player, ammo);
     }
 
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {

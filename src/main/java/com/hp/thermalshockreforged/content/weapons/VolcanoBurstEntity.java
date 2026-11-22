@@ -38,7 +38,7 @@ public final class VolcanoBurstEntity extends Entity implements ServerEndTickTas
         int stage = ++elapsed;
         if (stage <= 4) {
             var shooter = level.getServer().getPlayerList().getPlayer(owner);
-            fire(level, shooter != null && shooter.getId() == ownerEntityId && !shooter.isRemoved() ? shooter : null);
+            fire(level, shooter != null && shooter.level() == level && shooter.getId() == ownerEntityId && !shooter.isRemoved() ? shooter : null);
         } else if (stage == 16) {
             level.playSound(null, blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1.5F, -4);
         }

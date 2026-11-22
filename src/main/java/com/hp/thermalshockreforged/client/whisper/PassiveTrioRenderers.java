@@ -31,8 +31,8 @@ public final class PassiveTrioRenderers {
         private final String id;
         private final boolean head;
         Model(String id, boolean head) { this.id = id; this.head = head; }
-        @Override public Identifier getModelResource(T entity) { return WhisperContent.id("geo/" + id + ".geo.json"); }
-        @Override public Identifier getAnimationResource(T entity) { return WhisperContent.id("animations/" + id + ".animation.json"); }
+        @Override public Identifier getModelResource(T entity) { return WhisperContent.id(id); }
+        @Override public Identifier getAnimationResource(T entity) { return WhisperContent.id(id); }
         @Override public Identifier getTextureResource(T entity) { return WhisperContent.id("textures/entities/" + entity.texture() + ".png"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { if (!head) return; lookAt(state, bones, "head"); }
     }

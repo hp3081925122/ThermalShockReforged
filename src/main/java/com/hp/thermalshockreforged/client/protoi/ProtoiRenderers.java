@@ -40,9 +40,9 @@ public final class ProtoiRenderers {
     private static final class Model extends TsrGeoModel<ProtoiEntityBase> {
         private final String id;
         private Model(String id) { this.id = id; }
-        @Override public Identifier getModelResource(ProtoiEntityBase entity) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "geo/" + id + ".geo.json"); }
+        @Override public Identifier getModelResource(ProtoiEntityBase entity) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id); }
         @Override public Identifier getTextureResource(ProtoiEntityBase entity) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/" + entity.texture() + ".png"); }
-        @Override public Identifier getAnimationResource(ProtoiEntityBase entity) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "animations/" + id + ".animation.json"); }
+        @Override public Identifier getAnimationResource(ProtoiEntityBase entity) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { if (is(state, ProtoiDeltaEntity.class) || is(state, ProtoiSunbeamEntity.class)) lookAt(state, bones, "head"); }
     }
     private static final class Renderer extends TsrGeoEntityRenderer<ProtoiEntityBase> {

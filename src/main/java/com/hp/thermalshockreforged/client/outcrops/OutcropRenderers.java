@@ -28,8 +28,8 @@ public final class OutcropRenderers {
         @Override public RenderType getRenderType(BlockEntityRenderState state, Identifier texture) { return TsrRenderTypes.entityTranslucentCull(texture); }
     }
     private static final class Model<T extends GeoAnimatable> extends TsrGeoModel<T> {
-        @Override public Identifier getModelResource(T entity) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "geo/fluorite_ore.geo.json"); }
-        @Override public Identifier getAnimationResource(T entity) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "animations/fluorite_ore.animation.json"); }
+        @Override public Identifier getModelResource(T entity) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "fluorite_ore"); }
+        @Override public Identifier getAnimationResource(T entity) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "fluorite_ore"); }
         @Override public Identifier getTextureResource(T entity) {
             var kind = entity instanceof OutcropBlockEntity block ? block.kind : ((OutcropItem)entity).kind;
             return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/block/" + kind.id + ".png");

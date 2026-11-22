@@ -40,8 +40,8 @@ final class BuzzsawClient {
         private Renderer() { super(new Model()); }
     }
     private static final class Model extends TsrGeoModel<BuzzsawItem> {
-        @Override public Identifier getModelResource(BuzzsawItem item) { return resource("geo/buzzsaw.geo.json"); }
+        @Override public Identifier getModelResource(BuzzsawItem item) { return resource("buzzsaw"); }
         @Override public Identifier getTextureResource(BuzzsawItem item) { return resource("textures/item/buzzsaw.png"); }
-        @Override public Identifier getAnimationResource(BuzzsawItem item) { return resource("animations/buzzsaw.animation.json"); }
+        @Override public Identifier getAnimationResource(BuzzsawItem item) { return resource("buzzsaw"); }
     }
 }

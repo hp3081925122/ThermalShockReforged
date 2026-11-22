@@ -20,9 +20,9 @@ public final class KilolyteRenderer extends TsrGeoEntityRenderer<KilolyteEntity>
     @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     private static final class Model extends TsrGeoModel<KilolyteEntity> {
-        @Override public Identifier getModelResource(KilolyteEntity entity) { return resource("geo/kilolyte.geo.json"); }
+        @Override public Identifier getModelResource(KilolyteEntity entity) { return resource("kilolyte"); }
         @Override public Identifier getTextureResource(KilolyteEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
-        @Override public Identifier getAnimationResource(KilolyteEntity entity) { return resource("animations/kilolyte.animation.json"); }
+        @Override public Identifier getAnimationResource(KilolyteEntity entity) { return resource("kilolyte"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { lookAt(state, bones, "head"); }
     }
 }

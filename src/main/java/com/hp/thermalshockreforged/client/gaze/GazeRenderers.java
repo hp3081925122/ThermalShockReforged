@@ -33,8 +33,8 @@ public final class GazeRenderers {
         private final Identifier model;
         private final Identifier animation;
         private Model(String name) {
-            model = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "geo/" + name + ".geo.json");
-            animation = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "animations/" + name + ".animation.json");
+            model = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name);
+            animation = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, name);
         }
         @Override public Identifier getModelResource(AnimatedMonsterEntity entity) { return model; }
         @Override public Identifier getAnimationResource(AnimatedMonsterEntity entity) { return animation; }

@@ -40,8 +40,8 @@ final class ZapGauntletClient {
         private Renderer() { super(new Model()); }
     }
     private static final class Model extends TsrGeoModel<ZapGauntletItem> {
-        @Override public Identifier getModelResource(ZapGauntletItem item) { return resource("geo/zap_gauntlet.geo.json"); }
+        @Override public Identifier getModelResource(ZapGauntletItem item) { return resource("zap_gauntlet"); }
         @Override public Identifier getTextureResource(ZapGauntletItem item) { return resource("textures/item/zap_gauntlet_1.png"); }
-        @Override public Identifier getAnimationResource(ZapGauntletItem item) { return resource("animations/zap_gauntlet.animation.json"); }
+        @Override public Identifier getAnimationResource(ZapGauntletItem item) { return resource("zap_gauntlet"); }
     }
 }

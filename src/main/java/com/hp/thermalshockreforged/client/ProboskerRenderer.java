@@ -24,7 +24,7 @@ public final class ProboskerRenderer extends TsrGeoEntityRenderer<ProboskerEntit
     private static final class Model extends TsrGeoModel<ProboskerEntity> {
         @Override
         public Identifier getModelResource(ProboskerEntity entity) {
-            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "geo/probosker.geo.json");
+            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "probosker");
         }
 
         @Override
@@ -34,7 +34,7 @@ public final class ProboskerRenderer extends TsrGeoEntityRenderer<ProboskerEntit
 
         @Override
         public Identifier getAnimationResource(ProboskerEntity entity) {
-            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "animations/probosker.animation.json");
+            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "probosker");
         }
 
         @Override

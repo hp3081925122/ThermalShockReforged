@@ -34,7 +34,7 @@ public final class LautScreen extends AbstractContainerScreen<LautMenu> {
     }
     @Override protected void containerTick() { if (menu.page != LautPage.CONFIRM) clock.frame = clock.frame > 12 ? 0 : clock.frame + 1; }
     @Override public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractRenderState(graphics, mouseX, mouseY, partialTick);  }
-    @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
+    @Override public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractBackground(graphics, mouseX, mouseY, partialTick);
         
         graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, SPEECH, leftPos, topPos + (menu.page == LautPage.CONFIRM ? 50 : 104), 0, 0, 276, 276, 276, 276);
         if (menu.page != LautPage.CONFIRM) graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, LABEL, leftPos + 62, topPos - 29, 0, 0, 134, 134, 134, 134);

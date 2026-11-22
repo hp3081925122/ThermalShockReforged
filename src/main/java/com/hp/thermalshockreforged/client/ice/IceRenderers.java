@@ -35,8 +35,8 @@ public final class IceRenderers {
         private final String id;
         private final String bone;
         private Model(String id, String bone) { this.id = id; this.bone = bone; }
-        @Override public Identifier getModelResource(IceCreatureEntity entity) { return resource("geo/" + id + ".geo.json"); }
-        @Override public Identifier getAnimationResource(IceCreatureEntity entity) { return resource("animations/" + id + ".animation.json"); }
+        @Override public Identifier getModelResource(IceCreatureEntity entity) { return resource(id); }
+        @Override public Identifier getAnimationResource(IceCreatureEntity entity) { return resource(id); }
         @Override public Identifier getTextureResource(IceCreatureEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { if (bone == null) return; lookAt(state, bones, bone); }
     }

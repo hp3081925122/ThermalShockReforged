@@ -32,12 +32,13 @@ public final class ProtoiDeltaEntity extends ProtoiEntityBase {
     private void applyConfiguredAttributes() {
         if (level().isClientSide() || attributesApplied || !CombatConfig.SPEC.isLoaded()) return;
         float health = getHealth();
+        boolean wasFull = health >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(CombatConfig.DELTA_HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(CombatConfig.DELTA_ARMOR.get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(CombatConfig.DELTA_DAMAGE.get());
         getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(CombatConfig.DELTA_SPEED.get());
         getAttribute(Attributes.FOLLOW_RANGE).setBaseValue(CombatConfig.DELTA_FOLLOW_RANGE.get());
-        setHealth(loadedFromSave ? Math.min(health, getMaxHealth()) : getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(health, getMaxHealth()));
         attributesApplied = true;
     }
     public void beginAttack(LivingEntity victim) {
@@ -96,13 +97,13 @@ public final class ProtoiDeltaEntity extends ProtoiEntityBase {
         }
     }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
-        super.addAdditionalSaveData(output); output.putInt("DeltaCooldown", cooldown);
+        super.addAdditionalSaveData(output); output.putBoolean("AttributesConfigured", attributesApplied); output.putInt("DeltaCooldown", cooldown);
         if (attackTask != null) output.putString("DeltaAttackTask", attackTask.toString());
         output.putBoolean("DeltaExperiencePending", experiencePending);
         if (experienceAttacker != null) output.putString("DeltaExperienceAttacker", experienceAttacker.toString());
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
-        loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = false; applyConfiguredAttributes();
+        loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = input.getBooleanOr("AttributesConfigured", false); applyConfiguredAttributes();
         cooldown = Math.clamp(input.getIntOr("DeltaCooldown", 0), 0, 72000);
         attackTask = input.getString("DeltaAttackTask").map(java.util.UUID::fromString).orElse(null);
         experiencePending = input.getBooleanOr("DeltaExperiencePending", false);

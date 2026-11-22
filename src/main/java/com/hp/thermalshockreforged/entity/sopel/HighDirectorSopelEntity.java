@@ -52,8 +52,9 @@ public final class HighDirectorSopelEntity extends AnimatedMonsterEntity {
     private void applyConfiguration() {
         if (attributesApplied || level().isClientSide() || !SopelConfig.SPEC.isLoaded()) return;
         float previous = getHealth();
+        boolean wasFull = previous >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(SopelConfig.HEALTH.get()); getAttribute(Attributes.ARMOR).setBaseValue(SopelConfig.ARMOR.get()); getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(SopelConfig.DAMAGE.get()); getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(SopelConfig.SPEED.get()); getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(SopelConfig.RESISTANCE.get());
-        setHealth(loaded ? Math.min(previous, getMaxHealth()) : getMaxHealth()); attributesApplied = true;
+        setHealth(!loaded || wasFull ? getMaxHealth() : Math.min(previous, getMaxHealth())); attributesApplied = true;
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguration(); }
     @Override public void tick() { applyConfiguration(); super.tick(); }
@@ -70,6 +71,6 @@ public final class HighDirectorSopelEntity extends AnimatedMonsterEntity {
     @Override protected int deathDuration() { return 60; }
     @Override protected String movementAnimation(boolean moving) { return "idle2"; }
     @Override protected List<String> procedureAnimations() { return List.of("idle", "idle2", "dash"); }
-    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putInt("SopelCooldown", cooldown); }
-    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { loaded = true; super.readAdditionalSaveData(input); attributesApplied = false; cooldown = Math.clamp(input.getIntOr("SopelCooldown", 0), 0, 72000); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putBoolean("AttributesConfigured", attributesApplied); output.putInt("SopelCooldown", cooldown); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { loaded = true; super.readAdditionalSaveData(input); attributesApplied = input.getBooleanOr("AttributesConfigured", false); applyConfiguration(); cooldown = Math.clamp(input.getIntOr("SopelCooldown", 0), 0, 72000); }
 }

@@ -49,23 +49,74 @@ neoForge {
         configureEach {
             systemProperty 'forge.logging.markers', 'REGISTRIES'
             logLevel = org.slf4j.event.Level.DEBUG
+            if (project.hasProperty('aqeronMoonMigrationTests')) {
+                systemProperty 'tsr.aqeronMoonMigrationTests', 'true'
+            }
+            if (project.hasProperty('clientIntegration') && project.hasProperty('clientIntegrationPose')) {
+                systemProperty 'tsr.clientIntegrationPose', 'true'
+                if (project.hasProperty('clientIntegrationPoseFilter')) {
+                    systemProperty 'tsr.clientIntegrationPoseFilter', project.property('clientIntegrationPoseFilter').toString()
+                }
+            }
+            if (project.hasProperty('clientIntegration') && project.hasProperty('clientIntegrationJeiScroll')) {
+                systemProperty 'tsr.clientIntegrationJeiScroll', 'true'
+            }
+            if (project.hasProperty('clientIntegration') && project.hasProperty('clientIntegrationBlockBreak')) {
+                systemProperty 'tsr.clientIntegrationBlockBreak', 'true'
+            }
+            if (project.hasProperty('clientIntegration') && project.hasProperty('clientIntegrationWorld')) {
+                systemProperty 'tsr.clientIntegrationWorld', 'true'
+            }
+            if (project.hasProperty('clientIntegration') && project.hasProperty('clientIntegrationAudioProbe')) {
+                systemProperty 'tsr.clientIntegrationAudioProbe', 'true'
+            }
+            if (project.hasProperty('clientIntegration') && project.hasProperty('clientIntegrationCatalogue')) {
+                systemProperty 'tsr.clientIntegrationCatalogue', 'true'
+            }
+            if (project.hasProperty('clientIntegration') && project.hasProperty('clientIntegrationFeatures')) {
+                systemProperty 'tsr.clientIntegrationFeatures', 'true'
+                systemProperty 'tsr.clientIntegrationJeiProbe', 'true'
+                systemProperty 'tsr.clientIntegrationJadeProbe', 'true'
+                if (project.hasProperty('clientIntegrationFeatureFilter')) {
+                    systemProperty 'tsr.clientIntegrationFeatureFilter', project.property('clientIntegrationFeatureFilter').toString()
+                }
+            }
         }
 
         client {
             client()
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            if (project.hasProperty('clientIntegration')) {
+                gameDirectory = file(project.property('clientIntegrationClientDir'))
+                systemProperty 'tsr.clientIntegration', 'true'
+                systemProperty 'tsr.clientIntegrationDir', project.property('clientIntegrationDir').toString()
+                systemProperty 'tsr.clientIntegrationAddress', (project.findProperty('clientIntegrationAddress') ?: '127.0.0.1:25735').toString()
+            }
         }
 
         server {
             server()
             programArgument '--nogui'
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            if (project.hasProperty('clientIntegration')) {
+                gameDirectory = file(project.property('clientIntegrationServerDir'))
+                systemProperty 'tsr.clientIntegration', 'true'
+                systemProperty 'tsr.clientIntegrationDir', project.property('clientIntegrationDir').toString()
+            }
+            if (project.hasProperty('dedicatedRegression')) {
+                gameDirectory = project.hasProperty('serverRegressionDir') ? file(project.property('serverRegressionDir')) : file('D:/AI临时文件/thermalshock-2612-dedicated-server')
+                if (project.hasProperty('serverRegressionResultDir')) systemProperty 'tsr.dedicatedRegressionResultDir', project.property('serverRegressionResultDir').toString()
+                if (project.hasProperty('serverRegressionResultDir')) systemProperty 'tsr.dedicatedGameTestResultDir', project.property('serverRegressionResultDir').toString()
+                systemProperty 'tsr.dedicatedRegression', project.property('dedicatedRegression').toString()
+                if (project.hasProperty('serverRegressionFilter')) systemProperty 'tsr.dedicatedRegressionFilter', project.property('serverRegressionFilter').toString()
+            }
         }
 
         gameTestServer {
             type = 'gameTestServer'
-            gameDirectory = project.file('run/gametest')
+            gameDirectory = project.hasProperty('gameTestDir') ? file(project.property('gameTestDir')) : project.file('run/gametest')
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            if (project.hasProperty('serverRegressionResultDir')) systemProperty 'tsr.dedicatedGameTestResultDir', project.property('serverRegressionResultDir').toString()
         }
 
         // 百科图标导出：带 gametest 源集启动客户端，在标题界面渲染指定物品后自动退出。
@@ -76,8 +127,9 @@ neoForge {
             systemProperty 'tsr.wikiIconDir', (project.findProperty('wikiIconDir') ?: 'D:/AI临时文件/icons_render').toString()
         }
 
+        // 26.1 数据生成使用 clientData 类型，保留原 data 运行名称供 IDE 和 runData 使用。
         data {
-            data()
+            type = 'clientData'
             programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
         }
     }

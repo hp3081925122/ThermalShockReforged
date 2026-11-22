@@ -37,8 +37,8 @@ final class SpearClient {
     }
     private static final class Model extends TsrGeoModel<SpearItem> {
         private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
-        @Override public Identifier getModelResource(SpearItem item) { return resource("geo/" + item.kind().model + ".geo.json"); }
+        @Override public Identifier getModelResource(SpearItem item) { return resource(item.kind().model); }
         @Override public Identifier getTextureResource(SpearItem item) { return resource("textures/item/" + item.kind().texture + ".png"); }
-        @Override public Identifier getAnimationResource(SpearItem item) { return resource("animations/" + item.kind().model + ".animation.json"); }
+        @Override public Identifier getAnimationResource(SpearItem item) { return resource(item.kind().model); }
     }
 }

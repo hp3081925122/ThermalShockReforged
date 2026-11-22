@@ -38,23 +38,37 @@ public final class FirearmItem extends Item implements GeoItem {
     @Override public ItemUseAnimation getUseAnimation(ItemStack stack) { return hailfall ? ItemUseAnimation.BOW : super.getUseAnimation(stack); }
     @Override public int getUseDuration(ItemStack stack, LivingEntity entity) { return hailfall ? 60 : super.getUseDuration(stack, entity); }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
-        var result = super.use(level, player, hand);
-        if (hailfall) fire(player, player.getItemInHand(hand));
-        return result;
+        if (!hailfall) return super.use(level, player, hand);
+        ItemStack stack = player.getItemInHand(hand);
+        if (!WeaponAmmo.has(player, MaterialContent.items().get("light_round").get())) {
+            fire(player, stack);
+            return InteractionResult.FAIL;
+        }
+        player.startUsingItem(hand);
+        fire(player, stack);
+        return InteractionResult.CONSUME;
+    }
+    @Override public void onUseTick(Level level, LivingEntity user, ItemStack stack, int remaining) {
+        super.onUseTick(level, user, stack, remaining);
+        if (hailfall && user.getUseItem() == stack && user instanceof Player player) {
+            HeldWeaponState.refreshNoMelee(user);
+            fire(player, stack);
+            if (!WeaponAmmo.has(player, MaterialContent.items().get("light_round").get())) player.stopUsingItem();
+        }
     }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) { fire(wielder, stack); return false; }
     @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {
         super.inventoryTick(stack, level, entity, slot);
         if (level instanceof ServerLevel server) GeoItem.getOrAssignId(stack, server);
-        if (slot == net.minecraft.world.entity.EquipmentSlot.MAINHAND && entity instanceof LivingEntity living && (!hailfall || living.isUsingItem())) {
+        if (slot == net.minecraft.world.entity.EquipmentSlot.MAINHAND && entity instanceof LivingEntity living) {
             HeldWeaponState.refreshNoMelee(living);
-            if (hailfall) fire(living, stack);
+            if (hailfall && living.isUsingItem()) fire(living, stack);
         }
     }
     private void fire(LivingEntity wielder, ItemStack stack) {
         if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(getDefaultInstance())) return;
         Item ammo = MaterialContent.items().get("light_round").get();
-        if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) {
+        if (!WeaponAmmo.has(player, ammo)) {
             server.playSound(null, player.blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, 5); return;
         }
         var bullet = (hailfall ? WeaponContent.HAILFALL_BULLET : WeaponContent.FLINTSTEEL_RIFLE_BULLET).get().create(server, net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED);
@@ -67,7 +81,7 @@ public final class FirearmItem extends Item implements GeoItem {
         triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "1");
         server.playSound(null, player.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, hailfall ? "misc_gun_2" : "flint_gun_25")), SoundSource.NEUTRAL, 1, hailfall ? .75F : 1 + server.getRandom().nextInt(2));
         if (!hailfall) RifleCycleSoundEntity.submit(server, player.getX(), player.getY(), player.getZ());
-        if (!player.getAbilities().instabuild && (!hailfall || server.getRandom().nextDouble() < .7)) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
+        if (!hailfall || server.getRandom().nextDouble() < .7) WeaponAmmo.consume(player, ammo);
     }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
         super.appendHoverText(stack, context, display, tooltipAdder, flag);

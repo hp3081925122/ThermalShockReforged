@@ -4,6 +4,7 @@ import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.atlas.AtlasContent;
 import com.hp.thermalshockreforged.world.LoqendiaContent;
 import com.mojang.blaze3d.buffers.GpuBuffer;
+import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.systems.RenderPass;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.textures.GpuSampler;
@@ -15,11 +16,16 @@ import com.mojang.blaze3d.vertex.MeshData;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.SkyRenderer;
+import net.minecraft.client.renderer.texture.AbstractTexture;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.MoonPhase;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(SkyRenderer.class)
 public abstract class DimensionSkyTexturesMixin {
@@ -28,6 +34,8 @@ public abstract class DimensionSkyTexturesMixin {
     @Unique private static final Identifier THERMAL_SHOCK_REFORGED_LOQENDIA_PHASES = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/block/loqendia_phases.png");
     @Unique private GpuBuffer thermalShockReforged$sunQuad;
     @Unique private GpuBuffer thermalShockReforged$moonPhases;
+    @Unique private AbstractTexture thermalShockReforged$sunAsset;
+    @Unique private AbstractTexture thermalShockReforged$moonAsset;
 
     @Unique
     private static int thermalShockReforged$dimension() {
@@ -38,23 +46,38 @@ public abstract class DimensionSkyTexturesMixin {
     }
 
     @Unique
-    private static void thermalShockReforged$bind(RenderPass pass, String name, Identifier texture) {
-        var bound = Minecraft.getInstance().getTextureManager().getTexture(texture);
-        pass.bindTexture(name, bound.getTextureView(), bound.getSampler());
+    private static void thermalShockReforged$bind(RenderPass pass, String name, AbstractTexture texture) {
+        pass.bindTexture(name, texture.getTextureView(), texture.getSampler());
     }
 
-    @Redirect(method = "renderSun", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderPass;bindTexture(Ljava/lang/String;Lcom/mojang/blaze3d/textures/GpuTextureView;Lcom/mojang/blaze3d/textures/GpuSampler;)V"))
-    private void thermalShockReforged$sunTexture(RenderPass pass, String name, GpuTextureView view, GpuSampler sampler) {
-        if (thermalShockReforged$dimension() == 0) pass.bindTexture(name, view, sampler);
-        else thermalShockReforged$bind(pass, name, THERMAL_SHOCK_REFORGED_LOQUE_SUN);
+    @Inject(method = "renderSun", at = @At("HEAD"))
+    private void thermalShockReforged$prepareSun(float rainBrightness, PoseStack poseStack, CallbackInfo callback) {
+        if (thermalShockReforged$dimension() == 0) return;
+        thermalShockReforged$sunAsset = Minecraft.getInstance().getTextureManager().getTexture(THERMAL_SHOCK_REFORGED_LOQUE_SUN);
+        thermalShockReforged$prepareSunQuad();
     }
 
-    @Redirect(method = "renderSun", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderPass;setVertexBuffer(ILcom/mojang/blaze3d/buffers/GpuBuffer;)V"))
-    private void thermalShockReforged$sunQuad(RenderPass pass, int slot, GpuBuffer buffer) {
-        if (thermalShockReforged$dimension() == 0) {
-            pass.setVertexBuffer(slot, buffer);
-            return;
-        }
+    @Inject(method = "renderMoon", at = @At("HEAD"))
+    private void thermalShockReforged$prepareMoon(MoonPhase phase, float rainBrightness, PoseStack poseStack, CallbackInfo callback) {
+        int dimension = thermalShockReforged$dimension();
+        if (dimension == 0) return;
+        thermalShockReforged$moonAsset = Minecraft.getInstance().getTextureManager().getTexture(dimension == 1 ? THERMAL_SHOCK_REFORGED_AQERON_PHASES : THERMAL_SHOCK_REFORGED_LOQENDIA_PHASES);
+        thermalShockReforged$prepareMoonPhases();
+    }
+
+    @WrapOperation(method = "renderSun", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderPass;bindTexture(Ljava/lang/String;Lcom/mojang/blaze3d/textures/GpuTextureView;Lcom/mojang/blaze3d/textures/GpuSampler;)V"))
+    private void thermalShockReforged$sunTexture(RenderPass pass, String name, GpuTextureView view, GpuSampler sampler, Operation<Void> original) {
+        if (thermalShockReforged$dimension() == 0) original.call(pass, name, view, sampler);
+        else original.call(pass, name, thermalShockReforged$sunAsset.getTextureView(), thermalShockReforged$sunAsset.getSampler());
+    }
+
+    @WrapOperation(method = "renderSun", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderPass;setVertexBuffer(ILcom/mojang/blaze3d/buffers/GpuBuffer;)V"))
+    private void thermalShockReforged$sunQuad(RenderPass pass, int slot, GpuBuffer buffer, Operation<Void> original) {
+        original.call(pass, slot, thermalShockReforged$dimension() == 0 ? buffer : thermalShockReforged$sunQuad);
+    }
+
+    @Unique
+    private void thermalShockReforged$prepareSunQuad() {
         if (thermalShockReforged$sunQuad == null) {
             VertexFormat format = DefaultVertexFormat.POSITION_TEX;
             try (ByteBufferBuilder bytes = ByteBufferBuilder.exactlySized(4 * format.getVertexSize())) {
@@ -65,25 +88,25 @@ public abstract class DimensionSkyTexturesMixin {
                 builder.addVertex(-1.0F, 0.0F, 1.0F).setUv(0.0F, 1.0F);
                 try (MeshData mesh = builder.buildOrThrow()) {
                     thermalShockReforged$sunQuad = RenderSystem.getDevice().createBuffer(() -> "Thermal Shock dimension sun quad", 32, mesh.vertexBuffer());
+                    ThermalShockReforged.LOGGER.debug("Prepared TSR dimension sun texture and quad before opening the sky render pass");
                 }
             }
         }
-        pass.setVertexBuffer(slot, thermalShockReforged$sunQuad);
     }
 
-    @Redirect(method = "renderMoon", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderPass;bindTexture(Ljava/lang/String;Lcom/mojang/blaze3d/textures/GpuTextureView;Lcom/mojang/blaze3d/textures/GpuSampler;)V"))
-    private void thermalShockReforged$moonTexture(RenderPass pass, String name, GpuTextureView view, GpuSampler sampler) {
-        int dimension = thermalShockReforged$dimension();
-        if (dimension == 0) pass.bindTexture(name, view, sampler);
-        else thermalShockReforged$bind(pass, name, dimension == 1 ? THERMAL_SHOCK_REFORGED_AQERON_PHASES : THERMAL_SHOCK_REFORGED_LOQENDIA_PHASES);
+    @WrapOperation(method = "renderMoon", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderPass;bindTexture(Ljava/lang/String;Lcom/mojang/blaze3d/textures/GpuTextureView;Lcom/mojang/blaze3d/textures/GpuSampler;)V"))
+    private void thermalShockReforged$moonTexture(RenderPass pass, String name, GpuTextureView view, GpuSampler sampler, Operation<Void> original) {
+        if (thermalShockReforged$dimension() == 0) original.call(pass, name, view, sampler);
+        else original.call(pass, name, thermalShockReforged$moonAsset.getTextureView(), thermalShockReforged$moonAsset.getSampler());
     }
 
-    @Redirect(method = "renderMoon", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderPass;setVertexBuffer(ILcom/mojang/blaze3d/buffers/GpuBuffer;)V"))
-    private void thermalShockReforged$moonPhases(RenderPass pass, int slot, GpuBuffer buffer) {
-        if (thermalShockReforged$dimension() == 0) {
-            pass.setVertexBuffer(slot, buffer);
-            return;
-        }
+    @WrapOperation(method = "renderMoon", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderPass;setVertexBuffer(ILcom/mojang/blaze3d/buffers/GpuBuffer;)V"))
+    private void thermalShockReforged$moonPhases(RenderPass pass, int slot, GpuBuffer buffer, Operation<Void> original) {
+        original.call(pass, slot, thermalShockReforged$dimension() == 0 ? buffer : thermalShockReforged$moonPhases);
+    }
+
+    @Unique
+    private void thermalShockReforged$prepareMoonPhases() {
         if (thermalShockReforged$moonPhases == null) {
             VertexFormat format = DefaultVertexFormat.POSITION_TEX;
             try (ByteBufferBuilder bytes = ByteBufferBuilder.exactlySized(8 * 4 * format.getVertexSize())) {
@@ -100,9 +123,23 @@ public abstract class DimensionSkyTexturesMixin {
                 }
                 try (MeshData mesh = builder.buildOrThrow()) {
                     thermalShockReforged$moonPhases = RenderSystem.getDevice().createBuffer(() -> "Thermal Shock dimension moon phases", 32, mesh.vertexBuffer());
+                    ThermalShockReforged.LOGGER.debug("Prepared TSR dimension moon texture and phase quads before opening the sky render pass");
                 }
             }
         }
-        pass.setVertexBuffer(slot, thermalShockReforged$moonPhases);
+    }
+
+    @Inject(method = "close", at = @At("HEAD"))
+    private void thermalShockReforged$closeSkyBuffers(CallbackInfo callback) {
+        if (thermalShockReforged$sunQuad != null) {
+            thermalShockReforged$sunQuad.close();
+            thermalShockReforged$sunQuad = null;
+        }
+        if (thermalShockReforged$moonPhases != null) {
+            thermalShockReforged$moonPhases.close();
+            thermalShockReforged$moonPhases = null;
+        }
+        thermalShockReforged$sunAsset = null;
+        thermalShockReforged$moonAsset = null;
     }
 }

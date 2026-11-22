@@ -23,8 +23,8 @@ public final class BenzorRenderer extends TsrGeoEntityRenderer<BenzorEntity> {
     public static void register(EntityRenderersEvent.RegisterRenderers event) { event.registerEntityRenderer(BenzorContent.BENZOR.get(), BenzorRenderer::new); }
     @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     private static final class Model extends TsrGeoModel<BenzorEntity> {
-        @Override public Identifier getModelResource(BenzorEntity entity) { return BenzorContent.id("geo/benzor.geo.json"); }
-        @Override public Identifier getAnimationResource(BenzorEntity entity) { return BenzorContent.id("animations/benzor.animation.json"); }
+        @Override public Identifier getModelResource(BenzorEntity entity) { return BenzorContent.id("benzor"); }
+        @Override public Identifier getAnimationResource(BenzorEntity entity) { return BenzorContent.id("benzor"); }
         @Override public Identifier getTextureResource(BenzorEntity entity) { return BenzorContent.id("textures/entities/" + entity.texture() + ".png"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { lookAt(state, bones, "head"); }
     }

@@ -29,7 +29,7 @@ public final class ForecastRenderer extends TsrGeoEntityRenderer<ForecastEntity>
     private static final class Model extends TsrGeoModel<ForecastEntity> {
         @Override
         public Identifier getModelResource(ForecastEntity entity) {
-            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "geo/forecast.geo.json");
+            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "forecast");
         }
 
         @Override
@@ -39,7 +39,7 @@ public final class ForecastRenderer extends TsrGeoEntityRenderer<ForecastEntity>
 
         @Override
         public Identifier getAnimationResource(ForecastEntity entity) {
-            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "animations/forecast.animation.json");
+            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "forecast");
         }
     }
 

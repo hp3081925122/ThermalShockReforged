@@ -63,7 +63,8 @@ public final class ElementalBladeItem extends SwordItem {
         if (!(victim.level() instanceof ServerLevel server) || victim == attacker) return;
         boolean shock = kind == Kind.SHOCK_STICK;
         if (victim.is(shock ? FERRO_WEAK : CLORO_WEAK)) {
-            victim.hurt(new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS)), shock ? 7 : 9);
+            var credit = attacker instanceof Player ? attacker : null;
+            victim.hurt(new DamageSource(server.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS), credit, credit), shock ? 7 : 9);
             server.playSound(null, victim.blockPosition(), shock ? SoundEvents.ANVIL_PLACE : SoundEvents.GRASS_BREAK, SoundSource.NEUTRAL, .4F, shock ? 3 : 1);
             server.playSound(null, victim.blockPosition(), SoundEvents.ZOMBIE_ATTACK_IRON_DOOR, SoundSource.NEUTRAL, .5F, 1);
             server.sendParticles(shock ? WeaponContent.HIT_FERRO.get() : WeaponContent.HIT_CLORO.get(), victim.getX(), victim.getY() + victim.getBbHeight() / 2, victim.getZ(), 1, 0, 0, 0, 0);

@@ -21,8 +21,8 @@ public final class GiantLaserTestRenderer extends TsrGeoEntityRenderer<GiantLase
     public static void register(EntityRenderersEvent.RegisterRenderers event) { event.registerEntityRenderer(GiantLaserTestContent.GIANT_LASER.get(), GiantLaserTestRenderer::new); }
     @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     private static final class Model extends TsrGeoModel<GiantLaserTestEntity> {
-        @Override public Identifier getModelResource(GiantLaserTestEntity entity) { return GiantLaserTestContent.id("geo/giantbeacon.geo.json"); }
-        @Override public Identifier getAnimationResource(GiantLaserTestEntity entity) { return GiantLaserTestContent.id("animations/giantbeacon.animation.json"); }
+        @Override public Identifier getModelResource(GiantLaserTestEntity entity) { return GiantLaserTestContent.id("giantbeacon"); }
+        @Override public Identifier getAnimationResource(GiantLaserTestEntity entity) { return GiantLaserTestContent.id("giantbeacon"); }
         @Override public Identifier getTextureResource(GiantLaserTestEntity entity) { return GiantLaserTestContent.id("textures/entities/" + entity.texture() + ".png"); }
     }
 

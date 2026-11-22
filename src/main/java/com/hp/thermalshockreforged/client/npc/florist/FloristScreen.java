@@ -18,7 +18,7 @@ public final class FloristScreen extends AbstractContainerScreen<FloristMenu> {
     private final Clock clock;
     private ImageButton concierge;
     public FloristScreen(FloristMenu menu, Inventory inventory, Component title) {
-        super(menu, inventory, title);
+        super(menu, inventory, title, menu.page.width(), menu.page.height());
         clock = Minecraft.getInstance().screen instanceof FloristScreen previous && previous.menu.npcUuid.equals(menu.npcUuid) ? previous.clock : new Clock();
     }
     private static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/screens/" + path + ".png"); }
@@ -47,7 +47,7 @@ public final class FloristScreen extends AbstractContainerScreen<FloristMenu> {
         super.extractRenderState(graphics, mouseX, mouseY, partialTick);  if (menu.getCarried().isEmpty() && hoveredSlot == null) com.hp.thermalshockreforged.client.npc.NpcIcons.tooltip(graphics, font, menu.page.icon, leftPos + 47, topPos + 26, 16, 16, mouseX, mouseY); if (menu.getCarried().isEmpty()) for (var line : menu.page.lines) if (com.hp.thermalshockreforged.client.npc.NpcTradeLabels.tooltip(graphics, font, line.key(), leftPos + line.x(), topPos + line.y(), mouseX, mouseY)) break;
     }
     private void blit(GuiGraphicsExtractor graphics, String texture, int x, int y, int width, int height) { graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, id(texture), leftPos + x, topPos + y, 0, 0, width, height, width, height); }
-    @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
+    @Override public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractBackground(graphics, mouseX, mouseY, partialTick);
         
         if (menu.page.trade != null) {
             blit(graphics, "umabeltrademenu", -20, 0, 246, 180);

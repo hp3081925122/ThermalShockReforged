@@ -137,20 +137,19 @@ final class CavebloomerAttacks {
         if (movementLock > 0 && !speed.hasModifier(MOVEMENT_LOCK)) speed.addTransientModifier(new AttributeModifier(MOVEMENT_LOCK, -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
         else if (movementLock == 0) speed.removeModifier(MOVEMENT_LOCK);
     }
-    void save(CompoundTag root) {
-        var tag = new CompoundTag(); tag.putInt("Skill", skill); tag.putInt("Age", age); tag.putInt("Cooldown", cooldown); tag.putInt("MovementLock", movementLock);
+    void save(net.minecraft.world.level.storage.ValueOutput root) {
+        var tag = root.child("CavebloomerAttacks"); tag.putInt("Skill", skill); tag.putInt("Age", age); tag.putInt("Cooldown", cooldown); tag.putInt("MovementLock", movementLock);
         tag.putLong("StartedAt", startedAt); tag.putBoolean("PoisonRing", poisonRing); tag.putDouble("TargetEyeHeight", targetEyeHeight);
         tag.putBoolean("EndTickAge", true);
         tag.putInt("ReservationCount", reservations.size()); for (int i = 0; i < reservations.size(); i++) tag.putString("Reservation" + i, reservations.get(i).toString());
-        root.put("CavebloomerAttacks", tag);
     }
-    void load(CompoundTag root) {
-        var tag = root.getCompound("CavebloomerAttacks").orElseGet(CompoundTag::new); skill = Math.clamp(tag.getInt("Skill").orElse(0), -1, 3);
-        age = tag.getBoolean("EndTickAge").orElse(false) ? Math.clamp(tag.getInt("Age").orElse(0), 0, 47) : Math.clamp(tag.getInt("Age").orElse(0), 0, 46) + (skill >= 0 ? 1 : 0);
-        cooldown = Math.clamp(tag.getInt("Cooldown").orElse(0), 0, 90); movementLock = Math.clamp(tag.getInt("MovementLock").orElse(0), 0, 75);
-        startedAt = tag.getInt("StartedAt").isPresent() ? tag.getLong("StartedAt").orElse(0L) : Long.MIN_VALUE; poisonRing = tag.getBoolean("PoisonRing").orElse(false);
-        double value = tag.getDouble("TargetEyeHeight").orElse(0.0); targetEyeHeight = Double.isFinite(value) ? Math.clamp(value, 0, 100) : 0;
-        reservations.clear(); for (int i = 0, count = Math.clamp(tag.getInt("ReservationCount").orElse(0), 0, 5); i < count; i++) if (tag.getString("Reservation" + i).isPresent()) reservations.add(java.util.UUID.fromString(tag.getString("Reservation" + i).orElse("00000000-0000-0000-0000-000000000000")));
+    void load(net.minecraft.world.level.storage.ValueInput root) {
+        var tag = root.childOrEmpty("CavebloomerAttacks"); skill = Math.clamp(tag.getIntOr("Skill", -1), -1, 3);
+        age = tag.getBooleanOr("EndTickAge", false) ? Math.clamp(tag.getIntOr("Age", 0), 0, 47) : Math.clamp(tag.getIntOr("Age", 0), 0, 46) + (skill >= 0 ? 1 : 0);
+        cooldown = Math.clamp(tag.getIntOr("Cooldown", 0), 0, 90); movementLock = Math.clamp(tag.getIntOr("MovementLock", 0), 0, 75);
+        startedAt = tag.getLong("StartedAt").orElse(Long.MIN_VALUE); poisonRing = tag.getBooleanOr("PoisonRing", false);
+        double value = tag.getDoubleOr("TargetEyeHeight", 0.0); targetEyeHeight = Double.isFinite(value) ? Math.clamp(value, 0, 100) : 0;
+        reservations.clear(); for (int i = 0, count = Math.clamp(tag.getIntOr("ReservationCount", 0), 0, 5); i < count; i++) tag.getString("Reservation" + i).ifPresent(raw -> reservations.add(java.util.UUID.fromString(raw)));
         updateMovementLock();
     }
 }

@@ -9,8 +9,8 @@ final class CauldronItemRenderer extends TsrGeoItemRenderer<CauldronOfTrilobiteI
     CauldronItemRenderer() { super(new Model()); }
 
     private static final class Model extends TsrGeoModel<CauldronOfTrilobiteItem> {
-        @Override public Identifier getModelResource(CauldronOfTrilobiteItem entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "geo/trilobitcauldron.geo.json"); }
+        @Override public Identifier getModelResource(CauldronOfTrilobiteItem entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "trilobitcauldron"); }
         @Override public Identifier getTextureResource(CauldronOfTrilobiteItem entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "textures/block/trilobitecauldron.png"); }
-        @Override public Identifier getAnimationResource(CauldronOfTrilobiteItem entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "animations/trilobitcauldron.animation.json"); }
+        @Override public Identifier getAnimationResource(CauldronOfTrilobiteItem entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "trilobitcauldron"); }
     }
 }

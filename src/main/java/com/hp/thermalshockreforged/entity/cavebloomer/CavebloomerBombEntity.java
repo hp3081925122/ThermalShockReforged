@@ -40,7 +40,7 @@ public final class CavebloomerBombEntity extends AbstractArrow implements ItemSu
     @Override protected void doKnockback(LivingEntity target, DamageSource source) {
         double resistance = Math.clamp(1 - target.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1);
         var velocity = getDeltaMovement().multiply(1, 0, 1).normalize().scale(impactKnockback * resistance);
-        if (velocity.lengthSqr() > 0) target.push(velocity.x, 0.1 * resistance, velocity.z);
+        if (velocity.lengthSqr() > 0) { target.push(velocity.x, 0.1 * resistance, velocity.z); target.hurtMarked = true; }
     }
     @Override protected void onHitBlock(BlockHitResult hit) {
         if (blockCommitted) return;

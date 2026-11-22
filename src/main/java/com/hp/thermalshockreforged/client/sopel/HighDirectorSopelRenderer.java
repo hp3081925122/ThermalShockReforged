@@ -22,8 +22,8 @@ public final class HighDirectorSopelRenderer extends TsrGeoEntityRenderer<HighDi
     @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     @Override protected float getDeathMaxRotation(GeoRenderState state) { return 0; }
     private static final class Model extends TsrGeoModel<HighDirectorSopelEntity> {
-        @Override public Identifier getModelResource(HighDirectorSopelEntity entity) { return SopelEntityContent.id("geo/sopel.geo.json"); }
-        @Override public Identifier getAnimationResource(HighDirectorSopelEntity entity) { return SopelEntityContent.id("animations/sopel.animation.json"); }
+        @Override public Identifier getModelResource(HighDirectorSopelEntity entity) { return SopelEntityContent.id("sopel"); }
+        @Override public Identifier getAnimationResource(HighDirectorSopelEntity entity) { return SopelEntityContent.id("sopel"); }
         @Override public Identifier getTextureResource(HighDirectorSopelEntity entity) { return SopelEntityContent.id("textures/entities/" + entity.texture() + ".png"); }
     }
 

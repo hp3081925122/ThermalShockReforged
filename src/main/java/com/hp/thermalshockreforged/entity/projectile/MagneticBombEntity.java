@@ -35,8 +35,9 @@ public final class MagneticBombEntity extends PathfinderMob implements GeoEntity
     private static final EntityDataAccessor<Boolean> DETONATING = SynchedEntityData.defineId(MagneticBombEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(MagneticBombEntity.class, EntityDataSerializers.STRING);
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-    private int fuse = -1;
-    public MagneticBombEntity(EntityType<? extends MagneticBombEntity> type, Level level) { super(type, level); xpReward = 0; }
+    private int fuse = 40;
+    private int detonatingTicks;
+    public MagneticBombEntity(EntityType<? extends MagneticBombEntity> type, Level level) { super(type, level); xpReward = 0; setNoGravity(true); }
     public boolean epsilon() { return getType() == ProjectileContent.EPSILON_BOMB.get(); }
     public boolean detonating() { return entityData.get(DETONATING); }
     public String texture() { return entityData.get(TEXTURE); }
@@ -53,13 +54,22 @@ public final class MagneticBombEntity extends PathfinderMob implements GeoEntity
         if (level instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
         return result;
     }
+    @Override public void onAddedToLevel() {
+        super.onAddedToLevel();
+        setNoGravity(true);
+        if (!detonating() && fuse > 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
     @Override public void baseTick() {
         super.baseTick();
         if (!epsilon() && level().isClientSide()) level().addParticle(ProjectileContent.GREEN_PARTICLE.get(), getX(), getY(), getZ(), 0, 0, 0);
     }
     @Override public void tick() {
         super.tick();
-        if (!isRemoved() && !detonating() && fuse > 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+        if (!isRemoved() && level() instanceof ServerLevel server) {
+            if (detonating()) {
+                if (++detonatingTicks > 25) discard();
+            } else if (fuse > 0) ServerEndTickTasks.schedule(server, getUUID());
+        }
     }
     @Override public void endTick(ServerLevel level) { if (!isRemoved() && !detonating() && fuse > 0 && --fuse == 0) prime(level); }
     private void prime(ServerLevel level) {
@@ -69,7 +79,7 @@ public final class MagneticBombEntity extends PathfinderMob implements GeoEntity
             ThermalShockReforged.LOGGER.warn("Unable to submit magnetic detonation for {}", getUUID());
             return;
         }
-        entityData.set(DETONATING, true); fuse = 0;
+        entityData.set(DETONATING, true); fuse = 0; detonatingTicks = 0;
         ThermalShockReforged.LOGGER.debug("Magnetic detonation committed once for {} (epsilon={})", getUUID(), epsilon());
     }
     @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
@@ -82,11 +92,13 @@ public final class MagneticBombEntity extends PathfinderMob implements GeoEntity
     @Override public void die(DamageSource source) { super.die(source); if (level() instanceof ServerLevel server) prime(server); }
     @Override protected void tickDeath() { if (++deathTime == 10) { remove(Entity.RemovalReason.KILLED); if (level() instanceof net.minecraft.server.level.ServerLevel serverLevel) dropExperience(serverLevel, getLastDamageSource() == null ? null : getLastDamageSource().getEntity()); } }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
-        super.addAdditionalSaveData(output); output.putInt("MagneticFuse", fuse); output.putBoolean("MagneticDetonating", detonating()); output.putString("Texture", texture());
+        super.addAdditionalSaveData(output); output.putInt("MagneticFuse", fuse); output.putBoolean("MagneticDetonating", detonating()); output.putInt("MagneticDetonatingTicks", detonatingTicks); output.putString("Texture", texture());
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
-        super.readAdditionalSaveData(input); fuse = input.read("MagneticFuse", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? Math.clamp(input.getIntOr("MagneticFuse", 0), -1, 40) : -1;
+        super.readAdditionalSaveData(input); fuse = input.read("MagneticFuse", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? Math.clamp(input.getIntOr("MagneticFuse", 0), 0, 40) : 40;
         entityData.set(DETONATING, input.getBooleanOr("MagneticDetonating", false));
+        detonatingTicks = Math.clamp(input.getIntOr("MagneticDetonatingTicks", 0), 0, 25);
+        setNoGravity(true);
         if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() && input.getStringOr("Texture", "").matches("[a-z0-9_]+")) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {

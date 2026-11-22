@@ -116,7 +116,7 @@ public final class HeldWeaponState {
     public static void tick(EntityTickEvent.Post event) {
         if (!(event.getEntity() instanceof LivingEntity entity) || entity.level().isClientSide()) return;
         var data = entity.getPersistentData();
-        if (!data.contains(REMAINING) && !data.contains(SPEAR_REMAINING)) {
+        if (!data.contains(REMAINING) && !data.contains(SPEAR_REMAINING) && !data.contains(ZOOM_REMAINING) && !data.contains(REACH_REMAINING)) {
             if (entity instanceof Player) clearLegacyModifier(entity);
             return;
         }

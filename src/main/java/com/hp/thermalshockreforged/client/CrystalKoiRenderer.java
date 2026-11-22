@@ -24,7 +24,7 @@ public final class CrystalKoiRenderer extends TsrGeoEntityRenderer<CrystalKoiEnt
     private static final class Model extends TsrGeoModel<CrystalKoiEntity> {
         @Override
         public Identifier getModelResource(CrystalKoiEntity entity) {
-            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "geo/crystal_koi.geo.json");
+            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "crystal_koi");
         }
 
         @Override
@@ -34,7 +34,7 @@ public final class CrystalKoiRenderer extends TsrGeoEntityRenderer<CrystalKoiEnt
 
         @Override
         public Identifier getAnimationResource(CrystalKoiEntity entity) {
-            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "animations/crystal_koi.animation.json");
+            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "crystal_koi");
         }
     }
 }

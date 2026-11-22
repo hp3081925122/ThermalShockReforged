@@ -23,7 +23,7 @@ public final class HuntressScreen extends AbstractContainerScreen<HuntressMenu> 
     @Override protected void init() { super.init(); for (var button : menu.page.buttons) addRenderableWidget(new ImageButton(button)); }
     @Override protected void containerTick() { clock.frame = clock.frame > 12 ? 0 : clock.frame + 1; }
     @Override public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractRenderState(graphics, mouseX, mouseY, partialTick);  }
-    @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
+    @Override public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractBackground(graphics, mouseX, mouseY, partialTick);
         
         graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, texture("mainspeechbox"), leftPos, topPos + 103, 0, 0, 276, 276, 276, 276);
         if (menu.page == HuntressPage.MAIN) graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, texture("mainflavourboxes"), leftPos + 62, topPos - 110, 0, 0, 214, 214, 214, 214);

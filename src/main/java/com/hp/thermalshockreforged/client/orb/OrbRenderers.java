@@ -1,6 +1,7 @@
 package com.hp.thermalshockreforged.client.orb;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.client.geo.LegacyEyesRenderType;
 import com.hp.thermalshockreforged.entity.orb.*;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -15,7 +16,6 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.EyesLayer;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.client.renderer.rendertype.RenderType;
-import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
@@ -60,7 +60,7 @@ public final class OrbRenderers {
         private final RenderType renderType;
         private Eyes(RenderLayerParent<LivingEntityRenderState, TaleOrbModel> parent, Identifier texture) {
             super(parent);
-            renderType = RenderTypes.eyes(texture);
+            renderType = LegacyEyesRenderType.get(texture);
         }
         @Override public RenderType renderType() { return renderType; }
     }

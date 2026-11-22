@@ -73,6 +73,7 @@ public final class MagnetiteEntity extends AnimatedMonsterEntity implements Rang
     private void applyConfiguredAttributes() {
         if (level().isClientSide() || attributesApplied || !CombatConfig.SPEC.isLoaded()) return;
         float health = getHealth();
+        boolean wasFull = health >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(CombatConfig.MAGNETITE_HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(CombatConfig.MAGNETITE_ARMOR.get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(CombatConfig.MAGNETITE_DAMAGE.get());
@@ -80,14 +81,15 @@ public final class MagnetiteEntity extends AnimatedMonsterEntity implements Rang
         getAttribute(Attributes.FOLLOW_RANGE).setBaseValue(CombatConfig.MAGNETITE_FOLLOW_RANGE.get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(CombatConfig.MAGNETITE_RESISTANCE.get());
         getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(CombatConfig.MAGNETITE_MELEE_KNOCKBACK.get());
-        setHealth(loadedFromSave ? Math.min(health, getMaxHealth()) : getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(health, getMaxHealth()));
         attributesApplied = true;
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguredAttributes(); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putBoolean("AttributesConfigured", attributesApplied); }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         loadedFromSave = true;
         super.readAdditionalSaveData(input);
-        attributesApplied = false;
+        attributesApplied = input.getBooleanOr("AttributesConfigured", false);
         applyConfiguredAttributes();
     }
     public static AttributeSupplier.Builder createAttributes() {

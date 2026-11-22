@@ -31,10 +31,10 @@ public final class SporeRenderers {
     }
     private static final class Model extends TsrGeoModel<BlightedSporeEntity> {
         @Override
-        public Identifier getModelResource(BlightedSporeEntity entity) { return resource("geo/blighted_spore.geo.json"); }
+        public Identifier getModelResource(BlightedSporeEntity entity) { return resource("blighted_spore"); }
         @Override
         public Identifier getTextureResource(BlightedSporeEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
         @Override
-        public Identifier getAnimationResource(BlightedSporeEntity entity) { return resource("animations/blighted_spore.animation.json"); }
+        public Identifier getAnimationResource(BlightedSporeEntity entity) { return resource("blighted_spore"); }
     }
 }

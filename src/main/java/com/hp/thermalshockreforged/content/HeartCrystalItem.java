@@ -30,8 +30,8 @@ public final class HeartCrystalItem extends Item {
         ItemStack stack = player.getItemInHand(hand);
         if (!level.isClientSide()) {
             MobEffectInstance previous = player.getEffect(ModEffects.HEART_BOOST);
-            int amplifier = previous == null ? 1 : previous.getAmplifier() + 1;
-            stack.shrink(1);
+            int amplifier = Math.min(255, previous == null ? 1 : previous.getAmplifier() + 1);
+            if (!player.getAbilities().instabuild) stack.shrink(1);
             player.addEffect(new MobEffectInstance(ModEffects.HEART_BOOST, 5000, amplifier));
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 20, 9));
             level.playSound(null, player.blockPosition(), SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.NEUTRAL, 1, 4);

@@ -40,8 +40,8 @@ final class CarborGlClient {
         private Renderer() { super(new Model()); }
     }
     private static final class Model extends TsrGeoModel<CarborGlItem> {
-        @Override public Identifier getModelResource(CarborGlItem item) { return resource("geo/grenade_launcher.geo.json"); }
+        @Override public Identifier getModelResource(CarborGlItem item) { return resource("grenade_launcher"); }
         @Override public Identifier getTextureResource(CarborGlItem item) { return resource("textures/item/grenade_launcer.png"); }
-        @Override public Identifier getAnimationResource(CarborGlItem item) { return resource("animations/grenade_launcher.animation.json"); }
+        @Override public Identifier getAnimationResource(CarborGlItem item) { return resource("grenade_launcher"); }
     }
 }

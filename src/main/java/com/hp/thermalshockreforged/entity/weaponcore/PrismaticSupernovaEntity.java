@@ -29,7 +29,8 @@ public final class PrismaticSupernovaEntity extends PathfinderMob implements Geo
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(PrismaticSupernovaEntity.class, EntityDataSerializers.STRING);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     private boolean awaitingTimer;
-    public PrismaticSupernovaEntity(EntityType<? extends PrismaticSupernovaEntity> type, Level level) { super(type, level); xpReward = 0; }
+    private int remainingLifetime = 60;
+    public PrismaticSupernovaEntity(EntityType<? extends PrismaticSupernovaEntity> type, Level level) { super(type, level); xpReward = 0; setNoGravity(true); }
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, .3).add(Attributes.MAX_HEALTH, 900).add(Attributes.ARMOR, 0)
                 .add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, 1).add(Attributes.STEP_HEIGHT, 0);
@@ -38,17 +39,22 @@ public final class PrismaticSupernovaEntity extends PathfinderMob implements Geo
     public String texture() { return entityData.get(TEXTURE); }
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData group) {
         var result = super.finalizeSpawn(level, difficulty, reason, group);
-        setNoGravity(true); awaitingTimer = true;
+        setNoGravity(true); awaitingTimer = true; remainingLifetime = 60;
         return result;
     }
     @Override public void onAddedToLevel() {
         super.onAddedToLevel();
+        setNoGravity(true);
         if (!awaitingTimer || !(level() instanceof ServerLevel server)) return;
         awaitingTimer = false;
         var task = new SupernovaBlastEntity(WeaponContent.SUPERNOVA_BLAST.get(), server);
         task.arm(this);
         if (!server.addFreshEntity(task)) { discard(); return; }
         server.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "supernova_charge")), SoundSource.NEUTRAL, 1, 1);
+    }
+    @Override public void tick() {
+        super.tick();
+        if (!level().isClientSide() && !isRemoved() && --remainingLifetime <= 0) discard();
     }
     @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
         var direct = source.getDirectEntity();
@@ -63,11 +69,12 @@ public final class PrismaticSupernovaEntity extends PathfinderMob implements Geo
     @Override protected void pushEntities() { }
     @Override public void aiStep() { super.aiStep(); updateSwingTime(); }
     @Override protected void tickDeath() { if (++deathTime >= 10) remove(RemovalReason.KILLED); }
-    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putBoolean("SupernovaAwaitingTimer", awaitingTimer); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putBoolean("SupernovaAwaitingTimer", awaitingTimer); output.putInt("SupernovaRemainingLifetime", remainingLifetime); }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
         if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() && input.getStringOr("Texture", "").matches("[a-z0-9_./-]+")) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
         awaitingTimer = input.getBooleanOr("SupernovaAwaitingTimer", false);
+        remainingLifetime = input.read("SupernovaRemainingLifetime", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? Math.clamp(input.getIntOr("SupernovaRemainingLifetime", 0), 0, 60) : 60;
     }
     public void setAnimation(String animation) { if (java.util.List.of("idle", "move", "idle3").contains(animation)) triggerAnim("procedure", animation); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {

@@ -64,17 +64,24 @@ public final class FabricationRecipe implements Recipe<FabricationRecipe.Input> 
         totals = Map.copyOf(counts);
     }
 
+    private static boolean plain(ItemStack stack) {
+        return !stack.isDamaged() && !stack.isEnchanted() && !stack.has(net.minecraft.core.component.DataComponents.CUSTOM_NAME);
+    }
+
     public int[] removalPlan(Input input) {
         if (!energy.matches(input.energy())) return null;
         int[] plan = new int[input.materials().size()];
         for (var cost : totals.entrySet()) {
             int remaining = cost.getValue();
-            for (int slot = 0; slot < plan.length && remaining > 0; slot++) {
-                var stack = input.materials().get(slot);
-                if (stack.is(cost.getKey())) {
-                    int take = Math.min(remaining, stack.getCount());
-                    plan[slot] = take;
-                    remaining -= take;
+            for (int pass = 0; pass < 2 && remaining > 0; pass++) {
+                for (int slot = 0; slot < plan.length && remaining > 0; slot++) {
+                    var stack = input.materials().get(slot);
+                    if (!stack.is(cost.getKey()) || (pass == 0) != plain(stack)) continue;
+                    int take = Math.min(remaining, stack.getCount() - plan[slot]);
+                    if (take > 0) {
+                        plan[slot] += take;
+                        remaining -= take;
+                    }
                 }
             }
             if (remaining > 0) return null;

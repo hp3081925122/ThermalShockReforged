@@ -45,22 +45,22 @@ public final class LabClient {
         @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     }
     private static final class NpcModel extends TsrGeoModel<LabMachinistEntity> {
-        @Override public Identifier getModelResource(LabMachinistEntity entity) { return LabContent.id("geo/labqo.geo.json"); }
+        @Override public Identifier getModelResource(LabMachinistEntity entity) { return LabContent.id("labqo"); }
         @Override public Identifier getTextureResource(LabMachinistEntity entity) { return LabContent.id("textures/entities/" + entity.texture() + ".png"); }
-        @Override public Identifier getAnimationResource(LabMachinistEntity entity) { return LabContent.id("animations/labqo.animation.json"); }
+        @Override public Identifier getAnimationResource(LabMachinistEntity entity) { return LabContent.id("labqo"); }
     }
     private static final class MachineRenderer extends TsrGeoBlockRenderer<LabMachineBlockEntity> {
         MachineRenderer(net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider.Context context) { super(context, new MachineModel<>()); }
     }
     private static final class MachineModel<T extends GeoAnimatable> extends TsrGeoModel<T> {
         private boolean wallbore(T entity) { return entity instanceof LabMachineBlockEntity machine ? machine.wallbore : ((LabMachineItem) entity).wallbore; }
-        @Override public Identifier getModelResource(T entity) { return LabContent.id(wallbore(entity) ? "geo/wallbore.geo.json" : "geo/fabricator.geo.json"); }
-        @Override public Identifier getAnimationResource(T entity) { return LabContent.id(wallbore(entity) ? "animations/wallbore.animation.json" : "animations/fabricator.animation.json"); }
+        @Override public Identifier getModelResource(T entity) { return LabContent.id(wallbore(entity) ? "wallbore" : "fabricator"); }
+        @Override public Identifier getAnimationResource(T entity) { return LabContent.id(wallbore(entity) ? "wallbore" : "fabricator"); }
         @Override public Identifier getTextureResource(T entity) { return LabContent.id(wallbore(entity) ? entity instanceof LabMachineBlockEntity machine && machine.getBlockState().getValue(LabMachineBlock.MODE) == 1 ? "textures/block/wallbore_freezing.png" : "textures/block/wallbore.png" : "textures/block/assembler.png"); }
     }
     private static final class RifleModel extends TsrGeoModel<SylviaRifleItem> {
-        @Override public Identifier getModelResource(SylviaRifleItem item) { return LabContent.id("geo/railgun.geo.json"); }
-        @Override public Identifier getAnimationResource(SylviaRifleItem item) { return LabContent.id("animations/railgun.animation.json"); }
+        @Override public Identifier getModelResource(SylviaRifleItem item) { return LabContent.id("railgun"); }
+        @Override public Identifier getAnimationResource(SylviaRifleItem item) { return LabContent.id("railgun"); }
         @Override public Identifier getTextureResource(SylviaRifleItem item) { return LabContent.id("textures/item/sylvia_rifle.png"); }
     }
 }

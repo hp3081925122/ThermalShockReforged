@@ -57,13 +57,18 @@ public final class CarborGlItem extends Item implements GeoItem {
             if (!hasAmmo(player)) player.stopUsingItem();
         }
     }
+    @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, net.minecraft.world.entity.Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {
+        super.inventoryTick(stack, level, entity, slot);
+        if (level instanceof ServerLevel server) GeoItem.getOrAssignId(stack, server);
+        if (slot == net.minecraft.world.entity.EquipmentSlot.MAINHAND && entity instanceof LivingEntity living) HeldWeaponState.refreshNoMelee(living);
+    }
     private boolean hasAmmo(Player player) {
-        return player.getAbilities().instabuild || player.getInventory().contains(new ItemStack(MaterialContent.items().get("heavy_round").get()));
+        return WeaponAmmo.has(player, MaterialContent.items().get("heavy_round").get());
     }
     private void fire(Player player, ItemStack stack) {
         if (!(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(getDefaultInstance())) return;
         Item ammo = MaterialContent.items().get("heavy_round").get();
-        if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) {
+        if (!WeaponAmmo.has(player, ammo)) {
             server.playSound(null, player.blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, 5);
             return;
         }
@@ -71,7 +76,7 @@ public final class CarborGlItem extends Item implements GeoItem {
         player.getCooldowns().addCooldown(getDefaultInstance(), 6);
         triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "1");
         server.playSound(null, player.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "flareshoot")), SoundSource.NEUTRAL, 1, 1);
-        if (!player.getAbilities().instabuild) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
+        WeaponAmmo.consume(player, ammo);
     }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
         super.appendHoverText(stack, context, display, tooltipAdder, flag);

@@ -18,8 +18,8 @@ public final class FlareGunCoreRenderer extends TsrGeoEntityRenderer<FlareGunCor
     @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     private static final class Model extends TsrGeoModel<FlareGunCoreEntity> {
-        @Override public Identifier getModelResource(FlareGunCoreEntity entity) { return resource("geo/flare_core.geo.json"); }
+        @Override public Identifier getModelResource(FlareGunCoreEntity entity) { return resource("flare_core"); }
         @Override public Identifier getTextureResource(FlareGunCoreEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
-        @Override public Identifier getAnimationResource(FlareGunCoreEntity entity) { return resource("animations/flare_core.animation.json"); }
+        @Override public Identifier getAnimationResource(FlareGunCoreEntity entity) { return resource("flare_core"); }
     }
 }

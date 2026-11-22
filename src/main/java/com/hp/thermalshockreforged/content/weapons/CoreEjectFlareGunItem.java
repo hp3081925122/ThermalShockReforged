@@ -42,14 +42,19 @@ public final class CoreEjectFlareGunItem extends Item implements GeoItem {
         return false;
     }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
-        var result = super.use(level, player, hand);
-        fire(player, player.getItemInHand(hand), true);
-        return result;
+        ItemStack stack = player.getItemInHand(hand);
+        if (player.getCooldowns().isOnCooldown(stack)) return InteractionResult.FAIL;
+        if (!WeaponAmmo.has(player, MaterialContent.items().get("heavy_round").get())) {
+            fire(player, stack, true);
+            return InteractionResult.FAIL;
+        }
+        fire(player, stack, true);
+        return InteractionResult.SUCCESS;
     }
     private void fire(Player player, ItemStack stack, boolean alternate) {
         if (!(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(getDefaultInstance())) return;
         Item ammo = MaterialContent.items().get(alternate ? "heavy_round" : "light_round").get();
-        if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) {
+        if (!WeaponAmmo.has(player, ammo)) {
             server.playSound(null, player.blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, 5);
             return;
         }
@@ -68,7 +73,7 @@ public final class CoreEjectFlareGunItem extends Item implements GeoItem {
             FlareBulletEntity.fireWeaponShot(server, player);
         }
         boolean cycle = FlareGunCycleEntity.submit(server, player.position(), alternate);
-        if (!player.getAbilities().instabuild) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
+        WeaponAmmo.consume(player, ammo);
         ThermalShockReforged.LOGGER.debug("Core eject flare gun fired: player={}, alternate={}, cycle={}", player.getUUID(), alternate, cycle);
     }
     @Override public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel level, Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {

@@ -26,8 +26,8 @@ public final class LunarFaunaRenderers {
     }
     private static final class Model extends TsrGeoModel<AnimatedMonsterEntity> {
         private Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
-        @Override public Identifier getModelResource(AnimatedMonsterEntity entity) { return id("geo/moonoid.geo.json"); }
-        @Override public Identifier getAnimationResource(AnimatedMonsterEntity entity) { return id("animations/moonoid.animation.json"); }
+        @Override public Identifier getModelResource(AnimatedMonsterEntity entity) { return id("moonoid"); }
+        @Override public Identifier getAnimationResource(AnimatedMonsterEntity entity) { return id("moonoid"); }
         @Override public Identifier getTextureResource(AnimatedMonsterEntity entity) { return id("textures/entities/" + entity.texture() + ".png"); }
     }
     private LunarFaunaRenderers() { }

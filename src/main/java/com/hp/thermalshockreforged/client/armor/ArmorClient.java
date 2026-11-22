@@ -55,12 +55,12 @@ public final class ArmorClient {
     }
 
     private static final class Model extends TsrGeoModel<GeoSetArmorItem> {
-        private Identifier resource(GeoSetArmorItem item, String prefix, String suffix) {
-            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, prefix + item.modelName() + suffix);
+        private Identifier resource(GeoSetArmorItem item) {
+            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, item.modelName());
         }
 
-        @Override public Identifier getModelResource(GeoSetArmorItem item) { return resource(item, "geo/", ".geo.json"); }
+        @Override public Identifier getModelResource(GeoSetArmorItem item) { return resource(item); }
         @Override public Identifier getTextureResource(GeoSetArmorItem item) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/item/" + item.textureName() + ".png"); }
-        @Override public Identifier getAnimationResource(GeoSetArmorItem item) { return resource(item, "animations/", ".animation.json"); }
+        @Override public Identifier getAnimationResource(GeoSetArmorItem item) { return resource(item); }
     }
 }

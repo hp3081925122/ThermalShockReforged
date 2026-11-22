@@ -35,7 +35,7 @@ public final class RemainingGunItem extends AnimatedCombatItem {
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
         if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(getDefaultInstance())) return false;
         Item ammo = judge ? MaterialContent.items().get("heavy_round").get() : Items.STRING;
-        if (!player.getInventory().contains(new ItemStack(ammo))) {
+        if (!com.hp.thermalshockreforged.content.weapons.WeaponAmmo.has(player, ammo)) {
             server.playSound(null, player.blockPosition(), net.minecraft.sounds.SoundEvents.STONE_BUTTON_CLICK_ON, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 5);
             return false;
         }
@@ -68,7 +68,7 @@ public final class RemainingGunItem extends AnimatedCombatItem {
             CombatItemTaskEntity.sound(server, player.position(), "minecraft:item.crossbow.shoot", .7F, 1);
             player.addEffect(new MobEffectInstance(MobEffects.SPEED, 2, 0, true, false));
         }
-        player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
+        com.hp.thermalshockreforged.content.weapons.WeaponAmmo.consume(player, ammo);
         return false;
     }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {

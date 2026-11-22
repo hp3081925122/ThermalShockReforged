@@ -32,8 +32,8 @@ public final class FloristClient {
         @Override protected Identifier texture(FloristEntity entity) { return TEXTURE; }
     }
     private static final class Model extends TsrGeoModel<FloristEntity> {
-        @Override public Identifier getModelResource(FloristEntity entity) { return id("geo/umabel.geo.json"); }
-        @Override public Identifier getAnimationResource(FloristEntity entity) { return id("animations/umabel.animation.json"); }
+        @Override public Identifier getModelResource(FloristEntity entity) { return id("umabel"); }
+        @Override public Identifier getAnimationResource(FloristEntity entity) { return id("umabel"); }
         @Override public Identifier getTextureResource(FloristEntity entity) { return id("textures/entities/" + entity.texture() + ".png"); }
     }
 }

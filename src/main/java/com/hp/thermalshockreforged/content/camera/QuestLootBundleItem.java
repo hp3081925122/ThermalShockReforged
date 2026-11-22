@@ -26,7 +26,7 @@ public final class QuestLootBundleItem extends Item {
             if (table == LootTable.EMPTY) { ThermalShockReforged.LOGGER.warn("Quest loot table unavailable; keeping bundle: player={}", player.getUUID()); return InteractionResult.FAIL; }
             var origin = player.position();
             var params = new LootParams.Builder(server).withParameter(LootContextParams.ORIGIN, origin).create(LootContextParamSets.CHEST);
-            stack.shrink(1);
+            if (!player.getAbilities().instabuild) stack.shrink(1);
             for (ItemStack reward : table.getRandomItems(params)) {
                 var drop = new ItemEntity(server, origin.x, origin.y, origin.z, reward.copy());
                 drop.setDefaultPickUpDelay(); server.addFreshEntity(drop);

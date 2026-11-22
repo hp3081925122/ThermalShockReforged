@@ -20,9 +20,9 @@ public final class ErrantRenderer extends TsrGeoEntityRenderer<ErrantEntity> {
     @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     private static final class Model extends TsrGeoModel<ErrantEntity> {
-        @Override public Identifier getModelResource(ErrantEntity entity) { return resource("geo/errant.geo.json"); }
+        @Override public Identifier getModelResource(ErrantEntity entity) { return resource("errant"); }
         @Override public Identifier getTextureResource(ErrantEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
-        @Override public Identifier getAnimationResource(ErrantEntity entity) { return resource("animations/errant.animation.json"); }
+        @Override public Identifier getAnimationResource(ErrantEntity entity) { return resource("errant"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { lookAt(state, bones, "bipedHead"); }
     }
 }

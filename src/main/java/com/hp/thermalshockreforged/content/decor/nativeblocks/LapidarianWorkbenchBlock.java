@@ -45,7 +45,7 @@ final class LapidarianWorkbenchBlock extends FacingDecorBlock {
             return true;
         }
         var inputId = BuiltInRegistries.ITEM.getKey(input.getItem());
-        input.shrink(1);
+        if (!player.getAbilities().instabuild) input.shrink(1);
         server.playSound(null, pos, SoundEvents.UI_STONECUTTER_TAKE_RESULT, SoundSource.BLOCKS, 1, 2);
         boolean springling = recipe.springlingChance() > 0;
         if (!springling) recipe.sound().play(server, pos, SoundSource.BLOCKS);

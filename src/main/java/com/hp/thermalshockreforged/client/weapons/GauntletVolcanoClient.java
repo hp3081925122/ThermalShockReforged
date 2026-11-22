@@ -49,13 +49,13 @@ final class GauntletVolcanoClient {
         private VolcanoRenderer() { super(new VolcanoModel()); }
     }
     private static final class GauntletModel extends TsrGeoModel<ZerkerGauntletItem> {
-        @Override public Identifier getModelResource(ZerkerGauntletItem item) { return resource("geo/titaniummace.geo.json"); }
+        @Override public Identifier getModelResource(ZerkerGauntletItem item) { return resource("titaniummace"); }
         @Override public Identifier getTextureResource(ZerkerGauntletItem item) { return resource("textures/item/novazerk.png"); }
-        @Override public Identifier getAnimationResource(ZerkerGauntletItem item) { return resource("animations/titaniummace.animation.json"); }
+        @Override public Identifier getAnimationResource(ZerkerGauntletItem item) { return resource("titaniummace"); }
     }
     private static final class VolcanoModel extends TsrGeoModel<VolcanoItem> {
-        @Override public Identifier getModelResource(VolcanoItem item) { return resource("geo/volcano_rubicon.geo.json"); }
+        @Override public Identifier getModelResource(VolcanoItem item) { return resource("volcano_rubicon"); }
         @Override public Identifier getTextureResource(VolcanoItem item) { return resource("textures/item/volcano_rubicon.png"); }
-        @Override public Identifier getAnimationResource(VolcanoItem item) { return resource("animations/volcano_rubicon.animation.json"); }
+        @Override public Identifier getAnimationResource(VolcanoItem item) { return resource("volcano_rubicon"); }
     }
 }

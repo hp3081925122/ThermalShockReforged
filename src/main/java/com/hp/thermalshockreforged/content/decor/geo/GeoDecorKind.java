@@ -12,78 +12,78 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum GeoDecorKind {
-    BRIMSTONE_CAKE("brimstone_cake", "geo/yoylecake.geo.json", "textures/block/brimstonecake4.png", "animations/yoylecake.animation.json", Block.box(1, .1, 1, 15, 7, 15), true),
-    LUNAR_PANEL("lunar_panel", "geo/lunar_panel.geo.json", "textures/block/lunar_panel.png", "animations/lunar_panel.animation.json", Shapes.block(), false),
-    HOLOGRAM_MONITOR("hologram_monitor", "geo/hologram_monitor.geo.json", "textures/block/hologram_monitor.png", "animations/hologram_monitor.animation.json", Block.box(4, .1, 4, 15.9, 15.9, 15.9), false),
-    ICEBREAKER("icebreaker", "geo/icebreaker.geo.json", "textures/block/icebreaker.png", "animations/icebreaker.animation.json", Shapes.block(), false),
-    AMALGEL_TROPHY("amalgel_trophy", "geo/amalgel_relic.geo.json", "textures/block/amalgeglrelic.png", "animations/amalgel_relic.animation.json", Shapes.block(), false),
-    WORLD_TOUR_TROPHY("world_tour_trophy", "geo/world_tour_trophy.geo.json", "textures/block/world_tour_trophy.png", "animations/world_tour_trophy.animation.json", Shapes.block(), false),
-    PYROGENIC_PYLON_CORE("pyrogenic_pylon_core", "geo/pylon_core.geo.json", "textures/block/pyrogenic_core.png", "animations/pylon_core.animation.json", Block.box(2, 2, 2, 14, 14, 14), false),
-    SPIRE_BLOOM("spire_bloom", "geo/small_spire_blossom.geo.json", "textures/block/small_spire_blossom.png", "animations/small_spire_blossom.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), false),
-    LARGE_SPIDER_LILY("large_spider_lily", "geo/small_spire_blossom.geo.json", "textures/block/spider_lily.png", "animations/small_spire_blossom.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), false),
-    SPIDER_LILIES("spider_lilies", "geo/spider_lilies.geo.json", "textures/block/spider_lilies_4.png", "animations/spider_lilies.animation.json", Block.box(.1, .1, .1, 15.9, 4, 15.9), false),
-    EXTRACTOR("extractor", "geo/extractor.geo.json", "textures/block/extractor.png", "animations/extractor.animation.json", Block.box(.1, .1, .1, 15.9, 14, 15.9), true),
-    GRAND_BLASPHEMER("grand_blasphemer", "geo/grand_blasphemer.geo.json", "textures/block/blasty.png", "animations/grand_blasphemer.animation.json", Shapes.block(), true),
-    FABRICATOR("fabricator", "geo/fabricator.geo.json", "textures/block/texturefabricator.png", "animations/fabricator.animation.json", Block.box(.1, .1, .1, 15.9, 14, 15.9), true),
-    CRYSTAL_SOPEL_TROPHY("crystal_sopel_trophy", "geo/sopel_relic.geo.json", "textures/block/rubicon_trophy.png", "animations/sopel_relic.animation.json", Shapes.block(), false),
-    DESK_DIRECTOR("desk_director", "geo/sopel_desk.geo.json", "textures/block/sopel_desk.png", "animations/sopel_desk.animation.json", Block.box(-16, .1, -16, 32, 15.9, 32), false),
-    SUPER_CRYONIC_CACHE("super_cryonic_cache", "geo/enchanted_cache.geo.json", "textures/block/supercache.png", "animations/enchanted_cache.animation.json", Block.box(0, 0, 0, 16, 28, 16), false),
-    PHOBOTITE_OUTCROP("phobotite_outcrop", "geo/fluorite_ore.geo.json", "textures/block/phobotite_outcrop.png", "animations/fluorite_ore.animation.json", Shapes.block(), false),
-    PHOBOTITE_MANTLE_OUTCROP("phobotite_mantle_outcrop", "geo/fluorite_ore.geo.json", "textures/block/phobotite_mantle_outcrop.png", "animations/fluorite_ore.animation.json", Shapes.block(), false),
-    FRIGID_ALTAR("frigid_altar", "geo/everchill_altar.geo.json", "textures/block/texturealtar.png", "animations/everchill_altar.animation.json", Block.box(.1, .1, .1, 15.9, 14, 15.9), false),
-    FERROUS_ALTAR("ferrous_altar", "geo/everchill_altar.geo.json", "textures/block/ferrousaltar.png", "animations/everchill_altar.animation.json", Block.box(.1, .1, .1, 15.9, 14, 15.9), false),
-    PYLON_CORE("pylon_core", "geo/pylon_core.geo.json", "textures/block/texturepyloncore.png", "animations/pylon_core.animation.json", Block.box(2, 2, 2, 14, 14, 14), false),
-    SURGE_PYLON("surge_pylon", "geo/surge_pylon.geo.json", "textures/block/surge_pylon.png", "animations/surge_pylon.animation.json", Block.box(4, .1, 4, 12, 15.9, 12), false),
-    CIVILIAN("civilian", "geo/civil1.geo.json", "textures/block/civil1.png", "animations/civil1.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), false),
-    RUSTY_RADIO("rusty_radio", "geo/rusty_radio.geo.json", "textures/block/rusty_radio.png", "animations/rusty_radio.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), false),
-    CAPSULE("capsule", "geo/pillar_statue.geo.json", "textures/block/capsule.png", "animations/pillar_statue.animation.json", Block.box(1, .1, 1, 15, 47.9, 15), false),
-    ATLAS("atlas", "geo/atlas.geo.json", "textures/block/atlas.png", "animations/atlas.animation.json", Shapes.block(), false),
-    SHALE_PILLAR("shale_pillar", "geo/pillar_statue.geo.json", "textures/block/pillarextended.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), false),
-    SHALE_PILLAR_VAR_2("shale_pillar_var_2", "geo/pillar_statue.geo.json", "textures/block/pillarstatue1.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), false),
-    SHALE_PILLAR_VAR_3("shale_pillar_var_3", "geo/pillar_statue.geo.json", "textures/block/pillarstatue3.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), false),
-    SHALE_PILLAR_VAR_4("shale_pillar_var_4", "geo/pillar_statue.geo.json", "textures/block/pillarstatue7.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), false),
-    SHALE_PILLAR_VAR_5("shale_pillar_var_5", "geo/pillar_statue.geo.json", "textures/block/pillarstatue4.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), false),
-    SHALE_PILLAR_VAR_6("shale_pillar_var_6", "geo/pillar_statue.geo.json", "textures/block/pillarstatue6.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), false),
-    SHALE_PILLAR_VAR_7("shale_pillar_var_7", "geo/pillar_statue.geo.json", "textures/block/pillarstatue5.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), false),
-    SHALE_PILLAR_VAR_8("shale_pillar_var_8", "geo/pillar_statue.geo.json", "textures/block/pillarstatue2.png", "animations/pillar_statue.animation.json", Block.box(1, 0.1, 1, 15, 47.9, 15), false),
-    CRYONIC_CACHE("cryonic_cache", "geo/enchanted_cache.geo.json", "textures/block/blizzardcache.png", "animations/enchanted_cache.animation.json", Block.box(0, 0, 0, 16, 28, 16), false),
-    ENCHANTED_CACHE("enchanted_cache", "geo/enchanted_cache.geo.json", "textures/block/textureenchantcache.png", "animations/enchanted_cache.animation.json", Block.box(0, 0, 0, 16, 28, 16), false),
-    SHALE_POT("shale_pot", "geo/stone_pot.geo.json", "textures/block/pot1.png", "animations/stone_pot.animation.json", Block.box(2, 0, 2, 14, 16, 14), false),
-    PATHIOLITE_OUTCROP("pathiolite_outcrop", "geo/fluorite_ore.geo.json", "textures/block/pathiolite_outcrop.png", "animations/fluorite_ore.animation.json", Shapes.block(), false),
-    PYLON_RING("pylon_ring", "geo/pylon_ring.geo.json", "textures/block/texturepylonring.png", "animations/pylon_ring.animation.json", Block.box(4.0, 0.1, 4.0, 12.0, 15.9, 12.0), false),
-    GIANT_GEAR("giant_gear", "geo/bigear.geo.json", "textures/block/rubicon_gear.png", "animations/bigear.animation.json", Shapes.block(), false),
-    VOLTFLOWER_BULB("voltflower_bulb", "geo/voltflower_bulb.geo.json", "textures/block/voltflowerbulb.png", "animations/voltflower_bulb.animation.json", Shapes.block(), false),
-    CRYONIC_LAMP("cryonic_lamp", "geo/cryonic_lantern.geo.json", "textures/block/cryonic_lamp.png", "animations/cryonic_lantern.animation.json", Block.box(2.0, 2.0, 2.0, 14.0, 14.0, 14.0), false),
-    CACHE_PAD("cache_pad", "geo/cachepad.geo.json", "textures/block/cache_pad.png", "animations/cachepad.animation.json", Shapes.block(), false),
-    FERROUS_CACHE_PAD("ferrous_cache_pad", "geo/cachepad.geo.json", "textures/block/ferrous_cache_pad.png", "animations/cachepad.animation.json", Shapes.block(), false),
-    SHALE_CACHE_PAD("shale_cache_pad", "geo/cachepad.geo.json", "textures/block/grey_cache_pad.png", "animations/cachepad.animation.json", Shapes.block(), false),
-    GREEN_ORB("green_orb", "geo/genericprojectile.geo.json", "textures/block/greengeneric.png", "animations/genericprojectile.animation.json", Shapes.block(), false),
-    BLUE_ORB("blue_orb", "geo/genericprojectile.geo.json", "textures/block/bluegeneric.png", "animations/genericprojectile.animation.json", Shapes.block(), false),
-    YELLOW_ORB("yellow_orb", "geo/genericprojectile.geo.json", "textures/block/helionprojectile.png", "animations/genericprojectile.animation.json", Shapes.block(), false),
-    HAIL("hail", "geo/hail.geo.json", "textures/block/hail.png", "animations/hail.animation.json", Shapes.block(), false),
-    GOLDEN_PILLAR("golden_pillar", "geo/pillar_statue.geo.json", "textures/block/golden_pillar_3.png", "animations/pillar_statue.animation.json", Block.box(1.0, 0.1, 1.0, 15.0, 47.9, 15.0), false),
-    GLAUKO_BLOOM("glauko_bloom", "geo/sinkbloom.geo.json", "textures/block/sinkbloom.png", "animations/sinkbloom.animation.json", Block.box(3.0, 0.0, 3.0, 13.0, 10.0, 13.0), false),
-    BOTTLE_OF_STARLIGHT("bottle_of_starlight", "geo/bottle_of_starlight.geo.json", "textures/block/texturestarbottle.png", "animations/bottle_of_starlight.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), true),
-    BOTTLE_OF_LUNARLIGHT("bottle_of_lunarlight", "geo/bottle_of_starlight.geo.json", "textures/block/texturelunabottle.png", "animations/bottle_of_starlight.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), true),
-    BIG_GLASS_BOTTLE("big_glass_bottle", "geo/bottle_of_starlight.geo.json", "textures/block/glassbottle.png", "animations/bottle_of_starlight.animation.json", Block.box(0.1, 0.1, 0.1, 15.9, 15.9, 15.9), true),
-    SPIRE_BLOSSOM("spire_blossom", "geo/spire_blossom.geo.json", "textures/block/spire_blossom.png", "animations/spire_blossom.animation.json", Block.box(0.1, 0.1, 0.1, 15.9, 15.9, 15.9), false),
-    IMPERVIUM_PYLON_RING("impervium_pylon_ring", "geo/pylon_ring.geo.json", "textures/block/impervium_ring.png", "animations/pylon_ring.animation.json", Block.box(4.0, 0.1, 4.0, 12.0, 15.9, 12.0), false),
-    STATUE_OF_LITANY("statue_of_litany", "geo/litany_statue.geo.json", "textures/block/litany_statue.png", "animations/litany_statue.animation.json", Block.box(0.0, 0.0, 0.0, 16.0, 32.0, 16.0), false),
-    PLENKY("plenky", "geo/plenky.geo.json", "textures/block/plenky.png", "animations/plenky.animation.json", Block.box(1.0, 0.1, 1.0, 15.0, 8.0, 15.0), false),
-    ITTY_BITTY("itty_bitty", "geo/itty_bitty.geo.json", "textures/block/itty_bitty.png", "animations/itty_bitty.animation.json", Block.box(3.0, 0.1, 3.0, 13.0, 15.9, 13.0), false),
-    GUNNER_TROPHY("icidrogunner_trophy", "geo/pozar_relic.geo.json", "textures/block/lodpozar_relic.png", "animations/pozar_relic.animation.json", Shapes.block(), false),
-    SUSPICIOUS_CAVEBLOOMER("suspicious_cavebloomer", "geo/angry_cavebloomer.geo.json", "textures/block/angry_cavebloomer.png", "animations/angry_cavebloomer.animation.json", Block.box(0.1, 0, 0.1, 15.9, 7, 15.9), false),
-    CAVEBLOOMER_TROPHY("cavebloomer_trophy", "geo/cavebloomer_relic.geo.json", "textures/block/cavebloomer_relic.png", "animations/cavebloomer_relic.animation.json", Shapes.block(), false),
-    BURNER_TROPHY("icidroburner_trophy", "geo/lod_relic.geo.json", "textures/block/lodpozar_relic.png", "animations/lod_relic.animation.json", Shapes.block(), false),
-    THERMA_DEV_PLUSH("therma_dev_plush", "geo/thermplush.geo.json", "textures/block/therm2.png", "animations/thermplush.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), false),
-    FERRO_CAKE("ferro_cake", "geo/yoylecake.geo.json", "textures/block/yoylecake4.png", "animations/yoylecake.animation.json", Block.box(1, .1, 1, 15, 7, 15), true),
-    RINTHIUM_BUTTON("rinthium_button", "geo/rinthbutton.geo.json", "textures/block/rubicon_button.png", "animations/rinthbutton.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), false),
-    RINTHIUM_LEVER("rinthium_lever", "geo/rinthlever.geo.json", "textures/block/rubicon_lever.png", "animations/rinthlever.animation.json", Shapes.block(), true),
-    INACTIVE_KEYSTONE_PEDESTAL("inactive_keystone_pedestal", "geo/pedestalhole.geo.json", "textures/block/pedestal.png", "animations/pedestalhole.animation.json", Block.box(0, 0, 0, 16, 2, 16), true),
-    KEYSTONE_PEDESTAL("keystone_pedestal", "geo/keystonepedestal.geo.json", "textures/block/pedestal.png", "animations/keystonepedestal.animation.json", Block.box(2, 0, 2, 14, 32, 14), true),
-    JELLERCEL("jellercel", "geo/jellercell.geo.json", "textures/block/jellercell.png", "animations/jellercell.animation.json", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), false),
-    LARGE_JELLERCEL("large_jellercel", "geo/largejellercell.geo.json", "textures/block/largejellercel.png", "animations/largejellercell.animation.json", Block.box(.1, .1, .1, 31.9, 31.9, 31.9), false),
-    TRAPPED_CACHE_PAD("trapped_cache_pad", "geo/cachepad.geo.json", "textures/block/trapped_cache_pad.png", "animations/cachepad.animation.json", Shapes.block(), false);
+    BRIMSTONE_CAKE("brimstone_cake", "yoylecake", "textures/block/brimstonecake4.png", "yoylecake", Block.box(1, .1, 1, 15, 7, 15), true),
+    LUNAR_PANEL("lunar_panel", "lunar_panel", "textures/block/lunar_panel.png", "lunar_panel", Shapes.block(), false),
+    HOLOGRAM_MONITOR("hologram_monitor", "hologram_monitor", "textures/block/hologram_monitor.png", "hologram_monitor", Block.box(4, .1, 4, 15.9, 15.9, 15.9), false),
+    ICEBREAKER("icebreaker", "icebreaker", "textures/block/icebreaker.png", "icebreaker", Shapes.block(), false),
+    AMALGEL_TROPHY("amalgel_trophy", "amalgel_relic", "textures/block/amalgeglrelic.png", "amalgel_relic", Shapes.block(), false),
+    WORLD_TOUR_TROPHY("world_tour_trophy", "world_tour_trophy", "textures/block/world_tour_trophy.png", "world_tour_trophy", Shapes.block(), false),
+    PYROGENIC_PYLON_CORE("pyrogenic_pylon_core", "pylon_core", "textures/block/pyrogenic_core.png", "pylon_core", Block.box(2, 2, 2, 14, 14, 14), false),
+    SPIRE_BLOOM("spire_bloom", "small_spire_blossom", "textures/block/small_spire_blossom.png", "small_spire_blossom", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), false),
+    LARGE_SPIDER_LILY("large_spider_lily", "small_spire_blossom", "textures/block/spider_lily.png", "small_spire_blossom", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), false),
+    SPIDER_LILIES("spider_lilies", "spider_lilies", "textures/block/spider_lilies_4.png", "spider_lilies", Block.box(.1, .1, .1, 15.9, 4, 15.9), false),
+    EXTRACTOR("extractor", "extractor", "textures/block/extractor.png", "extractor", Block.box(.1, .1, .1, 15.9, 14, 15.9), true),
+    GRAND_BLASPHEMER("grand_blasphemer", "grand_blasphemer", "textures/block/blasty.png", "grand_blasphemer", Shapes.block(), true),
+    FABRICATOR("fabricator", "fabricator", "textures/block/texturefabricator.png", "fabricator", Block.box(.1, .1, .1, 15.9, 14, 15.9), true),
+    CRYSTAL_SOPEL_TROPHY("crystal_sopel_trophy", "sopel_relic", "textures/block/rubicon_trophy.png", "sopel_relic", Shapes.block(), false),
+    DESK_DIRECTOR("desk_director", "sopel_desk", "textures/block/sopel_desk.png", "sopel_desk", Block.box(-16, .1, -16, 32, 15.9, 32), false),
+    SUPER_CRYONIC_CACHE("super_cryonic_cache", "enchanted_cache", "textures/block/supercache.png", "enchanted_cache", Block.box(0, 0, 0, 16, 28, 16), false),
+    PHOBOTITE_OUTCROP("phobotite_outcrop", "fluorite_ore", "textures/block/phobotite_outcrop.png", "fluorite_ore", Shapes.block(), false),
+    PHOBOTITE_MANTLE_OUTCROP("phobotite_mantle_outcrop", "fluorite_ore", "textures/block/phobotite_mantle_outcrop.png", "fluorite_ore", Shapes.block(), false),
+    FRIGID_ALTAR("frigid_altar", "everchill_altar", "textures/block/texturealtar.png", "everchill_altar", Block.box(.1, .1, .1, 15.9, 14, 15.9), false),
+    FERROUS_ALTAR("ferrous_altar", "everchill_altar", "textures/block/ferrousaltar.png", "everchill_altar", Block.box(.1, .1, .1, 15.9, 14, 15.9), false),
+    PYLON_CORE("pylon_core", "pylon_core", "textures/block/texturepyloncore.png", "pylon_core", Block.box(2, 2, 2, 14, 14, 14), false),
+    SURGE_PYLON("surge_pylon", "surge_pylon", "textures/block/surge_pylon.png", "surge_pylon", Block.box(4, .1, 4, 12, 15.9, 12), false),
+    CIVILIAN("civilian", "civil1", "textures/block/civil1.png", "civil1", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), false),
+    RUSTY_RADIO("rusty_radio", "rusty_radio", "textures/block/rusty_radio.png", "rusty_radio", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), false),
+    CAPSULE("capsule", "pillar_statue", "textures/block/capsule.png", "pillar_statue", Block.box(1, .1, 1, 15, 47.9, 15), false),
+    ATLAS("atlas", "atlas", "textures/block/atlas.png", "atlas", Shapes.block(), false),
+    SHALE_PILLAR("shale_pillar", "pillar_statue", "textures/block/pillarextended.png", "pillar_statue", Block.box(1, 0.1, 1, 15, 47.9, 15), false),
+    SHALE_PILLAR_VAR_2("shale_pillar_var_2", "pillar_statue", "textures/block/pillarstatue1.png", "pillar_statue", Block.box(1, 0.1, 1, 15, 47.9, 15), false),
+    SHALE_PILLAR_VAR_3("shale_pillar_var_3", "pillar_statue", "textures/block/pillarstatue3.png", "pillar_statue", Block.box(1, 0.1, 1, 15, 47.9, 15), false),
+    SHALE_PILLAR_VAR_4("shale_pillar_var_4", "pillar_statue", "textures/block/pillarstatue7.png", "pillar_statue", Block.box(1, 0.1, 1, 15, 47.9, 15), false),
+    SHALE_PILLAR_VAR_5("shale_pillar_var_5", "pillar_statue", "textures/block/pillarstatue4.png", "pillar_statue", Block.box(1, 0.1, 1, 15, 47.9, 15), false),
+    SHALE_PILLAR_VAR_6("shale_pillar_var_6", "pillar_statue", "textures/block/pillarstatue6.png", "pillar_statue", Block.box(1, 0.1, 1, 15, 47.9, 15), false),
+    SHALE_PILLAR_VAR_7("shale_pillar_var_7", "pillar_statue", "textures/block/pillarstatue5.png", "pillar_statue", Block.box(1, 0.1, 1, 15, 47.9, 15), false),
+    SHALE_PILLAR_VAR_8("shale_pillar_var_8", "pillar_statue", "textures/block/pillarstatue2.png", "pillar_statue", Block.box(1, 0.1, 1, 15, 47.9, 15), false),
+    CRYONIC_CACHE("cryonic_cache", "enchanted_cache", "textures/block/blizzardcache.png", "enchanted_cache", Block.box(0, 0, 0, 16, 28, 16), false),
+    ENCHANTED_CACHE("enchanted_cache", "enchanted_cache", "textures/block/textureenchantcache.png", "enchanted_cache", Block.box(0, 0, 0, 16, 28, 16), false),
+    SHALE_POT("shale_pot", "stone_pot", "textures/block/pot1.png", "stone_pot", Block.box(2, 0, 2, 14, 16, 14), false),
+    PATHIOLITE_OUTCROP("pathiolite_outcrop", "fluorite_ore", "textures/block/pathiolite_outcrop.png", "fluorite_ore", Shapes.block(), false),
+    PYLON_RING("pylon_ring", "pylon_ring", "textures/block/texturepylonring.png", "pylon_ring", Block.box(4.0, 0.1, 4.0, 12.0, 15.9, 12.0), false),
+    GIANT_GEAR("giant_gear", "bigear", "textures/block/rubicon_gear.png", "bigear", Shapes.block(), false),
+    VOLTFLOWER_BULB("voltflower_bulb", "voltflower_bulb", "textures/block/voltflowerbulb.png", "voltflower_bulb", Shapes.block(), false),
+    CRYONIC_LAMP("cryonic_lamp", "cryonic_lantern", "textures/block/cryonic_lamp.png", "cryonic_lantern", Block.box(2.0, 2.0, 2.0, 14.0, 14.0, 14.0), false),
+    CACHE_PAD("cache_pad", "cachepad", "textures/block/cache_pad.png", "cachepad", Shapes.block(), false),
+    FERROUS_CACHE_PAD("ferrous_cache_pad", "cachepad", "textures/block/ferrous_cache_pad.png", "cachepad", Shapes.block(), false),
+    SHALE_CACHE_PAD("shale_cache_pad", "cachepad", "textures/block/grey_cache_pad.png", "cachepad", Shapes.block(), false),
+    GREEN_ORB("green_orb", "genericprojectile", "textures/block/greengeneric.png", "genericprojectile", Shapes.block(), false),
+    BLUE_ORB("blue_orb", "genericprojectile", "textures/block/bluegeneric.png", "genericprojectile", Shapes.block(), false),
+    YELLOW_ORB("yellow_orb", "genericprojectile", "textures/block/helionprojectile.png", "genericprojectile", Shapes.block(), false),
+    HAIL("hail", "hail", "textures/block/hail.png", "hail", Shapes.block(), false),
+    GOLDEN_PILLAR("golden_pillar", "pillar_statue", "textures/block/golden_pillar_3.png", "pillar_statue", Block.box(1.0, 0.1, 1.0, 15.0, 47.9, 15.0), false),
+    GLAUKO_BLOOM("glauko_bloom", "sinkbloom", "textures/block/sinkbloom.png", "sinkbloom", Block.box(3.0, 0.0, 3.0, 13.0, 10.0, 13.0), false),
+    BOTTLE_OF_STARLIGHT("bottle_of_starlight", "bottle_of_starlight", "textures/block/texturestarbottle.png", "bottle_of_starlight", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), true),
+    BOTTLE_OF_LUNARLIGHT("bottle_of_lunarlight", "bottle_of_starlight", "textures/block/texturelunabottle.png", "bottle_of_starlight", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), true),
+    BIG_GLASS_BOTTLE("big_glass_bottle", "bottle_of_starlight", "textures/block/glassbottle.png", "bottle_of_starlight", Block.box(0.1, 0.1, 0.1, 15.9, 15.9, 15.9), true),
+    SPIRE_BLOSSOM("spire_blossom", "spire_blossom", "textures/block/spire_blossom.png", "spire_blossom", Block.box(0.1, 0.1, 0.1, 15.9, 15.9, 15.9), false),
+    IMPERVIUM_PYLON_RING("impervium_pylon_ring", "pylon_ring", "textures/block/impervium_ring.png", "pylon_ring", Block.box(4.0, 0.1, 4.0, 12.0, 15.9, 12.0), false),
+    STATUE_OF_LITANY("statue_of_litany", "litany_statue", "textures/block/litany_statue.png", "litany_statue", Block.box(0.0, 0.0, 0.0, 16.0, 32.0, 16.0), false),
+    PLENKY("plenky", "plenky", "textures/block/plenky.png", "plenky", Block.box(1.0, 0.1, 1.0, 15.0, 8.0, 15.0), false),
+    ITTY_BITTY("itty_bitty", "itty_bitty", "textures/block/itty_bitty.png", "itty_bitty", Block.box(3.0, 0.1, 3.0, 13.0, 15.9, 13.0), false),
+    GUNNER_TROPHY("icidrogunner_trophy", "pozar_relic", "textures/block/lodpozar_relic.png", "pozar_relic", Shapes.block(), false),
+    SUSPICIOUS_CAVEBLOOMER("suspicious_cavebloomer", "angry_cavebloomer", "textures/block/angry_cavebloomer.png", "angry_cavebloomer", Block.box(0.1, 0, 0.1, 15.9, 7, 15.9), false),
+    CAVEBLOOMER_TROPHY("cavebloomer_trophy", "cavebloomer_relic", "textures/block/cavebloomer_relic.png", "cavebloomer_relic", Shapes.block(), false),
+    BURNER_TROPHY("icidroburner_trophy", "lod_relic", "textures/block/lodpozar_relic.png", "lod_relic", Shapes.block(), false),
+    THERMA_DEV_PLUSH("therma_dev_plush", "thermplush", "textures/block/therm2.png", "thermplush", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), false),
+    FERRO_CAKE("ferro_cake", "yoylecake", "textures/block/yoylecake4.png", "yoylecake", Block.box(1, .1, 1, 15, 7, 15), true),
+    RINTHIUM_BUTTON("rinthium_button", "rinthbutton", "textures/block/rubicon_button.png", "rinthbutton", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), false),
+    RINTHIUM_LEVER("rinthium_lever", "rinthlever", "textures/block/rubicon_lever.png", "rinthlever", Shapes.block(), true),
+    INACTIVE_KEYSTONE_PEDESTAL("inactive_keystone_pedestal", "pedestalhole", "textures/block/pedestal.png", "pedestalhole", Block.box(0, 0, 0, 16, 2, 16), true),
+    KEYSTONE_PEDESTAL("keystone_pedestal", "keystonepedestal", "textures/block/pedestal.png", "keystonepedestal", Block.box(2, 0, 2, 14, 32, 14), true),
+    JELLERCEL("jellercel", "jellercell", "textures/block/jellercell.png", "jellercell", Block.box(.1, .1, .1, 15.9, 15.9, 15.9), false),
+    LARGE_JELLERCEL("large_jellercel", "largejellercell", "textures/block/largejellercel.png", "largejellercell", Block.box(.1, .1, .1, 31.9, 31.9, 31.9), false),
+    TRAPPED_CACHE_PAD("trapped_cache_pad", "cachepad", "textures/block/trapped_cache_pad.png", "cachepad", Shapes.block(), false);
 
     public final String id;
     public final String model;
@@ -122,7 +122,7 @@ public enum GeoDecorKind {
         };
     }
     public BlockBehaviour.Properties properties() {
-        return switch (this) {
+        var properties = switch (this) {
             case BRIMSTONE_CAKE -> com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_RED).sound(SoundType.WOOL).strength(1, 0).noOcclusion().pushReaction(PushReaction.DESTROY).isRedstoneConductor((state, level, pos) -> false).noLootTable();
             case LUNAR_PANEL -> com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.METAL).sound(SoundType.METAL).strength(3, 999);
             case HOLOGRAM_MONITOR -> com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.LODESTONE).strength(1, 999).lightLevel(state -> 15).requiresCorrectToolForDrops().noOcclusion().randomTicks().pushReaction(PushReaction.BLOCK).isRedstoneConductor((state, level, pos) -> false);
@@ -130,16 +130,16 @@ public enum GeoDecorKind {
             case EXTRACTOR -> com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.SHROOMLIGHT).strength(10, 999).lightLevel(state -> 13).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
             case GRAND_BLASPHEMER -> com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.STONE).sound(SoundType.STONE).strength(-1, 3600000).pushReaction(PushReaction.BLOCK);
             case JELLERCEL, LARGE_JELLERCEL -> {
-                var properties = com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_PINK).sound(SoundType.SLIME_BLOCK).strength(this == JELLERCEL ? .5F : 2, 1).lightLevel(state -> 10)
+                var base = com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_PINK).sound(SoundType.SLIME_BLOCK).strength(this == JELLERCEL ? .5F : 2, 1).lightLevel(state -> 10)
                         .noOcclusion().emissiveRendering((state, level, pos) -> true).isRedstoneConductor((state, level, pos) -> false);
-                yield this == JELLERCEL ? properties.instrument(NoteBlockInstrument.BASEDRUM) : properties.pushReaction(PushReaction.BLOCK);
+                yield this == JELLERCEL ? base.instrument(NoteBlockInstrument.BASEDRUM) : base.pushReaction(PushReaction.BLOCK);
             }
             case PHOBOTITE_OUTCROP, PHOBOTITE_MANTLE_OUTCROP -> com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.NETHERRACK)
                     .strength(this == PHOBOTITE_OUTCROP ? 6 : 6.75F, 5).lightLevel(state -> 6).requiresCorrectToolForDrops();
             case FRIGID_ALTAR, FERROUS_ALTAR -> {
-                var properties = com.hp.thermalshockreforged.ModRegistration.block().mapColor(this == FRIGID_ALTAR ? MapColor.ICE : MapColor.METAL).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.METAL)
+                var base = com.hp.thermalshockreforged.ModRegistration.block().mapColor(this == FRIGID_ALTAR ? MapColor.ICE : MapColor.METAL).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.METAL)
                         .strength(this == FRIGID_ALTAR ? -1 : 10, this == FRIGID_ALTAR ? 3600000 : 999).lightLevel(state -> 5).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((state, level, pos) -> false);
-                yield this == FRIGID_ALTAR ? properties.noLootTable() : properties;
+                yield this == FRIGID_ALTAR ? base.noLootTable() : base;
             }
             case PYLON_CORE, PYROGENIC_PYLON_CORE -> com.hp.thermalshockreforged.ModRegistration.block().mapColor(this == PYLON_CORE ? MapColor.COLOR_LIGHT_BLUE : MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.GLASS).strength(10, 999).lightLevel(state -> 15)
                     .requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.BLOCK).emissiveRendering((state, level, pos) -> true).isRedstoneConductor((state, level, pos) -> false);
@@ -191,5 +191,6 @@ public enum GeoDecorKind {
             case ITTY_BITTY -> com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_LIGHT_BLUE).sound(SoundType.METAL).strength(0.8f, 1.0f).requiresCorrectToolForDrops().noOcclusion().isRedstoneConductor((bs, br, bp) -> false);
             case TRAPPED_CACHE_PAD -> com.hp.thermalshockreforged.ModRegistration.block().mapColor(MapColor.COLOR_BLUE).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.METAL).strength(-1.0f, 3600000.0f).requiresCorrectToolForDrops().noLootTable();
         };
+        return properties.noOcclusion().isRedstoneConductor((state, level, pos) -> false);
     }
 }

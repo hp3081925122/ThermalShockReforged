@@ -26,8 +26,8 @@ public final class LightsRenderers {
     }
 
     private static final class Model<T extends GeoAnimatable> extends TsrGeoModel<T> {
-        @Override public Identifier getModelResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "geo/glowstick.geo.json"); }
+        @Override public Identifier getModelResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "glowstick"); }
         @Override public Identifier getTextureResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "textures/block/glowstick.png"); }
-        @Override public Identifier getAnimationResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "animations/glowstick.animation.json"); }
+        @Override public Identifier getAnimationResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "glowstick"); }
     }
 }

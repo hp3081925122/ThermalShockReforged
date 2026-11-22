@@ -174,6 +174,7 @@ public final class SkeletalTitanEntity extends AnimatedMonsterEntity {
         if (level().isClientSide() || attributesApplied || !TitanCombatConfig.SPEC.isLoaded()) return;
         int index = kind.ordinal();
         float previousHealth = getHealth();
+        boolean wasFull = previousHealth >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(TitanCombatConfig.HEALTH[index].get());
         getAttribute(Attributes.ARMOR).setBaseValue(TitanCombatConfig.ARMOR[index].get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(TitanCombatConfig.DAMAGE[index].get());
@@ -181,12 +182,13 @@ public final class SkeletalTitanEntity extends AnimatedMonsterEntity {
         getAttribute(Attributes.FOLLOW_RANGE).setBaseValue(TitanCombatConfig.FOLLOW_RANGE[index].get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(TitanCombatConfig.RESISTANCE[index].get());
         getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(TitanCombatConfig.KNOCKBACK[index].get());
-        setHealth(loadedFromSave ? Math.min(previousHealth, getMaxHealth()) : getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(previousHealth, getMaxHealth()));
         attributesApplied = true;
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguredAttributes(); syncMovementLock(); }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
         super.addAdditionalSaveData(output);
+        output.putBoolean("AttributesConfigured", attributesApplied);
         output.putBoolean("TitanSpawnVariantChecked", spawnVariantChecked);
         output.putInt("TitanCooldown", cooldown);
         output.putInt("TitanMovementLock", movementLock);
@@ -195,7 +197,7 @@ public final class SkeletalTitanEntity extends AnimatedMonsterEntity {
         loadedFromSave = true;
         super.readAdditionalSaveData(input);
         spawnVariantChecked = input.getBooleanOr("TitanSpawnVariantChecked", false);
-        attributesApplied = false;
+        attributesApplied = input.getBooleanOr("AttributesConfigured", false);
         applyConfiguredAttributes();
         cooldown = Math.clamp(input.getIntOr("TitanCooldown", 0), 0, 72000);
         movementLock = Math.clamp(input.getIntOr("TitanMovementLock", 0), 0, 20);

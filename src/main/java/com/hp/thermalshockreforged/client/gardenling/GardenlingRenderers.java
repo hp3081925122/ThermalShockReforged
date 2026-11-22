@@ -23,9 +23,9 @@ public final class GardenlingRenderers {
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", path); }
 
     private static final class Model extends TsrGeoModel<GardenlingEntity> {
-        @Override public Identifier getModelResource(GardenlingEntity entity) { return resource("geo/gardenling.geo.json"); }
+        @Override public Identifier getModelResource(GardenlingEntity entity) { return resource("gardenling"); }
         @Override public Identifier getTextureResource(GardenlingEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
-        @Override public Identifier getAnimationResource(GardenlingEntity entity) { return resource("animations/gardenling.animation.json"); }
+        @Override public Identifier getAnimationResource(GardenlingEntity entity) { return resource("gardenling"); }
     }
 
     private static final class Renderer extends TsrGeoEntityRenderer<GardenlingEntity> {

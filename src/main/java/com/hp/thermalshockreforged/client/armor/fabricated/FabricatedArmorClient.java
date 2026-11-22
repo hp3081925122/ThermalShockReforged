@@ -111,8 +111,8 @@ public final class FabricatedArmorClient {
     }
 
     private static final class Model extends TsrGeoModel<FabricatedArmorItem> {
-        @Override public Identifier getModelResource(FabricatedArmorItem item) { return FabricatedArmorContent.id("geo/" + item.modelName() + ".geo.json"); }
+        @Override public Identifier getModelResource(FabricatedArmorItem item) { return FabricatedArmorContent.id(item.modelName()); }
         @Override public Identifier getTextureResource(FabricatedArmorItem item) { return FabricatedArmorContent.id("textures/item/" + item.textureName() + ".png"); }
-        @Override public Identifier getAnimationResource(FabricatedArmorItem item) { return FabricatedArmorContent.id("animations/" + item.modelName() + ".animation.json"); }
+        @Override public Identifier getAnimationResource(FabricatedArmorItem item) { return FabricatedArmorContent.id(item.modelName()); }
     }
 }

@@ -22,9 +22,9 @@ public final class PrismaticSupernovaRenderer extends TsrGeoEntityRenderer<Prism
     @Override protected float getDeathMaxRotation(GeoRenderState state) { return 0; }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     private static final class Model extends TsrGeoModel<PrismaticSupernovaEntity> {
-        @Override public Identifier getModelResource(PrismaticSupernovaEntity entity) { return resource("geo/prism_vortex.geo.json"); }
+        @Override public Identifier getModelResource(PrismaticSupernovaEntity entity) { return resource("prism_vortex"); }
         @Override public Identifier getTextureResource(PrismaticSupernovaEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
-        @Override public Identifier getAnimationResource(PrismaticSupernovaEntity entity) { return resource("animations/prism_vortex.animation.json"); }
+        @Override public Identifier getAnimationResource(PrismaticSupernovaEntity entity) { return resource("prism_vortex"); }
     }
     private static final class Glow extends GeoEyesLayer<PrismaticSupernovaEntity, Void, EntityRenderState> {
         private Glow(PrismaticSupernovaRenderer renderer) { super(renderer); }

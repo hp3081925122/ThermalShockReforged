@@ -8,6 +8,8 @@ import net.minecraft.sounds.*;
 import net.minecraft.world.*;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.ExperienceOrb;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
@@ -38,7 +40,7 @@ class IcicleDecorBlock extends NativeDecorBlock {
     }
     @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {
         super.entityInside(state, level, pos, entity, effects, precise);
-        if (!level.isClientSide() && level.getBlockState(pos).is(this) && level.destroyBlock(pos, false)) entity.hurt(entity.damageSources().source(DamageTypes.STALAGMITE), 1);
+        if (!level.isClientSide() && !(entity instanceof ItemEntity) && !(entity instanceof ExperienceOrb) && level.getBlockState(pos).is(this) && level.destroyBlock(pos, false)) entity.hurt(entity.damageSources().source(DamageTypes.STALAGMITE), 1);
     }
     static final class Plain extends IcicleDecorBlock {
         static final IntegerProperty VARIANT = IntegerProperty.create("blockstate", 0, 2);
@@ -48,7 +50,7 @@ class IcicleDecorBlock extends NativeDecorBlock {
             if (!level.isClientSide()) {
                 boolean changed = false;
                 if (stack.is(UtilityContent.CHISEL.get())) { level.setBlock(pos, state.cycle(VARIANT), 3); changed = true; }
-                else if (stack.is(Items.GOLD_NUGGET) && state.getValue(VARIANT) == 0) { stack.shrink(1); level.setBlock(pos, NativeDecorContent.GLITTERDROP_ICICLE.get().defaultBlockState(), 3); changed = true; }
+                else if (stack.is(Items.GOLD_NUGGET) && state.getValue(VARIANT) == 0) { if (!player.getAbilities().instabuild) stack.shrink(1); level.setBlock(pos, NativeDecorContent.GLITTERDROP_ICICLE.get().defaultBlockState(), 3); changed = true; }
                 if (changed) {
                     level.playSound(null, pos, SoundEvents.GLASS_BREAK, SoundSource.NEUTRAL, 1, 2);
                     level.levelEvent(2001, pos, Block.getId(MaterialContent.blocks().get("permafrost").get().defaultBlockState()));

@@ -23,8 +23,8 @@ public final class KofoniClient {
         @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     }
     private static final class Model extends TsrGeoModel<KofoniEntity> {
-        @Override public Identifier getModelResource(KofoniEntity entity) { return id("geo/kofoni.geo.json"); }
-        @Override public Identifier getAnimationResource(KofoniEntity entity) { return id("animations/kofoni.animation.json"); }
+        @Override public Identifier getModelResource(KofoniEntity entity) { return id("kofoni"); }
+        @Override public Identifier getAnimationResource(KofoniEntity entity) { return id("kofoni"); }
         @Override public Identifier getTextureResource(KofoniEntity entity) { return id("textures/entities/" + entity.texture() + ".png"); }
     }
 }

@@ -7,12 +7,17 @@
     "LivingEntityStatusMixin",
     "PlayerInfectionStatusMixin",
     "ArrowPiercingAccess",
-    "LivingDeathStateAccess"
+    "LivingDeathStateAccess",
+    "ClearStatusEffectsConsumeMixin",
+    "RemoveStatusEffectsConsumeMixin",
+    "LakeBiomeLookupMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
+    "AtlasEffectDisplayMixin",
+    "AtlasInventoryEffectDisplayMixin",
     "DimensionSkyTexturesMixin",
     "LoqendiaWeatherMixin"
   ]

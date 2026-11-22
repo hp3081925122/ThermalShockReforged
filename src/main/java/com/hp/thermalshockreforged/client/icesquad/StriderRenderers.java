@@ -30,8 +30,8 @@ public final class StriderRenderers {
         private final String id;
         private final String bone;
         private Model(String id, String bone) { this.id = id; this.bone = bone; }
-        @Override public Identifier getModelResource(IcidrostriderEntity entity) { return resource("geo/" + id + ".geo.json"); }
-        @Override public Identifier getAnimationResource(IcidrostriderEntity entity) { return resource("animations/" + id + ".animation.json"); }
+        @Override public Identifier getModelResource(IcidrostriderEntity entity) { return resource(id); }
+        @Override public Identifier getAnimationResource(IcidrostriderEntity entity) { return resource(id); }
         @Override public Identifier getTextureResource(IcidrostriderEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { if (bone == null) return; lookAt(state, bones, bone); }
     }

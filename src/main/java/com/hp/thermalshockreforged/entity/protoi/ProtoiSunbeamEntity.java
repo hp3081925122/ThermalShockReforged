@@ -43,11 +43,12 @@ public final class ProtoiSunbeamEntity extends ProtoiEntityBase {
     private void applyConfiguredAttributes() {
         if (level().isClientSide() || attributesApplied || !CombatConfig.SPEC.isLoaded()) return;
         float health = getHealth();
+        boolean wasFull = health >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(CombatConfig.SUNBEAM_HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(CombatConfig.SUNBEAM_ARMOR.get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(CombatConfig.SUNBEAM_DAMAGE.get());
         getAttribute(Attributes.FOLLOW_RANGE).setBaseValue(CombatConfig.SUNBEAM_FOLLOW_RANGE.get());
-        setHealth(loadedFromSave ? Math.min(health, getMaxHealth()) : getMaxHealth()); attributesApplied = true;
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(health, getMaxHealth())); attributesApplied = true;
     }
     public void beginAttack(LivingEntity victim) {
         if (!(level() instanceof ServerLevel server) || victim == this || victim.level() != level() || cooldown > 0) return;
@@ -105,13 +106,13 @@ public final class ProtoiSunbeamEntity extends ProtoiEntityBase {
         controllers.add(procedure);
     }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
-        super.addAdditionalSaveData(output); output.putInt("SunbeamCooldown", cooldown); output.putBoolean("SunbeamDeathVisualStarted", deathVisualStarted);
+        super.addAdditionalSaveData(output); output.putBoolean("AttributesConfigured", attributesApplied); output.putInt("SunbeamCooldown", cooldown); output.putBoolean("SunbeamDeathVisualStarted", deathVisualStarted);
         if (attackTask != null) output.putString("SunbeamAttackTask", attackTask.toString());
         output.putBoolean("SunbeamExperiencePending", experiencePending);
         if (experienceAttacker != null) output.putString("SunbeamExperienceAttacker", experienceAttacker.toString());
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
-        loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = false; applyConfiguredAttributes();
+        loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = input.getBooleanOr("AttributesConfigured", false); applyConfiguredAttributes();
         cooldown = Math.clamp(input.getIntOr("SunbeamCooldown", 0), 0, 72000); deathVisualStarted = input.getBooleanOr("SunbeamDeathVisualStarted", false);
         attackTask = input.getString("SunbeamAttackTask").map(java.util.UUID::fromString).orElse(null);
         experiencePending = input.getBooleanOr("SunbeamExperiencePending", false);

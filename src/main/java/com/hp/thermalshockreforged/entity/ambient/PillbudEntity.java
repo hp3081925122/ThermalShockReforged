@@ -105,7 +105,8 @@ public final class PillbudEntity extends net.minecraft.world.entity.monster.Mons
             var source = new DamageSource(server.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.EXPLOSION));
             float damage = (float) (getAttributeValue(Attributes.ATTACK_DAMAGE) * 8);
             discard();
-            for (var hit : server.getEntitiesOfClass(Entity.class, new net.minecraft.world.phys.AABB(position, position).inflate(2), e -> true)) hit.hurt(source, damage);
+            for (var hit : server.getEntitiesOfClass(Entity.class, new net.minecraft.world.phys.AABB(position, position).inflate(2),
+                    e -> e != this && !(e instanceof net.minecraft.world.entity.item.ItemEntity) && !(e instanceof ExperienceOrb))) hit.hurt(source, damage);
             soundAtOrigin(net.minecraft.sounds.SoundEvents.FIREWORK_ROCKET_BLAST);
             soundAtOrigin(net.minecraft.sounds.SoundEvents.FIREWORK_ROCKET_TWINKLE);
             server.sendParticles(AmbientContent.PRISMATIC_BOOM.get(), position.x, position.y, position.z, 1, 0.001, 0.001, 0.001, 0);

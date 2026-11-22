@@ -14,6 +14,8 @@ final class PlayerStatusEffect extends MobEffect {
         this.milk = milk;
     }
 
+    boolean canCureWithMilk() { return milk; }
+
     @Override
     public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
         return action != Action.NONE;

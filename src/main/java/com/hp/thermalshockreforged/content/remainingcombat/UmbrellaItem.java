@@ -19,18 +19,18 @@ public final class UmbrellaItem extends AnimatedCombatItem {
     @Override public String modelName() { return "jellyumbrella"; }
     @Override public String textureName() { return "jellumnbra"; }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
-        var result = super.use(level, player, hand);
-        if (player.getCooldowns().isOnCooldown(getDefaultInstance())) return result;
-        player.setDeltaMovement(new Vec3(0, .5, 0)); player.hurtMarked = true;
+        ItemStack stack = player.getItemInHand(hand);
+        if (player.getCooldowns().isOnCooldown(stack)) return InteractionResult.FAIL;
+        player.setDeltaMovement(new Vec3(0, .5, 0)); player.needsSync = true;
         if (level instanceof ServerLevel server) {
             player.hurtMarked = true;
             player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, legendary ? 60 : 120, 1));
             player.getCooldowns().addCooldown(getDefaultInstance(), legendary ? 80 : 200);
             CombatItemTaskEntity.sound(server, player.position(), "jellyumbrelladeploy", 1, 1);
-            animate(player, player.getItemInHand(hand));
+            animate(player, stack);
             if (legendary) com.hp.thermalshockreforged.ThermalShockReforged.LOGGER.debug("Legendary umbrella activation animation submitted: player={}", player.getUUID());
         }
-        return result;
+        return InteractionResult.SUCCESS;
     }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
         super.appendHoverText(stack, context, display, tooltipAdder, flag);

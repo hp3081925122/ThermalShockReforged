@@ -33,17 +33,19 @@ public final class RustyEdgeItem extends SwordItem {
     };
     public RustyEdgeItem() { super(TIER, 3, -2.6F, com.hp.thermalshockreforged.ModRegistration.item()); }
     @Override public InteractionResult use(Level level, Player player, InteractionHand hand) {
-        var result = super.use(level, player, hand);
-        if (player.getCooldowns().isOnCooldown(getDefaultInstance())) return result;
+        ItemStack stack = player.getItemInHand(hand);
+        if (player.getCooldowns().isOnCooldown(stack)) return InteractionResult.FAIL;
         var look = player.getLookAngle();
         if (player.isShiftKeyDown()) player.setDeltaMovement(new Vec3(-look.x, 0, -look.z));
         else {
             player.setDeltaMovement(new Vec3(look.x * 1.5, .25, look.z * 1.5));
             if (!level.isClientSide()) player.addEffect(new MobEffectInstance(StatusContent.PARRYING, 10, 1));
         }
+        player.needsSync = true;
+        if (!level.isClientSide()) player.hurtMarked = true;
         player.getCooldowns().addCooldown(getDefaultInstance(), 100);
         if (level.isClientSide()) level.playLocalSound(player.getX(), player.getY(), player.getZ(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "propulsionbootsactivate")), SoundSource.NEUTRAL, 1, 4, false);
-        return result;
+        return InteractionResult.SUCCESS;
     }
     @Override public void appendHoverText(ItemStack stack, Item.TooltipContext context, TooltipDisplay display, Consumer<Component> tooltipAdder, TooltipFlag flag) {
         super.appendHoverText(stack, context, display, tooltipAdder, flag);

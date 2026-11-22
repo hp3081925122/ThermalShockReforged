@@ -16,7 +16,7 @@ public final class DialogueScreen extends AbstractContainerScreen<DialogueMenu> 
     public DialogueScreen(DialogueMenu menu, Inventory inventory, Component title) { super(menu, inventory, title, 276, 182); }
     public static void register(RegisterMenuScreensEvent event) { for (var page : DialoguePage.values()) event.register(DialogueContent.type(page), DialogueScreen::new); }
     @Override public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractRenderState(graphics, mouseX, mouseY, partialTick);  }
-    @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
+    @Override public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractBackground(graphics, mouseX, mouseY, partialTick);
         
         graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, SPEECH, leftPos, topPos + 103, 0, 0, 276, 276, 276, 276);
         graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, LABEL, leftPos, topPos - 30, 0, 0, 134, 134, 134, 134);

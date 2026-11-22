@@ -22,7 +22,7 @@ public final class AtlasScreen extends AbstractContainerScreen<AtlasMenu> {
         addRenderableWidget(new AtlasButton(2, 124, 53, "atlas_button_inac2", Component.translatable("gui.thermal_shock_reforged.atlas_menu.button_palace")));
     }
     @Override public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractRenderState(graphics, mouseX, mouseY, partialTick);  }
-    @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
+    @Override public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractBackground(graphics, mouseX, mouseY, partialTick);
         
         graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, BACKGROUND, leftPos + 2, topPos + 2, 0, 0, 192, 192, 192, 192);
         

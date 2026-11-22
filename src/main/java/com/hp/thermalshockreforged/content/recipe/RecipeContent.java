@@ -65,6 +65,10 @@ public final class RecipeContent {
         ThermalShockReforged.LOGGER.debug("Thermal Shock Reforged client recipes received: {}", recipes.values().size());
     }
 
+    public static void resetClient() {
+        clientRecipes = RecipeMap.EMPTY;
+    }
+
     public static RecipeMap recipes(Level level) {
         return level instanceof ServerLevel server ? server.recipeAccess().recipeMap() : clientRecipes;
     }

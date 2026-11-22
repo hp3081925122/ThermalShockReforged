@@ -34,9 +34,10 @@ public final class TransmutatorBlock extends Block implements com.hp.thermalshoc
         if (recipe == null) return false;
         var output = recipe.result().create();
         if (!(level instanceof ServerLevel server)) return true;
-        input.shrink(1);
+        boolean consumed = !player.getAbilities().instabuild;
+        if (consumed) input.shrink(1);
         if (!MachineContent.drop(server, pos.getX() + .5, pos.getY() + 1, pos.getZ() + .5, output)) {
-            input.grow(1);
+            if (consumed) input.grow(1);
             ThermalShockReforged.LOGGER.debug("Transmutation output rejected; input restored: player={}, position={}, output={}", player.getUUID(), pos, output);
             return true;
         }

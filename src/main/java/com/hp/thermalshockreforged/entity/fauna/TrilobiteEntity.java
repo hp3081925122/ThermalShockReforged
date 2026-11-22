@@ -82,15 +82,18 @@ public final class TrilobiteEntity extends Monster implements GeoEntity {
 
     @Override
     public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
+        var parent = super.mobInteract(player, hand);
+        if (parent.consumesAction() || !isAlive() || isRemoved()) return parent;
         var held = player.getItemInHand(hand);
         boolean milk = held.is(net.minecraft.world.item.Items.BUCKET);
         boolean capture = held.is(net.minecraft.world.item.Items.CAULDRON);
-        if (!milk && !capture) return super.mobInteract(player, hand);
+        if (!milk && !capture) return parent;
         if (!level().isClientSide()) {
             var result = milk ? FaunaEntities.item("loque_milk") : FaunaEntities.CAULDRON_ITEM.get();
-            held.shrink(1);
+            if (!player.getAbilities().instabuild) held.shrink(1);
             var stack = new net.minecraft.world.item.ItemStack(result);
-            if (!player.getInventory().add(stack)) player.drop(stack, false);
+            if (held.isEmpty()) player.setItemInHand(hand, stack);
+            else if (!player.getInventory().add(stack)) player.drop(stack, false);
             level().playSound(null, blockPosition(), milk ? SoundEvents.MOOSHROOM_MILK : SoundEvents.BUCKET_FILL_POWDER_SNOW, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);
             if (capture) discard();
         }

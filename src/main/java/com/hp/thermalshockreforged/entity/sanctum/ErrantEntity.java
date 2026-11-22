@@ -52,6 +52,7 @@ public final class ErrantEntity extends Monster implements GeoEntity, com.hp.the
     private void applyConfiguredAttributes() {
         if (level().isClientSide() || attributesApplied || !SanctumConfig.SPEC.isLoaded()) return;
         float previousHealth = getHealth();
+        boolean wasFull = previousHealth >= getMaxHealth() - 1.0E-3F;
         var values = sanctum() ? SanctumConfig.SANCTUM_ERRANT : SanctumConfig.ERRANT;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(values.health().get());
         getAttribute(Attributes.ARMOR).setBaseValue(values.armor().get());
@@ -59,7 +60,7 @@ public final class ErrantEntity extends Monster implements GeoEntity, com.hp.the
         getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(values.speed().get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(values.resistance().get());
         getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(values.knockback().get());
-        setHealth(loadedFromSave ? Math.min(previousHealth, getMaxHealth()) : getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(previousHealth, getMaxHealth()));
         attributesApplied = true;
         ThermalShockReforged.LOGGER.debug("Sanctum errant attributes applied: entity={}, loaded={}, health={}, maxHealth={}, attackDamage={}", getUUID(), loadedFromSave, getHealth(), getMaxHealth(), getAttributeValue(Attributes.ATTACK_DAMAGE));
     }
@@ -117,6 +118,7 @@ public final class ErrantEntity extends Monster implements GeoEntity, com.hp.the
     }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
         super.addAdditionalSaveData(output);
+        output.putBoolean("AttributesConfigured", attributesApplied);
         output.putString("Texture", texture());
         combat.save(output);
         output.putBoolean("SanctumErrantDeathCommitted", deathCommitted);
@@ -125,8 +127,8 @@ public final class ErrantEntity extends Monster implements GeoEntity, com.hp.the
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         loadedFromSave = true;
-        attributesApplied = false;
         super.readAdditionalSaveData(input);
+        attributesApplied = input.getBooleanOr("AttributesConfigured", false);
 if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         deathCommitted = input.getBooleanOr("SanctumErrantDeathCommitted", false);
         experiencePending = input.getBooleanOr("SanctumErrantExperiencePending", false);

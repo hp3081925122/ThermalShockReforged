@@ -57,13 +57,15 @@ public final class HiVoltPulseEntity extends Entity implements ServerEndTickTask
         if (armed) ServerEndTickTasks.schedule(level, getUUID());
     }
     private java.util.List<Entity> targets(ServerLevel level) {
-        var targets = level.getEntitiesOfClass(Entity.class, new AABB(position(), position()).inflate(2.5), target -> target != this && !target.getUUID().equals(owner));
+        var targets = level.getEntitiesOfClass(Entity.class, new AABB(position(), position()).inflate(2.5),
+                target -> target != this && !target.getUUID().equals(owner) && !(target instanceof net.minecraft.world.entity.item.ItemEntity) && !(target instanceof ExperienceOrb) && !(target instanceof TamableAnimal pet && pet.isTame()));
         targets.sort(Comparator.comparingDouble(target -> target.distanceToSqr(position())));
         return targets;
     }
     private void pulse(ServerLevel level) {
         level.playSound(null, blockPosition(), SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.NEUTRAL, .8F, 4);
-        var damage = new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS));
+        var attacker = owner != null && level.getEntity(owner) instanceof net.minecraft.world.entity.player.Player player ? player : null;
+        var damage = new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS), attacker, attacker);
         for (Entity target : targets(level)) target.hurt(damage, 1.5F);
     }
     @Override protected void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {

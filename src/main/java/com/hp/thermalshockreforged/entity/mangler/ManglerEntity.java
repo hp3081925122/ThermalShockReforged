@@ -63,8 +63,7 @@ public class ManglerEntity extends Monster implements GeoEntity, ServerEndTickTa
         if (level().isClientSide() || !isAlive() || attackCooldown > 0 || !target.isAlive() || target.level() != level()) return;
         combatDimension = level().dimension().identifier().toString();
         attackCooldown = ManglerCombatConfig.BOOST_COOLDOWN.get(); entityData.set(COOLDOWN_VISIBLE, true); entityData.set(COOLDOWN_AMBIENT, false); setAnimation("boost");
-        Player nearest = null; double distance = Double.MAX_VALUE;
-        if (level().getServer() != null) for (var player : level().getServer().getPlayerList().getPlayers()) { double candidate = player.distanceToSqr(position()); if (candidate < distance) { distance = candidate; nearest = player; } }
+        Player nearest = level().getNearestPlayer(getX(), getY(), getZ(), -1, EntitySelector.NO_SPECTATORS);
         if (nearest != null) { lookAt(net.minecraft.commands.arguments.EntityAnchorArgument.Anchor.FEET, nearest.position()); yBodyRot = getYRot(); yHeadRot = getYRot(); }
         var look = getLookAngle(); setDeltaMovement(look.x * 2, -0.5, look.z * 2); hurtMarked = true;
         int damage = (int) Math.min(255, Math.max(0, Math.round(getAttributeValue(Attributes.ATTACK_DAMAGE) * (this instanceof SummonedManglerEntity ? 2 : 3))));
@@ -82,7 +81,7 @@ public class ManglerEntity extends Monster implements GeoEntity, ServerEndTickTa
             addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 60, 1, true, true));
             if (level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
             ThermalShockReforged.LOGGER.debug("Mangler stun armed: entity={}, summoned={}, pendingEndTickSlots={}", getUUID(), this instanceof SummonedManglerEntity, Long.bitCount(stunSchedule));
-            if (!(this instanceof SummonedManglerEntity)) { var look = getLookAngle(); double recoil = 0.6 * (1 - getAttributeValue(Attributes.KNOCKBACK_RESISTANCE)); setDeltaMovement(-look.x * recoil, 0, -look.z * recoil); hurtMarked = true; }
+            if (!(this instanceof SummonedManglerEntity)) { var look = getLookAngle(); double recoil = 0.6 * Math.clamp(1 - getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1); setDeltaMovement(-look.x * recoil, 0, -look.z * recoil); hurtMarked = true; }
         }
         return (this instanceof SummonedManglerEntity || !source.is(DamageTypes.IN_FIRE)) && super.hurtServer(level, source, amount);
     }

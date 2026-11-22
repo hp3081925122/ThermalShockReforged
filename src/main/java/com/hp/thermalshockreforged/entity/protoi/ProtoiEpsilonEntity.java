@@ -58,6 +58,7 @@ public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements Serve
     private void applyConfiguredAttributes() {
         if (level().isClientSide() || attributesApplied || !CombatConfig.SPEC.isLoaded()) return;
         float health = getHealth();
+        boolean wasFull = health >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(CombatConfig.EPSILON_HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(CombatConfig.EPSILON_ARMOR.get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(CombatConfig.EPSILON_DAMAGE.get());
@@ -65,7 +66,7 @@ public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements Serve
         getAttribute(Attributes.FLYING_SPEED).setBaseValue(CombatConfig.EPSILON_FLIGHT_SPEED.get());
         getAttribute(Attributes.FOLLOW_RANGE).setBaseValue(CombatConfig.EPSILON_FOLLOW_RANGE.get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(CombatConfig.EPSILON_RESISTANCE.get());
-        setHealth(loadedFromSave ? Math.min(health, getMaxHealth()) : getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(health, getMaxHealth()));
         attributesApplied = true;
     }
     public void beginAttack(LivingEntity victim) {
@@ -170,6 +171,7 @@ public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements Serve
     }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
         super.addAdditionalSaveData(output);
+        output.putBoolean("AttributesConfigured", attributesApplied);
         output.putInt("EpsilonCooldown", cooldown); output.putInt("EpsilonDriftRemaining", driftRemaining);
         output.putBoolean("EpsilonImpulsePending", impulsePending); output.putBoolean("EpsilonLockPending", driftLockPending);
         if (attackTask != null) output.putString("EpsilonAttackTask", attackTask.toString());
@@ -179,7 +181,7 @@ public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements Serve
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         loadedFromSave = true;
         super.readAdditionalSaveData(input);
-        attributesApplied = false; applyConfiguredAttributes();
+        attributesApplied = input.getBooleanOr("AttributesConfigured", false); applyConfiguredAttributes();
         cooldown = Math.clamp(input.getIntOr("EpsilonCooldown", 0), 0, 72000);
         driftRemaining = Math.clamp(input.getIntOr("EpsilonDriftRemaining", 0), 0, 40);
         impulsePending = input.getBooleanOr("EpsilonImpulsePending", false); driftLockPending = input.getBooleanOr("EpsilonLockPending", false);

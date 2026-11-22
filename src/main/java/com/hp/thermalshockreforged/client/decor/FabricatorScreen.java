@@ -68,7 +68,17 @@ public final class FabricatorScreen extends AbstractContainerScreen<FabricatorMe
 
     private FabricationRecipe recipe(FabricatorPage page) {
         if (page.isGuide() || minecraft == null || minecraft.level == null) return null;
+        var holder = com.hp.thermalshockreforged.content.recipe.RecipeContent.recipes(minecraft.level)
+                .byKey(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.RECIPE, page.recipe));
+        if (holder != null && holder.value() instanceof FabricationRecipe recipe) return recipe;
         return null;
+    }
+
+    @Override
+    protected void init() {
+        super.init();
+        ThermalShockReforged.LOGGER.debug("Fabricator screen initialized: page={}, width={}, height={}, synchronizedRecipes={}", menu.page(), imageWidth, imageHeight,
+                minecraft.level == null ? 0 : com.hp.thermalshockreforged.content.recipe.RecipeContent.recipes(minecraft.level).values().size());
     }
 
     private ItemStack result(FabricatorPage page) {
@@ -213,7 +223,8 @@ public final class FabricatorScreen extends AbstractContainerScreen<FabricatorMe
     }
 
     @Override
-    public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
+    public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
+        super.extractBackground(graphics, mouseX, mouseY, partialTick);
         int x = leftPos;
         int y = topPos;
         

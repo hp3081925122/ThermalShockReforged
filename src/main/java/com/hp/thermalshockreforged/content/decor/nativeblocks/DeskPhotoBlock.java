@@ -4,9 +4,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -33,20 +33,20 @@ final class DeskPhotoBlock extends FacingDecorBlock {
         return SHAPE;
     }
 
-    private void openPhoto(Level level, Player player) {
-        if (!level.isClientSide()) player.openMenu(new SimpleMenuProvider((id, inventory, owner) -> new DeskPhotoMenu(id, inventory), Component.translatable("block.thermal_shock_reforged.desk_photo")));
+    private void openPhoto(Level level, BlockPos pos, Player player) {
+        if (!level.isClientSide()) player.openMenu(new SimpleMenuProvider((id, inventory, owner) -> new DeskPhotoMenu(id, inventory, ContainerLevelAccess.create(level, pos)), Component.translatable("block.thermal_shock_reforged.desk_photo")));
     }
 
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
                                                Player player, InteractionHand hand, BlockHitResult hit) {
-        openPhoto(level, player);
+        openPhoto(level, pos, player);
         return InteractionResult.SUCCESS;
     }
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
-        openPhoto(level, player);
+        openPhoto(level, pos, player);
         return InteractionResult.SUCCESS;
     }
 }

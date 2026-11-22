@@ -40,8 +40,8 @@ final class LiteprismLaserClient {
         private Renderer() { super(new Model()); }
     }
     private static final class Model extends TsrGeoModel<LiteprismLaserItem> {
-        @Override public Identifier getModelResource(LiteprismLaserItem item) { return resource("geo/liteprism_laser.geo.json"); }
+        @Override public Identifier getModelResource(LiteprismLaserItem item) { return resource("liteprism_laser"); }
         @Override public Identifier getTextureResource(LiteprismLaserItem item) { return resource("textures/item/prismgauntlet.png"); }
-        @Override public Identifier getAnimationResource(LiteprismLaserItem item) { return resource("animations/liteprism_laser.animation.json"); }
+        @Override public Identifier getAnimationResource(LiteprismLaserItem item) { return resource("liteprism_laser"); }
     }
 }

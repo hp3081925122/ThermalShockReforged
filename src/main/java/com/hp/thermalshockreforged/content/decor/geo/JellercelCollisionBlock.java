@@ -5,6 +5,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.ExperienceOrb;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -100,10 +102,10 @@ public final class JellercelCollisionBlock extends Block implements SimpleWaterl
 
     @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {
         super.entityInside(state, level, pos, entity, effects, precise);
-        if (!level.isClientSide()) entity.hurt(level.damageSources().lightningBolt(), 1);
+        if (!level.isClientSide() && !(entity instanceof ItemEntity) && !(entity instanceof ExperienceOrb)) entity.hurt(level.damageSources().lightningBolt(), 1);
     }
     @Override public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         super.stepOn(level, pos, state, entity);
-        if (!level.isClientSide()) entity.hurt(level.damageSources().lightningBolt(), 1);
+        if (!level.isClientSide() && !(entity instanceof ItemEntity) && !(entity instanceof ExperienceOrb)) entity.hurt(level.damageSources().lightningBolt(), 1);
     }
 }

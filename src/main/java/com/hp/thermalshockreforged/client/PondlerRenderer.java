@@ -24,7 +24,7 @@ public final class PondlerRenderer extends TsrGeoEntityRenderer<PondlerEntity> {
     private static final class Model extends TsrGeoModel<PondlerEntity> {
         @Override
         public Identifier getModelResource(PondlerEntity entity) {
-            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "geo/pondler.geo.json");
+            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "pondler");
         }
 
         @Override
@@ -34,7 +34,7 @@ public final class PondlerRenderer extends TsrGeoEntityRenderer<PondlerEntity> {
 
         @Override
         public Identifier getAnimationResource(PondlerEntity entity) {
-            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "animations/pondler.animation.json");
+            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "pondler");
         }
     }
 }

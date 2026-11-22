@@ -24,9 +24,9 @@ public final class ProtoiEpsilonRenderer extends TsrGeoEntityRenderer<ProtoiEpsi
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     private static final class Model extends TsrGeoModel<ProtoiEpsilonEntity> {
-        @Override public Identifier getModelResource(ProtoiEpsilonEntity entity) { return resource("geo/protoi_epsilon.geo.json"); }
+        @Override public Identifier getModelResource(ProtoiEpsilonEntity entity) { return resource("protoi_epsilon"); }
         @Override public Identifier getTextureResource(ProtoiEpsilonEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
-        @Override public Identifier getAnimationResource(ProtoiEpsilonEntity entity) { return resource("animations/protoi_epsilon.animation.json"); }
+        @Override public Identifier getAnimationResource(ProtoiEpsilonEntity entity) { return resource("protoi_epsilon"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { lookAt(state, bones, "body"); }
     }
     private static final class Glow extends GeoEyesLayer<ProtoiEpsilonEntity, Void, EntityRenderState> {

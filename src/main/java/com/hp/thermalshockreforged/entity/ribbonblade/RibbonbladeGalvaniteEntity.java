@@ -50,13 +50,15 @@ public final class RibbonbladeGalvaniteEntity extends AnimatedMonsterEntity impl
     @Override protected List<String> procedureAnimations() { return List.of("idle", "attack", "taunt", "block"); }
     @Override protected String movementAnimation(boolean moving) { return "idle"; }
     public void applyConfiguredAttributes() {
-        if (attributesApplied || !RibbonbladeConfig.SPEC.isLoaded()) return;
+        if (level().isClientSide() || attributesApplied || !RibbonbladeConfig.SPEC.isLoaded()) return;
+        float previous = getHealth();
+        boolean wasFull = previous >= getMaxHealth() - 1.0E-3F;
         attributesApplied = true;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(RibbonbladeConfig.HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(RibbonbladeConfig.ARMOR.get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(RibbonbladeConfig.DAMAGE.get());
         getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(RibbonbladeConfig.SPEED.get());
-        setHealth(loaded ? Math.min(getHealth(), getMaxHealth()) : getMaxHealth());
+        setHealth(!loaded || wasFull ? getMaxHealth() : Math.min(previous, getMaxHealth()));
     }
     public void beginAttack(LivingEntity target) {
         if (!(level() instanceof ServerLevel server) || !isAlive() || target == this || target.level() != level() || cooldown > 0 || submitting) return;
@@ -94,7 +96,7 @@ public final class RibbonbladeGalvaniteEntity extends AnimatedMonsterEntity impl
             sound(server, "ribbonblade_block", 1, 1);
         }
     }
-    @Override public void onAddedToLevel() { super.onAddedToLevel(); if (chargeDelay > 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
+    @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguredAttributes(); if (chargeDelay > 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID()); }
     @Override public void baseTick() {
         super.baseTick();
         if (level() instanceof ServerLevel server) {
@@ -127,7 +129,7 @@ public final class RibbonbladeGalvaniteEntity extends AnimatedMonsterEntity impl
     @Override protected void playStepSound(BlockPos pos, BlockState state) { playSound(SoundEvents.CHAIN_PLACE, .15F, 1); }
     @Override protected SoundEvent getHurtSound(DamageSource source) { return BuiltInRegistries.SOUND_EVENT.getValue(RibbonbladeContent.id("galvanitehurt")); }
     @Override protected SoundEvent getDeathSound() { return BuiltInRegistries.SOUND_EVENT.getValue(RibbonbladeContent.id("galvanitedeath")); }
-    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putInt("RibbonCooldown", cooldown); output.putInt("RibbonTaunt", tauntWindow); output.putInt("RibbonCharge", chargeDelay); output.putBoolean("RibbonCooldownVisible", entityData.get(COOLDOWN_VISIBLE)); output.putBoolean("RibbonDropsDone", deathDropsDone); if (activeStrike != null) output.putString("RibbonActiveStrike", activeStrike.toString()); }
-    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); loaded = true; cooldown = Math.clamp(input.getIntOr("RibbonCooldown", 0), 0, 72000); tauntWindow = Math.clamp(input.getIntOr("RibbonTaunt", 0), 0, 40); chargeDelay = Math.clamp(input.getIntOr("RibbonCharge", 0), 0, 5); entityData.set(COOLDOWN_VISIBLE, cooldown > 0 && input.getBooleanOr("RibbonCooldownVisible", false)); deathDropsDone = input.getBooleanOr("RibbonDropsDone", false); activeStrike = input.getString("RibbonActiveStrike").map(java.util.UUID::fromString).orElse(null); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putBoolean("AttributesConfigured", attributesApplied); output.putInt("RibbonCooldown", cooldown); output.putInt("RibbonTaunt", tauntWindow); output.putInt("RibbonCharge", chargeDelay); output.putBoolean("RibbonCooldownVisible", entityData.get(COOLDOWN_VISIBLE)); output.putBoolean("RibbonDropsDone", deathDropsDone); if (activeStrike != null) output.putString("RibbonActiveStrike", activeStrike.toString()); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { loaded = true; super.readAdditionalSaveData(input); attributesApplied = input.getBooleanOr("AttributesConfigured", false); applyConfiguredAttributes(); cooldown = Math.clamp(input.getIntOr("RibbonCooldown", 0), 0, 72000); tauntWindow = Math.clamp(input.getIntOr("RibbonTaunt", 0), 0, 40); chargeDelay = Math.clamp(input.getIntOr("RibbonCharge", 0), 0, 5); entityData.set(COOLDOWN_VISIBLE, cooldown > 0 && input.getBooleanOr("RibbonCooldownVisible", false)); deathDropsDone = input.getBooleanOr("RibbonDropsDone", false); activeStrike = input.getString("RibbonActiveStrike").map(java.util.UUID::fromString).orElse(null); }
     public static AttributeSupplier.Builder attributes() { return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 40).add(Attributes.ARMOR, 10).add(Attributes.ATTACK_DAMAGE, 7).add(Attributes.MOVEMENT_SPEED, 0).add(Attributes.FOLLOW_RANGE, 32).add(Attributes.ATTACK_KNOCKBACK, .8).add(Attributes.STEP_HEIGHT, 1.6); }
 }

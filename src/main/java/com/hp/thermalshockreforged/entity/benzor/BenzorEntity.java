@@ -34,9 +34,10 @@ public final class BenzorEntity extends PathfinderMob implements GeoEntity {
     @Override public boolean canCollideWith(Entity entity) { return true; }
     public boolean canBeCollidedWith() { return true; }
     @Override public boolean removeWhenFarAway(double distance) { return false; }
-    public boolean isInvulnerableTo(DamageSource source) {
-        if (source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_INVULNERABILITY)) return false;
-        return !(source.getEntity() instanceof net.minecraft.world.entity.player.Player player && player.isCreative());
+    @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
+        if (source.getDirectEntity() instanceof net.minecraft.world.entity.projectile.arrow.AbstractArrow || source.getDirectEntity() instanceof net.minecraft.world.entity.projectile.throwableitemprojectile.AbstractThrownPotion || source.getDirectEntity() instanceof net.minecraft.world.entity.AreaEffectCloud) return false;
+        if (source.is(DamageTypes.IN_FIRE) || source.is(DamageTypes.FALL) || source.is(DamageTypes.CACTUS) || source.is(DamageTypes.DROWN) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.TRIDENT) || source.is(DamageTypes.FALLING_ANVIL) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.WITHER) || source.is(DamageTypes.WITHER_SKULL)) return false;
+        return super.hurtServer(level, source, amount);
     }
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, EntitySpawnReason reason, SpawnGroupData group) { var result = super.finalizeSpawn(world, difficulty, reason, group); setNoGravity(true); return result; }
     @Override protected InteractionResult mobInteract(Player player, InteractionHand hand) {

@@ -23,8 +23,8 @@ public final class ShutterbugClient {
         @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     }
     private static final class Model extends TsrGeoModel<ShutterbugEntity> {
-        @Override public Identifier getModelResource(ShutterbugEntity entity) { return id("geo/unette.geo.json"); }
-        @Override public Identifier getAnimationResource(ShutterbugEntity entity) { return id("animations/unette.animation.json"); }
+        @Override public Identifier getModelResource(ShutterbugEntity entity) { return id("unette"); }
+        @Override public Identifier getAnimationResource(ShutterbugEntity entity) { return id("unette"); }
         @Override public Identifier getTextureResource(ShutterbugEntity entity) { return id("textures/entities/" + entity.texture() + ".png"); }
     }
 }

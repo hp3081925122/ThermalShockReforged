@@ -27,8 +27,8 @@ public final class AngryCavebloomerRenderer extends TsrGeoEntityRenderer<AngryCa
     @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     @Override protected float getDeathMaxRotation(GeoRenderState state) { return 0; }
     private static final class Model extends TsrGeoModel<AngryCavebloomerEntity> {
-        @Override public Identifier getModelResource(AngryCavebloomerEntity entity) { return resource("geo/angry_cavebloomer.geo.json"); }
-        @Override public Identifier getAnimationResource(AngryCavebloomerEntity entity) { return resource("animations/angry_cavebloomer.animation.json"); }
+        @Override public Identifier getModelResource(AngryCavebloomerEntity entity) { return resource("angry_cavebloomer"); }
+        @Override public Identifier getAnimationResource(AngryCavebloomerEntity entity) { return resource("angry_cavebloomer"); }
         @Override public Identifier getTextureResource(AngryCavebloomerEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { lookAt(state, bones, "head"); }
     }

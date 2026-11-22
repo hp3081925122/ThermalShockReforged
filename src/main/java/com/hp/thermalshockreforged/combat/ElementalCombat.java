@@ -31,6 +31,7 @@ public final class ElementalCombat {
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> HIT_PYRO = PARTICLES.register("hit_pyro", () -> new SimpleParticleType(true));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> HIT_RESIST = PARTICLES.register("hit_resist", () -> new SimpleParticleType(true));
     private static final Element[] ELEMENTS = Element.values();
+    private static final ThreadLocal<Boolean> REENTRANT = ThreadLocal.withInitial(() -> false);
 
     private ElementalCombat() { }
 
@@ -40,6 +41,7 @@ public final class ElementalCombat {
     }
 
     private static void attack(AttackAttemptEvent event) {
+        if (REENTRANT.get() || event.getSource().is(ModDamageTypes.THERM_IFRAME_BYPASS)) return;
         LivingEntity victim = event.getEntity();
         Entity attacker = event.getSource().getEntity();
         Entity direct = event.getSource().getDirectEntity();
@@ -53,26 +55,31 @@ public final class ElementalCombat {
             if (victim.is(element.resist)) resisted = true;
         }
         if (active == 0) return;
-        DamageSource secondary = new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS));
-        if (resisted) {
-            event.setCanceled(true);
-            victim.hurt(secondary, 1);
-            level.playSound(null, victim.blockPosition(), SoundEvents.GLASS_BREAK, SoundSource.NEUTRAL, 1, -1);
-            particle(level, victim, HIT_RESIST.get());
-            return;
+        DamageSource secondary = new DamageSource(level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS), direct, attacker);
+        REENTRANT.set(true);
+        try {
+            if (resisted) {
+                event.setCanceled(true);
+                victim.hurt(secondary, 1);
+                level.playSound(null, victim.blockPosition(), SoundEvents.GLASS_BREAK, SoundSource.NEUTRAL, 1, -1);
+                particle(level, victim, HIT_RESIST.get());
+                return;
+            }
+            if (direct == null) return;
+            boolean recoil = false;
+            float bonus = (float)Math.min(Float.MAX_VALUE, (double)amount * 1.5);
+            for (Element element : ELEMENTS) {
+                if ((active & 1 << element.ordinal()) == 0 || !victim.is(element.weak) || element.excluded(attacker)) continue;
+                victim.hurt(secondary, bonus);
+                level.playSound(null, victim.blockPosition(), element.sound, SoundSource.NEUTRAL, .4F, element.pitch);
+                level.playSound(null, victim.blockPosition(), SoundEvents.ZOMBIE_ATTACK_IRON_DOOR, SoundSource.NEUTRAL, .5F, 1);
+                particle(level, victim, element.particle.get());
+                recoil = true;
+            }
+            if (recoil) recoilDirectSource(direct);
+        } finally {
+            REENTRANT.set(false);
         }
-        if (direct == null) return;
-        boolean recoil = false;
-        float bonus = (float)Math.min(Float.MAX_VALUE, (double)amount * 1.5);
-        for (Element element : ELEMENTS) {
-            if ((active & 1 << element.ordinal()) == 0 || !victim.is(element.weak) || element.excluded(attacker)) continue;
-            victim.hurt(secondary, bonus);
-            level.playSound(null, victim.blockPosition(), element.sound, SoundSource.NEUTRAL, .4F, element.pitch);
-            level.playSound(null, victim.blockPosition(), SoundEvents.ZOMBIE_ATTACK_IRON_DOOR, SoundSource.NEUTRAL, .5F, 1);
-            particle(level, victim, element.particle.get());
-            recoil = true;
-        }
-        if (recoil) recoilDirectSource(direct);
     }
 
     private static void particle(ServerLevel level, LivingEntity victim, SimpleParticleType particle) {
@@ -113,9 +120,9 @@ public final class ElementalCombat {
         }
 
         private boolean matches(Entity attacker, Entity direct) {
-            if (this == PYRO && direct == null) return false;
-            Entity source = this == PYRO ? direct : attacker;
-            return source.is(entities) || attacker instanceof LivingEntity living && (living.getMainHandItem().is(items) || living.getOffhandItem().is(items));
+            if (direct != null && direct.is(entities)) return true;
+            if (this != PYRO && attacker.is(entities)) return true;
+            return direct == attacker && attacker instanceof LivingEntity living && living.getMainHandItem().is(items);
         }
 
         private boolean excluded(Entity attacker) {

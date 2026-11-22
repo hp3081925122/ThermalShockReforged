@@ -30,8 +30,8 @@ public final class GraverRenderers {
     private static final class Model<T extends GraverFamilyEntity> extends TsrGeoModel<T> {
         private final String name;
         private Model(String name) { this.name = name; }
-        @Override public Identifier getModelResource(T entity) { return GraverContent.id("geo/" + name + ".geo.json"); }
-        @Override public Identifier getAnimationResource(T entity) { return GraverContent.id("animations/" + name + ".animation.json"); }
+        @Override public Identifier getModelResource(T entity) { return GraverContent.id(name); }
+        @Override public Identifier getAnimationResource(T entity) { return GraverContent.id(name); }
         @Override public Identifier getTextureResource(T entity) { return GraverContent.id("textures/entities/" + entity.texture() + ".png"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { lookAt(state, bones, "head"); }
     }

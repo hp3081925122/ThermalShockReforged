@@ -52,7 +52,7 @@ public final class ZapGauntletItem extends Item implements GeoItem {
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
         if (!(wielder.level() instanceof ServerLevel server) || wielder instanceof Player player && player.getCooldowns().isOnCooldown(getDefaultInstance())) return false;
         Item ammo = MaterialContent.items().get("specialized_round").get();
-        if (wielder instanceof Player player && !player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) {
+        if (wielder instanceof Player player && !WeaponAmmo.has(player, ammo)) {
             server.playSound(null, player.blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, 5);
             return false;
         }
@@ -68,7 +68,7 @@ public final class ZapGauntletItem extends Item implements GeoItem {
         server.playSound(null, wielder.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "laser_fires")), SoundSource.PLAYERS, 1, 1);
         triggerAnim(wielder, GeoItem.getOrAssignId(stack, server), "procedure", "2");
         if (wielder instanceof Player player && !player.getAbilities().instabuild) {
-            player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
+            WeaponAmmo.consume(player, ammo);
             ThermalShockReforged.LOGGER.debug("Zap Gauntlet fired: player={}, hand={}, ammo={}", player.getUUID(), hand, ammo);
         }
         return false;

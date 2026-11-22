@@ -46,8 +46,10 @@ public final class DissolverGemlockBlock extends Block {
             if (level.getBlockState(pos).equals(activated)) level.setBlock(pos, current, 3);
             return;
         }
-        held.shrink(1);
-        player.getInventory().setChanged();
+        if (!player.getAbilities().instabuild) {
+            held.shrink(1);
+            player.getInventory().setChanged();
+        }
         level.playSound(null, pos, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, 1, 1);
         ThermalShockReforged.LOGGER.debug("Dissolver activated at {} in {} by {}", pos, level.dimension().identifier(), player.getUUID());
     }

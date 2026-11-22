@@ -22,8 +22,8 @@ public final class BeetleRenderers {
         private final String model;
         private final boolean headTracking;
         private CombatModel(String model, boolean headTracking) { this.model = model; this.headTracking = headTracking; }
-        @Override public Identifier getModelResource(T entity) { return resource("geo/" + model + ".geo.json"); }
-        @Override public Identifier getAnimationResource(T entity) { return resource("animations/" + model + ".animation.json"); }
+        @Override public Identifier getModelResource(T entity) { return resource(model); }
+        @Override public Identifier getAnimationResource(T entity) { return resource(model); }
         @Override public Identifier getTextureResource(T entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { if (headTracking) lookAt(state, bones, "head"); }
     }
@@ -37,8 +37,8 @@ public final class BeetleRenderers {
         @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     }
     private static final class DormantModel extends TsrGeoModel<DormantBeetleCrasherEntity> {
-        @Override public Identifier getModelResource(DormantBeetleCrasherEntity entity) { return resource("geo/springy.geo.json"); }
-        @Override public Identifier getAnimationResource(DormantBeetleCrasherEntity entity) { return resource("animations/springy.animation.json"); }
+        @Override public Identifier getModelResource(DormantBeetleCrasherEntity entity) { return resource("springy"); }
+        @Override public Identifier getAnimationResource(DormantBeetleCrasherEntity entity) { return resource("springy"); }
         @Override public Identifier getTextureResource(DormantBeetleCrasherEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
     }
     private static final class DormantRenderer extends TsrGeoEntityRenderer<DormantBeetleCrasherEntity> {

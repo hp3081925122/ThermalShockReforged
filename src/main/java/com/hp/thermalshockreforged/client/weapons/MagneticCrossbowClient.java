@@ -54,8 +54,8 @@ final class MagneticCrossbowClient {
             bones.ifPresent("leftbowarm", bone -> bone.setScale(.75F, .75F, .75F));
             bones.ifPresent("rightbowarm", bone -> bone.setScale(.75F, .75F, .75F));
         }
-        @Override public Identifier getModelResource(MagneticCrossbowItem item) { return resource("geo/magnetic_crossbow.geo.json"); }
+        @Override public Identifier getModelResource(MagneticCrossbowItem item) { return resource("magnetic_crossbow"); }
         @Override public Identifier getTextureResource(MagneticCrossbowItem item) { return resource("textures/item/" + item.textureName() + ".png"); }
-        @Override public Identifier getAnimationResource(MagneticCrossbowItem item) { return resource("animations/magnetic_crossbow.animation.json"); }
+        @Override public Identifier getAnimationResource(MagneticCrossbowItem item) { return resource("magnetic_crossbow"); }
     }
 }

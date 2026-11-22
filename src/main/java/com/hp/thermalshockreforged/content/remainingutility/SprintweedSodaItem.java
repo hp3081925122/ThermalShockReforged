@@ -28,6 +28,7 @@ public final class SprintweedSodaItem extends Item {
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity consumer) {
         if (level.isClientSide() || stack.isEmpty() || !stack.is(this)) return stack;
         consumer.addEffect(new MobEffectInstance(MobEffects.SPEED, 1500, 0));
+        if (consumer instanceof Player player && player.getAbilities().instabuild) return stack;
         stack.shrink(1);
         ItemStack flask = new ItemStack(MaterialContent.items().get("corrial_flask").get());
         if (stack.isEmpty()) return flask;

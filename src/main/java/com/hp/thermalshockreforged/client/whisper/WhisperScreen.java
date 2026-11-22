@@ -18,7 +18,7 @@ public final class WhisperScreen extends AbstractContainerScreen<WhisperMenu> {
     private static final class Clock { int frame; }
     private final Clock clock;
     public WhisperScreen(WhisperMenu menu, Inventory inventory, Component title) {
-        super(menu, inventory, title);
+        super(menu, inventory, title, menu.page.width, menu.page.height);
         clock = Minecraft.getInstance().screen instanceof WhisperScreen previous && previous.menu.npcUuid.equals(menu.npcUuid) ? previous.clock : new Clock();
     }
     public static void register(RegisterMenuScreensEvent event) { for (var page : WhisperPage.values()) event.register(WhisperContent.menu(page), WhisperScreen::new); }
@@ -26,7 +26,7 @@ public final class WhisperScreen extends AbstractContainerScreen<WhisperMenu> {
     @Override protected void init() { super.init(); for (var button : menu.page.buttons) addRenderableWidget(new ImageButton(button)); }
     @Override protected void containerTick() { if (!menu.page.inventory) clock.frame = clock.frame > 12 ? 0 : clock.frame + 1; }
     @Override public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractRenderState(graphics, mouseX, mouseY, partialTick);  if (menu.getCarried().isEmpty() && hoveredSlot == null) for (var image : menu.page.images) if (com.hp.thermalshockreforged.client.npc.NpcIcons.tooltip(graphics, font, image.texture(), leftPos + image.x(), topPos + image.y(), image.width(), image.height(), mouseX, mouseY)) break; if (menu.getCarried().isEmpty()) for (var line : menu.page.lines) if (com.hp.thermalshockreforged.client.npc.NpcTradeLabels.tooltip(graphics, font, line.key(), leftPos + line.x(), topPos + line.y(), mouseX, mouseY)) break; }
-    @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
+    @Override public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractBackground(graphics, mouseX, mouseY, partialTick);
         
         for (var image : menu.page.images) if (!com.hp.thermalshockreforged.client.npc.NpcIcons.draw(graphics, image.texture(), leftPos + image.x(), topPos + image.y(), image.width(), image.height())) graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, texture(image.texture()), leftPos + image.x(), topPos + image.y(), 0, image.frameMax() < 0 ? 0 : Mth.clamp(clock.frame * 128, 0, image.frameMax()), image.width(), image.height(), image.textureWidth(), image.textureHeight());
         

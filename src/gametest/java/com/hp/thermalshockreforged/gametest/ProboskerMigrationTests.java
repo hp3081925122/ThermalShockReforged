@@ -16,6 +16,8 @@ import net.minecraft.world.level.GameType;
 public final class ProboskerMigrationTests {
     public static void ownerCommandsAndFeedingDoNotInterfere(GameTestHelper helper) {
         var pet = helper.spawnWithNoFreeWill(ModEntities.PROBOSKER.get(), 3, 2, 3);
+        helper.assertTrue(pet.getAmbientSound() == null, "Probosker must preserve the silence of the removed empty vanilla ambient event");
+        ThermalShockReforged.LOGGER.debug("Probosker ambient silence preserved after removal of the empty vanilla sound event");
         var owner = new net.neoforged.neoforge.common.util.FakePlayer(helper.getLevel(), new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(), "probosker-owner"));
         try {
             helper.getLevel().addNewPlayer(owner);

@@ -52,11 +52,12 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
     void applyConfiguredAttributes() {
         if (level().isClientSide() || configuredAttributes || !ManglerCombatConfig.SPEC.isLoaded()) return;
         float savedHealth = getHealth();
+        boolean wasFull = savedHealth >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(ManglerCombatConfig.HERALD_HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(ManglerCombatConfig.HERALD_ARMOR.get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(ManglerCombatConfig.HERALD_RESISTANCE.get());
         getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(ManglerCombatConfig.HERALD_KNOCKBACK.get());
-        setHealth(loadedFromSave ? Math.min(savedHealth, getMaxHealth()) : getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(savedHealth, getMaxHealth()));
         configuredAttributes = true;
         ThermalShockReforged.LOGGER.debug("Herald configured attributes applied: uuid={}, loadedFromSave={}, health={}, maxHealth={}, armor={}, knockback={}, resistance={}", getUUID(), loadedFromSave, getHealth(), getMaxHealth(), getAttributeValue(Attributes.ARMOR), getAttributeValue(Attributes.ATTACK_KNOCKBACK), getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));
     }
@@ -169,7 +170,7 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
     static SoundEvent sound(String path) { return BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath("thermal_shock_reforged", path)); }
     @Override
     public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
-        super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putLong("SummonReadyAt", summonReadyAt); output.putInt("HeraldKillCount", killCount); output.putBoolean("HeraldBloom", active); output.putBoolean("KeyDropped", keyDropped); output.putBoolean("DeathVisualStarted", deathVisualStarted); output.putInt("ActivationRemaining", activationRemaining);
+        super.addAdditionalSaveData(output); output.putBoolean("AttributesConfigured", configuredAttributes); output.putString("Texture", texture()); output.putLong("SummonReadyAt", summonReadyAt); output.putInt("HeraldKillCount", killCount); output.putBoolean("HeraldBloom", active); output.putBoolean("KeyDropped", keyDropped); output.putBoolean("DeathVisualStarted", deathVisualStarted); output.putInt("ActivationRemaining", activationRemaining);
         output.putDouble("ActivationX", activationOrigin.x); output.putDouble("ActivationY", activationOrigin.y); output.putDouble("ActivationZ", activationOrigin.z);
         if (anchor != null) { output.putDouble("HeraldXpos", anchor.x); output.putDouble("HeraldYpos", anchor.y); output.putDouble("HeraldZpos", anchor.z); output.putString("AnchorDimension", anchorDimension); }
     }
@@ -177,7 +178,7 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
     public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         loadedFromSave = true;
         super.readAdditionalSaveData(input);
-        configuredAttributes = false;
+        configuredAttributes = input.getBooleanOr("AttributesConfigured", false);
         applyConfiguredAttributes();
         if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", "")); summonReadyAt = input.getLongOr("SummonReadyAt", 0L);
         var legacy = getPersistentData(); killCount = Math.max(0, Math.min(10, input.read("HeraldKillCount", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getIntOr("HeraldKillCount", 0) : (int) legacy.getDoubleOr("HeraldKillCount", 0))); active = input.getBooleanOr("HeraldBloom", false) || legacy.getStringOr("HeraldActive", "").equals("Yup"); keyDropped = input.getBooleanOr("KeyDropped", false) || active; deathVisualStarted = input.getBooleanOr("DeathVisualStarted", false);

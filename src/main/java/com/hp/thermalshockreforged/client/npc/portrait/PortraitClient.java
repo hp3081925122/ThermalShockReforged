@@ -25,8 +25,8 @@ public final class PortraitClient {
         @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     }
     private static final class Model extends TsrGeoModel<PortraitCharacterEntity> {
-        @Override public Identifier getModelResource(PortraitCharacterEntity entity) { return id("geo/portrait_entity.geo.json"); }
-        @Override public Identifier getAnimationResource(PortraitCharacterEntity entity) { return id("animations/portrait_entity.animation.json"); }
+        @Override public Identifier getModelResource(PortraitCharacterEntity entity) { return id("portrait_entity"); }
+        @Override public Identifier getAnimationResource(PortraitCharacterEntity entity) { return id("portrait_entity"); }
         @Override public Identifier getTextureResource(PortraitCharacterEntity entity) { return id("textures/entities/" + entity.texture() + ".png"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { lookAt(state, bones, "head"); }
     }

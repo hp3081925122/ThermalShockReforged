@@ -38,12 +38,12 @@ public final class LiteprismLaserItem extends Item implements GeoItem {
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
         if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(getDefaultInstance())) return false;
         Item ammo = MaterialContent.items().get("specialized_round").get();
-        if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) return false;
+        if (!WeaponAmmo.has(player, ammo)) return false;
         player.getCooldowns().addCooldown(getDefaultInstance(), 5);
         triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "1");
         server.playSound(null, player.blockPosition(), BuiltInRegistries.SOUND_EVENT.getValue(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "laser_fires")), SoundSource.NEUTRAL, 1, 1);
         int segments = LiteprismBeamEntity.fireWeaponLine(server, player);
-        if (!player.getAbilities().instabuild) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
+        WeaponAmmo.consume(player, ammo);
         ThermalShockReforged.LOGGER.debug("Liteprism laser fired: player={}, hand={}, segments={}", player.getUUID(), hand, segments);
         return false;
     }

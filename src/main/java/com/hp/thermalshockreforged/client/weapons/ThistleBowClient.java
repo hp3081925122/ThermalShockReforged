@@ -40,8 +40,8 @@ final class ThistleBowClient {
         private Renderer() { super(new Model()); }
     }
     private static final class Model extends TsrGeoModel<ThistleBowItem> {
-        @Override public Identifier getModelResource(ThistleBowItem item) { return resource("geo/thistle_bow.geo.json"); }
+        @Override public Identifier getModelResource(ThistleBowItem item) { return resource("thistle_bow"); }
         @Override public Identifier getTextureResource(ThistleBowItem item) { return resource("textures/item/thistle_bow.png"); }
-        @Override public Identifier getAnimationResource(ThistleBowItem item) { return resource("animations/thistle_bow.animation.json"); }
+        @Override public Identifier getAnimationResource(ThistleBowItem item) { return resource("thistle_bow"); }
     }
 }

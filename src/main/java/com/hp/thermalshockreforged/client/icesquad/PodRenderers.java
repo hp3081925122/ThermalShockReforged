@@ -25,8 +25,8 @@ public final class PodRenderers {
     public static void particles(RegisterParticleProvidersEvent event) { event.registerSpriteSet(IceSquadContent.FOG_CLOUD.get(), FogCloudParticle.Provider::new); }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     private static final class Model extends TsrGeoModel<BlizzardDropPodEntity> {
-        @Override public Identifier getModelResource(BlizzardDropPodEntity pod) { return resource("geo/drop_pod.geo.json"); }
-        @Override public Identifier getAnimationResource(BlizzardDropPodEntity pod) { return resource("animations/drop_pod.animation.json"); }
+        @Override public Identifier getModelResource(BlizzardDropPodEntity pod) { return resource("drop_pod"); }
+        @Override public Identifier getAnimationResource(BlizzardDropPodEntity pod) { return resource("drop_pod"); }
         @Override public Identifier getTextureResource(BlizzardDropPodEntity pod) { return resource("textures/entities/" + pod.texture() + ".png"); }
     }
     private static final class PodRenderer extends TsrGeoEntityRenderer<BlizzardDropPodEntity> {

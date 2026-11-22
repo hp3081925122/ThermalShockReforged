@@ -27,8 +27,8 @@ public final class SpringslimeRenderers {
         @Override protected float getDeathMaxRotation(GeoRenderState state) { return 0; }
     }
     private static final class Model extends TsrGeoModel<SpringslimeEntity> {
-        @Override public Identifier getModelResource(SpringslimeEntity entity) { return id("geo/violetsplat.geo.json"); }
-        @Override public Identifier getAnimationResource(SpringslimeEntity entity) { return id("animations/violetsplat.animation.json"); }
+        @Override public Identifier getModelResource(SpringslimeEntity entity) { return id("violetsplat"); }
+        @Override public Identifier getAnimationResource(SpringslimeEntity entity) { return id("violetsplat"); }
         @Override public Identifier getTextureResource(SpringslimeEntity entity) { return id("textures/entities/" + entity.texture() + ".png"); }
     }
 }

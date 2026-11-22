@@ -36,6 +36,9 @@ final class CobaltAxe extends AxeItem {
             stripped = stripped.setValue(RotatedPillarBlock.AXIS, state.getValue(RotatedPillarBlock.AXIS));
             level.setBlock(position, stripped, 3);
             level.playSound(null, position, SoundEvents.AXE_STRIP, SoundSource.NEUTRAL, 1, 1);
+            if (context.getPlayer() != null) {
+                context.getItemInHand().hurtAndBreak(1, context.getPlayer(), context.getHand());
+            }
         }
         return InteractionResult.SUCCESS;
     }

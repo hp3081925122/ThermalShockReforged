@@ -25,8 +25,8 @@ public final class MonolithRenderers {
     private static final class Model<T extends MonolithBaseEntity> extends TsrGeoModel<T> {
         private final boolean headTracking;
         private Model(boolean headTracking) { this.headTracking = headTracking; }
-        @Override public Identifier getModelResource(T entity) { return resource("geo/monolith.geo.json"); }
-        @Override public Identifier getAnimationResource(T entity) { return resource("animations/monolith.animation.json"); }
+        @Override public Identifier getModelResource(T entity) { return resource("monolith"); }
+        @Override public Identifier getAnimationResource(T entity) { return resource("monolith"); }
         @Override public Identifier getTextureResource(T entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { if (headTracking) lookAt(state, bones, "head"); }
     }

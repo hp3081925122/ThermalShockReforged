@@ -23,8 +23,8 @@ public final class ConciergeClient {
         @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     }
     private static final class Model extends TsrGeoModel<ConciergeEntity> {
-        @Override public Identifier getModelResource(ConciergeEntity entity) { return id("geo/concierge.geo.json"); }
-        @Override public Identifier getAnimationResource(ConciergeEntity entity) { return id("animations/concierge.animation.json"); }
+        @Override public Identifier getModelResource(ConciergeEntity entity) { return id("concierge"); }
+        @Override public Identifier getAnimationResource(ConciergeEntity entity) { return id("concierge"); }
         @Override public Identifier getTextureResource(ConciergeEntity entity) { return id("textures/entities/" + entity.texture() + ".png"); }
     }
 }

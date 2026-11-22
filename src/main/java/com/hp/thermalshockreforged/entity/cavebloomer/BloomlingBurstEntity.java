@@ -107,7 +107,7 @@ public final class BloomlingBurstEntity extends Entity implements ServerEndTickT
         double eye = victim == null ? targetEyeHeight : victim.getEyeHeight();
         server.sendParticles(ParticleTypes.EXPLOSION, soundOrigin.x, soundOrigin.y + eye, soundOrigin.z, 4, 0.7, 0.7, 0.7, 0);
         var center = position();
-        var victims = server.getEntitiesOfClass(Entity.class, new AABB(center, center).inflate(3), entity -> entity != this && !(entity instanceof BloomlingBurstEntity) && !(entity instanceof ItemEntity)
+        var victims = server.getEntitiesOfClass(Entity.class, new AABB(center, center).inflate(3), entity -> entity != this && !(entity instanceof BloomlingBurstEntity) && !(entity instanceof ItemEntity) && !(entity instanceof net.minecraft.world.entity.ExperienceOrb)
                 && !(entity instanceof BloomlingEntity bloom && bloom.dandy()) && !CavebloomerContent.isBoss(entity));
         victims.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(center)));
         var source = damageSources().source(DamageTypes.EXPLOSION);
@@ -125,7 +125,7 @@ public final class BloomlingBurstEntity extends Entity implements ServerEndTickT
         server.sendParticles(CavebloomerContent.RED_EXPLODE.get(), getX(), getY() + eyeHeight, getZ(), 3, 1, 1, 1, 0);
         server.sendParticles(CavebloomerContent.MAGNETIC_BOOM.get(), getX(), getY() + eyeHeight, getZ(), 3, 1, 1, 1, 0);
         var center = position();
-        var victims = server.getEntitiesOfClass(Entity.class, new AABB(center, center).inflate(4), entity -> !(entity instanceof BloomlingBurstEntity) && !(entity instanceof BloomlingEntity bloom && !bloom.dandy()));
+        var victims = server.getEntitiesOfClass(Entity.class, new AABB(center, center).inflate(4), entity -> entity != this && !(entity instanceof BloomlingBurstEntity) && !(entity instanceof ItemEntity) && !(entity instanceof net.minecraft.world.entity.ExperienceOrb) && !(entity instanceof BloomlingEntity bloom && !bloom.dandy()));
         victims.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(center)));
         var source = damageSources().source(DamageTypes.EXPLOSION);
         for (var entity : victims) {

@@ -53,13 +53,13 @@ public final class AmbientRenderers {
         }
 
         @Override
-        public Identifier getModelResource(T entity) { return resource("geo/" + id + ".geo.json"); }
+        public Identifier getModelResource(T entity) { return resource(id); }
 
         @Override
         public Identifier getTextureResource(T entity) { return resource("textures/entities/" + texture.apply(entity) + ".png"); }
 
         @Override
-        public Identifier getAnimationResource(T entity) { return resource("animations/" + id + ".animation.json"); }
+        public Identifier getAnimationResource(T entity) { return resource(id); }
 
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { if (!head) return; lookAt(state, bones, this.id.equals("flare_wrangler") ? "body" : "head"); }
     }

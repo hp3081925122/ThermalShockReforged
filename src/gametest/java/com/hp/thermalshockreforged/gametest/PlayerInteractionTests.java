@@ -41,6 +41,7 @@ import com.hp.thermalshockreforged.entity.benzor.BenzorContent;
 import com.hp.thermalshockreforged.entity.huntress.HuntressContent;
 import com.hp.thermalshockreforged.entity.icesquad.IceSquadContent;
 import com.hp.thermalshockreforged.entity.icesquad.IceSquadProjectileEntity;
+import com.hp.thermalshockreforged.entity.icesquad.IcidrostriderEntity;
 import com.hp.thermalshockreforged.entity.icesquad.StriderFirePayload;
 import com.hp.thermalshockreforged.entity.kofoni.KofoniContent;
 import com.hp.thermalshockreforged.entity.kofoni.KofoniPage;
@@ -85,6 +86,7 @@ import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -136,6 +138,12 @@ public final class PlayerInteractionTests {
         var server = helper.getLevel().getServer();
         var cookie = CommonListenerCookie.createInitial(new GameProfile(UUID.randomUUID(), "tsr-test-player"), false);
         var player = new ServerPlayer(server, helper.getLevel(), cookie.gameProfile(), cookie.clientInformation());
+        return connect(helper, player, type, x, y, z);
+    }
+
+    public static <T extends ServerPlayer> T connect(GameTestHelper helper, T player, GameType type, double x, double y, double z) {
+        var server = helper.getLevel().getServer();
+        var cookie = CommonListenerCookie.createInitial(player.getGameProfile(), false);
         var connection = new Connection(PacketFlow.SERVERBOUND);
         new EmbeddedChannel(connection);
         negotiateAllChannels(connection);
@@ -169,7 +177,14 @@ public final class PlayerInteractionTests {
     }
 
     private static void send(ServerPlayer player, CustomPacketPayload payload) {
-        player.connection.handleCustomPayload(new ServerboundCustomPayloadPacket(payload));
+        var registries = player.level().registryAccess();
+        CustomPacketPayload received = switch (payload) {
+            case FabricatedArmorPayloads.Launch launch -> NetworkCodecServerTests.roundTrip(registries, FabricatedArmorPayloads.Launch.CODEC, launch);
+            case StriderFirePayload fire -> NetworkCodecServerTests.roundTrip(registries, StriderFirePayload.CODEC, fire);
+            case VaultCodePayload vault -> NetworkCodecServerTests.roundTrip(registries, VaultCodePayload.CODEC, vault);
+            default -> throw new IllegalArgumentException("Unhandled test payload: " + payload.type().id());
+        };
+        player.connection.handleCustomPayload(new ServerboundCustomPayloadPacket(received));
     }
 
     private static void swing(ServerPlayer player) {
@@ -571,8 +586,21 @@ public final class PlayerInteractionTests {
     }
 
     public static void propulsionBootsLaunchPacket(GameTestHelper helper) {
-        var player = player(helper, GameType.SURVIVAL, 3.5, 1, 3.5);
         var key = "thermal_shock_reforged_propulsion_remaining";
+        var unequipped = player(helper, GameType.SURVIVAL, 3.5, 1, 3.5);
+        unequipped.setSprinting(true);
+        send(unequipped, FabricatedArmorPayloads.Launch.INSTANCE);
+        helper.assertTrue(unequipped.getPersistentData().getIntOr(key, 0) == 0 && !unequipped.hasEffect(FabricatedArmorContent.COOLDOWN_VISUAL) && unequipped.getDeltaMovement().equals(Vec3.ZERO), "Propulsion launch must reject a sprinting player without the boots");
+        release(helper, unequipped);
+        var dead = player(helper, GameType.SURVIVAL, 4.5, 1, 3.5);
+        dead.setItemSlot(EquipmentSlot.FEET, new ItemStack(FabricatedArmorContent.PROPULSION_BOOTS.get()));
+        dead.setSprinting(true);
+        Vec3 deadMotion = dead.getDeltaMovement();
+        dead.setHealth(0);
+        send(dead, FabricatedArmorPayloads.Launch.INSTANCE);
+        helper.assertTrue(!dead.isAlive() && dead.getPersistentData().getIntOr(key, 0) == 0 && !dead.hasEffect(FabricatedArmorContent.COOLDOWN_VISUAL) && dead.getDeltaMovement().equals(deadMotion), "A dead player must not start the propulsion cooldown or launch");
+        release(helper, dead);
+        var player = player(helper, GameType.SURVIVAL, 3.5, 1, 3.5);
         player.setItemSlot(EquipmentSlot.FEET, new ItemStack(FabricatedArmorContent.PROPULSION_BOOTS.get()));
         send(player, FabricatedArmorPayloads.Launch.INSTANCE);
         helper.runAfterDelay(1, () -> {
@@ -602,26 +630,63 @@ public final class PlayerInteractionTests {
         var rider = player(helper, GameType.SURVIVAL, 3.5, 1, 4.5);
         var stranger = player(helper, GameType.SURVIVAL, 4.5, 1, 4.5);
         var strider = helper.spawnWithNoFreeWill(IceSquadContent.STRIDER.get(), 3, 1, 3);
+        IcidrostriderEntity[] activeStrider = {strider};
+        long[] fireDeadline = {-1};
         send(stranger, StriderFirePayload.INSTANCE);
         interact(rider, strider);
         helper.assertTrue(rider.getVehicle() == strider, "Right clicking the strider must mount it");
-        int[] shots = new int[1];
+        java.util.function.IntSupplier ownShots = () -> helper.getLevel().getEntitiesOfClass(IceSquadProjectileEntity.class,
+                new AABB(helper.absolutePos(BlockPos.ZERO)).inflate(48), projectile -> projectile.getOwner() == rider).size();
+        java.util.function.IntSupplier strangerShots = () -> helper.getLevel().getEntitiesOfClass(IceSquadProjectileEntity.class,
+                new AABB(helper.absolutePos(BlockPos.ZERO)).inflate(48), projectile -> projectile.getOwner() == stranger).size();
         helper.runAfterDelay(1, () -> {
-            helper.assertTrue(entities(helper, IceSquadProjectileEntity.class) == 0, "Non-riders must not fire the strider");
+            helper.assertTrue(ownShots.getAsInt() == 0 && strangerShots.getAsInt() == 0, "Non-riders must not fire the strider");
+            fireDeadline[0] = helper.getLevel().getGameTime() + 10;
             send(rider, StriderFirePayload.INSTANCE);
         });
         helper.runAfterDelay(2, () -> {
-            shots[0] = entities(helper, IceSquadProjectileEntity.class);
-            helper.assertTrue(shots[0] == 1, "Rider fire packet must launch one ice projectile");
+            helper.assertTrue(ownShots.getAsInt() == 1, "Rider fire packet must launch one ice projectile");
+            var saved = TsrGameTests.roundTrip(helper, activeStrider[0]);
+            int expectedRemaining = (int)Math.clamp(fireDeadline[0] - helper.getLevel().getGameTime(), 0, 10);
+            helper.assertTrue(saved.getIntOr("StriderFireCooldown", -1) == expectedRemaining && expectedRemaining > 0, "Strider save must preserve the exact outstanding fire cooldown");
+            rider.stopRiding();
+            activeStrider[0].discard();
+            var restored = IceSquadContent.STRIDER.get().create(helper.getLevel(), EntitySpawnReason.LOAD);
+            if (restored == null) throw new IllegalStateException("Strider entity factory returned null during cooldown reload");
+            restored.load(saved);
+            restored.setUUID(UUID.randomUUID());
+            restored.setNoAi(true);
+            restored.setPersistenceRequired();
+            restored.snapTo(helper.absoluteVec(new Vec3(3, 1, 3)));
+            helper.assertTrue(helper.getLevel().addFreshEntity(restored), "Reloaded strider must enter the active server level");
+            activeStrider[0] = restored;
+            interact(rider, restored);
+            helper.assertTrue(rider.getVehicle() == restored, "Rider must mount the reloaded strider");
             send(rider, StriderFirePayload.INSTANCE);
         });
-        helper.runAfterDelay(3, () -> helper.assertTrue(entities(helper, IceSquadProjectileEntity.class) == shots[0], "Strider fire must respect its ten tick cooldown"));
+        helper.runAfterDelay(3, () -> helper.assertTrue(ownShots.getAsInt() == 1, "Reloaded strider must keep rejecting fire packets during its saved cooldown"));
         helper.runAfterDelay(13, () -> {
-            helper.assertTrue(entities(helper, IceSquadProjectileEntity.class) == 0, "Strider projectile must expire after five ticks");
+            helper.assertTrue(ownShots.getAsInt() == 0, "Strider projectile must expire after five ticks");
             send(rider, StriderFirePayload.INSTANCE);
         });
-        helper.runAfterDelay(14, () -> {
-            helper.assertTrue(entities(helper, IceSquadProjectileEntity.class) == 1, "Strider must fire again after the cooldown");
+        helper.runAfterDelay(14, () -> helper.assertTrue(ownShots.getAsInt() == 1, "Strider must fire again after the saved cooldown expires"));
+        helper.runAfterDelay(25, () -> {
+            rider.stopRiding();
+            var deadRider = player(helper, GameType.SURVIVAL, 4.5, 1, 4.5);
+            interact(deadRider, activeStrider[0]);
+            helper.assertTrue(deadRider.getVehicle() == activeStrider[0], "A living rider must mount before the death guard is tested");
+            java.util.function.IntSupplier deadRiderShots = () -> helper.getLevel().getEntitiesOfClass(IceSquadProjectileEntity.class,
+                    new AABB(helper.absolutePos(BlockPos.ZERO)).inflate(48), projectile -> projectile.getOwner() == deadRider).size();
+            deadRider.setHealth(0);
+            send(deadRider, StriderFirePayload.INSTANCE);
+            helper.assertTrue(!deadRider.isAlive() && deadRiderShots.getAsInt() == 0, "A dead rider must not cause the strider to fire");
+            deadRider.stopRiding();
+            release(helper, deadRider);
+            interact(rider, activeStrider[0]);
+            helper.assertTrue(rider.getVehicle() == activeStrider[0], "The living rider must remount before the dead-strider guard is tested");
+            activeStrider[0].setHealth(0);
+            send(rider, StriderFirePayload.INSTANCE);
+            helper.assertTrue(!activeStrider[0].isAlive() && ownShots.getAsInt() == 0, "A dead strider mount must not fire");
             rider.stopRiding();
             release(helper, rider);
             release(helper, stranger);
@@ -632,6 +697,7 @@ public final class PlayerInteractionTests {
 
     public static void vaultCodePacketRewardsOnlyCorrectCode(GameTestHelper helper) {
         var player = player(helper, GameType.SURVIVAL, 3.5, 1, 3.5);
+        var observer = player(helper, GameType.SURVIVAL, 4.5, 1, 3.5);
         var anchor = helper.absolutePos(new BlockPos(3, 1, 3));
         player.openMenu(new SimpleMenuProvider((id, inventory, owner) -> {
             var data = new FriendlyByteBuf(Unpooled.buffer());
@@ -639,16 +705,65 @@ public final class PlayerInteractionTests {
             return new RemainingGuiMenu(RemainingGuiPage.LIMBO_VAULT_GUI, id, inventory, data);
         }, Component.literal("vault")), buffer -> buffer.writeBlockPos(anchor));
         helper.assertTrue(player.containerMenu instanceof RemainingGuiMenu menu && menu.page == RemainingGuiPage.LIMBO_VAULT_GUI, "Vault menu must open");
-        int container = player.containerMenu.containerId;
+        int originalContainer = player.containerMenu.containerId;
         var antennae = RemainingCombatContent.ANTENNAE.get();
-        send(player, new VaultCodePayload(container, "dumbbug"));
-        send(player, new VaultCodePayload(container + 1, "DumbBug"));
+        send(player, new VaultCodePayload(originalContainer, "dumbbug"));
+        send(player, new VaultCodePayload(originalContainer + 1000, "DumbBug"));
+        send(observer, new VaultCodePayload(originalContainer, "DumbBug"));
+        player.closeContainer();
+        send(player, new VaultCodePayload(originalContainer, "DumbBug"));
+        helper.assertTrue(count(player, antennae) == 0 && count(observer, antennae) == 0, "Wrong code, stale container, observer, and closed menu must not reward the vault");
+        player.openMenu(new SimpleMenuProvider((id, inventory, owner) -> {
+            var data = new FriendlyByteBuf(Unpooled.buffer());
+            data.writeBlockPos(anchor);
+            return new RemainingGuiMenu(RemainingGuiPage.CHAR_TRADE_TEMPLATE, id, inventory, data);
+        }, Component.literal("other")), buffer -> buffer.writeBlockPos(anchor));
+        int wrongPageContainer = player.containerMenu.containerId;
+        send(player, new VaultCodePayload(wrongPageContainer, "DumbBug"));
+        helper.assertTrue(count(player, antennae) == 0, "Correct code on a replacement non-vault menu must not reward the vault");
+        BlockPos farAnchor = anchor.offset(4096, 0, 4096);
+        player.openMenu(new SimpleMenuProvider((id, inventory, owner) -> {
+            var data = new FriendlyByteBuf(Unpooled.buffer());
+            data.writeBlockPos(farAnchor);
+            return new RemainingGuiMenu(RemainingGuiPage.LIMBO_VAULT_GUI, id, inventory, data);
+        }, Component.literal("unloaded vault")), buffer -> buffer.writeBlockPos(farAnchor));
+        int unloadedContainer = player.containerMenu.containerId;
+        send(player, new VaultCodePayload(unloadedContainer, "DumbBug"));
+        helper.assertTrue(!helper.getLevel().hasChunkAt(farAnchor) && count(player, antennae) == 0, "Vault submission must reject an anchor in an unloaded chunk");
+        player.openMenu(new SimpleMenuProvider((id, inventory, owner) -> {
+            var data = new FriendlyByteBuf(Unpooled.buffer());
+            data.writeBlockPos(anchor);
+            return new RemainingGuiMenu(RemainingGuiPage.LIMBO_VAULT_GUI, id, inventory, data);
+        }, Component.literal("vault")), buffer -> buffer.writeBlockPos(anchor));
+        int validContainer = player.containerMenu.containerId;
+        send(player, new VaultCodePayload(unloadedContainer, "DumbBug"));
+        String oversized = "DumbBug" + "x".repeat(64);
+        boolean encodingRejected = false;
+        try {
+            send(player, new VaultCodePayload(validContainer, oversized));
+        } catch (io.netty.handler.codec.EncoderException expected) {
+            encodingRejected = true;
+            com.hp.thermalshockreforged.ThermalShockReforged.LOGGER.debug("Oversized vault code rejected before dispatch: characters={}", oversized.length());
+        }
+        helper.assertTrue(encodingRejected, "The production payload codec must reject a code exceeding its string limit");
+        helper.assertTrue(player.containerMenu instanceof RemainingGuiMenu activeMenu && !activeMenu.submitVaultCode(player, oversized), "The production menu must independently reject an overlong code");
+        send(player, new VaultCodePayload(validContainer, "DumbBug" + "x".repeat(64 - 7)));
         helper.runAfterDelay(1, () -> {
-            helper.assertTrue(count(player, antennae) == 0, "Wrong code or stale container id must not reward the vault");
-            send(player, new VaultCodePayload(container, "DumbBug"));
+            helper.assertTrue(count(player, antennae) == 0, "A replaced menu id and an overlong code must not reward the vault");
+            player.setGameMode(GameType.SPECTATOR);
+            helper.assertTrue(player.containerMenu instanceof RemainingGuiMenu spectatorMenu && spectatorMenu.page == RemainingGuiPage.LIMBO_VAULT_GUI, "Spectator rejection fixture must retain a valid active vault menu");
+            send(player, new VaultCodePayload(validContainer, "DumbBug"));
+            helper.assertTrue(count(player, antennae) == 0, "A spectator with the valid vault menu and correct code must not receive the reward");
+            player.setGameMode(GameType.SURVIVAL);
+            send(player, new VaultCodePayload(validContainer, "DumbBug"));
         });
         helper.runAfterDelay(2, () -> {
             helper.assertTrue(count(player, antennae) == 1, "Correct vault code must reward one antennae");
+            send(player, new VaultCodePayload(validContainer, "DumbBug"));
+        });
+        helper.runAfterDelay(3, () -> {
+            helper.assertTrue(count(player, antennae) == 1, "Repeated vault code packets on a claimed/closed menu must not duplicate the reward");
+            release(helper, observer);
             release(helper, player);
             helper.succeed();
         });

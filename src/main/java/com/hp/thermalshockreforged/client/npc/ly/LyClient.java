@@ -23,8 +23,8 @@ public final class LyClient {
         @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     }
     private static final class Model extends TsrGeoModel<LyEntity> {
-        @Override public Identifier getModelResource(LyEntity entity) { return id("geo/guby.geo.json"); }
-        @Override public Identifier getAnimationResource(LyEntity entity) { return id("animations/guby.animation.json"); }
+        @Override public Identifier getModelResource(LyEntity entity) { return id("guby"); }
+        @Override public Identifier getAnimationResource(LyEntity entity) { return id("guby"); }
         @Override public Identifier getTextureResource(LyEntity entity) { return id("textures/entities/" + entity.texture() + ".png"); }
     }
 }

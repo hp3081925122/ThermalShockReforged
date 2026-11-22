@@ -29,7 +29,7 @@ public final class JellercelRenderers {
     private static final class Model extends TsrGeoModel<JellercelEntity> {
         private final Identifier model;
         private final Identifier animation;
-        private Model(JellercelKind kind) { model = resource("geo/" + kind.id + ".geo.json"); animation = resource("animations/" + kind.id + ".animation.json"); }
+        private Model(JellercelKind kind) { model = resource(kind.id); animation = resource(kind.id); }
         @Override public Identifier getModelResource(JellercelEntity entity) { return model; }
         @Override public Identifier getTextureResource(JellercelEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
         @Override public Identifier getAnimationResource(JellercelEntity entity) { return animation; }

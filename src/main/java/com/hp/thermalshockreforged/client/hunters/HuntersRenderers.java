@@ -33,9 +33,9 @@ public final class HuntersRenderers {
         private final Function<T, String> texture;
         private final boolean head;
         private Model(String model, Function<T, String> texture, boolean head) { this.model = model; this.texture = texture; this.head = head; }
-        @Override public Identifier getModelResource(T entity) { return resource("geo/" + model + ".geo.json"); }
+        @Override public Identifier getModelResource(T entity) { return resource(model); }
         @Override public Identifier getTextureResource(T entity) { return resource("textures/entities/" + texture.apply(entity) + ".png"); }
-        @Override public Identifier getAnimationResource(T entity) { return resource("animations/" + model + ".animation.json"); }
+        @Override public Identifier getAnimationResource(T entity) { return resource(model); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { if (!head) return; lookAt(state, bones, "head"); }
     }
     private static final class Renderer<T extends Mob & GeoEntity> extends TsrGeoEntityRenderer<T> {

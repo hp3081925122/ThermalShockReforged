@@ -78,13 +78,14 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
     void applyConfiguredAttributes() {
         if (level().isClientSide() || attributesApplied || !IceCombatConfig.SPEC.isLoaded()) return;
         float health = getHealth(); int k = kind();
+        boolean wasFull = health >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(IceCombatConfig.HEALTH[k].get());
         getAttribute(Attributes.ARMOR).setBaseValue(IceCombatConfig.ARMOR[k].get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(IceCombatConfig.DAMAGE[k].get());
         getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(IceCombatConfig.SPEED[k].get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(IceCombatConfig.RESISTANCE[k].get());
         getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(IceCombatConfig.KNOCKBACK[k].get());
-        setHealth(loadedFromSave ? Math.min(health, getMaxHealth()) : getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(health, getMaxHealth()));
         attributesApplied = true;
         ThermalShockReforged.LOGGER.debug("Ice attributes applied: uuid={}, type={}, loadedFromSave={}, health={}, maxHealth={}, attackDamage={}", getUUID(), getType(), loadedFromSave, getHealth(), getMaxHealth(), getAttributeValue(Attributes.ATTACK_DAMAGE));
     }
@@ -176,10 +177,10 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
         } else if (kind() == 3 && attackAge == 10) {
             attackAge = -1; pendingTarget = null;
             if (target == null || !target.isAlive() || target == this) return;
-            double strength = IceCombatConfig.ZERK_LAUNCH.get() * Math.max(0, 1 - target.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));
-            if (strength > 0) target.setDeltaMovement(0, strength, 0);
+            double strength = IceCombatConfig.ZERK_LAUNCH.get() * Math.clamp(1 - target.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1);
+            if (strength > 0) { target.setDeltaMovement(0, strength, 0); target.needsSync = true; target.hurtMarked = true; }
             double damage = getAttributeValue(Attributes.ATTACK_DAMAGE) * IceCombatConfig.ZERK_ALT_MULTIPLIER.get();
-            if (Double.isFinite(damage)) target.hurt(new DamageSource(registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.GENERIC_KILL)), (float)Math.max(0, damage));
+            if (Double.isFinite(damage)) target.hurt(new DamageSource(registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.GENERIC)), (float)Math.max(0, damage));
             sound(SoundEvents.IRON_GOLEM_ATTACK, 1, 1); sound(SoundEvents.ANVIL_PLACE, 1, -1); animate("attack2");
         }
     }
@@ -197,8 +198,8 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
         if (driftCooldown == 0 && !hasEffect(MobEffects.SLOWNESS)) driftMovePending = true;
         if (driftMovePending || driftSlowPending) ServerEndTickTasks.schedule(server, getUUID());
         var center = position();
-        if (!server.getEntitiesOfClass(Player.class, AABB.ofSize(center, 10, 10, 10), player -> true).isEmpty()) {
-            var nearest = server.getServer().getPlayerList().getPlayers().stream().min(Comparator.comparingDouble(player -> player.distanceToSqr(center))).orElse(null);
+        if (!server.getEntitiesOfClass(Player.class, AABB.ofSize(center, 10, 10, 10), EntitySelector.NO_SPECTATORS).isEmpty()) {
+            var nearest = server.getNearestPlayer(center.x, center.y, center.z, -1, EntitySelector.NO_SPECTATORS);
             if (nearest != null) lookAt(EntityAnchorArgument.Anchor.FEET, nearest.position());
         }
         server.playSound(null, blockPosition(), SoundEvents.BAMBOO_PLACE, SoundSource.HOSTILE, 0.1F, 3);
@@ -292,14 +293,14 @@ public final class IceCreatureEntity extends Monster implements GeoEntity, Range
         if (spawn) LegacyEffectParticles.emit(this, 0xFFFFFF, 2);
     }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
-        super.addAdditionalSaveData(output); output.putBoolean("SoldierExperiencePending", soldierExperiencePending);
+        super.addAdditionalSaveData(output); output.putBoolean("AttributesConfigured", attributesApplied); output.putBoolean("SoldierExperiencePending", soldierExperiencePending);
         if (soldierExperienceAttacker != null) output.putString("SoldierExperienceAttacker", soldierExperienceAttacker.toString());
         output.putString("Texture", texture()); output.putInt("IceCooldown", cooldown); output.putInt("IceMovementLock", movementLock); output.putInt("IceAttackAge", attackAge);
         if (pendingTarget != null) output.putString("IceTarget", pendingTarget.toString()); output.putDouble("IceOriginX", attackOrigin.x); output.putDouble("IceOriginY", attackOrigin.y); output.putDouble("IceOriginZ", attackOrigin.z);
         output.putString("IceDimension", combatDimension); output.putBoolean("IceAlternate", alternate); output.putBoolean("IceDriftMovePending", driftMovePending); output.putBoolean("IceDriftSlowPending", driftSlowPending); output.putInt("IceDriftCooldown", driftCooldown); output.putBoolean("IceDeathSpawned", deathSpawned);
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
-        loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = false; applyConfiguredAttributes();
+        loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = input.getBooleanOr("AttributesConfigured", false); applyConfiguredAttributes();
         soldierExperiencePending = input.getBooleanOr("SoldierExperiencePending", false); soldierExperienceAttacker = input.getString("SoldierExperienceAttacker").map(java.util.UUID::fromString).orElse(null);
         if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         cooldown = Math.max(0, Math.min(72000, input.getIntOr("IceCooldown", 0))); movementLock = Math.max(0, Math.min(29, input.getIntOr("IceMovementLock", 0)));

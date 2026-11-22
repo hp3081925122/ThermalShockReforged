@@ -3,10 +3,12 @@ package com.hp.thermalshockreforged.client.vfx;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.hp.thermalshockreforged.ThermalShockReforged;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 
 public final class VfxDefinition {
+    private static final Identifier UNTEXTURED_RING = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/vfx/white.png");
     static final int DRAW_NONE = 0;
     static final int DRAW_SPRITE = 2;
     static final int DRAW_RING = 4;
@@ -188,7 +190,10 @@ public final class VfxDefinition {
             rotation = new Motion(json.getAsJsonObject("rot"), true);
             scale = new Motion(json.getAsJsonObject("scale"), false);
             if (json.has("tex") && !json.get("tex").isJsonNull()) texture = Identifier.parse(json.get("tex").getAsString());
-            else texture = null;
+            else if (draw == DRAW_RING) {
+                texture = UNTEXTURED_RING;
+                ThermalShockReforged.LOGGER.debug("Use white proxy texture for untextured VFX ring: node={}", name);
+            } else texture = null;
             blend = json.get("blend").getAsInt();
             linear = json.get("linear").getAsBoolean();
             depthTest = json.get("ztest").getAsBoolean();

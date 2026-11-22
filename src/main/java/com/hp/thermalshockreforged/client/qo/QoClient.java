@@ -27,13 +27,13 @@ public final class QoClient {
         @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     }
     private static final class ThermoidModel extends TsrGeoModel<ThermoidEntity> {
-        @Override public Identifier getModelResource(ThermoidEntity entity) { return id("geo/thermoid.geo.json"); }
-        @Override public Identifier getAnimationResource(ThermoidEntity entity) { return id("animations/thermoid.animation.json"); }
+        @Override public Identifier getModelResource(ThermoidEntity entity) { return id("thermoid"); }
+        @Override public Identifier getAnimationResource(ThermoidEntity entity) { return id("thermoid"); }
         @Override public Identifier getTextureResource(ThermoidEntity entity) { return id("textures/entities/" + entity.texture() + ".png"); }
     }
     private static final class Model extends TsrGeoModel<DefectorMachinistEntity> {
-        @Override public Identifier getModelResource(DefectorMachinistEntity entity) { return id("geo/qo.geo.json"); }
-        @Override public Identifier getAnimationResource(DefectorMachinistEntity entity) { return id("animations/qo.animation.json"); }
+        @Override public Identifier getModelResource(DefectorMachinistEntity entity) { return id("qo"); }
+        @Override public Identifier getAnimationResource(DefectorMachinistEntity entity) { return id("qo"); }
         @Override public Identifier getTextureResource(DefectorMachinistEntity entity) { return id("textures/entities/" + entity.texture() + ".png"); }
     }
 }

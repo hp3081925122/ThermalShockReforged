@@ -23,8 +23,8 @@ public final class LautClient {
         @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     }
     private static final class Model extends TsrGeoModel<LautEntity> {
-        @Override public Identifier getModelResource(LautEntity entity) { return id("geo/laut.geo.json"); }
-        @Override public Identifier getAnimationResource(LautEntity entity) { return id("animations/laut.animation.json"); }
+        @Override public Identifier getModelResource(LautEntity entity) { return id("laut"); }
+        @Override public Identifier getAnimationResource(LautEntity entity) { return id("laut"); }
         @Override public Identifier getTextureResource(LautEntity entity) { return id("textures/entities/" + entity.texture() + ".png"); }
     }
 }

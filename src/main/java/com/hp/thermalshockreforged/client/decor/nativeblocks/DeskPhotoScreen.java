@@ -23,7 +23,8 @@ public final class DeskPhotoScreen extends AbstractContainerScreen<DeskPhotoMenu
     }
 
     @Override
-    public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
+    public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
+        super.extractBackground(graphics, mouseX, mouseY, partialTick);
         
         
         graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, PHOTO, leftPos + 6, topPos + 1, 0, 0, 164, 164, 164, 164);

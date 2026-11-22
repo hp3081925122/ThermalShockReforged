@@ -18,8 +18,8 @@ public final class RibbonbladeRenderer extends TsrGeoEntityRenderer<RibbonbladeG
     public RibbonbladeRenderer(EntityRendererProvider.Context context) { super(context, new Model()); shadowRadius = .5F; }
     @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     private static final class Model extends TsrGeoModel<RibbonbladeGalvaniteEntity> {
-        @Override public Identifier getModelResource(RibbonbladeGalvaniteEntity entity) { return RibbonbladeContent.id("geo/ribbonblade_galvanite.geo.json"); }
-        @Override public Identifier getAnimationResource(RibbonbladeGalvaniteEntity entity) { return RibbonbladeContent.id("animations/ribbonblade_galvanite.animation.json"); }
+        @Override public Identifier getModelResource(RibbonbladeGalvaniteEntity entity) { return RibbonbladeContent.id("ribbonblade_galvanite"); }
+        @Override public Identifier getAnimationResource(RibbonbladeGalvaniteEntity entity) { return RibbonbladeContent.id("ribbonblade_galvanite"); }
         @Override public Identifier getTextureResource(RibbonbladeGalvaniteEntity entity) { return RibbonbladeContent.id("textures/entities/" + entity.texture() + ".png"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { lookAt(state, bones, "head"); }
     }

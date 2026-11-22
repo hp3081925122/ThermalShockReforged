@@ -40,8 +40,8 @@ final class CoreEjectFlareGunClient {
         private Renderer() { super(new Model()); }
     }
     private static final class Model extends TsrGeoModel<CoreEjectFlareGunItem> {
-        @Override public Identifier getModelResource(CoreEjectFlareGunItem item) { return resource("geo/core_eject_flare.geo.json"); }
+        @Override public Identifier getModelResource(CoreEjectFlareGunItem item) { return resource("core_eject_flare"); }
         @Override public Identifier getTextureResource(CoreEjectFlareGunItem item) { return resource("textures/item/coreflare.png"); }
-        @Override public Identifier getAnimationResource(CoreEjectFlareGunItem item) { return resource("animations/core_eject_flare.animation.json"); }
+        @Override public Identifier getAnimationResource(CoreEjectFlareGunItem item) { return resource("core_eject_flare"); }
     }
 }

@@ -40,8 +40,8 @@ final class ThermoblasterClient {
         private Renderer() { super(new Model()); }
     }
     private static final class Model extends TsrGeoModel<ThermoblasterItem> {
-        @Override public Identifier getModelResource(ThermoblasterItem item) { return resource("geo/cobalt_thermoblaster.geo.json"); }
+        @Override public Identifier getModelResource(ThermoblasterItem item) { return resource("cobalt_thermoblaster"); }
         @Override public Identifier getTextureResource(ThermoblasterItem item) { return resource(item.isZenith() ? "textures/item/zeniththermoblaster.png" : "textures/item/cobaltthermoblaster.png"); }
-        @Override public Identifier getAnimationResource(ThermoblasterItem item) { return resource("animations/cobalt_thermoblaster.animation.json"); }
+        @Override public Identifier getAnimationResource(ThermoblasterItem item) { return resource("cobalt_thermoblaster"); }
     }
 }

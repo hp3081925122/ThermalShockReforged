@@ -38,10 +38,10 @@ public abstract class LegacyArrowEntity extends AbstractArrow implements ItemSup
     public void setImpactKnockback(double value) { impactKnockback = Double.isFinite(value) ? Math.clamp(value, 0, 20) : 0; }
     @Override protected void doKnockback(LivingEntity target, DamageSource source) {
         Vec3 direction = getDeltaMovement().multiply(1, 0, 1).normalize();
-        double resistance = Math.max(0, 1 - target.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));
+        double resistance = Math.clamp(1 - target.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1);
         if (direction.lengthSqr() > 0 && resistance > 0 && impactKnockback > 0) {
             Vec3 impulse = direction.scale(impactKnockback * .6 * resistance);
-            target.push(impulse.x, .1, impulse.z);
+            target.push(impulse.x, .1 * resistance, impulse.z);
             target.hurtMarked = true;
         }
     }

@@ -73,17 +73,19 @@ public abstract class GraverFamilyEntity extends AnimatedMonsterEntity {
         if (level().isClientSide() || attributesApplied || !GraverConfig.SPEC.isLoaded()) return;
         int kind = variant();
         float health = getHealth();
+        boolean wasFull = health >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(GraverConfig.HEALTH[kind].get());
         getAttribute(Attributes.ARMOR).setBaseValue(GraverConfig.ARMOR[kind].get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(GraverConfig.DAMAGE[kind].get());
         getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(GraverConfig.SPEED[kind].get());
-        setHealth(loaded ? Math.min(health, getMaxHealth()) : getMaxHealth());
+        setHealth(!loaded || wasFull ? getMaxHealth() : Math.min(health, getMaxHealth()));
         if (kind == 1) xpReward = GraverConfig.RARE_EXPERIENCE.get();
         attributesApplied = true;
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguration(); }
     @Override public void tick() { applyConfiguration(); super.tick(); }
-    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { loaded = true; super.readAdditionalSaveData(input); attributesApplied = false; }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putBoolean("AttributesConfigured", attributesApplied); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { loaded = true; super.readAdditionalSaveData(input); attributesApplied = input.getBooleanOr("AttributesConfigured", false); applyConfiguration(); }
     public static AttributeSupplier.Builder createAttributes(int kind) {
         var builder = createMobAttributes().add(Attributes.MAX_HEALTH, GraverConfig.DEFAULT_HEALTH[kind]).add(Attributes.ARMOR, GraverConfig.DEFAULT_ARMOR[kind]).add(Attributes.ATTACK_DAMAGE, GraverConfig.DEFAULT_DAMAGE[kind]).add(Attributes.MOVEMENT_SPEED, GraverConfig.DEFAULT_SPEED[kind]).add(Attributes.FOLLOW_RANGE, 32).add(Attributes.STEP_HEIGHT, kind == 4 ? 1 : .6);
         if (kind >= 3) builder.add(Attributes.KNOCKBACK_RESISTANCE, .2).add(Attributes.ATTACK_KNOCKBACK, kind == 3 ? .2 : .5);

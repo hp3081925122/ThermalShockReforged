@@ -18,8 +18,8 @@ public final class SentrariusRenderer extends TsrGeoEntityRenderer<SentrariusEnt
     public static void register(EntityRenderersEvent.RegisterRenderers event) { event.registerEntityRenderer(SentrariusContent.SENTRARIUS.get(), SentrariusRenderer::new); }
     @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     private static final class Model extends TsrGeoModel<SentrariusEntity> {
-        @Override public Identifier getModelResource(SentrariusEntity entity) { return SentrariusContent.id("geo/sentarius.geo.json"); }
-        @Override public Identifier getAnimationResource(SentrariusEntity entity) { return SentrariusContent.id("animations/sentarius.animation.json"); }
+        @Override public Identifier getModelResource(SentrariusEntity entity) { return SentrariusContent.id("sentarius"); }
+        @Override public Identifier getAnimationResource(SentrariusEntity entity) { return SentrariusContent.id("sentarius"); }
         @Override public Identifier getTextureResource(SentrariusEntity entity) { return SentrariusContent.id("textures/entities/" + entity.texture() + ".png"); }
     }
 }

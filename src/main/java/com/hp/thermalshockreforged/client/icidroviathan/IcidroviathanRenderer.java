@@ -19,8 +19,8 @@ public final class IcidroviathanRenderer extends TsrGeoEntityRenderer<Icidroviat
     @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     private static final class Model extends TsrGeoModel<IcidroviathanEntity> {
         private Identifier id(String path) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", path); }
-        @Override public Identifier getModelResource(IcidroviathanEntity entity) { return id("geo/icidroviathan.geo.json"); }
-        @Override public Identifier getAnimationResource(IcidroviathanEntity entity) { return id("animations/icidroviathan.animation.json"); }
+        @Override public Identifier getModelResource(IcidroviathanEntity entity) { return id("icidroviathan"); }
+        @Override public Identifier getAnimationResource(IcidroviathanEntity entity) { return id("icidroviathan"); }
         @Override public Identifier getTextureResource(IcidroviathanEntity entity) { return id("textures/entities/" + entity.texture() + ".png"); }
     }
 }

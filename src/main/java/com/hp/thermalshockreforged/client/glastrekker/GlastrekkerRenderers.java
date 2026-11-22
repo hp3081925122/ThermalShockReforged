@@ -23,9 +23,9 @@ public final class GlastrekkerRenderers {
     }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     private static final class Model extends TsrGeoModel<GlastrekkerEntity> {
-        @Override public Identifier getModelResource(GlastrekkerEntity entity) { return resource("geo/sea_treader.geo.json"); }
+        @Override public Identifier getModelResource(GlastrekkerEntity entity) { return resource("sea_treader"); }
         @Override public Identifier getTextureResource(GlastrekkerEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
-        @Override public Identifier getAnimationResource(GlastrekkerEntity entity) { return resource("animations/sea_treader.animation.json"); }
+        @Override public Identifier getAnimationResource(GlastrekkerEntity entity) { return resource("sea_treader"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { lookAt(state, bones, "body"); }
     }
     private static final class Renderer extends TsrGeoEntityRenderer<GlastrekkerEntity> {

@@ -92,7 +92,9 @@ public final class LootContent {
         @Override public boolean test(LootContext context) {
             if (rule.equals("loqendiaDropHeartCrystals")) return WorldRulesConfig.DROP_HEART_CRYSTALS.get();
             for (var gameRule : net.minecraft.core.registries.BuiltInRegistries.GAME_RULE) {
-                if (gameRule.gameRuleType() != net.minecraft.world.level.gamerules.GameRuleType.BOOL || !gameRule.id().equals(rule)) continue;
+                if (gameRule.gameRuleType() != net.minecraft.world.level.gamerules.GameRuleType.BOOL) continue;
+                var key = net.minecraft.core.registries.BuiltInRegistries.GAME_RULE.getKey(gameRule);
+                if (!gameRule.id().equals(rule) && (key == null || !key.toString().equals(rule) && !key.getPath().equals(rule))) continue;
                 @SuppressWarnings("unchecked") var booleanRule = (net.minecraft.world.level.gamerules.GameRule<Boolean>) gameRule;
                 return context.getLevel().getGameRules().get(booleanRule);
             }

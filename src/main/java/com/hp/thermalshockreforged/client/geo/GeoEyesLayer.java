@@ -9,7 +9,6 @@ import com.geckolib.renderer.layer.GeoRenderLayer;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import net.minecraft.client.renderer.SubmitNodeCollector;
-import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.Identifier;
 import org.jspecify.annotations.Nullable;
@@ -50,6 +49,6 @@ public class GeoEyesLayer<T extends GeoAnimatable, O, R extends GeoRenderState> 
         if (!info.willRender()) return;
         Identifier current = info.getGeckolibData(ticket);
         if (current == null) return;
-        GeoReRender.submit(info, tasks, RenderTypes.eyes(current), light(info.packedLight()), OverlayTexture.NO_OVERLAY, -1);
+        GeoReRender.submit(info, tasks, LegacyEyesRenderType.get(current), light(info.packedLight()), OverlayTexture.NO_OVERLAY, -1);
     }
 }

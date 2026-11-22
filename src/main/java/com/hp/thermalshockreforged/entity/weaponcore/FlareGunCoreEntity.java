@@ -29,8 +29,8 @@ public final class FlareGunCoreEntity extends PathfinderMob implements GeoEntity
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(FlareGunCoreEntity.class, EntityDataSerializers.STRING);
     private static final EntityDataAccessor<Boolean> LANDED = SynchedEntityData.defineId(FlareGunCoreEntity.class, EntityDataSerializers.BOOLEAN);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
-    private int remaining;
-    private boolean initialized;
+    private int remaining = 120;
+    private boolean initialized = true;
     private boolean deathHandled;
     public FlareGunCoreEntity(EntityType<? extends FlareGunCoreEntity> type, Level level) {
         super(type, level);
@@ -88,8 +88,8 @@ public final class FlareGunCoreEntity extends PathfinderMob implements GeoEntity
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
         if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() && input.getStringOr("Texture", "").matches("[a-z0-9_./-]+")) setTexture(input.getStringOr("Texture", ""));
-        entityData.set(LANDED, input.getBooleanOr("FlareCoreLanded", false)); initialized = input.getBooleanOr("FlareCoreInitialized", false);
-        remaining = Math.clamp(input.getIntOr("FlareCoreRemaining", 0), 0, 120); deathHandled = input.getBooleanOr("FlareCoreDeathHandled", false);
+        entityData.set(LANDED, input.getBooleanOr("FlareCoreLanded", false)); initialized = !input.read("FlareCoreInitialized", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() || input.getBooleanOr("FlareCoreInitialized", false);
+        remaining = input.read("FlareCoreRemaining", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? Math.clamp(input.getIntOr("FlareCoreRemaining", 0), 0, 120) : 120; deathHandled = input.getBooleanOr("FlareCoreDeathHandled", false);
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new LegacyAnimationController<>(this, "movement", 4, state -> entityData.get(LANDED) ? PlayState.STOP : state.setAndContinue(RawAnimation.begin().thenLoop("0"))));

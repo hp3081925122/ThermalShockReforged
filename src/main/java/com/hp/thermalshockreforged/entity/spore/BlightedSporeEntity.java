@@ -50,13 +50,8 @@ public final class BlightedSporeEntity extends Monster implements GeoEntity {
     @Override
     public void baseTick() {
         super.baseTick();
-        if (level().isClientSide() || level().getNearestPlayer(getX(), getY(), getZ(), 5, true) == null || level().getServer() == null) return;
-        Player nearest = null;
-        double distance = Double.MAX_VALUE;
-        for (var player : level().getServer().getPlayerList().getPlayers()) {
-            double candidate = player.distanceToSqr(position());
-            if (candidate < distance) { distance = candidate; nearest = player; }
-        }
+        if (level().isClientSide() || !isAlive()) return;
+        Player nearest = level().getNearestPlayer(getX(), getY(), getZ(), 5, true);
         if (nearest == null) return;
         lookAt(net.minecraft.commands.arguments.EntityAnchorArgument.Anchor.FEET, nearest.position());
         yBodyRot = getYRot(); yHeadRot = getYRot();
@@ -65,7 +60,7 @@ public final class BlightedSporeEntity extends Monster implements GeoEntity {
     @Override
     public void playerTouch(Player player) {
         super.playerTouch(player);
-        if (level().isClientSide()) return;
+        if (level().isClientSide() || !isAlive() || player.isCreative() || player.isSpectator()) return;
         player.addEffect(new MobEffectInstance(StatusContent.INFECTED, 360, 0));
         if (random.nextDouble() < 0.3) level().playSound(null, blockPosition(), SoundEvents.SLIME_HURT, SoundSource.NEUTRAL, 1, 5);
     }

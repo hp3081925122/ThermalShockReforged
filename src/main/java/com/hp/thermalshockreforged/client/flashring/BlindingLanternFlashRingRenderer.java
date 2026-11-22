@@ -21,8 +21,8 @@ public final class BlindingLanternFlashRingRenderer extends TsrGeoEntityRenderer
     public static void register(EntityRenderersEvent.RegisterRenderers event) { event.registerEntityRenderer(BlindingLanternFlashRingContent.FLASH_RING.get(), BlindingLanternFlashRingRenderer::new); }
     @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     private static final class Model extends TsrGeoModel<BlindingLanternFlashRingEntity> {
-        @Override public Identifier getModelResource(BlindingLanternFlashRingEntity entity) { return BlindingLanternFlashRingContent.id("geo/lantern_flash_ring.geo.json"); }
-        @Override public Identifier getAnimationResource(BlindingLanternFlashRingEntity entity) { return BlindingLanternFlashRingContent.id("animations/lantern_flash_ring.animation.json"); }
+        @Override public Identifier getModelResource(BlindingLanternFlashRingEntity entity) { return BlindingLanternFlashRingContent.id("lantern_flash_ring"); }
+        @Override public Identifier getAnimationResource(BlindingLanternFlashRingEntity entity) { return BlindingLanternFlashRingContent.id("lantern_flash_ring"); }
         @Override public Identifier getTextureResource(BlindingLanternFlashRingEntity entity) { return BlindingLanternFlashRingContent.id("textures/entities/" + entity.texture() + ".png"); }
     }
 

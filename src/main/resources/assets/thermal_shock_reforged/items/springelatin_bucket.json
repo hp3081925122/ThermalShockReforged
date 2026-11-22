@@ -1,6 +1,14 @@
 {
   "model": {
-    "type": "minecraft:model",
-    "model": "thermal_shock_reforged:item/springelatin_bucket"
+    "type": "neoforge:fluid_container",
+    "fluid": "thermal_shock_reforged:springelatin",
+    "textures": {
+      "base": "minecraft:item/bucket",
+      "fluid": "neoforge:item/mask/bucket_fluid_drip"
+    },
+    "flip_gas": false,
+    "cover_is_mask": true,
+    "apply_fluid_luminosity": true,
+    "force_opaque_fluid": false
   }
 }

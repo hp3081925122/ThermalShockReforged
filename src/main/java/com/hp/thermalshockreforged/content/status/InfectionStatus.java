@@ -38,7 +38,7 @@ public final class InfectionStatus {
         if (!(patient.level() instanceof ServerLevel level) || !patient.isAlive() || patient.hasEffect(StatusContent.PURIFIED)) return;
         CompoundTag state = state(patient);
         String dimension = level.dimension().identifier().toString();
-        if (!state.getString("Dimension").equals(dimension)) {
+        if (!state.getStringOr("Dimension", "").equals(dimension)) {
             cancel(patient);
             state = state(patient);
         }
@@ -63,6 +63,7 @@ public final class InfectionStatus {
         task.putBoolean("Burst", !(patient instanceof Player));
         tasks.add(task);
         state.put("Tasks", tasks);
+        ThermalShockReforged.LOGGER.debug("Infection recurrence scheduled: patient={}, dimension={}, tasks={}", patient.getUUID(), dimension, tasks.size());
     }
 
     private static CompoundTag state(LivingEntity entity) {
@@ -86,7 +87,7 @@ public final class InfectionStatus {
         if (!(event.getEntity() instanceof LivingEntity patient) || !(patient.level() instanceof ServerLevel level)) return;
         if (!patient.getPersistentData().getCompound(KEY).isPresent()) return;
         CompoundTag state = state(patient);
-        if (!patient.isAlive() || !state.getString("Dimension").equals(level.dimension().identifier().toString())) {
+        if (!patient.isAlive() || !state.getStringOr("Dimension", "").equals(level.dimension().identifier().toString())) {
             cancel(patient);
             return;
         }
@@ -124,13 +125,15 @@ public final class InfectionStatus {
     }
 
     private static void execute(LivingEntity patient, ServerLevel level, CompoundTag task) {
+        ThermalShockReforged.LOGGER.debug("Infection recurrence resolved: patient={}, dimension={}, burst={}", patient.getUUID(), level.dimension().identifier(), task.getBooleanOr("Burst", false));
         if (!(patient instanceof Player) || patient.getRandom().nextDouble() < 0.5) {
             patient.addEffect(new MobEffectInstance(StatusContent.INFECTED, (int) Math.round(120 + patient.getRandom().nextDouble() * 80), 1, false, true));
         }
         if (!task.getBooleanOr("Burst", false)) return;
         Vec3 origin = new Vec3(task.getDoubleOr("X", 0), task.getDoubleOr("Y", 0), task.getDoubleOr("Z", 0));
         level.sendParticles(StatusContent.BLOOD_ATTACK.get(), origin.x, origin.y + patient.getEyeHeight() - 0.2, origin.z, 0, 0, 0, 0, 0);
-        for (Entity target : level.getEntitiesOfClass(Entity.class, new AABB(origin, origin).inflate(2.25), target -> target != patient)
+        for (Entity target : level.getEntitiesOfClass(Entity.class, new AABB(origin, origin).inflate(2.25),
+                target -> target != patient && !(target instanceof net.minecraft.world.entity.item.ItemEntity) && !(target instanceof ExperienceOrb))
                 .stream().sorted(Comparator.comparingDouble(target -> target.distanceToSqr(origin))).toList()) {
             if (!patient.isAlive() || patient.isRemoved() || !patient.level().dimension().equals(level.dimension())) {
                 cancel(patient);
@@ -156,7 +159,7 @@ public final class InfectionStatus {
         ListTag tasks = state.getListOrEmpty("Tasks");
         while (tasks.size() > 20) tasks.remove(tasks.size() - 1);
         state.put("Tasks", tasks);
-        if (!patient.isAlive() || !state.getString("Dimension").equals(patient.level().dimension().identifier().toString())) {
+        if (!patient.isAlive() || !state.getStringOr("Dimension", "").equals(patient.level().dimension().identifier().toString())) {
             cancel(patient);
         } else if (state.getIntOr("LockRemaining", 0) > 0) {
             applyLock(patient);

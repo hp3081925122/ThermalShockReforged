@@ -52,7 +52,7 @@ final class VfxBatch {
                 PIPELINES[mode][depth] = RenderPipeline.builder(RenderPipelines.MATRICES_PROJECTION_SNIPPET)
                         .withLocation(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "pipeline/vfx_" + mode + (depth == 1 ? "_depth" : "_nodepth")))
                         .withVertexShader("core/position_tex_color")
-                        .withFragmentShader("core/position_tex_color")
+                        .withFragmentShader(Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "core/vfx"))
                         .withSampler("Sampler0")
                         .withVertexFormat(DefaultVertexFormat.POSITION_TEX_COLOR, VertexFormat.Mode.QUADS)
                         .withCull(false)
@@ -77,6 +77,7 @@ final class VfxBatch {
 
     static void registerPipelines(RegisterRenderPipelinesEvent event) {
         for (RenderPipeline[] modes : PIPELINES) for (RenderPipeline pipeline : modes) event.registerPipeline(pipeline);
+        ThermalShockReforged.LOGGER.debug("Registered VFX pipelines with legacy alpha cutoff: cutoff=0.1, pipelines={}", BLENDS.length * 2);
     }
 
     private static int mode(int blend) {

@@ -61,7 +61,7 @@ public final class IceSquadProjectileEntity extends AbstractArrow implements Ite
     @Override protected void doKnockback(LivingEntity target, DamageSource source) {
         double resistance = Math.clamp(1 - target.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1);
         var impulse = getDeltaMovement().multiply(1, 0, 1).normalize().scale(impactKnockback * resistance);
-        if (impulse.lengthSqr() > 0) target.push(impulse.x, 0.1 * resistance, impulse.z);
+        if (impulse.lengthSqr() > 0) { target.push(impulse.x, 0.1 * resistance, impulse.z); target.hurtMarked = true; }
     }
     private boolean claim(Entity target) {
         if (!reactive() || target == null) return true;

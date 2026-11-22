@@ -43,7 +43,7 @@ public final class FerroCakeConsumption extends Entity implements ServerEndTickT
         var data = cake.getPersistentData();
         Tag previousSlice = data.get("slicecount"), previousToken = data.get(TOKEN);
         data.putDouble("slicecount", 1); data.store(TOKEN, net.minecraft.core.UUIDUtil.CODEC, task.getUUID()); cake.setChanged();
-        if (!level.addFreshEntity(task) || level.getBlockEntity(pos) != cake) {
+        if (!level.addFreshEntity(task) || task.isRemoved() || level.getEntity(task.getUUID()) != task || level.getBlockEntity(pos) != cake) {
             task.discard();
             if (level.getBlockEntity(pos) == cake && data.read(TOKEN, net.minecraft.core.UUIDUtil.CODEC).isPresent() && data.read(TOKEN, net.minecraft.core.UUIDUtil.CODEC).orElseThrow().equals(task.getUUID())) {
                 if (previousSlice == null) data.remove("slicecount"); else data.put("slicecount", previousSlice);
@@ -78,7 +78,7 @@ public final class FerroCakeConsumption extends Entity implements ServerEndTickT
         int current = phase;
         if (current == 3) { consumed = true; discard(); }
         else { phase++; remaining = 5; ServerEndTickTasks.schedule(level, getUUID()); }
-        if (current == 3 && level.getBlockState(anchor).is(GeoDecorContent.block(GeoDecorKind.FERRO_CAKE)) && level.getBlockEntity(anchor) instanceof GeoDecorBlockEntity cake) {
+        if (current == 3 && level.hasChunkAt(anchor) && level.getBlockState(anchor).is(GeoDecorContent.block(GeoDecorKind.FERRO_CAKE)) && level.getBlockEntity(anchor) instanceof GeoDecorBlockEntity cake) {
             var data = cake.getPersistentData();
             if (data.read(TOKEN, net.minecraft.core.UUIDUtil.CODEC).isPresent() && data.read(TOKEN, net.minecraft.core.UUIDUtil.CODEC).orElseThrow().equals(getUUID())) level.setBlock(anchor, Blocks.AIR.defaultBlockState(), 3);
         }

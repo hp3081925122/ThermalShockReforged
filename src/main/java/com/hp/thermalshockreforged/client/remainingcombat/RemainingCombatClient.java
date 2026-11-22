@@ -59,9 +59,9 @@ public final class RemainingCombatClient {
     private static void logout(ClientPlayerNetworkEvent.LoggingOut event) { RemainingCombatContent.clearAnimations(); }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     private static final class ItemModel extends TsrGeoModel<AnimatedCombatItem> {
-        @Override public Identifier getModelResource(AnimatedCombatItem item) { return resource("geo/" + item.modelName() + ".geo.json"); }
+        @Override public Identifier getModelResource(AnimatedCombatItem item) { return resource(item.modelName()); }
         @Override public Identifier getTextureResource(AnimatedCombatItem item) { return resource("textures/item/" + item.textureName() + ".png"); }
-        @Override public Identifier getAnimationResource(AnimatedCombatItem item) { return resource("animations/" + item.modelName() + ".animation.json"); }
+        @Override public Identifier getAnimationResource(AnimatedCombatItem item) { return resource(item.modelName()); }
     }
     private static final class ArmorRenderer extends TsrGeoArmorRenderer<ChorusianAntennaeItem> {
         private ArmorRenderer() { super(new ArmorModel()); }
@@ -70,8 +70,8 @@ public final class RemainingCombatClient {
         }
     }
     private static final class ArmorModel extends TsrGeoModel<ChorusianAntennaeItem> {
-        @Override public Identifier getModelResource(ChorusianAntennaeItem item) { return resource("geo/chorantenna.geo.json"); }
+        @Override public Identifier getModelResource(ChorusianAntennaeItem item) { return resource("chorantenna"); }
         @Override public Identifier getTextureResource(ChorusianAntennaeItem item) { return resource("textures/item/chorantennaealt.png"); }
-        @Override public Identifier getAnimationResource(ChorusianAntennaeItem item) { return resource("animations/chorantenna.animation.json"); }
+        @Override public Identifier getAnimationResource(ChorusianAntennaeItem item) { return resource("chorantenna"); }
     }
 }

@@ -27,8 +27,8 @@ public final class SpecialDoorRenderers {
 
     private static final class Model<T extends GeoAnimatable> extends TsrGeoModel<T> {
         private DoorKind kind(T entity) { return entity instanceof SpecialDoorBlockEntity block ? block.kind : ((SpecialDoorItem)entity).kind; }
-        @Override public Identifier getModelResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "geo/" + kind(entity).asset + ".geo.json"); }
+        @Override public Identifier getModelResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", kind(entity).asset); }
         @Override public Identifier getTextureResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "textures/block/" + kind(entity).asset + ".png"); }
-        @Override public Identifier getAnimationResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", "animations/" + kind(entity).asset + ".animation.json"); }
+        @Override public Identifier getAnimationResource(T entity) { return Identifier.fromNamespaceAndPath("thermal_shock_reforged", kind(entity).asset); }
     }
 }

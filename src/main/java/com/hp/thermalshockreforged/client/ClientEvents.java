@@ -201,9 +201,13 @@ public final class ClientEvents {
         FaunaRenderers.extensions(event);
         FarmingRenderers.extensions(event);
         GrowthRenderers.extensions(event);
-        FluidClient.extensions(event);
         GeoDecorRenderers.extensions(event);
         SpecialDoorRenderers.extensions(event);
+    }
+
+    @SubscribeEvent
+    public static void fluidModels(net.neoforged.neoforge.client.event.RegisterFluidModelsEvent event) {
+        FluidClient.models(event);
     }
 
     @SubscribeEvent
@@ -266,8 +270,10 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void setup(FMLClientSetupEvent event) { event.enqueueWork(() -> {
-        
-        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut logout) -> { com.hp.thermalshockreforged.world.AltarProgressPayload.resetClient(); com.hp.thermalshockreforged.world.OreChoicePayload.resetClient(); });
+        ThermalShockReforged.LOGGER.debug("Registered TSR weapon arm pose: {}", com.hp.thermalshockreforged.client.weapons.ZapGauntletArmPose.POSE.getValue());
+        ThermalShockReforged.LOGGER.debug("Registered TSR container screens with original background order and page dimensions");
+        ThermalShockReforged.LOGGER.debug("Registered TSR Atlas arrival visual hooks for HUD and inventory effects");
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut logout) -> { com.hp.thermalshockreforged.world.AltarProgressPayload.resetClient(); com.hp.thermalshockreforged.world.OreChoicePayload.resetClient(); com.hp.thermalshockreforged.world.ErrandMarkerPayload.resetClient(); com.hp.thermalshockreforged.content.recipe.RecipeContent.resetClient(); });
     }); }
 
 }

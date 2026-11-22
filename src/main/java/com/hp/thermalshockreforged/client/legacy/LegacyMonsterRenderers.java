@@ -38,8 +38,8 @@ public final class LegacyMonsterRenderers {
         private final Identifier model;
         private final Identifier animation;
         private Model(String id) {
-            model = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "geo/" + id + ".geo.json");
-            animation = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "animations/" + id + ".animation.json");
+            model = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id);
+            animation = Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, id);
         }
         @Override public Identifier getModelResource(AnimatedMonsterEntity entity) { return model; }
         @Override public Identifier getTextureResource(AnimatedMonsterEntity entity) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/entities/" + entity.texture() + ".png"); }

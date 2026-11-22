@@ -21,7 +21,7 @@ public final class RemainingGuiScreen extends AbstractContainerScreen<RemainingG
     private int speechFrame;
 
     public RemainingGuiScreen(RemainingGuiMenu menu, Inventory inventory, Component title) {
-        super(menu, inventory, title);
+        super(menu, inventory, title, menu.page.width, menu.page.height);
     }
 
     public static void register(RegisterMenuScreensEvent event) {
@@ -35,7 +35,7 @@ public final class RemainingGuiScreen extends AbstractContainerScreen<RemainingG
         if (menu.page == RemainingGuiPage.LIMBO_VAULT_GUI) {
             var hint = Component.translatable(menu.page.translation("vaultcodeslot"));
             vaultCode = new EditBox(font, leftPos + 81, topPos + 31, 118, 18, hint);
-            vaultCode.setMaxLength(Short.MAX_VALUE);
+            vaultCode.setMaxLength(64);
             vaultCode.setSuggestion(hint.getString());
             vaultCode.setResponder(value -> vaultCode.setSuggestion(value.isEmpty() ? hint.getString() : null));
             addWidget(vaultCode);
@@ -66,7 +66,7 @@ public final class RemainingGuiScreen extends AbstractContainerScreen<RemainingG
          if (menu.getCarried().isEmpty() && hoveredSlot == null) for (var image : menu.page.images) if (com.hp.thermalshockreforged.client.npc.NpcIcons.tooltip(graphics, font, image.texture(), leftPos + image.x(), topPos + image.y(), image.width(), image.height(), mouseX, mouseY)) break;
     }
 
-    @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
+    @Override public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractBackground(graphics, mouseX, mouseY, partialTick);
         
         
         for (var image : menu.page.images) if (!com.hp.thermalshockreforged.client.npc.NpcIcons.draw(graphics, image.texture(), leftPos + image.x(), topPos + image.y(), image.width(), image.height())) graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, texture(image.texture()), leftPos + image.x(), topPos + image.y(), 0, 0, image.width(), image.height(), image.width(), image.height());

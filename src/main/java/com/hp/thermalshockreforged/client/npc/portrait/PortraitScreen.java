@@ -13,7 +13,7 @@ import net.minecraft.world.entity.player.Inventory;
 public final class PortraitScreen extends AbstractContainerScreen<PortraitMenu> {
     public PortraitScreen(PortraitMenu menu, Inventory inventory, Component title) { super(menu, inventory, title, 276, 182); }
     @Override public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractRenderState(graphics, mouseX, mouseY, partialTick);  }
-    @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
+    @Override public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractBackground(graphics, mouseX, mouseY, partialTick);
         
         graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/screens/mainspeechbox.png"), leftPos, topPos + 103, 0, 0, 276, 276, 276, 276);
         graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/screens/mainlabelbox.png"), leftPos, topPos - 30, 0, 0, 134, 134, 134, 134);

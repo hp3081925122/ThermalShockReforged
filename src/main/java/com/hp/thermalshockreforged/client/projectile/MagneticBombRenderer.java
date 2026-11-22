@@ -23,9 +23,9 @@ public final class MagneticBombRenderer extends TsrGeoEntityRenderer<MagneticBom
     @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     @Override protected float getDeathMaxRotation(GeoRenderState state) { return 0; }
     private static final class Model extends TsrGeoModel<MagneticBombEntity> {
-        @Override public Identifier getModelResource(MagneticBombEntity entity) { return resource("geo/magnetic_bomb.geo.json"); }
+        @Override public Identifier getModelResource(MagneticBombEntity entity) { return resource("magnetic_bomb"); }
         @Override public Identifier getTextureResource(MagneticBombEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
-        @Override public Identifier getAnimationResource(MagneticBombEntity entity) { return resource("animations/magnetic_bomb.animation.json"); }
+        @Override public Identifier getAnimationResource(MagneticBombEntity entity) { return resource("magnetic_bomb"); }
     }
     private static final class Glow extends GeoEyesLayer<MagneticBombEntity, Void, EntityRenderState> {
         private Glow(MagneticBombRenderer renderer) { super(renderer); }

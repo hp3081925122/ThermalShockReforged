@@ -28,7 +28,7 @@ public final class CentrifugeScreen extends AbstractContainerScreen<CentrifugeMe
         if (mouseX > leftPos + 138 && mouseX < leftPos + 162 && mouseY > topPos + 32 && mouseY < topPos + 56)
             graphics.setTooltipForNextFrame(font, Component.translatable("gui.thermal_shock_reforged.centrifuge_page.tooltip_place_frost_pearl_or_hearth_hone"), mouseX, mouseY);
     }
-    @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
+    @Override public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractBackground(graphics, mouseX, mouseY, partialTick);
         
         
         graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, BACKGROUND, leftPos, topPos, 0, 0, 176, 166, 176, 166);

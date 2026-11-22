@@ -21,8 +21,8 @@ import com.geckolib.animation.state.AnimationTest;
 public final class HuntressRenderers {
     public static void register(EntityRenderersEvent.RegisterRenderers event) { event.registerEntityRenderer(HuntressContent.NPC.get(), NpcRenderer::new); event.registerEntityRenderer(HuntressContent.BOSS.get(), BossRenderer::new); event.registerEntityRenderer(HuntressContent.TASK.get(), net.minecraft.client.renderer.entity.NoopRenderer::new); }
     private static final class Model<T extends LivingEntity & GeoEntity> extends TsrGeoModel<T> {
-        @Override public Identifier getModelResource(T entity) { return HuntressContent.id("geo/huntress.geo.json"); }
-        @Override public Identifier getAnimationResource(T entity) { return HuntressContent.id("animations/huntress.animation.json"); }
+        @Override public Identifier getModelResource(T entity) { return HuntressContent.id("huntress"); }
+        @Override public Identifier getAnimationResource(T entity) { return HuntressContent.id("huntress"); }
         @Override public Identifier getTextureResource(T entity) { return HuntressContent.id("textures/entities/" + (entity instanceof HuntressBossEntity boss ? boss.texture() : ((HuntressEntity)entity).texture()) + ".png"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { lookAt(state, bones, "head"); }
     }

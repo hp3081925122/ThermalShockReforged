@@ -35,7 +35,7 @@ public final class SopelScreen extends AbstractContainerScreen<SopelMenu> {
     }
     @Override protected void containerTick() { if (menu.page != SopelPage.CHOICE) clock.frame = clock.frame > 12 ? 0 : clock.frame + .125; }
     @Override public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractRenderState(graphics, mouseX, mouseY, partialTick);  }
-    @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
+    @Override public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractBackground(graphics, mouseX, mouseY, partialTick);
         
         graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, id("mainspeechbox"), leftPos, topPos + (menu.page == SopelPage.CHOICE ? 50 : 104), 0, 0, 276, 276, 276, 276);
         if (menu.page != SopelPage.CHOICE) {

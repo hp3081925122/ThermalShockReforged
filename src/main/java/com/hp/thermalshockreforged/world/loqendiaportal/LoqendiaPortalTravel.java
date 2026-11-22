@@ -40,7 +40,10 @@ public final class LoqendiaPortalTravel {
             exit = travel.createPortal(search, axis);
         }
         if (exit.isEmpty()) {
-            return new TeleportTransition(destination, entity.position(), Vec3.ZERO, entity.getYRot(), entity.getXRot(), TeleportTransition.PLAY_PORTAL_SOUND);
+            int safeY = Mth.clamp(destination.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, search.getX(), search.getZ()),
+                    destination.getMinY() + 1, destination.getMaxY() - 1);
+            var safePos = PortalShape.findCollisionFreePosition(Vec3.atBottomCenterOf(search.atY(safeY)), destination, entity, entity.getDimensions(entity.getPose()));
+            return new TeleportTransition(destination, safePos, Vec3.ZERO, entity.getYRot(), entity.getXRot(), TeleportTransition.PLAY_PORTAL_SOUND);
         }
         var entryState = source.getBlockState(entrance);
         Direction.Axis entryAxis = entryState.getOptionalValue(LoqendiaPortalBlock.AXIS).orElse(Direction.Axis.X);

@@ -35,17 +35,16 @@ public final class BossDeathSequence {
         level.sendParticles(ParticleTypes.EXPLOSION, origin.x, origin.y + eyeHeight, origin.z, 1, 2, 3, 2, 0);
         level.playSound(null, BlockPos.containing(origin), BuiltInRegistries.SOUND_EVENT.getValue(SOUND), SoundSource.HOSTILE, 2, 2);
     }
-    public void save(CompoundTag root) {
-        var tag = new CompoundTag();
+    public void save(net.minecraft.world.level.storage.ValueOutput root) {
+        var tag = root.child("BossDeathSequence");
         tag.putDouble("X", origin.x); tag.putDouble("Y", origin.y); tag.putDouble("Z", origin.z); tag.putDouble("EyeHeight", eyeHeight);
         tag.putString("Dimension", dimension); tag.putInt("Emitted", emitted); tag.putInt("Remaining", remaining);
-        root.put("BossDeathSequence", tag);
     }
-    public void load(CompoundTag root) {
-        var tag = root.getCompound("BossDeathSequence").orElseGet(CompoundTag::new);
-        emitted = Math.clamp(tag.getInt("Emitted").orElse(0), 0, 15); remaining = Math.clamp(tag.getInt("Remaining").orElse(0), 1, 4);
-        origin = new Vec3(tag.getDouble("X").orElse(0.0), tag.getDouble("Y").orElse(0.0), tag.getDouble("Z").orElse(0.0)); eyeHeight = tag.getDouble("EyeHeight").orElse(0.0);
-        dimension = tag.getString("Dimension").orElse("");
+    public void load(net.minecraft.world.level.storage.ValueInput root) {
+        var tag = root.childOrEmpty("BossDeathSequence");
+        emitted = Math.clamp(tag.getIntOr("Emitted", 0), 0, 15); remaining = Math.clamp(tag.getIntOr("Remaining", 0), 1, 4);
+        origin = new Vec3(tag.getDoubleOr("X", 0.0), tag.getDoubleOr("Y", 0.0), tag.getDoubleOr("Z", 0.0)); eyeHeight = tag.getDoubleOr("EyeHeight", 0.0);
+        dimension = tag.getStringOr("Dimension", "");
         if (!Double.isFinite(origin.x) || !Double.isFinite(origin.y) || !Double.isFinite(origin.z) || !Double.isFinite(eyeHeight)) emitted = 15;
     }
 }

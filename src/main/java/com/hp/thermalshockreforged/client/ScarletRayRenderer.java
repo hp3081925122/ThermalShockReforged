@@ -30,7 +30,7 @@ public final class ScarletRayRenderer extends TsrGeoEntityRenderer<ScarletRayEnt
     private static final class Model extends TsrGeoModel<ScarletRayEntity> {
         @Override
         public Identifier getModelResource(ScarletRayEntity entity) {
-            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "geo/scarlet_ray.geo.json");
+            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "scarlet_ray");
         }
 
         @Override
@@ -40,7 +40,7 @@ public final class ScarletRayRenderer extends TsrGeoEntityRenderer<ScarletRayEnt
 
         @Override
         public Identifier getAnimationResource(ScarletRayEntity entity) {
-            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "animations/scarlet_ray.animation.json");
+            return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "scarlet_ray");
         }
     }
 

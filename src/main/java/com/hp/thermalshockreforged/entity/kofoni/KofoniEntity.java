@@ -70,6 +70,7 @@ public final class KofoniEntity extends PathfinderMob implements GeoEntity, Serv
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putInt("KofoniWakeSchedule", wakeSchedule); output.putBoolean("KofoniWakeShifted", isShiftKeyDown()); }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         super.readAdditionalSaveData(input);
+        if (input.read("NeoForgeData", CompoundTag.CODEC).isEmpty()) input.read("ForgeData", CompoundTag.CODEC).ifPresent(getPersistentData()::merge);
 if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) entityData.set(TEXTURE, input.getStringOr("Texture", ""));
         int legacyTicks = Math.clamp(input.getIntOr("KofoniWakeTicks", 0), 0, 20);
         wakeSchedule = input.read("KofoniWakeSchedule", com.mojang.serialization.Codec.PASSTHROUGH).isPresent() ? input.getIntOr("KofoniWakeSchedule", 0) & 0xfffff : legacyTicks > 0 ? 1 << (legacyTicks - 1) : 0;

@@ -31,9 +31,9 @@ public final class TitanRenderers {
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     private static final class Model extends TsrGeoModel<SkeletalTitanEntity> {
         private String modelName(SkeletalTitanEntity entity) { return entity.kind() == SkeletalTitanEntity.Kind.FROST ? "frosttitan" : "skeletitan"; }
-        @Override public Identifier getModelResource(SkeletalTitanEntity entity) { return resource("geo/" + modelName(entity) + ".geo.json"); }
+        @Override public Identifier getModelResource(SkeletalTitanEntity entity) { return resource(modelName(entity)); }
         @Override public Identifier getTextureResource(SkeletalTitanEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
-        @Override public Identifier getAnimationResource(SkeletalTitanEntity entity) { return resource("animations/" + modelName(entity) + ".animation.json"); }
+        @Override public Identifier getAnimationResource(SkeletalTitanEntity entity) { return resource(modelName(entity)); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { lookAt(state, bones, "head"); }
     }
 

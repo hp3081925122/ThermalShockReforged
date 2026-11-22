@@ -19,7 +19,7 @@ public final class ConciergeScreen extends AbstractContainerScreen<ConciergeMenu
     private final Clock clock;
     private ImageButton vilebath;
     public ConciergeScreen(ConciergeMenu menu, Inventory inventory, Component title) {
-        super(menu, inventory, title);
+        super(menu, inventory, title, menu.page.width, menu.page.height);
         clock = Minecraft.getInstance().screen instanceof ConciergeScreen previous && previous.menu.npcUuid.equals(menu.npcUuid) ? previous.clock : new Clock();
         var level = Minecraft.getInstance().level;
         var sound = BuiltInRegistries.SOUND_EVENT.getValue(ConciergeContent.id("thermalshockjingle"));
@@ -41,7 +41,7 @@ public final class ConciergeScreen extends AbstractContainerScreen<ConciergeMenu
         super.extractRenderState(graphics, mouseX, mouseY, partialTick);  if (menu.getCarried().isEmpty() && hoveredSlot == null) for (var image : menu.page.images) if (com.hp.thermalshockreforged.client.npc.NpcIcons.tooltip(graphics, font, image.texture(), leftPos + image.x(), topPos + image.y(), image.width(), image.height(), mouseX, mouseY)) break; if (menu.getCarried().isEmpty()) for (var line : menu.page.lines) if (com.hp.thermalshockreforged.client.npc.NpcTradeLabels.tooltip(graphics, font, line.key(), leftPos + line.x(), topPos + line.y(), mouseX, mouseY)) break;
         if (menu.page == ConciergePage.ERRAND_3 && mouseX >= leftPos + 229 && mouseX <= leftPos + 253 && mouseY >= topPos + 25 && mouseY <= topPos + 49) graphics.setTooltipForNextFrame(font, Component.translatable("gui.thermal_shock_reforged.conc_errand_1_epl_3.tooltip_primordial_blood"), mouseX, mouseY);
     }
-    @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
+    @Override public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractBackground(graphics, mouseX, mouseY, partialTick);
         
         for (var image : menu.page.images) if (!com.hp.thermalshockreforged.client.npc.NpcIcons.draw(graphics, image.texture(), leftPos + image.x(), topPos + image.y(), image.width(), image.height())) graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, texture(image.texture()), leftPos + image.x(), topPos + image.y(), 0, image.animated() ? Mth.clamp(clock.frame * 128, 0, 1408) : 0, image.width(), image.height(), image.textureWidth(), image.textureHeight());
         

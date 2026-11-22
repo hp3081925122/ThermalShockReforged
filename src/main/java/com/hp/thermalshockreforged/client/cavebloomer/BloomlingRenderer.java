@@ -29,8 +29,8 @@ public final class BloomlingRenderer extends TsrGeoEntityRenderer<BloomlingEntit
     @Override public void addRenderData(BloomlingEntity entity, Void relatedObject, EntityRenderState state, float partialTick) { super.addRenderData(entity, relatedObject, state, partialTick); state.addGeckolibData(DANDY, entity.dandy()); }
     @Override protected float getDeathMaxRotation(GeoRenderState state) { return state.getOrDefaultGeckolibData(DANDY, false) ? super.getDeathMaxRotation(state) : 0; }
     private static final class Model extends TsrGeoModel<BloomlingEntity> {
-        @Override public Identifier getModelResource(BloomlingEntity entity) { return resource("geo/" + entity.modelStem() + ".geo.json"); }
-        @Override public Identifier getAnimationResource(BloomlingEntity entity) { return resource("animations/" + entity.modelStem() + ".animation.json"); }
+        @Override public Identifier getModelResource(BloomlingEntity entity) { return resource(entity.modelStem()); }
+        @Override public Identifier getAnimationResource(BloomlingEntity entity) { return resource(entity.modelStem()); }
         @Override public Identifier getTextureResource(BloomlingEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { lookAt(state, bones, "head"); }
     }

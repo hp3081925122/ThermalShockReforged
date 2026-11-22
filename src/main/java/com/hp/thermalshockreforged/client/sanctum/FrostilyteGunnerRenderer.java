@@ -20,9 +20,9 @@ public final class FrostilyteGunnerRenderer extends TsrGeoEntityRenderer<Frostil
     @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     private static Identifier resource(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, path); }
     private static final class Model extends TsrGeoModel<FrostilyteGunnerEntity> {
-        @Override public Identifier getModelResource(FrostilyteGunnerEntity entity) { return resource("geo/frostilyte_gunner_rubicon.geo.json"); }
+        @Override public Identifier getModelResource(FrostilyteGunnerEntity entity) { return resource("frostilyte_gunner_rubicon"); }
         @Override public Identifier getTextureResource(FrostilyteGunnerEntity entity) { return resource("textures/entities/" + entity.texture() + ".png"); }
-        @Override public Identifier getAnimationResource(FrostilyteGunnerEntity entity) { return resource("animations/frostilyte_gunner_rubicon.animation.json"); }
+        @Override public Identifier getAnimationResource(FrostilyteGunnerEntity entity) { return resource("frostilyte_gunner_rubicon"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { lookAt(state, bones, "head"); }
     }
 }

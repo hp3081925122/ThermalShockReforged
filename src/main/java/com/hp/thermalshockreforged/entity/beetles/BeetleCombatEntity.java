@@ -111,18 +111,19 @@ public abstract class BeetleCombatEntity extends Monster implements GeoEntity {
         if (level().isClientSide() || attributesApplied || !BeetleConfig.SPEC.isLoaded()) return;
         int index = thrasher() ? 1 : 0;
         float previous = getHealth();
+        boolean wasFull = previous >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(BeetleConfig.HEALTH[index].get());
         getAttribute(Attributes.ARMOR).setBaseValue(BeetleConfig.ARMOR[index].get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(BeetleConfig.DAMAGE[index].get());
         getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(BeetleConfig.SPEED[index].get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(BeetleConfig.RESISTANCE[index].get());
-        setHealth(loadedFromSave ? Math.min(previous, getMaxHealth()) : getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(previous, getMaxHealth()));
         attributesApplied = true;
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguredAttributes(); synchronizeMovementLock(); }
-    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putInt("BeetleCooldown", cooldown); output.putInt("BeetleMovementLock", movementLock); output.putInt("BeetleSleepLock", sleepLock); output.putBoolean("BeetleEmerging", entityData.get(EMERGING)); output.putBoolean("BeetleExperiencePending", experiencePending); if (experienceAttacker != null) output.putString("BeetleExperienceAttacker", experienceAttacker.toString()); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putBoolean("AttributesConfigured", attributesApplied); output.putString("Texture", texture()); output.putInt("BeetleCooldown", cooldown); output.putInt("BeetleMovementLock", movementLock); output.putInt("BeetleSleepLock", sleepLock); output.putBoolean("BeetleEmerging", entityData.get(EMERGING)); output.putBoolean("BeetleExperiencePending", experiencePending); if (experienceAttacker != null) output.putString("BeetleExperienceAttacker", experienceAttacker.toString()); }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
-        loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = false;
+        loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = input.getBooleanOr("AttributesConfigured", false);
         if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         cooldown = Math.clamp(input.getIntOr("BeetleCooldown", 0), 0, 72000); movementLock = Math.clamp(input.getIntOr("BeetleMovementLock", 0), 0, 35); sleepLock = Math.clamp(input.getIntOr("BeetleSleepLock", 0), 0, 5); entityData.set(EMERGING, input.getBooleanOr("BeetleEmerging", false) && cooldown > 0);
         var legacySleep = getEffect(MobEffects.SLOWNESS);

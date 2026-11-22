@@ -52,13 +52,14 @@ public final class ExtractorBlock extends GeoDecorBlock.Waterlogged {
             }
         }
         var inputId = BuiltInRegistries.ITEM.getKey(input.getItem());
-        input.shrink(1);
+        boolean consumed = !player.getAbilities().instabuild;
+        if (consumed) input.shrink(1);
         for (var output : recipe.outputs()) {
             if (!output.guaranteed()) continue;
             int repeat = output.repeat().sample(server.getRandom());
             for (int count = 0; count < repeat; count++) {
                 if (!MachineContent.drop(server, pos.getX(), pos.getY(), pos.getZ(), output.item().create())) {
-                    input.grow(1);
+                    if (consumed) input.grow(1);
                     ThermalShockReforged.LOGGER.debug("Extractor output rejected; input restored: player={}, position={}, input={}", player.getUUID(), pos, inputId);
                     return true;
                 }

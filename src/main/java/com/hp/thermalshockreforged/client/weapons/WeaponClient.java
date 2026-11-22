@@ -57,9 +57,9 @@ public final class WeaponClient {
     }
 
     private static final class Model extends TsrGeoModel<BlindingLanternItem> {
-        private static final Identifier MODEL = Identifier.fromNamespaceAndPath("thermal_shock_reforged", "geo/blinding_lantern.geo.json");
+        private static final Identifier MODEL = Identifier.fromNamespaceAndPath("thermal_shock_reforged", "blinding_lantern");
         private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath("thermal_shock_reforged", "textures/item/blindinglantern.png");
-        private static final Identifier ANIMATION = Identifier.fromNamespaceAndPath("thermal_shock_reforged", "animations/blinding_lantern.animation.json");
+        private static final Identifier ANIMATION = Identifier.fromNamespaceAndPath("thermal_shock_reforged", "blinding_lantern");
         @Override public Identifier getModelResource(BlindingLanternItem item) { return MODEL; }
         @Override public Identifier getTextureResource(BlindingLanternItem item) { return TEXTURE; }
         @Override public Identifier getAnimationResource(BlindingLanternItem item) { return ANIMATION; }

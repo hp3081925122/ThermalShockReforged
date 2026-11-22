@@ -63,7 +63,7 @@ public final class DecorativeBlocks {
 
     public static Block bars(BlockBehaviour.Properties properties, int light, int flammability, boolean fluidOverlay, String... descriptions) {
         List<String> tooltip = List.of(descriptions);
-        return BlockTooltips.keys(new IronBarsBlock(properties) {
+        return BlockTooltips.keys(new IronBarsBlock(properties.noOcclusion()) {
             @Override
             protected int getLightDampening(BlockState state) {
                 return light < 0 ? super.getLightDampening(state) : light;

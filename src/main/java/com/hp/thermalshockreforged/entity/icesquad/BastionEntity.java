@@ -183,13 +183,13 @@ public final class BastionEntity extends Monster implements GeoEntity {
         if (level().isClientSide() || attributesApplied || !BastionCombatConfig.SPEC.isLoaded()) return;
         int k = kind();
         float health = getHealth();
+        boolean wasFull = health >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(BastionCombatConfig.HEALTH[k].get());
         getAttribute(Attributes.ARMOR).setBaseValue(BastionCombatConfig.ARMOR[k].get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(BastionCombatConfig.DAMAGE[k].get());
         getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(BastionCombatConfig.SPEED[k].get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(BastionCombatConfig.RESISTANCE[k].get());
-        if (loadedFromSave) setHealth(Math.min(health, getMaxHealth()));
-        else setHealth(getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(health, getMaxHealth()));
         attributesApplied = true;
         ThermalShockReforged.LOGGER.debug("Bastion attributes applied: uuid={}, burner={}, loadedFromSave={}, health={}, maxHealth={}", getUUID(), burner(), loadedFromSave, getHealth(), getMaxHealth());
     }
@@ -936,7 +936,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
     }
 
     private static void lift(LivingEntity victim, double strength) {
-        double resist = 1 - victim.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE);
+        double resist = Math.clamp(1 - victim.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1);
         if (resist <= 0) return;
         victim.push(0, strength * resist, 0);
         victim.hurtMarked = true;
@@ -1130,6 +1130,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
 
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
         super.addAdditionalSaveData(output);
+        output.putBoolean("AttributesConfigured", attributesApplied);
         output.putString("Texture", texture());
         output.putBoolean("BastionEnraged", enraged());
         output.putBoolean("BastionDeathCommitted", deathCommitted);
@@ -1140,7 +1141,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
         loadedFromSave = true;
         super.readAdditionalSaveData(input);
-        attributesApplied = false;
+        attributesApplied = input.getBooleanOr("AttributesConfigured", false);
         applyConfiguredAttributes();
         setPersistenceRequired();
         if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));

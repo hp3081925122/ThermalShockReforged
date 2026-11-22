@@ -60,8 +60,9 @@ public final class HuntressBossEntity extends AnimatedMonsterEntity {
     private void applyConfiguration() {
         if (attributesApplied || !HuntressConfig.SPEC.isLoaded() || level().isClientSide()) return;
         float previous = getHealth();
+        boolean wasFull = previous >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(HuntressConfig.HEALTH.get()); getAttribute(Attributes.ARMOR).setBaseValue(HuntressConfig.ARMOR.get()); getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(HuntressConfig.DAMAGE.get()); getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(HuntressConfig.SPEED.get()); getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(HuntressConfig.RESISTANCE.get());
-        setHealth(loaded ? Math.min(previous, getMaxHealth()) : getMaxHealth()); attributesApplied = true;
+        setHealth(!loaded || wasFull ? getMaxHealth() : Math.min(previous, getMaxHealth())); attributesApplied = true;
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguration(); if (!level().isClientSide()) synchronizeMovementLock(); }
     @Override public void tick() { if (!level().isClientSide()) { applyConfiguration(); if (cooldown > 0) cooldown--; if (movementLock > 0) movementLock--; if (gravityFailsafe > 0 && --gravityFailsafe == 0) setNoGravity(false); synchronizeMovementLock(); } super.tick(); }
@@ -75,6 +76,6 @@ public final class HuntressBossEntity extends AnimatedMonsterEntity {
     @Override protected void customServerAiStep(net.minecraft.server.level.ServerLevel level) { super.customServerAiStep(level); bossInfo.setProgress(getHealth() / getMaxHealth()); }
     @Override protected List<String> procedureAnimations() { return List.of("rollback", "triplehit", "dissa", "reappear2"); }
     @Override protected String movementAnimation(boolean moving) { return !onGround() ? "reappear" : moving ? "sprint" : "idle2"; }
-    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putInt("HuntressCooldown", cooldown); output.putInt("HuntressMovementLock", movementLock); output.putInt("HuntressGravityFailsafe", gravityFailsafe); if (activeTask != null) output.putString("HuntressActiveTask", activeTask.toString()); }
-    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { super.readAdditionalSaveData(input); loaded = true; attributesApplied = false; cooldown = Math.clamp(input.getIntOr("HuntressCooldown", 0), 0, 72000); movementLock = Math.clamp(input.getIntOr("HuntressMovementLock", 0), 0, 40); gravityFailsafe = Math.clamp(input.getIntOr("HuntressGravityFailsafe", 0), 0, 35); activeTask = input.getString("HuntressActiveTask").map(java.util.UUID::fromString).orElse(null); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putBoolean("AttributesConfigured", attributesApplied); output.putInt("HuntressCooldown", cooldown); output.putInt("HuntressMovementLock", movementLock); output.putInt("HuntressGravityFailsafe", gravityFailsafe); if (activeTask != null) output.putString("HuntressActiveTask", activeTask.toString()); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { loaded = true; super.readAdditionalSaveData(input); attributesApplied = input.getBooleanOr("AttributesConfigured", false); applyConfiguration(); cooldown = Math.clamp(input.getIntOr("HuntressCooldown", 0), 0, 72000); movementLock = Math.clamp(input.getIntOr("HuntressMovementLock", 0), 0, 40); gravityFailsafe = Math.clamp(input.getIntOr("HuntressGravityFailsafe", 0), 0, 35); activeTask = input.getString("HuntressActiveTask").map(java.util.UUID::fromString).orElse(null); }
 }

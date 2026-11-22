@@ -65,24 +65,28 @@ public final class GuardianPylonEntity extends Monster implements GeoEntity {
         }
     }
     @Override public boolean hurtServer(net.minecraft.server.level.ServerLevel level, DamageSource source, float amount) {
-        if (!level().isClientSide()) addEffect(new MobEffectInstance(MobEffects.REGENERATION, 20, 199));
+        if (!activated && !source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_INVULNERABILITY)) return false;
         return !source.is(DamageTypes.IN_FIRE) && !source.is(DamageTypes.DROWN) && super.hurtServer(level, source, amount);
     }
     @Override public InteractionResult mobInteract(Player player, InteractionHand hand) {
-        super.mobInteract(player, hand);
-        if (level() instanceof ServerLevel server && isAlive() && player.getMainHandItem().is(AtlasContent.VIRUSTONE.get())) {
-            if (!activated) {
-                if (!PylonActivationEntity.submit(server, position())) {
-                    ThermalShockReforged.LOGGER.warn("Guardian pylon activation could not be scheduled: pylon={}, player={}", getUUID(), player.getUUID());
-                    return InteractionResult.SUCCESS;
+        var parent = super.mobInteract(player, hand);
+        if (parent.consumesAction() || !isAlive() || isRemoved()) return parent;
+        if (player.getItemInHand(hand).is(AtlasContent.VIRUSTONE.get())) {
+            if (level() instanceof ServerLevel server) {
+                if (!activated) {
+                    if (!PylonActivationEntity.submit(server, position())) {
+                        ThermalShockReforged.LOGGER.warn("Guardian pylon activation could not be scheduled: pylon={}, player={}", getUUID(), player.getUUID());
+                        return InteractionResult.SUCCESS;
+                    }
+                    activated = true;
+                    ThermalShockReforged.LOGGER.debug("Guardian pylon activation committed: pylon={}, player={}, position={}, dimension={}", getUUID(), player.getUUID(), position(), server.dimension().identifier());
                 }
-                activated = true;
-                ThermalShockReforged.LOGGER.debug("Guardian pylon activation committed: pylon={}, player={}, position={}, dimension={}", getUUID(), player.getUUID(), position(), server.dimension().identifier());
+                server.playSound(null, blockPosition(), SoundEvents.ENDER_DRAGON_DEATH, SoundSource.AMBIENT, 1, 3);
+                hurt(damageSources().generic(), getMaxHealth());
             }
-            server.playSound(null, blockPosition(), SoundEvents.ENDER_DRAGON_DEATH, SoundSource.AMBIENT, 1, 3);
-            hurt(damageSources().generic(), 330);
+            return InteractionResult.SUCCESS;
         }
-        return InteractionResult.SUCCESS;
+        return parent;
     }
     @Override public void die(DamageSource source) {
         super.die(source);

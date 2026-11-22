@@ -58,11 +58,11 @@ public final class PixieEntity extends PathfinderMob implements GeoEntity {
     @Override
     public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
         var parent = super.mobInteract(player, hand);
-        if (parent.consumesAction()) return parent;
+        if (parent.consumesAction() || !isAlive() || isRemoved()) return parent;
         var stack = player.getItemInHand(hand);
         if (!stack.is(net.minecraft.world.item.Items.GLASS_BOTTLE)) return parent;
         if (!level().isClientSide()) {
-            stack.shrink(1);
+            if (!player.getAbilities().instabuild) stack.shrink(1);
             var bottled = new net.minecraft.world.item.ItemStack(AmbientContent.BOTTLED_PIXIE.get());
             if (stack.isEmpty()) player.setItemInHand(hand, bottled);
             else if (!player.getInventory().add(bottled)) player.drop(bottled, false);

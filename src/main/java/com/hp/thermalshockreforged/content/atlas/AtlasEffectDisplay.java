@@ -7,7 +7,9 @@ import net.minecraft.world.entity.LivingEntity;
 public final class AtlasEffectDisplay {
     private AtlasEffectDisplay() { }
     public static Collection<MobEffectInstance> effects(LivingEntity entity) {
-        var real = entity.getActiveEffects();
+        return effects(entity, entity.getActiveEffects());
+    }
+    public static Collection<MobEffectInstance> effects(LivingEntity entity, Collection<MobEffectInstance> real) {
         if (!(entity instanceof AtlasArrivalState arrival) || !arrival.hasArrivalProtectionVisual()) return real;
         List<MobEffectInstance> display = new ArrayList<>(real.size() + 1);
         int amplifier = 9, duration = arrival.arrivalProtectionTicks();

@@ -19,8 +19,8 @@ public final class TeslaReedRenderer extends TsrGeoEntityRenderer<TeslaReedEntit
     public TeslaReedRenderer(EntityRendererProvider.Context context) { super(context, new Model()); shadowRadius = .2F; }
     @Override protected RenderType visibleRenderType(EntityRenderState state, Identifier texture) { return RenderTypes.entityTranslucent(texture); }
     private static final class Model extends TsrGeoModel<TeslaReedEntity> {
-        @Override public Identifier getModelResource(TeslaReedEntity entity) { return ElectricSphereContent.id("geo/tesla_reed.geo.json"); }
-        @Override public Identifier getAnimationResource(TeslaReedEntity entity) { return ElectricSphereContent.id("animations/tesla_reed.animation.json"); }
+        @Override public Identifier getModelResource(TeslaReedEntity entity) { return ElectricSphereContent.id("tesla_reed"); }
+        @Override public Identifier getAnimationResource(TeslaReedEntity entity) { return ElectricSphereContent.id("tesla_reed"); }
         @Override public Identifier getTextureResource(TeslaReedEntity entity) { return ElectricSphereContent.id("textures/entities/" + entity.texture() + ".png"); }
         @Override public void adjustBones(GeoRenderState state, BoneSnapshots bones) { lookAt(state, bones, "stem"); }
     }

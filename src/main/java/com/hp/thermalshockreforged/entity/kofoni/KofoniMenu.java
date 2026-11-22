@@ -74,12 +74,17 @@ public final class KofoniMenu extends AbstractContainerMenu {
         var progress = player.getAdvancements().getOrStartProgress(advancement);
         if (!progress.isDone()) for (String criterion : progress.getRemainingCriteria()) player.getAdvancements().award(advancement, criterion);
         var world = ((net.minecraft.server.level.ServerLevel) player.level());
-        world.addFreshEntity(new ExperienceOrb(world, anchor.getX(), anchor.getY(), anchor.getZ(), 20));
+        world.addFreshEntity(new ExperienceOrb(world, anchor.getX(), anchor.getY(), anchor.getZ(), 20 * consumed));
+        int total = 0;
+        for (int index = 0; index < consumed; index++) total += (int)Math.ceil(Mth.nextDouble(player.getRandom(), 9, 28));
         int spawned = 0;
-        for (int index = 0; index < (int)Math.ceil(Mth.nextDouble(player.getRandom(), 9, 28)); index++) {
-            var reward = new ItemEntity(world, anchor.getX(), anchor.getY(), anchor.getZ(), new ItemStack(NativeDecorContent.SPARKLY_MUCK.get()));
+        var muck = new ItemStack(NativeDecorContent.SPARKLY_MUCK.get());
+        for (int left = total; left > 0; ) {
+            int count = Math.min(left, muck.getMaxStackSize());
+            var reward = new ItemEntity(world, anchor.getX(), anchor.getY(), anchor.getZ(), muck.copyWithCount(count));
             reward.setPickUpDelay(10);
-            if (world.addFreshEntity(reward)) spawned++;
+            if (world.addFreshEntity(reward)) spawned += count;
+            left -= count;
         }
         input.setChanged(); broadcastChanges();
         ThermalShockReforged.LOGGER.debug("Kofoni exchange committed: player={}, item={}, consumed={}, muck={}, xp=20", player.getUUID(), item, consumed, spawned);

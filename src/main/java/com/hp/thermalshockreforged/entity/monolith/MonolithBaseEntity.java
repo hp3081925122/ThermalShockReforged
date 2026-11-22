@@ -23,17 +23,18 @@ public abstract class MonolithBaseEntity extends AnimatedMonsterEntity {
         if (level().isClientSide() || attributesApplied || !MonolithConfig.SPEC.isLoaded()) return;
         int index = dormant() ? 1 : 0;
         float previous = getHealth();
+        boolean wasFull = previous >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(MonolithConfig.HEALTH[index].get());
         getAttribute(Attributes.ARMOR).setBaseValue(MonolithConfig.ARMOR[index].get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(MonolithConfig.DAMAGE[index].get());
         getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(MonolithConfig.SPEED[index].get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(MonolithConfig.RESISTANCE[index].get());
         getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(MonolithConfig.KNOCKBACK[index].get());
-        setHealth(loadedFromSave ? Math.min(previous, getMaxHealth()) : getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(previous, getMaxHealth()));
         attributesApplied = true;
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguredAttributes(); }
     @Override public void tick() { if (!level().isClientSide()) { applyConfiguredAttributes(); if (conversionRetry > 0) conversionRetry--; } super.tick(); }
-    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putInt("MonolithConversionRetry", conversionRetry); output.putBoolean("MonolithConverted", converted); }
-    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = false; conversionRetry = Math.clamp(input.getIntOr("MonolithConversionRetry", 0), 0, 20); converted = input.getBooleanOr("MonolithConverted", false); applyConfiguredAttributes(); setPersistenceRequired(); }
+    @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) { super.addAdditionalSaveData(output); output.putBoolean("AttributesConfigured", attributesApplied); output.putInt("MonolithConversionRetry", conversionRetry); output.putBoolean("MonolithConverted", converted); }
+    @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) { loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = input.getBooleanOr("AttributesConfigured", false); conversionRetry = Math.clamp(input.getIntOr("MonolithConversionRetry", 0), 0, 20); converted = input.getBooleanOr("MonolithConverted", false); applyConfiguredAttributes(); setPersistenceRequired(); }
 }

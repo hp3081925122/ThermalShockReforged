@@ -2,7 +2,6 @@ package com.hp.thermalshockreforged.client;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
 import com.hp.thermalshockreforged.content.recipe.RecipeContent;
-import com.hp.thermalshockreforged.world.LoqendiaContent;
 import com.hp.thermalshockreforged.world.OreChoicePayload;
 import java.util.Map;
 import net.minecraft.ChatFormatting;
@@ -37,14 +36,13 @@ public final class OreChoiceTooltips {
             if (ore[0] == 1) choice = OreChoicePayload.tier1(level);
             else choice = OreChoicePayload.tier2(level);
             boolean generated = false;
-            if (!level.dimension().identifier().equals(LoqendiaContent.LOQENDIA_ID)) added.add(Component.translatable(KEY + "absent").withStyle(ChatFormatting.RED));
-            else if (choice == 0) added.add(Component.translatable(KEY + "pending").withStyle(ChatFormatting.GRAY));
+            if (choice == 0) added.add(Component.translatable(KEY + "pending").withStyle(ChatFormatting.GRAY));
             else if (choice == ore[1]) {
                 generated = true;
                 added.add(Component.translatable(KEY + "generated").withStyle(ChatFormatting.GREEN));
             } else added.add(Component.translatable(KEY + "absent").withStyle(ChatFormatting.RED));
             var stack = event.getItemStack();
-            for (var holder : RecipeContent.recipes(level).byType(RecipeContent.TRANSMUTATION.type().get())) {
+            if (choice != 0) for (var holder : RecipeContent.recipes(level).byType(RecipeContent.TRANSMUTATION.type().get())) {
                 var recipe = holder.value();
                 if (generated && recipe.ingredient().test(stack)) {
                     added.add(Component.translatable(KEY + "transmute_to", recipe.result().create().getHoverName()).withStyle(ChatFormatting.AQUA));

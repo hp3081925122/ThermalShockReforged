@@ -17,7 +17,7 @@ import net.minecraft.world.entity.player.Inventory;
 public final class ShutterbugScreen extends AbstractContainerScreen<ShutterbugMenu> {
     private final Clock clock;
     public ShutterbugScreen(ShutterbugMenu menu, Inventory inventory, Component title) {
-        super(menu, inventory, title);
+        super(menu, inventory, title, menu.page.width(), menu.page.height());
         clock = Minecraft.getInstance().screen instanceof ShutterbugScreen previous && previous.menu.npcUuid.equals(menu.npcUuid) ? previous.clock : new Clock();
     }
     private static Identifier id(String path) { return Identifier.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "textures/screens/" + path + ".png"); }
@@ -42,7 +42,7 @@ public final class ShutterbugScreen extends AbstractContainerScreen<ShutterbugMe
     @Override protected void containerTick() { if (menu.page != ShutterbugPage.TRADE) clock.frame = clock.frame > 12 ? 0 : clock.frame + 1; }
     @Override public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractRenderState(graphics, mouseX, mouseY, partialTick);  if (menu.getCarried().isEmpty()) for (var line : menu.page.lines) if (com.hp.thermalshockreforged.client.npc.NpcTradeLabels.tooltip(graphics, font, line.key(), leftPos + line.x(), topPos + line.y(), mouseX, mouseY)) break; }
     private void blit(GuiGraphicsExtractor graphics, String texture, int x, int y, int width, int height) { graphics.blit(net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED, id(texture), leftPos + x, topPos + y, 0, 0, width, height, width, height); }
-    @Override public void extractContents(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractContents(graphics, mouseX, mouseY, partialTick);
+    @Override public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) { super.extractBackground(graphics, mouseX, mouseY, partialTick);
         
         if (menu.page == ShutterbugPage.TRADE) {
             blit(graphics, "unettetrademenu", -20, 0, 246, 180); blit(graphics, "camera", 47, 26, 16, 16);

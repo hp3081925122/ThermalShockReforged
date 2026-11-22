@@ -74,8 +74,9 @@ public final class BrimstoneCakeConsumption extends Entity implements ServerEndT
     }
     private static void feed(ServerPlayer player) {
         var food = player.getFoodData();
-        food.setSaturation(food.getSaturationLevel() + 3);
-        food.setFoodLevel(food.getFoodLevel() + 3);
+        int nextFood = Math.min(20, food.getFoodLevel() + 3);
+        food.setFoodLevel(nextFood);
+        food.setSaturation(Math.min(nextFood, food.getSaturationLevel() + 3));
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { }
     @Override public boolean canTeleport(Level from, Level to) { return false; }

@@ -40,8 +40,8 @@ final class FirearmClient {
         private Renderer() { super(new Model()); }
     }
     private static final class Model extends TsrGeoModel<FirearmItem> {
-        @Override public Identifier getModelResource(FirearmItem item) { return resource(item.isHailfall() ? "geo/hailfall.geo.json" : "geo/flint-steel_rifle.geo.json"); }
+        @Override public Identifier getModelResource(FirearmItem item) { return resource(item.isHailfall() ? "hailfall" : "flint-steel_rifle"); }
         @Override public Identifier getTextureResource(FirearmItem item) { return resource(item.isHailfall() ? "textures/item/hailfall.png" : "textures/item/flintsteel_rifle_rubicon.png"); }
-        @Override public Identifier getAnimationResource(FirearmItem item) { return resource(item.isHailfall() ? "animations/hailfall.animation.json" : "animations/flint-steel_rifle.animation.json"); }
+        @Override public Identifier getAnimationResource(FirearmItem item) { return resource(item.isHailfall() ? "hailfall" : "flint-steel_rifle"); }
     }
 }

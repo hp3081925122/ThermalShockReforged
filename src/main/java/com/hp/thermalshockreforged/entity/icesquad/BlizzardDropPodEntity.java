@@ -50,8 +50,9 @@ public final class BlizzardDropPodEntity extends Monster implements GeoEntity, S
     }
     void applyConfiguredAttributes() {
         if (level().isClientSide() || attributesApplied || !BastionCombatConfig.SPEC.isLoaded()) return;
-        float health = getHealth(); getAttribute(Attributes.MAX_HEALTH).setBaseValue(BastionCombatConfig.POD_HEALTH.get()); getAttribute(Attributes.ARMOR).setBaseValue(BastionCombatConfig.POD_ARMOR.get());
-        setHealth(loadedFromSave ? Math.min(health, getMaxHealth()) : getMaxHealth()); attributesApplied = true;
+        float health = getHealth(); boolean wasFull = health >= getMaxHealth() - 1.0E-3F;
+        getAttribute(Attributes.MAX_HEALTH).setBaseValue(BastionCombatConfig.POD_HEALTH.get()); getAttribute(Attributes.ARMOR).setBaseValue(BastionCombatConfig.POD_ARMOR.get());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(health, getMaxHealth())); attributesApplied = true;
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, "blizzarddroppod"); }
     public String texture() { return entityData.get(TEXTURE); }
@@ -107,12 +108,12 @@ public final class BlizzardDropPodEntity extends Monster implements GeoEntity, S
         }
     }
     @Override public void addAdditionalSaveData(net.minecraft.world.level.storage.ValueOutput output) {
-        super.addAdditionalSaveData(output); output.putString("Texture", texture()); output.putBoolean("PodInitialized", initialized); output.putBoolean("PodSmokeSent", smokeSent); output.putBoolean("PodHandedOff", handedOff); output.putInt("PodAge", deploymentAge);
+        super.addAdditionalSaveData(output); output.putBoolean("AttributesConfigured", attributesApplied); output.putString("Texture", texture()); output.putBoolean("PodInitialized", initialized); output.putBoolean("PodSmokeSent", smokeSent); output.putBoolean("PodHandedOff", handedOff); output.putInt("PodAge", deploymentAge);
         output.putDouble("PodAnchorX", anchor.x); output.putDouble("PodAnchorY", anchor.y); output.putDouble("PodAnchorZ", anchor.z); output.putString("PodDimension", dimension);
         output.putBoolean("PodExperiencePending", experiencePending); if (experienceAttacker != null) output.putString("PodExperienceAttacker", experienceAttacker.toString());
     }
     @Override public void readAdditionalSaveData(net.minecraft.world.level.storage.ValueInput input) {
-        loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = false; applyConfiguredAttributes(); setPersistenceRequired(); if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
+        loadedFromSave = true; super.readAdditionalSaveData(input); attributesApplied = input.getBooleanOr("AttributesConfigured", false); applyConfiguredAttributes(); setPersistenceRequired(); if (input.read("Texture", com.mojang.serialization.Codec.PASSTHROUGH).isPresent()) setTexture(input.getStringOr("Texture", ""));
         initialized = input.getBooleanOr("PodInitialized", false); smokeSent = input.getBooleanOr("PodSmokeSent", false); handedOff = input.getBooleanOr("PodHandedOff", false); deploymentAge = Math.clamp(input.getIntOr("PodAge", 0), 0, 25);
         anchor = new Vec3(input.getDoubleOr("PodAnchorX", 0.0), input.getDoubleOr("PodAnchorY", 0.0), input.getDoubleOr("PodAnchorZ", 0.0)); dimension = input.getStringOr("PodDimension", "");
         if (!Double.isFinite(anchor.x) || !Double.isFinite(anchor.y) || !Double.isFinite(anchor.z)) initialized = false;
