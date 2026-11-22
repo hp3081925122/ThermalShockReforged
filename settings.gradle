@@ -12,7 +12,3 @@ plugins {
 }
 
 rootProject.name = 'thermal_shock_reforged'
-
-if (!providers.gradleProperty('online').isPresent()) {
-    gradle.startParameter.offline = true
-}
