@@ -42,7 +42,7 @@ public final class ThermoblasterBurstEntity extends Entity implements ServerEndT
         if (stage >= 4) { armed = false; discard(); }
         if (stage == 2 || stage == 4) {
             var wielder = level.getServer().getPlayerList().getPlayer(owner);
-            fire(level, wielder != null && wielder.getId() == ownerEntityId && !wielder.isRemoved() ? wielder : null);
+            fire(level, wielder != null && wielder.level() == level && wielder.getId() == ownerEntityId && !wielder.isRemoved() ? wielder : null);
         }
         if (armed) ServerEndTickTasks.schedule(level, getUUID());
     }

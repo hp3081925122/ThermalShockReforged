@@ -77,7 +77,7 @@ public final class RibbonbladeActionEntity extends Entity implements ServerEndTi
         level.playSound(null, soundOrigin, SoundEvents.PLAYER_ATTACK_SWEEP, SoundSource.HOSTILE, 1, 2);
         Vec3 sweep = look.lengthSqr() > 1.0E-8 ? look.normalize() : Vec3.ZERO;
         var strikeBounds = new AABB(position(), position()).inflate(1.5).expandTowards(sweep);
-        var targets = level.getEntities(this, strikeBounds, entity -> !entity.getUUID().equals(caster) && !(entity instanceof LivingEntity living && living.isBlocking()));
+        var targets = level.getEntities(this, strikeBounds, entity -> !entity.getUUID().equals(caster) && !(entity instanceof net.minecraft.world.entity.item.ItemEntity) && !(entity instanceof ExperienceOrb) && !(entity instanceof LivingEntity living && living.isBlocking()));
         ThermalShockReforged.LOGGER.debug("Ribbonblade strike resolved: task={}, caster={}, targets={}, position={}, sweep={}", getUUID(), caster, targets.size(), position(), sweep);
         targets.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(position())));
         var damageSource = new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DAMAGE));

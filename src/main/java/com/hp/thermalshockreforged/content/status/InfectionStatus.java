@@ -130,7 +130,8 @@ public final class InfectionStatus {
         if (!task.getBoolean("Burst")) return;
         Vec3 origin = new Vec3(task.getDouble("X"), task.getDouble("Y"), task.getDouble("Z"));
         level.sendParticles(StatusContent.BLOOD_ATTACK.get(), origin.x, origin.y + patient.getEyeHeight() - 0.2, origin.z, 0, 0, 0, 0, 0);
-        for (Entity target : level.getEntitiesOfClass(Entity.class, new AABB(origin, origin).inflate(2.25), target -> target != patient)
+        for (Entity target : level.getEntitiesOfClass(Entity.class, new AABB(origin, origin).inflate(2.25),
+                target -> target != patient && !(target instanceof net.minecraft.world.entity.item.ItemEntity) && !(target instanceof ExperienceOrb))
                 .stream().sorted(Comparator.comparingDouble(target -> target.distanceToSqr(origin))).toList()) {
             if (!patient.isAlive() || patient.isRemoved() || !patient.level().dimension().equals(level.dimension())) {
                 cancel(patient);

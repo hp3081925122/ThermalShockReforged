@@ -52,8 +52,9 @@ public final class HighDirectorSopelEntity extends AnimatedMonsterEntity {
     private void applyConfiguration() {
         if (attributesApplied || level().isClientSide || !SopelConfig.SPEC.isLoaded()) return;
         float previous = getHealth();
+        boolean wasFull = previous >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(SopelConfig.HEALTH.get()); getAttribute(Attributes.ARMOR).setBaseValue(SopelConfig.ARMOR.get()); getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(SopelConfig.DAMAGE.get()); getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(SopelConfig.SPEED.get()); getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(SopelConfig.RESISTANCE.get());
-        setHealth(loaded ? Math.min(previous, getMaxHealth()) : getMaxHealth()); attributesApplied = true;
+        setHealth(!loaded || wasFull ? getMaxHealth() : Math.min(previous, getMaxHealth())); attributesApplied = true;
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguration(); }
     @Override public void tick() { applyConfiguration(); super.tick(); }
@@ -70,6 +71,6 @@ public final class HighDirectorSopelEntity extends AnimatedMonsterEntity {
     @Override protected int deathDuration() { return 60; }
     @Override protected String movementAnimation(boolean moving) { return "idle2"; }
     @Override protected List<String> procedureAnimations() { return List.of("idle", "idle2", "dash"); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putInt("SopelCooldown", cooldown); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { loaded = true; super.readAdditionalSaveData(tag); attributesApplied = false; cooldown = Math.clamp(tag.getInt("SopelCooldown"), 0, 72000); }
+    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putBoolean("AttributesConfigured", attributesApplied); tag.putInt("SopelCooldown", cooldown); }
+    @Override public void readAdditionalSaveData(CompoundTag tag) { loaded = true; super.readAdditionalSaveData(tag); attributesApplied = tag.getBoolean("AttributesConfigured"); applyConfiguration(); cooldown = Math.clamp(tag.getInt("SopelCooldown"), 0, 72000); }
 }

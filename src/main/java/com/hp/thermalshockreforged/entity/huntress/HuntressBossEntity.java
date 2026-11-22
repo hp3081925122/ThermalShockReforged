@@ -60,8 +60,9 @@ public final class HuntressBossEntity extends AnimatedMonsterEntity {
     private void applyConfiguration() {
         if (attributesApplied || !HuntressConfig.SPEC.isLoaded() || level().isClientSide) return;
         float previous = getHealth();
+        boolean wasFull = previous >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(HuntressConfig.HEALTH.get()); getAttribute(Attributes.ARMOR).setBaseValue(HuntressConfig.ARMOR.get()); getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(HuntressConfig.DAMAGE.get()); getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(HuntressConfig.SPEED.get()); getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(HuntressConfig.RESISTANCE.get());
-        setHealth(loaded ? Math.min(previous, getMaxHealth()) : getMaxHealth()); attributesApplied = true;
+        setHealth(!loaded || wasFull ? getMaxHealth() : Math.min(previous, getMaxHealth())); attributesApplied = true;
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguration(); if (!level().isClientSide) synchronizeMovementLock(); }
     @Override public void tick() { if (!level().isClientSide) { applyConfiguration(); if (cooldown > 0) cooldown--; if (movementLock > 0) movementLock--; if (gravityFailsafe > 0 && --gravityFailsafe == 0) setNoGravity(false); synchronizeMovementLock(); } super.tick(); }
@@ -75,6 +76,6 @@ public final class HuntressBossEntity extends AnimatedMonsterEntity {
     @Override protected void customServerAiStep() { super.customServerAiStep(); bossInfo.setProgress(getHealth() / getMaxHealth()); }
     @Override protected List<String> procedureAnimations() { return List.of("rollback", "triplehit", "dissa", "reappear2"); }
     @Override protected String movementAnimation(boolean moving) { return !onGround() ? "reappear" : moving ? "sprint" : "idle2"; }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putInt("HuntressCooldown", cooldown); tag.putInt("HuntressMovementLock", movementLock); tag.putInt("HuntressGravityFailsafe", gravityFailsafe); if (activeTask != null) tag.putUUID("HuntressActiveTask", activeTask); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { super.readAdditionalSaveData(tag); loaded = true; attributesApplied = false; cooldown = Math.clamp(tag.getInt("HuntressCooldown"), 0, 72000); movementLock = Math.clamp(tag.getInt("HuntressMovementLock"), 0, 40); gravityFailsafe = Math.clamp(tag.getInt("HuntressGravityFailsafe"), 0, 35); activeTask = tag.hasUUID("HuntressActiveTask") ? tag.getUUID("HuntressActiveTask") : null; }
+    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putBoolean("AttributesConfigured", attributesApplied); tag.putInt("HuntressCooldown", cooldown); tag.putInt("HuntressMovementLock", movementLock); tag.putInt("HuntressGravityFailsafe", gravityFailsafe); if (activeTask != null) tag.putUUID("HuntressActiveTask", activeTask); }
+    @Override public void readAdditionalSaveData(CompoundTag tag) { loaded = true; super.readAdditionalSaveData(tag); attributesApplied = tag.getBoolean("AttributesConfigured"); applyConfiguration(); cooldown = Math.clamp(tag.getInt("HuntressCooldown"), 0, 72000); movementLock = Math.clamp(tag.getInt("HuntressMovementLock"), 0, 40); gravityFailsafe = Math.clamp(tag.getInt("HuntressGravityFailsafe"), 0, 35); activeTask = tag.hasUUID("HuntressActiveTask") ? tag.getUUID("HuntressActiveTask") : null; }
 }

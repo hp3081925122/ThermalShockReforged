@@ -5,5 +5,5 @@ public interface AtlasArrivalState {
     boolean hasArrivalProtectionVisual();
     void beginArrivalProtection(int ticks);
     void tickArrivalProtection();
-    void receiveArrivalProtectionData(net.minecraft.network.syncher.EntityDataAccessor<?> key);
+    void receiveArrivalProtectionData(int ticks);
 }

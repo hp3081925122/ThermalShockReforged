@@ -37,10 +37,13 @@ public final class SentrariusEntity extends PathfinderMob implements GeoEntity {
     public void setTexture(String texture) { entityData.set(TEXTURE, texture); }
     @Override protected void registerGoals() { goalSelector.addGoal(1, new TemptGoal(this, 1, Ingredient.of(Items.BONE), false)); goalSelector.addGoal(2, new TemptGoal(this, 1, Ingredient.of(Blocks.BONE_BLOCK.asItem()), false)); goalSelector.addGoal(3, new FollowMobGoal(this, 1, 10, 5)); goalSelector.addGoal(4, new RandomStrollGoal(this, 1)); goalSelector.addGoal(5, new PanicGoal(this, 1.2)); goalSelector.addGoal(6, new FloatGoal(this)); }
     @Override protected InteractionResult mobInteract(Player player, InteractionHand hand) {
-        super.mobInteract(player, hand);
-        if (!level().isClientSide && feeding == 0 && player.getMainHandItem().is(Items.BONE)) {
+        var parent = super.mobInteract(player, hand);
+        if (parent.consumesAction() || !isAlive() || isRemoved()) return parent;
+        var held = player.getItemInHand(hand);
+        if (feeding != 0 || !held.is(Items.BONE)) return parent;
+        if (!level().isClientSide) {
             feeding = 30;
-            player.getInventory().clearOrCountMatchingItems(stack -> stack.is(Items.BONE), 1, player.inventoryMenu.getCraftSlots());
+            if (!player.getAbilities().instabuild) held.shrink(1);
             level().playSound(null, blockPosition(), SoundEvents.EVOKER_FANGS_ATTACK, SoundSource.NEUTRAL, 1, 1);
             triggerAnim("procedure", "bite");
         }

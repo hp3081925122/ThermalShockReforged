@@ -34,9 +34,9 @@ public abstract class LivingEntityStatusMixin {
         } else if (!damageContainers.empty()) damageContainers.peek().setNewDamage(0);
         callback.setReturnValue(0F);
     }
-    @org.spongepowered.asm.mixin.injection.Redirect(method = "tickEffects", at = @At(value = "INVOKE", target = "Lnet/minecraft/network/syncher/SynchedEntityData;get(Lnet/minecraft/network/syncher/EntityDataAccessor;)Ljava/lang/Object;", ordinal = 0), require = 1)
-    private Object thermalShockReforged$replaceArrivalParticles(net.minecraft.network.syncher.SynchedEntityData data, net.minecraft.network.syncher.EntityDataAccessor<?> key) {
-        return com.hp.thermalshockreforged.content.atlas.AtlasArrivalVisuals.active((LivingEntity)(Object)this) ? java.util.List.of() : data.get(key);
+    @com.llamalad7.mixinextras.injector.ModifyExpressionValue(method = "tickEffects", at = @At(value = "INVOKE", target = "Lnet/minecraft/network/syncher/SynchedEntityData;get(Lnet/minecraft/network/syncher/EntityDataAccessor;)Ljava/lang/Object;", ordinal = 0), require = 1)
+    private Object thermalShockReforged$replaceArrivalParticles(Object original) {
+        return com.hp.thermalshockreforged.content.atlas.AtlasArrivalVisuals.active((LivingEntity)(Object)this) ? java.util.List.of() : original;
     }
     @Inject(method = "tickEffects", at = @At("TAIL"))
     private void thermalShockReforged$arrivalParticles(CallbackInfo callback) {
@@ -44,10 +44,6 @@ public abstract class LivingEntityStatusMixin {
         if (entity instanceof com.hp.thermalshockreforged.content.atlas.AtlasArrivalState arrival) arrival.tickArrivalProtection();
         com.hp.thermalshockreforged.content.atlas.AtlasArrivalVisuals.tick(entity);
         com.hp.thermalshockreforged.world.sanctum.PylonBuildingLock.tick(entity);
-    }
-    @Inject(method = "onSyncedDataUpdated", at = @At("TAIL"))
-    private void thermalShockReforged$arrivalDataUpdated(net.minecraft.network.syncher.EntityDataAccessor<?> key, CallbackInfo callback) {
-        if ((Object)this instanceof com.hp.thermalshockreforged.content.atlas.AtlasArrivalState arrival) arrival.receiveArrivalProtectionData(key);
     }
 
     @Inject(method = "removeAllEffects", at = @At("TAIL"), cancellable = true)

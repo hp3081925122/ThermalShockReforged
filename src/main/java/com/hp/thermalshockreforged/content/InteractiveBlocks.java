@@ -22,7 +22,7 @@ public final class InteractiveBlocks {
 
     public static Block door(BlockBehaviour.Properties properties, BlockSetType type, int light, int flammability, String... descriptions) {
         List<String> tooltip = List.of(descriptions);
-        return new DoorBlock(type, properties) {
+        return new DoorBlock(type, properties.noOcclusion()) {
             @Override
             protected int getLightBlock(BlockState state, BlockGetter level, BlockPos position) {
                 return light < 0 ? super.getLightBlock(state, level, position) : light;
@@ -43,7 +43,7 @@ public final class InteractiveBlocks {
 
     public static Block trapdoor(BlockBehaviour.Properties properties, BlockSetType type, int light, int flammability, String... descriptions) {
         List<String> tooltip = List.of(descriptions);
-        return new TrapDoorBlock(type, properties) {
+        return new TrapDoorBlock(type, properties.noOcclusion()) {
             @Override
             protected int getLightBlock(BlockState state, BlockGetter level, BlockPos position) {
                 return light < 0 ? super.getLightBlock(state, level, position) : light;

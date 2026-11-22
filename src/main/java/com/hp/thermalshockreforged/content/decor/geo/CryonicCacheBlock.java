@@ -58,7 +58,7 @@ public final class CryonicCacheBlock extends GeoDecorBlock {
                 if (mob != null) mob.setYRot(server.random.nextFloat() * 360);
             }
         } else {
-            key.shrink(1);
+            if (!player.getAbilities().instabuild) key.shrink(1);
             server.playSound(null, pos, SoundEvents.GLASS_BREAK, SoundSource.NEUTRAL, .5F, -4);
             var origin = pos.getCenter();
             var params = new LootParams.Builder(server).withParameter(LootContextParams.ORIGIN, origin).create(LootContextParamSets.CHEST);

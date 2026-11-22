@@ -46,7 +46,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 
-@EventBusSubscriber(modid = ThermalShockReforged.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = ThermalShockReforged.MOD_ID, value = Dist.CLIENT)
 public final class ClientEvents {
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
@@ -280,7 +280,7 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void setup(FMLClientSetupEvent event) { event.enqueueWork(() -> {
         FarmingRenderers.layers(); FluidClient.layers();
-        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut logout) -> { com.hp.thermalshockreforged.world.AltarProgressPayload.resetClient(); com.hp.thermalshockreforged.world.OreChoicePayload.resetClient(); });
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent.LoggingOut logout) -> { com.hp.thermalshockreforged.world.AltarProgressPayload.resetClient(); com.hp.thermalshockreforged.world.OreChoicePayload.resetClient(); com.hp.thermalshockreforged.world.ErrandMarkerPayload.resetClient(); });
     }); }
 
 }

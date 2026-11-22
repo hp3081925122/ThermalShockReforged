@@ -28,6 +28,8 @@ final class ControlEffect extends MobEffect {
                     random.nextDouble() * 0.2 - 0.1,
                     random.nextDouble() * 0.2 - 0.1,
                     random.nextDouble() * 0.2 - 0.1));
+            entity.hasImpulse = true;
+            if (!entity.level().isClientSide) entity.hurtMarked = true;
         } else entity.makeStuckInBlock(Blocks.AIR.defaultBlockState(), STUCK);
         return true;
     }

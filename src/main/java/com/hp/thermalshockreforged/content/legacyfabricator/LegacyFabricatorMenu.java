@@ -111,9 +111,7 @@ public final class LegacyFabricatorMenu extends AbstractContainerMenu {
         try {
             var holder = level.getRecipeManager().byKey(RECIPE).orElse(null);
             if (holder == null || !(holder.value() instanceof FabricationRecipe recipe)) return false;
-            var materials = new ArrayList<ItemStack>(inventory.getContainerSize());
-            for (int slot = 0; slot < inventory.getContainerSize(); slot++) materials.add(inventory.getItem(slot));
-            var input = new FabricationRecipe.Input(materials, storage.getStackInSlot(1));
+            var input = new FabricationRecipe.Input(inventory.items, storage.getStackInSlot(1));
             var plan = recipe.removalPlan(input);
             if (plan == null) return false;
             var result = recipe.assemble(input, level.registryAccess());

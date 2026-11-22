@@ -24,7 +24,8 @@ public final class PrismaticSupernovaEntity extends PathfinderMob implements Geo
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(PrismaticSupernovaEntity.class, EntityDataSerializers.STRING);
     private final AnimatableInstanceCache animations = GeckoLibUtil.createInstanceCache(this);
     private boolean awaitingTimer;
-    public PrismaticSupernovaEntity(EntityType<? extends PrismaticSupernovaEntity> type, Level level) { super(type, level); xpReward = 0; }
+    private int remainingLifetime = 60;
+    public PrismaticSupernovaEntity(EntityType<? extends PrismaticSupernovaEntity> type, Level level) { super(type, level); xpReward = 0; setNoGravity(true); }
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, .3).add(Attributes.MAX_HEALTH, 900).add(Attributes.ARMOR, 0)
                 .add(Attributes.ATTACK_DAMAGE, 0).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, 1).add(Attributes.STEP_HEIGHT, 0);
@@ -33,17 +34,22 @@ public final class PrismaticSupernovaEntity extends PathfinderMob implements Geo
     public String texture() { return entityData.get(TEXTURE); }
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason, SpawnGroupData group) {
         var result = super.finalizeSpawn(level, difficulty, reason, group);
-        setNoGravity(true); awaitingTimer = true;
+        setNoGravity(true); awaitingTimer = true; remainingLifetime = 60;
         return result;
     }
     @Override public void onAddedToLevel() {
         super.onAddedToLevel();
+        setNoGravity(true);
         if (!awaitingTimer || !(level() instanceof ServerLevel server)) return;
         awaitingTimer = false;
         var task = new SupernovaBlastEntity(WeaponContent.SUPERNOVA_BLAST.get(), server);
         task.arm(this);
         if (!server.addFreshEntity(task)) { discard(); return; }
         server.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "supernova_charge")), SoundSource.NEUTRAL, 1, 1);
+    }
+    @Override public void tick() {
+        super.tick();
+        if (!level().isClientSide && !isRemoved() && --remainingLifetime <= 0) discard();
     }
     @Override public boolean hurt(DamageSource source, float amount) {
         var direct = source.getDirectEntity();
@@ -58,11 +64,12 @@ public final class PrismaticSupernovaEntity extends PathfinderMob implements Geo
     @Override protected void pushEntities() { }
     @Override public void aiStep() { super.aiStep(); updateSwingTime(); }
     @Override protected void tickDeath() { if (++deathTime >= 10) remove(RemovalReason.KILLED); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putBoolean("SupernovaAwaitingTimer", awaitingTimer); }
+    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putBoolean("SupernovaAwaitingTimer", awaitingTimer); tag.putInt("SupernovaRemainingLifetime", remainingLifetime); }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         if (tag.contains("Texture") && tag.getString("Texture").matches("[a-z0-9_./-]+")) entityData.set(TEXTURE, tag.getString("Texture"));
         awaitingTimer = tag.getBoolean("SupernovaAwaitingTimer");
+        remainingLifetime = tag.contains("SupernovaRemainingLifetime") ? Math.clamp(tag.getInt("SupernovaRemainingLifetime"), 0, 60) : 60;
     }
     public void setAnimation(String animation) { if (java.util.List.of("idle", "move", "idle3").contains(animation)) triggerAnim("procedure", animation); }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {

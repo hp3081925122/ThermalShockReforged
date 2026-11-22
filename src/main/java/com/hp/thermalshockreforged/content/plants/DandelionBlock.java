@@ -37,7 +37,7 @@ final class DandelionBlock extends GardenFlowerBlock {
         if (windblown) {
             ItemStack meal = player.getMainHandItem();
             if (meal.is(Items.BONE_MEAL) && server.setBlock(pos, SpecialPlantContent.LOQUE_DANDELION.get().defaultBlockState(), 3)) {
-                meal.shrink(1);
+                if (!player.getAbilities().instabuild) meal.shrink(1);
                 server.playSound(null, pos, SoundEvents.BONE_MEAL_USE, SoundSource.NEUTRAL, 1, 1);
             }
         } else if (!player.isShiftKeyDown() && server.setBlock(pos, SpecialPlantContent.WINDBLOWN_LOQUE_DANDELION.get().defaultBlockState(), 3)) {

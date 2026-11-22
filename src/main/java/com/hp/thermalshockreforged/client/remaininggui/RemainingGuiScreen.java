@@ -38,7 +38,7 @@ public final class RemainingGuiScreen extends AbstractContainerScreen<RemainingG
         if (menu.page == RemainingGuiPage.LIMBO_VAULT_GUI) {
             var hint = Component.translatable(menu.page.translation("vaultcodeslot"));
             vaultCode = new EditBox(font, leftPos + 81, topPos + 31, 118, 18, hint);
-            vaultCode.setMaxLength(Short.MAX_VALUE);
+            vaultCode.setMaxLength(64);
             vaultCode.setSuggestion(hint.getString());
             vaultCode.setResponder(value -> vaultCode.setSuggestion(value.isEmpty() ? hint.getString() : null));
             addWidget(vaultCode);

@@ -41,16 +41,16 @@ public final class DiskResonanceEntity extends Entity implements ServerEndTickTa
         int stage = ++elapsed;
         if (stage >= 6) { armed = false; discard(); }
         if (stage == 3 || stage == 6) {
-            Entity attacker = level.getServer().getPlayerList().getPlayer(owner);
-            if (attacker == null) attacker = level.getEntity(owner);
-            burst(level, attacker != null && attacker.getId() == ownerEntityId && !attacker.isRemoved() ? attacker : null);
+            Entity attacker = level.getEntity(owner);
+            burst(level, attacker != null && attacker.level() == level && attacker.getId() == ownerEntityId && !attacker.isRemoved() ? attacker : null);
         }
         if (armed) ServerEndTickTasks.schedule(level, getUUID());
     }
     private void burst(ServerLevel level, Entity attacker) {
         level.playSound(null, blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "prism_breakout")), SoundSource.NEUTRAL, 1, 1);
         level.sendParticles(WeaponContent.PRISM_CLUSTER.get(), getX(), getY(), getZ(), 1, .5, .5, .5, 0);
-        var targets = level.getEntitiesOfClass(Entity.class, new AABB(position(), position()).inflate(3), entity -> entity != this);
+        var targets = level.getEntitiesOfClass(Entity.class, new AABB(position(), position()).inflate(3),
+                entity -> entity != this && !(entity instanceof net.minecraft.world.entity.item.ItemEntity) && !(entity instanceof ExperienceOrb));
         targets.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(position())));
         var source = new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS), attacker);
         for (Entity target : targets) target.hurt(source, 4);

@@ -35,8 +35,9 @@ public final class MagneticBombEntity extends PathfinderMob implements GeoEntity
     private static final EntityDataAccessor<Boolean> DETONATING = SynchedEntityData.defineId(MagneticBombEntity.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(MagneticBombEntity.class, EntityDataSerializers.STRING);
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-    private int fuse = -1;
-    public MagneticBombEntity(EntityType<? extends MagneticBombEntity> type, Level level) { super(type, level); xpReward = 0; }
+    private int fuse = 40;
+    private int detonatingTicks;
+    public MagneticBombEntity(EntityType<? extends MagneticBombEntity> type, Level level) { super(type, level); xpReward = 0; setNoGravity(true); }
     public boolean epsilon() { return getType() == ProjectileContent.EPSILON_BOMB.get(); }
     public boolean detonating() { return entityData.get(DETONATING); }
     public String texture() { return entityData.get(TEXTURE); }
@@ -53,13 +54,22 @@ public final class MagneticBombEntity extends PathfinderMob implements GeoEntity
         if (level instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
         return result;
     }
+    @Override public void onAddedToLevel() {
+        super.onAddedToLevel();
+        setNoGravity(true);
+        if (!detonating() && fuse > 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+    }
     @Override public void baseTick() {
         super.baseTick();
         if (!epsilon() && level().isClientSide) level().addParticle(ProjectileContent.GREEN_PARTICLE.get(), getX(), getY(), getZ(), 0, 0, 0);
     }
     @Override public void tick() {
         super.tick();
-        if (!isRemoved() && !detonating() && fuse > 0 && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
+        if (!isRemoved() && level() instanceof ServerLevel server) {
+            if (detonating()) {
+                if (++detonatingTicks > 25) discard();
+            } else if (fuse > 0) ServerEndTickTasks.schedule(server, getUUID());
+        }
     }
     @Override public void endTick(ServerLevel level) { if (!isRemoved() && !detonating() && fuse > 0 && --fuse == 0) prime(level); }
     private void prime(ServerLevel level) {
@@ -69,7 +79,7 @@ public final class MagneticBombEntity extends PathfinderMob implements GeoEntity
             ThermalShockReforged.LOGGER.warn("Unable to submit magnetic detonation for {}", getUUID());
             return;
         }
-        entityData.set(DETONATING, true); fuse = 0;
+        entityData.set(DETONATING, true); fuse = 0; detonatingTicks = 0;
         ThermalShockReforged.LOGGER.debug("Magnetic detonation committed once for {} (epsilon={})", getUUID(), epsilon());
     }
     @Override public boolean hurt(DamageSource source, float amount) {
@@ -82,11 +92,13 @@ public final class MagneticBombEntity extends PathfinderMob implements GeoEntity
     @Override public void die(DamageSource source) { super.die(source); if (level() instanceof ServerLevel server) prime(server); }
     @Override protected void tickDeath() { if (++deathTime == 10) { remove(Entity.RemovalReason.KILLED); dropExperience(getLastDamageSource() == null ? null : getLastDamageSource().getEntity()); } }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putInt("MagneticFuse", fuse); tag.putBoolean("MagneticDetonating", detonating()); tag.putString("Texture", texture());
+        super.addAdditionalSaveData(tag); tag.putInt("MagneticFuse", fuse); tag.putBoolean("MagneticDetonating", detonating()); tag.putInt("MagneticDetonatingTicks", detonatingTicks); tag.putString("Texture", texture());
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag); fuse = tag.contains("MagneticFuse") ? Math.clamp(tag.getInt("MagneticFuse"), -1, 40) : -1;
+        super.readAdditionalSaveData(tag); fuse = tag.contains("MagneticFuse") ? Math.clamp(tag.getInt("MagneticFuse"), 0, 40) : 40;
         entityData.set(DETONATING, tag.getBoolean("MagneticDetonating"));
+        detonatingTicks = Math.clamp(tag.getInt("MagneticDetonatingTicks"), 0, 25);
+        setNoGravity(true);
         if (tag.contains("Texture") && tag.getString("Texture").matches("[a-z0-9_]+")) entityData.set(TEXTURE, tag.getString("Texture"));
     }
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {

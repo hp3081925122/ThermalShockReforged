@@ -41,6 +41,10 @@ public final class FixedStructureItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (level instanceof ServerLevel serverLevel) {
+            if (!serverLevel.dimension().equals(com.hp.thermalshockreforged.world.LoqendiaContent.DIMENSION)) {
+                player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.fixed_structure_failed"), true);
+                return InteractionResultHolder.fail(stack);
+            }
             var template = serverLevel.getStructureManager().get(templateId);
             if (template.isEmpty()) {
                 ThermalShockReforged.LOGGER.error("Fixed structure template is missing: template={}, dimension={}", templateId, level.dimension().location());
@@ -56,7 +60,7 @@ public final class FixedStructureItem extends Item {
                 player.displayClientMessage(Component.translatable("message.thermal_shock_reforged.fixed_structure_failed"), true);
                 return InteractionResultHolder.fail(stack);
             }
-            stack.shrink(1);
+            if (!player.getAbilities().instabuild) stack.shrink(1);
             if (marksShalespring) WorldProgressData.get(serverLevel).markShalespringExists();
             ThermalShockReforged.LOGGER.debug("Fixed structure placement completed: template={}, position={}, dimension={}", templateId, ORIGIN, level.dimension().location());
         }

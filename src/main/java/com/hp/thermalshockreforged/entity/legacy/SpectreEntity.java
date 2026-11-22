@@ -92,6 +92,7 @@ public final class SpectreEntity extends AnimatedMonsterEntity {
     private void applyConfiguredAttributes() {
         if (level().isClientSide || attributesApplied || !CombatConfig.SPEC.isLoaded()) return;
         float health = getHealth();
+        boolean wasFull = health >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(CombatConfig.SPECTRE_HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(CombatConfig.SPECTRE_ARMOR.get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(CombatConfig.SPECTRE_DAMAGE.get());
@@ -99,15 +100,15 @@ public final class SpectreEntity extends AnimatedMonsterEntity {
         getAttribute(Attributes.FOLLOW_RANGE).setBaseValue(CombatConfig.SPECTRE_FOLLOW_RANGE.get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(CombatConfig.SPECTRE_RESISTANCE.get());
         getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(CombatConfig.SPECTRE_KNOCKBACK.get());
-        setHealth(loadedFromSave ? Math.min(health, getMaxHealth()) : getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(health, getMaxHealth()));
         attributesApplied = true;
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguredAttributes(); syncMovementLock(); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putInt("SpectreCooldown", cooldown); tag.putInt("SpectreMovementLock", movementLock); }
+    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putBoolean("AttributesConfigured", attributesApplied); tag.putInt("SpectreCooldown", cooldown); tag.putInt("SpectreMovementLock", movementLock); }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         loadedFromSave = true;
         super.readAdditionalSaveData(tag);
-        attributesApplied = false;
+        attributesApplied = tag.getBoolean("AttributesConfigured");
         applyConfiguredAttributes();
         cooldown = Math.clamp(tag.getInt("SpectreCooldown"), 0, 72000);
         movementLock = Math.clamp(tag.getInt("SpectreMovementLock"), 0, 20);

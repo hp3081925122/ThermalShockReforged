@@ -212,6 +212,6 @@ public final class ThermalShockReforged {
         com.hp.thermalshockreforged.content.armor.fabricated.FabricatedArmorContent.register(bus);
         ModSounds.register(bus);
         CreativeTabsContent.register(bus);
-        LOGGER.info("Thermal Shock Reforged migration foundation loaded: {} material blocks and {} items", MaterialContent.blocks().size(), MaterialContent.items().size());
+        LOGGER.info("Thermal Shock Reforged initialized successfully");
     }
 }

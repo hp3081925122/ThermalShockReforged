@@ -64,15 +64,26 @@ public record AssemblerRecipe(List<Cost> materials, ItemStack result) implements
         return null;
     }
 
+    private static boolean usableSlot(Container inventory, int slot) {
+        return !(inventory instanceof net.minecraft.world.entity.player.Inventory) || slot < net.minecraft.world.entity.player.Inventory.INVENTORY_SIZE || slot == net.minecraft.world.entity.player.Inventory.SLOT_OFFHAND;
+    }
+
+    private static boolean plain(ItemStack stack) {
+        return !stack.isDamaged() && !stack.isEnchanted() && !stack.has(net.minecraft.core.component.DataComponents.CUSTOM_NAME);
+    }
+
     public int[] removalPlan(Container inventory) {
         int[] plan = new int[inventory.getContainerSize()];
         for (var cost : totals().entrySet()) {
             int remaining = cost.getValue();
-            for (int slot = 0; slot < plan.length && remaining > 0; slot++) {
-                var stack = inventory.getItem(slot);
-                if (!stack.is(cost.getKey())) continue;
-                int take = Math.min(remaining, stack.getCount() - plan[slot]);
-                if (take > 0) { plan[slot] += take; remaining -= take; }
+            for (int pass = 0; pass < 2 && remaining > 0; pass++) {
+                for (int slot = 0; slot < plan.length && remaining > 0; slot++) {
+                    if (!usableSlot(inventory, slot)) continue;
+                    var stack = inventory.getItem(slot);
+                    if (!stack.is(cost.getKey()) || (pass == 0) != plain(stack)) continue;
+                    int take = Math.min(remaining, stack.getCount() - plan[slot]);
+                    if (take > 0) { plan[slot] += take; remaining -= take; }
+                }
             }
             if (remaining > 0) return null;
         }

@@ -53,13 +53,13 @@ public final class KilolyteEntity extends Monster implements GeoEntity {
     }
     private void applyConfiguredAttributes() {
         if (level().isClientSide || attributesApplied || !SanctumConfig.SPEC.isLoaded()) return;
-        float health = getHealth(); var config = SanctumConfig.KILOLYTE;
+        float health = getHealth(); boolean wasFull = health >= getMaxHealth() - 1.0E-3F; var config = SanctumConfig.KILOLYTE;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(config.health().get());
         getAttribute(Attributes.ARMOR).setBaseValue(config.armor().get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(config.damage().get());
         getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(config.speed().get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(config.resistance().get());
-        setHealth(loadedFromSave ? Math.min(health, getMaxHealth()) : getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(health, getMaxHealth()));
         attributesApplied = true;
         ThermalShockReforged.LOGGER.debug("Kilolyte attributes applied: entity={}, loaded={}, health={}, attackDamage={}", getUUID(), loadedFromSave, getHealth(), getAttributeValue(Attributes.ATTACK_DAMAGE));
     }
@@ -145,9 +145,9 @@ public final class KilolyteEntity extends Monster implements GeoEntity {
     @Override protected float getDamageAfterMagicAbsorb(DamageSource source, float amount) {
         if (birthProtection > 0 && !source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_EFFECTS) && !source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_RESISTANCE)) {
             if (Float.isFinite(amount) && amount > 0) {
-                damageContainers.peek().setReduction(net.neoforged.neoforge.common.damagesource.DamageContainer.Reduction.MOB_EFFECTS, amount);
+                if (!damageContainers.empty()) damageContainers.peek().setReduction(net.neoforged.neoforge.common.damagesource.DamageContainer.Reduction.MOB_EFFECTS, amount);
                 if (amount < 3.4028235E37F && source.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) player.awardStat(net.minecraft.stats.Stats.DAMAGE_DEALT_RESISTED, Math.round(amount * 10));
-            } else damageContainers.peek().setNewDamage(0);
+            } else if (!damageContainers.empty()) damageContainers.peek().setNewDamage(0);
             return 0;
         }
         return super.getDamageAfterMagicAbsorb(source, amount);
@@ -164,14 +164,16 @@ public final class KilolyteEntity extends Monster implements GeoEntity {
     }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
+        tag.putBoolean("AttributesConfigured", attributesApplied);
         tag.putBoolean("KilolyteInitialized", initialized); tag.putInt("KilolyteBirthProtection", birthProtection);
         tag.putString("KilolyteAnimation", entityData.get(ANIMATION)); tag.putInt("KilolyteAnimationRemaining", animationRemaining); tag.putString("Texture", texture()); tag.putInt("KilolyteCooldown", cooldown); tag.putInt("KilolyteMovementLock", movementLock);
         tag.putBoolean("KilolyteExperiencePending", experiencePending);
         if (experienceAttacker != null) tag.putUUID("KilolyteExperienceAttacker", experienceAttacker);
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
-        loadedFromSave = true; attributesApplied = false;
+        loadedFromSave = true;
         super.readAdditionalSaveData(tag);
+        attributesApplied = tag.getBoolean("AttributesConfigured");
         initialized = tag.getBoolean("KilolyteInitialized"); birthProtection = Math.clamp(tag.getInt("KilolyteBirthProtection"), 0, 70);
         String clip = tag.getString("KilolyteAnimation"); animationRemaining = Math.clamp(tag.getInt("KilolyteAnimationRemaining"), 0, duration(clip));
         if (animationRemaining > 0) {

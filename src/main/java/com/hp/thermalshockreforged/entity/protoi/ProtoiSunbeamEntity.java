@@ -40,11 +40,12 @@ public final class ProtoiSunbeamEntity extends ProtoiEntityBase {
     private void applyConfiguredAttributes() {
         if (level().isClientSide || attributesApplied || !CombatConfig.SPEC.isLoaded()) return;
         float health = getHealth();
+        boolean wasFull = health >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(CombatConfig.SUNBEAM_HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(CombatConfig.SUNBEAM_ARMOR.get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(CombatConfig.SUNBEAM_DAMAGE.get());
         getAttribute(Attributes.FOLLOW_RANGE).setBaseValue(CombatConfig.SUNBEAM_FOLLOW_RANGE.get());
-        setHealth(loadedFromSave ? Math.min(health, getMaxHealth()) : getMaxHealth()); attributesApplied = true;
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(health, getMaxHealth())); attributesApplied = true;
     }
     public void beginAttack(LivingEntity victim) {
         if (!(level() instanceof ServerLevel server) || victim == this || victim.level() != level() || cooldown > 0) return;
@@ -102,13 +103,13 @@ public final class ProtoiSunbeamEntity extends ProtoiEntityBase {
         controllers.add(procedure);
     }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putInt("SunbeamCooldown", cooldown); tag.putBoolean("SunbeamDeathVisualStarted", deathVisualStarted);
+        super.addAdditionalSaveData(tag); tag.putBoolean("AttributesConfigured", attributesApplied); tag.putInt("SunbeamCooldown", cooldown); tag.putBoolean("SunbeamDeathVisualStarted", deathVisualStarted);
         if (attackTask != null) tag.putUUID("SunbeamAttackTask", attackTask);
         tag.putBoolean("SunbeamExperiencePending", experiencePending);
         if (experienceAttacker != null) tag.putUUID("SunbeamExperienceAttacker", experienceAttacker);
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
-        loadedFromSave = true; super.readAdditionalSaveData(tag); attributesApplied = false; applyConfiguredAttributes();
+        loadedFromSave = true; super.readAdditionalSaveData(tag); attributesApplied = tag.getBoolean("AttributesConfigured"); applyConfiguredAttributes();
         cooldown = Math.clamp(tag.getInt("SunbeamCooldown"), 0, 72000); deathVisualStarted = tag.getBoolean("SunbeamDeathVisualStarted");
         attackTask = tag.hasUUID("SunbeamAttackTask") ? tag.getUUID("SunbeamAttackTask") : null;
         experiencePending = tag.getBoolean("SunbeamExperiencePending");

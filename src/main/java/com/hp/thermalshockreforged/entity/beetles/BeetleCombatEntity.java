@@ -108,18 +108,19 @@ public abstract class BeetleCombatEntity extends Monster implements GeoEntity {
         if (level().isClientSide || attributesApplied || !BeetleConfig.SPEC.isLoaded()) return;
         int index = thrasher() ? 1 : 0;
         float previous = getHealth();
+        boolean wasFull = previous >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(BeetleConfig.HEALTH[index].get());
         getAttribute(Attributes.ARMOR).setBaseValue(BeetleConfig.ARMOR[index].get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(BeetleConfig.DAMAGE[index].get());
         getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(BeetleConfig.SPEED[index].get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(BeetleConfig.RESISTANCE[index].get());
-        setHealth(loadedFromSave ? Math.min(previous, getMaxHealth()) : getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(previous, getMaxHealth()));
         attributesApplied = true;
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguredAttributes(); synchronizeMovementLock(); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putInt("BeetleCooldown", cooldown); tag.putInt("BeetleMovementLock", movementLock); tag.putInt("BeetleSleepLock", sleepLock); tag.putBoolean("BeetleEmerging", entityData.get(EMERGING)); tag.putBoolean("BeetleExperiencePending", experiencePending); if (experienceAttacker != null) tag.putUUID("BeetleExperienceAttacker", experienceAttacker); }
+    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putBoolean("AttributesConfigured", attributesApplied); tag.putString("Texture", texture()); tag.putInt("BeetleCooldown", cooldown); tag.putInt("BeetleMovementLock", movementLock); tag.putInt("BeetleSleepLock", sleepLock); tag.putBoolean("BeetleEmerging", entityData.get(EMERGING)); tag.putBoolean("BeetleExperiencePending", experiencePending); if (experienceAttacker != null) tag.putUUID("BeetleExperienceAttacker", experienceAttacker); }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
-        loadedFromSave = true; super.readAdditionalSaveData(tag); attributesApplied = false;
+        loadedFromSave = true; super.readAdditionalSaveData(tag); attributesApplied = tag.getBoolean("AttributesConfigured");
         if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
         cooldown = Math.clamp(tag.getInt("BeetleCooldown"), 0, 72000); movementLock = Math.clamp(tag.getInt("BeetleMovementLock"), 0, 35); sleepLock = Math.clamp(tag.getInt("BeetleSleepLock"), 0, 5); entityData.set(EMERGING, tag.getBoolean("BeetleEmerging") && cooldown > 0);
         var legacySleep = getEffect(MobEffects.MOVEMENT_SLOWDOWN);

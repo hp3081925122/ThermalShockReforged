@@ -47,7 +47,7 @@ public final class MagneticCrossbowItem extends Item implements GeoItem {
         boolean result = super.onEntitySwing(stack, wielder, hand);
         if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this)) return result;
         Item ammo = MaterialContent.items().get("specialized_round").get();
-        if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) {
+        if (!WeaponAmmo.has(player, ammo)) {
             server.playSound(null, player.blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, 5);
             return result;
         }
@@ -63,7 +63,7 @@ public final class MagneticCrossbowItem extends Item implements GeoItem {
         MagneticCycleSoundEntity.submit(server, player.getX(), player.getY(), player.getZ());
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 15, 2, false, false));
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 2, 0, true, false));
-        if (!player.getAbilities().instabuild) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
+        WeaponAmmo.consume(player, ammo);
         return result;
     }
     @Override public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {

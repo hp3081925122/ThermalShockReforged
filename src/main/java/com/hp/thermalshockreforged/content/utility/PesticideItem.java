@@ -23,17 +23,22 @@ public final class PesticideItem extends Item {
         super.appendHoverText(stack, context, lines, flag); lines.add(Component.translatable("item.thermal_shock_reforged.pesticide.description_0"));
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        player.startUsingItem(hand); return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), level.isClientSide);
+        var stack = player.getItemInHand(hand);
+        if (player.getCooldowns().isOnCooldown(this)) return InteractionResultHolder.fail(stack);
+        player.startUsingItem(hand); return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
     }
     @Override public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity consumer) {
         if (level instanceof ServerLevel server) {
             var origin = consumer.position();
             server.sendParticles(CavebloomerContent.POISON_CLOUD.get(), origin.x, origin.y, origin.z, 1, 0, 0, 0, 0);
-            var source = new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.INDIRECT_MAGIC));
+            var source = new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.INDIRECT_MAGIC), consumer, consumer);
             var targets = server.getEntitiesOfClass(SkullscorEntity.class, new AABB(origin, origin).inflate(1.75), entity -> true);
             targets.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(origin)));
             for (SkullscorEntity target : targets) target.hurt(source, 50);
-            if (consumer instanceof Player player) { stack.shrink(1); player.getCooldowns().addCooldown(this, 80); }
+            if (consumer instanceof Player player) {
+                if (!player.getAbilities().instabuild) stack.shrink(1);
+                player.getCooldowns().addCooldown(this, 80);
+            }
         }
         return stack;
     }

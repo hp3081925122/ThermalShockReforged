@@ -49,6 +49,7 @@ public final class ErrantEntity extends Monster implements GeoEntity, com.hp.the
     private void applyConfiguredAttributes() {
         if (level().isClientSide || attributesApplied || !SanctumConfig.SPEC.isLoaded()) return;
         float previousHealth = getHealth();
+        boolean wasFull = previousHealth >= getMaxHealth() - 1.0E-3F;
         var values = sanctum() ? SanctumConfig.SANCTUM_ERRANT : SanctumConfig.ERRANT;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(values.health().get());
         getAttribute(Attributes.ARMOR).setBaseValue(values.armor().get());
@@ -56,7 +57,7 @@ public final class ErrantEntity extends Monster implements GeoEntity, com.hp.the
         getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(values.speed().get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(values.resistance().get());
         getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(values.knockback().get());
-        setHealth(loadedFromSave ? Math.min(previousHealth, getMaxHealth()) : getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(previousHealth, getMaxHealth()));
         attributesApplied = true;
         ThermalShockReforged.LOGGER.debug("Sanctum errant attributes applied: entity={}, loaded={}, health={}, maxHealth={}, attackDamage={}", getUUID(), loadedFromSave, getHealth(), getMaxHealth(), getAttributeValue(Attributes.ATTACK_DAMAGE));
     }
@@ -114,6 +115,7 @@ public final class ErrantEntity extends Monster implements GeoEntity, com.hp.the
     }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
+        tag.putBoolean("AttributesConfigured", attributesApplied);
         tag.putString("Texture", texture());
         combat.save(tag);
         tag.putBoolean("SanctumErrantDeathCommitted", deathCommitted);
@@ -122,8 +124,8 @@ public final class ErrantEntity extends Monster implements GeoEntity, com.hp.the
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         loadedFromSave = true;
-        attributesApplied = false;
         super.readAdditionalSaveData(tag);
+        attributesApplied = tag.getBoolean("AttributesConfigured");
         if (!tag.contains("NeoForgeData", 10) && tag.contains("ForgeData", 10)) getPersistentData().merge(tag.getCompound("ForgeData"));
         if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
         deathCommitted = tag.getBoolean("SanctumErrantDeathCommitted");

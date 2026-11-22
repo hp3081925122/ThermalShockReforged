@@ -49,6 +49,14 @@ public record NpcTradeRecipe(List<FabricationRecipe.Cost> costs, int levels, Ite
         return advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone();
     }
 
+    private static boolean usableSlot(int slot) {
+        return slot < net.minecraft.world.entity.player.Inventory.INVENTORY_SIZE || slot == net.minecraft.world.entity.player.Inventory.SLOT_OFFHAND;
+    }
+
+    private static boolean plain(ItemStack stack) {
+        return !stack.isDamaged() && !stack.isEnchanted() && !stack.has(net.minecraft.core.component.DataComponents.CUSTOM_NAME);
+    }
+
     public boolean trade(ServerPlayer player) {
         if (player.experienceLevel < levels) return false;
         var totals = new LinkedHashMap<Item, Integer>();
@@ -56,6 +64,7 @@ public record NpcTradeRecipe(List<FabricationRecipe.Cost> costs, int levels, Ite
         for (Map.Entry<Item, Integer> cost : totals.entrySet()) {
             int owned = 0;
             for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
+                if (!usableSlot(slot)) continue;
                 var stack = player.getInventory().getItem(slot);
                 if (stack.is(cost.getKey())) owned += stack.getCount();
             }
@@ -80,26 +89,28 @@ public record NpcTradeRecipe(List<FabricationRecipe.Cost> costs, int levels, Ite
 
     public static boolean pay(ServerPlayer player, Item currency, int amount) {
         if (amount <= 0) return amount == 0;
-        List<Debit> plan = new ArrayList<>();
+        var inventory = player.getInventory();
+        int[] plan = new int[inventory.getContainerSize()];
         int needed = amount;
-        for (Container container : List.of(player.getInventory(), player.inventoryMenu.getCraftSlots())) {
-            for (int slot = 0; slot < container.getContainerSize() && needed > 0; slot++) {
-                ItemStack stack = container.getItem(slot);
-                if (!stack.is(currency)) continue;
-                int take = Math.min(needed, stack.getCount());
-                plan.add(new Debit(container, stack, take));
-                needed -= take;
+        for (int pass = 0; pass < 2 && needed > 0; pass++) {
+            for (int slot = 0; slot < plan.length && needed > 0; slot++) {
+                if (!usableSlot(slot)) continue;
+                ItemStack stack = inventory.getItem(slot);
+                if (!stack.is(currency) || (pass == 0) != plain(stack)) continue;
+                int take = Math.min(needed, stack.getCount() - plan[slot]);
+                if (take > 0) {
+                    plan[slot] += take;
+                    needed -= take;
+                }
             }
         }
         if (needed != 0) return false;
-        for (Debit debit : plan) debit.stack.shrink(debit.count);
-        for (Debit debit : plan) debit.container.setChanged();
+        for (int slot = 0; slot < plan.length; slot++) if (plan[slot] > 0) inventory.removeItem(slot, plan[slot]);
+        inventory.setChanged();
         return true;
     }
 
     @Override public ItemStack getResultItem(HolderLookup.Provider registries) { return result; }
     @Override public RecipeSerializer<?> getSerializer() { return RecipeContent.NPC_TRADE.serializer().get(); }
     @Override public RecipeType<?> getType() { return RecipeContent.NPC_TRADE.type().get(); }
-
-    private record Debit(Container container, ItemStack stack, int count) { }
 }

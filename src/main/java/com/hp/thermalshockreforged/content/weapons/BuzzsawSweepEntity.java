@@ -45,9 +45,13 @@ public final class BuzzsawSweepEntity extends Entity implements ServerEndTickTas
     }
     public void cut(ServerLevel level, LivingEntity wielder) {
         var center = wielder.position();
-        var targets = level.getEntitiesOfClass(Entity.class, new AABB(center, center).inflate(1), target -> target != this && !target.getUUID().equals(owner) && !(target instanceof Player));
+        var targets = level.getEntitiesOfClass(Entity.class, new AABB(center, center).inflate(1),
+                target -> target != this && !target.getUUID().equals(owner) && !(target instanceof Player)
+                        && !(target instanceof net.minecraft.world.entity.item.ItemEntity) && !(target instanceof ExperienceOrb)
+                        && !(target instanceof TamableAnimal pet && pet.isTame()));
         targets.sort(Comparator.comparingDouble(target -> target.distanceToSqr(center)));
-        var damage = new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS));
+        var attacker = wielder instanceof Player ? wielder : null;
+        var damage = new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(ModDamageTypes.THERM_IFRAME_BYPASS), attacker, attacker);
         for (Entity target : targets) {
             target.hurt(damage, 2);
             level.sendParticles(WeaponContent.BLOOD_SPLATTER.get(), target.getX(), target.getEyeY(), target.getZ(), 0, 0, 1, 0, 1);

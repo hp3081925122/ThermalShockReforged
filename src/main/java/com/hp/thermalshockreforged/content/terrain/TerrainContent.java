@@ -136,7 +136,7 @@ public final class TerrainContent {
             if (!level.isClientSide) {
                 Block plant = state.is(TWILIT_GRASSY_SHALE.get()) ? com.hp.thermalshockreforged.content.plants.PlantContent.TWILIT_SHRUB.get()
                         : snowy ? (level.random.nextBoolean() ? TALL_FROSTED_GRASS.get() : SHORT_LOQUE_GRASS.get()) : LOQUE_GRASS.get();
-                if (level.setBlock(pos.above(), plant.defaultBlockState(), 3)) {
+                if (level.setBlock(pos.above(), plant.defaultBlockState(), 3) && !player.getAbilities().instabuild) {
                     player.getMainHandItem().shrink(1);
                 }
             }

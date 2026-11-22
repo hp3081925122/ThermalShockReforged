@@ -97,7 +97,7 @@ public final class LoqendiaPortalBlock extends Block implements Portal {
             double vx = (random.nextFloat() - 0.5) / 2;
             double vy = (random.nextFloat() - 0.5) / 2;
             double vz = (random.nextFloat() - 0.5) / 2;
-            int direction = random.nextInt(4) - 1;
+            int direction = random.nextInt(2) * 2 - 1;
             if (!level.getBlockState(pos.west()).is(this) && !level.getBlockState(pos.east()).is(this)) {
                 x = pos.getX() + 0.5 + 0.25 * direction;
                 vx = random.nextFloat() * 2 * direction;

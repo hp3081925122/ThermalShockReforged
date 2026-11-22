@@ -42,13 +42,15 @@ public final class GemlockBlock extends Block {
         boolean activating = current.getValue(BLOCKSTATE) == 0;
         var held = player.getMainHandItem();
         if (activating && (held.isEmpty() || !held.is(kind.item()))) return;
-        var payment = activating ? held.split(1) : ItemStack.EMPTY;
+        boolean creative = player.getAbilities().instabuild;
+        var payment = activating && !creative ? held.split(1) : ItemStack.EMPTY;
         if (!level.setBlock(pos, current.setValue(BLOCKSTATE, activating ? 1 : 0), 3)) {
-            if (activating) ItemHandlerHelper.giveItemToPlayer(player, payment);
+            if (activating && !payment.isEmpty()) ItemHandlerHelper.giveItemToPlayer(player, payment);
             ThermalShockReforged.LOGGER.debug("Gemlock state transition rejected: kind={}, position={}, player={}", kind, pos, player.getUUID());
             return;
         }
-        if (!activating) ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(kind.item()));
+        var gem = new ItemStack(kind.item());
+        if (!activating && (!creative || !player.getInventory().contains(gem))) ItemHandlerHelper.giveItemToPlayer(player, gem);
         player.getInventory().setChanged();
         level.playSound(null, pos, activating ? SoundEvents.EXPERIENCE_ORB_PICKUP : SoundEvents.GLASS_BREAK, SoundSource.NEUTRAL, 1, 1);
         ThermalShockReforged.LOGGER.debug("Gemlock state changed: kind={}, active={}, position={}, player={}", kind, activating, pos, player.getUUID());

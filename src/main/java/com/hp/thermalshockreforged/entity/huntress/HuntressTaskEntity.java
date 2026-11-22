@@ -113,7 +113,9 @@ public final class HuntressTaskEntity extends Entity implements ServerEndTickTas
     }
     private void teleportOwner(HuntressBossEntity owner, Vec3 position) { casterOrigin = position; if (owner != null) { owner.teleportTo(position.x, position.y, position.z); casterOrigin = owner.position(); } setPos(casterOrigin); }
     private void strike(ServerLevel server, boolean second) {
-        var entities = server.getEntitiesOfClass(Entity.class, new AABB(casterOrigin, casterOrigin).inflate(2.5), entity -> entity != this).stream().sorted(Comparator.comparingDouble(entity -> entity.distanceToSqr(casterOrigin))).toList();
+        var entities = server.getEntitiesOfClass(Entity.class, new AABB(casterOrigin, casterOrigin).inflate(2.5),
+                entity -> entity != this && !(entity instanceof net.minecraft.world.entity.item.ItemEntity) && !(entity instanceof ExperienceOrb))
+                .stream().sorted(Comparator.comparingDouble(entity -> entity.distanceToSqr(casterOrigin))).toList();
         var source = new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DAMAGE_TYPE));
         for (var entity : entities) {
             if (entity.getUUID().equals(caster) || entity instanceof LivingEntity living && living.isBlocking()) continue;

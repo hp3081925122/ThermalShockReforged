@@ -38,22 +38,25 @@ public final class AngryCavebloomerEntity extends Monster implements GeoEntity, 
     private final BossDeathSequence deathSequence = new BossDeathSequence();
     private final ServerBossEvent bossBar = new ServerBossEvent(getDisplayName(), BossEvent.BossBarColor.PINK, BossEvent.BossBarOverlay.NOTCHED_6);
     private boolean deathCommitted, experiencePending;
+    private boolean attributesApplied, loadedFromSave;
     private UUID experienceAttacker;
     public AngryCavebloomerEntity(EntityType<? extends AngryCavebloomerEntity> type, Level level) {
-        super(type, level); xpReward = 1000; setPersistenceRequired(); applyConfiguredAttributes(true);
+        super(type, level); xpReward = 1000; setPersistenceRequired(); applyConfiguredAttributes();
     }
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 325).add(Attributes.ARMOR, 10).add(Attributes.ATTACK_DAMAGE, 7)
                 .add(Attributes.MOVEMENT_SPEED, 0.2).add(Attributes.FOLLOW_RANGE, 16).add(Attributes.KNOCKBACK_RESISTANCE, 0.2)
                 .add(Attributes.ATTACK_KNOCKBACK, 0.6).add(Attributes.STEP_HEIGHT, 0.6);
     }
-    void applyConfiguredAttributes(boolean initial) {
-        if (!(level() instanceof ServerLevel) || !CavebloomerConfig.SPEC.isLoaded()) return;
+    void applyConfiguredAttributes() {
+        if (!(level() instanceof ServerLevel) || attributesApplied || !CavebloomerConfig.SPEC.isLoaded()) return;
         float health = getHealth();
+        boolean wasFull = health >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(CavebloomerConfig.HEALTH.get()); getAttribute(Attributes.ARMOR).setBaseValue(CavebloomerConfig.ARMOR.get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(CavebloomerConfig.DAMAGE.get()); getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(CavebloomerConfig.SPEED.get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(CavebloomerConfig.RESISTANCE.get()); getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(CavebloomerConfig.KNOCKBACK.get());
-        setHealth(initial ? getMaxHealth() : Math.min(health, getMaxHealth()));
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(health, getMaxHealth()));
+        attributesApplied = true;
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, "angry_cavebloomer"); }
     public String texture() { return entityData.get(TEXTURE); }
@@ -98,6 +101,7 @@ public final class AngryCavebloomerEntity extends Monster implements GeoEntity, 
     }
     @Override public void onAddedToLevel() {
         super.onAddedToLevel();
+        applyConfiguredAttributes();
         if ((attacks.pending() || deathSequence.pending()) && level() instanceof ServerLevel server) ServerEndTickTasks.schedule(server, getUUID());
     }
     @Override public void endTick(ServerLevel server) {
@@ -140,12 +144,12 @@ public final class AngryCavebloomerEntity extends Monster implements GeoEntity, 
     @Override public void stopSeenByPlayer(ServerPlayer player) { super.stopSeenByPlayer(player); bossBar.removePlayer(player); }
     @Override public void setCustomName(Component name) { super.setCustomName(name); if (bossBar != null) bossBar.setName(getDisplayName()); }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); attacks.save(tag); deathSequence.save(tag);
+        super.addAdditionalSaveData(tag); tag.putBoolean("AttributesConfigured", attributesApplied); tag.putString("Texture", texture()); attacks.save(tag); deathSequence.save(tag);
         tag.putBoolean("CavebloomerDeathCommitted", deathCommitted); tag.putBoolean("CavebloomerExperiencePending", experiencePending);
         if (experienceAttacker != null) tag.putUUID("CavebloomerExperienceAttacker", experienceAttacker);
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag); applyConfiguredAttributes(false); if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
+        loadedFromSave = true; super.readAdditionalSaveData(tag); attributesApplied = tag.getBoolean("AttributesConfigured"); applyConfiguredAttributes(); if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
         attacks.load(tag); deathSequence.load(tag); deathCommitted = tag.getBoolean("CavebloomerDeathCommitted"); experiencePending = tag.getBoolean("CavebloomerExperiencePending");
         experienceAttacker = tag.hasUUID("CavebloomerExperienceAttacker") ? tag.getUUID("CavebloomerExperienceAttacker") : null; bossBar.setName(getDisplayName());
     }

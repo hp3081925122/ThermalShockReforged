@@ -56,29 +56,30 @@ public final class SpearItem extends Item implements GeoItem {
     }
     @Override public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) { return false; }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        var result = super.use(level, player, hand);
+        ItemStack stack = player.getItemInHand(hand);
+        if (player.getCooldowns().isOnCooldown(this)) return InteractionResultHolder.fail(stack);
         if (kind == Kind.HI_VOLT) {
-            if (level instanceof net.minecraft.server.level.ServerLevel server && !player.getCooldowns().isOnCooldown(this)) {
+            if (level instanceof net.minecraft.server.level.ServerLevel server) {
                 player.getCooldowns().addCooldown(this, 120);
-                triggerAnim(player, GeoItem.getOrAssignId(result.getObject(), server), "procedure", "2");
+                triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "2");
                 player.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 20, 1, false, true));
                 HiVoltPulseEntity.submit(server, player, true);
                 server.playSound(null, player.blockPosition(), net.minecraft.core.registries.BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sparkhum")), SoundSource.NEUTRAL, 1, 1);
             }
-            return result;
+            return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
         }
-        if (!player.getCooldowns().isOnCooldown(this)) {
-            player.getCooldowns().addCooldown(this, 26);
-            var look = player.getLookAngle();
-            player.setDeltaMovement(player.getDeltaMovement().add(look.x, .25, look.z));
-            if (!level.isClientSide) {
-                player.addEffect(new MobEffectInstance(AuraContent.DAMAGING_AURA, 17, kind.halberd() ? 3 : 2, true, false));
-                level.playSound(null, player.blockPosition(), net.minecraft.sounds.SoundEvents.FIREWORK_ROCKET_LAUNCH, SoundSource.NEUTRAL, 1, 1);
-                SpeleothemSoundEntity.submit((net.minecraft.server.level.ServerLevel) level, player.getX(), player.getY(), player.getZ(), 26, 55);
-            }
-            if (level instanceof net.minecraft.server.level.ServerLevel server) triggerAnim(player, GeoItem.getOrAssignId(result.getObject(), server), "procedure", "1");
+        player.getCooldowns().addCooldown(this, 26);
+        var look = player.getLookAngle();
+        player.setDeltaMovement(player.getDeltaMovement().add(look.x, .25, look.z));
+        player.hasImpulse = true;
+        if (!level.isClientSide) {
+            player.hurtMarked = true;
+            player.addEffect(new MobEffectInstance(AuraContent.DAMAGING_AURA, 17, kind.halberd() ? 3 : 2, true, false));
+            level.playSound(null, player.blockPosition(), net.minecraft.sounds.SoundEvents.FIREWORK_ROCKET_LAUNCH, SoundSource.NEUTRAL, 1, 1);
+            SpeleothemSoundEntity.submit((net.minecraft.server.level.ServerLevel) level, player.getX(), player.getY(), player.getZ(), 26, 55);
         }
-        return result;
+        if (level instanceof net.minecraft.server.level.ServerLevel server) triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "1");
+        return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
     }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) {
         if (!wielder.level().isClientSide) {

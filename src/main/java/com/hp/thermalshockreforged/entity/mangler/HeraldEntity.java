@@ -49,11 +49,12 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
     void applyConfiguredAttributes() {
         if (level().isClientSide || configuredAttributes || !ManglerCombatConfig.SPEC.isLoaded()) return;
         float savedHealth = getHealth();
+        boolean wasFull = savedHealth >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(ManglerCombatConfig.HERALD_HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(ManglerCombatConfig.HERALD_ARMOR.get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(ManglerCombatConfig.HERALD_RESISTANCE.get());
         getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(ManglerCombatConfig.HERALD_KNOCKBACK.get());
-        setHealth(loadedFromSave ? Math.min(savedHealth, getMaxHealth()) : getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(savedHealth, getMaxHealth()));
         configuredAttributes = true;
         ThermalShockReforged.LOGGER.debug("Herald configured attributes applied: uuid={}, loadedFromSave={}, health={}, maxHealth={}, armor={}, knockback={}, resistance={}", getUUID(), loadedFromSave, getHealth(), getMaxHealth(), getAttributeValue(Attributes.ARMOR), getAttributeValue(Attributes.ATTACK_KNOCKBACK), getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));
     }
@@ -166,7 +167,7 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
     static SoundEvent sound(String path) { return BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath("thermal_shock_reforged", path)); }
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putLong("SummonReadyAt", summonReadyAt); tag.putInt("HeraldKillCount", killCount); tag.putBoolean("HeraldBloom", active); tag.putBoolean("KeyDropped", keyDropped); tag.putBoolean("DeathVisualStarted", deathVisualStarted); tag.putInt("ActivationRemaining", activationRemaining);
+        super.addAdditionalSaveData(tag); tag.putBoolean("AttributesConfigured", configuredAttributes); tag.putString("Texture", texture()); tag.putLong("SummonReadyAt", summonReadyAt); tag.putInt("HeraldKillCount", killCount); tag.putBoolean("HeraldBloom", active); tag.putBoolean("KeyDropped", keyDropped); tag.putBoolean("DeathVisualStarted", deathVisualStarted); tag.putInt("ActivationRemaining", activationRemaining);
         tag.putDouble("ActivationX", activationOrigin.x); tag.putDouble("ActivationY", activationOrigin.y); tag.putDouble("ActivationZ", activationOrigin.z);
         if (anchor != null) { tag.putDouble("HeraldXpos", anchor.x); tag.putDouble("HeraldYpos", anchor.y); tag.putDouble("HeraldZpos", anchor.z); tag.putString("AnchorDimension", anchorDimension); }
     }
@@ -174,7 +175,7 @@ public final class HeraldEntity extends Monster implements GeoEntity, ServerEndT
     public void readAdditionalSaveData(CompoundTag tag) {
         loadedFromSave = true;
         super.readAdditionalSaveData(tag);
-        configuredAttributes = false;
+        configuredAttributes = tag.getBoolean("AttributesConfigured");
         applyConfiguredAttributes();
         if (tag.contains("Texture")) setTexture(tag.getString("Texture")); summonReadyAt = tag.getLong("SummonReadyAt");
         var legacy = getPersistentData(); killCount = Math.max(0, Math.min(10, tag.contains("HeraldKillCount") ? tag.getInt("HeraldKillCount") : (int) legacy.getDouble("HeraldKillCount"))); active = tag.getBoolean("HeraldBloom") || legacy.getString("HeraldActive").equals("Yup"); keyDropped = tag.getBoolean("KeyDropped") || active; deathVisualStarted = tag.getBoolean("DeathVisualStarted");

@@ -58,7 +58,7 @@ public final class BlindingLanternItem extends Item implements GeoItem {
         server.sendParticles(ParticleTypes.FLASH, origin.x, origin.y, origin.z, 45, 5, 5, 5, 0.3);
         server.playSound(null, wielder.blockPosition(), BuiltInRegistries.SOUND_EVENT.get(SOUND), SoundSource.NEUTRAL, 1, 1);
         for (Entity target : server.getEntitiesOfClass(Entity.class, new AABB(origin, origin).inflate(6),
-                candidate -> candidate != wielder && !(candidate instanceof TamableAnimal pet && pet.isTame()))
+                candidate -> candidate != wielder && !(candidate instanceof net.minecraft.world.entity.item.ItemEntity) && !(candidate instanceof ExperienceOrb) && !(candidate instanceof TamableAnimal pet && pet.isTame()))
                 .stream().sorted(Comparator.comparingDouble(candidate -> candidate.distanceToSqr(origin))).toList()) {
             target.hurt(server.damageSources().generic(), 3);
             if (target instanceof LivingEntity living) living.addEffect(new MobEffectInstance(StatusContent.STUNNED, 60, 1, false, false));

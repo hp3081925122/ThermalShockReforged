@@ -9,6 +9,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,8 +27,13 @@ public final class ReactiveFluidBlock extends LiquidBlock {
     @Override
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         super.entityInside(state, level, pos, entity);
-        if (springelatin) entity.setDeltaMovement(0, 0.55, 0);
-        else if (!level.isClientSide && entity instanceof LivingEntity living) living.addEffect(new MobEffectInstance(StatusContent.INFECTED, 100, 1));
+        if (springelatin) {
+            entity.setDeltaMovement(0, 0.55, 0);
+            entity.hasImpulse = true;
+        } else if (!level.isClientSide && entity instanceof LivingEntity living
+                && !(living instanceof Player player && (player.isCreative() || player.isSpectator()))) {
+            living.addEffect(new MobEffectInstance(StatusContent.INFECTED, 100, 1));
+        }
     }
 
     @Override

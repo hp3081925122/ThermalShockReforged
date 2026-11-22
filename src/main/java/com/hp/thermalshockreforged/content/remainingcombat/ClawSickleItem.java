@@ -33,7 +33,7 @@ public final class ClawSickleItem extends HoeItem {
     }
     @Override public boolean hurtEnemy(ItemStack stack, LivingEntity victim, LivingEntity attacker) {
         boolean result = super.hurtEnemy(stack, victim, attacker);
-        if (!victim.level().isClientSide) {
+        if (!victim.level().isClientSide && victim != attacker) {
             var existing = victim.getEffect(WeaponContent.SICKLE_WOUND);
             int amplifier = existing == null ? 0 : existing.getAmplifier() + 1;
             victim.addEffect(new MobEffectInstance(WeaponContent.SICKLE_WOUND, 20, amplifier));
@@ -43,7 +43,8 @@ public final class ClawSickleItem extends HoeItem {
                 ThermalShockReforged.LOGGER.debug("Claw sickle wound burst committed: attacker={}, victim={}, appliedAmplifier={}", attacker.getUUID(), victim.getUUID(), applied.getAmplifier());
                 victim.level().playSound(null, victim.blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, "sickle_slash")), SoundSource.NEUTRAL, 1, 1);
                 float bonus = attacker.getMainHandItem().is(RemainingCombatContent.CLAW_SICKLE.get()) ? 12 : attacker.getMainHandItem().is(WeaponContent.STRATOSILVER_SICKLE.get()) ? 14 : 10;
-                victim.hurt(victim.damageSources().source(DamageTypes.GENERIC), bonus);
+                var credit = attacker instanceof net.minecraft.world.entity.player.Player ? attacker : null;
+                victim.hurt(new net.minecraft.world.damagesource.DamageSource(victim.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC), credit, credit), bonus);
             }
         }
         return result;

@@ -20,7 +20,7 @@ public final class SpringslimeProjectile extends AbstractArrow implements ItemSu
     @Override protected void doKnockback(LivingEntity target, DamageSource source) {
         double resistance = Math.clamp(1 - target.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1);
         var impulse = getDeltaMovement().multiply(1, 0, 1).normalize().scale(.6 * resistance);
-        if (impulse.lengthSqr() > 0) target.push(impulse.x, .1 * resistance, impulse.z);
+        if (impulse.lengthSqr() > 0) { target.push(impulse.x, .1 * resistance, impulse.z); target.hurtMarked = true; }
     }
     @Override protected void onHitEntity(EntityHitResult hit) {
         if (consumed) return;

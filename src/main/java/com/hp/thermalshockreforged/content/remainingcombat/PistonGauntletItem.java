@@ -16,16 +16,18 @@ public final class PistonGauntletItem extends AnimatedCombatItem {
     @Override public String modelName() { return "cobalt_fist"; }
     @Override public String textureName() { return "cobalt_fist"; }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        var result = super.use(level, player, hand);
-        if (!(level instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this) || !player.getOffhandItem().is(this)) return result;
-        var stack = result.getObject();
-        animate(player, stack);
-        player.getCooldowns().addCooldown(this, 60);
-        var slot = hand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND;
-        stack.hurtAndBreak(1, server, (net.minecraft.world.entity.LivingEntity) null, broken -> player.onEquippedItemBroken(broken, slot));
-        server.playSound(null, player.blockPosition(), net.minecraft.sounds.SoundEvents.PISTON_EXTEND, net.minecraft.sounds.SoundSource.NEUTRAL, .8F, 4);
-        player.addEffect(new MobEffectInstance(StatusContent.PARRYING, 15, 1));
-        return result;
+        ItemStack stack = player.getItemInHand(hand);
+        if (!player.getOffhandItem().is(this)) return InteractionResultHolder.pass(stack);
+        if (player.getCooldowns().isOnCooldown(this)) return InteractionResultHolder.fail(stack);
+        if (level instanceof ServerLevel server) {
+            animate(player, stack);
+            player.getCooldowns().addCooldown(this, 60);
+            var slot = hand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND;
+            stack.hurtAndBreak(1, server, (net.minecraft.world.entity.LivingEntity) null, broken -> player.onEquippedItemBroken(broken, slot));
+            server.playSound(null, player.blockPosition(), net.minecraft.sounds.SoundEvents.PISTON_EXTEND, net.minecraft.sounds.SoundSource.NEUTRAL, .8F, 4);
+            player.addEffect(new MobEffectInstance(StatusContent.PARRYING, 15, 1));
+        }
+        return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
     }
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
         super.appendHoverText(stack, context, lines, flag);

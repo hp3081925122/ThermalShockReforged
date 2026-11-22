@@ -72,10 +72,12 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
 
     @Override
     public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
-        var held = player.getMainHandItem();
-        if (!held.is(FaunaEntities.item("adamantine_spice")) || feedCooldown > 0) return super.mobInteract(player, hand);
+        var parent = super.mobInteract(player, hand);
+        if (parent.consumesAction() || !isAlive() || isRemoved()) return parent;
+        var held = player.getItemInHand(hand);
+        if (!held.is(FaunaEntities.item("adamantine_spice")) || feedCooldown > 0) return parent;
         if (!level().isClientSide) {
-            held.shrink(1);
+            if (!player.getAbilities().instabuild) held.shrink(1);
             level().playSound(null, blockPosition(), SoundEvents.GENERIC_EAT, net.minecraft.sounds.SoundSource.NEUTRAL, 1, 1);
             level().levelEvent(2001, blockPosition(), net.minecraft.world.level.block.Block.getId(FaunaEntities.block("adamantine_spice_block").defaultBlockState()));
             if (random.nextDouble() < 0.5) {
@@ -103,10 +105,12 @@ public final class WillogradeEntity extends PathfinderMob implements GeoEntity {
     @Override
     protected float getDamageAfterMagicAbsorb(DamageSource source, float amount) {
         if (buried() && !source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_EFFECTS) && !source.is(net.minecraft.tags.DamageTypeTags.BYPASSES_RESISTANCE)) {
-            damageContainers.peek().setReduction(net.neoforged.neoforge.common.damagesource.DamageContainer.Reduction.MOB_EFFECTS, amount);
-            if (amount > 0 && amount < 3.4028235E37F && source.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) {
-                player.awardStat(net.minecraft.stats.Stats.DAMAGE_DEALT_RESISTED, Math.round(amount * 10));
-            }
+            if (Float.isFinite(amount) && amount > 0) {
+                if (!damageContainers.empty()) damageContainers.peek().setReduction(net.neoforged.neoforge.common.damagesource.DamageContainer.Reduction.MOB_EFFECTS, amount);
+                if (amount < 3.4028235E37F && source.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) {
+                    player.awardStat(net.minecraft.stats.Stats.DAMAGE_DEALT_RESISTED, Math.round(amount * 10));
+                }
+            } else if (!damageContainers.empty()) damageContainers.peek().setNewDamage(0);
             return 0;
         }
         return super.getDamageAfterMagicAbsorb(source, amount);

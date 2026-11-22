@@ -32,6 +32,7 @@ public final class RemainingGuiMenu extends AbstractContainerMenu implements Sup
     private Entity boundEntity;
     private BlockEntity boundBlockEntity;
     private boolean bound;
+    private boolean vaultClaimed;
     private boolean closed;
 
     public RemainingGuiMenu(RemainingGuiPage page, int id, Inventory inventory, FriendlyByteBuf data) {
@@ -102,12 +103,15 @@ public final class RemainingGuiMenu extends AbstractContainerMenu implements Sup
     }
 
     public boolean submitVaultCode(Player player, String code) {
-        if (page != RemainingGuiPage.LIMBO_VAULT_GUI || !(player instanceof ServerPlayer server)
+        if (vaultClaimed || page != RemainingGuiPage.LIMBO_VAULT_GUI || !(player instanceof ServerPlayer server)
                 || player.containerMenu != this || player.isSpectator() || !stillValid(player) || !level.hasChunkAt(anchor)
-                || code.length() > Short.MAX_VALUE || !code.equals("DumbBug")) return false;
+                || (!anchor.equals(BlockPos.ZERO) && player.distanceToSqr(anchor.getCenter()) > 64)
+                || code.length() > 64 || !code.equals("DumbBug")) return false;
+        vaultClaimed = true;
         ItemHandlerHelper.giveItemToPlayer(server, new ItemStack(RemainingCombatContent.ANTENNAE.get(), 1));
         level.playSound(null, anchor, SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.NEUTRAL, 1, 1);
         ThermalShockReforged.LOGGER.debug("Limbo vault reward committed: player={}, position={}", player.getUUID(), anchor);
+        server.closeContainer();
         return true;
     }
 
@@ -116,9 +120,12 @@ public final class RemainingGuiMenu extends AbstractContainerMenu implements Sup
         var slot = slots.get(index);
         if (!slot.hasItem()) return ItemStack.EMPTY;
         var stack = slot.getItem();
-        if (index < 27) moveItemStackTo(stack, 27, 36, true);
-        else moveItemStackTo(stack, 0, 27, false);
-        return ItemStack.EMPTY;
+        var original = stack.copy();
+        if (index < 27 ? !moveItemStackTo(stack, 27, 36, true) : !moveItemStackTo(stack, 0, 27, false)) return ItemStack.EMPTY;
+        if (stack.isEmpty()) slot.setByPlayer(ItemStack.EMPTY); else slot.setChanged();
+        if (stack.getCount() == original.getCount()) return ItemStack.EMPTY;
+        slot.onTake(player, stack);
+        return original;
     }
 
     @Override public void removed(Player player) { super.removed(player); closed = true; }

@@ -19,14 +19,16 @@ final class GhostglassPickItem extends PickaxeItem {
     @Override public InteractionResult useOn(UseOnContext context) {
         var player = context.getPlayer();
         var face = context.getClickedFace();
-        if (player == null || player.isShiftKeyDown() || face == Direction.UP || face == Direction.DOWN || context.getLevel().dimension().location().equals(AQERON)) return InteractionResult.PASS;
+        if (player == null || player.isShiftKeyDown() || player.getCooldowns().isOnCooldown(this) || face == Direction.UP || face == Direction.DOWN || context.getLevel().dimension().location().equals(AQERON)) return InteractionResult.PASS;
         player.setDeltaMovement(0, 0.4, 0);
+        player.hasImpulse = true;
+        if (!context.getLevel().isClientSide) player.hurtMarked = true;
         player.getCooldowns().addCooldown(this, 5);
         if (context.getLevel().isClientSide) {
             var pos = context.getClickedPos();
             context.getLevel().playLocalSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.CALCITE_BREAK, SoundSource.NEUTRAL, 1, 1, false);
             context.getLevel().playLocalSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.RABBIT_JUMP, SoundSource.NEUTRAL, 1, 1, false);
         }
-        return InteractionResult.SUCCESS;
+        return InteractionResult.sidedSuccess(context.getLevel().isClientSide);
     }
 }

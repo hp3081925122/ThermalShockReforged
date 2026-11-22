@@ -34,14 +34,19 @@ public final class CoreEjectFlareGunItem extends Item implements GeoItem {
         return false;
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        var result = super.use(level, player, hand);
-        fire(player, result.getObject(), true);
-        return result;
+        ItemStack stack = player.getItemInHand(hand);
+        if (player.getCooldowns().isOnCooldown(this)) return InteractionResultHolder.fail(stack);
+        if (!WeaponAmmo.has(player, MaterialContent.items().get("heavy_round").get())) {
+            fire(player, stack, true);
+            return InteractionResultHolder.fail(stack);
+        }
+        fire(player, stack, true);
+        return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
     }
     private void fire(Player player, ItemStack stack, boolean alternate) {
         if (!(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this)) return;
         Item ammo = MaterialContent.items().get(alternate ? "heavy_round" : "light_round").get();
-        if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) {
+        if (!WeaponAmmo.has(player, ammo)) {
             server.playSound(null, player.blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, 5);
             return;
         }
@@ -60,7 +65,7 @@ public final class CoreEjectFlareGunItem extends Item implements GeoItem {
             FlareBulletEntity.fireWeaponShot(server, player);
         }
         boolean cycle = FlareGunCycleEntity.submit(server, player.position(), alternate);
-        if (!player.getAbilities().instabuild) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
+        WeaponAmmo.consume(player, ammo);
         ThermalShockReforged.LOGGER.debug("Core eject flare gun fired: player={}, alternate={}, cycle={}", player.getUUID(), alternate, cycle);
     }
     @Override public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {

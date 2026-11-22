@@ -134,12 +134,13 @@ public final class ProboskerEntity extends TamableAnimal implements GeoEntity {
             return result;
         }
         if (isOwnedBy(player) && !isFood(stack)) {
-            setShiftKeyDown(!isShiftKeyDown());
-            setOrderedToSit(!isOrderedToSit());
-            setInSittingPose(isOrderedToSit());
+            boolean sitting = !isOrderedToSit();
+            setOrderedToSit(sitting);
+            setInSittingPose(sitting);
+            setShiftKeyDown(sitting);
             navigation.stop();
             setTarget(null);
-            level().playSound(null, blockPosition(), isOrderedToSit() ? SoundEvents.PUFFER_FISH_BLOW_OUT : SoundEvents.PUFFER_FISH_BLOW_UP, SoundSource.NEUTRAL, 1, 1);
+            level().playSound(null, blockPosition(), sitting ? SoundEvents.PUFFER_FISH_BLOW_OUT : SoundEvents.PUFFER_FISH_BLOW_UP, SoundSource.NEUTRAL, 1, 1);
             return InteractionResult.SUCCESS;
         }
         return result;
@@ -186,9 +187,11 @@ public final class ProboskerEntity extends TamableAnimal implements GeoEntity {
     public void baseTick() {
         super.baseTick();
         if (!level().isClientSide()) {
+            boolean locked = isOrderedToSit() || isInSittingPose();
+            if (isShiftKeyDown() != locked) setShiftKeyDown(locked);
             var speed = getAttribute(Attributes.MOVEMENT_SPEED);
             if (speed != null) {
-                if (isShiftKeyDown()) {
+                if (locked) {
                     if (!speed.hasModifier(MOVEMENT_LOCK)) {
                         speed.addTransientModifier(new AttributeModifier(MOVEMENT_LOCK, -1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
                     }
@@ -209,6 +212,7 @@ public final class ProboskerEntity extends TamableAnimal implements GeoEntity {
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         setPurple(tag.getString("Texture").equals("purple_probosker"));
+        setShiftKeyDown(isOrderedToSit() || isInSittingPose());
     }
 
     public void setAnimation(String animation) { triggerAnim("procedure", animation); }

@@ -42,9 +42,9 @@ public final class IceBulletEntity extends AbstractArrow implements ItemSupplier
     @Override protected boolean canHitEntity(Entity entity) { return (caster == null || !caster.equals(entity.getUUID())) && super.canHitEntity(entity); }
     @Override protected void doPostHurtEffects(LivingEntity entity) { super.doPostHurtEffects(entity); entity.setArrowCount(Math.max(0, entity.getArrowCount() - 1)); }
     @Override protected void doKnockback(LivingEntity target, DamageSource source) {
-        double amount = impactKnockback * Math.max(0, 1 - target.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE));
-        var impulse = getDeltaMovement().multiply(1, 0, 1).normalize().scale(amount);
-        if (impulse.lengthSqr() > 0) target.push(impulse.x, 0.1 * Math.max(0, 1 - target.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE)), impulse.z);
+        double resistance = Math.clamp(1 - target.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1);
+        var impulse = getDeltaMovement().multiply(1, 0, 1).normalize().scale(impactKnockback * resistance);
+        if (impulse.lengthSqr() > 0) { target.push(impulse.x, 0.1 * resistance, impulse.z); target.hurtMarked = true; }
     }
     @Override public void tick() {
         if (!level().isClientSide && lifetime >= 40) { discard(); return; }

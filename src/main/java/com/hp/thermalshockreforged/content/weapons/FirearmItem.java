@@ -30,23 +30,37 @@ public final class FirearmItem extends Item implements GeoItem {
     @Override public UseAnim getUseAnimation(ItemStack stack) { return hailfall ? UseAnim.BOW : super.getUseAnimation(stack); }
     @Override public int getUseDuration(ItemStack stack, LivingEntity entity) { return hailfall ? 60 : super.getUseDuration(stack, entity); }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        var result = super.use(level, player, hand);
-        if (hailfall) fire(player, result.getObject());
-        return result;
+        if (!hailfall) return super.use(level, player, hand);
+        ItemStack stack = player.getItemInHand(hand);
+        if (!WeaponAmmo.has(player, MaterialContent.items().get("light_round").get())) {
+            fire(player, stack);
+            return InteractionResultHolder.fail(stack);
+        }
+        player.startUsingItem(hand);
+        fire(player, stack);
+        return InteractionResultHolder.consume(stack);
+    }
+    @Override public void onUseTick(Level level, LivingEntity user, ItemStack stack, int remaining) {
+        super.onUseTick(level, user, stack, remaining);
+        if (hailfall && user.getUseItem() == stack && user instanceof Player player) {
+            HeldWeaponState.refreshNoMelee(user);
+            fire(player, stack);
+            if (!WeaponAmmo.has(player, MaterialContent.items().get("light_round").get())) player.stopUsingItem();
+        }
     }
     @Override public boolean onEntitySwing(ItemStack stack, LivingEntity wielder, InteractionHand hand) { fire(wielder, stack); return false; }
     @Override public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
         super.inventoryTick(stack, level, entity, slot, selected);
         if (level instanceof ServerLevel server) GeoItem.getOrAssignId(stack, server);
-        if (selected && entity instanceof LivingEntity living && (!hailfall || living.isUsingItem())) {
+        if (selected && entity instanceof LivingEntity living) {
             HeldWeaponState.refreshNoMelee(living);
-            if (hailfall) fire(living, stack);
+            if (hailfall && living.isUsingItem()) fire(living, stack);
         }
     }
     private void fire(LivingEntity wielder, ItemStack stack) {
         if (!(wielder instanceof Player player) || !(player.level() instanceof ServerLevel server) || player.getCooldowns().isOnCooldown(this)) return;
         Item ammo = MaterialContent.items().get("light_round").get();
-        if (!player.getAbilities().instabuild && !player.getInventory().contains(new ItemStack(ammo))) {
+        if (!WeaponAmmo.has(player, ammo)) {
             server.playSound(null, player.blockPosition(), SoundEvents.STONE_BUTTON_CLICK_ON, SoundSource.NEUTRAL, 1, 5); return;
         }
         var bullet = (hailfall ? WeaponContent.HAILFALL_BULLET : WeaponContent.FLINTSTEEL_RIFLE_BULLET).get().create(server);
@@ -59,7 +73,7 @@ public final class FirearmItem extends Item implements GeoItem {
         triggerAnim(player, GeoItem.getOrAssignId(stack, server), "procedure", "1");
         server.playSound(null, player.blockPosition(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(ThermalShockReforged.MOD_ID, hailfall ? "misc_gun_2" : "flint_gun_25")), SoundSource.NEUTRAL, 1, hailfall ? .75F : 1 + server.random.nextInt(2));
         if (!hailfall) RifleCycleSoundEntity.submit(server, player.getX(), player.getY(), player.getZ());
-        if (!player.getAbilities().instabuild && (!hailfall || server.random.nextDouble() < .7)) player.getInventory().clearOrCountMatchingItems(candidate -> candidate.is(ammo), 1, player.inventoryMenu.getCraftSlots());
+        if (!hailfall || server.random.nextDouble() < .7) WeaponAmmo.consume(player, ammo);
     }
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> lines, TooltipFlag flag) {
         super.appendHoverText(stack, context, lines, flag);

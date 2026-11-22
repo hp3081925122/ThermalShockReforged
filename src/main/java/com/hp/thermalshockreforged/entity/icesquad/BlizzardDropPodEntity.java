@@ -45,8 +45,9 @@ public final class BlizzardDropPodEntity extends Monster implements GeoEntity, S
     }
     void applyConfiguredAttributes() {
         if (level().isClientSide || attributesApplied || !BastionCombatConfig.SPEC.isLoaded()) return;
-        float health = getHealth(); getAttribute(Attributes.MAX_HEALTH).setBaseValue(BastionCombatConfig.POD_HEALTH.get()); getAttribute(Attributes.ARMOR).setBaseValue(BastionCombatConfig.POD_ARMOR.get());
-        setHealth(loadedFromSave ? Math.min(health, getMaxHealth()) : getMaxHealth()); attributesApplied = true;
+        float health = getHealth(); boolean wasFull = health >= getMaxHealth() - 1.0E-3F;
+        getAttribute(Attributes.MAX_HEALTH).setBaseValue(BastionCombatConfig.POD_HEALTH.get()); getAttribute(Attributes.ARMOR).setBaseValue(BastionCombatConfig.POD_ARMOR.get());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(health, getMaxHealth())); attributesApplied = true;
     }
     @Override protected void defineSynchedData(SynchedEntityData.Builder builder) { super.defineSynchedData(builder); builder.define(TEXTURE, "blizzarddroppod"); }
     public String texture() { return entityData.get(TEXTURE); }
@@ -102,12 +103,12 @@ public final class BlizzardDropPodEntity extends Monster implements GeoEntity, S
         }
     }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag); tag.putString("Texture", texture()); tag.putBoolean("PodInitialized", initialized); tag.putBoolean("PodSmokeSent", smokeSent); tag.putBoolean("PodHandedOff", handedOff); tag.putInt("PodAge", deploymentAge);
+        super.addAdditionalSaveData(tag); tag.putBoolean("AttributesConfigured", attributesApplied); tag.putString("Texture", texture()); tag.putBoolean("PodInitialized", initialized); tag.putBoolean("PodSmokeSent", smokeSent); tag.putBoolean("PodHandedOff", handedOff); tag.putInt("PodAge", deploymentAge);
         tag.putDouble("PodAnchorX", anchor.x); tag.putDouble("PodAnchorY", anchor.y); tag.putDouble("PodAnchorZ", anchor.z); tag.putString("PodDimension", dimension);
         tag.putBoolean("PodExperiencePending", experiencePending); if (experienceAttacker != null) tag.putUUID("PodExperienceAttacker", experienceAttacker);
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
-        loadedFromSave = true; super.readAdditionalSaveData(tag); attributesApplied = false; applyConfiguredAttributes(); setPersistenceRequired(); if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
+        loadedFromSave = true; super.readAdditionalSaveData(tag); attributesApplied = tag.getBoolean("AttributesConfigured"); applyConfiguredAttributes(); setPersistenceRequired(); if (tag.contains("Texture")) setTexture(tag.getString("Texture"));
         initialized = tag.getBoolean("PodInitialized"); smokeSent = tag.getBoolean("PodSmokeSent"); handedOff = tag.getBoolean("PodHandedOff"); deploymentAge = Math.clamp(tag.getInt("PodAge"), 0, 25);
         anchor = new Vec3(tag.getDouble("PodAnchorX"), tag.getDouble("PodAnchorY"), tag.getDouble("PodAnchorZ")); dimension = tag.getString("PodDimension");
         if (!Double.isFinite(anchor.x) || !Double.isFinite(anchor.y) || !Double.isFinite(anchor.z)) initialized = false;

@@ -28,6 +28,7 @@ public final class KeystoneChamberGeneration {
     }
     private static void wakeUp(PlayerWakeUpEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player) || !(player.level() instanceof ServerLevel level)
+                || !level.dimension().equals(net.minecraft.world.level.Level.OVERWORLD)
                 || !level.getGameRules().getBoolean(ModGameRules.LOQENDIA_GENERATE_SPECIAL_STRUCTURES)) return;
         var advancement = player.server.getAdvancements().get(ARRIVAL);
         if (advancement == null) {

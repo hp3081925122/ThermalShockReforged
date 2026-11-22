@@ -183,13 +183,13 @@ public final class BastionEntity extends Monster implements GeoEntity {
         if (level().isClientSide || attributesApplied || !BastionCombatConfig.SPEC.isLoaded()) return;
         int k = kind();
         float health = getHealth();
+        boolean wasFull = health >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(BastionCombatConfig.HEALTH[k].get());
         getAttribute(Attributes.ARMOR).setBaseValue(BastionCombatConfig.ARMOR[k].get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(BastionCombatConfig.DAMAGE[k].get());
         getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(BastionCombatConfig.SPEED[k].get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(BastionCombatConfig.RESISTANCE[k].get());
-        if (loadedFromSave) setHealth(Math.min(health, getMaxHealth()));
-        else setHealth(getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(health, getMaxHealth()));
         attributesApplied = true;
         ThermalShockReforged.LOGGER.debug("Bastion attributes applied: uuid={}, burner={}, loadedFromSave={}, health={}, maxHealth={}", getUUID(), burner(), loadedFromSave, getHealth(), getMaxHealth());
     }
@@ -1130,6 +1130,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
 
     @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
+        tag.putBoolean("AttributesConfigured", attributesApplied);
         tag.putString("Texture", texture());
         tag.putBoolean("BastionEnraged", enraged());
         tag.putBoolean("BastionDeathCommitted", deathCommitted);
@@ -1140,7 +1141,7 @@ public final class BastionEntity extends Monster implements GeoEntity {
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         loadedFromSave = true;
         super.readAdditionalSaveData(tag);
-        attributesApplied = false;
+        attributesApplied = tag.getBoolean("AttributesConfigured");
         applyConfiguredAttributes();
         setPersistenceRequired();
         if (tag.contains("Texture")) setTexture(tag.getString("Texture"));

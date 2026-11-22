@@ -32,7 +32,7 @@ final class DamagingAuraEffect extends MobEffect {
         boolean large = LARGE_AURA.contains(id);
         double armorFactor = large ? 0.6 : 0.3;
         var position = caster.position();
-        var targets = server.getEntitiesOfClass(Entity.class, new AABB(position, position).inflate(large ? 1.5 : 0.5), target -> target != caster && !(target instanceof ItemEntity));
+        var targets = server.getEntitiesOfClass(Entity.class, new AABB(position, position).inflate(large ? 1.5 : 0.5), target -> target != caster && !(target instanceof ItemEntity) && !(target instanceof ExperienceOrb));
         targets.sort(Comparator.comparingDouble(target -> target.distanceToSqr(position)));
         var source = new DamageSource(server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC));
         for (var target : targets) {

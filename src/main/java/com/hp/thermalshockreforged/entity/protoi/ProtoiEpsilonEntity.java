@@ -55,6 +55,7 @@ public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements Serve
     private void applyConfiguredAttributes() {
         if (level().isClientSide || attributesApplied || !CombatConfig.SPEC.isLoaded()) return;
         float health = getHealth();
+        boolean wasFull = health >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(CombatConfig.EPSILON_HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(CombatConfig.EPSILON_ARMOR.get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(CombatConfig.EPSILON_DAMAGE.get());
@@ -62,7 +63,7 @@ public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements Serve
         getAttribute(Attributes.FLYING_SPEED).setBaseValue(CombatConfig.EPSILON_FLIGHT_SPEED.get());
         getAttribute(Attributes.FOLLOW_RANGE).setBaseValue(CombatConfig.EPSILON_FOLLOW_RANGE.get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(CombatConfig.EPSILON_RESISTANCE.get());
-        setHealth(loadedFromSave ? Math.min(health, getMaxHealth()) : getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(health, getMaxHealth()));
         attributesApplied = true;
     }
     public void beginAttack(LivingEntity victim) {
@@ -167,6 +168,7 @@ public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements Serve
     }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
+        tag.putBoolean("AttributesConfigured", attributesApplied);
         tag.putInt("EpsilonCooldown", cooldown); tag.putInt("EpsilonDriftRemaining", driftRemaining);
         tag.putBoolean("EpsilonImpulsePending", impulsePending); tag.putBoolean("EpsilonLockPending", driftLockPending);
         if (attackTask != null) tag.putUUID("EpsilonAttackTask", attackTask);
@@ -176,7 +178,7 @@ public final class ProtoiEpsilonEntity extends ProtoiEntityBase implements Serve
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         loadedFromSave = true;
         super.readAdditionalSaveData(tag);
-        attributesApplied = false; applyConfiguredAttributes();
+        attributesApplied = tag.getBoolean("AttributesConfigured"); applyConfiguredAttributes();
         cooldown = Math.clamp(tag.getInt("EpsilonCooldown"), 0, 72000);
         driftRemaining = Math.clamp(tag.getInt("EpsilonDriftRemaining"), 0, 40);
         impulsePending = tag.getBoolean("EpsilonImpulsePending"); driftLockPending = tag.getBoolean("EpsilonLockPending");

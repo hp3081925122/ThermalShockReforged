@@ -26,7 +26,16 @@ public final class LabPlayerState {
     static boolean introduced(Player player) { return data(player).getBoolean("QoLabIntroduced"); }
     static void introduce(ServerPlayer player) { var state = data(player); state.putBoolean("QoLabIntroduced", true); save(player, state); }
     public static void clonePlayer(PlayerEvent.Clone event) { var original = data(event.getOriginal()); if (!original.isEmpty()) save(event.getEntity(), original.copy()); }
-    static int count(Player player, Item item) { int total = 0; for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) { var stack = player.getInventory().getItem(slot); if (stack.is(item)) total += stack.getCount(); } return total; }
+    static int count(Player player, Item item) {
+        int total = 0;
+        var inventory = player.getInventory();
+        for (int slot = 0; slot < inventory.getContainerSize(); slot++) {
+            if (slot >= net.minecraft.world.entity.player.Inventory.INVENTORY_SIZE && slot != net.minecraft.world.entity.player.Inventory.SLOT_OFFHAND) continue;
+            var stack = inventory.getItem(slot);
+            if (stack.is(item)) total += stack.getCount();
+        }
+        return total;
+    }
     static boolean available(ServerPlayer player, String... ids) { for (String id : ids) if (player.server.getAdvancements().get(LabContent.id(id)) == null) { ThermalShockReforged.LOGGER.warn("Lab advancement unavailable: player={}, id={}", player.getUUID(), id); return false; } return true; }
     static void award(ServerPlayer player, String id) { var advancement = player.server.getAdvancements().get(LabContent.id(id)); if (advancement != null) for (String criterion : player.getAdvancements().getOrStartProgress(advancement).getRemainingCriteria()) player.getAdvancements().award(advancement, criterion); }
     public static void sound(ServerPlayer player, ResourceLocation sound, BlockPos pos, float volume, float pitch) { player.connection.send(new ClientboundSoundPacket(Holder.direct(BuiltInRegistries.SOUND_EVENT.get(sound)), SoundSource.NEUTRAL, pos.getX(), pos.getY(), pos.getZ(), volume, pitch, player.getRandom().nextLong())); }

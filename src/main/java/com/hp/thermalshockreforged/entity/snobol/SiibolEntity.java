@@ -56,7 +56,8 @@ public final class SiibolEntity extends PathfinderMob implements GeoEntity, Serv
 
     @Override
     protected void registerGoals() {
-        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, LivingEntity.class, false, true));
+        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 10, false, true,
+                entity -> !(entity instanceof SiibolEntity) && !(entity instanceof net.minecraft.world.entity.decoration.ArmorStand) && !entity.getType().is(CHARACTERS)));
         goalSelector.addGoal(2, new MeleeAttackGoal(this, 0.1, false) {
             @Override
             protected boolean canPerformAttack(LivingEntity target) { return isTimeToAttack() && mob.distanceToSqr(target) <= 25; }
@@ -145,7 +146,7 @@ public final class SiibolEntity extends PathfinderMob implements GeoEntity, Serv
         var targets = server.getEntitiesOfClass(Entity.class, box, entity -> true);
         if (targets.stream().noneMatch(entity -> entity instanceof LivingEntity)) return;
         for (var target : targets) {
-            if (target instanceof net.minecraft.world.entity.item.ItemEntity || target instanceof SiibolEntity || target.getType().is(CHARACTERS)) continue;
+            if (target instanceof net.minecraft.world.entity.item.ItemEntity || target instanceof ExperienceOrb || target instanceof SiibolEntity || target.getType().is(CHARACTERS)) continue;
             if (target instanceof LivingEntity living) {
                 if (living.hasEffect(com.hp.thermalshockreforged.content.status.StatusContent.ANTITOXIN_EFFECT)) continue;
                 living.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.POISON, 60, 3));
@@ -157,12 +158,14 @@ public final class SiibolEntity extends PathfinderMob implements GeoEntity, Serv
     @Override
     public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
         var parent = super.mobInteract(player, hand);
-        if (parent.consumesAction()) return parent;
+        if (parent.consumesAction() || !isAlive() || isRemoved()) return parent;
         var held = player.getItemInHand(hand);
         if (!held.is(net.minecraft.world.item.Items.BUCKET)) return parent;
         if (!level().isClientSide) {
-            held.shrink(1);
-            SnobolContent.give(player, new net.minecraft.world.item.ItemStack(SnobolContent.BUCKET_OF_SIIBOL.get()));
+            if (!player.getAbilities().instabuild) held.shrink(1);
+            var filled = new net.minecraft.world.item.ItemStack(SnobolContent.BUCKET_OF_SIIBOL.get());
+            if (held.isEmpty()) player.setItemInHand(hand, filled);
+            else SnobolContent.give(player, filled);
             discard();
         }
         return net.minecraft.world.InteractionResult.sidedSuccess(level().isClientSide);

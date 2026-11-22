@@ -59,13 +59,14 @@ public final class RazorwingEntity extends TamableAnimal implements GeoEntity {
     public void setTexture(String value) { entityData.set(TEXTURE, value); }
     @Override
     protected void registerGoals() {
-        goalSelector.addGoal(1, new RandomStrollGoal(this, 1));
-        goalSelector.addGoal(2, new OwnerHurtByTargetGoal(this));
-        targetSelector.addGoal(3, new OwnerHurtTargetGoal(this));
+        goalSelector.addGoal(1, new FloatGoal(this));
+        goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2, false));
+        goalSelector.addGoal(3, new RandomStrollGoal(this, 1));
         if (!armored()) goalSelector.addGoal(4, new AvoidEntityGoal<>(this, LivingEntity.class,
                 other -> BuiltInRegistries.ENTITY_TYPE.getKey(other.getType()).toString().equals(ThermalShockReforged.MOD_ID + ":monolith"), 6, 1, 1.2, other -> true));
         goalSelector.addGoal(armored() ? 4 : 5, new RandomLookAroundGoal(this));
-        goalSelector.addGoal(armored() ? 5 : 6, new FloatGoal(this));
+        targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
+        targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
     }
 
     @Override
@@ -78,9 +79,12 @@ public final class RazorwingEntity extends TamableAnimal implements GeoEntity {
     private InteractionResult animalInteraction(Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (stack.getItem() instanceof SpawnEggItem) return super.mobInteract(player, hand);
-        if (level().isClientSide) return isOwnedBy(player) || isFood(stack) ? InteractionResult.CONSUME : InteractionResult.PASS;
+        if (level().isClientSide) {
+            if (isTame()) return isOwnedBy(player) && isFood(stack) && getHealth() < getMaxHealth() ? InteractionResult.CONSUME : InteractionResult.PASS;
+            return isFood(stack) ? InteractionResult.CONSUME : InteractionResult.PASS;
+        }
         if (isTame()) {
-            if (!isOwnedBy(player)) return InteractionResult.SUCCESS;
+            if (!isOwnedBy(player)) return InteractionResult.PASS;
             if (isFood(stack) && getHealth() < getMaxHealth()) {
                 var food = stack.get(DataComponents.FOOD);
                 usePlayerItem(player, hand, stack);
@@ -105,17 +109,22 @@ public final class RazorwingEntity extends TamableAnimal implements GeoEntity {
 
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
-        if (converting || isRemoved()) return InteractionResult.SUCCESS;
-        InteractionResult result = animalInteraction(player, hand);
+        if (converting || !isAlive() || isRemoved()) return InteractionResult.PASS;
         if (!armored()) {
-            ItemStack armor = player.getMainHandItem();
+            ItemStack armor = player.getItemInHand(hand);
             EntityType<RazorwingEntity> next = armor.is(MaterialContent.items().get("ruby_razorwing_armor").get()) ? HuntersContent.RUBY_ARMOURED_RAZORWING.get()
                     : armor.is(MaterialContent.items().get("bloodstone_razorwing_armor").get()) ? HuntersContent.BLOOD_ARMOURED_RAZORWING.get() : null;
-            if (next != null && isOwnedBy(player) && isAlive()) {
+            if (next != null && isOwnedBy(player)) {
                 if (level().isClientSide) return InteractionResult.SUCCESS;
                 return convertArmor(player, armor, next) ? InteractionResult.SUCCESS : InteractionResult.FAIL;
             }
-        } else if (!level().isClientSide) player.startRiding(this);
+        }
+        InteractionResult result = animalInteraction(player, hand);
+        if (result.consumesAction()) return result;
+        if (armored() && hand == InteractionHand.MAIN_HAND && !isVehicle() && !player.isSecondaryUseActive() && (!isTame() || isOwnedBy(player))) {
+            if (!level().isClientSide) player.startRiding(this);
+            return InteractionResult.sidedSuccess(level().isClientSide);
+        }
         return result;
     }
 

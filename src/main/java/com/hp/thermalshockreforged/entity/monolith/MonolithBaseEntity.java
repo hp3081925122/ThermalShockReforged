@@ -23,17 +23,18 @@ public abstract class MonolithBaseEntity extends AnimatedMonsterEntity {
         if (level().isClientSide || attributesApplied || !MonolithConfig.SPEC.isLoaded()) return;
         int index = dormant() ? 1 : 0;
         float previous = getHealth();
+        boolean wasFull = previous >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(MonolithConfig.HEALTH[index].get());
         getAttribute(Attributes.ARMOR).setBaseValue(MonolithConfig.ARMOR[index].get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(MonolithConfig.DAMAGE[index].get());
         getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(MonolithConfig.SPEED[index].get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(MonolithConfig.RESISTANCE[index].get());
         getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(MonolithConfig.KNOCKBACK[index].get());
-        setHealth(loadedFromSave ? Math.min(previous, getMaxHealth()) : getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(previous, getMaxHealth()));
         attributesApplied = true;
     }
     @Override public void onAddedToLevel() { super.onAddedToLevel(); applyConfiguredAttributes(); }
     @Override public void tick() { if (!level().isClientSide) { applyConfiguredAttributes(); if (conversionRetry > 0) conversionRetry--; } super.tick(); }
-    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putInt("MonolithConversionRetry", conversionRetry); tag.putBoolean("MonolithConverted", converted); }
-    @Override public void readAdditionalSaveData(CompoundTag tag) { loadedFromSave = true; super.readAdditionalSaveData(tag); attributesApplied = false; conversionRetry = Math.clamp(tag.getInt("MonolithConversionRetry"), 0, 20); converted = tag.getBoolean("MonolithConverted"); applyConfiguredAttributes(); setPersistenceRequired(); }
+    @Override public void addAdditionalSaveData(CompoundTag tag) { super.addAdditionalSaveData(tag); tag.putBoolean("AttributesConfigured", attributesApplied); tag.putInt("MonolithConversionRetry", conversionRetry); tag.putBoolean("MonolithConverted", converted); }
+    @Override public void readAdditionalSaveData(CompoundTag tag) { loadedFromSave = true; super.readAdditionalSaveData(tag); attributesApplied = tag.getBoolean("AttributesConfigured"); conversionRetry = Math.clamp(tag.getInt("MonolithConversionRetry"), 0, 20); converted = tag.getBoolean("MonolithConverted"); applyConfiguredAttributes(); setPersistenceRequired(); }
 }

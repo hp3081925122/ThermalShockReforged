@@ -15,7 +15,7 @@ public final class ThermalShockAliPlugin implements IPlugin {
 
     @Override public void registerServer(IServerRegistry registry) {
         registry.registerConditionTooltip(LootContent.WorldCrux.class, (utils, condition) -> TooltipBuilder.keyValue(KEY + "condition.world_crux", condition.min()));
-        registry.registerConditionTooltip(LootContent.GameRule.class, (utils, condition) -> TooltipBuilder.keyValue(KEY + "condition.game_rule", TooltipBuilder.translate("gamerule." + condition.rule())));
+        registry.registerConditionTooltip(LootContent.GameRule.class, (utils, condition) -> TooltipBuilder.keyValue(KEY + "condition.game_rule", TooltipBuilder.translate("gamerule." + condition.rule().replace(':', '.'))));
         registry.registerFunctionTooltip(LootContent.UnlimitedLifetime.class, (utils, function) -> TooltipBuilder.keyOnly(KEY + "function.unlimited_lifetime"));
         ThermalShockReforged.LOGGER.debug("Advanced Loot Info tooltips registered for custom loot types");
     }

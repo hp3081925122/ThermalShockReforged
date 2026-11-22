@@ -56,7 +56,7 @@ public final class CavebloomerContent {
         return id.getNamespace().equals(ThermalShockReforged.MOD_ID) && id.getPath().equals("angry_cavebloomer");
     }
     private static void join(EntityJoinLevelEvent event) {
-        if (event.getEntity() instanceof AngryCavebloomerEntity boss) boss.applyConfiguredAttributes(false);
+        if (event.getEntity() instanceof AngryCavebloomerEntity boss) boss.applyConfiguredAttributes();
         if (event.getEntity() instanceof BloomlingEntity bloom && event.getLevel() instanceof ServerLevel server && bloom.expireIfDue(server)) event.setCanceled(true);
     }
     private static void attack(AttackAttemptEvent event) {

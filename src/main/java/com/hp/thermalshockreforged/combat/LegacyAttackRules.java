@@ -1,12 +1,14 @@
 package com.hp.thermalshockreforged.combat;
 
 import com.hp.thermalshockreforged.ThermalShockReforged;
+import com.hp.thermalshockreforged.content.ModDamageTypes;
 import com.hp.thermalshockreforged.content.status.StatusContent;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -32,11 +34,12 @@ public final class LegacyAttackRules {
     private static void attack(AttackAttemptEvent event) {
         var victim = event.getEntity();
         if (!(victim.level() instanceof ServerLevel level)) return;
-        if (victim.getType().is(CHARACTERS)) {
+        if (victim.getType().is(CHARACTERS) && !event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)) {
             event.setCanceled(true);
             ThermalShockReforged.LOGGER.debug("Character attack canceled: victim={}, source={}", victim.getUUID(), event.getSource().getMsgId());
             return;
         }
+        if (event.getSource().is(ModDamageTypes.THERM_IFRAME_BYPASS)) return;
         var attacker = event.getSource().getEntity();
         if (attacker == null) return;
         if (victim instanceof Player && attacker.getType().is(COLD_REFLECTORS) && victim.getRandom().nextDouble() < .2) {

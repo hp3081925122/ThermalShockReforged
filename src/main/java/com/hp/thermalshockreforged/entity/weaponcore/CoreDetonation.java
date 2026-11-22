@@ -57,7 +57,7 @@ final class CoreDetonation {
         for (Entity target : targets(level, origin, 12)) if (target.isUnderWater()) target.hurt(source, 10);
     }
     private static List<Entity> targets(ServerLevel level, Vec3 origin, double radius) {
-        var targets = level.getEntitiesOfClass(Entity.class, new AABB(origin, origin).inflate(radius), entity -> true);
+        var targets = level.getEntitiesOfClass(Entity.class, new AABB(origin, origin).inflate(radius), entity -> !(entity instanceof net.minecraft.world.entity.item.ItemEntity) && !(entity instanceof net.minecraft.world.entity.ExperienceOrb));
         targets.sort(Comparator.comparingDouble(entity -> entity.distanceToSqr(origin)));
         return targets;
     }

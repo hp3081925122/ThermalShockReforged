@@ -76,6 +76,7 @@ public final class WorldProgressData extends SavedData {
             setDirty();
         }
     }
+    public boolean shalespringExists() { return shalespringExists; }
     public boolean beginShalespringPlacement() {
         if (shalespringExists || shalespringPlacing) return false;
         shalespringPlacing = true;

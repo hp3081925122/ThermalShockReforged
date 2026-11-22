@@ -89,14 +89,14 @@ public class SpecialDoorBlock extends Block implements EntityBlock {
     }
 
     private void unlockMaw(BlockState state, Level level, BlockPos pos, Player player) {
-        if (!(level instanceof ServerLevel)) return;
+        if (!(level instanceof ServerLevel) || state.getValue(BLOCKSTATE) != 0) return;
         var keys = player.getMainHandItem();
-        if (keys.is(MaterialContent.items().get("herald_key").get()) && keys.getCount() >= 3) {
-            if (state.getValue(BLOCKSTATE) != 0) return;
+        boolean creative = player.getAbilities().instabuild;
+        if (keys.is(MaterialContent.items().get("herald_key").get()) && (keys.getCount() >= 3 || creative)) {
             BlockState current = level.getBlockState(pos);
             if (!current.is(this) || current.getValue(BLOCKSTATE) != 0) return;
             if (!level.setBlock(pos, current.setValue(BLOCKSTATE, 1).setValue(ANIMATION, 1), 3)) return;
-            keys.shrink(3);
+            if (!creative) keys.shrink(3);
             level.playSound(null, pos, SoundEvents.BEACON_POWER_SELECT, SoundSource.NEUTRAL, 1, 1);
             level.playSound(null, pos, SoundEvents.MINECART_RIDING, SoundSource.NEUTRAL, 1, 1);
         } else {

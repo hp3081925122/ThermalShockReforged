@@ -71,14 +71,18 @@ public final class SnobolEntity extends PathfinderMob implements GeoEntity {
     @Override
     public net.minecraft.world.InteractionResult mobInteract(Player player, net.minecraft.world.InteractionHand hand) {
         var parent = super.mobInteract(player, hand);
-        if (parent.consumesAction() || player.isShiftKeyDown()) return parent;
+        if (parent.consumesAction() || player.isShiftKeyDown() || !isAlive() || isRemoved()) return parent;
         var held = player.getItemInHand(hand);
         boolean explosive = held.is(net.minecraft.world.item.Items.TNT);
         boolean toxic = held.is(SnobolContent.ANTITOXIN.get());
         if (!explosive && !toxic) return parent;
         if (level() instanceof net.minecraft.server.level.ServerLevel server) {
-            held.shrink(1);
-            if (toxic) SnobolContent.give(player, new net.minecraft.world.item.ItemStack(com.hp.thermalshockreforged.content.MaterialContent.items().get("corrial_flask").get()));
+            if (!player.getAbilities().instabuild) held.shrink(1);
+            if (toxic) {
+                var flask = new net.minecraft.world.item.ItemStack(com.hp.thermalshockreforged.content.MaterialContent.items().get("corrial_flask").get());
+                if (held.isEmpty()) player.setItemInHand(hand, flask);
+                else SnobolContent.give(player, flask);
+            }
             server.playSound(null, blockPosition(), SoundEvents.RABBIT_AMBIENT, SoundSource.NEUTRAL, 1, 1);
             discard();
             var type = explosive ? SnobolContent.EXPLOSIVE_SNOBOL.get() : SnobolContent.SIIBOL.get();

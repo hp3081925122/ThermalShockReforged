@@ -97,13 +97,13 @@ public final class SquallEntity extends Monster {
     private void applyConfiguredAttributes() {
         if (level().isClientSide || attributesApplied || !SquallConfig.SPEC.isLoaded()) return;
         float previous = getHealth();
+        boolean wasFull = previous >= getMaxHealth() - 1.0E-3F;
         getAttribute(Attributes.MAX_HEALTH).setBaseValue(SquallConfig.HEALTH.get());
         getAttribute(Attributes.ARMOR).setBaseValue(SquallConfig.ARMOR.get());
         getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(SquallConfig.DAMAGE.get());
         getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(SquallConfig.SPEED.get());
         getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(SquallConfig.RESISTANCE.get());
-        if (loadedFromSave) setHealth(Math.min(previous, getMaxHealth()));
-        else setHealth(getMaxHealth());
+        setHealth(!loadedFromSave || wasFull ? getMaxHealth() : Math.min(previous, getMaxHealth()));
         attributesApplied = true;
     }
 
@@ -278,7 +278,7 @@ public final class SquallEntity extends Monster {
             Vec3 toward = center.subtract(player.position());
             double distance = toward.length();
             if (distance < 1.5 || distance > radius) continue;
-            double resist = 1 - player.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE);
+            double resist = Math.clamp(1 - player.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1);
             if (resist <= 0) continue;
             player.push(toward.x / distance * strength * resist, 0, toward.z / distance * strength * resist);
             player.hurtMarked = true;
@@ -296,7 +296,7 @@ public final class SquallEntity extends Monster {
             if (away.horizontalDistanceSqr() < 1.0E-4) away = victim.position().subtract(position());
             victim.knockback(SquallConfig.SKILL_KNOCKBACK.get(), -away.x, -away.z);
             if (lift) {
-                double resist = 1 - victim.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE);
+                double resist = Math.clamp(1 - victim.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE), 0, 1);
                 if (resist > 0) victim.push(0, .25 * resist, 0);
             }
             victim.hurtMarked = true;
@@ -345,6 +345,7 @@ public final class SquallEntity extends Monster {
 
     @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
+        tag.putBoolean("AttributesConfigured", attributesApplied);
         tag.putBoolean("SquallDeathAwarded", deathAwarded);
         tag.putBoolean("SquallEnraged", enraged());
         tag.putInt("SquallSurgeCooldown", surgeCooldown);
@@ -355,7 +356,7 @@ public final class SquallEntity extends Monster {
     @Override public void readAdditionalSaveData(CompoundTag tag) {
         loadedFromSave = true;
         super.readAdditionalSaveData(tag);
-        attributesApplied = false;
+        attributesApplied = tag.getBoolean("AttributesConfigured");
         deathAwarded = tag.getBoolean("SquallDeathAwarded");
         entityData.set(ENRAGED, tag.getBoolean("SquallEnraged"));
         surgeCooldown = Math.max(0, tag.getInt("SquallSurgeCooldown"));
